@@ -6,20 +6,25 @@
   python scraper.py --inspect URL --browser   same, for pages that load their rates with JavaScript
   python scraper.py --demo                    write sample data so the site has something to show
 """
-import json, re, sys
+import json, re, subprocess, sys
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 from urllib.robotparser import RobotFileParser
 
-USER_AGENT = "MortgageRatesBot/1.0 (+https://YOUR-DOMAIN.com)"  # EDIT: put your own site address here
+USER_AGENT = "MortgageRatesBot/1.0 (+https://whatstherate.ca)"
 MIN_RATE, MAX_RATE = 0.5, 15.0  # anything outside this range is treated as a scraping error
 RATE_RE = re.compile(r"(\d{1,2}(?:\.\d{1,3})?)\s*%")
+SKIP_TAGS = ("script", "style", "noscript", "template")
 OUT = Path("rates.json")
 
 
 def now():
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def norm(s):
+    return re.sub(r"\s+", " ", s or "").strip().lower()
 
 
 def robots_ok(url):
@@ -40,9 +45,18 @@ def get_html(url, browser=False):
     if browser:
         from playwright.sync_api import sync_playwright
         with sync_playwright() as pw:
-            b = pw.chromium.launch()
+            try:
+                b = pw.chromium.launch()
+            except Exception:  # browser not installed yet: install it once, then retry
+                subprocess.run([sys.executable, "-m", "playwright", "install", "--with-deps", "chromium"], check=True)
+                b = pw.chromium.launch()
             page = b.new_page(user_agent=USER_AGENT)
-            page.goto(url, wait_until="networkidle", timeout=60000)
+            page.goto(url, wait_until="domcontentloaded", timeout=60000)
+            try:  # wait until real rates (like 4.99%) show up on the page
+                page.wait_for_function(r"/\d\.\d{2,3}\s*%/.test(document.body.innerText)", timeout=30000)
+                page.wait_for_timeout(2000)
+            except Exception:
+                pass
             html = page.content()
             b.close()
             return html
@@ -52,19 +66,92 @@ def get_html(url, browser=False):
     return r.text
 
 
-def parse_rate(text):
-    m = RATE_RE.search(text or "")
-    if not m:
-        raise ValueError(f"no rate with a % sign found in {text!r}")
-    rate = float(m.group(1))
+def pick(text, nth=1):
+    """Return the nth percentage in text, or None if there are fewer than that."""
+    found = RATE_RE.findall(text)
+    if len(found) < nth:
+        return None
+    rate = float(found[nth - 1])
     if not MIN_RATE <= rate <= MAX_RATE:
         raise ValueError(f"rate {rate} is outside the plausible range")
     return rate
 
 
+def rate_by_label(soup, label, nth=1, after=None, occurrence=1):
+    """Find the table row or card whose text includes `label` and return the nth % figure after it.
+    `after`: only look below the first place on the page that mentions this text.
+    `occurrence`: use the 2nd, 3rd... time the label appears (for pages with repeated tables)."""
+    want = norm(label)
+    tags = [t for t in soup.find_all(True) if t.name not in SKIP_TAGS]
+    text = {id(t): norm(t.get_text(" ", strip=True)) for t in tags}
+
+    def smallest(pool, needle):  # the innermost elements whose text contains `needle`
+        ids = {id(t) for t in pool if needle in text[id(t)]}
+        return [t for t in pool if id(t) in ids and not any(id(c) in ids for c in t.find_all(True, recursive=False))]
+
+    if after:
+        marker = smallest(tags, norm(after))
+        if not marker:
+            raise ValueError(f"section {after!r} not found")
+        tags = tags[tags.index(marker[0]) + 1:]
+    found = smallest(tags, want)
+    found.sort(key=lambda t: text[id(t)] != want)  # whole-cell matches first; sort is stable, so page order is kept
+    rates = []
+    for el in found:
+        for _ in range(6):  # climb from the label up to the row or card that also holds the rates
+            if el is None or el.name == "[document]":
+                break
+            after_text = text[id(el)].split(want, 1)[-1]
+            if RATE_RE.search(after_text):
+                rate = pick(after_text, nth)  # None if this row has fewer figures than nth: don't borrow from other rows
+                if rate is not None:
+                    rates.append(rate)
+                break
+            el = el.parent
+        if len(rates) >= occurrence:
+            return rates[occurrence - 1]
+    raise ValueError(f"no rate found next to the label {label!r}")
+
+
+def extract(soup, item):
+    if "label" in item:
+        return rate_by_label(soup, item["label"], item.get("nth", 1), item.get("after"), item.get("occurrence", 1))
+    el = soup.select_one(item["selector"])
+    if el is None:
+        raise ValueError(f"selector not found: {item['selector']}")
+    rate = pick(el.get_text(" ", strip=True), item.get("nth", 1))
+    if rate is None:
+        raise ValueError(f"no rate with a % sign inside {item['selector']}")
+    return rate
+
+
+def scrape_lender(lender):
+    """Return ({product: rate}, {product: error}) for one lender."""
+    from bs4 import BeautifulSoup
+    url, mode = lender["url"], lender.get("mode", "auto")
+    if not robots_ok(url):
+        return {}, {i["product"]: "robots.txt does not allow fetching this page" for i in lender["rates"]}
+    results, todo, errors = {}, lender["rates"], {}
+    for browser in ([False, True] if mode == "auto" else [mode == "browser"]):
+        errors = {}
+        try:
+            soup = BeautifulSoup(get_html(url, browser), "html.parser")
+        except Exception as e:
+            errors = {i["product"]: e for i in todo}
+        else:
+            for item in todo:
+                try:
+                    results[item["product"]] = extract(soup, item)
+                except Exception as e:
+                    errors[item["product"]] = e
+        todo = [i for i in todo if i["product"] in errors]
+        if not todo:
+            break
+    return results, errors
+
+
 def run():
     import yaml
-    from bs4 import BeautifulSoup
     lenders = [x for x in (yaml.safe_load(Path("institutions.yaml").read_text()) or []) if x.get("enabled", True)]
     if not lenders:
         print("No lenders enabled in institutions.yaml; leaving rates.json unchanged.")
@@ -77,28 +164,20 @@ def run():
     rates, errors = [], []
     for lender in lenders:
         name, url = lender["name"], lender["url"]
-        soup = page_error = None
         try:
-            if not robots_ok(url):
-                raise RuntimeError("robots.txt does not allow fetching this page")
-            soup = BeautifulSoup(get_html(url, lender.get("mode") == "browser"), "html.parser")
+            results, errs = scrape_lender(lender)
         except Exception as e:
-            page_error = e
+            results, errs = {}, {i["product"]: e for i in lender["rates"]}
         for item in lender["rates"]:
-            key = (name, item["product"])
-            try:
-                if page_error:
-                    raise page_error
-                el = soup.select_one(item["selector"])
-                if el is None:
-                    raise ValueError(f"selector not found: {item['selector']}")
-                rates.append({"institution": name, "product": item["product"],
-                              "rate": parse_rate(el.get_text(" ", strip=True)),
+            product = item["product"]
+            if product in results:
+                print(f"OK    {name} / {product}: {results[product]}%")
+                rates.append({"institution": name, "product": product, "rate": results[product],
                               "source": url, "fetched_at": now(), "stale": False})
-            except Exception as e:
-                errors.append(f"{name} / {item['product']}: {e}")
-                if key in old:  # keep the last good value, flagged as stale
-                    rates.append({**old[key], "stale": True})
+            else:
+                errors.append(f"{name} / {product}: {errs.get(product, 'unknown error')}")
+                if (name, product) in old:  # keep the last good value, flagged as stale
+                    rates.append({**old[(name, product)], "stale": True})
     OUT.write_text(json.dumps({"updated_at": now(), "demo": False, "rates": rates}, indent=2))
     for e in errors:
         print("ERROR:", e, file=sys.stderr)

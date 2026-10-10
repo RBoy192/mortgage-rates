@@ -1,14 +1,107 @@
-# One entry per lender. Set enabled: true on your own entries (the example is switched off).
-#   mode: static   plain HTML page (fast; try this first)
-#   mode: browser  page that loads its rates with JavaScript (slower; uses a real browser)
-#   selector:      CSS selector of the element holding the rate, including its % sign.
-#                  Find candidates with:  python scraper.py --inspect https://lender.example/rates
-- name: Example Lender
+# One entry per lender. Set enabled: false on any lender you want to pause.
+#
+#   mode: auto     (default) try the plain page first; if the rates aren't there, retry with a real browser
+#   mode: static   plain page only (fastest)
+#   mode: browser  real browser only, for pages that fill in their rates with JavaScript
+#
+# Each rate is found by its label, the text next to it on the page (for example "5 Year Fixed Closed").
+#   label:  the text of the table cell or heading beside the rate
+#   nth:    which % figure after the label to use (default 1). If the wrong number appears,
+#           try 2 or 3. Many rows show the rate first, then APR or the posted rate.
+#   after:  only look below the first place on the page that mentions this text (for pages that repeat a label)
+#   occurrence:  use the 2nd, 3rd... appearance of the label instead of the 1st
+# Prefer a CSS selector instead? Use  selector: "..."  in place of label
+# (find candidates with:  python scraper.py --inspect https://lender.example/rates).
+
+- name: RBC Royal Bank
+  url: https://www.rbcroyalbank.com/mortgages/mortgage-rates.html
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3 Year Fixed Closed"
+    - product: 5-year fixed
+      label: "5 Year Fixed Closed"
+    - product: 5-year variable
+      label: "5 Year Variable Closed"
+      nth: 2   # RBC's row reads "Prime -0.300% (4.150%)", so the rate is the 2nd % figure
+
+- name: TD Canada Trust
+  url: https://www.td.com/ca/en/personal-banking/products/mortgages/mortgage-rates
+  mode: browser   # TD fills in its rates with JavaScript
+  rates:
+    - product: 3-year fixed
+      label: "3 Year Fixed Closed"
+    - product: 5-year fixed
+      label: "5 Year Fixed Closed"
+    - product: 5-year variable
+      label: "5 Year Variable Closed"
+
+- name: CIBC
+  url: https://www.cibc.com/en/interest-rates/mortgage-rates.html
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3-year fixed"
+    - product: 5-year fixed
+      label: "5-year fixed"
+    - product: 5-year variable
+      label: "5 years"
+      after: "CIBC Variable Flex Mortgage"   # "5 years" appears in several tables; start below this heading
+      nth: 2                                  # this table lists Posted Rate first, then the Special Offer
+
+# Scotiabank keeps its rate tables inside collapsed sections that load after the page opens, so I couldn't
+# see the labels. To finish this one, run:  python scraper.py --inspect <url> --browser
+# then fill in the labels below and set enabled: true.
+- name: Scotiabank
   enabled: false
-  url: https://www.example.com/mortgage-rates
-  mode: static
+  url: https://www.scotiabank.com/ca/en/personal/rates-prices/mortgages-rates.html
+  mode: browser
   rates:
     - product: 5-year fixed
-      selector: "html > body > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2)"
+      label: "5 year"            # placeholder: replace with the text shown next to the rate on the page
+      after: "Closed Term Fixed Rate Mortgages"
+
+- name: Tangerine
+  url: https://www.tangerine.ca/en/rates/mortgage-rates
+  mode: auto
+  # Tangerine's page shows two rate tables with the same row labels and no heading to tell them apart.
+  # This uses the first (the one shown by default). If it's the wrong one, add  occurrence: 2  to each rate.
+  rates:
+    - product: 3-year fixed
+      label: "3 Year Fixed Mortgage"
+    - product: 5-year fixed
+      label: "5 Year Fixed Mortgage"
     - product: 5-year variable
-      selector: "html > body > table > tbody > tr:nth-of-type(3) > td:nth-of-type(2)"
+      label: "5 Year Variable Mortgage"
+
+- name: National Bank
+  url: https://www.nbc.ca/personal/mortgages/rates.html
+  mode: browser   # the page fills in most of its rates with JavaScript
+  rates:
+    - product: 3-year fixed
+      label: "3 year fixed rate"
+    - product: 5-year fixed
+      label: "5 year fixed rate"
+    - product: 5-year variable
+      label: "5 year variable rate"
+
+# EQ Bank refused my test request with bot detection, so it can't be collected automatically.
+# Left here switched off in case that changes.
+- name: EQ Bank
+  enabled: false
+  url: https://www.eqbank.ca/residential/mortgage-rates
+  mode: browser
+  rates: []
+
+- name: BMO
+  url: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
+  mode: browser   # BMO fills in its rates with JavaScript
+  # Each rate sits in a card headed by the term plus an "Amortization 25 years or lower" line.
+  # Matching on both skips BMO's separate "default insured" 5-year card.
+  rates:
+    - product: 3-year fixed
+      label: "3 Year Fixed Amortization 25 years or lower"
+    - product: 5-year fixed
+      label: "5 Year Smart Fixed Amortization 25 years or lower"
+    - product: 5-year variable
+      label: "5 Year Variable Amortization 25 years or lower"
