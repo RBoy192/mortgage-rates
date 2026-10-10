@@ -1,0 +1,38 @@
+{
+  "updated_at": "2026-10-10T01:04:39Z",
+  "demo": true,
+  "rates": [
+    {
+      "institution": "Sample Bank",
+      "product": "5-year fixed",
+      "rate": 4.89,
+      "source": "https://example.com",
+      "fetched_at": "2026-10-10T01:04:39Z",
+      "stale": false
+    },
+    {
+      "institution": "Sample Bank",
+      "product": "5-year variable",
+      "rate": 5.45,
+      "source": "https://example.com",
+      "fetched_at": "2026-10-10T01:04:39Z",
+      "stale": false
+    },
+    {
+      "institution": "Sample Credit Union",
+      "product": "5-year fixed",
+      "rate": 4.79,
+      "source": "https://example.com",
+      "fetched_at": "2026-10-10T01:04:39Z",
+      "stale": false
+    },
+    {
+      "institution": "Sample Credit Union",
+      "product": "3-year fixed",
+      "rate": 4.99,
+      "source": "https://example.com",
+      "fetched_at": "2026-10-10T01:04:39Z",
+      "stale": false
+    }
+  ]
+}

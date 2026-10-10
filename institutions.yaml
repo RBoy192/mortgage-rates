@@ -1,0 +1,14 @@
+# One entry per lender. Set enabled: true on your own entries (the example is switched off).
+#   mode: static   plain HTML page (fast; try this first)
+#   mode: browser  page that loads its rates with JavaScript (slower; uses a real browser)
+#   selector:      CSS selector of the element holding the rate, including its % sign.
+#                  Find candidates with:  python scraper.py --inspect https://lender.example/rates
+- name: Example Lender
+  enabled: false
+  url: https://www.example.com/mortgage-rates
+  mode: static
+  rates:
+    - product: 5-year fixed
+      selector: "html > body > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2)"
+    - product: 5-year variable
+      selector: "html > body > table > tbody > tr:nth-of-type(3) > td:nth-of-type(2)"
