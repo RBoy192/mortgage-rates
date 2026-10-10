@@ -78,7 +78,7 @@ def pick(text, nth=1):
 
 
 def rate_by_label(soup, label, nth=1, after=None, occurrence=1):
-    """Find the table row or card whose text includes `label` and return the nth % figure after it.
+    """Find the table row or card whose text includes `label` and return (the nth % figure after it, the text it read).
     `after`: only look below the first place on the page that mentions this text.
     `occurrence`: use the 2nd, 3rd... time the label appears (for pages with repeated tables)."""
     want = norm(label)
@@ -105,7 +105,7 @@ def rate_by_label(soup, label, nth=1, after=None, occurrence=1):
             if RATE_RE.search(after_text):
                 rate = pick(after_text, nth)  # None if this row has fewer figures than nth: don't borrow from other rows
                 if rate is not None:
-                    rates.append(rate)
+                    rates.append((rate, after_text.strip()[:100]))
                 break
             el = el.parent
         if len(rates) >= occurrence:
@@ -114,24 +114,31 @@ def rate_by_label(soup, label, nth=1, after=None, occurrence=1):
 
 
 def extract(soup, item):
+    """Return (rate, the text it was read from)."""
     if "label" in item:
         return rate_by_label(soup, item["label"], item.get("nth", 1), item.get("after"), item.get("occurrence", 1))
     el = soup.select_one(item["selector"])
     if el is None:
         raise ValueError(f"selector not found: {item['selector']}")
-    rate = pick(el.get_text(" ", strip=True), item.get("nth", 1))
+    shown = el.get_text(" ", strip=True)
+    rate = pick(shown, item.get("nth", 1))
     if rate is None:
         raise ValueError(f"no rate with a % sign inside {item['selector']}")
-    return rate
+    return rate, shown[:100]
+
+
+def active(lender):
+    return [i for i in lender["rates"] if i.get("enabled", True)]
 
 
 def scrape_lender(lender):
-    """Return ({product: rate}, {product: error}) for one lender."""
+    """Return ({product: (rate, text read)}, {product: error}) for one lender."""
     from bs4 import BeautifulSoup
     url, mode = lender["url"], lender.get("mode", "auto")
+    todo = active(lender)
     if not robots_ok(url):
-        return {}, {i["product"]: "robots.txt does not allow fetching this page" for i in lender["rates"]}
-    results, todo, errors = {}, lender["rates"], {}
+        return {}, {i["product"]: "robots.txt does not allow fetching this page" for i in todo}
+    results, errors = {}, {}
     for browser in ([False, True] if mode == "auto" else [mode == "browser"]):
         errors = {}
         try:
@@ -167,16 +174,19 @@ def run():
         try:
             results, errs = scrape_lender(lender)
         except Exception as e:
-            results, errs = {}, {i["product"]: e for i in lender["rates"]}
-        for item in lender["rates"]:
-            product = item["product"]
+            results, errs = {}, {i["product"]: e for i in active(lender)}
+        for item in active(lender):
+            product, publish = item["product"], item.get("publish", True)
             if product in results:
-                print(f"OK    {name} / {product}: {results[product]}%")
-                rates.append({"institution": name, "product": product, "rate": results[product],
-                              "source": url, "fetched_at": now(), "stale": False})
+                rate, shown = results[product]
+                print(f"{'OK   ' if publish else 'CHECK'} {name} / {product}: {rate}%   (read: {shown})"
+                      + ("" if publish else "   [not published]"))
+                if publish:
+                    rates.append({"institution": name, "product": product, "rate": rate,
+                                  "source": url, "fetched_at": now(), "stale": False})
             else:
                 errors.append(f"{name} / {product}: {errs.get(product, 'unknown error')}")
-                if (name, product) in old:  # keep the last good value, flagged as stale
+                if publish and (name, product) in old:  # keep the last good value, flagged as stale
                     rates.append({**old[(name, product)], "stale": True})
     OUT.write_text(json.dumps({"updated_at": now(), "demo": False, "rates": rates}, indent=2))
     for e in errors:

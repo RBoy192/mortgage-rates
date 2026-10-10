@@ -10,6 +10,8 @@
 #           try 2 or 3. Many rows show the rate first, then APR or the posted rate.
 #   after:  only look below the first place on the page that mentions this text (for pages that repeat a label)
 #   occurrence:  use the 2nd, 3rd... appearance of the label instead of the 1st
+#   publish: false   read and log this rate but don't show it on the site (handy for checking a new one)
+#   enabled: false   switch off a single rate (or a whole lender)
 # Prefer a CSS selector instead? Use  selector: "..."  in place of label
 # (find candidates with:  python scraper.py --inspect https://lender.example/rates).
 
@@ -36,7 +38,10 @@
     - product: 5-year variable
       label: "5 Year Variable Closed"
 
+# CIBC and BMO both refused the scraper's browser (the page fails to load with an HTTP/2 protocol error),
+# which is how these sites turn away automated visitors. Switched off rather than trying to work around it.
 - name: CIBC
+  enabled: false
   url: https://www.cibc.com/en/interest-rates/mortgage-rates.html
   mode: auto
   rates:
@@ -84,6 +89,7 @@
       label: "5 year fixed rate"
     - product: 5-year variable
       label: "5 year variable rate"
+      publish: false   # check-only: the first run read 5.04% (same as its 5-year fixed), which looks wrong
 
 # EQ Bank refused my test request with bot detection, so it can't be collected automatically.
 # Left here switched off in case that changes.
@@ -94,6 +100,7 @@
   rates: []
 
 - name: BMO
+  enabled: false
   url: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
   mode: browser   # BMO fills in its rates with JavaScript
   # Each rate sits in a card headed by the term plus an "Amortization 25 years or lower" line.
