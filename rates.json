@@ -1,37 +1,101 @@
 {
-  "updated_at": "2026-10-10T01:04:39Z",
-  "demo": true,
+  "updated_at": "2026-10-10T18:17:00Z",
+  "demo": false,
   "rates": [
     {
-      "institution": "Sample Bank",
-      "product": "5-year fixed",
-      "rate": 4.89,
-      "source": "https://example.com",
-      "fetched_at": "2026-10-10T01:04:39Z",
-      "stale": false
-    },
-    {
-      "institution": "Sample Bank",
-      "product": "5-year variable",
-      "rate": 5.45,
-      "source": "https://example.com",
-      "fetched_at": "2026-10-10T01:04:39Z",
-      "stale": false
-    },
-    {
-      "institution": "Sample Credit Union",
-      "product": "5-year fixed",
-      "rate": 4.79,
-      "source": "https://example.com",
-      "fetched_at": "2026-10-10T01:04:39Z",
-      "stale": false
-    },
-    {
-      "institution": "Sample Credit Union",
+      "institution": "RBC Royal Bank",
       "product": "3-year fixed",
       "rate": 4.99,
-      "source": "https://example.com",
-      "fetched_at": "2026-10-10T01:04:39Z",
+      "source": "https://www.rbcroyalbank.com/mortgages/mortgage-rates.html",
+      "fetched_at": "2026-10-10T18:16:32Z",
+      "stale": false
+    },
+    {
+      "institution": "RBC Royal Bank",
+      "product": "5-year fixed",
+      "rate": 5.14,
+      "source": "https://www.rbcroyalbank.com/mortgages/mortgage-rates.html",
+      "fetched_at": "2026-10-10T18:16:32Z",
+      "stale": false
+    },
+    {
+      "institution": "RBC Royal Bank",
+      "product": "5-year variable",
+      "rate": 4.15,
+      "source": "https://www.rbcroyalbank.com/mortgages/mortgage-rates.html",
+      "fetched_at": "2026-10-10T18:16:32Z",
+      "stale": false
+    },
+    {
+      "institution": "TD Canada Trust",
+      "product": "3-year fixed",
+      "rate": 5.14,
+      "source": "https://www.td.com/ca/en/personal-banking/products/mortgages/mortgage-rates",
+      "fetched_at": "2026-10-10T18:16:38Z",
+      "stale": false
+    },
+    {
+      "institution": "TD Canada Trust",
+      "product": "5-year fixed",
+      "rate": 5.34,
+      "source": "https://www.td.com/ca/en/personal-banking/products/mortgages/mortgage-rates",
+      "fetched_at": "2026-10-10T18:16:38Z",
+      "stale": false
+    },
+    {
+      "institution": "TD Canada Trust",
+      "product": "5-year variable",
+      "rate": 4.24,
+      "source": "https://www.td.com/ca/en/personal-banking/products/mortgages/mortgage-rates",
+      "fetched_at": "2026-10-10T18:16:38Z",
+      "stale": false
+    },
+    {
+      "institution": "Tangerine",
+      "product": "3-year fixed",
+      "rate": 4.64,
+      "source": "https://www.tangerine.ca/en/rates/mortgage-rates",
+      "fetched_at": "2026-10-10T18:16:40Z",
+      "stale": false
+    },
+    {
+      "institution": "Tangerine",
+      "product": "5-year fixed",
+      "rate": 4.84,
+      "source": "https://www.tangerine.ca/en/rates/mortgage-rates",
+      "fetched_at": "2026-10-10T18:16:40Z",
+      "stale": false
+    },
+    {
+      "institution": "Tangerine",
+      "product": "5-year variable",
+      "rate": 3.9,
+      "source": "https://www.tangerine.ca/en/rates/mortgage-rates",
+      "fetched_at": "2026-10-10T18:16:40Z",
+      "stale": false
+    },
+    {
+      "institution": "National Bank",
+      "product": "3-year fixed",
+      "rate": 4.94,
+      "source": "https://www.nbc.ca/personal/mortgages/rates.html",
+      "fetched_at": "2026-10-10T18:16:44Z",
+      "stale": false
+    },
+    {
+      "institution": "National Bank",
+      "product": "5-year fixed",
+      "rate": 5.04,
+      "source": "https://www.nbc.ca/personal/mortgages/rates.html",
+      "fetched_at": "2026-10-10T18:16:44Z",
+      "stale": false
+    },
+    {
+      "institution": "National Bank",
+      "product": "5-year variable",
+      "rate": 5.04,
+      "source": "https://www.nbc.ca/personal/mortgages/rates.html",
+      "fetched_at": "2026-10-10T18:16:44Z",
       "stale": false
     }
   ]
