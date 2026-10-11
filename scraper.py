@@ -2,7 +2,7 @@
 """Collect mortgage rates from the lenders in institutions.yaml and write rates.json.
 
   python scraper.py                           run the scrape (what the hourly job does)
-  python scraper.py --inspect URL             list elements on a page that contain a rate, with CSS selectors
+  python scraper.py --inspect URL             show the rates on a page with the text just before each one
   python scraper.py --inspect URL --browser   same, for pages that load their rates with JavaScript
   python scraper.py --demo                    write sample data so the site has something to show
 """
@@ -52,9 +52,16 @@ def get_html(url, browser=False):
                 b = pw.chromium.launch()
             page = b.new_page(user_agent=USER_AGENT)
             page.goto(url, wait_until="domcontentloaded", timeout=60000)
-            try:  # wait until real rates (like 4.99%) show up on the page
+            try:  # wait until real rates (like 4.99%) show up on the page...
                 page.wait_for_function(r"/\d\.\d{2,3}\s*%/.test(document.body.innerText)", timeout=30000)
-                page.wait_for_timeout(2000)
+                last, steady = None, 0  # ...then until the page's text stops changing, since some rates load late
+                for _ in range(20):
+                    shown = page.inner_text("body")
+                    steady = steady + 1 if shown == last else 0
+                    if steady >= 3:
+                        break
+                    last = shown
+                    page.wait_for_timeout(1000)
             except Exception:
                 pass
             html = page.content()
@@ -194,28 +201,25 @@ def run():
     return 1 if errors else 0
 
 
-def css_path(el):
-    parts = []
-    while el is not None and el.name != "[document]":
-        same = [s for s in el.parent.children if getattr(s, "name", None) == el.name]
-        part = el.name + (f"#{el['id']}" if el.get("id") else "")
-        if len(same) > 1 and not el.get("id"):
-            part += f":nth-of-type({[s is el for s in same].index(True) + 1})"
-        parts.append(part)
-        if el.get("id"):
-            break
-        el = el.parent
-    return " > ".join(reversed(parts))
-
-
-def find_selectors(url, browser):
+def show_rates(url, browser):
+    """Print each rate on a page with the few pieces of text just before it, so the labels are easy to spot."""
     from bs4 import BeautifulSoup
+    if not robots_ok(url):
+        print("robots.txt does not allow fetching this page.")
+        return
     soup = BeautifulSoup(get_html(url, browser), "html.parser")
-    found = soup.find_all(string=RATE_RE)
-    for text in found:
-        print(f"{text.strip()[:40]:42} {css_path(text.parent)}")
-    if not found:
-        print("No rates found. If the page loads them with JavaScript, add --browser.")
+    strings = [" ".join(s.split()) for s in soup.find_all(string=True) if s.parent.name not in SKIP_TAGS]
+    strings = [s for s in strings if s]
+    shown = 0
+    for i, s in enumerate(strings):
+        if RATE_RE.search(s):
+            print(" | ".join(strings[max(0, i - 3):i + 1])[:220])
+            shown += 1
+            if shown >= 80:
+                print("...stopping after 80 matches")
+                break
+    if not shown:
+        print("No rates found on the page. If it fills them in with JavaScript, run it with the browser option on.")
 
 
 def demo():
@@ -231,6 +235,6 @@ if __name__ == "__main__":
     if a[:1] == ["--demo"]:
         demo()
     elif a[:1] == ["--inspect"] and len(a) > 1:
-        find_selectors(a[1], "--browser" in a)
+        show_rates(a[1], "--browser" in a)
     else:
         sys.exit(run())
