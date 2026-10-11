@@ -1,0 +1,27 @@
+name: Inspect a page
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Web address of the rates page"
+        required: true
+      browser:
+        description: "Load it in a real browser (needed for pages that fill in rates with JavaScript)"
+        type: boolean
+        default: true
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Show the rates found on the page
+        env:
+          URL: ${{ inputs.url }}
+          BROWSER: ${{ inputs.browser }}
+        run: |
+          if [ "$BROWSER" = "true" ]; then python scraper.py --inspect "$URL" --browser; else python scraper.py --inspect "$URL"; fi
