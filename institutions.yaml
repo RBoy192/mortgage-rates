@@ -54,17 +54,15 @@
       after: "CIBC Variable Flex Mortgage"   # "5 years" appears in several tables; start below this heading
       nth: 2                                  # this table lists Posted Rate first, then the Special Offer
 
-# Scotiabank keeps its rate tables inside collapsed sections that load after the page opens, so I couldn't
-# see the labels. To finish this one, run:  python scraper.py --inspect <url> --browser
-# then fill in the labels below and set enabled: true.
+# Scotiabank's top table lists the closed 5-year Flex Value fixed rate with a "Special Offer" footnote.
+# The lower table only shows posted rates for each term, which aren't comparable to the special offers
+# used for the other lenders, so just this one rate is included.
 - name: Scotiabank
-  enabled: false
   url: https://www.scotiabank.com/ca/en/personal/rates-prices/mortgages-rates.html
-  mode: browser
+  mode: browser   # the rate tables load after the page opens
   rates:
     - product: 5-year fixed
-      label: "5 year"            # placeholder: replace with the text shown next to the rate on the page
-      after: "Closed Term Fixed Rate Mortgages"
+      label: "Scotia Flex Value Mortgage-Closed 5 Year Term"
 
 - name: Tangerine
   url: https://www.tangerine.ca/en/rates/mortgage-rates
