@@ -63,6 +63,12 @@
   rates:
     - product: 5-year fixed
       label: "Scotia Flex Value Mortgage-Closed 5 Year Term"
+    # Scotiabank only lists a posted rate for 3 years (no special offer), so it is labelled as such on the page.
+    # It also has no 5-year variable on this page; the only variable listed is a 3-year one.
+    - product: 3-year fixed
+      label: "3 years"
+      after: "Scotia Flex Value Mortgage-Open 5 Year Term"   # skips any other "3 years" higher up the page
+      note: "Posted rate"
 
 - name: Tangerine
   url: https://www.tangerine.ca/en/rates/mortgage-rates
@@ -87,7 +93,6 @@
       label: "5 year fixed rate"
     - product: 5-year variable
       label: "5 year variable rate"
-      publish: false   # check-only: the first run read 5.04% (same as its 5-year fixed), which looks wrong
 
 # EQ Bank refused my test request with bot detection, so it can't be collected automatically.
 # Left here switched off in case that changes.

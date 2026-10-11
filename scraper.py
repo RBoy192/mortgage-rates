@@ -189,8 +189,11 @@ def run():
                 print(f"{'OK   ' if publish else 'CHECK'} {name} / {product}: {rate}%   (read: {shown})"
                       + ("" if publish else "   [not published]"))
                 if publish:
-                    rates.append({"institution": name, "product": product, "rate": rate,
-                                  "source": url, "fetched_at": now(), "stale": False})
+                    rec = {"institution": name, "product": product, "rate": rate,
+                           "source": url, "fetched_at": now(), "stale": False}
+                    if item.get("note"):
+                        rec["note"] = item["note"]
+                    rates.append(rec)
             else:
                 errors.append(f"{name} / {product}: {errs.get(product, 'unknown error')}")
                 if publish and (name, product) in old:  # keep the last good value, flagged as stale
