@@ -54,20 +54,22 @@
       after: "CIBC Variable Flex Mortgage"   # "5 years" appears in several tables; start below this heading
       nth: 2                                  # this table lists Posted Rate first, then the Special Offer
 
-# Scotiabank's top table lists the closed 5-year Flex Value fixed rate with a "Special Offer" footnote.
-# The lower table only shows posted rates for each term, which aren't comparable to the special offers
-# used for the other lenders, so just this one rate is included.
+# Scotiabank's top table is its variable-rate section (Scotia Flex Value is a variable mortgage).
+# For fixed terms the page only lists posted rates (no special offers), so those are labelled as such on the page.
+# "3 years" and "5 years" also appear higher up the page, so those two start below the end of the top table.
 - name: Scotiabank
   url: https://www.scotiabank.com/ca/en/personal/rates-prices/mortgages-rates.html
   mode: browser   # the rate tables load after the page opens
   rates:
-    - product: 5-year fixed
+    - product: 5-year variable
       label: "Scotia Flex Value Mortgage-Closed 5 Year Term"
-    # Scotiabank only lists a posted rate for 3 years (no special offer), so it is labelled as such on the page.
-    # It also has no 5-year variable on this page; the only variable listed is a 3-year one.
     - product: 3-year fixed
       label: "3 years"
-      after: "Scotia Flex Value Mortgage-Open 5 Year Term"   # skips any other "3 years" higher up the page
+      after: "Scotia Flex Value Mortgage-Open 5 Year Term"
+      note: "Posted rate"
+    - product: 5-year fixed
+      label: "5 years"
+      after: "Scotia Flex Value Mortgage-Open 5 Year Term"
       note: "Posted rate"
 
 - name: Tangerine
