@@ -72,7 +72,7 @@ function render(){
     if (th.dataset.p === sortBy) th.setAttribute("aria-sort", "ascending"); else th.removeAttribute("aria-sort");
   });
   $("rows").innerHTML = rows.length ? rows.map(l => `<tr>
-    <td><a href="${esc(l.source)}" rel="noopener"><strong>${esc(l.name)}</strong></a><span class="sub">Checked ${fmt(l.checked)}</span></td>
+    <td><a href="${esc(l.source)}" target="_blank" rel="noopener"><strong>${esc(l.name)}</strong></a><span class="sub">Checked ${fmt(l.checked)}</span></td>
     ${COLUMNS.map(([, p], i) => {
       const c = l.cells[p];
       if (!c) return '<td class="none">—</td>';
