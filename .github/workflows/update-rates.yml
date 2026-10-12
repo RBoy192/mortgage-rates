@@ -1,7 +1,7 @@
 name: Update rates
 on:
   schedule:
-    - cron: "0 * * * *"   # every hour, 7 minutes past
+    - cron: "50 * * * *"   # every hour, 7 minutes past
   workflow_dispatch:       # adds a "Run workflow" button on the Actions tab
 permissions:
   contents: write
