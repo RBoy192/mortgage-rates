@@ -24,6 +24,7 @@ main{max-width:1080px;margin:0 auto;padding:36px 24px 56px}
 h1{font:var(--fw) clamp(36px,6vw,56px)/1.05 var(--hd);letter-spacing:-.02em;margin:40px 0 12px}
 .m,.f{color:var(--mu)}
 .f{font-size:13px;margin:16px 0 0}
+.f b{color:var(--fg)}
 .banner{background:#fde7b0;color:#2b2000;padding:10px 12px;border-radius:8px;margin:16px 0}
 .c{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:28px 0}
 .k{background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:22px 24px}
@@ -64,6 +65,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--fg);outline-offset:
 <div class="t"><table><thead id="head"></thead><tbody id="rows"></tbody></table></div>
 <p class="f">Click a heading to sort by lowest rate. The lowest rate in each column is highlighted, and a dash means the lender doesn't list that rate.</p>
 <p class="f">Rates are collected automatically from each lender's website. Where a lender lists both posted and special-offer rates, this page shows the special-offer rate. Rates may be out of date or incomplete, so confirm the current rate and terms with the lender before you decide.</p>
+<p class="f"><b>Your rate may be lower.</b> The rates on this page are the ones each lender advertises publicly. Many banks also offer relationship pricing (sometimes called relationship value, or RVR), which can give existing clients a rate lower than the posted rate, depending on the products they hold with the bank and their overall relationship. The rate you're actually offered also depends on your own situation, such as your down payment, credit and the type of mortgage. Ask each lender what relationship pricing they can offer before you decide.</p>
 </main>
 <script>
 // Columns across the top: [heading shown on the page, product name as it appears in rates.json]
