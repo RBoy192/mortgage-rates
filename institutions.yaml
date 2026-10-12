@@ -66,11 +66,9 @@
     - product: 3-year fixed
       label: "3 years"
       after: "Scotia Flex Value Mortgage-Open 5 Year Term"
-      note: "Posted rate"
     - product: 5-year fixed
       label: "5 years"
       after: "Scotia Flex Value Mortgage-Open 5 Year Term"
-      note: "Posted rate"
 
 - name: Tangerine
   url: https://www.tangerine.ca/en/rates/mortgage-rates
