@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What's the rate: mortgage rates</title>
 <script>try{var t=localStorage.getItem("theme");document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=DM+Sans:wght@400;500;700&family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
 <style>
-:root{color-scheme:light;--bg:#F5F8FD;--fg:#10213F;--mu:#51617F;--card:#fff;--ln:#DCE5F2;--ln2:#E8EEF7;--lowbg:#FFD23F;--lowfg:#10213F;--big:#10213F;--tbg:#fff;--tln:#DCE5F2;--thl:transparent;--pill:#FFD23F;--pillfg:#10213F;--warn:#9A3412;--fw:800;--hd:'Bricolage Grotesque',system-ui,sans-serif;--bd:'DM Sans',system-ui,sans-serif}
-[data-theme="dark"]{color-scheme:dark;--bg:#0D1524;--fg:#E8EDF6;--mu:#9AAAC4;--card:#152238;--ln:#243452;--ln2:#1D2C46;--lowbg:transparent;--lowfg:#F0B94A;--big:#F0B94A;--tbg:transparent;--tln:transparent;--thl:#F0B94A;--pill:transparent;--pillfg:#9AAAC4;--warn:#FBBF77;--fw:700;--hd:Sora,system-ui,sans-serif;--bd:Manrope,system-ui,sans-serif}
+:root{color-scheme:light;--bg:#F5F8FD;--fg:#10213F;--mu:#51617F;--card:#fff;--ln:#DCE5F2;--ln2:#E8EEF7;--lowbg:#FFD23F;--lowfg:#10213F;--big:#10213F;--tbg:#fff;--tln:#DCE5F2;--thl:transparent;--pill:#FFD23F;--pillfg:#10213F;--warn:#9A3412;--fw:700;--hd:Sora,system-ui,sans-serif;--bd:Manrope,system-ui,sans-serif;--link:#1650C9}
+[data-theme="dark"]{color-scheme:dark;--bg:#0D1524;--fg:#E8EDF6;--mu:#9AAAC4;--card:#152238;--ln:#243452;--ln2:#1D2C46;--lowbg:transparent;--lowfg:#F0B94A;--big:#F0B94A;--tbg:transparent;--tln:transparent;--thl:#F0B94A;--pill:transparent;--pillfg:#9AAAC4;--warn:#FBBF77;--link:#7DB8FF}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 var(--bd)}
 main{max-width:1080px;margin:0 auto;padding:36px 24px 56px}
@@ -40,11 +40,12 @@ tr+tr td{border-top:1px solid var(--ln2)}
 td.rate b{font:var(--fw) 24px var(--hd);font-variant-numeric:tabular-nums;white-space:nowrap}
 td.low b{background:var(--lowbg);color:var(--lowfg);border-radius:10px;padding:1px 10px}
 .s{display:block;font-size:13px;color:var(--mu)}
-[data-theme="dark"] td.low .s{color:var(--lowfg)}
 .sw{color:var(--warn)}
 td.none{color:var(--mu)}
-a{color:inherit;font-weight:700;text-decoration:none}
-a:hover{text-decoration:underline}
+a{color:var(--link);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+a:hover{text-decoration-thickness:3px}
+a svg{width:14px;height:14px;margin-left:5px;vertical-align:-1px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 a:focus-visible,button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 @media (max-width:480px){th,td{padding:12px 8px}td.rate b{font-size:19px}}
 </style>
@@ -104,12 +105,12 @@ function render(){
     if (th.dataset.p === sortBy) th.setAttribute("aria-sort", "ascending"); else th.removeAttribute("aria-sort");
   });
   $("rows").innerHTML = rows.length ? rows.map(l => `<tr>
-    <td><a href="${esc(l.source)}" target="_blank" rel="noopener">${esc(l.name)}</a><span class="s">Checked ${fmt(l.checked)}</span></td>
+    <td><a href="${esc(l.source)}" target="_blank" rel="noopener">${esc(l.name)}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="vh"> (opens in a new tab)</span></a></td>
     ${COLUMNS.map(([, p], i) => {
       const c = l.cells[p];
       if (!c) return '<td class="none">—</td>';
       const low = c.rate === best[i];
-      return `<td class="rate${low ? " low" : ""}"><b>${pct(c.rate)}</b>${low ? '<span class="s">Lowest</span>' : ""}${c.note ? '<span class="s">' + esc(c.note) + '</span>' : ""}${c.stale ? '<span class="s sw">Not refreshed</span>' : ""}</td>`;
+      return `<td class="rate${low ? " low" : ""}"><b>${pct(c.rate)}</b>${c.note ? '<span class="s">' + esc(c.note) + '</span>' : ""}${c.stale ? '<span class="s sw">Not refreshed</span>' : ""}</td>`;
     }).join("")}</tr>`).join("")
     : `<tr><td colspan="${COLUMNS.length + 1}">No rates yet. Enable a lender in institutions.yaml, then run the update.</td></tr>`;
 }
@@ -117,9 +118,8 @@ function render(){
 fetch("rates.json?t=" + Date.now(), {cache:"no-store"}).then(r => r.json()).then(d => {
   const by = {};
   d.rates.forEach(r => {
-    const l = by[r.institution] = by[r.institution] || {name: r.institution, source: r.source, cells: {}, checked: r.fetched_at};
+    const l = by[r.institution] = by[r.institution] || {name: r.institution, source: r.source, cells: {}};
     l.cells[r.product] = r;
-    if (r.fetched_at > l.checked) l.checked = r.fetched_at;
   });
   lenders = Object.values(by);
   $("updated").textContent = "Last updated " + fmt(d.updated_at);
