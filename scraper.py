@@ -17,6 +17,7 @@ MIN_RATE, MAX_RATE = 0.5, 15.0  # anything outside this range is treated as a sc
 RATE_RE = re.compile(r"(\d{1,2}(?:\.\d{1,3})?)\s*%")
 SKIP_TAGS = ("script", "style", "noscript", "template")
 OUT = Path("rates.json")
+POLICY_URL = "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"
 
 
 def now():
@@ -164,13 +165,41 @@ def scrape_lender(lender):
     return results, errors
 
 
+def policy_rate(url=POLICY_URL):
+    """Read the Bank of Canada's current target for the overnight rate from its 'Policy interest rate' page."""
+    from bs4 import BeautifulSoup
+    if not robots_ok(url):
+        raise RuntimeError("robots.txt does not allow fetching this page")
+    soup = BeautifulSoup(get_html(url, False), "html.parser")
+    for table in soup.find_all("table"):
+        first = table.find("tr")
+        heads = [norm(c.get_text(" ")) for c in first.find_all(["th", "td"])] if first else []
+        if not (heads and heads[0].startswith("date") and any("target" in h for h in heads)):
+            continue
+        rows = []
+        for tr in table.find_all("tr"):
+            cells = [" ".join(c.get_text(" ").split()) for c in tr.find_all("td")]
+            if len(cells) >= 2:
+                try:
+                    rows.append((datetime.strptime(cells[0], "%B %d, %Y"), float(cells[1])))
+                except ValueError:
+                    pass
+        if rows:
+            when, rate = max(rows)  # the most recent decision
+            if not 0 <= rate <= 20:
+                raise ValueError(f"policy rate {rate} is outside the plausible range")
+            return {"rate": rate, "decision_date": when.strftime("%Y-%m-%d"), "source": url,
+                    "fetched_at": now(), "stale": False}
+    raise ValueError("couldn't find the policy rate table on the page")
+
+
 def run():
     import yaml
     lenders = [x for x in (yaml.safe_load(Path("institutions.yaml").read_text()) or []) if x.get("enabled", True)]
     if not lenders:
         print("No lenders enabled in institutions.yaml; leaving rates.json unchanged.")
         return 0
-    old = {}
+    old, prev = {}, {}
     if OUT.exists():
         prev = json.loads(OUT.read_text())
         if not prev.get("demo"):
@@ -198,7 +227,18 @@ def run():
                 errors.append(f"{name} / {product}: {errs.get(product, 'unknown error')}")
                 if publish and (name, product) in old:  # keep the last good value, flagged as stale
                     rates.append({**old[(name, product)], "stale": True})
-    OUT.write_text(json.dumps({"updated_at": now(), "demo": False, "rates": rates}, indent=2))
+    policy = None if prev.get("demo") else prev.get("policy_rate")
+    try:
+        policy = policy_rate()
+        print(f"OK    Bank of Canada policy rate: {policy['rate']}%   (latest decision {policy['decision_date']})")
+    except Exception as e:
+        errors.append(f"Bank of Canada policy rate: {e}")
+        if policy:  # keep the last good value, flagged as stale
+            policy = {**policy, "stale": True}
+    out = {"updated_at": now(), "demo": False, "rates": rates}
+    if policy:
+        out["policy_rate"] = policy
+    OUT.write_text(json.dumps(out, indent=2))
     for e in errors:
         print("ERROR:", e, file=sys.stderr)
     return 1 if errors else 0
