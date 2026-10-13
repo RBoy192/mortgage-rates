@@ -24,7 +24,8 @@ main{max-width:1080px;margin:0 auto;padding:36px 24px 56px}
 h1{font:var(--fw) clamp(36px,6vw,56px)/1.05 var(--hd);letter-spacing:-.02em;margin:0 0 12px}
 .hero{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:40px}
 .pr{min-width:250px;max-width:340px}
-.pr b{font-size:clamp(32px,5vw,42px)}
+.pr em{font-style:normal;color:var(--mu);font-weight:500}
+.pr b{display:block;font:var(--fw) clamp(32px,5vw,42px)/1.1 var(--hd);color:var(--big);margin:4px 0}
 .m,.f{color:var(--mu)}
 .f{font-size:13px;margin:16px 0 0}
 .f b{color:var(--fg)}
@@ -64,7 +65,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--fg);outline-offset:
 <div class="hero">
 <div><h1>Today's best<br>mortgage rates</h1>
 <div class="m" id="updated">Loading rates…</div></div>
-<aside class="k pr" id="policy" hidden><em>Bank of Canada policy rate</em><b id="pv"></b><span class="s" id="pd"></span></aside>
+<aside class="pr" id="policy" hidden><em>Bank of Canada policy rate</em><b id="pv"></b><span class="s" id="pd"></span></aside>
 </div>
 <div class="banner" id="demo" hidden>These are sample numbers, not real rates. Add your first lender in institutions.yaml to replace them.</div>
 <div class="c" id="tiles"></div>
