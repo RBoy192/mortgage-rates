@@ -17,7 +17,8 @@ MIN_RATE, MAX_RATE = 0.5, 15.0  # anything outside this range is treated as a sc
 RATE_RE = re.compile(r"(\d{1,2}(?:\.\d{1,3})?)\s*%")
 SKIP_TAGS = ("script", "style", "noscript", "template")
 OUT = Path("rates.json")
-POLICY_URL = "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"
+POLICY_URL = "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"  # the page the card links to
+POLICY_API = "https://www.bankofcanada.ca/valet/observations/V39079/json?recent=1"  # the Bank's data feed for the same rate
 
 
 def now():
@@ -165,32 +166,21 @@ def scrape_lender(lender):
     return results, errors
 
 
-def policy_rate(url=POLICY_URL):
-    """Read the Bank of Canada's current target for the overnight rate from its 'Policy interest rate' page."""
-    from bs4 import BeautifulSoup
-    if not robots_ok(url):
-        raise RuntimeError("robots.txt does not allow fetching this page")
-    soup = BeautifulSoup(get_html(url, False), "html.parser")
-    for table in soup.find_all("table"):
-        first = table.find("tr")
-        heads = [norm(c.get_text(" ")) for c in first.find_all(["th", "td"])] if first else []
-        if not (heads and heads[0].startswith("date") and any("target" in h for h in heads)):
-            continue
-        rows = []
-        for tr in table.find_all("tr"):
-            cells = [" ".join(c.get_text(" ").split()) for c in tr.find_all("td")]
-            if len(cells) >= 2:
-                try:
-                    rows.append((datetime.strptime(cells[0], "%B %d, %Y"), float(cells[1])))
-                except ValueError:
-                    pass
-        if rows:
-            when, rate = max(rows)  # the most recent decision
-            if not 0 <= rate <= 20:
-                raise ValueError(f"policy rate {rate} is outside the plausible range")
-            return {"rate": rate, "decision_date": when.strftime("%Y-%m-%d"), "source": url,
-                    "fetched_at": now(), "stale": False}
-    raise ValueError("couldn't find the policy rate table on the page")
+def policy_rate(api=POLICY_API, page=POLICY_URL):
+    """Read the Bank of Canada's target for the overnight rate from the Bank's official Valet data API."""
+    import requests
+    if not robots_ok(api):
+        raise RuntimeError("robots.txt does not allow fetching the Valet API")
+    r = requests.get(api, headers={"User-Agent": USER_AGENT}, timeout=30)
+    r.raise_for_status()
+    try:
+        latest = max(r.json()["observations"], key=lambda o: o["d"])
+        rate = float(latest["V39079"]["v"])
+    except (KeyError, TypeError, ValueError):
+        raise ValueError("unexpected response from the Bank of Canada Valet API")
+    if not 0 <= rate <= 20:
+        raise ValueError(f"policy rate {rate} is outside the plausible range")
+    return {"rate": rate, "as_of": latest["d"], "source": page, "fetched_at": now(), "stale": False}
 
 
 def run():
@@ -230,7 +220,7 @@ def run():
     policy = None if prev.get("demo") else prev.get("policy_rate")
     try:
         policy = policy_rate()
-        print(f"OK    Bank of Canada policy rate: {policy['rate']}%   (latest decision {policy['decision_date']})")
+        print(f"OK    Bank of Canada policy rate: {policy['rate']}%   (as of {policy['as_of']})")
     except Exception as e:
         errors.append(f"Bank of Canada policy rate: {e}")
         if policy:  # keep the last good value, flagged as stale

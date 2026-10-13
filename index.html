@@ -108,8 +108,8 @@ $("head").onclick = e => {
 function showPolicy(p){
   if (!p) return;
   $("pv").textContent = pct(p.rate);
-  const when = new Date(p.decision_date + "T12:00:00").toLocaleDateString([], {dateStyle:"medium"});
-  $("pd").innerHTML = "Overnight rate target. Latest decision: " + esc(when) + '<br><a href="' + esc(p.source) + '" target="_blank" rel="noopener">Bank of Canada' + EXT + "</a>"
+  const when = new Date((p.as_of || p.decision_date) + "T12:00:00").toLocaleDateString([], {dateStyle:"medium"});
+  $("pd").innerHTML = "Overnight rate target, as of " + esc(when) + '<br><a href="' + esc(p.source) + '" target="_blank" rel="noopener">Bank of Canada' + EXT + "</a>"
     + (p.stale ? '<span class="s sw">Not refreshed</span>' : "");
   $("policy").hidden = false;
 }
