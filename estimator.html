@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Payment estimator | What's the rate?</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="estimator">
+<main id="top">
+<header id="site-header"></header>
+<div class="pg">
+<h1>Payment estimator</h1>
+<p class="m">We've filled in typical starting values so you can see a result right away. Change any of them to fit your situation, or <button class="lk" id="reset" type="button">reset to defaults</button>.</p>
+<div class="est">
+<div class="fl">
+<label>Home price <span class="df" data-f="price">default</span><input id="price" type="number" inputmode="numeric" min="0" step="5000"></label>
+<label>Down payment <span class="df" data-f="down">default</span><span class="sg" role="group" aria-label="Enter the down payment as"><button type="button" id="mpct" aria-pressed="true">%</button><button type="button" id="mamt" aria-pressed="false">$</button></span><input id="down" type="number" inputmode="decimal" min="0" step="1"><span class="s" id="downAmt"></span></label>
+<label>Amortization (years) <span class="df" data-f="years">default</span><select id="years"><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option></select></label>
+<label>Interest rate <span class="df" data-f="rate">default</span><select id="rate"></select><input id="custom" type="number" inputmode="decimal" step="0.01" min="0" hidden aria-label="Your own interest rate in percent"></label>
+<label>Term (years) <span class="df" data-f="term">default</span><select id="term"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>7</option><option>10</option></select><span class="s">Set by the rate you pick, unless you enter your own.</span></label>
+</div>
+<div class="res"><span class="m">Estimated payment</span><b id="pay">—</b><span class="s">per month</span><ul id="res"></ul></div>
+</div>
+<div id="msgs"></div>
+<p class="f">This is an estimate. It compounds interest the way Canadian lenders do (fixed rates twice a year, variable rates monthly) and leaves out property tax, home insurance and fees, so your lender's figures will differ a little. The starting values are typical placeholders, not averages for your area.</p>
+</div>
+
+<section id="insurance">
+<h2>Insured vs uninsured mortgages</h2>
+<p>If you put down <b>less than 20%</b> of the purchase price, your mortgage is called <b>high-ratio</b> and must be <b>insured</b>. The insurance, called mortgage default insurance, is provided by CMHC, Sagen or Canada Guaranty. It protects the <b>lender</b> if the loan isn't repaid, not you. In exchange for that protection, lenders will lend to buyers with smaller down payments, and often at lower interest rates.</p>
+<div class="cmp">
+<div><h3>Insured (under 20% down)</h3><ul>
+<li>You pay a one-time insurance premium, based on your down payment.</li>
+<li>The premium is usually added to your mortgage and repaid with interest. In some provinces, sales tax on the premium is due in cash at closing.</li>
+<li>The home must cost less than $1.5 million.</li>
+<li>Usually a 25-year maximum amortization. Some buyers, such as first-time buyers and buyers of new builds, can choose 30 years for a 0.20% higher premium.</li>
+<li>Often a lower interest rate than an uninsured mortgage.</li>
+<li>You can't cancel the insurance. It stays with the loan.</li></ul></div>
+<div><h3>Uninsured (20% or more down)</h3><ul>
+<li>No insurance premium.</li>
+<li>Also called a conventional mortgage.</li>
+<li>Available at any price. For homes of $1.5 million or more, 20% down is required anyway.</li>
+<li>Your interest rate may be slightly higher than an insured rate, but you avoid the premium.</li></ul></div>
+</div>
+<h3>What the premium costs</h3>
+<div class="t pt"><table><thead><tr><th>Down payment</th><th>Premium (% of mortgage)</th></tr></thead><tbody>
+<tr><td>5% to 9.99%</td><td>4.00%</td></tr><tr><td>10% to 14.99%</td><td>3.10%</td></tr><tr><td>15% to 19.99%</td><td>2.80%</td></tr><tr><td>20% or more</td><td>None</td></tr></tbody></table></div>
+<p class="f">Example: 10% down on a $500,000 home means a $450,000 mortgage and a 3.10% premium of $13,950, so you'd borrow $463,950. The estimator above does this for you when your down payment is under 20%.</p>
+<h3>Minimum down payment</h3>
+<p>You need at least 5% of the first $500,000 of the price, plus 10% of the part between $500,000 and $1.5 million. At $1.5 million and above you need 20%. If your down payment comes from borrowed money, the premium is higher.</p>
+<p class="f">Premiums and rules are based on CMHC's published rates as reported in 2026 guides, and Sagen and Canada Guaranty price similarly. Rules change, so confirm the details with your lender or mortgage professional.</p>
+</section>
+</main>
+<script src="site.js"></script>
+<script>
+(function(){
+let s = loadState(), best = {};
+const defRate = () => best[DEF.rate] ? DEF.rate : "custom";
+const write = () => { $("price").value = s.price; $("down").value = s.down; $("years").value = s.years; $("rate").value = s.rate; $("custom").value = s.custom; $("term").value = s.term; };
+const read = () => { s = {price: +$("price").value, down: +$("down").value, mode: s.mode, years: +$("years").value, rate: $("rate").value, custom: +$("custom").value, term: +$("term").value}; };
+
+function update(){
+  read(); saveState(s);
+  const c = calc(s, best), table = s.rate !== "custom" && !!best[s.rate];
+  $("mpct").setAttribute("aria-pressed", s.mode === "pct"); $("mamt").setAttribute("aria-pressed", s.mode === "amt");
+  $("down").step = s.mode === "amt" ? 5000 : 1;
+  $("custom").hidden = s.rate !== "custom";
+  $("term").disabled = table;
+  if (table) $("term").value = parseInt(s.rate, 10);
+  const flags = {price: s.price === DEF.price, years: s.years === DEF.years, term: s.term === DEF.term,
+    down: s.mode === "pct" ? s.down === DEF.down : Math.abs(s.down - s.price * DEF.down / 100) < 1,
+    rate: s.rate === defRate() && (s.rate !== "custom" || s.custom === DEF.custom)};
+  document.querySelectorAll(".df").forEach(e => { e.hidden = !flags[e.dataset.f] || (e.dataset.f === "term" && table); });
+  $("downAmt").textContent = s.mode === "pct" ? (c ? "= " + money(c.downAmt) : "") : (s.price > 0 ? "= " + (s.down / s.price * 100).toFixed(1) + "% of the price" : "");
+  const msgs = [];
+  if (c) {
+    if (c.belowMin) msgs.push(["w", `Your down payment is below the minimum for this price, about ${money(c.min)} (${(c.min / c.price * 100).toFixed(1)}%). In Canada the minimum is 5% of the first $500,000 plus 10% of the part up to $1.5 million, and 20% from $1.5 million.`]);
+    if (c.overCap) msgs.push(["w", "Mortgage insurance isn't available for homes of $1.5 million or more, so at least 20% down is required."]);
+    if (c.insured) msgs.push(["", `<b>Insured mortgage.</b> With less than 20% down, your mortgage needs default insurance. The estimate adds the premium (${c.prem.toFixed(2)}% of the mortgage, ${money(c.premium)}) to your mortgage. <a href="#insurance">How it works</a>`]);
+    if (c.insured && c.years > 25) msgs.push(["", "Insured mortgages are normally limited to 25-year amortizations. Some buyers, such as first-time buyers and buyers of new builds, can choose 30 years, which adds 0.20% to the premium."]);
+  }
+  $("msgs").innerHTML = msgs.map(([k, t]) => `<p class="msg ${k}">${t}</p>`).join("");
+  if (!c) {
+    $("pay").textContent = "—";
+    $("res").innerHTML = "<li>Enter a home price, a down payment smaller than the price, and an interest rate.</li>";
+    return;
+  }
+  $("pay").textContent = money(c.pay);
+  $("res").innerHTML = (c.insured
+      ? `<li>Mortgage insurance: <strong>${money(c.premium)}</strong> (${c.prem.toFixed(2)}%), added to your ${money(c.P0)} mortgage for <strong>${money(c.P)}</strong> in total.</li>`
+      : `<li><strong>${money(c.P)}</strong> mortgage: the ${money(c.price)} price minus ${money(c.downAmt)} down. No insurance is needed.</li>`)
+    + `<li>Interest over your ${c.term}-year term: <strong>${money(c.ti)}</strong>. You'd also repay ${money(c.tp)} of principal.</li>`
+    + `<li>Balance when the term ends: about <strong>${money(c.tb)}</strong>, which you'd renew at the rates of the day.</li>`
+    + `<li>Interest over the full ${c.years}-year amortization: <strong>${money(c.total)}</strong>, if the rate never changed.</li>`;
+}
+
+function setMode(m){
+  if (m === s.mode) return;
+  const price = +$("price").value || DEF.price, v = +$("down").value || 0;
+  $("down").value = m === "amt" ? Math.round(price * v / 100) : +(v / price * 100).toFixed(2);
+  s.mode = m; update();
+}
+function ready(b){
+  best = b || {};
+  $("rate").innerHTML = Object.keys(best).map(k => `<option value="${esc(k)}">Lowest ${esc(k)}: ${pct(best[k].rate)} (${esc(best[k].names)})</option>`).join("") + '<option value="custom">My own rate</option>';
+  if (!Array.from($("rate").options).some(o => o.value === s.rate)) s.rate = defRate();
+  write(); update();
+}
+$("mpct").onclick = () => setMode("pct");
+$("mamt").onclick = () => setMode("amt");
+["price", "down", "years", "rate", "custom", "term"].forEach(id => $(id).addEventListener("input", update));
+$("rate").addEventListener("change", update);
+$("reset").onclick = () => { s = Object.assign({}, DEF, {rate: defRate()}); write(); update(); };
+loadRates().then(d => ready(bestRates(groupLenders(d)))).catch(() => ready({}));
+})();
+</script>
+</body>
+</html>

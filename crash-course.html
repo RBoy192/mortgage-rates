@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mortgage crash course | What's the rate?</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="crash">
+<main id="top">
+<header id="site-header"></header>
+<div class="pg">
+<h1>Mortgage crash course</h1>
+<p class="m">A mortgage in five pictures. The examples use your numbers from the <a href="estimator.html">payment estimator</a>: <span id="using">loading…</span>. Change them there, then come back and watch everything update.</p>
+<div class="cc">
+<article><h3><span class="nm">1</span>What a mortgage is</h3>
+<p>A mortgage is a loan to buy a home. You pay part of the price up front (the down payment) and borrow the rest. The home backs the loan: if you can't repay, the lender can sell it to recover what it's owed. Each payment covers <b>interest</b>, the lender's fee for lending, and <b>principal</b>, the amount you actually borrowed.</p>
+<div id="v1"></div></article>
+<article><h3><span class="nm">2</span>Term vs amortization</h3>
+<p><b>Amortization</b> is how long it would take to pay the mortgage off completely, commonly 25 years. <b>Term</b> is how long your current deal lasts, commonly 5 years. When a term ends you renew, and the lender offers a new rate for the next term. That's why one amortization usually means several terms.</p>
+<div id="v2"></div></article>
+<article><h3><span class="nm">3</span>Where your payment goes</h3>
+<p>Your payment stays the same, but what's inside it changes. Interest is charged on what you still owe, so early payments are mostly interest. As the balance shrinks, more of each payment pays down principal.</p>
+<div id="v3"></div></article>
+<article><h3><span class="nm">4</span>What equity is</h3>
+<p><b>Equity</b> is the part of your home you own: what it's worth minus what you still owe. It starts as your down payment and grows as you pay the mortgage down. If the home's value rises, your equity grows faster, and if it falls, equity shrinks. These bars assume the value stays the same.</p>
+<div id="v4"></div></article>
+<article><h3><span class="nm">5</span>Do the math yourself</h3>
+<ol class="wk">
+<li><b>Mortgage amount</b> = home price − down payment. If you put down less than 20%, add the insurance premium too.</li>
+<li><b>Rate per month</b> (call it <i>i</i>). Fixed: (1 + annual rate ÷ 2)^(1/6) − 1, because Canadian fixed rates compound twice a year. Variable: annual rate ÷ 12, since variable rates usually compound monthly.</li>
+<li><b>Number of payments</b> (<i>n</i>) = years × 12</li>
+<li><b>Monthly payment</b> = mortgage × <i>i</i> ÷ (1 − (1 + <i>i</i>)^(−<i>n</i>))</li>
+<li><b>Each month:</b> interest = balance × <i>i</i>. Principal = payment − interest. New balance = balance − principal. Then repeat.</li>
+<li><b>Equity</b> = what the home is worth − what you still owe</li>
+</ol>
+<p><b>The whole formula in one line</b> (steps 2 to 4 combined):</p>
+<span class="fm">Fixed rate:     Payment = P × [(1 + r÷2)^(1÷6) − 1] ÷ [1 − (1 + r÷2)^(−2 × y)]
+Variable rate:  Payment = P × (r÷12) ÷ [1 − (1 + r÷12)^(−12 × y)]</span>
+<p class="s">P = mortgage amount (plus any insurance premium) · r = yearly rate as a decimal (4.84% is 0.0484) · y = amortization in years</p>
+<div id="v5"></div></article>
+</div>
+</div>
+</main>
+<script src="site.js"></script>
+<script>
+(function(){
+function draw(best){
+  const c = calc(loadState(), best);
+  if (!c) { $("using").textContent = "none saved yet"; return; }
+  $("using").textContent = `${money(c.price)} home, ${money(c.downAmt)} down, ${c.years}-year amortization, ${c.term}-year term at ${pct(c.rate)} ${c.variable ? "variable" : "fixed"}`;
+  const share = y => Math.round(y.int / (y.int + y.pr) * 100);
+
+  $("v1").innerHTML = `<div class="bar"><div class="seg a" style="width:${c.downPct}%" title="Down payment">Down payment ${money(c.downAmt)}</div><div class="seg o" style="width:${100 - c.downPct}%" title="Mortgage">Mortgage ${money(c.P0)}</div></div>`
+    + `<span class="s">Home price ${money(c.price)}${c.insured ? `. With less than 20% down, an insurance premium of ${money(c.premium)} is added to the mortgage.` : ""}</span>`;
+
+  const segs = [];
+  for (let a = 0, k = 1; a < c.years; a += c.term, k++) {
+    const len = Math.min(c.term, c.years - a);
+    segs.push(`<div class="seg ${k === 1 ? "a" : "o"}" style="flex:${len}" title="Term ${k}: ${len} years">${k === 1 ? "Term 1: rate locked" : k}</div>`);
+  }
+  $("v2").innerHTML = `<div class="bar">${segs.join("")}</div><span class="s">The whole bar is the amortization (${c.years} years). Each box is one ${c.term}-year term. You renew at the end of each box, at whatever rate is on offer then.</span>`;
+
+  $("v3").innerHTML = `<div class="yb">${c.yrs.map((y, k) => `<div class="yc" title="Year ${k + 1}: ${share(y)}% interest, ${100 - share(y)}% principal"><div class="i" style="height:${share(y)}%"></div><div class="p" style="height:${100 - share(y)}%"></div></div>`).join("")}</div>`
+    + `<div class="ax"><span>Year 1</span><span>Year ${c.years}</span></div><div class="lg"><span><i class="sq ow"></i>Interest</span><span><i class="sq ac"></i>Principal</span></div>`
+    + `<p class="m">In year 1, about ${share(c.yrs[0])}% of what you pay is interest. In year ${c.years}, it's about ${share(c.yrs[c.yrs.length - 1])}%.</p>`;
+
+  const row = (label, owe) => { const eq = Math.min(100, Math.max(0, (c.price - owe) / c.price * 100)); return `<div class="eq"><span>${label}</span><div class="bar"><div class="seg a" style="width:${eq}%">You own ${money(c.price - owe)}</div><div class="seg o" style="width:${100 - eq}%">You owe ${money(owe)}</div></div></div>`; };
+  $("v4").innerHTML = row("Day 1", c.P) + row(`After ${c.term} years`, c.tb) + row(`After ${c.years} years`, 0);
+
+  const r = +(c.rate / 100).toFixed(6), iStr = c.i.toFixed(6), i1 = c.P * c.i, p1 = c.pay - i1;
+  const whole = c.variable
+    ? `${money(c.P)} × (${r}÷12) ÷ [1 − (1 + ${r}÷12)^(−12 × ${c.years})] = ${money(c.pay)}`
+    : `${money(c.P)} × [(1 + ${r}÷2)^(1÷6) − 1] ÷ [1 − (1 + ${r}÷2)^(−2 × ${c.years})] = ${money(c.pay)}`;
+  const fx = c.variable ? `${c.rate}%/12` : `(1+${c.rate}%/2)^(1/6)-1`;
+  $("v5").innerHTML = `<p><b>Try it with your numbers</b></p><ol class="wk">`
+    + `<li>Mortgage amount: ${money(c.price)} − ${money(c.downAmt)}${c.insured ? ` + ${money(c.premium)} insurance` : ""} = <strong>${money(c.P)}</strong></li>`
+    + `<li>Rate per month: ${c.variable ? `${c.rate}% ÷ 12` : `(1 + ${c.rate}% ÷ 2)^(1/6) − 1`} = <strong>${iStr}</strong> (${(c.i * 100).toFixed(4)}%)</li>`
+    + `<li>Number of payments: ${c.years} × 12 = <strong>${c.n}</strong></li>`
+    + `<li>Payment = ${money(c.P)} × ${iStr} ÷ (1 − (1 + ${iStr})^(−${c.n})) = <strong>${money(c.pay)}</strong></li>`
+    + `<li>Month 1: interest ${money(i1)}, principal ${money(p1)}, new balance ${money(c.P - p1)}</li></ol>`
+    + `<p><b>The whole formula, with your numbers</b></p><span class="fm">${whole}</span>`
+    + `<p class="s">Spreadsheet shortcut: <code>=PMT(${fx}, ${c.n}, -${Math.round(c.P)})</code></p>`;
+}
+loadRates().then(d => draw(bestRates(groupLenders(d)))).catch(() => draw({}));
+})();
+</script>
+</body>
+</html>

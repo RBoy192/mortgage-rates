@@ -6,108 +6,11 @@
 <title>What's the rate?</title>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
-<style>
-:root{color-scheme:light;--bg:#F5F8FD;--fg:#10213F;--mu:#51617F;--card:#fff;--ln:#DCE5F2;--ln2:#E8EEF7;--lowbg:#FFD23F;--lowfg:#10213F;--big:#10213F;--tbg:#fff;--tln:#DCE5F2;--thl:transparent;--pill:#FFD23F;--pillfg:#10213F;--warn:#9A3412;--fw:700;--hd:Sora,system-ui,sans-serif;--bd:Manrope,system-ui,sans-serif;--link:#1650C9;--ac:#1650C9;--acfg:#fff;--ow:#DCE5F2;--owfg:#10213F}
-[data-theme="dark"]{color-scheme:dark;--bg:#0D1524;--fg:#E8EDF6;--mu:#9AAAC4;--card:#152238;--ln:#243452;--ln2:#1D2C46;--lowbg:transparent;--lowfg:#F0B94A;--big:#F0B94A;--tbg:transparent;--tln:transparent;--thl:#F0B94A;--pill:transparent;--pillfg:#9AAAC4;--warn:#FBBF77;--link:#7DB8FF;--ac:#F0B94A;--acfg:#0D1524;--ow:#243452;--owfg:#E8EDF6}
-*{box-sizing:border-box}
-[hidden]{display:none!important}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 var(--bd)}
-main{max-width:1080px;margin:0 auto;padding:36px 24px 64px}
-.n{display:flex;justify-content:space-between;align-items:center;gap:12px 20px;flex-wrap:wrap}
-.nw,.r{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-a.brand{color:var(--fg);text-decoration:none;font:var(--fw) 22px var(--hd);margin-right:8px}
-a.nl{display:inline-block;padding:6px 14px;border:1px solid var(--ln);border-radius:999px;background:var(--card);color:var(--fg);text-decoration:none;font-size:14px}
-a.nl:hover{border-color:var(--fg)}
-.pill{background:var(--pill);color:var(--pillfg);border-radius:999px;padding:4px 14px;font-weight:700;font-size:14px}
-.mode{display:inline-flex;align-items:center;gap:8px;font:600 14px var(--bd);color:var(--fg);background:var(--card);border:1px solid var(--ln);border-radius:999px;padding:7px 14px;cursor:pointer}
-.mode svg{width:18px;height:18px}
-.su{display:none}
-[data-theme="dark"] .su{display:block}
-[data-theme="dark"] .mo{display:none}
-h1{font:var(--fw) clamp(36px,6vw,56px)/1.05 var(--hd);letter-spacing:-.02em;margin:0 0 12px}
-h2{font:var(--fw) clamp(26px,4vw,34px)/1.15 var(--hd);margin:0 0 8px}
-h3{font:var(--fw) 19px/1.3 var(--hd);margin:0 0 8px}
-.hero{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-top:40px}
-.side{display:flex;gap:28px;flex-wrap:wrap}
-.pr{min-width:170px;max-width:250px}
-.pr em{font-style:normal;color:var(--mu);font-weight:500}
-.pr b{display:block;font:var(--fw) clamp(30px,4.5vw,40px)/1.1 var(--hd);color:var(--big);margin:4px 0}
-.m,.f{color:var(--mu)}
-.f{font-size:13px;margin:16px 0 0}
-.f b{color:var(--fg)}
-.banner{background:#fde7b0;color:#2b2000;padding:10px 12px;border-radius:8px;margin:16px 0}
-.c{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:28px 0}
-.k{background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:22px 24px}
-.k em{font-style:normal;color:var(--mu);font-weight:500}
-.k b{display:block;font:var(--fw) clamp(40px,7vw,54px)/1.1 var(--hd);color:var(--big);margin:4px 0}
-.key{margin:0 0 16px;padding:16px 20px;background:var(--card);border:1px solid var(--ln);border-radius:16px;font-size:14px}
-.kg{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px 24px;margin-top:8px}
-.kg p{margin:0;color:var(--mu)}
-.kg p b{display:block;color:var(--fg)}
-.hl{background:var(--lowbg);color:var(--lowfg);border-radius:8px;padding:0 6px;font-weight:700}
-.t{background:var(--tbg);border:1px solid var(--tln);border-radius:20px;overflow-x:auto}
-table{width:100%;border-collapse:collapse}
-th,td{padding:16px 20px;text-align:right;vertical-align:top}
-th:first-child,td:first-child{text-align:left}
-th{color:var(--mu);font-weight:700;font-size:14px;border-bottom:2px solid var(--thl);white-space:nowrap}
-th button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:4px 0}
-th[aria-sort] button{color:var(--fg)}
-tr+tr td{border-top:1px solid var(--ln2)}
-td.rate b{font:var(--fw) 24px var(--hd);font-variant-numeric:tabular-nums;white-space:nowrap}
-td.low b{background:var(--lowbg);color:var(--lowfg);border-radius:10px;padding:1px 10px}
-.s{display:block;font-size:13px;color:var(--mu)}
-.sw{color:var(--warn)}
-td.none{color:var(--mu)}
-a{color:var(--link);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
-a:hover{text-decoration-thickness:3px}
-a svg{width:14px;height:14px;margin-left:5px;vertical-align:-1px}
-.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
-section{margin-top:64px;scroll-margin-top:16px}
-.lk{font:inherit;font-weight:700;color:var(--link);background:none;border:0;padding:0;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;cursor:pointer}
-.est{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:16px;background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:24px}
-.fl{display:grid;gap:14px}
-label{display:block;font-weight:600;font-size:14px}
-input,select{display:block;width:100%;margin-top:6px;font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--ln);border-radius:10px;padding:10px 12px}
-.df{margin-left:8px;font-size:12px;font-weight:500;color:var(--mu);border:1px solid var(--ln);border-radius:999px;padding:0 8px}
-#pay{display:block;font:var(--fw) clamp(40px,7vw,54px)/1.1 var(--hd);color:var(--big);margin:4px 0}
-#res{margin:14px 0 0;padding-left:18px;font-size:14px}
-#res li{margin:6px 0}
-.cc article{background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:22px 24px;margin:16px 0}
-.cc p{margin:0 0 12px}
-.nm{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ac);color:var(--acfg);font-size:14px;margin-right:8px}
-.bar{display:flex;border-radius:12px;overflow:hidden;min-height:44px}
-.seg{display:flex;align-items:center;padding:0 10px;font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;min-width:0}
-.seg.a{background:var(--ac);color:var(--acfg)}
-.seg.o{background:var(--ow);color:var(--owfg)}
-.eq{margin:10px 0}
-.eq>span{display:block;font-size:13px;font-weight:700;margin-bottom:4px}
-.yb{display:flex;height:150px;gap:3px}
-.yc{flex:1;display:flex;flex-direction:column;border-radius:3px;overflow:hidden}
-.yc .i{background:var(--ow)}
-.yc .p{background:var(--ac)}
-.ax{display:flex;justify-content:space-between;font-size:13px;color:var(--mu);margin-top:4px}
-.lg{display:flex;gap:16px;font-size:13px;color:var(--mu);margin:8px 0}
-.sq{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
-.sq.ow{background:var(--ow)}
-.sq.ac{background:var(--ac)}
-.wk{padding-left:20px;margin:0 0 12px}
-.wk li{margin:6px 0}
-code{background:var(--bg);border:1px solid var(--ln);border-radius:6px;padding:1px 6px;font-size:13px}
-@media (max-width:480px){th,td{padding:12px 8px}td.rate b{font-size:19px}}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="rates">
 <main id="top">
-<div class="n">
-<div class="nw"><a class="brand" href="#top">What's the rate?</a><a class="nl" href="#estimator">Payment estimator</a><a class="nl" href="#crash-course">Crash course</a></div>
-<div class="r"><span class="pill">Updated hourly</span>
-<button class="mode" id="mode" type="button">
-<svg class="mo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-<svg class="su" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-<span id="ml">Dark mode</span></button></div></div>
+<header id="site-header"></header>
 <div class="hero">
 <div><h1>Today's best<br>mortgage rates</h1>
 <div class="m" id="updated">Loading rates…</div></div>
@@ -126,77 +29,12 @@ code{background:var(--bg);border:1px solid var(--ln);border-radius:6px;padding:1
 <p class="f">Click a heading to sort by lowest rate. A dash means the lender doesn't list that rate.</p>
 <p class="f">Rates are collected automatically from each lender's website. Where a lender lists both posted and special-offer rates, this page shows the special-offer rate. Rates may be out of date or incomplete, so confirm the current rate and terms with the lender before you decide.</p>
 <p class="f"><b>Your rate may be lower.</b> The rates on this page are the ones each lender advertises publicly. Many banks also offer relationship pricing (sometimes called relationship value, or RVR), which can give existing clients a rate lower than the posted rate, depending on the products they hold with the bank and their overall relationship. The rate you're actually offered also depends on your own situation, such as your down payment, credit and the type of mortgage. Ask each lender what relationship pricing they can offer before you decide.</p>
-
-<section id="estimator">
-<h2>Payment estimator</h2>
-<p class="m">We've filled in typical starting values so you can see a result right away. Change any of them to fit your situation, or <button class="lk" id="reset" type="button">reset to defaults</button>.</p>
-<div class="est">
-<div class="fl">
-<label>Home price <span class="df" data-f="price">default</span><input id="price" type="number" inputmode="numeric" min="0" step="5000"></label>
-<label>Down payment (%) <span class="df" data-f="down">default</span><input id="down" type="number" inputmode="decimal" min="0" max="99" step="1"><span class="s" id="downAmt"></span></label>
-<label>Amortization (years) <span class="df" data-f="years">default</span><select id="years"><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option></select></label>
-<label>Interest rate <span class="df" data-f="rate">default</span><select id="rate"></select><input id="custom" type="number" inputmode="decimal" step="0.01" min="0" hidden aria-label="Your own interest rate in percent"></label>
-</div>
-<div class="res"><span class="m">Estimated payment</span><b id="pay">—</b><span class="s">per month</span><ul id="res"></ul></div>
-</div>
-<p class="f" id="estWarn" hidden><b>Under 20% down?</b> Mortgage default insurance is normally required, and its cost is added to your mortgage. It isn't included here.</p>
-<p class="f">This is an estimate. It compounds interest the way Canadian lenders do (fixed rates twice a year, variable rates monthly) and leaves out property tax, home insurance and fees, so your lender's figures will differ a little. The starting values are typical placeholders, not averages for your area.</p>
-</section>
-
-<section id="crash-course">
-<h2>Mortgage crash course</h2>
-<p class="m">A mortgage in five pictures. The examples use the numbers from the payment estimator above, so change them there and watch everything here update.</p>
-<div class="cc">
-<article><h3><span class="nm">1</span>What a mortgage is</h3>
-<p>A mortgage is a loan to buy a home. You pay part of the price up front (the down payment) and borrow the rest. The home backs the loan: if you can't repay, the lender can sell it to recover what it's owed. Each payment covers <b>interest</b>, the lender's fee for lending, and <b>principal</b>, the amount you actually borrowed.</p>
-<div id="v1"></div></article>
-<article><h3><span class="nm">2</span>Term vs amortization</h3>
-<p><b>Amortization</b> is how long it would take to pay the mortgage off completely, commonly 25 years. <b>Term</b> is how long your current deal lasts, commonly 5 years. When a term ends you renew, and the lender offers a new rate for the next term. That's why one amortization usually means several terms.</p>
-<div id="v2"></div></article>
-<article><h3><span class="nm">3</span>Where your payment goes</h3>
-<p>Your payment stays the same, but what's inside it changes. Interest is charged on what you still owe, so early payments are mostly interest. As the balance shrinks, more of each payment pays down principal.</p>
-<div id="v3"></div></article>
-<article><h3><span class="nm">4</span>What equity is</h3>
-<p><b>Equity</b> is the part of your home you own: what it's worth minus what you still owe. It starts as your down payment and grows as you pay the mortgage down. If the home's value rises, your equity grows faster, and if it falls, equity shrinks. These bars assume the value stays the same.</p>
-<div id="v4"></div></article>
-<article><h3><span class="nm">5</span>Do the math yourself</h3>
-<ol class="wk">
-<li><b>Mortgage amount</b> = home price − down payment</li>
-<li><b>Rate per month</b> (call it <i>i</i>). Fixed: (1 + annual rate ÷ 2)^(1/6) − 1, because Canadian fixed rates compound twice a year. Variable: annual rate ÷ 12, since variable rates usually compound monthly.</li>
-<li><b>Number of payments</b> (<i>n</i>) = years × 12</li>
-<li><b>Monthly payment</b> = mortgage × <i>i</i> ÷ (1 − (1 + <i>i</i>)^(−<i>n</i>))</li>
-<li><b>Each month:</b> interest = balance × <i>i</i>. Principal = payment − interest. New balance = balance − principal. Then repeat.</li>
-<li><b>Equity</b> = what the home is worth − what you still owe</li>
-</ol>
-<div id="v5"></div></article>
-</div>
-</section>
+<p class="f" id="fn1" hidden><b>* BoC policy rate:</b> the Bank of Canada's target for the overnight rate, which is what big financial institutions charge each other for one-day loans. When it changes, banks usually move their prime rates too, which affects variable-rate mortgages. As of <span id="fn1d"></span>.</p>
+<p class="f" id="fn2" hidden><b>** Prime rate:</b> the typical prime lending rate of Canada's major banks, published weekly. Variable-rate mortgages are priced off prime. Each lender sets its own prime rate, so yours may differ slightly. As of <span id="fn2d"></span>.</p>
 </main>
-
+<script src="site.js"></script>
 <script>
-// Columns across the top: [heading shown on the page, product name as it appears in rates.json]
-const COLUMNS = [
-  ["3 yr fixed", "3-year fixed"],
-  ["5 yr var", "5-year variable"],
-  ["5 yr fixed", "5-year fixed"],
-];
-const $ = id => document.getElementById(id);
-const fmt = iso => new Date(iso).toLocaleString([], {dateStyle:"medium", timeStyle:"short"});
-const pct = x => (Math.round(x*1000) % 10 ? x.toFixed(3) : x.toFixed(2)) + "%";
-const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
 let lenders = [], sortBy = null, updatedAt = null;
-const EXT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="vh"> (opens in a new tab)</span>';
-
-// Light / dark switch: starts in light mode and remembers the visitor's choice on their device
-const root = document.documentElement;
-function showMode(){ $("ml").textContent = root.dataset.theme === "dark" ? "Light mode" : "Dark mode"; }
-$("mode").onclick = () => {
-  root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
-  try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
-  showMode();
-};
-showMode();
 
 // "Last updated 12 minutes ago", refreshed every 30 seconds
 function ago(iso){
@@ -223,13 +61,14 @@ $("head").onclick = e => {
   if (th) { sortBy = sortBy === th.dataset.p ? null : th.dataset.p; render(); }
 };
 
-// Bank of Canada figures shown beside the heading
-function showRate(p, id, title, line, extra){
+// Bank of Canada figures: label links to the source, an asterisk points to the note at the bottom
+function showRate(p, id, label, mark, fn){
   if (!p) return;
   const when = new Date((p.as_of || p.decision_date) + "T12:00:00").toLocaleDateString([], {dateStyle:"medium"});
-  $(id).innerHTML = `<em>${title}</em><b>${pct(p.rate)}</b><span class="s">${line} ${esc(when)}</span>${extra ? `<span class="s">${extra}</span>` : ""}`
-    + `<span class="s"><a href="${esc(p.source)}" target="_blank" rel="noopener">Bank of Canada${EXT}</a></span>` + (p.stale ? '<span class="s sw">Not refreshed</span>' : "");
+  $(id).innerHTML = `<a href="${esc(p.source)}" target="_blank" rel="noopener">${label}${EXT}</a><b>${pct(p.rate)}<sup>${mark}</sup></b>` + (p.stale ? '<span class="s sw">Not refreshed</span>' : "");
   $(id).hidden = false;
+  $(fn + "d").textContent = when;
+  $(fn).hidden = false;
 }
 
 function render(){
@@ -251,133 +90,14 @@ function render(){
     : `<tr><td colspan="${COLUMNS.length + 1}">No rates yet. Enable a lender in institutions.yaml, then run the update.</td></tr>`;
 }
 
-// Lowest rate per product, handed to the payment estimator below
-function bestRates(){
-  const b = {};
-  COLUMNS.forEach(([, p]) => {
-    const r = Math.min(...lenders.map(l => rateOf(l, p)));
-    if (r !== Infinity) b[p] = {rate: r, names: lenders.filter(l => rateOf(l, p) === r).map(l => l.name).join(", ")};
-  });
-  return b;
-}
-
-fetch("rates.json?t=" + Date.now(), {cache:"no-store"}).then(r => r.json()).then(d => {
-  const by = {};
-  d.rates.forEach(r => {
-    const l = by[r.institution] = by[r.institution] || {name: r.institution, source: r.source, cells: {}};
-    l.cells[r.product] = r;
-  });
-  lenders = Object.values(by);
+loadRates().then(d => {
+  lenders = groupLenders(d);
   updatedAt = d.updated_at; tick();
   $("demo").hidden = !d.demo;
-  showRate(d.policy_rate, "policy", "Bank of Canada policy rate", "Overnight rate target, as of");
-  showRate(d.prime_rate, "prime", "Prime rate", "Major banks' typical prime, as of", "Variable mortgages are priced off it.");
+  showRate(d.policy_rate, "policy", "BoC policy rate", "*", "fn1");
+  showRate(d.prime_rate, "prime", "Prime rate", "**", "fn2");
   render();
-  if (window.ratesLoaded) window.ratesLoaded(bestRates());
-}).catch(() => {
-  $("updated").textContent = "Couldn't load rates.json. Check that the site has finished deploying, then reload.";
-  if (window.ratesLoaded) window.ratesLoaded({});
-});
-</script>
-
-<script>
-// Payment estimator and crash course. Kept separate so a problem here can never break the rates table above.
-(function(){
-const g = id => document.getElementById(id);
-const money = x => Math.round(x).toLocaleString("en-CA", {style:"currency", currency:"CAD", maximumFractionDigits:0});
-const pc = x => (Math.round(x*1000) % 10 ? x.toFixed(3) : x.toFixed(2)) + "%";
-const h = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const DEF = {price: 650000, down: 20, years: 25, rate: "5-year fixed", custom: 5};  // typical starting values
-let best = {};
-const defRate = () => best[DEF.rate] ? DEF.rate : "custom";
-
-// All the numbers the estimator and the pictures use
-function calc(){
-  const price = +g("price").value, down = +g("down").value, years = +g("years").value, choice = g("rate").value;
-  const rate = choice === "custom" ? +g("custom").value : (best[choice] || {}).rate;
-  if (!(price > 0) || !(down >= 0 && down < 100) || !(rate > 0 && rate < 30)) return null;
-  const variable = choice.indexOf("variable") > -1;
-  const term = Math.min(choice === "custom" ? 5 : parseInt(choice, 10), years);
-  const P = price * (1 - down / 100), n = years * 12;
-  const i = variable ? rate / 1200 : Math.pow(1 + rate / 200, 1 / 6) - 1;
-  const pay = P * i / (1 - Math.pow(1 + i, -n));
-  let bal = P, iy = 0, py = 0;
-  const yrs = [];
-  for (let m = 1; m <= n; m++) {
-    const int = bal * i, pr = pay - int;
-    bal -= pr; iy += int; py += pr;
-    if (m % 12 === 0) { yrs.push({int: iy, pr: py, bal: Math.max(bal, 0)}); iy = py = 0; }
-  }
-  const tm = yrs.slice(0, term), sum = k => tm.reduce((a, y) => a + y[k], 0);
-  return {price, down, years, rate, variable, term, P, n, i, pay, yrs, ti: sum("int"), tp: sum("pr"), tb: tm[tm.length - 1].bal, total: pay * n - P};
-}
-
-function course(c){
-  const dp = c.price * c.down / 100, share = y => Math.round(y.int / (y.int + y.pr) * 100);
-  g("v1").innerHTML = `<div class="bar"><div class="seg a" style="width:${c.down}%" title="Down payment">Down payment ${money(dp)}</div><div class="seg o" style="width:${100 - c.down}%" title="Mortgage">Mortgage ${money(c.P)}</div></div><span class="s">Home price ${money(c.price)}</span>`;
-
-  const segs = [];
-  for (let a = 0, k = 1; a < c.years; a += c.term, k++) {
-    const len = Math.min(c.term, c.years - a);
-    segs.push(`<div class="seg ${k === 1 ? "a" : "o"}" style="flex:${len}" title="Term ${k}: ${len} years">${k === 1 ? "Term 1: rate locked" : k}</div>`);
-  }
-  g("v2").innerHTML = `<div class="bar">${segs.join("")}</div><span class="s">The whole bar is the amortization (${c.years} years). Each box is one ${c.term}-year term. You renew at the end of each box, at whatever rate is on offer then.</span>`;
-
-  g("v3").innerHTML = `<div class="yb">${c.yrs.map((y, k) => `<div class="yc" title="Year ${k + 1}: ${share(y)}% interest, ${100 - share(y)}% principal"><div class="i" style="height:${share(y)}%"></div><div class="p" style="height:${100 - share(y)}%"></div></div>`).join("")}</div>`
-    + `<div class="ax"><span>Year 1</span><span>Year ${c.years}</span></div><div class="lg"><span><i class="sq ow"></i>Interest</span><span><i class="sq ac"></i>Principal</span></div>`
-    + `<p class="m">In year 1, about ${share(c.yrs[0])}% of what you pay is interest. In year ${c.years}, it's about ${share(c.yrs[c.yrs.length - 1])}%.</p>`;
-
-  const row = (label, owe) => { const eq = (c.price - owe) / c.price * 100; return `<div class="eq"><span>${label}</span><div class="bar"><div class="seg a" style="width:${eq}%">You own ${money(c.price - owe)}</div><div class="seg o" style="width:${100 - eq}%">You owe ${money(owe)}</div></div></div>`; };
-  g("v4").innerHTML = row("Day 1", c.P) + row(`After ${c.term} years`, c.tb) + row(`After ${c.years} years`, 0);
-
-  const i1 = c.P * c.i, p1 = c.pay - i1, iStr = c.i.toFixed(6);
-  const fx = c.variable ? `${c.rate}%/12` : `(1+${c.rate}%/2)^(1/6)-1`;
-  g("v5").innerHTML = `<p><b>Try it with your numbers</b></p><ol class="wk">`
-    + `<li>Mortgage amount: ${money(c.price)} − ${money(dp)} = <strong>${money(c.P)}</strong></li>`
-    + `<li>Rate per month: ${c.variable ? `${c.rate}% ÷ 12` : `(1 + ${c.rate}% ÷ 2)^(1/6) − 1`} = <strong>${iStr}</strong> (${(c.i * 100).toFixed(4)}%)</li>`
-    + `<li>Number of payments: ${c.years} × 12 = <strong>${c.n}</strong></li>`
-    + `<li>Payment = ${money(c.P)} × ${iStr} ÷ (1 − (1 + ${iStr})^(−${c.n})) = <strong>${money(c.pay)}</strong></li>`
-    + `<li>Month 1: interest ${money(i1)}, principal ${money(p1)}, new balance ${money(c.P - p1)}</li></ol>`
-    + `<p class="s">Spreadsheet shortcut: <code>=PMT(${fx}, ${c.n}, -${Math.round(c.P)})</code></p>`;
-}
-
-function update(){
-  const c = calc(), r = g("rate").value;
-  const flags = {price: +g("price").value === DEF.price, down: +g("down").value === DEF.down, years: +g("years").value === DEF.years,
-    rate: r === defRate() && (r !== "custom" || +g("custom").value === DEF.custom)};
-  document.querySelectorAll(".df").forEach(e => { e.hidden = !flags[e.dataset.f]; });
-  g("custom").hidden = r !== "custom";
-  g("downAmt").textContent = c ? "= " + money(c.price * c.down / 100) : "";
-  g("estWarn").hidden = !c || c.down >= 20;
-  if (!c) {
-    g("pay").textContent = "—";
-    g("res").innerHTML = "<li>Enter a home price, a down payment under 100%, and an interest rate.</li>";
-    ["v1", "v2", "v3", "v4", "v5"].forEach(id => { g(id).innerHTML = ""; });
-    return;
-  }
-  g("pay").textContent = money(c.pay);
-  g("res").innerHTML = `<li><strong>${money(c.P)}</strong> mortgage: the ${money(c.price)} price minus ${money(c.price * c.down / 100)} down.</li>`
-    + `<li>In your first ${c.term} years, about <strong>${money(c.ti)}</strong> goes to interest and <strong>${money(c.tp)}</strong> reduces what you owe.</li>`
-    + `<li>When that term ends you'd still owe about <strong>${money(c.tb)}</strong>, which you'd renew at the rates of the day.</li>`
-    + `<li>If the rate never changed, total interest over ${c.years} years would be about <strong>${money(c.total)}</strong>.</li>`;
-  course(c);
-}
-
-function setDefaults(){
-  g("price").value = DEF.price; g("down").value = DEF.down; g("years").value = DEF.years;
-  g("rate").value = defRate(); g("custom").value = DEF.custom;
-  update();
-}
-
-window.ratesLoaded = b => {
-  best = b || {};
-  g("rate").innerHTML = Object.keys(best).map(k => `<option value="${h(k)}">Lowest ${h(k)}: ${pc(best[k].rate)} (${h(best[k].names)})</option>`).join("") + '<option value="custom">My own rate</option>';
-  setDefaults();
-};
-["price", "down", "years", "rate", "custom"].forEach(id => g(id).addEventListener("input", update));
-g("rate").addEventListener("change", update);
-g("reset").addEventListener("click", setDefaults);
-})();
+}).catch(() => { $("updated").textContent = "Couldn't load rates.json. Check that the site has finished deploying, then reload."; });
 </script>
 </body>
 </html>
