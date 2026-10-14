@@ -18,7 +18,8 @@ RATE_RE = re.compile(r"(\d{1,2}(?:\.\d{1,3})?)\s*%")
 SKIP_TAGS = ("script", "style", "noscript", "template")
 OUT = Path("rates.json")
 POLICY_URL = "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"  # the page the card links to
-POLICY_API = "https://www.bankofcanada.ca/valet/observations/V39079/json?recent=1"  # the Bank's data feed for the same rate
+VALET = "https://www.bankofcanada.ca/valet/observations/{}/json?recent=1"  # the Bank's official data feed
+PRIME_URL = "https://bankofcanada.ca/rates/banking-and-financial-statistics/posted-interest-rates-offered-by-chartered-banks"
 
 
 def now():
@@ -166,21 +167,30 @@ def scrape_lender(lender):
     return results, errors
 
 
-def policy_rate(api=POLICY_API, page=POLICY_URL):
-    """Read the Bank of Canada's target for the overnight rate from the Bank's official Valet data API."""
+def valet_rate(series, page):
+    """Read the latest value of a Bank of Canada series from the Bank's official Valet data API."""
     import requests
+    api = VALET.format(series)
     if not robots_ok(api):
         raise RuntimeError("robots.txt does not allow fetching the Valet API")
     r = requests.get(api, headers={"User-Agent": USER_AGENT}, timeout=30)
     r.raise_for_status()
     try:
         latest = max(r.json()["observations"], key=lambda o: o["d"])
-        rate = float(latest["V39079"]["v"])
+        rate = float(latest[series]["v"])
     except (KeyError, TypeError, ValueError):
         raise ValueError("unexpected response from the Bank of Canada Valet API")
-    if not 0 <= rate <= 20:
-        raise ValueError(f"policy rate {rate} is outside the plausible range")
+    if not 0 <= rate <= 25:
+        raise ValueError(f"rate {rate} is outside the plausible range")
     return {"rate": rate, "as_of": latest["d"], "source": page, "fetched_at": now(), "stale": False}
+
+
+def policy_rate():  # target for the overnight rate (the policy interest rate)
+    return valet_rate("V39079", POLICY_URL)
+
+
+def prime_rate():  # the major banks' typical prime rate (a weekly series)
+    return valet_rate("V80691311", PRIME_URL)
 
 
 def run():
@@ -217,17 +227,17 @@ def run():
                 errors.append(f"{name} / {product}: {errs.get(product, 'unknown error')}")
                 if publish and (name, product) in old:  # keep the last good value, flagged as stale
                     rates.append({**old[(name, product)], "stale": True})
-    policy = None if prev.get("demo") else prev.get("policy_rate")
-    try:
-        policy = policy_rate()
-        print(f"OK    Bank of Canada policy rate: {policy['rate']}%   (as of {policy['as_of']})")
-    except Exception as e:
-        errors.append(f"Bank of Canada policy rate: {e}")
-        if policy:  # keep the last good value, flagged as stale
-            policy = {**policy, "stale": True}
-    out = {"updated_at": now(), "demo": False, "rates": rates}
-    if policy:
-        out["policy_rate"] = policy
+    extras = {}
+    for key, label, fetch in (("policy_rate", "Bank of Canada policy rate", policy_rate), ("prime_rate", "Prime rate", prime_rate)):
+        kept = None if prev.get("demo") else prev.get(key)
+        try:
+            extras[key] = fetch()
+            print(f"OK    {label}: {extras[key]['rate']}%   (as of {extras[key]['as_of']})")
+        except Exception as e:
+            errors.append(f"{label}: {e}")
+            if kept:  # keep the last good value, flagged as stale
+                extras[key] = {**kept, "stale": True}
+    out = {"updated_at": now(), "demo": False, "rates": rates, **extras}
     OUT.write_text(json.dumps(out, indent=2))
     for e in errors:
         print("ERROR:", e, file=sys.stderr)
