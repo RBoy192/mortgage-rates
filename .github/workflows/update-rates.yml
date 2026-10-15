@@ -37,7 +37,7 @@ jobs:
           git add rates.json
           git diff --cached --quiet || (git commit -m "Update rates" && git push)
       - name: Build site folder
-        run: mkdir site && cp index.html rates.json site/
+        run: mkdir site && cp *.html *.css *.js rates.json site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
