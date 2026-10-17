@@ -13,7 +13,7 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
 // Header with links to each page, plus the light / dark switch (light by default; the visitor's choice is remembered)
 (function(){
   const page = document.body.dataset.page, el = $("site-header");
-  const links = [["estimator", "estimator.html", "Payment estimator"], ["crash", "crash-course.html", "Crash course"]];
+  const links = [["calc", "calculators.html", "Interactive Calculators"], ["crash", "crash-course.html", "Crash course"]];
   el.className = "n";
   el.innerHTML = `<div class="nw"><a class="brand" href="index.html">What's the rate?</a>`
     + links.map(([k, u, t]) => `<a class="nl" href="${u}"${k === page ? ' aria-current="page"' : ""}>${t}</a>`).join("") + `</div>`
@@ -81,4 +81,38 @@ function calc(s, best){
   return {price, downAmt, downPct, insured, prem, premium, P0, P, years, rate, variable, fromTable, term, n, i, pay, yrs,
     ti: sum("int"), tp: sum("pr"), tb: tm[tm.length - 1].bal, total: pay * n - P,
     min: minDown(price), belowMin: downAmt < minDown(price) - 1, overCap: insured && price >= 1.5e6};
+}
+
+// "How much can I afford?" maths. CMHC's maximum debt service ratios are GDS 39% and TDS 44%, and the mortgage payment
+// is tested at the stress-test rate: the greater of the contract rate + 2% or 5.25%.
+const AFF = {income: 100000, debts: 500, tax: 300, heat: 120, condo: 0, saved: 100000, years: 25, rate: "5-year fixed", custom: 5};  // typical starting values
+function loadAfford(){ try { return Object.assign({}, AFF, JSON.parse(localStorage.getItem("afford") || "{}")); } catch (e) { return Object.assign({}, AFF); } }
+function saveAfford(a){ try { localStorage.setItem("afford", JSON.stringify(a)); } catch (e) {} }
+function premPct(price, down, years){
+  if (down >= price * 0.19999) return 0;
+  const ltv = (price - down) / price * 100;
+  return (ltv > 90 ? 4 : ltv > 85 ? 3.1 : 2.8) + (years > 25 ? 0.2 : 0);
+}
+function afford(a, best){
+  const income = +a.income, debts = +a.debts, tax = +a.tax, heat = +a.heat, condo = +a.condo, D = +a.saved, years = +a.years;
+  const fromTable = a.rate !== "custom" && !!best[a.rate];
+  const rate = fromTable ? best[a.rate].rate : +a.custom;
+  if (!(income > 0) || !(D >= 0) || !(rate > 0 && rate < 30) || ![debts, tax, heat, condo].every(x => x >= 0)) return null;
+  const variable = fromTable && a.rate.indexOf("variable") > -1;
+  const mi = income / 12, other = tax + heat + condo * 0.5, n = years * 12, qual = Math.max(rate + 2, 5.25);
+  const monthly = r => variable ? r / 1200 : Math.pow(1 + r / 200, 1 / 6) - 1;
+  const qi = monthly(qual), i = monthly(rate), payFor = (L, ii) => L * ii / (1 - Math.pow(1 + ii, -n));
+  const gdsPay = 0.39 * mi - other, tdsPay = 0.44 * mi - other - debts, maxPay = Math.min(gdsPay, tdsPay);
+  const base = {income, debts, tax, heat, condo, saved: D, years, rate, qual, variable, fromTable, mi, other, gdsPay, tdsPay};
+  if (maxPay <= 0 || D <= 0) return Object.assign(base, {none: true, needDown: D <= 0});
+  const Pmax = maxPay * (1 - Math.pow(1 + qi, -n)) / qi;
+  const loanFor = p => (p - D) * (1 + premPct(p, D, years) / 100);
+  const ok = p => loanFor(p) <= Pmax && D >= minDown(p) - 0.5 && !(p >= 1.5e6 && D < p * 0.2 - 0.5);
+  let lo = D + 1, hi = D + Pmax * 2 + 1;
+  for (let k = 0; k < 60; k++) { const mid = (lo + hi) / 2; if (ok(mid)) lo = mid; else hi = mid; }
+  const price = Math.floor(lo / 1000) * 1000;
+  const prem = premPct(price, D, years), L0 = price - D, premium = L0 * prem / 100, L = L0 + premium;
+  const qpay = payFor(L, qi);
+  return Object.assign(base, {price, L0, prem, premium, L, Pmax, qpay, pay: payFor(L, i), insured: prem > 0,
+    gds: (qpay + other) / mi * 100, tds: (qpay + other + debts) / mi * 100, limit: gdsPay <= tdsPay ? "GDS" : "TDS"});
 }

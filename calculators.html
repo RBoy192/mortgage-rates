@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interactive Calculators | What's the rate?</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="calc">
+<main id="top">
+<header id="site-header"></header>
+<div class="pg">
+<h1>Interactive Calculators</h1>
+<p class="m jump">On this page: <a href="#payment">Monthly payment calculator</a> · <a href="#afford">How much can I afford?</a> · More calculators are coming soon.</p>
+
+<section id="payment" style="margin-top:32px">
+<h2>Monthly payment calculator</h2>
+<p class="m">We've filled in typical starting values so you can see a result right away. Change any of them to fit your situation, or <button class="lk" id="reset" type="button">reset to defaults</button>.</p>
+<div class="est">
+<div class="fl">
+<label>Home price <span class="df" data-f="price">default</span><input id="price" type="number" inputmode="numeric" min="0" step="5000"></label>
+<label>Down payment <span class="df" data-f="down">default</span><span class="sg" role="group" aria-label="Enter the down payment as"><button type="button" id="mpct" aria-pressed="true">%</button><button type="button" id="mamt" aria-pressed="false">$</button></span><input id="down" type="number" inputmode="decimal" min="0" step="1"><span class="s" id="downAmt"></span></label>
+<label>Amortization (years) <span class="df" data-f="years">default</span><select id="years"><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option></select></label>
+<label>Interest rate <span class="df" data-f="rate">default</span><select id="rate"></select><input id="custom" type="number" inputmode="decimal" step="0.01" min="0" hidden aria-label="Your own interest rate in percent"></label>
+<label>Term (years) <span class="df" data-f="term">default</span><select id="term"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>7</option><option>10</option></select><span class="s">Set by the rate you pick, unless you enter your own.</span></label>
+</div>
+<div class="res"><span class="m">Estimated payment</span><b id="pay">—</b><span class="s">per month</span><ul id="res"></ul></div>
+</div>
+<div id="msgs"></div>
+<p class="f">This is an estimate. It compounds interest the way Canadian lenders do (fixed rates twice a year, variable rates monthly) and leaves out property tax, home insurance and fees, so your lender's figures will differ a little. The starting values are typical placeholders, not averages for your area.</p>
+</section>
+
+<section id="afford">
+<h2>How much can I afford?</h2>
+<p class="m">Enter your income and the down payment you've saved. Everything else starts with a typical number (marked "default"), so change whatever you know to be different, or <button class="lk" id="a_reset" type="button">reset to defaults</button>. It uses the debt service limits CMHC applies to insured mortgages. <a href="crash-course.html#gds">How GDS and TDS work</a></p>
+<div class="est">
+<div class="fl">
+<label>Household income before tax, per year <span class="df" data-f="income">default</span><input id="a_income" type="number" inputmode="numeric" min="0" step="1000"></label>
+<label>Down payment saved <span class="df" data-f="saved">default</span><input id="a_saved" type="number" inputmode="numeric" min="0" step="5000"></label>
+<label>Monthly debt payments <span class="df" data-f="debts">default</span><input id="a_debts" type="number" inputmode="numeric" min="0" step="50"><span class="s">Car loans, credit cards, lines of credit, student loans. Use the minimum payments.</span></label>
+<details class="as"><summary>Assumptions you can change</summary>
+<div class="fl">
+<label>Property tax per month <span class="df" data-f="tax">default</span><input id="a_tax" type="number" inputmode="numeric" min="0" step="25"></label>
+<label>Heating per month <span class="df" data-f="heat">default</span><input id="a_heat" type="number" inputmode="numeric" min="0" step="10"></label>
+<label>Condo fees per month <span class="df" data-f="condo">default</span><input id="a_condo" type="number" inputmode="numeric" min="0" step="25"><span class="s">Lenders count half of condo fees.</span></label>
+<label>Amortization (years) <span class="df" data-f="years">default</span><select id="a_years"><option>15</option><option>20</option><option>25</option><option>30</option></select></label>
+<label>Interest rate <span class="df" data-f="rate">default</span><select id="a_rate"></select><input id="a_custom" type="number" inputmode="decimal" step="0.01" min="0" hidden aria-label="Your own interest rate in percent"></label>
+</div></details>
+</div>
+<div class="res"><span class="m">You could afford a home up to about</span><b id="a_price">—</b><ul id="a_res"></ul></div>
+</div>
+<div id="a_msgs"></div>
+<p class="f">This is an estimate, not an approval. Lenders also look at your credit, employment and other details, and some use different limits, so you may qualify for more or less. The mortgage payment is tested at a higher "stress-test" rate than you'd actually pay: the greater of your rate plus 2% or 5.25%. Property tax, heating and the other starting values are typical placeholders, not averages for your area.</p>
+</section>
+</div>
+</main>
+<script src="site.js"></script>
+<script>
+// Monthly payment calculator
+(function(){
+let s = loadState(), best = {};
+const defRate = () => best[DEF.rate] ? DEF.rate : "custom";
+const write = () => { $("price").value = s.price; $("down").value = s.down; $("years").value = s.years; $("rate").value = s.rate; $("custom").value = s.custom; $("term").value = s.term; };
+const read = () => { s = {price: +$("price").value, down: +$("down").value, mode: s.mode, years: +$("years").value, rate: $("rate").value, custom: +$("custom").value, term: +$("term").value}; };
+
+function update(){
+  read(); saveState(s);
+  const c = calc(s, best), table = s.rate !== "custom" && !!best[s.rate];
+  $("mpct").setAttribute("aria-pressed", s.mode === "pct"); $("mamt").setAttribute("aria-pressed", s.mode === "amt");
+  $("down").step = s.mode === "amt" ? 5000 : 1;
+  $("custom").hidden = s.rate !== "custom";
+  $("term").disabled = table;
+  if (table) $("term").value = parseInt(s.rate, 10);
+  const flags = {price: s.price === DEF.price, years: s.years === DEF.years, term: s.term === DEF.term,
+    down: s.mode === "pct" ? s.down === DEF.down : Math.abs(s.down - s.price * DEF.down / 100) < 1,
+    rate: s.rate === defRate() && (s.rate !== "custom" || s.custom === DEF.custom)};
+  document.querySelectorAll("#payment .df").forEach(e => { e.hidden = !flags[e.dataset.f] || (e.dataset.f === "term" && table); });
+  $("downAmt").textContent = s.mode === "pct" ? (c ? "= " + money(c.downAmt) : "") : (s.price > 0 ? "= " + (s.down / s.price * 100).toFixed(1) + "% of the price" : "");
+  const msgs = [];
+  if (c) {
+    if (c.belowMin) msgs.push(["w", `Your down payment is below the minimum for this price, about ${money(c.min)} (${(c.min / c.price * 100).toFixed(1)}%). In Canada the minimum is 5% of the first $500,000 plus 10% of the part up to $1.5 million, and 20% from $1.5 million.`]);
+    if (c.overCap) msgs.push(["w", "Mortgage insurance isn't available for homes of $1.5 million or more, so at least 20% down is required."]);
+    if (c.insured) msgs.push(["", `<b>Insured mortgage.</b> With less than 20% down, your mortgage needs default insurance. The estimate adds the premium (${c.prem.toFixed(2)}% of the mortgage, ${money(c.premium)}) to your mortgage. <a href="crash-course.html#insurance">How insurance works</a>`]);
+    if (c.insured && c.years > 25) msgs.push(["", "Insured mortgages are normally limited to 25-year amortizations. Some buyers, such as first-time buyers and buyers of new builds, can choose 30 years, which adds 0.20% to the premium."]);
+  }
+  $("msgs").innerHTML = msgs.map(([k, t]) => `<p class="msg ${k}">${t}</p>`).join("");
+  if (!c) {
+    $("pay").textContent = "—";
+    $("res").innerHTML = "<li>Enter a home price, a down payment smaller than the price, and an interest rate.</li>";
+    return;
+  }
+  $("pay").textContent = money(c.pay);
+  $("res").innerHTML = (c.insured
+      ? `<li>Mortgage insurance: <strong>${money(c.premium)}</strong> (${c.prem.toFixed(2)}%), added to your ${money(c.P0)} mortgage for <strong>${money(c.P)}</strong> in total.</li>`
+      : `<li><strong>${money(c.P)}</strong> mortgage: the ${money(c.price)} price minus ${money(c.downAmt)} down. No insurance is needed.</li>`)
+    + `<li>Interest over your ${c.term}-year term: <strong>${money(c.ti)}</strong>. You'd also repay ${money(c.tp)} of principal.</li>`
+    + `<li>Balance when the term ends: about <strong>${money(c.tb)}</strong>, which you'd renew at the rates of the day.</li>`
+    + `<li>Interest over the full ${c.years}-year amortization: <strong>${money(c.total)}</strong>, if the rate never changed.</li>`;
+}
+function setMode(m){
+  if (m === s.mode) return;
+  const price = +$("price").value || DEF.price, v = +$("down").value || 0;
+  $("down").value = m === "amt" ? Math.round(price * v / 100) : +(v / price * 100).toFixed(2);
+  s.mode = m; update();
+}
+function ready(b){
+  best = b || {};
+  $("rate").innerHTML = Object.keys(best).map(k => `<option value="${esc(k)}">Lowest ${esc(k)}: ${pct(best[k].rate)} (${esc(best[k].names)})</option>`).join("") + '<option value="custom">My own rate</option>';
+  if (!Array.from($("rate").options).some(o => o.value === s.rate)) s.rate = defRate();
+  write(); update();
+}
+$("mpct").onclick = () => setMode("pct");
+$("mamt").onclick = () => setMode("amt");
+["price", "down", "years", "rate", "custom", "term"].forEach(id => $(id).addEventListener("input", update));
+$("rate").addEventListener("change", update);
+$("reset").onclick = () => { s = Object.assign({}, DEF, {rate: defRate()}); write(); update(); };
+loadRates().then(d => ready(bestRates(groupLenders(d)))).catch(() => ready({}));
+})();
+</script>
+<script>
+// "How much can I afford?" calculator
+(function(){
+let a = loadAfford(), best = {};
+const IDS = ["income", "saved", "debts", "tax", "heat", "condo", "years", "rate", "custom"];
+const g = id => $("a_" + id);
+const defRate = () => best[AFF.rate] ? AFF.rate : "custom";
+const write = () => IDS.forEach(k => { g(k).value = a[k]; });
+const read = () => { const o = {}; IDS.forEach(k => { o[k] = k === "rate" ? g(k).value : +g(k).value; }); a = o; };
+
+function update(){
+  read(); saveAfford(a);
+  const r = afford(a, best);
+  g("custom").hidden = a.rate !== "custom";
+  const flags = {income: a.income === AFF.income, saved: a.saved === AFF.saved, debts: a.debts === AFF.debts, tax: a.tax === AFF.tax, heat: a.heat === AFF.heat,
+    condo: a.condo === AFF.condo, years: a.years === AFF.years, rate: a.rate === defRate() && (a.rate !== "custom" || a.custom === AFF.custom)};
+  document.querySelectorAll("#afford .df").forEach(e => { e.hidden = !flags[e.dataset.f]; });
+  $("a_msgs").innerHTML = "";
+  if (!r) { $("a_price").textContent = "—"; $("a_res").innerHTML = "<li>Enter your income, a down payment, and an interest rate.</li>"; return; }
+  if (r.none) {
+    $("a_price").textContent = "—";
+    $("a_res").innerHTML = r.needDown ? "<li>Enter the down payment you've saved to see a price.</li>"
+      : `<li>With these numbers, tax, heat and condo fees (${money(r.other)} a month) plus your debts already use up the share of income lenders allow, so there's nothing left for a mortgage payment.</li>`;
+    return;
+  }
+  $("a_price").textContent = money(r.price);
+  $("a_res").innerHTML = `<li>Maximum mortgage: <strong>${money(r.L)}</strong>${r.insured ? ` (${money(r.L0)} plus ${money(r.premium)} mortgage insurance)` : ""}.</li>`
+    + `<li>Your ${money(r.saved)} down payment is ${(r.saved / r.price * 100).toFixed(1)}% of that price${r.insured ? ", so the mortgage needs insurance" : ""}.</li>`
+    + `<li>Stress-test rate: <strong>${r.qual.toFixed(2)}%</strong>, the greater of your ${pct(r.rate)} rate plus 2% or 5.25%.</li>`
+    + `<li>Payment at your ${pct(r.rate)} rate: <strong>${money(r.pay)}</strong> a month. Lenders test you at ${money(r.qpay)}.</li>`
+    + `<li>GDS ${r.gds.toFixed(1)}% (limit 39%) and TDS ${r.tds.toFixed(1)}% (limit 44%). The tighter limit is <strong>${r.limit}</strong>.</li>`;
+  if (r.insured && r.years > 25) $("a_msgs").innerHTML = '<p class="msg">Insured mortgages are normally limited to 25-year amortizations. Some buyers, such as first-time buyers and buyers of new builds, can choose 30 years, which adds 0.20% to the premium.</p>';
+}
+function ready(b){
+  best = b || {};
+  g("rate").innerHTML = Object.keys(best).map(k => `<option value="${esc(k)}">Lowest ${esc(k)}: ${pct(best[k].rate)} (${esc(best[k].names)})</option>`).join("") + '<option value="custom">My own rate</option>';
+  if (!Array.from(g("rate").options).some(o => o.value === a.rate)) a.rate = defRate();
+  write(); update();
+}
+IDS.forEach(k => g(k).addEventListener("input", update));
+g("rate").addEventListener("change", update);
+$("a_reset").onclick = () => { a = Object.assign({}, AFF, {rate: defRate()}); write(); update(); };
+loadRates().then(d => ready(bestRates(groupLenders(d)))).catch(() => ready({}));
+})();
+</script>
+</body>
+</html>
