@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How much income do I need? | What's the rate?</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="calc">
+<main id="top">
+<header id="site-header"></header>
+<div class="pg">
+<p class="back"><a href="calculators.html">← All calculators</a></p>
+<h1>How much income do I need?</h1>
+<p class="m">Already have a home in mind? Enter its price, your down payment and your monthly debts to see the income you'd need to qualify. Everything else starts with a typical number (marked "default"), including the qualifying percentages, so change whatever you know to be different, or <button class="lk" id="n_reset" type="button">reset to defaults</button>. <a href="crash-gds.html">How GDS and TDS work</a></p>
+<div class="est">
+<div class="fl">
+<label>Home price <span class="df" data-f="price">default</span><input id="n_price" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
+<label>Down payment <span class="df" data-f="saved">default</span><input id="n_saved" type="text" inputmode="numeric" data-money="1" autocomplete="off"><span class="s" id="n_pct"></span></label>
+<label>Monthly debt payments <span class="df" data-f="debts">default</span><input id="n_debts" type="text" inputmode="numeric" data-money="1" autocomplete="off"><span class="s">Car loans, credit cards, lines of credit, student loans. Use the minimum payments.</span></label>
+<details class="as"><summary>Assumptions you can change</summary>
+<div class="fl">
+<label>Property tax per month <span class="df" data-f="tax">default</span><input id="n_tax" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
+<label>Heating per month <span class="df" data-f="heat">default</span><input id="n_heat" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
+<label>Condo fees per month <span class="df" data-f="condo">default</span><input id="n_condo" type="text" inputmode="numeric" data-money="1" autocomplete="off"><span class="s">Lenders count half of condo fees.</span></label>
+<label>Amortization (years) <span class="df" data-f="years">default</span><select id="n_years"><option>15</option><option>20</option><option>25</option><option>30</option></select></label>
+<label>Interest rate <span class="df" data-f="rate">default</span><select id="n_rate"></select><input id="n_custom" type="number" inputmode="decimal" step="0.01" min="0" hidden aria-label="Your own interest rate in percent"></label>
+</div></details>
+<details class="as"><summary>Qualifying rules (CMHC defaults, editable)</summary>
+<div class="fl">
+<label>GDS limit (%) <span class="df" data-f="gds">default</span><input id="n_gds" type="number" inputmode="decimal" step="0.5" min="0"></label>
+<label>TDS limit (%) <span class="df" data-f="tds">default</span><input id="n_tds" type="number" inputmode="decimal" step="0.5" min="0"></label>
+<label>Stress test: add to your rate (%) <span class="df" data-f="stress">default</span><input id="n_stress" type="number" inputmode="decimal" step="0.25" min="0"></label>
+<label>Stress test: minimum qualifying rate (%) <span class="df" data-f="floor">default</span><input id="n_floor" type="number" inputmode="decimal" step="0.25" min="0"></label>
+</div></details>
+</div>
+<div class="res"><span class="m">You'd need a household income of about</span><b id="n_income">—</b><span class="s">per year, before tax</span><ul id="n_res"></ul></div>
+</div>
+<div id="n_msgs"></div>
+<p class="f">This is an estimate, not an approval. Lenders also look at your credit, employment and other details, and some use different limits, so the income you need may be higher or lower. The mortgage payment is tested at a higher "stress-test" rate than you'd actually pay. Property tax, heating and the other starting values are typical placeholders, not averages for your area.</p>
+<p id="src" data-keys="gds,plan"></p>
+</div>
+</main>
+<script src="site.js"></script>
+<script>
+(function(){
+let n = loadNeed(), best = {};
+const IDS = ["price", "saved", "debts", "tax", "heat", "condo", "years", "rate", "custom", "gds", "tds", "stress", "floor"];
+const g = id => $("n_" + id);
+const defRate = () => best[NEED.rate] ? NEED.rate : "custom";
+const write = () => IDS.forEach(k => { setv("n_" + k, n[k]); });
+const read = () => { const o = {}; IDS.forEach(k => { o[k] = k === "rate" ? g(k).value : val("n_" + k); }); n = o; };
+
+function update(){
+  read(); saveNeed(n);
+  const r = need(n, best);
+  g("custom").hidden = n.rate !== "custom";
+  const flags = {rate: n.rate === defRate() && (n.rate !== "custom" || n.custom === NEED.custom)};
+  ["price", "saved", "debts", "tax", "heat", "condo", "years", "gds", "tds", "stress", "floor"].forEach(k => { flags[k] = n[k] === NEED[k]; });
+  document.querySelectorAll(".df").forEach(e => { e.hidden = !flags[e.dataset.f]; });
+  $("n_pct").textContent = n.price > 0 ? "= " + (n.saved / n.price * 100).toFixed(1) + "% of the price" : "";
+  const msgs = [];
+  if (r) {
+    if (r.belowMin) msgs.push(["w", `Your down payment is below the minimum for this price, about ${money(r.min)} (${(r.min / r.price * 100).toFixed(1)}%). In Canada the minimum is 5% of the first $500,000 plus 10% of the part up to $1.5 million, and 20% from $1.5 million.`]);
+    if (r.overCap) msgs.push(["w", "Mortgage insurance isn't available for homes of $1.5 million or more, so at least 20% down is required."]);
+    if (r.insured) msgs.push(["", `<b>Insured mortgage.</b> With less than 20% down, your mortgage needs default insurance. The premium (${r.prem.toFixed(2)}%, ${money(r.premium)}) is added to your mortgage before the ratios are worked out. <a href="crash-insurance.html">How insurance works</a>`]);
+    if (r.insured && r.years > 25) msgs.push(["", "Insured mortgages are normally limited to 25-year amortizations. Some buyers, such as first-time buyers and buyers of new builds, can choose 30 years, which adds 0.20% to the premium."]);
+  }
+  $("n_msgs").innerHTML = msgs.map(([k, t]) => `<p class="msg ${k}">${t}</p>`).join("");
+  if (!r) { $("n_income").textContent = "—"; $("n_res").innerHTML = "<li>Enter a home price, a down payment smaller than the price, an interest rate and the qualifying percentages.</li>"; return; }
+  $("n_income").textContent = money(r.income);
+  $("n_res").innerHTML = `<li>Mortgage: <strong>${money(r.L)}</strong>${r.insured ? ` (${money(r.L0)} plus ${money(r.premium)} mortgage insurance)` : ""}.</li>`
+    + `<li>Stress-test rate: <strong>${r.qual.toFixed(2)}%</strong>, the greater of your ${pct(r.rate)} rate plus ${n.stress}% or ${n.floor}%. Lenders test your payment at ${money(r.qpay)} a month.</li>`
+    + `<li>Monthly housing costs at that payment: <strong>${money(r.housing)}</strong> (payment plus tax, heat and half of condo fees).</li>`
+    + `<li>Income needed to pass GDS (${n.gds}%): <strong>${money(r.incGds)}</strong> a year.</li>`
+    + `<li>Income needed to pass TDS (${n.tds}%, with ${money(r.debts)} a month of other debts): <strong>${money(r.incTds)}</strong> a year.</li>`
+    + `<li>The higher of the two is what you need: <strong>${r.limit}</strong> is the tighter limit. At your ${pct(r.rate)} rate, the actual payment would be ${money(r.pay)} a month.</li>`;
+}
+function ready(b){
+  best = b || {};
+  g("rate").innerHTML = Object.keys(best).map(k => `<option value="${esc(k)}">Lowest ${esc(k)}: ${pct(best[k].rate)} (${esc(best[k].names)})</option>`).join("") + '<option value="custom">My own rate</option>';
+  if (!Array.from(g("rate").options).some(o => o.value === n.rate)) n.rate = defRate();
+  write(); update();
+}
+IDS.forEach(k => g(k).addEventListener("input", update));
+g("rate").addEventListener("change", update);
+$("n_reset").onclick = () => { n = Object.assign({}, NEED, {rate: defRate()}); write(); update(); };
+loadRates().then(d => ready(bestRates(groupLenders(d)))).catch(() => ready({}));
+})();
+</script>
+</body>
+</html>

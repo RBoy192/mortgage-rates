@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do the math yourself | What's the rate?</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="crash" data-chapter="math">
+<main id="top">
+<header id="site-header"></header>
+<div class="pg">
+<p class="back"><a href="crash-course.html">← Crash course</a></p>
+<h1>Do the math yourself</h1>
+<div class="cc"><article>
+<ol class="wk">
+<li><b>Mortgage amount</b> = home price − down payment. If you put down less than 20%, add the insurance premium too.</li>
+<li><b>Rate per month</b> (call it <i>i</i>). Fixed: (1 + annual rate ÷ 2)^(1/6) − 1, because <a href="https://calculators.clovermortgage.ca/calculators/mortgage-payment" target="_blank" rel="noopener">Canadian fixed rates compound twice a year<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="vh"> (opens in a new tab)</span></a>. Variable: annual rate ÷ 12, since variable rates usually compound monthly.</li>
+<li><b>Number of payments</b> (<i>n</i>) = years × 12</li>
+<li><b>Monthly payment</b> = mortgage × <i>i</i> ÷ (1 − (1 + <i>i</i>)^(−<i>n</i>))</li>
+<li><b>Each month:</b> interest = balance × <i>i</i>. Principal = payment − interest. New balance = balance − principal. Then repeat.</li>
+<li><b>Equity</b> = what the home is worth − what you still owe</li>
+</ol>
+<p><b>The whole formula in one line</b> (steps 2 to 4 combined):</p>
+<span class="fm">Fixed rate:     Payment = P × [(1 + r÷2)^(1÷6) − 1] ÷ [1 − (1 + r÷2)^(−2 × y)]
+Variable rate:  Payment = P × (r÷12) ÷ [1 − (1 + r÷12)^(−12 × y)]</span>
+<p class="s">P = mortgage amount (plus any insurance premium) · r = yearly rate as a decimal (4.84% is 0.0484) · y = amortization in years</p>
+<p class="m">Examples use your numbers from the <a href="calculators.html">interactive calculators</a>: <span id="using">loading…</span>.</p>
+<div id="v"></div>
+</article></div>
+<p id="src" data-keys="clover"></p>
+<nav class="pn"><a href="crash-gds.html">← How much can you borrow? GDS and TDS</a><a href="crash-offline.html">Offline calculator →</a></nav>
+</div>
+</main>
+<script src="site.js"></script>
+<script src="crash.js"></script>
+</body>
+</html>

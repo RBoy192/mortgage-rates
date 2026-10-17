@@ -22,8 +22,8 @@
 <p class="f">Click a heading to sort by lowest rate. A dash means the lender doesn't list that rate.</p>
 <p class="f">Rates are collected automatically from each lender's website. Where a lender lists both posted and special-offer rates, this page shows the special-offer rate. Rates may be out of date or incomplete, so confirm the current rate and terms with the lender before you decide.</p>
 <p class="f"><b>Your rate may be lower.</b> The rates on this page are the ones each lender advertises publicly. Many banks also offer relationship pricing (sometimes called relationship value, or RVR), which can give existing clients a rate lower than the posted rate, depending on the products they hold with the bank and their overall relationship. The rate you're actually offered also depends on your own situation, such as your down payment, credit and the type of mortgage. Ask each lender what relationship pricing they can offer before you decide.</p>
-<p class="f" id="fn1" hidden><b>* BoC policy rate:</b> the Bank of Canada's target for the overnight rate, which is what big financial institutions charge each other for one-day loans. When it changes, banks usually move their prime rates too, which affects variable-rate mortgages. As of <span id="fn1d"></span>.</p>
-<p class="f" id="fn2" hidden><b>** Prime rate:</b> the typical prime lending rate of Canada's major banks, published weekly. Variable-rate mortgages are priced off prime. Each lender sets its own prime rate, so yours may differ slightly. As of <span id="fn2d"></span>.</p>
+<p class="f" id="fn1" hidden><b>* BoC policy rate:</b> the Bank of Canada's target for the overnight rate, which is what big financial institutions charge each other for one-day loans. When it changes, banks usually move their prime rates too, which affects variable-rate mortgages.</p>
+<p class="f" id="fn2" hidden><b>** Prime rate:</b> the typical prime lending rate of Canada's major banks, published weekly. Variable-rate mortgages are priced off prime. Each lender sets its own prime rate, so yours may differ slightly.</p>
 </main>
 <script src="site.js"></script>
 <script>
@@ -55,12 +55,11 @@ $("head").onclick = e => {
 };
 
 // Bank of Canada figures: label links to the source, an asterisk points to the note at the bottom
-function showRate(p, id, label, mark, fn){
+function showRate(p, id, label, mark, fn, last, next){
   if (!p) return;
-  const when = new Date((p.as_of || p.decision_date) + "T12:00:00").toLocaleDateString([], {dateStyle:"medium"});
-  $(id).innerHTML = `<a href="${esc(p.source)}" target="_blank" rel="noopener">${label}${EXT}</a><b>${pct(p.rate)}<sup>${mark}</sup></b>` + (p.stale ? '<span class="s sw">Not refreshed</span>' : "");
+  $(id).innerHTML = `<a href="${esc(p.source)}" target="_blank" rel="noopener">${label}${EXT}</a><b>${pct(p.rate)}<sup>${mark}</sup></b>`
+    + `<span class="s sm">Last updated: ${last}</span><span class="s sm">Next update: ${next}</span>` + (p.stale ? '<span class="s sw">Not refreshed</span>' : "");
   $(id).hidden = false;
-  $(fn + "d").textContent = when;
   $(fn).hidden = false;
 }
 
@@ -87,8 +86,18 @@ loadRates().then(d => {
   lenders = groupLenders(d);
   updatedAt = d.updated_at; tick();
   $("demo").hidden = !d.demo;
-  showRate(d.policy_rate, "policy", "BoC policy rate", "*", "fn1");
-  showRate(d.prime_rate, "prime", "Prime rate", "**", "fn2");
+  const today = todayISO();
+  if (d.policy_rate) {
+    // The Bank announces on fixed dates, so "last" and "next" come from its published schedule
+    const last = BOC_DATES.filter(x => x <= today).pop(), next = BOC_DATES.find(x => x > today);
+    showRate(d.policy_rate, "policy", "BoC policy rate", "*", "fn1", dstr(last || d.policy_rate.as_of), next ? dstr(next) : "see the Bank's schedule");
+  }
+  if (d.prime_rate) {
+    // Prime is published weekly, so the next update is a week after the latest figure
+    let next = addDays(d.prime_rate.as_of, 7);
+    while (next <= today) next = addDays(next, 7);
+    showRate(d.prime_rate, "prime", "Prime rate", "**", "fn2", dstr(d.prime_rate.as_of), dstr(next));
+  }
   render();
 }).catch(() => { $("updated").textContent = "Couldn't load rates.json. Check that the site has finished deploying, then reload."; });
 </script>

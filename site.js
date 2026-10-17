@@ -85,7 +85,7 @@ function calc(s, best){
 
 // "How much can I afford?" maths. CMHC's maximum debt service ratios are GDS 39% and TDS 44%, and the mortgage payment
 // is tested at the stress-test rate: the greater of the contract rate + 2% or 5.25%.
-const AFF = {income: 100000, debts: 500, tax: 300, heat: 120, condo: 0, saved: 100000, years: 25, rate: "5-year fixed", custom: 5};  // typical starting values
+const AFF = {income: 100000, debts: 500, tax: 300, heat: 120, condo: 0, saved: 100000, years: 25, rate: "5-year fixed", custom: 5, gds: 39, tds: 44, stress: 2, floor: 5.25};  // typical starting values
 function loadAfford(){ try { return Object.assign({}, AFF, JSON.parse(localStorage.getItem("afford") || "{}")); } catch (e) { return Object.assign({}, AFF); } }
 function saveAfford(a){ try { localStorage.setItem("afford", JSON.stringify(a)); } catch (e) {} }
 function premPct(price, down, years){
@@ -97,13 +97,13 @@ function afford(a, best){
   const income = +a.income, debts = +a.debts, tax = +a.tax, heat = +a.heat, condo = +a.condo, D = +a.saved, years = +a.years;
   const fromTable = a.rate !== "custom" && !!best[a.rate];
   const rate = fromTable ? best[a.rate].rate : +a.custom;
-  if (!(income > 0) || !(D >= 0) || !(rate > 0 && rate < 30) || ![debts, tax, heat, condo].every(x => x >= 0)) return null;
+  if (!(income > 0) || !(D >= 0) || !(rate > 0 && rate < 30) || !(+a.gds > 0) || !(+a.tds > 0) || ![debts, tax, heat, condo].every(x => x >= 0)) return null;
   const variable = fromTable && a.rate.indexOf("variable") > -1;
-  const mi = income / 12, other = tax + heat + condo * 0.5, n = years * 12, qual = Math.max(rate + 2, 5.25);
+  const mi = income / 12, other = tax + heat + condo * 0.5, n = years * 12, qual = Math.max(rate + (+a.stress), +a.floor);
   const monthly = r => variable ? r / 1200 : Math.pow(1 + r / 200, 1 / 6) - 1;
   const qi = monthly(qual), i = monthly(rate), payFor = (L, ii) => L * ii / (1 - Math.pow(1 + ii, -n));
-  const gdsPay = 0.39 * mi - other, tdsPay = 0.44 * mi - other - debts, maxPay = Math.min(gdsPay, tdsPay);
-  const base = {income, debts, tax, heat, condo, saved: D, years, rate, qual, variable, fromTable, mi, other, gdsPay, tdsPay};
+  const gdsPay = (+a.gds / 100) * mi - other, tdsPay = (+a.tds / 100) * mi - other - debts, maxPay = Math.min(gdsPay, tdsPay);
+  const base = {income, debts, tax, heat, condo, saved: D, years, rate, qual, variable, fromTable, mi, other, gdsPay, tdsPay, gdsLimit: +a.gds, tdsLimit: +a.tds};
   if (maxPay <= 0 || D <= 0) return Object.assign(base, {none: true, needDown: D <= 0});
   const Pmax = maxPay * (1 - Math.pow(1 + qi, -n)) / qi;
   const loanFor = p => (p - D) * (1 + premPct(p, D, years) / 100);
@@ -116,3 +116,59 @@ function afford(a, best){
   return Object.assign(base, {price, L0, prem, premium, L, Pmax, qpay, pay: payFor(L, i), insured: prem > 0,
     gds: (qpay + other) / mi * 100, tds: (qpay + other + debts) / mi * 100, limit: gdsPay <= tdsPay ? "GDS" : "TDS"});
 }
+
+// "How much income do I need?" maths: the reverse of the affordability calculator
+const NEED = {price: 500000, saved: 100000, debts: 500, tax: 300, heat: 120, condo: 0, years: 25, rate: "5-year fixed", custom: 5, gds: 39, tds: 44, stress: 2, floor: 5.25};
+function loadNeed(){ try { return Object.assign({}, NEED, JSON.parse(localStorage.getItem("need") || "{}")); } catch (e) { return Object.assign({}, NEED); } }
+function saveNeed(n){ try { localStorage.setItem("need", JSON.stringify(n)); } catch (e) {} }
+function need(n, best){
+  const price = +n.price, D = +n.saved, debts = +n.debts, tax = +n.tax, heat = +n.heat, condo = +n.condo, years = +n.years;
+  const fromTable = n.rate !== "custom" && !!best[n.rate];
+  const rate = fromTable ? best[n.rate].rate : +n.custom;
+  if (!(price > 0) || !(D >= 0 && D < price) || !(rate > 0 && rate < 30) || !(+n.gds > 0) || !(+n.tds > 0) || ![debts, tax, heat, condo].every(x => x >= 0)) return null;
+  const variable = fromTable && n.rate.indexOf("variable") > -1, nper = years * 12, qual = Math.max(rate + (+n.stress), +n.floor);
+  const monthly = r => variable ? r / 1200 : Math.pow(1 + r / 200, 1 / 6) - 1, qi = monthly(qual), i = monthly(rate);
+  const payFor = (L, ii) => L * ii / (1 - Math.pow(1 + ii, -nper));
+  const prem = premPct(price, D, years), L0 = price - D, premium = L0 * prem / 100, L = L0 + premium;
+  const qpay = payFor(L, qi), other = tax + heat + condo * 0.5, housing = qpay + other;
+  const incGds = housing / (+n.gds / 100) * 12, incTds = (housing + debts) / (+n.tds / 100) * 12;
+  return {price, saved: D, downPct: D / price * 100, debts, tax, heat, condo, years, rate, qual, variable, fromTable, prem, premium, L0, L, insured: prem > 0,
+    qpay, pay: payFor(L, i), other, housing, incGds, incTds, income: Math.max(incGds, incTds), limit: incGds >= incTds ? "GDS" : "TDS",
+    min: minDown(price), belowMin: D < minDown(price) - 1, overCap: prem > 0 && price >= 1.5e6};
+}
+
+// Numbers typed into money boxes (data-money="1") get thousands commas automatically
+const val = id => parseFloat(String($(id).value).replace(/,/g, "")) || 0;
+function commaFormat(el){
+  const raw = el.value, digitsBefore = raw.slice(0, el.selectionStart || 0).replace(/[^0-9.]/g, "").length;
+  const parts = raw.replace(/[^0-9.]/g, "").split(".");
+  const int = parts[0].replace(/^0+(?=\d)/, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const out = int + (parts.length > 1 ? "." + parts.slice(1).join("").slice(0, 2) : "");
+  el.value = out;
+  let seen = 0, p = 0;
+  while (p < out.length && seen < digitsBefore) { if (/[0-9.]/.test(out[p])) seen++; p++; }
+  try { el.setSelectionRange(p, p); } catch (e) {}
+}
+function setv(id, v){ const el = $(id); el.value = el.dataset.money === "1" ? Number(v).toLocaleString("en-CA", {maximumFractionDigits: 2}) : v; }
+document.addEventListener("input", e => { if (e.target.dataset && e.target.dataset.money === "1") commaFormat(e.target); }, true);
+
+// Bank of Canada announcement dates (from the Bank's Policy interest rate page). Add next year's dates when the Bank publishes them.
+const BOC_DATES = ["2026-01-28", "2026-03-18", "2026-04-29", "2026-06-10", "2026-07-15", "2026-09-02", "2026-10-28", "2026-12-09",
+  "2027-01-27", "2027-03-03", "2027-04-28", "2027-06-02", "2027-07-21", "2027-09-08", "2027-10-27", "2027-12-08"];
+const dstr = iso => new Date(iso + "T12:00:00").toLocaleDateString([], {dateStyle: "medium"});
+function todayISO(){ const t = new Date(); return t.getFullYear() + "-" + String(t.getMonth() + 1).padStart(2, "0") + "-" + String(t.getDate()).padStart(2, "0"); }
+function addDays(iso, n){ const d = new Date(iso + "T12:00:00"); d.setDate(d.getDate() + n); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+
+// Where the outside numbers come from (shown as links under each page's content)
+const SRC = {
+  gds: ["CMHC: Calculating GDS and TDS", "https://cmhc-schl.gc.ca/professionals/project-funding-and-mortgage-financing/mortgage-loan-insurance/calculating-gds-tds"],
+  plan: ["Planipret: mortgage insurance when you put down less than 20%", "https://www.planipret.com/en/article/What-Changes-With-CMHC-Mortgage-Loan-Insurance-When-You-Put-Down-Less-Than-20"],
+  sum: ["Sum.money: CMHC mortgage insurance guide", "https://sum.money/ca/cmhc-mortgage-insurance-calculator/"],
+  calcuris: ["Calcuris: CMHC insurance calculator", "https://calcuris.com/ca/cmhc-insurance-calculator/"],
+  fcac: ["Financial Consumer Agency of Canada: mortgage terms and amortization", "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/mortgage-terms-amortization.html"],
+  clover: ["Clover Mortgage: how Canadian mortgage interest compounds", "https://calculators.clovermortgage.ca/calculators/mortgage-payment"]
+};
+function srcLinks(keys){
+  return '<b>Where these numbers come from:</b> ' + keys.map(k => `<a href="${SRC[k][1]}" target="_blank" rel="noopener">${SRC[k][0]}${EXT}</a>`).join(" · ");
+}
+(function(){ const el = $("src"); if (el) { el.className = "f src"; el.innerHTML = srcLinks(el.dataset.keys.split(",")); } })();
