@@ -1,3 +1,4 @@
+const SITE_VERSION = "5";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -149,7 +150,34 @@ function commaFormat(el){
   while (p < out.length && seen < digitsBefore) { if (/[0-9.]/.test(out[p])) seen++; p++; }
   try { el.setSelectionRange(p, p); } catch (e) {}
 }
-function setv(id, v){ const el = $(id); el.value = el.dataset.money === "1" ? Number(v).toLocaleString("en-CA", {maximumFractionDigits: 2}) : v; }
+function setv(id, v){ const el = $(id); el.value = el.dataset.money === "1" ? Number(v).toLocaleString("en-CA", {maximumFractionDigits: 2}) : v; syncSlider(el); }
+
+// Sliders: any box with data-slider="min,max,step" gets a slider under it that moves the box (and the box moves the slider)
+function syncSlider(el){
+  const s = el && $("sl_" + el.id); if (!s) return;
+  const [lo, hi, st] = el.dataset.slider.split(",").map(Number);
+  s.min = lo; s.max = hi; s.step = st; s.value = parseFloat(String(el.value).replace(/,/g, "")) || 0;
+}
+document.querySelectorAll("input[data-slider]").forEach(el => {
+  const lab = el.closest("label"), s = document.createElement("input");
+  s.type = "range"; s.id = "sl_" + el.id; s.className = "sl";
+  s.setAttribute("aria-label", "Slider for " + (el.getAttribute("aria-label") || (lab && lab.childNodes[0].textContent.trim()) || el.id));
+  el.insertAdjacentElement("afterend", s);
+  syncSlider(el);
+  s.addEventListener("input", () => { setv(el.id, s.value); el.dispatchEvent(new Event("input", {bubbles: true})); });
+});
+document.addEventListener("input", e => { if (e.target.dataset && e.target.dataset.slider) syncSlider(e.target); }, true);
+
+// Quick fade between pages
+document.addEventListener("click", e => {
+  const l = e.target.closest && e.target.closest("a[href]");
+  if (!l || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || l.target || l.origin !== location.origin) return;
+  if (l.pathname === location.pathname && l.hash) return;
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  e.preventDefault(); document.body.classList.add("leaving");
+  setTimeout(() => { location.href = l.href; }, 150);
+});
+addEventListener("pageshow", e => { if (e.persisted) document.body.classList.remove("leaving"); });
 document.addEventListener("input", e => { if (e.target.dataset && e.target.dataset.money === "1") commaFormat(e.target); }, true);
 
 // Bank of Canada announcement dates (from the Bank's Policy interest rate page). Add next year's dates when the Bank publishes them.
@@ -162,11 +190,11 @@ function addDays(iso, n){ const d = new Date(iso + "T12:00:00"); d.setDate(d.get
 // Where the outside numbers come from (shown as links under each page's content)
 const SRC = {
   gds: ["CMHC: Calculating GDS and TDS", "https://cmhc-schl.gc.ca/professionals/project-funding-and-mortgage-financing/mortgage-loan-insurance/calculating-gds-tds"],
-  plan: ["Planipret: mortgage insurance when you put down less than 20%", "https://www.planipret.com/en/article/What-Changes-With-CMHC-Mortgage-Loan-Insurance-When-You-Put-Down-Less-Than-20"],
-  sum: ["Sum.money: CMHC mortgage insurance guide", "https://sum.money/ca/cmhc-mortgage-insurance-calculator/"],
-  calcuris: ["Calcuris: CMHC insurance calculator", "https://calcuris.com/ca/cmhc-insurance-calculator/"],
+  grid: ["CMHC: Premium information for homeowner loans", "https://www.cmhc-schl.gc.ca/en/professionals/project-funding-and-mortgage-financing/mortgage-loan-insurance/mortgage-loan-insurance-homeownership-programs/premium-information-for-homeowner-and-small-rental-loans"],
+  dof: ["Department of Finance Canada: mortgage rule changes", "https://www.canada.ca/en/department-finance/news/2024/09/delivering-the-boldest-mortgage-reforms-in-decades.html"],
   fcac: ["Financial Consumer Agency of Canada: mortgage terms and amortization", "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/mortgage-terms-amortization.html"],
-  clover: ["Clover Mortgage: how Canadian mortgage interest compounds", "https://calculators.clovermortgage.ca/calculators/mortgage-payment"]
+  down: ["Financial Consumer Agency of Canada: down payments and mortgage insurance", "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/down-payment.html"],
+  act: ["Interest Act, section 6 (Justice Laws)", "https://laws-lois.justice.gc.ca/eng/acts/I-15/section-6.html"]
 };
 function srcLinks(keys){
   return '<b>Where these numbers come from:</b> ' + keys.map(k => `<a href="${SRC[k][1]}" target="_blank" rel="noopener">${SRC[k][0]}${EXT}</a>`).join(" · ");

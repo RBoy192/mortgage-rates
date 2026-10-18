@@ -6,18 +6,18 @@
 <title>Do the math yourself | What's the rate?</title>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body data-page="crash" data-chapter="math">
 <main id="top">
 <header id="site-header"></header>
 <div class="pg">
-<p class="back"><a href="crash-course.html">← Crash course</a></p>
+<nav class="tabs" aria-label="Crash course chapters"><a href="crash-course.html">What is a mortgage?</a><a href="crash-term.html">Term vs amortization</a><a href="crash-split.html">Where your payment goes</a><a href="crash-equity.html">Equity</a><a href="crash-insurance.html">Insured vs uninsured</a><a href="crash-gds.html">GDS and TDS</a><a href="crash-math.html" aria-current="page">Do the math</a><a href="crash-offline.html">Offline calculator</a></nav>
 <h1>Do the math yourself</h1>
 <div class="cc"><article>
 <ol class="wk">
 <li><b>Mortgage amount</b> = home price − down payment. If you put down less than 20%, add the insurance premium too.</li>
-<li><b>Rate per month</b> (call it <i>i</i>). Fixed: (1 + annual rate ÷ 2)^(1/6) − 1, because <a href="https://calculators.clovermortgage.ca/calculators/mortgage-payment" target="_blank" rel="noopener">Canadian fixed rates compound twice a year<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="vh"> (opens in a new tab)</span></a>. Variable: annual rate ÷ 12, since variable rates usually compound monthly.</li>
+<li><b>Rate per month</b> (call it <i>i</i>). Fixed: (1 + annual rate ÷ 2)^(1/6) − 1. The Interest Act requires a mortgage to state its rate <a href="https://laws-lois.justice.gc.ca/eng/acts/I-15/section-6.html" target="_blank" rel="noopener">calculated yearly or half-yearly, not in advance<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="vh"> (opens in a new tab)</span></a>, and fixed rates are normally worked out half-yearly (twice a year). Variable: annual rate ÷ 12. This site's calculators assume monthly compounding for variable rates, a common lender practice, so check your lender's mortgage agreement.</li>
 <li><b>Number of payments</b> (<i>n</i>) = years × 12</li>
 <li><b>Monthly payment</b> = mortgage × <i>i</i> ÷ (1 − (1 + <i>i</i>)^(−<i>n</i>))</li>
 <li><b>Each month:</b> interest = balance × <i>i</i>. Principal = payment − interest. New balance = balance − principal. Then repeat.</li>
@@ -30,11 +30,12 @@ Variable rate:  Payment = P × (r÷12) ÷ [1 − (1 + r÷12)^(−12 × y)]</span
 <p class="m">Examples use your numbers from the <a href="calculators.html">interactive calculators</a>: <span id="using">loading…</span>.</p>
 <div id="v"></div>
 </article></div>
-<p id="src" data-keys="clover"></p>
-<nav class="pn"><a href="crash-gds.html">← How much can you borrow? GDS and TDS</a><a href="crash-offline.html">Offline calculator →</a></nav>
+<p id="src" data-keys="act"></p>
+<nav class="pn"><a href="crash-gds.html">← GDS and TDS</a><a href="crash-offline.html">Offline calculator →</a></nav>
 </div>
 </main>
-<script src="site.js"></script>
-<script src="crash.js"></script>
+<script src="site.js?v=5"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="5"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="crash.js?v=5"></script>
 </body>
 </html>

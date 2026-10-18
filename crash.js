@@ -1,5 +1,6 @@
 // Pictures and worked examples for the crash course chapters. Each chapter page sets <body data-chapter="...">.
 (function(){
+if (typeof SITE_VERSION === "undefined" || SITE_VERSION !== "5") return;
 const share = y => Math.round(y.int / (y.int + y.pr) * 100);
 const CH = {
   basics(c){
@@ -25,9 +26,9 @@ const CH = {
   },
   gds(c, best){
     const a = afford(loadAfford(), best), lim = (a && a.gdsLimit) || 39, lim2 = (a && a.tdsLimit) || 44;
-    if (!a || a.none) { $("v").innerHTML = `<p class="m">Enter your income and down payment in the <a href="calc-afford.html">affordability calculator</a> to see your own ratios here.</p>`; return; }
+    if (!a || a.none) { $("v").innerHTML = `<p class="m">Enter your income and down payment in the <a href="calculators.html">affordability calculator</a> to see your own ratios here.</p>`; return; }
     const hp = (a.qpay + a.other) / a.mi * 100, dp = a.debts / a.mi * 100, rest = Math.max(0, 100 - hp - dp);
-    $("v").innerHTML = `<p class="s">Using your numbers from the <a href="calc-afford.html">affordability calculator</a>, with a gross monthly income of ${money(a.mi)}. If you borrowed the most you qualify for (${money(a.L)}), your income would be split like this:</p>`
+    $("v").innerHTML = `<p class="s">Using your numbers from the <a href="calculators.html">affordability calculator</a>, with a gross monthly income of ${money(a.mi)}. If you borrowed the most you qualify for (${money(a.L)}), your income would be split like this:</p>`
       + `<div class="bar"><div class="seg a" style="width:${hp}%">Housing ${hp.toFixed(1)}%</div><div class="seg o" style="width:${dp}%">Debts ${dp.toFixed(1)}%</div><div class="seg" style="width:${rest}%;border:1px dashed var(--ln)">Left over ${rest.toFixed(1)}%</div></div>`
       + `<ol class="wk"><li>Gross monthly income = ${money(a.income)} ÷ 12 = <strong>${money(a.mi)}</strong></li>`
       + `<li>Mortgage payment at the stress-test rate (${a.qual.toFixed(2)}%) = <strong>${money(a.qpay)}</strong></li>`

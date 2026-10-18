@@ -3,29 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mortgage crash course | What's the rate?</title>
+<title>What is a mortgage? | What's the rate?</title>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
-<body data-page="crash">
+<body data-page="crash" data-chapter="basics">
 <main id="top">
 <header id="site-header"></header>
 <div class="pg">
-<h1>Mortgage crash course</h1>
-<p class="m">A mortgage, one idea at a time. Each topic has its own page, with pictures and worked examples that use your numbers from the <a href="calculators.html">interactive calculators</a>.</p>
-<div class="hub">
-<a class="card" href="crash-basics.html"><h3>1. What a mortgage is →</h3><p>A loan to buy a home, and what each payment is made of.</p></a>
-<a class="card" href="crash-term.html"><h3>2. Term vs amortization →</h3><p>How long you're locked in versus how long you're paying.</p></a>
-<a class="card" href="crash-split.html"><h3>3. Where your payment goes →</h3><p>Why early payments are mostly interest.</p></a>
-<a class="card" href="crash-equity.html"><h3>4. What equity is →</h3><p>The part of your home you own.</p></a>
-<a class="card" href="crash-insurance.html"><h3>5. Insured vs uninsured mortgages →</h3><p>What mortgage insurance is, who needs it and what it costs.</p></a>
-<a class="card" href="crash-gds.html"><h3>6. How much can you borrow? GDS and TDS →</h3><p>The two ratios lenders use to decide your limit.</p></a>
-<a class="card" href="crash-math.html"><h3>7. Do the math yourself →</h3><p>The formulas behind every payment, with your numbers filled in.</p></a>
-<a class="card" href="crash-offline.html"><h3>8. Offline calculator →</h3><p>Copy a ready-made calculator into Excel or Google Sheets.</p></a>
-</div>
+<nav class="tabs" aria-label="Crash course chapters"><a href="crash-course.html" aria-current="page">What is a mortgage?</a><a href="crash-term.html">Term vs amortization</a><a href="crash-split.html">Where your payment goes</a><a href="crash-equity.html">Equity</a><a href="crash-insurance.html">Insured vs uninsured</a><a href="crash-gds.html">GDS and TDS</a><a href="crash-math.html">Do the math</a><a href="crash-offline.html">Offline calculator</a></nav>
+<h1>What is a mortgage?</h1>
+<div class="cc"><article>
+<p>A mortgage is a loan to buy a home. You pay part of the price up front (the down payment) and borrow the rest. The home backs the loan: if you can't repay, the lender can sell it to recover what it's owed. Each payment covers <b>interest</b>, the lender's fee for lending, and <b>principal</b>, the amount you actually borrowed.</p>
+<p class="m">Examples use your numbers from the <a href="calculators.html">interactive calculators</a>: <span id="using">loading…</span>.</p>
+<div id="v"></div>
+</article></div>
+<nav class="pn"><span></span><a href="crash-term.html">Term vs amortization →</a></nav>
 </div>
 </main>
-<script src="site.js"></script>
+<script src="site.js?v=5"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="5"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="crash.js?v=5"></script>
 </body>
 </html>

@@ -6,40 +6,42 @@
 <title>Monthly payment calculator | What's the rate?</title>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body data-page="calc">
 <main id="top">
 <header id="site-header"></header>
 <div class="pg">
-<p class="back"><a href="calculators.html">← All calculators</a></p>
+<nav class="tabs" aria-label="Calculators"><a href="calculators.html">How much can I afford?</a><a href="calc-payment.html" aria-current="page">Monthly payment</a><a href="calc-income.html">How much income do I need?</a></nav>
 <h1>Monthly payment calculator</h1>
 <p class="m">We've filled in typical starting values so you can see a result right away. Change any of them to fit your situation, or <button class="lk" id="reset" type="button">reset to defaults</button>.</p>
 <div class="est">
 <div class="fl">
-<label>Home price <span class="df" data-f="price">default</span><input id="price" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
-<label>Down payment <span class="df" data-f="down">default</span><span class="sg" role="group" aria-label="Enter the down payment as"><button type="button" id="mpct" aria-pressed="true">%</button><button type="button" id="mamt" aria-pressed="false">$</button></span><input id="down" type="text" inputmode="decimal" data-money="0" autocomplete="off"><span class="s" id="downAmt"></span></label>
+<label>Home price <span class="df" data-f="price">default</span><input id="price" data-slider="100000,2000000,5000" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
+<label>Down payment <span class="df" data-f="down">default</span><span class="sg" role="group" aria-label="Enter the down payment as"><button type="button" id="mpct" aria-pressed="true">%</button><button type="button" id="mamt" aria-pressed="false">$</button></span><input id="down" data-slider="0,50,0.5" type="text" inputmode="decimal" data-money="0" autocomplete="off"><span class="s" id="downAmt"></span></label>
 <label>Amortization (years) <span class="df" data-f="years">default</span><select id="years"><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option></select></label>
-<label>Interest rate <span class="df" data-f="rate">default</span><select id="rate"></select><input id="custom" type="number" inputmode="decimal" step="0.01" min="0" hidden aria-label="Your own interest rate in percent"></label>
+<label>Interest rate <span class="df" data-f="rate">default</span><select id="rate"></select><input id="custom" data-slider="0,12,0.05" type="number" inputmode="decimal" step="0.01" min="0" hidden aria-label="Your own interest rate in percent"></label>
 <label>Term (years) <span class="df" data-f="term">default</span><select id="term"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>7</option><option>10</option></select><span class="s">Set by the rate you pick, unless you enter your own.</span></label>
 </div>
 <div class="res"><span class="m">Estimated payment</span><b id="pay">—</b><span class="s">per month</span><ul id="res"></ul></div>
 </div>
 <div id="msgs"></div>
 <p class="f">This is an estimate. It compounds interest the way Canadian lenders do (fixed rates twice a year, variable rates monthly) and leaves out property tax, home insurance and fees, so your lender's figures will differ a little. The starting values are typical placeholders, not averages for your area.</p>
-<p id="src" data-keys="plan,clover"></p>
+<p id="src" data-keys="grid,dof,act"></p>
 </div>
 </main>
-<script src="site.js"></script>
+<script src="site.js?v=5"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="5"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 (function(){
 let s = loadState(), best = {};
 const defRate = () => best[DEF.rate] ? DEF.rate : "custom";
-const write = () => { setv("price", s.price); $("down").dataset.money = s.mode === "amt" ? "1" : "0"; setv("down", s.down); $("years").value = s.years; $("rate").value = s.rate; $("custom").value = s.custom; $("term").value = s.term; };
+const ds = () => { $("down").dataset.slider = s.mode === "amt" ? "0," + Math.max(50000, val("price")) + ",5000" : "0,50,0.5"; };
+const write = () => { ds(); setv("price", s.price); $("down").dataset.money = s.mode === "amt" ? "1" : "0"; setv("down", s.down); $("years").value = s.years; $("rate").value = s.rate; setv("custom", s.custom); $("term").value = s.term; };
 const read = () => { s = {price: val("price"), down: val("down"), mode: s.mode, years: +$("years").value, rate: $("rate").value, custom: val("custom"), term: +$("term").value}; };
 
 function update(){
-  read(); saveState(s);
+  read(); saveState(s); ds(); syncSlider($("down"));
   const c = calc(s, best), table = s.rate !== "custom" && !!best[s.rate];
   $("mpct").setAttribute("aria-pressed", s.mode === "pct"); $("mamt").setAttribute("aria-pressed", s.mode === "amt");
   $("custom").hidden = s.rate !== "custom";

@@ -118,3 +118,16 @@ a.card p{margin:0;color:var(--mu);font-size:14px;font-weight:400}
 .sm{font-size:12px}
 .src{margin-top:20px}
 .back{margin:0 0 8px;font-size:14px}
+
+.tabs{display:flex;flex-wrap:wrap;gap:8px;padding:2px 0 14px;margin:0 0 18px;border-bottom:1px solid var(--ln)}
+.tabs a{flex:none;padding:7px 16px;border:1px solid var(--ln);border-radius:999px;background:var(--card);color:var(--fg);text-decoration:none;font-size:14px;white-space:nowrap}
+.tabs a:hover{border-color:var(--fg)}
+.tabs a[aria-current]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.res b{display:block;font:var(--fw) clamp(40px,7vw,54px)/1.1 var(--hd);color:var(--big);margin:4px 0}
+@media (max-width:480px){.tabs{gap:6px}.tabs a{padding:5px 11px;font-size:13px}}
+input.sl{padding:0;border:0;background:none;margin-top:6px;accent-color:var(--ac);cursor:pointer}
+input[hidden]+input.sl{display:none}
+body{animation:pagein .2s ease-out}
+@keyframes pagein{from{opacity:0}to{opacity:1}}
+body.leaving{opacity:0;transition:opacity .15s ease-in}
+@media (prefers-reduced-motion:reduce){body{animation:none}body.leaving{opacity:1;transition:none}}

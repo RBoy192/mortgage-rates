@@ -6,44 +6,45 @@
 <title>How much income do I need? | What's the rate?</title>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body data-page="calc">
 <main id="top">
 <header id="site-header"></header>
 <div class="pg">
-<p class="back"><a href="calculators.html">← All calculators</a></p>
+<nav class="tabs" aria-label="Calculators"><a href="calculators.html">How much can I afford?</a><a href="calc-payment.html">Monthly payment</a><a href="calc-income.html" aria-current="page">How much income do I need?</a></nav>
 <h1>How much income do I need?</h1>
 <p class="m">Already have a home in mind? Enter its price, your down payment and your monthly debts to see the income you'd need to qualify. Everything else starts with a typical number (marked "default"), including the qualifying percentages, so change whatever you know to be different, or <button class="lk" id="n_reset" type="button">reset to defaults</button>. <a href="crash-gds.html">How GDS and TDS work</a></p>
 <div class="est">
 <div class="fl">
-<label>Home price <span class="df" data-f="price">default</span><input id="n_price" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
-<label>Down payment <span class="df" data-f="saved">default</span><input id="n_saved" type="text" inputmode="numeric" data-money="1" autocomplete="off"><span class="s" id="n_pct"></span></label>
-<label>Monthly debt payments <span class="df" data-f="debts">default</span><input id="n_debts" type="text" inputmode="numeric" data-money="1" autocomplete="off"><span class="s">Car loans, credit cards, lines of credit, student loans. Use the minimum payments.</span></label>
+<label>Home price <span class="df" data-f="price">default</span><input id="n_price" data-slider="100000,2000000,5000" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
+<label>Down payment <span class="df" data-f="saved">default</span><input id="n_saved" data-slider="0,1000000,5000" type="text" inputmode="numeric" data-money="1" autocomplete="off"><span class="s" id="n_pct"></span></label>
+<label>Monthly debt payments <span class="df" data-f="debts">default</span><input id="n_debts" data-slider="0,5000,25" type="text" inputmode="numeric" data-money="1" autocomplete="off"><span class="s">Car loans, credit cards, lines of credit, student loans. Use the minimum payments.</span></label>
 <details class="as"><summary>Assumptions you can change</summary>
 <div class="fl">
-<label>Property tax per month <span class="df" data-f="tax">default</span><input id="n_tax" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
-<label>Heating per month <span class="df" data-f="heat">default</span><input id="n_heat" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
-<label>Condo fees per month <span class="df" data-f="condo">default</span><input id="n_condo" type="text" inputmode="numeric" data-money="1" autocomplete="off"><span class="s">Lenders count half of condo fees.</span></label>
+<label>Property tax per month <span class="df" data-f="tax">default</span><input id="n_tax" data-slider="0,2000,10" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
+<label>Heating per month <span class="df" data-f="heat">default</span><input id="n_heat" data-slider="0,500,5" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
+<label>Condo fees per month <span class="df" data-f="condo">default</span><input id="n_condo" data-slider="0,1500,10" type="text" inputmode="numeric" data-money="1" autocomplete="off"><span class="s">Lenders count half of condo fees.</span></label>
 <label>Amortization (years) <span class="df" data-f="years">default</span><select id="n_years"><option>15</option><option>20</option><option>25</option><option>30</option></select></label>
-<label>Interest rate <span class="df" data-f="rate">default</span><select id="n_rate"></select><input id="n_custom" type="number" inputmode="decimal" step="0.01" min="0" hidden aria-label="Your own interest rate in percent"></label>
+<label>Interest rate <span class="df" data-f="rate">default</span><select id="n_rate"></select><input id="n_custom" data-slider="0,12,0.05" type="number" inputmode="decimal" step="0.01" min="0" hidden aria-label="Your own interest rate in percent"></label>
 </div></details>
 <details class="as"><summary>Qualifying rules (CMHC defaults, editable)</summary>
 <div class="fl">
-<label>GDS limit (%) <span class="df" data-f="gds">default</span><input id="n_gds" type="number" inputmode="decimal" step="0.5" min="0"></label>
-<label>TDS limit (%) <span class="df" data-f="tds">default</span><input id="n_tds" type="number" inputmode="decimal" step="0.5" min="0"></label>
-<label>Stress test: add to your rate (%) <span class="df" data-f="stress">default</span><input id="n_stress" type="number" inputmode="decimal" step="0.25" min="0"></label>
-<label>Stress test: minimum qualifying rate (%) <span class="df" data-f="floor">default</span><input id="n_floor" type="number" inputmode="decimal" step="0.25" min="0"></label>
+<label>GDS limit (%) <span class="df" data-f="gds">default</span><input id="n_gds" data-slider="20,50,0.5" type="number" inputmode="decimal" step="0.5" min="0"></label>
+<label>TDS limit (%) <span class="df" data-f="tds">default</span><input id="n_tds" data-slider="25,55,0.5" type="number" inputmode="decimal" step="0.5" min="0"></label>
+<label>Stress test: add to your rate (%) <span class="df" data-f="stress">default</span><input id="n_stress" data-slider="0,5,0.25" type="number" inputmode="decimal" step="0.25" min="0"></label>
+<label>Stress test: minimum qualifying rate (%) <span class="df" data-f="floor">default</span><input id="n_floor" data-slider="3,8,0.25" type="number" inputmode="decimal" step="0.25" min="0"></label>
 </div></details>
 </div>
 <div class="res"><span class="m">You'd need a household income of about</span><b id="n_income">—</b><span class="s">per year, before tax</span><ul id="n_res"></ul></div>
 </div>
 <div id="n_msgs"></div>
 <p class="f">This is an estimate, not an approval. Lenders also look at your credit, employment and other details, and some use different limits, so the income you need may be higher or lower. The mortgage payment is tested at a higher "stress-test" rate than you'd actually pay. Property tax, heating and the other starting values are typical placeholders, not averages for your area.</p>
-<p id="src" data-keys="gds,plan"></p>
+<p id="src" data-keys="gds,grid,dof"></p>
 </div>
 </main>
-<script src="site.js"></script>
+<script src="site.js?v=5"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="5"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 (function(){
 let n = loadNeed(), best = {};

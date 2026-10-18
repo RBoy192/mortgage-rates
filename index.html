@@ -6,7 +6,7 @@
 <title>What's the rate?</title>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body data-page="rates">
 <main id="top">
@@ -25,7 +25,8 @@
 <p class="f" id="fn1" hidden><b>* BoC policy rate:</b> the Bank of Canada's target for the overnight rate, which is what big financial institutions charge each other for one-day loans. When it changes, banks usually move their prime rates too, which affects variable-rate mortgages.</p>
 <p class="f" id="fn2" hidden><b>** Prime rate:</b> the typical prime lending rate of Canada's major banks, published weekly. Variable-rate mortgages are priced off prime. Each lender sets its own prime rate, so yours may differ slightly.</p>
 </main>
-<script src="site.js"></script>
+<script src="site.js?v=5"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="5"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 let lenders = [], sortBy = null, updatedAt = null;
 
@@ -82,7 +83,7 @@ function render(){
     : `<tr><td colspan="${COLUMNS.length + 1}">No rates yet. Enable a lender in institutions.yaml, then run the update.</td></tr>`;
 }
 
-loadRates().then(d => {
+loadRates().then(d => { try {
   lenders = groupLenders(d);
   updatedAt = d.updated_at; tick();
   $("demo").hidden = !d.demo;
@@ -99,7 +100,8 @@ loadRates().then(d => {
     showRate(d.prime_rate, "prime", "Prime rate", "**", "fn2", dstr(d.prime_rate.as_of), dstr(next));
   }
   render();
-}).catch(() => { $("updated").textContent = "Couldn't load rates.json. Check that the site has finished deploying, then reload."; });
+} catch (e) { $("updated").textContent = "Something went wrong showing the rates. Please refresh. Details: " + e.name + ": " + e.message; }
+}, () => { $("updated").textContent = "Couldn't load the latest rates. Please refresh the page or try again in a few minutes."; });
 </script>
 </body>
 </html>
