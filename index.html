@@ -64,11 +64,20 @@ function showRate(p, id, label, mark, fn, last, next){
   $(fn).hidden = false;
 }
 
-// Each lender's logo is its site icon, loaded from the lender's own website. If it can't load, its initials show instead.
+// Each lender's logo is the site icon from the lender's own website, filling the same square for every bank.
+// [icon address, zoom]: zoom enlarges an icon that has a white margin built in. Lenders not listed try their site's /favicon.ico.
+const LOGOS = {
+  "RBC Royal Bank": ["https://www.rbcroyalbank.com/favicon.ico", 1],
+  "TD Canada Trust": ["https://www.td.com/etc.clientlibs/tdsite/clientlibs/clientlib-wealth/resources/images/favicon.ico", 1],
+  "Scotiabank": ["https://www.scotiabank.com/content/dam/scotiabank/enterprise/images/logos/favicon.ico", 1],
+  "Tangerine": ["https://www.tangerine.ca/etc.clientlibs/tangerine/clientlibs/clientlib-site/resources/apple-touch-icon-180x180.png", 1.45],
+  "National Bank": ["https://www.nbc.ca/content/dam/global/logo/favicon.ico", 1]
+};
 function logo(l){
   const w = l.name.split(/\s+/), ini = esc(/^[A-Z]{2,4}$/.test(w[0]) ? w[0] : w.map(x => x[0]).join("").slice(0, 2).toUpperCase());
-  let src = ""; try { src = new URL(l.source).origin + "/favicon.ico"; } catch (e) {}
-  return `<span class="lg-logo" aria-hidden="true">${src ? `<img src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${ini}'}))">` : `<span>${ini}</span>`}</span>`;
+  let [src, zoom] = LOGOS[l.name] || ["", 1];
+  if (!src) { try { src = new URL(l.source).origin + "/favicon.ico"; } catch (e) {} }
+  return `<span class="lg-logo" aria-hidden="true">${src ? `<img src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" style="transform:scale(${+zoom || 1})" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${ini}'}))">` : `<span>${ini}</span>`}</span>`;
 }
 function render(){
   const best = COLUMNS.map(([, p]) => Math.min(...lenders.map(l => rateOf(l, p))));
