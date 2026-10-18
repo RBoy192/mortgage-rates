@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About | What's the rate?</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css?v=9">
+</head>
+<body data-page="extras">
+<main id="top">
+<header id="site-header"></header>
+<div class="pg vl">
+<nav class="tabs" aria-label="Extras"><a href="rate-history.html">Rate history</a><a href="about.html" aria-current="page">About</a><a href="terms.html">Terms and privacy</a></nav>
+<div class="vc">
+<div class="prose">
+<h1>About What's the rate?</h1>
+<p class="m">A quick way to compare the mortgage rates Canadian lenders advertise, with calculators and plain-language explanations to help you understand them.</p>
+<h2>Where the rates come from</h2>
+<p>Every hour, this site reads the mortgage rates each lender publishes on its own website and shows them side by side. Each lender's name in the rates table links to the page its rates came from.</p>
+<ul class="ul" id="lenderlist"><li>Loading the list of lenders…</li></ul>
+<p>Where a lender lists both posted and special-offer rates, the table shows the special-offer rate. When a lender only lists posted rates, or a rate for a particular group of borrowers, a note under the rate says so.</p>
+<h2>When a rate can't be collected</h2>
+<p>Lenders change their websites from time to time. If a rate can't be read in an update, the table keeps showing the last rate collected but marks it <b>"Not refreshed"</b>, so an old rate is never presented as current. Rates are never estimated or filled in by guesswork. On rare occasions a rate is checked by hand instead; those are labelled with the date they were checked.</p>
+<h2>Bank of Canada figures</h2>
+<p>The policy interest rate and the prime rate come from the Bank of Canada's official data service. The prime rate shown is the typical rate of Canada's major banks; each lender sets its own.</p>
+<h2>Rate history and arrows</h2>
+<p>Once a day the site saves every lender's rates. The <a href="rate-history.html">rate history</a> charts show how they've moved, and the small arrows in the rates table show how much a rate has changed in the last 7 days.</p>
+<h2>Calculators and the crash course</h2>
+<p>The <a href="calculators.html">calculators</a> and <a href="crash-course.html">crash course</a> follow the rules published by CMHC, the Department of Finance Canada, the Financial Consumer Agency of Canada, provincial governments and federal law. Each page links to its official sources. Results are estimates to help you plan, not offers or advice.</p>
+<h2>Your rate may be different</h2>
+<p>The rates here are the ones lenders advertise to everyone. The rate you're offered depends on your situation, and many banks offer existing clients lower rates through relationship pricing. Always confirm the current rate and terms with the lender before you decide.</p>
+</div>
+</div>
+</div>
+</main>
+<script src="site.js?v=9"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="9"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script>
+loadRates().then(d => {
+  const ls = groupLenders(d).sort((a, b) => a.name.localeCompare(b.name));
+  $("lenderlist").innerHTML = ls.map(l => `<li>${logo(l.name, l.source)}<a href="${esc(l.source)}" target="_blank" rel="noopener">${esc(l.name)}${EXT}</a></li>`).join("") || "<li>No lenders yet.</li>";
+}).catch(() => { $("lenderlist").innerHTML = "<li>The list of lenders couldn't be loaded. Please refresh the page.</li>"; });
+</script>
+</body>
+</html>

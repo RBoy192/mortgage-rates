@@ -1,0 +1,13 @@
+# Rates you type in by hand. They're used only when the automatic collection of that exact rate fails
+# (or when a lender is set to  mode: manual  in institutions.yaml). An automatically collected rate always wins.
+#
+# Each entry needs the lender's name and product exactly as in institutions.yaml, the rate, and the date you checked it.
+# A hand-entered rate older than 7 days is shown on the site as "Not refreshed", so update the date when you re-check.
+#
+# Example (remove the # signs to use it):
+# - institution: BMO
+#   product: 5-year fixed
+#   rate: 5.14
+#   checked: 2026-10-18
+#   source: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
+[]

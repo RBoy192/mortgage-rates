@@ -6,7 +6,7 @@
 <title>What's the rate?</title>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=9">
 </head>
 <body data-page="rates">
 <main id="top">
@@ -19,16 +19,16 @@
 <div class="banner" id="demo" hidden>These are sample numbers, not real rates. Add your first lender in institutions.yaml to replace them.</div>
 <div class="c" id="tiles"></div>
 <div class="t"><table><thead id="head"></thead><tbody id="rows"></tbody></table></div>
-<p class="f">Click a heading to sort by lowest rate. A dash means the lender doesn't list that rate.</p>
+<p class="f">Click a heading to sort by lowest rate. A dash means the lender doesn't list that rate. <span class="chg up" aria-hidden="true">▲</span>/<span class="chg dn" aria-hidden="true">▼</span> shows how much a rate has moved in the last 7 days. See the <a href="rate-history.html">rate history</a> for charts.</p>
 <p class="f">Rates are collected automatically from each lender's website. Where a lender lists both posted and special-offer rates, this page shows the special-offer rate. Rates may be out of date or incomplete, so confirm the current rate and terms with the lender before you decide.</p>
 <p class="f"><b>Your rate may be lower.</b> The rates on this page are the ones each lender advertises publicly. Many banks also offer relationship pricing (sometimes called relationship value, or RVR), which can give existing clients a rate lower than the posted rate, depending on the products they hold with the bank and their overall relationship. The rate you're actually offered also depends on your own situation, such as your down payment, credit and the type of mortgage. Ask each lender what relationship pricing they can offer before you decide.</p>
 <p class="f" id="fn1" hidden><b>* BoC policy rate:</b> the Bank of Canada's target for the overnight rate, which is what big financial institutions charge each other for one-day loans. When it changes, banks usually move their prime rates too, which affects variable-rate mortgages.</p>
 <p class="f" id="fn2" hidden><b>** Prime rate:</b> the typical prime lending rate of Canada's major banks, published weekly. Variable-rate mortgages are priced off prime. Each lender sets its own prime rate, so yours may differ slightly.</p>
 </main>
-<script src="site.js?v=5"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="5"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=9"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="9"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
-let lenders = [], sortBy = null, updatedAt = null;
+let lenders = [], sortBy = null, updatedAt = null, hist = {series: {}};
 
 // "Last updated 12 minutes ago", refreshed every 30 seconds
 function ago(iso){
@@ -64,21 +64,6 @@ function showRate(p, id, label, mark, fn, last, next){
   $(fn).hidden = false;
 }
 
-// Each lender's logo is the site icon from the lender's own website, filling the same square for every bank.
-// [logo address, zoom]: the sharpest logo each bank publishes, shrunk to fit; zoom can enlarge one that looks small. Lenders not listed try their site's /favicon.ico.
-const LOGOS = {
-  "RBC Royal Bank": ["https://www.rbcroyalbank.com/dvl/v1.0/assets/images/logos/rbc-logo-shield.svg", 1],
-  "TD Canada Trust": ["https://www.td.com/content/dam/tdct/images/navigation-header-and-footer/td-logo-desktop.png", 1],
-  "Scotiabank": ["https://www.scotiabank.com/content/dam/scotiabank/images/logos/2023/scotiabank-logo-red-mobile.svg", 1],
-  "Tangerine": ["https://www.tangerine.ca/etc.clientlibs/tangerine/clientlibs/clientlib-site/resources/icon-310x310.png", 1],
-  "National Bank": ["https://www.bnc.ca/content/dam/bnc/commun/logo/logo-bnc-flag.svg", 1]
-};
-function logo(l){
-  const w = l.name.split(/\s+/), ini = esc(/^[A-Z]{2,4}$/.test(w[0]) ? w[0] : w.map(x => x[0]).join("").slice(0, 2).toUpperCase());
-  let [src, zoom] = LOGOS[l.name] || ["", 1];
-  if (!src) { try { src = new URL(l.source).origin + "/favicon.ico"; } catch (e) {} }
-  return `<span class="lg-logo" aria-hidden="true">${src ? `<img src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" style="transform:scale(${+zoom || 1})" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${ini}'}))">` : `<span>${ini}</span>`}</span>`;
-}
 function render(){
   const best = COLUMNS.map(([, p]) => Math.min(...lenders.map(l => rateOf(l, p))));
   $("tiles").innerHTML = COLUMNS.map(([, p], i) => best[i] === Infinity ? "" :
@@ -88,12 +73,13 @@ function render(){
     if (th.dataset.p === sortBy) th.setAttribute("aria-sort", "ascending"); else th.removeAttribute("aria-sort");
   });
   $("rows").innerHTML = rows.length ? rows.map(l => `<tr>
-    <td class="ln">${logo(l)}<a href="${esc(l.source)}" target="_blank" rel="noopener">${esc(l.name)}${EXT}</a></td>
+    <td class="ln">${logo(l.name, l.source)}<a href="${esc(l.source)}" target="_blank" rel="noopener">${esc(l.name)}${EXT}</a></td>
     ${COLUMNS.map(([, p], i) => {
       const c = l.cells[p];
       if (!c) return '<td class="none">—</td>';
       const low = c.rate === best[i];
-      return `<td class="rate${low ? " low" : ""}"><b>${pct(c.rate)}</b>${c.note ? '<span class="s">' + esc(c.note) + '</span>' : ""}${c.stale ? '<span class="s sw">Not refreshed</span>' : ""}</td>`;
+      const ch = c.stale ? null : weekChange(hist.series[l.name + "|" + p], c.rate);
+      return `<td class="rate${low ? " low" : ""}">${arrow(ch)}<b>${pct(c.rate)}</b>${c.note ? '<span class="s">' + esc(c.note) + '</span>' : ""}${c.method === "manual" && c.checked_at ? '<span class="s">Checked ' + dstr(c.checked_at) + '</span>' : ""}${c.stale ? '<span class="s sw">Not refreshed</span>' : ""}</td>`;
     }).join("")}</tr>`).join("")
     : `<tr><td colspan="${COLUMNS.length + 1}">No rates yet. Enable a lender in institutions.yaml, then run the update.</td></tr>`;
 }
@@ -115,6 +101,7 @@ loadRates().then(d => { try {
     showRate(d.prime_rate, "prime", "Prime rate", "**", "fn2", dstr(d.prime_rate.as_of), dstr(next));
   }
   render();
+  loadHistory().then(h => { hist = h && h.series ? h : {series: {}}; render(); });
 } catch (e) { $("updated").textContent = "Something went wrong showing the rates. Please refresh. Details: " + e.name + ": " + e.message; }
 }, () => { $("updated").textContent = "Couldn't load the latest rates. Please refresh the page or try again in a few minutes."; });
 </script>

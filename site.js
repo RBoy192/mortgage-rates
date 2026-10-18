@@ -1,4 +1,4 @@
-const SITE_VERSION = "5";
+const SITE_VERSION = "9";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -14,7 +14,7 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
 // Header with links to each page, plus the light / dark switch (light by default; the visitor's choice is remembered)
 (function(){
   const page = document.body.dataset.page, el = $("site-header");
-  const links = [["calc", "calculators.html", "Interactive Calculators"], ["crash", "crash-course.html", "Crash course"]];
+  const links = [["calc", "calculators.html", "Interactive Calculators"], ["crash", "crash-course.html", "Crash course"], ["extras", "rate-history.html", "Extras"]];
   el.className = "n";
   el.innerHTML = `<div class="nw"><a class="brand" href="index.html">What's the rate?</a>`
     + links.map(([k, u, t]) => `<a class="nl" href="${u}"${k === page ? ' aria-current="page"' : ""}>${t}</a>`).join("") + `</div>`
@@ -158,14 +158,16 @@ function syncSlider(el){
   const [lo, hi, st] = el.dataset.slider.split(",").map(Number);
   s.min = lo; s.max = hi; s.step = st; s.value = parseFloat(String(el.value).replace(/,/g, "")) || 0;
 }
-document.querySelectorAll("input[data-slider]").forEach(el => {
+function addSlider(el){
+  if ($("sl_" + el.id)) return;
   const lab = el.closest("label"), s = document.createElement("input");
   s.type = "range"; s.id = "sl_" + el.id; s.className = "sl";
   s.setAttribute("aria-label", "Slider for " + (el.getAttribute("aria-label") || (lab && lab.childNodes[0].textContent.trim()) || el.id));
   el.insertAdjacentElement("afterend", s);
   syncSlider(el);
   s.addEventListener("input", () => { setv(el.id, s.value); el.dispatchEvent(new Event("input", {bubbles: true})); });
-});
+}
+document.querySelectorAll("input[data-slider]").forEach(addSlider);
 document.addEventListener("input", e => { if (e.target.dataset && e.target.dataset.slider) syncSlider(e.target); }, true);
 
 // Quick fade between pages
@@ -194,9 +196,85 @@ const SRC = {
   dof: ["Department of Finance Canada: mortgage rule changes", "https://www.canada.ca/en/department-finance/news/2024/09/delivering-the-boldest-mortgage-reforms-in-decades.html"],
   fcac: ["Financial Consumer Agency of Canada: mortgage terms and amortization", "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/mortgage-terms-amortization.html"],
   down: ["Financial Consumer Agency of Canada: down payments and mortgage insurance", "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/down-payment.html"],
-  act: ["Interest Act, section 6 (Justice Laws)", "https://laws-lois.justice.gc.ca/eng/acts/I-15/section-6.html"]
+  act: ["Interest Act, section 6 (Justice Laws)", "https://laws-lois.justice.gc.ca/eng/acts/I-15/section-6.html"],
+  act10: ["Interest Act, section 10 (Justice Laws)", "https://laws-lois.justice.gc.ca/eng/acts/I-15/section-10.html"],
+  pen: ["Financial Consumer Agency of Canada: prepayment penalties", "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/reduce-prepayment-penalties.html"],
+  buy: ["Financial Consumer Agency of Canada: buying a home (closing costs)", "https://www.canada.ca/en/financial-consumer-agency/services/buying-home.html"],
+  equity: ["Financial Consumer Agency of Canada: borrowing against home equity", "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/borrow-home-equity.html"],
+  b20: ["OSFI Guideline B-20: residential mortgage underwriting", "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/residential-mortgage-underwriting-practices-procedures-guideline-2017"],
+  bank418: ["Bank Act, section 418 (Justice Laws)", "https://laws-lois.justice.gc.ca/eng/acts/B-1.01/section-418.html"],
+  onltt: ["Ontario: calculating land transfer tax", "https://www.ontario.ca/document/land-transfer-tax/calculating-land-transfer-tax"],
+  onrefund: ["Ontario: land transfer tax refunds for first-time homebuyers", "https://www.ontario.ca/document/land-transfer-tax/land-transfer-tax-refunds-first-time-homebuyers"],
+  to: ["City of Toronto: municipal land transfer tax rates", "https://www.toronto.ca/services-payments/property-taxes-utilities/municipal-land-transfer-tax-mltt/municipal-land-transfer-tax-mltt-rates-and-fees/"],
+  torebate: ["City of Toronto: MLTT rebates", "https://www.toronto.ca/services-payments/property-taxes-utilities/municipal-land-transfer-tax-mltt/municipal-land-transfer-tax-mltt-rebate-opportunities/"],
+  bc: ["B.C.: property transfer tax", "https://www2.gov.bc.ca/gov/content/taxes/property-taxes/property-transfer-tax"],
+  bcfthb: ["B.C.: first time home buyers' exemption amounts", "https://www2.gov.bc.ca/gov/content/taxes/property-taxes/property-transfer-tax/exemptions/first-time-home-buyers/current-amount"],
+  mb: ["Manitoba: land transfer tax", "https://www.gov.mb.ca/finance/other/landtransfertax.html"],
+  qc: ["Québec: duties on transfers of immovables", "https://www.quebec.ca/gouvernement/gestion-municipale/finances-fiscalite-municipales/fiscalite/droits-mutations-immobilieres"],
+  mtl: ["Ville de Montréal: how property transfer duties are calculated", "https://montreal.ca/en/articles/how-property-transfer-duties-are-calculated-9279"],
+  nb: ["New Brunswick: Real Property Transfer Tax Act", "https://laws.gnb.ca/en/showdoc/cs/R-2.1"],
+  ns: ["Nova Scotia: municipal deed transfer tax rates", "https://novascotia.ca/sns/pdf/ans-property-dtt-rates.pdf"],
+  pe: ["P.E.I.: real property transfer tax guide", "https://www.princeedwardisland.ca/sites/default/files/publications/rpttg_102.pdf"],
+  ab: ["Alberta: land titles fee schedule", "https://www.alberta.ca/system/files/sartr-land-titles-and-surveys-common-documents-fee-schedule.pdf"],
+  sk: ["ISC (Saskatchewan land titles): fees", "https://www.isc.ca/SignedInHome/Fees/Pages/default.aspx"],
+  nl: ["Newfoundland and Labrador: registry of deeds fees", "https://www.gov.nl.ca/gs/files/forms-files-fees-deed.pdf"],
+  onrst: ["Ontario: retail sales tax on insurance", "https://www.ontario.ca/document/retail-sales-tax/insurance-and-benefits-plans"],
+  qcipt: ["Revenu Québec: tax on insurance premiums", "https://www.revenuquebec.ca/en/press-room/tax-news/details/2026-04-09/harmonization-of-the-insurance-premiums-tax-rate-with-the-qst-rate/"],
+  skpst: ["Saskatchewan: PST on insurance premiums", "https://www.saskatchewan.ca/government/news-and-media/2017/may/17/changes-made-to-pst-on-insurance-premiums"],
+  boc: ["Bank of Canada: policy interest rate", "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"],
+  valet: ["Bank of Canada: Valet data API", "https://www.bankofcanada.ca/valet/docs"]
 };
 function srcLinks(keys){
   return '<b>Where these numbers come from:</b> ' + keys.map(k => `<a href="${SRC[k][1]}" target="_blank" rel="noopener">${SRC[k][0]}${EXT}</a>`).join(" · ");
 }
-(function(){ const el = $("src"); if (el) { el.className = "f src"; el.innerHTML = srcLinks(el.dataset.keys.split(",")); } })();
+(function(){ const el = $("src"); if (el && el.dataset.keys) { el.className = "f src"; el.innerHTML = srcLinks(el.dataset.keys.split(",")); } })();
+
+// Your contact email for the Terms and privacy page. Leave it empty to hide the contact line.
+const CONTACT_EMAIL = "";
+
+// ---- Shared mortgage maths ----
+// Rate per period: Canadian fixed rates compound twice a year, variable rates monthly. k = payments per year.
+const perPeriod = (rate, variable, k = 12) => variable ? Math.pow(1 + rate / 1200, 12 / k) - 1 : Math.pow(1 + rate / 200, 2 / k) - 1;
+const pmt = (P, i, n) => i === 0 ? P / n : P * i / (1 - Math.pow(1 + i, -n));
+const balanceAfter = (P, i, pay, m) => i === 0 ? P - pay * m : P * Math.pow(1 + i, m) - pay * (Math.pow(1 + i, m) - 1) / i;
+const yrs = m => { const y = Math.floor(m / 12), r = Math.round(m % 12); return (y ? y + (y === 1 ? " year" : " years") : "") + (y && r ? ", " : "") + (r ? r + (r === 1 ? " month" : " months") : (y ? "" : "0 months")); };
+
+// ---- Lenders: logo and chart colour ----
+// Logos are the sharpest image each bank publishes, loaded from its own website. [address, zoom, which part to show]
+const LOGOS = {
+  "RBC Royal Bank": ["https://www.rbcroyalbank.com/dvl/v1.0/assets/images/logos/rbc-logo-shield.svg"],
+  "TD Canada Trust": ["https://www.td.com/content/dam/tdct/images/navigation-header-and-footer/td-logo-desktop.png"],
+  "Scotiabank": ["https://www.scotiabank.com/content/dam/scotiabank/images/logos/2023/scotiabank-logo-red-mobile.svg"],
+  "Tangerine": ["https://www.tangerine.ca/etc.clientlibs/tangerine/clientlibs/clientlib-site/resources/icon-310x310.png"],
+  "National Bank": ["https://www.bnc.ca/content/dam/bnc/commun/logo/logo-bnc-flag.svg"],
+  "BMO": ["https://www.bmo.com/dist/favicon/apple-touch-icon.png"],
+  "CIBC": ["https://www.cibc.com/content/dam/global-assets/logos/cibc-logos/no-tagline/cibc-logo-colour-142x36.svg", 1, "right", "cover"],
+  "EQ Bank": ["https://images.ctfassets.net/ymwa45h4u77x/4oX5L57Tc4Xrv2iKG72VPN/481fb11b7a59027ebd4316579313fe3d/eqbank-logo.svg", 1, "left", "cover"]
+};
+function logo(name, source){
+  const w = name.split(/\s+/), ini = esc(/^[A-Z]{2,4}$/.test(w[0]) ? w[0] : w.map(x => x[0]).join("").slice(0, 2).toUpperCase());
+  let [src, zoom, pos, fit] = LOGOS[name] || [""];
+  if (!src) { try { src = new URL(source).origin + "/favicon.ico"; } catch (e) {} }
+  const st = `transform:scale(${+zoom || 1});object-position:${pos || "center"};object-fit:${fit || "contain"}`;
+  return `<span class="lg-logo" aria-hidden="true">${src ? `<img src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" style="${st}" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${ini}'}))">` : `<span>${ini}</span>`}</span>`;
+}
+// Chart colours follow the lender, never its rank, so a bank keeps its colour when others are hidden.
+const LENDER_ORDER = ["BMO", "CIBC", "EQ Bank", "National Bank", "RBC Royal Bank", "Scotiabank", "Tangerine", "TD Canada Trust"];
+const seriesVar = name => { const i = LENDER_ORDER.indexOf(name); return i < 0 ? "var(--mu)" : `var(--s${i + 1})`; };
+
+// ---- Rate history (history.json, one value per lender, product and day) ----
+function loadHistory(){ return fetch("history.json?t=" + Date.now(), {cache: "no-store"}).then(r => r.ok ? r.json() : {series: {}}).catch(() => ({series: {}})); }
+// Change over the last 7 days: the current rate compared with the latest value recorded at least 7 days ago
+// (or the earliest value, if the history is younger than that). null when there's nothing to compare.
+function weekChange(points, current){
+  if (!points || !points.length || current == null) return null;
+  const cutoff = addDays(todayISO(), -7);
+  const base = points.filter(p => p[0] <= cutoff).pop() || (points[0][0] < todayISO() ? points[0] : null);
+  if (!base || Math.abs(current - base[1]) < 0.0005) return null;
+  return {diff: current - base[1], from: base[1], date: base[0]};
+}
+function arrow(ch){
+  if (!ch) return "";
+  const up = ch.diff > 0, amt = Math.abs(ch.diff).toFixed(2);
+  return `<span class="chg ${up ? "up" : "dn"}" title="${up ? "Up" : "Down"} ${amt} from ${pct(ch.from)} on ${dstr(ch.date)}"><span aria-hidden="true">${up ? "▲" : "▼"}</span>${amt}<span class="vh"> ${up ? "higher" : "lower"} than on ${dstr(ch.date)}</span></span>`;
+}

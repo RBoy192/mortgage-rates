@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
-"""Collect mortgage rates from the lenders in institutions.yaml and write rates.json.
+"""Collect mortgage rates from the lenders in institutions.yaml and write rates.json and history.json.
 
   python scraper.py                           run the scrape (what the hourly job does)
   python scraper.py --inspect URL             show the rates on a page with the text just before each one
   python scraper.py --inspect URL --browser   same, for pages that load their rates with JavaScript
   python scraper.py --demo                    write sample data so the site has something to show
+
+How each rate is collected (saved as "method" in rates.json):
+  automatic   read from the lender's page during this run
+  manual      typed into manual_rates.yaml by you; used only when automatic collection fails or a lender is set to mode: manual
+A rate that couldn't be refreshed is never shown as current: it keeps its last value with stale: true, and the site says so.
 """
 import json, re, subprocess, sys
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 from pathlib import Path
 from urllib.parse import urlparse
 from urllib.robotparser import RobotFileParser
@@ -15,15 +20,26 @@ from urllib.robotparser import RobotFileParser
 USER_AGENT = "MortgageRatesBot/1.0 (+https://whatstherate.ca)"
 MIN_RATE, MAX_RATE = 0.5, 15.0  # anything outside this range is treated as a scraping error
 RATE_RE = re.compile(r"(\d{1,2}(?:\.\d{1,3})?)\s*%")
+PRIME_PLUS_RE = re.compile(r"\bP\s*([+\-\u2212\u2013])\s*(\d{1,2}(?:\.\d{1,3})?)\s*%", re.I)  # "P + 0.34%", "P - 0.85%"
 SKIP_TAGS = ("script", "style", "noscript", "template")
-OUT = Path("rates.json")
-POLICY_URL = "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"  # the page the card links to
+OUT, HISTORY, MANUAL = Path("rates.json"), Path("history.json"), Path("manual_rates.yaml")
+MANUAL_MAX_DAYS = 7  # a hand-entered rate older than this is shown as "not refreshed"
+POLICY_URL = "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"  # the page the site links to
 VALET = "https://www.bankofcanada.ca/valet/observations/{}/json?recent=1"  # the Bank's official data feed
 PRIME_URL = "https://bankofcanada.ca/rates/banking-and-financial-statistics/posted-interest-rates-offered-by-chartered-banks"
 
 
 def now():
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def today():
+    """Today's date in Toronto, so a day's history matches the Canadian calendar."""
+    try:
+        from zoneinfo import ZoneInfo
+        return datetime.now(ZoneInfo("America/Toronto")).date().isoformat()
+    except Exception:
+        return datetime.now(timezone.utc).date().isoformat()
 
 
 def norm(s):
@@ -76,15 +92,34 @@ def get_html(url, browser=False):
     return r.text
 
 
+def check_range(rate):
+    if not MIN_RATE <= rate <= MAX_RATE:
+        raise ValueError(f"rate {rate} is outside the plausible range")
+    return rate
+
+
 def pick(text, nth=1):
     """Return the nth percentage in text, or None if there are fewer than that."""
     found = RATE_RE.findall(text)
     if len(found) < nth:
         return None
-    rate = float(found[nth - 1])
-    if not MIN_RATE <= rate <= MAX_RATE:
-        raise ValueError(f"rate {rate} is outside the plausible range")
-    return rate
+    return check_range(float(found[nth - 1]))
+
+
+def _tags(soup, after=None):
+    tags = [t for t in soup.find_all(True) if t.name not in SKIP_TAGS and not t.find_parent(SKIP_TAGS)]
+    text = {id(t): norm(t.get_text(" ", strip=True)) for t in tags}
+    if after:
+        marker = _smallest(tags, text, norm(after))
+        if not marker:
+            raise ValueError(f"section {after!r} not found")
+        tags = tags[tags.index(marker[0]) + 1:]
+    return tags, text
+
+
+def _smallest(pool, text, needle):  # the innermost elements whose text contains `needle`
+    ids = {id(t) for t in pool if needle in text[id(t)]}
+    return [t for t in pool if id(t) in ids and not any(id(c) in ids for c in t.find_all(True, recursive=False))]
 
 
 def rate_by_label(soup, label, nth=1, after=None, occurrence=1):
@@ -92,19 +127,8 @@ def rate_by_label(soup, label, nth=1, after=None, occurrence=1):
     `after`: only look below the first place on the page that mentions this text.
     `occurrence`: use the 2nd, 3rd... time the label appears (for pages with repeated tables)."""
     want = norm(label)
-    tags = [t for t in soup.find_all(True) if t.name not in SKIP_TAGS]
-    text = {id(t): norm(t.get_text(" ", strip=True)) for t in tags}
-
-    def smallest(pool, needle):  # the innermost elements whose text contains `needle`
-        ids = {id(t) for t in pool if needle in text[id(t)]}
-        return [t for t in pool if id(t) in ids and not any(id(c) in ids for c in t.find_all(True, recursive=False))]
-
-    if after:
-        marker = smallest(tags, norm(after))
-        if not marker:
-            raise ValueError(f"section {after!r} not found")
-        tags = tags[tags.index(marker[0]) + 1:]
-    found = smallest(tags, want)
+    tags, text = _tags(soup, after)
+    found = _smallest(tags, text, want)
     found.sort(key=lambda t: text[id(t)] != want)  # whole-cell matches first; sort is stable, so page order is kept
     rates = []
     for el in found:
@@ -123,22 +147,55 @@ def rate_by_label(soup, label, nth=1, after=None, occurrence=1):
     raise ValueError(f"no rate found next to the label {label!r}")
 
 
+def cell_by_column(soup, label, column, after=None, occurrence=1):
+    """In a table, find the row whose first cell includes `label` and return the text of its cell under the
+    column heading that includes `column` (for tables that list terms across the top)."""
+    want, col = norm(label), norm(column)
+    tags, text = _tags(soup, after)
+    rows = [t for t in tags if t.name == "tr" and t.find(["td", "th"]) and want in norm(t.find(["td", "th"]).get_text(" "))]
+    if len(rows) < occurrence:
+        raise ValueError(f"no table row labelled {label!r}")
+    row = rows[occurrence - 1]
+    table = row.find_parent("table")
+    head = next((tr for tr in table.find_all("tr") if tr.find("th")), None) or table.find("tr")
+    heads = [norm(c.get_text(" ")) for c in head.find_all(["th", "td"])]
+    idx = next((i for i, h in enumerate(heads) if col in h), None)
+    if idx is None:
+        raise ValueError(f"no column headed {column!r}")
+    cells = row.find_all(["td", "th"], recursive=False) or row.find_all(["td", "th"])
+    if idx >= len(cells):
+        raise ValueError(f"row {label!r} has no cell under {column!r}")
+    return norm(cells[idx].get_text(" ", strip=True))
+
+
 def extract(soup, item):
     """Return (rate, the text it was read from)."""
-    if "label" in item:
+    if "column" in item:
+        shown = cell_by_column(soup, item["label"], item["column"], item.get("after"), item.get("occurrence", 1))
+    elif "label" in item and "prime_label" not in item:
         return rate_by_label(soup, item["label"], item.get("nth", 1), item.get("after"), item.get("occurrence", 1))
-    el = soup.select_one(item["selector"])
-    if el is None:
-        raise ValueError(f"selector not found: {item['selector']}")
-    shown = el.get_text(" ", strip=True)
+    elif "label" in item:
+        shown = rate_by_label(soup, item["label"], 1, item.get("after"), item.get("occurrence", 1))[1]
+    else:
+        el = soup.select_one(item["selector"])
+        if el is None:
+            raise ValueError(f"selector not found: {item['selector']}")
+        shown = el.get_text(" ", strip=True)
+    if "prime_label" in item:  # the page shows "P + 0.34%": add that to the lender's own prime rate
+        m = PRIME_PLUS_RE.search(shown)
+        if not m:
+            raise ValueError(f"no 'P + x%' figure found (read: {shown[:60]!r})")
+        prime, _ = rate_by_label(soup, item["prime_label"])
+        spread = float(m.group(2)) * (1 if m.group(1) == "+" else -1)  # minus may be -, − or –
+        return check_range(round(prime + spread, 3)), f"{shown[:60]} with prime {prime}%"
     rate = pick(shown, item.get("nth", 1))
     if rate is None:
-        raise ValueError(f"no rate with a % sign inside {item['selector']}")
+        raise ValueError(f"no rate with a % sign found (read: {shown[:60]!r})")
     return rate, shown[:100]
 
 
 def active(lender):
-    return [i for i in lender["rates"] if i.get("enabled", True)]
+    return [i for i in lender.get("rates") or [] if i.get("enabled", True)]
 
 
 def scrape_lender(lender):
@@ -146,6 +203,8 @@ def scrape_lender(lender):
     from bs4 import BeautifulSoup
     url, mode = lender["url"], lender.get("mode", "auto")
     todo = active(lender)
+    if mode == "manual":
+        return {}, {i["product"]: "set to manual entry" for i in todo}
     if not robots_ok(url):
         return {}, {i["product"]: "robots.txt does not allow fetching this page" for i in todo}
     results, errors = {}, {}
@@ -193,6 +252,56 @@ def prime_rate():  # the major banks' typical prime rate (a weekly series)
     return valet_rate("V80691311", PRIME_URL)
 
 
+def load_manual():
+    """Rates typed into manual_rates.yaml, keyed by (institution, product)."""
+    import yaml
+    if not MANUAL.exists():
+        return {}
+    out = {}
+    for m in yaml.safe_load(MANUAL.read_text()) or []:
+        try:
+            rate = check_range(float(m["rate"]))
+            checked = date.fromisoformat(str(m["checked"]))
+        except (KeyError, TypeError, ValueError) as e:
+            print(f"WARNING: skipping a manual_rates.yaml entry ({e}): {m}", file=sys.stderr)
+            continue
+        out[(m["institution"], m["product"])] = {"rate": rate, "checked": checked, "source": m.get("source"), "note": m.get("note")}
+    return out
+
+
+def manual_record(name, product, m, url, day=None):
+    day = date.fromisoformat(day or today())
+    age = (day - m["checked"]).days
+    rec = {"institution": name, "product": product, "rate": m["rate"], "source": m["source"] or url,
+           "fetched_at": now(), "checked_at": m["checked"].isoformat(), "method": "manual", "stale": age > MANUAL_MAX_DAYS}
+    if m.get("note"):
+        rec["note"] = m["note"]
+    return rec
+
+
+def update_history(history, out, day=None):
+    """Add today's rates to history.json: one value per lender, product and day (the latest that day).
+    Rates that couldn't be refreshed (stale) are left out, so the history only holds rates that were current."""
+    day = day or today()
+    series = history.setdefault("series", {})
+
+    def put(key, rate):
+        pts = series.setdefault(key, [])
+        if pts and pts[-1][0] == day:
+            pts[-1][1] = rate
+        else:
+            pts.append([day, rate])
+
+    for r in out.get("rates", []):
+        if not r.get("stale"):
+            put(f"{r['institution']}|{r['product']}", r["rate"])
+    for key in ("policy_rate", "prime_rate"):
+        if out.get(key) and not out[key].get("stale"):
+            put(key, out[key]["rate"])
+    history["updated_at"] = now()
+    return history
+
+
 def run():
     import yaml
     lenders = [x for x in (yaml.safe_load(Path("institutions.yaml").read_text()) or []) if x.get("enabled", True)]
@@ -204,7 +313,8 @@ def run():
         prev = json.loads(OUT.read_text())
         if not prev.get("demo"):
             old = {(r["institution"], r["product"]): r for r in prev.get("rates", [])}
-    rates, errors = [], []
+    manual = load_manual()
+    rates, errors, warnings = [], [], []
     for lender in lenders:
         name, url = lender["name"], lender["url"]
         try:
@@ -218,15 +328,26 @@ def run():
                 print(f"{'OK   ' if publish else 'CHECK'} {name} / {product}: {rate}%   (read: {shown})"
                       + ("" if publish else "   [not published]"))
                 if publish:
-                    rec = {"institution": name, "product": product, "rate": rate,
-                           "source": url, "fetched_at": now(), "stale": False}
+                    stamp = now()
+                    rec = {"institution": name, "product": product, "rate": rate, "source": url,
+                           "fetched_at": stamp, "checked_at": stamp, "method": "automatic", "stale": False}
                     if item.get("note"):
                         rec["note"] = item["note"]
                     rates.append(rec)
-            else:
-                errors.append(f"{name} / {product}: {errs.get(product, 'unknown error')}")
-                if publish and (name, product) in old:  # keep the last good value, flagged as stale
-                    rates.append({**old[(name, product)], "stale": True})
+                continue
+            why = f"{name} / {product}: {errs.get(product, 'unknown error')}"
+            if publish and (name, product) in manual:
+                rec = manual_record(name, product, manual[(name, product)], url)
+                if item.get("note") and "note" not in rec:
+                    rec["note"] = item["note"]
+                rates.append(rec)
+                state = "is more than %d days old, shown as not refreshed" % MANUAL_MAX_DAYS if rec["stale"] else "used"
+                print(f"MANUAL {name} / {product}: {rec['rate']}% (checked {rec['checked_at']}) {state}")
+                (errors if rec["stale"] else warnings).append(why + (" (manual rate used)" if not rec["stale"] else " (manual rate is out of date)"))
+                continue
+            errors.append(why)
+            if publish and (name, product) in old:  # keep the last good value, flagged as stale
+                rates.append({**old[(name, product)], "stale": True})
     extras = {}
     for key, label, fetch in (("policy_rate", "Bank of Canada policy rate", policy_rate), ("prime_rate", "Prime rate", prime_rate)):
         kept = None if prev.get("demo") else prev.get(key)
@@ -239,6 +360,10 @@ def run():
                 extras[key] = {**kept, "stale": True}
     out = {"updated_at": now(), "demo": False, "rates": rates, **extras}
     OUT.write_text(json.dumps(out, indent=2))
+    history = json.loads(HISTORY.read_text()) if HISTORY.exists() else {}
+    HISTORY.write_text(json.dumps(update_history(history, out), separators=(",", ":")))
+    for w in warnings:
+        print("WARNING:", w, file=sys.stderr)
     for e in errors:
         print("ERROR:", e, file=sys.stderr)
     return 1 if errors else 0

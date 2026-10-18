@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rate history | What's the rate?</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css?v=9">
+</head>
+<body data-page="extras">
+<main id="top">
+<header id="site-header"></header>
+<div class="pg vl">
+<nav class="tabs" aria-label="Extras"><a href="rate-history.html" aria-current="page">Rate history</a><a href="about.html">About</a><a href="terms.html">Terms and privacy</a></nav>
+<div class="vc">
+<h1>Rate history</h1>
+<p class="m">How each lender's advertised rates have moved over time. Hover over (or tap) a chart to see the rates on a given day.</p>
+<p class="s" id="since"></p>
+<div class="ctl"><div class="seg2" id="range" role="group" aria-label="Time range"></div><div class="chips" id="chips" role="group" aria-label="Show or hide lenders"></div></div>
+<div class="chart" id="ch0"></div>
+<div class="chart" id="ch1"></div>
+<div class="chart" id="ch2"></div>
+<div class="chart" id="chb"></div>
+<p class="f">Rates are the ones each lender advertised publicly on its website, saved once a day by this site. Days when a rate couldn't be collected are left out rather than guessed. Bank of Canada figures come from the Bank's official data.</p>
+</div>
+</div>
+</main>
+<script src="site.js?v=9"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="9"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="history.js?v=9"></script>
+</body>
+</html>

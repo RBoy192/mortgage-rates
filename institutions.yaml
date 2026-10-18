@@ -12,6 +12,9 @@
 #   occurrence:  use the 2nd, 3rd... appearance of the label instead of the 1st
 #   publish: false   read and log this rate but don't show it on the site (handy for checking a new one)
 #   enabled: false   switch off a single rate (or a whole lender)
+#   column: for tables with terms across the top, the heading of the column to read (label then names the row)
+#   prime_label: for rates shown as "P + 0.34%", the label of the lender's prime rate on the same page
+#   mode: manual    don't fetch this lender; use only the rates typed into manual_rates.yaml
 # Prefer a CSS selector instead? Use  selector: "..."  in place of label
 # (find candidates with:  python scraper.py --inspect https://lender.example/rates).
 
@@ -38,10 +41,9 @@
     - product: 5-year variable
       label: "5 Year Variable Closed"
 
-# CIBC and BMO both refused the scraper's browser (the page fails to load with an HTTP/2 protocol error),
-# which is how these sites turn away automated visitors. Switched off rather than trying to work around it.
+# CIBC: permission received from the bank (October 2026). Special-offer fixed rates are in cards at the top;
+# the 5-year variable is in the "CIBC Variable Flex Mortgage" table, which lists the posted rate first, then the special offer.
 - name: CIBC
-  enabled: false
   url: https://www.cibc.com/en/interest-rates/mortgage-rates.html
   mode: auto
   rates:
@@ -51,8 +53,8 @@
       label: "5-year fixed"
     - product: 5-year variable
       label: "5 years"
-      after: "CIBC Variable Flex Mortgage"   # "5 years" appears in several tables; start below this heading
-      nth: 2                                  # this table lists Posted Rate first, then the Special Offer
+      after: "CIBC Variable Flex Mortgage"
+      nth: 2
 
 # Scotiabank's top table is its variable-rate section (Scotia Flex Value is a variable mortgage).
 # For fixed terms the page only lists posted rates (no special offers), so those are labelled as such on the page.
@@ -66,9 +68,11 @@
     - product: 3-year fixed
       label: "3 years"
       after: "Scotia Flex Value Mortgage-Open 5 Year Term"
+      note: "Posted rate"
     - product: 5-year fixed
       label: "5 years"
       after: "Scotia Flex Value Mortgage-Open 5 Year Term"
+      note: "Posted rate"
 
 - name: Tangerine
   url: https://www.tangerine.ca/en/rates/mortgage-rates
@@ -94,24 +98,36 @@
     - product: 5-year variable
       label: "5 year variable rate"
 
-# EQ Bank refused my test request with bot detection, so it can't be collected automatically.
-# Left here switched off in case that changes.
+# EQ Bank: permission received from the bank (October 2026). Rates are in a table with terms across the top.
+# The "Standard Mortgage Rate (Closed)" row is the rate for most borrowers (the Evolution Suite row is for insured
+# mortgages only). The variable rate is shown as "P + 0.34%", so the scraper adds that to EQ's own prime rate.
 - name: EQ Bank
-  enabled: false
   url: https://www.eqbank.ca/residential/mortgage-rates
-  mode: browser
-  rates: []
-
-- name: BMO
-  enabled: false
-  url: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
-  mode: browser   # BMO fills in its rates with JavaScript
-  # Each rate sits in a card headed by the term plus an "Amortization 25 years or lower" line.
-  # Matching on both skips BMO's separate "default insured" 5-year card.
+  mode: auto
   rates:
     - product: 3-year fixed
-      label: "3 Year Fixed Amortization 25 years or lower"
+      label: "Standard Mortgage Rate (Closed)"
+      column: "3 Year Fixed"
+      note: "Standard rate"
     - product: 5-year fixed
-      label: "5 Year Smart Fixed Amortization 25 years or lower"
+      label: "Standard Mortgage Rate (Closed)"
+      column: "5 Year Fixed"
+      note: "Standard rate"
     - product: 5-year variable
-      label: "5 Year Variable Amortization 25 years or lower"
+      label: "Standard Mortgage Rate (Closed)"
+      column: "5 Year Adjustable"
+      prime_label: "Equitable Prime Rate (P)"
+      note: "Standard rate"
+
+# BMO: permission received from the bank (October 2026). Uses the summary table lower on the page
+# ("3 year fixed (closed)" and so on), where the first figure in each row is the rate and the second is the APR.
+- name: BMO
+  url: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3 year fixed (closed)"
+    - product: 5-year fixed
+      label: "5 year Smart Fixed (closed)"
+    - product: 5-year variable
+      label: "5 year Variable (closed)"
