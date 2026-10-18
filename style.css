@@ -5,7 +5,7 @@
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 var(--bd)}
-main{padding:36px clamp(16px,4vw,56px) 64px}
+main{max-width:1080px;margin:0 auto;padding:36px 24px 64px}
 .n{display:flex;justify-content:space-between;align-items:center;gap:12px 20px;flex-wrap:wrap}
 .nw,.r{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 a.brand{color:var(--fg);text-decoration:none;font:var(--fw) 22px var(--hd);margin-right:8px}
@@ -124,8 +124,9 @@ a.card p{margin:0;color:var(--mu);font-size:14px;font-weight:400}
 .tabs{display:flex;flex-direction:column;gap:6px;position:sticky;top:16px;padding:0 20px 0 0;border-right:1px solid var(--ln)}
 .tabs a{text-align:left;white-space:normal!important;border-radius:12px!important}
 @media (max-width:820px){.vl{display:block}.tabs{position:static;flex-direction:row;flex-wrap:wrap;padding:0 0 14px;margin:0 0 18px;border-right:0;border-bottom:1px solid var(--ln)}.tabs a{border-radius:999px!important}}
-.lg-logo{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:7px;background:#fff;box-shadow:0 0 0 1px var(--ln);margin-right:10px;vertical-align:middle;overflow:hidden;flex:none}
-.lg-logo img{width:100%;height:100%;object-fit:cover;display:block}
+.lg-logo{display:inline-grid;place-items:center;width:28px;height:28px;margin-right:10px;vertical-align:middle;flex:none}
+.lg-logo img{width:100%;height:100%;object-fit:contain;display:block}
+.lg-logo span{display:grid;place-items:center;width:28px;height:28px;border-radius:7px;background:var(--card);box-shadow:0 0 0 1px var(--ln);color:var(--fg)!important}
 .lg-logo span{font:700 11px var(--bd);color:#10213F}
 td.ln{white-space:nowrap}
 .tabs a{flex:none;padding:7px 16px;border:1px solid var(--ln);border-radius:999px;background:var(--card);color:var(--fg);text-decoration:none;font-size:14px;white-space:nowrap}

@@ -65,13 +65,13 @@ function showRate(p, id, label, mark, fn, last, next){
 }
 
 // Each lender's logo is the site icon from the lender's own website, filling the same square for every bank.
-// [icon address, zoom]: zoom enlarges an icon that has a white margin built in. Lenders not listed try their site's /favicon.ico.
+// [logo address, zoom]: the sharpest logo each bank publishes, shrunk to fit; zoom can enlarge one that looks small. Lenders not listed try their site's /favicon.ico.
 const LOGOS = {
-  "RBC Royal Bank": ["https://www.rbcroyalbank.com/favicon.ico", 1],
-  "TD Canada Trust": ["https://www.td.com/etc.clientlibs/tdsite/clientlibs/clientlib-wealth/resources/images/favicon.ico", 1],
-  "Scotiabank": ["https://www.scotiabank.com/content/dam/scotiabank/enterprise/images/logos/favicon.ico", 1],
-  "Tangerine": ["https://www.tangerine.ca/etc.clientlibs/tangerine/clientlibs/clientlib-site/resources/apple-touch-icon-180x180.png", 1.45],
-  "National Bank": ["https://www.nbc.ca/content/dam/global/logo/favicon.ico", 1]
+  "RBC Royal Bank": ["https://www.rbcroyalbank.com/dvl/v1.0/assets/images/logos/rbc-logo-shield.svg", 1],
+  "TD Canada Trust": ["https://www.td.com/content/dam/tdct/images/navigation-header-and-footer/td-logo-desktop.png", 1],
+  "Scotiabank": ["https://www.scotiabank.com/content/dam/scotiabank/images/logos/2023/scotiabank-logo-red-mobile.svg", 1],
+  "Tangerine": ["https://www.tangerine.ca/etc.clientlibs/tangerine/clientlibs/clientlib-site/resources/icon-310x310.png", 1],
+  "National Bank": ["https://www.bnc.ca/content/dam/bnc/commun/logo/logo-bnc-flag.svg", 1]
 };
 function logo(l){
   const w = l.name.split(/\s+/), ini = esc(/^[A-Z]{2,4}$/.test(w[0]) ? w[0] : w.map(x => x[0]).join("").slice(0, 2).toUpperCase());
