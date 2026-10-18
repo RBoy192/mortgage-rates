@@ -44,6 +44,7 @@
 # CIBC: permission received from the bank (October 2026). Special-offer fixed rates are in cards at the top;
 # the 5-year variable is in the "CIBC Variable Flex Mortgage" table, which lists the posted rate first, then the special offer.
 - name: CIBC
+  enabled: false
   url: https://www.cibc.com/en/interest-rates/mortgage-rates.html
   mode: auto
   rates:
@@ -122,6 +123,7 @@
 # BMO: permission received from the bank (October 2026). Uses the summary table lower on the page
 # ("3 year fixed (closed)" and so on), where the first figure in each row is the rate and the second is the APR.
 - name: BMO
+  enabled: false
   url: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
   mode: auto
   rates:
