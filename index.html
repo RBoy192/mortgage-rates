@@ -64,6 +64,12 @@ function showRate(p, id, label, mark, fn, last, next){
   $(fn).hidden = false;
 }
 
+// Each lender's logo is its site icon, loaded from the lender's own website. If it can't load, its initials show instead.
+function logo(l){
+  const w = l.name.split(/\s+/), ini = esc(/^[A-Z]{2,4}$/.test(w[0]) ? w[0] : w.map(x => x[0]).join("").slice(0, 2).toUpperCase());
+  let src = ""; try { src = new URL(l.source).origin + "/favicon.ico"; } catch (e) {}
+  return `<span class="lg-logo" aria-hidden="true">${src ? `<img src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${ini}'}))">` : `<span>${ini}</span>`}</span>`;
+}
 function render(){
   const best = COLUMNS.map(([, p]) => Math.min(...lenders.map(l => rateOf(l, p))));
   $("tiles").innerHTML = COLUMNS.map(([, p], i) => best[i] === Infinity ? "" :
@@ -73,7 +79,7 @@ function render(){
     if (th.dataset.p === sortBy) th.setAttribute("aria-sort", "ascending"); else th.removeAttribute("aria-sort");
   });
   $("rows").innerHTML = rows.length ? rows.map(l => `<tr>
-    <td><a href="${esc(l.source)}" target="_blank" rel="noopener">${esc(l.name)}${EXT}</a></td>
+    <td class="ln">${logo(l)}<a href="${esc(l.source)}" target="_blank" rel="noopener">${esc(l.name)}${EXT}</a></td>
     ${COLUMNS.map(([, p], i) => {
       const c = l.cells[p];
       if (!c) return '<td class="none">—</td>';
