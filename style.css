@@ -182,3 +182,8 @@ label.ck input{width:20px;height:20px;margin:0;flex:none}
 .prose h2{margin-top:32px}
 .prose p,.prose li{max-width:75ch}
 .f .chg{margin:0 1px;vertical-align:0}
+td.st b{opacity:.45}
+.ref{font-size:.7em;margin-left:1px}
+.ref a{text-decoration:none;padding:0 1px}
+ol.refs{margin:6px 0 0;padding-left:20px}
+ol.refs li{margin:4px 0}

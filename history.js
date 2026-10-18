@@ -11,13 +11,14 @@ const long = t => new Date(t).toLocaleDateString([], {dateStyle: "medium"});
 const valueAt = (pts, t) => { let v = null; for (const [d, r] of pts) { if (day(d) <= t) v = r; else break; } return v; };
 
 function lenders(){
-  const names = new Set(Object.keys(H.series).filter(k => k.includes("|")).map(k => k.split("|")[0]));
+  const names = new Set(Object.keys(H.series).filter(k => k.includes("|") && !k.startsWith("posted|")).map(k => k.split("|")[0]));
   return [...names].sort((a, b) => (LENDER_ORDER.indexOf(a) + 1 || 99) - (LENDER_ORDER.indexOf(b) + 1 || 99) || a.localeCompare(b));
 }
 
 function controls(){
   $("range").innerHTML = RANGES.map(([k]) => `<button type="button" aria-pressed="${k === range}" data-r="${k}">${k}</button>`).join("");
-  $("chips").innerHTML = lenders().map(n => `<button type="button" class="chip" aria-pressed="${!hidden.has(n)}" data-n="${esc(n)}"><i style="background:${seriesVar(n)}"></i>${esc(n)}</button>`).join("");
+  const P = "Big-bank posted rate (Bank of Canada)";
+  $("chips").innerHTML = (Object.keys(H.series).some(k => k.startsWith("posted|")) ? `<button type="button" class="chip" aria-pressed="${!hidden.has(P)}" data-n="${P}"><i style="background:var(--mu)"></i>Big-bank posted rate</button>` : "") + lenders().map(n => `<button type="button" class="chip" aria-pressed="${!hidden.has(n)}" data-n="${esc(n)}"><i style="background:${seriesVar(n)}"></i>${esc(n)}</button>`).join("");
 }
 
 function chart(el, title, series){
@@ -49,11 +50,11 @@ function chart(el, title, series){
     + `<svg viewBox="0 0 ${W} ${Ht}" width="${W}" height="${Ht}" role="img" aria-label="${esc(title)} rates over time, ${long(start)} to ${long(end)}">`
     + `<g class="ax">${ticks.map(v => `<line class="gl" x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}"/><text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end">${v.toFixed(2)}%</text>`).join("")}`
     + `${xt.map((t, k) => `<text x="${x(t)}" y="${Ht - 6}" text-anchor="${k === 0 ? "start" : k === 3 ? "end" : "middle"}">${short(t)}</text>`).join("")}</g>`
-    + vis.map(s => `<path d="${path(s)}" fill="none" stroke="${s.color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`).join("")
+    + vis.map(s => `<path d="${path(s)}" fill="none" stroke="${s.color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"${s.dash ? ' stroke-dasharray="6 4"' : ""}/>`).join("")
     + lastDots + `<line class="cross" y1="${m.t}" y2="${m.t + ih}" x1="0" x2="0" visibility="hidden"/>`
     + `<rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent" style="cursor:crosshair"/></svg>`
     + `<div class="tip" hidden></div>`
-    + `<div class="lgd">${vis.map(s => `<span><i style="background:${s.color}"></i>${esc(s.name)}</span>`).join("")}</div>`
+    + `<div class="lgd">${vis.map(s => `<span><i style="${s.dash ? `background:repeating-linear-gradient(90deg,${s.color} 0 5px,transparent 5px 8px)` : `background:${s.color}`}"></i>${esc(s.name)}</span>`).join("")}</div>`
     + `<details class="tv"><summary>Show as a table</summary><div class="t"><table><thead><tr><th>Date</th>${vis.map(s => `<th>${esc(s.name)}</th>`).join("")}</tr></thead><tbody>`
     + dates.map(d => `<tr><td>${dstr(d)}</td>${vis.map(s => { const p = s.v.find(q => q[0] === d); return `<td>${p ? pct(p[1]) : "—"}</td>`; }).join("")}</tr>`).join("")
     + `</tbody></table></div><p class="s">Only days when the rate was saved are listed.</p></details>`;
@@ -76,12 +77,16 @@ function chart(el, title, series){
 function render(){
   controls();
   const ls = lenders().filter(n => !hidden.has(n));
+  // The Bank of Canada publishes the big banks' typical posted rate for fixed terms; it's drawn dashed for context.
+  const POSTED = "Big-bank posted rate (Bank of Canada)";
   COLUMNS.forEach(([, p], k) => chart($("ch" + k), p.charAt(0).toUpperCase() + p.slice(1),
-    ls.filter(n => H.series[n + "|" + p]).map(n => ({name: n, color: seriesVar(n), points: H.series[n + "|" + p]}))));
+    ls.filter(n => H.series[n + "|" + p]).map(n => ({name: n, color: seriesVar(n), points: H.series[n + "|" + p]}))
+      .concat(H.series["posted|" + p] && !hidden.has(POSTED) ? [{name: POSTED, color: "var(--mu)", dash: true, points: H.series["posted|" + p]}] : [])));
   chart($("chb"), "Bank of Canada policy rate and prime rate", [["policy_rate", "BoC policy rate", "var(--s1)"], ["prime_rate", "Prime rate", "var(--s2)"]]
     .filter(([k]) => H.series[k]).map(([k, name, color]) => ({name, color, points: H.series[k]})));
-  const first = Object.values(H.series).flatMap(s => s.map(p => p[0])).sort()[0];
-  $("since").textContent = first ? `History starts on ${dstr(first)}. The site saves each lender's rates once a day, so the charts fill in over time.` : "";
+  const lenderFirst = Object.entries(H.series).filter(([k]) => k.includes("|") && !k.startsWith("posted|")).flatMap(([, s]) => s.map(p => p[0])).sort()[0];
+  $("since").textContent = (H.boc_history_from ? `Bank of Canada figures go back to ${dstr(H.boc_history_from)}. ` : "")
+    + (lenderFirst ? `Each lender's own rates start on ${dstr(lenderFirst)}, when this site began saving them once a day; lenders don't publish their past rates.` : "");
 }
 
 $("range").onclick = e => { const b = e.target.closest("button"); if (b) { range = b.dataset.r; save(); render(); } };

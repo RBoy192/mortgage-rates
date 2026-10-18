@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Offline calculator | What's the rate?</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css?v=10">
+</head>
+<body data-page="extras" data-chapter="offline">
+<main id="top">
+<header id="site-header"></header>
+<div class="pg vl">
+<nav class="tabs" aria-label="Extras"><a href="rate-history.html">Rate history</a><a href="offline-calculator.html" aria-current="page">Offline calculator</a><a href="about.html">About</a><a href="terms.html">Terms and privacy</a></nav>
+<div class="vc">
+<h1>Offline calculator</h1>
+<div class="cc"><article>
+<p>A mortgage calculator you can keep. Copy this into Excel or Google Sheets and change any number in column B. Everything else recalculates, so you can try other prices, rates and amortizations without coming back here. It starts with your numbers from the calculators.</p>
+<ol class="wk"><li>Click <b>Copy calculator</b>.</li><li>Open a blank sheet in Excel or Google Sheets and click cell <b>A1</b>.</li><li>Paste with Ctrl+V (Cmd+V on a Mac).</li><li>Change the numbers in column B. Type rates as 4.84% or 0.0484.</li></ol>
+<p class="m">Examples use your numbers from the <a href="calculators.html">interactive calculators</a>: <span id="using">loading…</span>.</p>
+<button class="btn" id="copy" type="button">Copy calculator</button> <span class="s" id="copied" hidden>Copied</span>
+<textarea id="sheet" class="fm" rows="18" readonly spellcheck="false" aria-label="Spreadsheet text to copy"></textarea>
+<p class="f">The monthly payment appears twice: once with the longhand formula and once with the PMT shortcut, so you can check they match. If everything lands in one column, select it and use Data &gt; Text to Columns, then choose Tab. Fixed rates compound twice a year and variable rates monthly, the way Canadian lenders calculate them. The insurance premium rates in the sheet's notes (4%, 3.1% and 2.8%) are explained in the <a href="crash-insurance.html">insured vs uninsured</a> chapter of the crash course.</p>
+</article></div>
+<p id="src" data-keys="grid"></p>
+</div>
+</div>
+</main>
+<script src="site.js?v=10"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="10"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="crash.js?v=10"></script>
+</body>
+</html>

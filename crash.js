@@ -1,6 +1,6 @@
 // Pictures and worked examples for the crash course chapters. Each chapter page sets <body data-chapter="...">.
 (function(){
-if (typeof SITE_VERSION === "undefined" || SITE_VERSION !== "9") return;
+if (typeof SITE_VERSION === "undefined" || SITE_VERSION !== "10") return;
 const share = y => Math.round(y.int / (y.int + y.pr) * 100);
 const CH = {
   basics(c){
@@ -48,7 +48,7 @@ const CH = {
       + `<li>Payment = ${money(c.P)} × ${iStr} ÷ (1 − (1 + ${iStr})^(−${c.n})) = <strong>${money(c.pay)}</strong></li>`
       + `<li>Month 1: interest ${money(i1)}, principal ${money(p1)}, new balance ${money(c.P - p1)}</li></ol>`
       + `<p><b>The whole formula, with your numbers</b></p><span class="fm">${whole}</span>`
-      + `<p class="s">Prefer a spreadsheet? Try the <a href="crash-offline.html">offline calculator</a>.</p>`;
+      + `<p class="s">Prefer a spreadsheet? Try the <a href="offline-calculator.html">offline calculator</a>.</p>`;
   },
   offline(c){
     const r = +(c.rate / 100).toFixed(6);

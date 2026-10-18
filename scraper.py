@@ -279,6 +279,59 @@ def manual_record(name, product, m, url, day=None):
     return rec
 
 
+# Official Bank of Canada series loaded into history.json (a year back, refreshed every run):
+# the policy rate, the major banks' typical prime rate, and their typical posted 3- and 5-year fixed rates.
+BOC_HISTORY = {"policy_rate": "V39079", "prime_rate": "V80691311", "posted|3-year fixed": "V80691334", "posted|5-year fixed": "V80691335"}
+HISTORY_DAYS = 366
+
+
+def changes_only(points):
+    """Keep the first point, each point where the value changes, and the last point."""
+    out = []
+    for k, (d, v) in enumerate(points):
+        if not out or v != out[-1][1] or k == len(points) - 1:
+            out.append([d, v])
+    return out
+
+
+def boc_history(day=None):
+    """The last year of the BOC_HISTORY series from the Bank of Canada's Valet API, as {key: [[date, value], ...]}."""
+    import requests
+    from datetime import timedelta
+    start = (date.fromisoformat(day or today()) - timedelta(days=HISTORY_DAYS)).isoformat()
+    url = "https://www.bankofcanada.ca/valet/observations/{}/json?start_date={}".format(",".join(BOC_HISTORY.values()), start)
+    r = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=30)
+    r.raise_for_status()
+    obs = sorted(r.json()["observations"], key=lambda o: o["d"])
+    found = {}
+    for key, sid in BOC_HISTORY.items():
+        pts = []
+        for o in obs:
+            try:
+                v = float(o[sid]["v"])
+            except (KeyError, TypeError, ValueError):
+                continue
+            if 0 <= v <= 25:
+                pts.append([o["d"], v])
+        if pts:
+            found[key] = changes_only(pts)
+    if not found:
+        raise ValueError("no observations in the Bank of Canada Valet response")
+    return found
+
+
+def merge_boc_history(history, found):
+    """Replace the Bank of Canada series up to their latest official date; keep any later daily points the site saved."""
+    series = history.setdefault("series", {})
+    if not found:
+        return history
+    for key, pts in found.items():
+        last = pts[-1][0]
+        series[key] = pts + [p for p in series.get(key, []) if p[0] > last]
+    history["boc_history_from"] = min(p[0][0] for p in found.values())
+    return history
+
+
 def update_history(history, out, day=None):
     """Add today's rates to history.json: one value per lender, product and day (the latest that day).
     Rates that couldn't be refreshed (stale) are left out, so the history only holds rates that were current."""
@@ -361,6 +414,10 @@ def run():
     out = {"updated_at": now(), "demo": False, "rates": rates, **extras}
     OUT.write_text(json.dumps(out, indent=2))
     history = json.loads(HISTORY.read_text()) if HISTORY.exists() else {}
+    try:
+        history = merge_boc_history(history, boc_history())
+    except Exception as e:
+        warnings.append(f"Bank of Canada rate history: {e}")
     HISTORY.write_text(json.dumps(update_history(history, out), separators=(",", ":")))
     for w in warnings:
         print("WARNING:", w, file=sys.stderr)

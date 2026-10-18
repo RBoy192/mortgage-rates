@@ -76,7 +76,8 @@ class InTempFolder(unittest.TestCase):
         patches = [mock.patch.object(scraper, "get_html", side_effect=fake_get_html),
                    mock.patch.object(scraper, "robots_ok", return_value=True),
                    mock.patch.object(scraper, "policy_rate", return_value=dict(BOC)),
-                   mock.patch.object(scraper, "prime_rate", return_value=dict(BOC, rate=4.45))]
+                   mock.patch.object(scraper, "prime_rate", return_value=dict(BOC, rate=4.45)),
+                   mock.patch.object(scraper, "boc_history", return_value={})]
         for p in patches:
             p.start()
             self.addCleanup(p.stop)
@@ -241,6 +242,40 @@ class History(unittest.TestCase):
         h = scraper.update_history(h, changed, day="2026-10-18")
         self.assertEqual(h["series"]["BMO|5-year fixed"], [["2026-10-18", 4.99]])
 
+    def test_bank_of_canada_history_keeps_only_changes_and_merges_with_later_days(self):
+        fake = {"observations": [
+            {"d": "2025-10-01", "V39079": {"v": "2.50"}, "V80691311": {"v": "4.70"}, "V80691334": {"v": "6.05"}, "V80691335": {"v": "6.09"}},
+            {"d": "2025-10-08", "V39079": {"v": "2.50"}, "V80691311": {"v": "4.70"}, "V80691334": {"v": "6.05"}, "V80691335": {"v": "6.09"}},
+            {"d": "2025-10-30", "V39079": {"v": "2.25"}},
+            {"d": "2025-11-05", "V39079": {"v": "2.25"}, "V80691311": {"v": "4.45"}, "V80691334": {"v": "6.05"}, "V80691335": {"v": "6.09"}},
+            {"d": "2026-10-14", "V39079": {"v": "2.25"}, "V80691311": {"v": "4.45"}, "V80691334": {"v": "6.05"}, "V80691335": {"v": "6.19"}}]}
+        resp = mock.Mock(); resp.json.return_value = fake
+        with mock.patch("requests.get", return_value=resp):
+            found = scraper.boc_history(day="2026-10-18")
+        self.assertEqual(found["policy_rate"], [["2025-10-01", 2.5], ["2025-10-30", 2.25], ["2026-10-14", 2.25]])
+        self.assertEqual(found["posted|5-year fixed"], [["2025-10-01", 6.09], ["2026-10-14", 6.19]])
+        h = {"series": {"prime_rate": [["2026-10-17", 4.45], ["2026-10-18", 4.45]], "BMO|5-year fixed": [["2026-10-18", 5.14]]}}
+        h = scraper.merge_boc_history(h, found)
+        self.assertEqual(h["series"]["prime_rate"][0], ["2025-10-01", 4.7])
+        self.assertEqual(h["series"]["prime_rate"][-2:], [["2026-10-17", 4.45], ["2026-10-18", 4.45]])
+        self.assertEqual(h["series"]["BMO|5-year fixed"], [["2026-10-18", 5.14]])
+
+    def test_a_failed_history_download_doesnt_fail_the_run(self):
+        with tempfile.TemporaryDirectory() as d:
+            old = os.getcwd(); os.chdir(d)
+            try:
+                Path("institutions.yaml").write_text(LENDERS)
+                with mock.patch.object(scraper, "get_html", side_effect=fake_get_html), \
+                        mock.patch.object(scraper, "robots_ok", return_value=True), \
+                        mock.patch.object(scraper, "policy_rate", return_value=dict(BOC)), \
+                        mock.patch.object(scraper, "prime_rate", return_value=dict(BOC, rate=4.45)), \
+                        mock.patch.object(scraper, "boc_history", side_effect=ConnectionError("down")), \
+                        mock.patch("sys.stdout"), mock.patch("sys.stderr"):
+                    self.assertEqual(scraper.run(), 0)
+                self.assertIn("EQ Bank|3-year fixed", json.loads(Path("history.json").read_text())["series"])
+            finally:
+                os.chdir(old)
+
     def test_the_scraper_writes_history_json(self):
         with tempfile.TemporaryDirectory() as d:
             old = os.getcwd()
@@ -251,6 +286,7 @@ class History(unittest.TestCase):
                         mock.patch.object(scraper, "robots_ok", return_value=True), \
                         mock.patch.object(scraper, "policy_rate", return_value=dict(BOC)), \
                         mock.patch.object(scraper, "prime_rate", return_value=dict(BOC, rate=4.45)), \
+                        mock.patch.object(scraper, "boc_history", return_value={}), \
                         mock.patch("sys.stdout"), mock.patch("sys.stderr"):
                     scraper.run()
                 h = json.loads(Path("history.json").read_text())

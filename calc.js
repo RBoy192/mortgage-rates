@@ -95,71 +95,7 @@ function makeCalc(cfg){
 const QUAL = "Qualifying rules (CMHC defaults, editable)";
 const CALCS = {
 
-  stress: {
-    key: "stress", bigLabel: "Stress test", src: ["gds"],
-    fields: [
-      F.money("amount", "Mortgage amount", 400000, "50000,2000000,5000", "Include any mortgage insurance premium."),
-      F.rate(), F.custom(), F.years(25, [15, 20, 25, 30]),
-      F.money("income", "Household income before tax, per year", 100000, "20000,500000,1000"),
-      F.money("debts", "Monthly debt payments", 500, "0,5000,25", "Car loans, credit cards, lines of credit, student loans. Use the minimum payments."),
-      F.money("tax", "Property tax per month", 300, "0,2000,10", "", {group: "Assumptions you can change"}),
-      F.money("heat", "Heating per month", 120, "0,500,5", "", {group: "Assumptions you can change"}),
-      F.money("condo", "Condo fees per month", 0, "0,1500,10", "Lenders count half of condo fees.", {group: "Assumptions you can change"}),
-      F.num("gds", "GDS limit (%)", 39, 0.5, "20,50,0.5", "", {group: QUAL}),
-      F.num("tds", "TDS limit (%)", 44, 0.5, "25,55,0.5", "", {group: QUAL}),
-      F.num("stress", "Stress test: add to your rate (%)", 2, 0.25, "0,5,0.25", "", {group: QUAL}),
-      F.num("floor", "Stress test: minimum qualifying rate (%)", 5.25, 0.25, "3,8,0.25", "", {group: QUAL})
-    ],
-    compute(v, best){
-      const R = rateInfo(v, best);
-      if (!(v.amount > 0 && v.income > 0 && R.rate > 0 && v.gds > 0 && v.tds > 0)) return null;
-      const n = v.years * 12, qual = Math.max(R.rate + v.stress, v.floor), qi = perPeriod(qual, R.variable), i = perPeriod(R.rate, R.variable);
-      const qpay = pmt(v.amount, qi, n), mi = v.income / 12, other = v.tax + v.heat + v.condo / 2;
-      const gds = (qpay + other) / mi * 100, tds = (qpay + other + v.debts) / mi * 100;
-      const okG = gds <= v.gds + 1e-9, okT = tds <= v.tds + 1e-9, pass = okG && okT;
-      const need = Math.max((qpay + other) / (v.gds / 100), (qpay + other + v.debts) / (v.tds / 100)) * 12;
-      const maxPay = Math.min(v.gds / 100 * mi - other, v.tds / 100 * mi - other - v.debts);
-      const maxLoan = maxPay > 0 ? maxPay * (1 - Math.pow(1 + qi, -n)) / qi : 0;
-      return {
-        label: "At the stress-test rate, you would", big: pass ? "Pass ✓" : "Not pass ✗", sub: `GDS ${gds.toFixed(1)}% (limit ${v.gds}%) · TDS ${tds.toFixed(1)}% (limit ${v.tds}%)`,
-        items: [
-          `Stress-test rate: <strong>${qual.toFixed(2)}%</strong>, the greater of ${R.label} plus ${v.stress}% or ${v.floor}%.`,
-          `Payment lenders test you at: <strong>${money(qpay)}</strong> a month. At your actual rate it would be ${money(pmt(v.amount, i, n))}.`,
-          `GDS ${gds.toFixed(1)}%: ${okG ? "within" : "<strong>over</strong>"} the ${v.gds}% limit. TDS ${tds.toFixed(1)}%: ${okT ? "within" : "<strong>over</strong>"} the ${v.tds}% limit.`,
-          `Income needed to pass: <strong>${money(need)}</strong> a year.`,
-          `Largest mortgage you'd pass with on this income: <strong>${money(maxLoan)}</strong>.`
-        ]
-      };
-    }
-  },
 
-  down: {
-    key: "down", bigLabel: "Minimum down payment", src: ["down", "grid", "dof"],
-    fields: [
-      F.money("price", "Home price", 500000, "100000,2500000,5000"),
-      F.rate(), F.custom(),
-      F.years(25, [25, 30], "Amortization (years)", "30 years on an insured mortgage is for first-time buyers and buyers of new builds.")
-    ],
-    compute(v, best){
-      const R = rateInfo(v, best), P = v.price;
-      if (!(P > 0 && R.rate > 0)) return null;
-      const min = minDown(P), i = perPeriod(R.rate, R.variable), n = v.years * 12;
-      const opts = P >= 1.5e6 ? [P * 0.2] : [min, ...[0.1, 0.15, 0.2].map(x => P * x).filter(d => d > min + 1)];
-      const rows = opts.map(D => { const prem = premPct(P, D, v.years), premium = (P - D) * prem / 100, L = P - D + premium; return {D, prem, premium, L, pay: pmt(L, i, n)}; });
-      const msgs = [];
-      if (P >= 1.5e6) msgs.push(["w", "Mortgage insurance isn't available for homes of $1.5 million or more, so at least 20% down is required."]);
-      if (v.years > 25) msgs.push(["", "A 30-year amortization adds 0.20% to the insurance premium (included above). With 20% or more down, your lender sets the maximum amortization."]);
-      msgs.push(["", "Some provinces charge sales tax on the insurance premium, and it can't be added to your mortgage. The <a href=\"calc-closing.html\">closing costs calculator</a> includes it."]);
-      return {
-        label: "Minimum down payment", big: money(min), sub: `${(min / P * 100).toFixed(2)}% of the price`,
-        items: [P >= 1.5e6 ? "At $1.5 million and above, the minimum is 20% of the price."
-          : `5% of the first $500,000${P > 5e5 ? ` plus 10% of the ${money(P - 5e5)} above it` : ""}.`, `Monthly payments use ${R.label} over ${v.years} years.`],
-        table: `<table class="cmpt"><thead><tr><th>Down payment</th><th>Insurance premium</th><th>Total mortgage</th><th>Monthly payment</th></tr></thead><tbody>`
-          + rows.map(r => `<tr><td>${money(r.D)} (${(r.D / P * 100).toFixed(1)}%)</td><td>${r.prem ? `${money(r.premium)} (${r.prem.toFixed(2)}%)` : "None"}</td><td>${money(r.L)}</td><td>${money(r.pay)}</td></tr>`).join("") + "</tbody></table>",
-        msgs
-      };
-    }
-  },
 
   closing: {
     key: "closing", bigLabel: "Estimated closing costs", src: ["buy"],

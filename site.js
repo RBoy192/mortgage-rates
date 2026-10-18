@@ -1,4 +1,4 @@
-const SITE_VERSION = "9";
+const SITE_VERSION = "10";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -225,7 +225,7 @@ const SRC = {
   valet: ["Bank of Canada: Valet data API", "https://www.bankofcanada.ca/valet/docs"]
 };
 function srcLinks(keys){
-  return '<b>Where these numbers come from:</b> ' + keys.map(k => `<a href="${SRC[k][1]}" target="_blank" rel="noopener">${SRC[k][0]}${EXT}</a>`).join(" · ");
+  return '<b>Sources</b><ol class="refs">' + keys.map(k => `<li><a href="${SRC[k][1]}" target="_blank" rel="noopener">${SRC[k][0]}</a></li>`).join("") + '</ol>';
 }
 (function(){ const el = $("src"); if (el && el.dataset.keys) { el.className = "f src"; el.innerHTML = srcLinks(el.dataset.keys.split(",")); } })();
 
