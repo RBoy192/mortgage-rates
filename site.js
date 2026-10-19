@@ -1,4 +1,4 @@
-const SITE_VERSION = "15";
+const SITE_VERSION = "16";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -18,7 +18,7 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
   const page = document.body.dataset.page, el = $("site-header"), base = page === "404" ? "/" : "";
   const links = [["calc", "calculators.html", "Interactive Calculators"], ["crash", "crash-course.html", "Crash course"], ["extras", "rate-history.html", "Extras"]];
   el.className = "n";
-  el.innerHTML = `<div class="nw"><a class="brand" href="${base}index.html"><img src="${base}favicon.svg?v=15" alt="" width="28" height="28">What's the rate?</a>`
+  el.innerHTML = `<div class="nw"><a class="brand" href="${base}index.html"><img src="${base}favicon.svg?v=16" alt="" width="28" height="28">What's the rate?</a>`
     + `<button type="button" class="menu" id="menubtn" aria-expanded="false" aria-controls="mainnav"><span aria-hidden="true">☰</span> Menu</button>`
     + `<nav class="mainnav" id="mainnav" aria-label="Main">` + links.map(([k, u, t]) => `<a class="nl" href="${base}${u}"${k === page ? ' aria-current="page"' : ""}>${t}</a>`).join("") + `</nav></div>`
     + `<div class="r">${page === "rates" ? '<span class="pill">Updated hourly</span>' : ""}<button class="mode" id="mode" type="button">`
@@ -27,10 +27,20 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
     + `<span id="ml">Dark mode</span></button></div>`;
   const root = document.documentElement;
   const show = () => { $("ml").textContent = root.dataset.theme === "dark" ? "Light mode" : "Dark mode"; };
-  $("mode").onclick = () => {
+  const flip = () => {
     root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
     try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
     show();
+  };
+  // Quick fade between light and dark. Browsers with view transitions cross-fade the whole page
+  // (charts included); others ease the colours. Skipped when the person has asked for less motion.
+  $("mode").onclick = () => {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return flip();
+    if (document.startViewTransition) { document.startViewTransition(flip); return; }
+    root.classList.add("theming");
+    flip();
+    clearTimeout(root._tm);
+    root._tm = setTimeout(() => root.classList.remove("theming"), 350);
   };
   show();
   $("menubtn").onclick = () => { const open = $("menubtn").getAttribute("aria-expanded") !== "true"; $("menubtn").setAttribute("aria-expanded", open); el.classList.toggle("open", open); };
