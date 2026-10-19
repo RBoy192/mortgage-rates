@@ -2,9 +2,9 @@
 (function(){
 if (typeof SITE_VERSION === "undefined") return;
 const RANGES = [["1M", 31], ["3M", 92], ["6M", 183], ["1Y", 366], ["All", Infinity]];
-let H = {series: {}}, range = "All", hidden = new Set();
-try { range = localStorage.getItem("hist-range") || "All"; hidden = new Set(JSON.parse(localStorage.getItem("hist-hidden") || "[]")); } catch (e) {}
-const save = () => { try { localStorage.setItem("hist-range", range); localStorage.setItem("hist-hidden", JSON.stringify([...hidden])); } catch (e) {} };
+let H = {series: {}}, range = "1Y", hidden = new Set();
+try { range = localStorage.getItem("hist-range2") || "1Y"; hidden = new Set(JSON.parse(localStorage.getItem("hist-hidden") || "[]")); } catch (e) {}
+const save = () => { try { localStorage.setItem("hist-range2", range); localStorage.setItem("hist-hidden", JSON.stringify([...hidden])); } catch (e) {} };
 const day = iso => new Date(iso + "T12:00:00").getTime();
 const short = t => new Date(t).toLocaleDateString([], {month: "short", day: "numeric"});
 const long = t => new Date(t).toLocaleDateString([], {dateStyle: "medium"});
@@ -17,13 +17,18 @@ function lenders(){
 
 function controls(){
   $("range").innerHTML = RANGES.map(([k]) => `<button type="button" aria-pressed="${k === range}" data-r="${k}">${k}</button>`).join("");
-  const P = "Big-bank posted rate (Bank of Canada)";
+  const P = "Big-bank posted rate (Bank of Canada)", all = lenders(), shown = all.filter(n => !hidden.has(n));
+  const banks = all.filter(n => !NON_BANKS.includes(n)), only = set => shown.length === set.length && set.every(n => !hidden.has(n));
+  $("quick").innerHTML = [["all", "Show all", shown.length === all.length], ["banks", "Banks only", only(banks)],
+    ["others", "Credit unions only", only(all.filter(n => NON_BANKS.includes(n)))], ["none", "Clear all", !shown.length && hidden.has(P)]]
+    .map(([k, t, on]) => `<button type="button" data-q="${k}" aria-pressed="${on}">${t}</button>`).join("");
   $("chips").innerHTML = (Object.keys(H.series).some(k => k.startsWith("posted|")) ? `<button type="button" class="chip" aria-pressed="${!hidden.has(P)}" data-n="${P}"><i style="background:var(--mu)"></i>Big-bank posted rate</button>` : "") + lenders().map(n => `<button type="button" class="chip" aria-pressed="${!hidden.has(n)}" data-n="${esc(n)}"><i style="background:${seriesVar(n)}"></i>${esc(n)}</button>`).join("");
 }
 
 function chart(el, title, series){
   const end = day(todayISO()), all = series.flatMap(s => s.points.map(p => day(p[0])));
-  if (!all.length) { el.innerHTML = `<h2 class="h3">${title}</h2><p class="empty">No history yet. It fills in as the site saves each day's rates.</p>`; return; }
+  if (!series.length && hidden.size) { el.innerHTML = `<h2 class="h3">${title}</h2>` + mascotNote("No lenders picked. Tap a lender above, or use Show all, to bring the lines back.", "hold"); return; }
+  if (!all.length) { el.innerHTML = `<h2 class="h3">${title}</h2>${mascotNote("No history yet. It fills in as the site saves each day's rates.", "hold")}`; return; }
   const span = RANGES.find(r => r[0] === range)[1];
   let start = Math.max(Math.min(...all), end - span * 864e5);
   if (start >= end) start = end - 7 * 864e5;
@@ -109,6 +114,15 @@ function render(){
 }
 
 $("range").onclick = e => { const b = e.target.closest("button"); if (b) { range = b.dataset.r; save(); render(); } };
+// Quick picks: everyone, banks only, credit unions only, or nobody (then tap lenders one by one)
+$("quick").onclick = e => {
+  const b = e.target.closest("button"); if (!b) return;
+  const all = lenders(), keep = {all: all, banks: all.filter(n => !NON_BANKS.includes(n)), others: all.filter(n => NON_BANKS.includes(n)), none: []}[b.dataset.q];
+  all.forEach(n => keep.includes(n) ? hidden.delete(n) : hidden.add(n));
+  const P = "Big-bank posted rate (Bank of Canada)";
+  if (b.dataset.q === "none") hidden.add(P); else if (b.dataset.q === "all") hidden.delete(P);
+  save(); render();
+};
 $("chips").onclick = e => { const b = e.target.closest("button"); if (b) { const n = b.dataset.n; hidden.has(n) ? hidden.delete(n) : hidden.add(n); save(); render(); } };
 let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(render, 150); });
 loadHistory().then(h => { H = h && h.series ? h : {series: {}}; render(); });

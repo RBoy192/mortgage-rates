@@ -65,12 +65,12 @@ function renderLender(){
 
 function render(){ (term ? renderTerm : renderLender)(); }
 
-if (window.histRange) histRange("All");
+if (window.histRange) histRange("1Y");
 loadRates().then(d => {
   lenders = groupLenders(d); updatedAt = d.updated_at; tick(); setInterval(tick, 30000);
   $("demo").hidden = !d.demo;
   render();
   loadHistory().then(h => { hist = h && h.series ? h : {series: {}}; render(); });
-}, () => { $("updated").textContent = "Couldn't load the latest rates. Please refresh the page or try again in a few minutes."; });
+}, () => { $("updated").innerHTML = mascotNote("Hmm, the latest rates didn't load. Please refresh the page, or try again in a few minutes."); });
 let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(render, 150); });
 })();

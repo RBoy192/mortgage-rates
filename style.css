@@ -438,3 +438,37 @@ th[aria-sort] button{color:var(--fg)}
 .pk .sq.lo{background:transparent;border:2px solid var(--mu)}
 [data-theme="dark"] .ill text.cs{fill:#10213F}
 .ill .k.w{fill:#fff}
+/* Mascot */
+.mascot .mk{fill:none;stroke:var(--fg);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.mascot .md{fill:var(--fg)}
+.mascot .ms{fill:#FFD23F;stroke:var(--fg);stroke-width:3}
+.mascot .mp{font:800 24px var(--hd);fill:#10213F}
+.mascot .mq{font:800 26px var(--hd);fill:var(--mu)}
+.mnote{display:flex;align-items:center;gap:14px;padding:12px 16px;border:1px dashed var(--ln);border-radius:14px;background:var(--card);color:var(--fg);font-size:15px}
+.mnote p{margin:0}
+.mnote .mascot{flex:none}
+.nf{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.nf-pic .mascot{display:block}
+/* Drawing animations (only when scripts run and motion is welcome) */
+.anim .ill .an-pop{transform-box:fill-box;transform-origin:center;transform:scale(0);opacity:0}
+.anim .ill.go .an-pop{animation:ill-pop .5s cubic-bezier(.3,1.5,.6,1) var(--d,0s) forwards}
+.anim .ill .an-grow{transform-box:fill-box;transform-origin:left center;transform:scaleX(0)}
+.anim .ill.go .an-grow{animation:ill-grow 1s ease-out var(--d,0s) forwards}
+.anim .ill .an-draw{stroke-dasharray:1;stroke-dashoffset:1}
+.anim .ill.go .an-draw{animation:ill-draw .7s ease-in-out var(--d,0s) forwards}
+.anim .ill.go .an-bob{transform-box:fill-box;animation:ill-bob 2.6s ease-in-out calc(var(--d,0s) + 1.4s) infinite}
+@keyframes ill-pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes ill-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes ill-draw{to{stroke-dashoffset:0}}
+@keyframes ill-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media (prefers-reduced-motion:reduce){.anim .ill *{animation:none!important;transform:none!important;opacity:1!important;stroke-dashoffset:0!important}}
+/* Monthly payment under each rate in the main table */
+.payctl{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:0 0 14px;font-size:15px}
+.payctl label{font-weight:600}
+.payctl .dl{display:inline-flex;align-items:center;gap:4px;background:var(--card);border:1px solid var(--ln);border-radius:10px;padding:0 10px}
+.payctl input{width:110px;border:0;background:none;font:700 16px var(--bd);color:var(--fg);padding:8px 0}
+.payctl input:focus{outline:none}
+.payctl .dl:focus-within{outline:3px solid var(--link);outline-offset:1px}
+td.rate .pm{display:block;font-size:12.5px;font-weight:600;color:var(--mu);margin-top:2px;white-space:nowrap}
+td.low .pm,td.glow .pm{margin-top:4px}
+.ctl .quick{flex-wrap:wrap}

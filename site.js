@@ -1,4 +1,4 @@
-const SITE_VERSION = "25";
+const SITE_VERSION = "26";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -260,6 +260,29 @@ const SRC = {
   switch: ["OSFI: uninsured mortgage straight switches", "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/osfi-exempts-uninsured-mortgage-straight-switches-prescribed-mqr-implements-portfolio-lti-limits"],
   bocposted: ["Bank of Canada: posted interest rates offered by chartered banks", "https://www.bankofcanada.ca/rates/banking-and-financial-statistics/posted-interest-rates-offered-by-chartered-banks/"]
 };
+// The site's stick-figure mascot, holding up a % sign. pose: "hold" (default), "shrug" (something's missing)
+function mascot(pose = "hold", size = 96){
+  const arms = pose === "shrug" ? "M60,62 L38,52 L32,40 M60,62 L82,52 L88,40" : "M60,62 L42,42 L44,24 M60,62 L78,42 L76,24";
+  const sign = pose === "shrug"
+    ? '<text x="22" y="30" class="mq">?</text><text x="92" y="26" class="mq">?</text>'
+    : '<rect x="30" y="2" width="60" height="30" rx="8" class="ms"/><text x="60" y="25" text-anchor="middle" class="mp">%</text>';
+  return `<svg class="mascot" width="${size}" height="${size * 1.25}" viewBox="0 0 120 150" aria-hidden="true">${sign}`
+    + `<circle cx="60" cy="48" r="13" class="mk"/><circle cx="55.5" cy="45.5" r="1.8" class="md"/><circle cx="64.5" cy="45.5" r="1.8" class="md"/>`
+    + `<path class="mk" d="${pose === "shrug" ? "M55,54 q5,-3 10,0" : "M55,52 q5,5 10,0"}"/>`
+    + `<path class="mk" d="M60,61 L60,104 M60,104 L46,140 M60,104 L74,140 ${arms}"/></svg>`;
+}
+// A friendly message with the mascot, for errors and empty states
+const mascotNote = (text, pose = "shrug") => `<div class="mnote">${mascot(pose, 56)}<p>${text}</p></div>`;
+
+// Drawings play a short animation the first time they scroll into view (skipped if the visitor prefers less motion)
+(function(){
+  const figs = document.querySelectorAll("figure.ill");
+  if (!figs.length || !("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  document.documentElement.classList.add("anim");
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("go"); io.unobserve(e.target); } }), {threshold: 0.35});
+  figs.forEach(f => io.observe(f));
+  addEventListener("beforeprint", () => figs.forEach(f => f.classList.add("go")));
+})();
 // Calculator messages: warnings stay in view; notes go in the result's "How this is worked out" panel (id + "_n")
 function putMsgs(id, msgs){
   $(id).innerHTML = msgs.filter(m => m[0] === "w").map(([, t]) => `<p class="msg w">${t}</p>`).join("");
