@@ -1,4 +1,4 @@
-const SITE_VERSION = "16";
+const SITE_VERSION = "17";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -17,11 +17,11 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
 (function(){
   const page = document.body.dataset.page, el = $("site-header"), base = page === "404" ? "/" : "";
   const links = [["calc", "calculators.html", "Interactive Calculators"], ["crash", "crash-course.html", "Crash course"], ["extras", "rate-history.html", "Extras"]];
-  el.className = "n";
-  el.innerHTML = `<div class="nw"><a class="brand" href="${base}index.html"><img src="${base}favicon.svg?v=16" alt="" width="28" height="28">What's the rate?</a>`
+  el.className = el.closest(".band") ? "n" : "n band";
+  el.innerHTML = `<div class="nw"><a class="brand" href="${base}index.html"><svg class="bm" viewBox="10 10 44 44" aria-hidden="true"><circle cx="21" cy="21" r="7.5" fill="none" stroke="currentColor" stroke-width="5"/><circle cx="43" cy="43" r="7.5" fill="none" stroke="currentColor" stroke-width="5"/><path d="M45 16 19 48" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/></svg>What's the rate?</a>`
     + `<button type="button" class="menu" id="menubtn" aria-expanded="false" aria-controls="mainnav"><span aria-hidden="true">☰</span> Menu</button>`
     + `<nav class="mainnav" id="mainnav" aria-label="Main">` + links.map(([k, u, t]) => `<a class="nl" href="${base}${u}"${k === page ? ' aria-current="page"' : ""}>${t}</a>`).join("") + `</nav></div>`
-    + `<div class="r">${page === "rates" ? '<span class="pill">Updated hourly</span>' : ""}<button class="mode" id="mode" type="button">`
+    + `<div class="r"><button class="mode" id="mode" type="button">`
     + `<svg class="mo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>`
     + `<svg class="su" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>`
     + `<span id="ml">Dark mode</span></button></div>`;

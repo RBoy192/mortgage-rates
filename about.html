@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="How What&#x27;s the rate? collects mortgage rates from Canadian lenders&#x27; websites every hour, and how its calculators work.">
 <link rel="canonical" href="https://whatstherate.ca/about.html">
-<link rel="icon" href="favicon.svg?v=16" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=16" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=16">
+<link rel="icon" href="favicon.svg?v=17" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=17" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=17">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
 <meta property="og:type" content="website">
@@ -24,7 +24,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=16">
+<link rel="stylesheet" href="style.css?v=17">
 </head>
 <body data-page="extras">
 <main id="top">
@@ -33,7 +33,7 @@
 <nav class="tabs" aria-label="Extras"><a href="rate-history.html">Rate history</a><a href="faq.html">FAQ</a><a href="glossary.html">Glossary</a><a href="offline-calculator.html">Offline calculator</a><a href="about.html" aria-current="page">About</a><a href="terms.html">Terms and privacy</a></nav>
 <div class="vc">
 <div class="prose">
-<h1>About What's the rate?</h1>
+<h1>About <span class="hl">What&#x27;s the rate?</span></h1>
 <p class="m">A quick way to compare the mortgage rates Canadian lenders advertise, with calculators and plain-language explanations to help you understand them.</p>
 <h2>Where the rates come from</h2>
 <p>Every hour, this site reads the mortgage rates each lender publishes on its own website and shows them side by side. Each lender's name in the rates table links to the page its rates came from.</p>
@@ -53,8 +53,8 @@
 </div>
 </div>
 </main>
-<script src="site.js?v=16"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="16"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=17"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="17"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 loadRates().then(d => {
   const ls = groupLenders(d).sort((a, b) => a.name.localeCompare(b.name));
