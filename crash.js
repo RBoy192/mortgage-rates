@@ -1,19 +1,25 @@
 // Pictures and worked examples for the crash course chapters. Each chapter page sets <body data-chapter="...">.
 (function(){
-if (typeof SITE_VERSION === "undefined" || SITE_VERSION !== "23") return;
+if (typeof SITE_VERSION === "undefined" || SITE_VERSION !== "24") return;
 const share = y => Math.round(y.int / (y.int + y.pr) * 100);
+// A bar split into parts, with its labels in a key underneath (so nothing is squeezed or cut off inside the bar)
+const bar = (parts, inner) => `<div class="bar" role="img" aria-label="${esc(parts.map(p => p.t).join(", "))}">`
+  + parts.map(p => `<div class="seg ${p.c}" style="width:${Math.max(0, p.w).toFixed(2)}%" title="${esc(p.t)}">${inner ? (p.n || "") : ""}</div>`).join("") + `</div>`;
+const key = parts => `<div class="lg">${parts.map(p => `<span><i class="sq ${p.c}"></i>${p.t}</span>`).join("")}</div>`;
 const CH = {
   basics(c){
-    $("v").innerHTML = `<div class="bar"><div class="seg a" style="width:${c.downPct}%" title="Down payment">Down payment ${money(c.downAmt)}</div><div class="seg o" style="width:${100 - c.downPct}%" title="Mortgage">Mortgage ${money(c.P0)}</div></div>`
-      + `<span class="s">Home price ${money(c.price)}${c.insured ? `. With less than 20% down, an insurance premium of ${money(c.premium)} is added to the mortgage.` : ""}</span>`;
+    const parts = [{c: "a", w: c.downPct, t: `You pay (down payment): <b>${money(c.downAmt)}</b>`}, {c: "o", w: 100 - c.downPct, t: `The bank lends (mortgage): <b>${money(c.P0)}</b>`}];
+    $("v").innerHTML = `<p class="vt"><span>Home price: <b>${money(c.price)}</b></span></p>` + bar(parts) + key(parts)
+      + (c.insured ? `<p class="s">With less than 20% down, an insurance fee of ${money(c.premium)} is added to the mortgage.</p>` : "");
   },
   term(c){
     const segs = [];
     for (let a = 0, k = 1; a < c.years; a += c.term, k++) {
       const len = Math.min(c.term, c.years - a);
-      segs.push(`<div class="seg ${k === 1 ? "a" : "o"}" style="flex:${len}" title="Term ${k}: ${len} years">${k === 1 ? "Term 1: rate locked" : k}</div>`);
+      segs.push({c: k === 1 ? "a" : "o", w: len / c.years * 100, n: k, t: `Term ${k}: ${len} years`});
     }
-    $("v").innerHTML = `<div class="bar">${segs.join("")}</div><span class="s">The whole bar is the amortization (${c.years} years). Each box is one ${c.term}-year term. You renew at the end of each box, at whatever rate is on offer then.</span>`;
+    $("v").innerHTML = `<p class="vt"><span>The whole trip (amortization): <b>${c.years} years</b>, in ${segs.length} terms of ${c.term} years</span></p>` + `<div class="bar terms">${segs.map(p => `<div class="seg ${p.c}" style="width:${p.w.toFixed(2)}%" title="${p.t}">${p.n}</div>`).join("")}</div>`
+      + key([{c: "a", t: "Term 1: your rate is set"}, {c: "o", t: "Later terms: you pick a new rate each time"}]);
   },
   split(c){
     $("v").innerHTML = `<div class="yb">${c.yrs.map((y, k) => `<div class="yc" title="Year ${k + 1}: ${share(y)}% interest, ${100 - share(y)}% principal"><div class="i" style="height:${share(y)}%"></div><div class="p" style="height:${100 - share(y)}%"></div></div>`).join("")}</div>`
@@ -21,15 +27,16 @@ const CH = {
       + `<p class="m">In year 1, about ${share(c.yrs[0])}% of what you pay is interest. In year ${c.years}, it's about ${share(c.yrs[c.yrs.length - 1])}%.</p>`;
   },
   equity(c){
-    const row = (label, owe) => { const eq = Math.min(100, Math.max(0, (c.price - owe) / c.price * 100)); return `<div class="eq"><span>${label}</span><div class="bar"><div class="seg a" style="width:${eq}%">You own ${money(c.price - owe)}</div><div class="seg o" style="width:${100 - eq}%">You owe ${money(owe)}</div></div></div>`; };
-    $("v").innerHTML = row("Day 1", c.P) + row(`After ${c.term} years`, c.tb) + row(`After ${c.years} years`, 0);
+    const row = (label, owe) => { const eq = Math.min(100, Math.max(0, (c.price - owe) / c.price * 100));
+      return `<div class="eq"><p class="vt"><b>${label}</b><span>Yours: <b>${money(Math.max(0, c.price - owe))}</b> · Still owed: <b>${money(Math.max(0, owe))}</b></span></p>${bar([{c: "a", w: eq, t: "Yours"}, {c: "o", w: 100 - eq, t: "Still owed"}])}</div>`; };
+    $("v").innerHTML = row("Day 1", c.P) + row(`After ${c.term} years`, c.tb) + row(`After ${c.years} years`, 0) + key([{c: "a", t: "Yours (equity)"}, {c: "o", t: "Still owed to the bank"}]);
   },
   gds(c, best){
     const a = afford(loadAfford(), best), lim = (a && a.gdsLimit) || 39, lim2 = (a && a.tdsLimit) || 44;
     if (!a || a.none) { $("v").innerHTML = `<p class="m">Enter your income and down payment in the <a href="calculators.html">affordability calculator</a> to see your own ratios here.</p>`; return; }
     const hp = (a.qpay + a.other) / a.mi * 100, dp = a.debts / a.mi * 100, rest = Math.max(0, 100 - hp - dp);
     $("v").innerHTML = `<p class="s">Using your numbers from the <a href="calculators.html">affordability calculator</a>, with a gross monthly income of ${money(a.mi)}. If you borrowed the most you qualify for (${money(a.L)}), your income would be split like this:</p>`
-      + `<div class="bar"><div class="seg a" style="width:${hp}%">Housing ${hp.toFixed(1)}%</div><div class="seg o" style="width:${dp}%">Debts ${dp.toFixed(1)}%</div><div class="seg" style="width:${rest}%;border:1px dashed var(--ln)">Left over ${rest.toFixed(1)}%</div></div>`
+      + (() => { const parts = [{c: "a", w: hp, t: `Home: <b>${hp.toFixed(1)}%</b>`}, {c: "o", w: dp, t: `Other debts: <b>${dp.toFixed(1)}%</b>`}, {c: "lo", w: rest, t: `Left over: <b>${rest.toFixed(1)}%</b>`}]; return bar(parts) + key(parts); })()
       + `<ol class="wk"><li>Gross monthly income = ${money(a.income)} ÷ 12 = <strong>${money(a.mi)}</strong></li>`
       + `<li>Mortgage payment at the stress-test rate (${a.qual.toFixed(2)}%) = <strong>${money(a.qpay)}</strong></li>`
       + `<li>GDS = (${money(a.qpay)} + ${money(a.tax)} tax + ${money(a.heat)} heat + ${money(a.condo * 0.5)} half of condo fees) ÷ ${money(a.mi)} = <strong>${a.gds.toFixed(1)}%</strong> (limit ${lim}%)</li>`

@@ -38,11 +38,23 @@ function chart(el, title, series){
   const x = t => m.l + (t - start) / (end - start) * iw, y = r => m.t + (hi - r) / (hi - lo) * ih;
   const ticks = []; for (let v = lo; v <= hi + 1e-9; v += stepY) ticks.push(v);
   const xt = [0, 1, 2, 3].map(k => start + (end - start) * k / 3);
+  // Smooth curve through the saved points (monotone, so it never bulges above or below the real rates)
   const path = s => {
-    const pts = (s.before != null && (!s.v.length || day(s.v[0][0]) > start) ? [[start, s.before]] : []).concat(s.v.map(p => [day(p[0]), p[1]]));
-    let d = "";
-    pts.forEach(([t, r], k) => { d += k ? `H${x(t).toFixed(1)}V${y(r).toFixed(1)}` : `M${x(t).toFixed(1)},${y(r).toFixed(1)}`; });
-    return d + `H${x(end).toFixed(1)}`;
+    const raw = (s.before != null && (!s.v.length || day(s.v[0][0]) > start) ? [[start, s.before]] : []).concat(s.v.map(p => [day(p[0]), p[1]]));
+    if (raw.length && raw[raw.length - 1][0] < end) raw.push([end, raw[raw.length - 1][1]]);
+    const P = raw.map(([t, r]) => [x(t), y(r)]).filter((p, k, a) => !k || p[0] > a[k - 1][0] + 0.01);
+    if (P.length < 2) return P.length ? `M${P[0][0].toFixed(1)},${P[0][1].toFixed(1)}h0.1` : "";
+    const n = P.length, dx = [], m = [], tg = new Array(n);
+    for (let k = 0; k < n - 1; k++) { dx[k] = P[k + 1][0] - P[k][0]; m[k] = (P[k + 1][1] - P[k][1]) / dx[k]; }
+    tg[0] = m[0]; tg[n - 1] = m[n - 2];
+    for (let k = 1; k < n - 1; k++) tg[k] = m[k - 1] * m[k] <= 0 ? 0 : 3 * (dx[k - 1] + dx[k]) / ((2 * dx[k] + dx[k - 1]) / m[k - 1] + (dx[k] + 2 * dx[k - 1]) / m[k]);
+    if (m[0] === 0) tg[0] = 0; if (m[n - 2] === 0) tg[n - 1] = 0;
+    let d = `M${P[0][0].toFixed(1)},${P[0][1].toFixed(1)}`;
+    for (let k = 0; k < n - 1; k++) {
+      const h = dx[k] / 3;
+      d += `C${(P[k][0] + h).toFixed(1)},${(P[k][1] + tg[k] * h).toFixed(1)} ${(P[k + 1][0] - h).toFixed(1)},${(P[k + 1][1] - tg[k + 1] * h).toFixed(1)} ${P[k + 1][0].toFixed(1)},${P[k + 1][1].toFixed(1)}`;
+    }
+    return d;
   };
   const lastDots = vis.map(s => { const r = s.v.length ? s.v[s.v.length - 1][1] : s.before; return `<circle cx="${x(end).toFixed(1)}" cy="${y(r).toFixed(1)}" r="4" fill="${s.color}" stroke="var(--card)" stroke-width="2"/>`; }).join("");
   const dates = [...new Set(vis.flatMap(s => s.v.map(p => p[0])))].sort().reverse();
@@ -50,7 +62,7 @@ function chart(el, title, series){
     + `<svg viewBox="0 0 ${W} ${Ht}" width="${W}" height="${Ht}" role="img" aria-label="${esc(title)} rates over time, ${long(start)} to ${long(end)}">`
     + `<g class="ax">${ticks.map(v => `<line class="gl" x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}"/><text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end">${v.toFixed(2)}%</text>`).join("")}`
     + `${xt.map((t, k) => `<text x="${x(t)}" y="${Ht - 6}" text-anchor="${k === 0 ? "start" : k === 3 ? "end" : "middle"}">${short(t)}</text>`).join("")}</g>`
-    + vis.map(s => `<path d="${path(s)}" fill="none" stroke="${s.color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"${s.dash ? ' stroke-dasharray="6 4"' : ""}/>`).join("")
+    + vis.map(s => `<path d="${path(s)}" fill="none" stroke="${s.color}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"${s.dash ? ' stroke-dasharray="6 4"' : ""}/>`).join("")
     + lastDots + `<line class="cross" y1="${m.t}" y2="${m.t + ih}" x1="0" x2="0" visibility="hidden"/>`
     + `<rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent" style="cursor:crosshair"/></svg>`
     + `<div class="tip" hidden></div>`

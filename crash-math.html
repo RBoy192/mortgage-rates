@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="The formulas behind every mortgage payment in Canada, step by step, with your numbers filled in.">
 <link rel="canonical" href="https://whatstherate.ca/crash-math.html">
-<link rel="icon" href="favicon.svg?v=23" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=23" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=23">
+<link rel="icon" href="favicon.svg?v=24" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=24" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=24">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
 <meta property="og:type" content="website">
@@ -25,7 +25,7 @@
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/source-serif-4-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=23">
+<link rel="stylesheet" href="style.css?v=24">
 </head>
 <body data-page="crash" data-chapter="math">
 <main id="top">
@@ -35,31 +35,31 @@
 <div class="vc">
 <p class="eyebrow">Mortgages Explained</p>
 <h1>Do the math <span class="hl">yourself</span></h1>
-<p class="deck">How to check any mortgage payment yourself.</p>
+<p class="deck">Want to check the numbers yourself? Here's the recipe.</p>
 <div class="cc"><article>
-<aside class="kp" aria-label="In brief"><b>In brief</b><ul><li>Your payment depends on three things: how much you borrow, the rate and the amortization.</li><li>Fixed rates in Canada are calculated twice a year, and the formula allows for that.</li><li>You can check any lender's numbers with the formula or the offline calculator.</li></ul></aside>
-<h2>Step by step</h2>
+<aside class="kp" aria-label="In brief"><b>In brief</b><ul><li>Three things decide your payment: how much you borrow, the rate, and how long you take.</li><li>Fixed rates in Canada are worked out twice a year, so the recipe has one extra step.</li><li>You can check any lender's numbers with this recipe or the offline calculator.</li></ul></aside>
+<figure class="ill"><svg viewBox="0 48 640 192" role="img" aria-label="Three ingredients, how much you borrow, the rate and how long, go into a calculator and make your payment"><path class="k" d="M30,150 Q70,205 110,150 Z"/><text x="70" y="140" text-anchor="middle" class="lb">Amount</text><path class="k" d="M135,150 Q175,205 215,150 Z"/><text x="175" y="140" text-anchor="middle" class="lb">Rate</text><path class="k" d="M240,150 Q280,205 320,150 Z"/><text x="280" y="140" text-anchor="middle" class="lb">Years</text><path class="k" d="M320,165 Q357.5,165.0 395,165 M385.1,169.8 L395,165 L385.1,160.2"/><rect class="k" x="410" y="90" width="90" height="120" rx="10"/><rect class="y k" x="422" y="102" width="66" height="26" rx="4"/><rect class="k soft" x="424" y="140" width="14" height="14" rx="3"/><rect class="k soft" x="424" y="162" width="14" height="14" rx="3"/><rect class="k soft" x="424" y="184" width="14" height="14" rx="3"/><rect class="k soft" x="446" y="140" width="14" height="14" rx="3"/><rect class="k soft" x="446" y="162" width="14" height="14" rx="3"/><rect class="k soft" x="446" y="184" width="14" height="14" rx="3"/><rect class="k soft" x="468" y="140" width="14" height="14" rx="3"/><rect class="k soft" x="468" y="162" width="14" height="14" rx="3"/><rect class="k soft" x="468" y="184" width="14" height="14" rx="3"/><path class="k" d="M510,150 Q530.0,150.0 550,150 M540.1,154.8 L550,150 L540.1,145.2"/><circle class="y k" cx="578" cy="150" r="18"/><text x="578" y="154.5" text-anchor="middle" class="cs">$</text><text x="570" y="205" text-anchor="middle" class="lb hl">Payment</text></svg></figure>
+<h2>The recipe, step by step</h2>
 <ol class="wk">
-<li><b>Mortgage amount</b> = home price − down payment. With less than 20% down, add the insurance premium.</li>
-<li><b>Monthly rate</b> (call it <i>i</i>). For a fixed rate: (1 + yearly rate ÷ 2)^(1/6) − 1. The Interest Act requires a mortgage to state its rate calculated yearly or half-yearly, not in advance<sup class="ref"><a href="#ref-1" aria-label="Source 1">1</a></sup>, and fixed rates are normally calculated half-yearly. For a variable rate: yearly rate ÷ 12. This site assumes monthly calculation for variable rates, which is common, but check your mortgage agreement.</li>
+<li><b>How much you borrow</b> = home price − down payment. With less than 20% down, add the insurance fee.</li>
+<li><b>The monthly rate</b> (call it <i>i</i>). Fixed rate: (1 + yearly rate ÷ 2)^(1/6) − 1. That's because the Interest Act requires a mortgage to state its rate worked out yearly or twice a year, not in advance<sup class="ref"><a href="#ref-1" aria-label="Source 1">1</a></sup>, and fixed rates are normally worked out twice a year. Variable rate: yearly rate ÷ 12. This site assumes that for variable rates, which is common, but check your own agreement.</li>
 <li><b>Number of payments</b> (<i>n</i>) = years × 12</li>
-<li><b>Monthly payment</b> = mortgage × <i>i</i> ÷ (1 − (1 + <i>i</i>)^(−<i>n</i>))</li>
-<li><b>Each month:</b> interest = balance × <i>i</i>. Principal = payment − interest. New balance = balance − principal. Repeat.</li>
-<li><b>Equity</b> = what the home is worth − what you still owe</li>
+<li><b>Monthly payment</b> = amount borrowed × <i>i</i> ÷ (1 − (1 + <i>i</i>)^(−<i>n</i>))</li>
+<li><b>Each month:</b> interest = what you owe × <i>i</i>. The rest of the payment pays down what you owe. Repeat.</li>
 </ol>
-<h2>The whole formula in one line</h2>
+<details class="as"><summary>The whole formula in one line</summary>
 <span class="fm">Fixed rate:     Payment = P × [(1 + r÷2)^(1÷6) − 1] ÷ [1 − (1 + r÷2)^(−2 × y)]
 Variable rate:  Payment = P × (r÷12) ÷ [1 − (1 + r÷12)^(−12 × y)]</span>
-<p class="s">P = mortgage amount (including any insurance premium) · r = yearly rate as a decimal (4.84% is 0.0484) · y = amortization in years</p>
-<figure class="fig"><div id="v"></div><figcaption><b>Figure.</b> The same steps worked through with your numbers. <span class="fu">Drawn with your numbers from the <a href="calculators.html">calculators</a>: <span id="using">loading…</span>.</span></figcaption></figure>
+<p class="s">P = amount borrowed (including any insurance fee) · r = yearly rate as a decimal (4.84% is 0.0484) · y = years</p></details>
+<figure class="fig"><div id="v"></div><figcaption><b>Your numbers.</b> The same recipe, worked through with your numbers. <span class="fu">Drawn with your numbers from the <a href="calculators.html">calculators</a>: <span id="using">loading…</span>.</span></figcaption></figure>
 </article></div>
 <div class="f src refsec"><b>References</b><ol class="refs"><li id="ref-1"><a href="https://laws-lois.justice.gc.ca/eng/acts/I-15/section-6.html" target="_blank" rel="noopener">Interest Act, section 6 (Justice Laws)</a></li></ol></div>
 <nav class="pn"><a href="crash-gds.html">← GDS and TDS</a><span></span></nav>
 </div>
 </div>
 </main>
-<script src="site.js?v=23"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="23"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
-<script src="crash.js?v=23"></script>
+<script src="site.js?v=24"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="24"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="crash.js?v=24"></script>
 </body>
 </html>
