@@ -1,4 +1,4 @@
-const SITE_VERSION = "31";
+const SITE_VERSION = "32";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -262,7 +262,7 @@ const SRC = {
 };
 // The site's stick-figure mascot, holding up a % sign. pose: "hold" (default), "shrug" (something's missing)
 function mascot(pose = "hold", size = 96){
-  const arms = pose === "shrug" ? "M60,62 L38,52 L32,40 M60,62 L82,52 L88,40" : "M60,62 L42,42 L44,24 M60,62 L78,42 L76,24";
+  const arms = pose === "shrug" ? "M60,72 L38,64 L30,52 M60,72 L82,64 L90,52" : "M60,72 L37,58 L41,34 M60,72 L83,58 L79,34";  // shoulders on the body, clear of the head
   const sign = pose === "shrug"
     ? '<text x="22" y="30" class="mq">?</text><text x="92" y="26" class="mq">?</text>'
     : '<rect x="30" y="2" width="60" height="30" rx="8" class="ms"/><text x="60" y="25" text-anchor="middle" class="mp">%</text>';
@@ -304,7 +304,7 @@ const balanceAfter = (P, i, pay, m) => i === 0 ? P - pay * m : P * Math.pow(1 + 
 const yrs = m => { m = Math.round(m); const y = Math.floor(m / 12), r = m % 12; return (y ? y + (y === 1 ? " year" : " years") : "") + (y && r ? ", " : "") + (r ? r + (r === 1 ? " month" : " months") : (y ? "" : "0 months")); };
 
 // ---- Lenders: logo and chart colour ----
-// Logos are the sharpest image each bank publishes, loaded from its own website. [address, zoom, which part to show]
+// Logos are the sharpest image each lender publishes, loaded from its own website. [address, zoom, which part to show, fit, tile colour]
 const LOGOS = {
   "RBC Royal Bank": ["https://www.rbcroyalbank.com/dvl/v1.0/assets/images/logos/rbc-logo-shield.svg"],
   "TD Canada Trust": ["https://www.td.com/content/dam/tdct/images/navigation-header-and-footer/td-logo-desktop.png"],
@@ -312,18 +312,19 @@ const LOGOS = {
   "Tangerine": ["https://www.tangerine.ca/etc.clientlibs/tangerine/clientlibs/clientlib-site/resources/icon-310x310.png"],
   "National Bank": ["https://www.bnc.ca/content/dam/bnc/commun/logo/logo-bnc-flag.svg"],
   "BMO": ["https://www.bmo.com/dist/favicon/apple-touch-icon.png"],
-  "CIBC": ["https://www.cibc.com/content/dam/global-assets/logos/cibc-logos/no-tagline/cibc-logo-colour-142x36.svg", 1, "right", "cover"],
+  "CIBC": ["https://www.cibc.com/content/dam/global-assets/logos/partner-logos/apple/apple-touch-icon-152x152.png"],
   "EQ Bank": ["https://images.ctfassets.net/ymwa45h4u77x/4oX5L57Tc4Xrv2iKG72VPN/481fb11b7a59027ebd4316579313fe3d/eqbank-logo.svg", 1, "left", "cover"],
   "ATB Financial": ["https://www.atb.com/static/img/apple-touch-icon-180x180.png"],
   "Meridian": ["https://www.meridiancu.ca/getContentAsset/6c76e806-df80-4b7c-a633-cab25199417c/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/meridian-icon.svg?language=en-US"],
-  "Servus Credit Union": ["https://servus.ca/media/ihwf0qof/favicon.png"]
+  "Servus Credit Union": ["https://servus.ca/media/ihwf0qof/favicon.png"],
+  "Coast Capital Savings": ["https://www.coastcapitalsavings.com/media/3890/coast-capital-symbol_rgb_foamwhite.svg", 0.7, "center", "contain", "#0056FF"]  // white mark, shown on Coast's own blue
 };
 function logo(name, source){
   const w = name.split(/\s+/), ini = esc(/^[A-Z]{2,4}$/.test(w[0]) ? w[0] : w.map(x => x[0]).join("").slice(0, 2).toUpperCase());
-  let [src, zoom, pos, fit] = LOGOS[name] || [""];
+  let [src, zoom, pos, fit, bg] = LOGOS[name] || [""];
   if (!src) { try { src = new URL(source).origin + "/favicon.ico"; } catch (e) {} }
   const st = `transform:scale(${+zoom || 1});object-position:${pos || "center"};object-fit:${fit || "contain"}`;
-  return `<span class="lg-logo" aria-hidden="true">${src ? `<img src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" style="${st}" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${ini}'}))">` : `<span>${ini}</span>`}</span>`;
+  return `<span class="lg-logo" aria-hidden="true"${bg ? ` style="background:${bg};border-radius:6px;overflow:hidden"` : ""}>${src ? `<img src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" style="${st}" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${ini}'}))">` : `<span>${ini}</span>`}</span>`;
 }
 // Chart colours follow the lender, never its rank, so a bank keeps its colour when others are hidden.
 const LENDER_ORDER = ["BMO", "CIBC", "EQ Bank", "Manulife Bank", "National Bank", "RBC Royal Bank", "Scotiabank", "Tangerine", "TD Canada Trust", "ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "First National", "Meridian", "Servus Credit Union", "Vancity"];
