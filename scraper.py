@@ -106,7 +106,7 @@ def pick(text, nth=1):
     return check_range(float(found[nth - 1]))
 
 
-def _tags(soup, after=None):
+def _tags(soup, after=None, before=None):
     tags = [t for t in soup.find_all(True) if t.name not in SKIP_TAGS and not t.find_parent(SKIP_TAGS)]
     text = {id(t): norm(t.get_text(" ", strip=True)) for t in tags}
     if after:
@@ -114,6 +114,11 @@ def _tags(soup, after=None):
         if not marker:
             raise ValueError(f"section {after!r} not found")
         tags = tags[tags.index(marker[0]) + 1:]
+    if before:  # stop at the first place (after `after`, if given) that mentions this text
+        marker = _smallest(tags, text, norm(before))
+        if not marker:
+            raise ValueError(f"section {before!r} not found")
+        tags = tags[:tags.index(marker[0])]
     return tags, text
 
 
@@ -122,12 +127,12 @@ def _smallest(pool, text, needle):  # the innermost elements whose text contains
     return [t for t in pool if id(t) in ids and not any(id(c) in ids for c in t.find_all(True, recursive=False))]
 
 
-def rate_by_label(soup, label, nth=1, after=None, occurrence=1):
+def rate_by_label(soup, label, nth=1, after=None, occurrence=1, before=None):
     """Find the table row or card whose text includes `label` and return (the nth % figure after it, the text it read).
     `after`: only look below the first place on the page that mentions this text.
     `occurrence`: use the 2nd, 3rd... time the label appears (for pages with repeated tables)."""
     want = norm(label)
-    tags, text = _tags(soup, after)
+    tags, text = _tags(soup, after, before)
     found = _smallest(tags, text, want)
     found.sort(key=lambda t: text[id(t)] != want)  # whole-cell matches first; sort is stable, so page order is kept
     rates = []
@@ -173,9 +178,9 @@ def extract(soup, item):
     if "column" in item:
         shown = cell_by_column(soup, item["label"], item["column"], item.get("after"), item.get("occurrence", 1))
     elif "label" in item and "prime_label" not in item:
-        return rate_by_label(soup, item["label"], item.get("nth", 1), item.get("after"), item.get("occurrence", 1))
+        return rate_by_label(soup, item["label"], item.get("nth", 1), item.get("after"), item.get("occurrence", 1), item.get("before"))
     elif "label" in item:
-        shown = rate_by_label(soup, item["label"], 1, item.get("after"), item.get("occurrence", 1))[1]
+        shown = rate_by_label(soup, item["label"], 1, item.get("after"), item.get("occurrence", 1), item.get("before"))[1]
     else:
         el = soup.select_one(item["selector"])
         if el is None:

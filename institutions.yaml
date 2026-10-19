@@ -186,14 +186,20 @@
       label: "5 years (special rate)"
       occurrence: 2
 
-# Servus: the first table ("Fixed Rate Mortgages") has Rate and Special Rate columns. Servus doesn't list a variable rate.
+# Servus: rows read "Term | Rate | Special Rate" (laid out in boxes, not a table), so the special rate is the 2nd figure.
+# The "Servus No Frills Mortgage" table further down repeats the same labels, so reading stops before it.
+# Servus doesn't list a variable rate.
 - name: Servus Credit Union
   url: https://servus.ca/rates
   mode: auto
   rates:
     - product: 3-year fixed
       label: "3 Year"
-      column: "Special Rate"
+      nth: 2
+      after: "Fixed Rate Mortgages"
+      before: "No Frills"
     - product: 5-year fixed
       label: "5 Year (Conventional)"
-      column: "Special Rate"
+      nth: 2
+      after: "Fixed Rate Mortgages"
+      before: "No Frills"

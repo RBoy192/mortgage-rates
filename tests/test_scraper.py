@@ -298,3 +298,17 @@ class History(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestBefore(unittest.TestCase):
+    def test_before_stops_reading_at_marker(self):
+        from bs4 import BeautifulSoup
+        html = ('<h2>Fixed Rate Mortgages</h2><div><div>3 Year</div><div>5.94%</div><div>4.59%</div></div>'
+                '<div><div>5 Year (Conventional)<sup>1</sup></div><div>6.09%</div><div>4.79%</div></div>'
+                '<h2>Servus No Frills Mortgage</h2><div><div>5 Year (Conventional)</div><div>6.09%</div><div>4.64%</div></div>')
+        soup = BeautifulSoup(html, "html.parser")
+        item = {"label": "5 Year (Conventional)", "nth": 2, "after": "Fixed Rate Mortgages", "before": "No Frills"}
+        self.assertEqual(scraper.extract(soup, item)[0], 4.79)
+        self.assertEqual(scraper.extract(soup, {"label": "3 Year", "nth": 2, "after": "Fixed Rate Mortgages", "before": "No Frills"})[0], 4.59)
+        with self.assertRaises(ValueError):
+            scraper.extract(soup, {"label": "5 Year (Conventional)", "before": "Not on this page"})
