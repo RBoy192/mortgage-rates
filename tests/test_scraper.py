@@ -252,7 +252,7 @@ class History(unittest.TestCase):
         resp = mock.Mock(); resp.json.return_value = fake
         with mock.patch("requests.get", return_value=resp):
             found = scraper.boc_history(day="2026-10-18")
-        self.assertEqual(found["policy_rate"], [["2025-10-01", 2.5], ["2025-10-30", 2.25], ["2026-10-14", 2.25]])
+        self.assertEqual(found["policy_rate"], [["2025-10-01", 2.5], ["2025-10-08", 2.5], ["2025-10-30", 2.25], ["2026-10-14", 2.25]])  # flat until the change
         self.assertEqual(found["posted|5-year fixed"], [["2025-10-01", 6.09], ["2026-10-14", 6.19]])
         h = {"series": {"prime_rate": [["2026-10-17", 4.45], ["2026-10-18", 4.45]], "BMO|5-year fixed": [["2026-10-18", 5.14]]}}
         h = scraper.merge_boc_history(h, found)

@@ -293,9 +293,12 @@ HISTORY_DAYS = 3653  # ten years
 
 
 def changes_only(points):
-    """Keep the first point, each point where the value changes, and the last point."""
+    """Keep the first point, the last reading before each change, each point where the value changes, and the
+    last point, so a chart line stays flat until the date the rate actually moved."""
     out = []
     for k, (d, v) in enumerate(points):
+        if out and v != out[-1][1] and k > 0 and points[k - 1][0] != out[-1][0]:
+            out.append(list(points[k - 1]))
         if not out or v != out[-1][1] or k == len(points) - 1:
             out.append([d, v])
     return out
