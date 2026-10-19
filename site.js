@@ -1,4 +1,4 @@
-const SITE_VERSION = "30";
+const SITE_VERSION = "31";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -313,7 +313,10 @@ const LOGOS = {
   "National Bank": ["https://www.bnc.ca/content/dam/bnc/commun/logo/logo-bnc-flag.svg"],
   "BMO": ["https://www.bmo.com/dist/favicon/apple-touch-icon.png"],
   "CIBC": ["https://www.cibc.com/content/dam/global-assets/logos/cibc-logos/no-tagline/cibc-logo-colour-142x36.svg", 1, "right", "cover"],
-  "EQ Bank": ["https://images.ctfassets.net/ymwa45h4u77x/4oX5L57Tc4Xrv2iKG72VPN/481fb11b7a59027ebd4316579313fe3d/eqbank-logo.svg", 1, "left", "cover"]
+  "EQ Bank": ["https://images.ctfassets.net/ymwa45h4u77x/4oX5L57Tc4Xrv2iKG72VPN/481fb11b7a59027ebd4316579313fe3d/eqbank-logo.svg", 1, "left", "cover"],
+  "ATB Financial": ["https://www.atb.com/static/img/apple-touch-icon-180x180.png"],
+  "Meridian": ["https://www.meridiancu.ca/getContentAsset/6c76e806-df80-4b7c-a633-cab25199417c/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/meridian-icon.svg?language=en-US"],
+  "Servus Credit Union": ["https://servus.ca/media/ihwf0qof/favicon.png"]
 };
 function logo(name, source){
   const w = name.split(/\s+/), ini = esc(/^[A-Z]{2,4}$/.test(w[0]) ? w[0] : w.map(x => x[0]).join("").slice(0, 2).toUpperCase());
