@@ -44,7 +44,6 @@
 # CIBC: permission received from the bank (October 2026). Special-offer fixed rates are in cards at the top;
 # the 5-year variable is in the "CIBC Variable Flex Mortgage" table, which lists the posted rate first, then the special offer.
 - name: CIBC
-  enabled: false
   url: https://www.cibc.com/en/interest-rates/mortgage-rates.html
   mode: auto
   rates:
@@ -123,7 +122,6 @@
 # BMO: permission received from the bank (October 2026). Uses the summary table lower on the page
 # ("3 year fixed (closed)" and so on), where the first figure in each row is the rate and the second is the APR.
 - name: BMO
-  enabled: false
   url: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
   mode: auto
   rates:
@@ -133,3 +131,69 @@
       label: "5 year Smart Fixed (closed)"
     - product: 5-year variable
       label: "5 year Variable (closed)"
+
+# ---- Added October 2026: credit unions and regional lenders. Each reads the lender's own public rate page. ----
+
+# ATB: the "Our featured offers" table lists the everyday client rate first, then the Rate First rate.
+- name: ATB Financial
+  url: https://www.atb.com/resources/rates/mortgage-rates/
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3 Year Conventional"
+    - product: 5-year fixed
+      label: "5 Year Conventional"
+    - product: 5-year variable
+      label: "5 Year Variable"
+
+# Alterna: "Signature" rates are its advertised rates for everyone ("Smart Start" is for high-ratio mortgages only).
+- name: Alterna Savings
+  url: https://www.alterna.ca/en/rates/mortgages
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "Signature 3-Year Fixed Closed"
+    - product: 5-year fixed
+      label: "Signature 5-Year Fixed Closed"
+    - product: 5-year variable
+      label: "Signature 5-Year Variable Closed"
+
+# Coast Capital: the "Fixed Rate Mortgages" and "Variable Rate Mortgages" tables (up to 25-year amortization column).
+# The posted rates further down use labels ending in "- Closed", so they aren't picked up.
+- name: Coast Capital Savings
+  url: https://www.coastcapitalsavings.com/rates/mortgages
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3-Year Fixed Rate"
+    - product: 5-year fixed
+      label: "5-Year Fixed Rate"
+    - product: 5-year variable
+      label: "5-Year Variable Rate"
+
+# Desjardins: special rates are rows labelled "5 years (special rate)" in the fixed table, then again in the
+# reduced variable-rate table (so the variable uses the 2nd appearance). There's no special 3-year rate.
+- name: Desjardins
+  url: https://www.desjardins.com/en/mortgage/mortgage-rates.html
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3 years"
+      note: "Standard rate"
+    - product: 5-year fixed
+      label: "5 years (special rate)"
+    - product: 5-year variable
+      label: "5 years (special rate)"
+      occurrence: 2
+
+# Servus: the first table ("Fixed Rate Mortgages") has Rate and Special Rate columns. Servus doesn't list a variable rate.
+- name: Servus Credit Union
+  url: https://servus.ca/rates
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3 Year"
+      column: "Special Rate"
+    - product: 5-year fixed
+      label: "5 Year (Conventional)"
+      column: "Special Rate"

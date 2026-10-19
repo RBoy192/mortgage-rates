@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="The formulas behind every mortgage payment in Canada, step by step, with your numbers filled in.">
 <link rel="canonical" href="https://whatstherate.ca/crash-math.html">
-<link rel="icon" href="favicon.svg?v=19" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=19" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=19">
+<link rel="icon" href="favicon.svg?v=20" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=20" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=20">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
 <meta property="og:type" content="website">
@@ -24,39 +24,42 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=19">
+<link rel="preload" href="fonts/source-serif-4-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=20">
 </head>
 <body data-page="crash" data-chapter="math">
 <main id="top">
 <header id="site-header"></header>
 <div class="pg vl">
-<nav class="tabs" aria-label="Mortgages Explained chapters"><a href="crash-course.html">1. What is a mortgage?</a><a href="crash-term.html">2. Term vs amortization</a><a href="crash-split.html">3. Where your payment goes</a><a href="crash-equity.html">4. Equity</a><a href="crash-insurance.html">5. Insured vs uninsured</a><a href="crash-gds.html">6. GDS and TDS</a><a href="crash-math.html" aria-current="page">7. Do the math</a></nav>
+<nav class="tabs" aria-label="Mortgages Explained chapters"><a href="crash-course.html">What is a mortgage?</a><a href="crash-term.html">Term vs amortization</a><a href="crash-split.html">Where your payment goes</a><a href="crash-equity.html">Equity</a><a href="crash-insurance.html">Insured vs uninsured</a><a href="crash-gds.html">GDS and TDS</a><a href="crash-math.html" aria-current="page">Do the math</a></nav>
 <div class="vc">
+<p class="eyebrow">Mortgages Explained</p>
 <h1>Do the math <span class="hl">yourself</span></h1>
+<p class="deck">How to check any mortgage payment yourself.</p>
 <div class="cc"><article>
-<div class="kp"><b>Key points</b><ul><li>Your payment depends on three things: how much you borrow, the rate and the amortization.</li><li>Fixed rates in Canada are worked out twice a year, which the formula takes into account.</li><li>You can check any lender's numbers yourself with the formula or the offline calculator.</li></ul></div>
+<aside class="kp" aria-label="In brief"><b>In brief</b><ul><li>Your payment depends on three things: how much you borrow, the rate and the amortization.</li><li>Fixed rates in Canada are calculated twice a year, and the formula allows for that.</li><li>You can check any lender's numbers with the formula or the offline calculator.</li></ul></aside>
+<h2>Step by step</h2>
 <ol class="wk">
-<li><b>Mortgage amount</b> = home price − down payment. If you put down less than 20%, add the insurance premium too.</li>
-<li><b>Rate per month</b> (call it <i>i</i>). Fixed: (1 + annual rate ÷ 2)^(1/6) − 1. The Interest Act requires a mortgage to state its rate calculated yearly or half-yearly, not in advance<sup class="ref"><a href="#ref-1" aria-label="Source 1">1</a></sup>, and fixed rates are normally worked out half-yearly (twice a year). Variable: annual rate ÷ 12. This site's calculators assume monthly compounding for variable rates, a common lender practice, so check your lender's mortgage agreement.</li>
+<li><b>Mortgage amount</b> = home price − down payment. With less than 20% down, add the insurance premium.</li>
+<li><b>Monthly rate</b> (call it <i>i</i>). For a fixed rate: (1 + yearly rate ÷ 2)^(1/6) − 1. The Interest Act requires a mortgage to state its rate calculated yearly or half-yearly, not in advance<sup class="ref"><a href="#ref-1" aria-label="Source 1">1</a></sup>, and fixed rates are normally calculated half-yearly. For a variable rate: yearly rate ÷ 12. This site assumes monthly calculation for variable rates, which is common, but check your mortgage agreement.</li>
 <li><b>Number of payments</b> (<i>n</i>) = years × 12</li>
 <li><b>Monthly payment</b> = mortgage × <i>i</i> ÷ (1 − (1 + <i>i</i>)^(−<i>n</i>))</li>
-<li><b>Each month:</b> interest = balance × <i>i</i>. Principal = payment − interest. New balance = balance − principal. Then repeat.</li>
+<li><b>Each month:</b> interest = balance × <i>i</i>. Principal = payment − interest. New balance = balance − principal. Repeat.</li>
 <li><b>Equity</b> = what the home is worth − what you still owe</li>
 </ol>
-<p><b>The whole formula in one line</b> (steps 2 to 4 combined):</p>
+<h2>The whole formula in one line</h2>
 <span class="fm">Fixed rate:     Payment = P × [(1 + r÷2)^(1÷6) − 1] ÷ [1 − (1 + r÷2)^(−2 × y)]
 Variable rate:  Payment = P × (r÷12) ÷ [1 − (1 + r÷12)^(−12 × y)]</span>
-<p class="s">P = mortgage amount (plus any insurance premium) · r = yearly rate as a decimal (4.84% is 0.0484) · y = amortization in years</p>
-<p class="m">Examples use your numbers from the <a href="calculators.html">interactive calculators</a>: <span id="using">loading…</span>.</p>
-<div id="v"></div>
+<p class="s">P = mortgage amount (including any insurance premium) · r = yearly rate as a decimal (4.84% is 0.0484) · y = amortization in years</p>
+<figure class="fig"><div id="v"></div><figcaption><b>Figure.</b> The same steps worked through with your numbers. <span class="fu">Drawn with your numbers from the <a href="calculators.html">calculators</a>: <span id="using">loading…</span>.</span></figcaption></figure>
 </article></div>
-<div class="f src"><b>Sources</b><ol class="refs"><li id="ref-1"><a href="https://laws-lois.justice.gc.ca/eng/acts/I-15/section-6.html" target="_blank" rel="noopener">Interest Act, section 6 (Justice Laws)</a></li></ol></div>
+<div class="f src refsec"><b>References</b><ol class="refs"><li id="ref-1"><a href="https://laws-lois.justice.gc.ca/eng/acts/I-15/section-6.html" target="_blank" rel="noopener">Interest Act, section 6 (Justice Laws)</a></li></ol></div>
 <nav class="pn"><a href="crash-gds.html">← GDS and TDS</a><span></span></nav>
 </div>
 </div>
 </main>
-<script src="site.js?v=19"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="19"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
-<script src="crash.js?v=19"></script>
+<script src="site.js?v=20"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="20"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="crash.js?v=20"></script>
 </body>
 </html>

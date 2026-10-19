@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="How lenders decide how much you can borrow: the GDS and TDS ratios and the mortgage stress test, explained with your own numbers.">
 <link rel="canonical" href="https://whatstherate.ca/crash-gds.html">
-<link rel="icon" href="favicon.svg?v=19" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=19" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=19">
+<link rel="icon" href="favicon.svg?v=20" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=20" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=20">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
 <meta property="og:type" content="website">
@@ -24,35 +24,40 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=19">
+<link rel="preload" href="fonts/source-serif-4-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=20">
 </head>
 <body data-page="crash" data-chapter="gds">
 <main id="top">
 <header id="site-header"></header>
 <div class="pg vl">
-<nav class="tabs" aria-label="Mortgages Explained chapters"><a href="crash-course.html">1. What is a mortgage?</a><a href="crash-term.html">2. Term vs amortization</a><a href="crash-split.html">3. Where your payment goes</a><a href="crash-equity.html">4. Equity</a><a href="crash-insurance.html">5. Insured vs uninsured</a><a href="crash-gds.html" aria-current="page">6. GDS and TDS</a><a href="crash-math.html">7. Do the math</a></nav>
+<nav class="tabs" aria-label="Mortgages Explained chapters"><a href="crash-course.html">What is a mortgage?</a><a href="crash-term.html">Term vs amortization</a><a href="crash-split.html">Where your payment goes</a><a href="crash-equity.html">Equity</a><a href="crash-insurance.html">Insured vs uninsured</a><a href="crash-gds.html" aria-current="page">GDS and TDS</a><a href="crash-math.html">Do the math</a></nav>
 <div class="vc">
+<p class="eyebrow">Mortgages Explained</p>
 <h1>How much can you borrow? <span class="hl">GDS and TDS</span></h1>
+<p class="deck">The two tests lenders use to decide how much you can borrow.</p>
 <div class="cc"><article>
-<div class="kp"><b>Key points</b><ul><li>Lenders check two ratios: GDS (housing costs) and TDS (housing costs plus other debts).</li><li>For insured mortgages the limits are 39% and 44% of your income before tax.</li><li>You're tested at a higher rate than you'll pay, so you'd still manage if rates rose.</li></ul></div>
-<p>When you apply, a lender checks two ratios to decide how much you can borrow. Both compare your monthly costs to your <b>gross</b> monthly income, which is your income before tax.</p>
+<aside class="kp" aria-label="In brief"><b>In brief</b><ul><li>Lenders check two ratios: GDS (housing costs) and TDS (housing costs plus other debts).</li><li>For insured mortgages the limits are 39% and 44% of your income before tax.</li><li>You're tested at a higher rate than you'll pay, so you'd still manage if rates rose.</li></ul></aside>
+<p>Before lending, a lender checks how much of your income would go to housing and debt. It uses two ratios, both based on your <dfn>gross income</dfn>, meaning your income before tax.</p>
 <ul class="ul">
-<li><b>GDS (gross debt service)</b> counts housing costs only: your mortgage payment, property tax, heating, and half of any condo fees.</li>
-<li><b>TDS (total debt service)</b> counts those housing costs plus all your other monthly debt payments, such as car loans, credit cards, lines of credit and student loans.</li></ul>
-<p>For insured mortgages, CMHC's maximums are 39% for GDS and 44% for TDS<sup class="ref"><a href="#ref-1" aria-label="Source 1">1</a></sup>, and the tighter of the two sets your limit. The mortgage payment is tested at a higher "stress-test" rate than you'd actually pay: the greater of your rate plus 2% or 5.25%<sup class="ref"><a href="#ref-1" aria-label="Source 1">1</a></sup>. That way you're only approved for a payment you could still handle if rates rose.</p>
+<li><dfn>GDS</dfn> (gross debt service) counts housing costs only: your mortgage payment, property tax, heating, and half of any condo fees.</li>
+<li><dfn>TDS</dfn> (total debt service) counts those housing costs plus your other monthly debt payments, such as car loans, credit cards, lines of credit and student loans.</li></ul>
+<p>For insured mortgages, CMHC's limits are 39% for GDS and 44% for TDS<sup class="ref"><a href="#ref-1" aria-label="Source 1">1</a></sup>. Whichever limit you reach first decides how much you can borrow.</p>
+<h2>The stress test</h2>
+<p>Lenders work out your mortgage payment at a higher rate than you'll actually pay: your rate plus 2%, or 5.25%, whichever is higher<sup class="ref"><a href="#ref-1" aria-label="Source 1">1</a></sup>. This checks that you could still afford the payments if rates went up.</p>
 <span class="fm">GDS = (mortgage payment + property tax + heating + 50% of condo fees) ÷ gross monthly income
 TDS = (those housing costs + other monthly debt payments) ÷ gross monthly income
 Gross monthly income = yearly income before tax ÷ 12</span>
-<p class="s">Try it: the <a href="calculators.html">affordability calculator</a> finds the most you could borrow, and the <a href="calc-income.html">income calculator</a> finds the income you'd need for a home you have in mind. You can edit the percentages in both.</p>
-<div id="v"></div>
+<p>To try it, the <a href="calculators.html">affordability calculator</a> finds the most you could borrow, and the <a href="calc-income.html">income calculator</a> finds the income you'd need for a particular home.</p>
+<figure class="fig"><div id="v"></div><figcaption><b>Figure.</b> How your income would be divided, using your numbers from the affordability calculator.</figcaption></figure>
 </article></div>
-<div class="f src"><b>Sources</b><ol class="refs"><li id="ref-1"><a href="https://cmhc-schl.gc.ca/professionals/project-funding-and-mortgage-financing/mortgage-loan-insurance/calculating-gds-tds" target="_blank" rel="noopener">CMHC: Calculating GDS and TDS</a></li></ol></div>
+<div class="f src refsec"><b>References</b><ol class="refs"><li id="ref-1"><a href="https://cmhc-schl.gc.ca/professionals/project-funding-and-mortgage-financing/mortgage-loan-insurance/calculating-gds-tds" target="_blank" rel="noopener">CMHC: Calculating GDS and TDS</a></li></ol></div>
 <nav class="pn"><a href="crash-insurance.html">← Insured vs uninsured</a><a href="crash-math.html">Do the math →</a></nav>
 </div>
 </div>
 </main>
-<script src="site.js?v=19"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="19"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
-<script src="crash.js?v=19"></script>
+<script src="site.js?v=20"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="20"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="crash.js?v=20"></script>
 </body>
 </html>

@@ -31,8 +31,9 @@ function makeCalc(cfg){
   v = Object.assign(Object.fromEntries(cfg.fields.map(f => [f.k, f.def])), saved, url);  // rate fields settle once the rates load
   const TIPS = {years: "amortization", term: "term", down: "down", frate: "fixed", vrate: "variable", change: "variable", extra: "prepayment", lump: "prepayment",
     kind: "penalty", cmp: "ird", prov: "ltt", heloc: "heloc", value: "equity", balance: cfg.key === "renewal" ? "renewal" : "", rate: "interest", amount: "principal"};
-  // example buttons and the share button, above the form
-  form.closest(".est").insertAdjacentHTML("beforebegin", `<div class="ex">${cfg.examples ? "<span>Try an example:</span>" + cfg.examples.map((e, i) => `<button type="button" data-ex="${i}">${esc(e[0])}</button>`).join("") : ""}<button type="button" id="share" class="lk">Copy a link to these numbers</button><button type="button" class="lk" onclick="print()">Print results</button></div>`);
+  // up to two example buttons above the form; copy-link and print under the result
+  if (cfg.examples) form.closest(".est").insertAdjacentHTML("beforebegin", `<div class="ex"><span>Try an example:</span>${cfg.examples.slice(0, 2).map((e, i) => `<button type="button" data-ex="${i}">${esc(e[0])}</button>`).join("")}</div>`);
+  $("msgs").insertAdjacentHTML("beforebegin", `<div class="acts"><button type="button" id="share" class="lk">Copy a link to these numbers</button><button type="button" class="lk" onclick="print()">Print results</button></div>`);
 
   // build the form
   cfg.fields.forEach(f => {
@@ -76,11 +77,14 @@ function makeCalc(cfg){
     let r = null;
     try { r = cfg.compute(v, best); } catch (e) { r = null; console.error(e); }
     const msgs = r && r.msgs || [];
-    $("msgs").innerHTML = msgs.map(([k, t]) => `<p class="msg ${k}">${t}</p>`).join("");
+    $("msgs").innerHTML = msgs.filter(m => m[0] === "w").map(([, t]) => `<p class="msg w">${t}</p>`).join("");
+    const notes = msgs.filter(m => m[0] !== "w").map(([, t]) => `<p class="msg">${t}</p>`).join("");
     if (!r) { if ($("below")) $("below").innerHTML = "";
       $("out").innerHTML = `<span class="m">${cfg.bigLabel || "Result"}</span><b>—</b><ul id="res"><li>${cfg.empty || "Fill in the numbers to see a result."}</li></ul>`; return; }
-    $("out").innerHTML = (r.say ? `<p class="say">${r.say}</p>` : "") + `<span class="m">${r.label}</span><b${String(r.big).length > 14 ? ' class="long"' : ""}>${r.big}</b>${r.sub ? `<span class="big-sub">${r.sub}</span>` : ""}`
-      + (r.items && r.items.length ? `<ul id="res">${r.items.map(li).join("")}</ul>` : "") + (r.wide ? "" : (r.table || ""));
+    // the answer first; the workings and notes sit in a panel you can open
+    const how = (r.items && r.items.length ? `<ul id="res">${r.items.map(li).join("")}</ul>` : "") + notes;
+    $("out").innerHTML = (r.say ? `<p class="say">${r.say}</p>` : `<span class="m">${r.label}</span>`) + `<b${String(r.big).length > 14 ? ' class="long"' : ""}>${r.big}</b>${r.sub ? `<span class="big-sub">${r.sub}</span>` : ""}`
+      + (r.wide ? "" : (r.table || "")) + (how ? `<details class="how"><summary>How this is worked out</summary>${how}</details>` : "");
     // wide comparison tables go full width under the calculator, so they don't squeeze into the results column
     let below = $("below");
     if (!below) { form.closest(".est").insertAdjacentHTML("afterend", '<div id="below" class="below"></div>'); below = $("below"); }
@@ -117,7 +121,7 @@ const CALCS = {
   closing: {
     key: "closing", bigLabel: "Estimated closing costs", src: ["buy"],
     examples: [["First-time buyer, $600,000 condo in Toronto", {prov: "ON", price: 600000, down: 60000, ftb: true, toronto: true}],
-               ["$800,000 house in B.C.", {prov: "BC", price: 800000, down: 160000}], ["$450,000 home in Alberta", {prov: "AB", price: 450000, down: 45000}]],
+               ["$800,000 house in B.C.", {prov: "BC", price: 800000, down: 160000}]],
     fields: [
       {k: "prov", label: "Province", type: "select", def: "ON", options: [["ON", "Ontario"], ["BC", "British Columbia"], ["AB", "Alberta"], ["SK", "Saskatchewan"], ["MB", "Manitoba"], ["QC", "Quebec"], ["NB", "New Brunswick"], ["NS", "Nova Scotia"], ["PE", "Prince Edward Island"], ["NL", "Newfoundland and Labrador"]]},
       F.money("price", "Home price", 500000, "100000,2500000,5000"),
@@ -125,8 +129,8 @@ const CALCS = {
       {k: "ftb", label: "First-time home buyer", type: "check", def: false},
       {k: "toronto", label: "The home is in the City of Toronto", type: "check", def: false, show: v => v.prov === "ON"},
       {k: "mtl", label: "The home is in Montréal", type: "check", def: false, show: v => v.prov === "QC"},
-      F.num("nsrate", "Municipal deed transfer tax rate (%)", 1.5, 0.25, "1,1.5,0.25", "Halifax charges 1.5%. Rates across Nova Scotia range from 1% to 1.5%.", {show: v => v.prov === "NS"}),
-      F.money("skfees", "Land titles fees", 0, "0,5000,25", "Saskatchewan charges value-based land titles fees. Enter the amount from your lawyer or ISC.", {show: v => v.prov === "SK"}),
+      F.num("nsrate", "Municipal deed transfer tax rate (%)", 1.5, 0.25, "1,1.5,0.25", "Halifax: 1.5%. Elsewhere: 1% to 1.5%.", {show: v => v.prov === "NS"}),
+      F.money("skfees", "Land titles fees", 0, "0,5000,25", "Ask your lawyer or ISC for the amount.", {show: v => v.prov === "SK"}),
       F.money("legal", "Legal fees", 1500, "0,5000,50", "", {group: "Other costs (typical placeholders: use your quotes)"}),
       F.money("inspect", "Home inspection", 500, "0,1500,25", "", {group: "Other costs (typical placeholders: use your quotes)"}),
       F.money("title", "Title insurance", 300, "0,1000,25", "", {group: "Other costs (typical placeholders: use your quotes)"}),
@@ -190,11 +194,12 @@ const CALCS = {
         if (v.prov === "MB") { msgs.push(["", "The Financial Consumer Agency of Canada lists Manitoba among the provinces that charge sales tax on mortgage insurance premiums. Ask your lender for the amount."]); src.push("down"); }
       }
       if (D < minDown(P) - 1) msgs.push(["w", `Your down payment is below the minimum for this price (about ${money(minDown(P))}).`]);
+      msgs.push(["", "The Financial Consumer Agency of Canada suggests budgeting 1.5% to 4% of the price for closing costs."]);
       add("Legal fees", v.legal); add("Home inspection", v.inspect); add("Title insurance", v.title); if (v.other) add("Other", v.other);
       const total = lines.reduce((s, [, a]) => s + a, 0);
       return {
         say: `Plan on about ${money(total)} in one-time costs when you buy, on top of your down payment.`,
-        label: "Estimated closing costs", big: money(total), sub: `${(total / P * 100).toFixed(1)}% of the price. The Financial Consumer Agency of Canada suggests budgeting 1.5% to 4% for closing costs.`,
+        label: "Estimated closing costs", big: money(total), sub: `${(total / P * 100).toFixed(1)}% of the price`,
         table: `<table class="cmpt"><tbody>${lines.map(([l, a]) => `<tr><td>${l}</td><td>${a < 0 ? "−" + money(-a) : money(a)}</td></tr>`).join("")}<tr class="hl"><td>Total</td><td>${money(total)}</td></tr></tbody></table>`,
         msgs, src: [...new Set(src)]
       };
@@ -227,7 +232,7 @@ const CALCS = {
 
   prepay: {
     key: "prepay", bigLabel: "Interest saved", src: ["pen"],
-    examples: [["$100 extra a month", {balance: 400000, extra: 100, lump: 0}], ["$5,000 lump sum each year", {balance: 400000, extra: 0, lump: 5000}], ["Both", {balance: 400000, extra: 100, lump: 5000}]],
+    examples: [["$100 extra a month", {balance: 400000, extra: 100, lump: 0}], ["$5,000 lump sum each year", {balance: 400000, extra: 0, lump: 5000}]],
     fields: [
       F.money("balance", "Mortgage balance", 400000, "50000,2000000,5000"), F.rate(), F.custom(),
       Object.assign(F.num("years", "Years left on your amortization", 25, 1, "1,30,1"), {more: true}),
@@ -254,14 +259,14 @@ const CALCS = {
 
   renewal: {
     key: "renewal", bigLabel: "Over your term", src: ["act", "boc", "renew"],
-    examples: [["Rates stay the same", {change: 0}], ["Variable rate falls 1%", {change: -1}], ["Variable rate rises 1%", {change: 1}]],
+    examples: [["Variable rate falls 1%", {change: -1}], ["Variable rate rises 1%", {change: 1}]],
     fields: [
       F.money("balance", "Balance at renewal", 400000, "50000,2000000,5000"),
       F.num("years", "Years left on your amortization", 20, 1, "5,30,1"),
       {k: "term", label: "Term (years)", type: "select", def: 5, options: [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], numeric: true},
       F.rate("frate", "5-year fixed", "Fixed rate"), F.custom("fcustom", "frate", 5, "Your fixed rate (%)"),
       F.rate("vrate", "5-year variable", "Variable rate"), F.custom("vcustom", "vrate", 4.5, "Your variable rate (%)"),
-      Object.assign(F.num("change", "How much you expect the variable rate to move over the term (%)", 0, 0.25, "-3,3,0.25", "It moves gradually from today's rate. 0 means it stays the same; -1 means it falls by 1% by the end of the term."), {more: true})
+      Object.assign(F.num("change", "How much you expect the variable rate to move over the term (%)", 0, 0.25, "-3,3,0.25", "0 = no change. −1 = falls 1% by the end of the term."), {more: true})
     ],
     compute(v, best){
       const B = v.balance, n = Math.round(v.years * 12), T = Math.min(v.term * 12, n);
@@ -339,7 +344,7 @@ const CALCS = {
       F.num("sell", "Costs when you sell (% of the home's value)", 5, 0.25, "0,8,0.25", "Real estate commission, legal fees and so on.", {group: "Owning costs"}),
       F.num("rentinc", "Rent increase per year (%)", 3, 0.25, "0,8,0.25", "", {group: "Assumptions about the future"}),
       F.num("growth", "Home value change per year (%)", 3, 0.25, "-3,8,0.25", "", {group: "Assumptions about the future"}),
-      F.num("ret", "Investment return per year (%)", 5, 0.25, "0,10,0.25", "What the renter earns by investing the down payment and any money left over each month.", {group: "Assumptions about the future"})
+      F.num("ret", "Investment return per year (%)", 5, 0.25, "0,10,0.25", "What the renter earns on money not spent on the home.", {group: "Assumptions about the future"})
     ],
     compute(v, best){
       const R = rateInfo(v, best), P = v.price, D = Math.min(v.down, P), H = Math.round(v.horizon * 12), n = v.years * 12;
@@ -382,7 +387,7 @@ const CALCS = {
       F.money("mort", "Mortgage balance", 350000, "0,2500000,5000"),
       Object.assign(F.money("other", "Other borrowing secured by the home", 0, "0,1000000,1000", "For example, the balance on an existing home equity line of credit."), {more: true}),
       Object.assign(F.rate("rate", "5-year fixed", "Mortgage rate if you refinance"), {more: true}), Object.assign(F.custom(), {more: true}), Object.assign(F.years(25, [15, 20, 25, 30]), {more: true}),
-      Object.assign(F.num("heloc", "HELOC interest rate (%)", 5.45, 0.05, "0,12,0.05", "A placeholder: ask your lender. HELOC rates are usually set relative to their prime rate."), {more: true})
+      Object.assign(F.num("heloc", "HELOC interest rate (%)", 5.45, 0.05, "0,12,0.05", "Ask your lender. Usually based on prime."), {more: true})
     ],
     compute(v, best){
       const V = v.value;

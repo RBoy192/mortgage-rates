@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="How much house can you afford? Enter your income and down payment to see your maximum price using CMHC&#x27;s GDS and TDS limits and the stress test.">
 <link rel="canonical" href="https://whatstherate.ca/calculators.html">
-<link rel="icon" href="favicon.svg?v=19" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=19" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=19">
+<link rel="icon" href="favicon.svg?v=20" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=20" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=20">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
 <meta property="og:type" content="website">
@@ -24,7 +24,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=19">
+<link rel="stylesheet" href="style.css?v=20">
 </head>
 <body data-page="calc">
 <main id="top">
@@ -33,8 +33,8 @@
 <nav class="tabs" aria-label="Calculators"><a href="calculators.html" aria-current="page">How much can I afford?</a><a href="calc-payment.html">Monthly payment</a><a href="calc-income.html">How much income do I need?</a><a href="calc-closing.html">Closing costs</a><a href="calc-frequency.html">Payment frequency</a><a href="calc-prepay.html">Prepayment savings</a><a href="calc-renewal.html">Renewal: fixed vs variable</a><a href="calc-penalty.html">Penalty for breaking a mortgage</a><a href="calc-rentbuy.html">Rent vs buy</a><a href="calc-equity.html">Refinance and HELOC</a></nav>
 <div class="vc">
 <h1>How much can I <span class="hl">afford?</span></h1>
-<p class="m">Enter your income and the down payment you've saved. Everything else starts with a typical number (marked "default"), so change whatever you know to be different, or <button class="lk" id="a_reset" type="button">reset to defaults</button>.</p>
-<div class="ex"><span>Try an example:</span><button type="button" data-ex="0">Single, $75,000 income</button><button type="button" data-ex="1">Couple, $160,000 income</button><button type="button" data-ex="2">First-time buyer, $120,000 income, 5% saved</button><button type="button" id="a_share" class="lk">Copy a link to these numbers</button><button type="button" class="lk" onclick="print()">Print results</button></div>
+<p class="m">Enter your income and savings to see what price you could afford. <button class="lk" id="a_reset" type="button">Reset to defaults</button></p>
+<div class="ex"><span>Try an example:</span><button type="button" data-ex="0">Single, $75,000 income</button><button type="button" data-ex="1">Couple, $160,000 income</button></div>
 <div class="est">
 <div class="fl">
 <label>Household income before tax, per year <span class="df" data-f="income">default</span><input id="a_income" data-slider="20000,500000,1000" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
@@ -56,16 +56,17 @@
 <label>Stress test: minimum qualifying rate (%) <span class="df" data-f="floor">default</span><input id="a_floor" data-slider="3,8,0.25" type="number" inputmode="decimal" step="0.25" min="0"></label>
 </div></details>
 </div>
-<div class="res"><p class="say" id="a_say"></p><span class="m">You could afford a home up to about</span><b id="a_price">—</b><ul id="a_res"></ul></div>
+<div class="res"><p class="say" id="a_say"></p><b id="a_price">—</b><details class="how"><summary>How this is worked out</summary><ul id="a_res"></ul><div id="a_msgs_n"></div></details></div>
 </div>
+<div class="acts"><button type="button" id="a_share" class="lk">Copy a link to these numbers</button><button type="button" class="lk" onclick="print()">Print results</button></div>
 <div id="a_msgs"></div>
-<p class="f">This is an estimate, not an approval. Lenders also look at your credit, employment and other details, and some use different limits, so you may qualify for more or less. The mortgage payment is tested at a higher "stress-test" rate than you'd actually pay. Property tax, heating and the other starting values are typical placeholders, not averages for your area.</p>
+<p class="f">An estimate, not an approval. Lenders also check your credit, job and other details.</p>
 <p id="src" data-keys="gds,grid,dof"></p>
 </div>
 </div>
 </main>
-<script src="site.js?v=19"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="19"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=20"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="20"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 (function(){
 let a = Object.assign(loadAfford(), fromURL()), best = {};
@@ -83,7 +84,7 @@ function update(){
   const flags = {rate: a.rate === defRate() && (a.rate !== "custom" || a.custom === AFF.custom)};
   ["income", "saved", "debts", "tax", "heat", "condo", "years", "gds", "tds", "stress", "floor"].forEach(k => { flags[k] = a[k] === AFF[k]; });
   document.querySelectorAll(".df").forEach(e => { e.hidden = !flags[e.dataset.f]; });
-  $("a_msgs").innerHTML = "";
+  putMsgs("a_msgs", []);
   $("a_say").textContent = r && !r.none ? `You could afford a home up to about ${money(r.price)}, with a monthly payment of about ${money(r.pay)}.` : "";
   if (!r) { $("a_price").textContent = "—"; $("a_res").innerHTML = "<li>Enter your income, a down payment, an interest rate and the qualifying percentages.</li>"; return; }
   if (r.none) {
@@ -98,7 +99,7 @@ function update(){
     + `<li>Stress-test rate: <strong>${r.qual.toFixed(2)}%</strong>, the greater of your ${pct(r.rate)} rate plus ${a.stress}% or ${a.floor}%.</li>`
     + `<li>Payment at your ${pct(r.rate)} rate: <strong>${money(r.pay)}</strong> a month. Lenders test you at ${money(r.qpay)}.</li>`
     + `<li>GDS ${r.gds.toFixed(1)}% (limit ${r.gdsLimit}%) and TDS ${r.tds.toFixed(1)}% (limit ${r.tdsLimit}%). The tighter limit is <strong>${r.limit}</strong>.</li>`;
-  if (r.insured && r.years > 25) $("a_msgs").innerHTML = '<p class="msg">Insured mortgages are normally limited to 25-year amortizations. Some buyers, such as first-time buyers and buyers of new builds, can choose 30 years, which adds 0.20% to the premium.</p>';
+  if (r.insured && r.years > 25) $("a_msgs_n").innerHTML = '<p class="msg">Insured mortgages are normally limited to 25-year amortizations. Some buyers, such as first-time buyers and buyers of new builds, can choose 30 years, which adds 0.20% to the premium.</p>';
 }
 function ready(b){
   best = b || {};

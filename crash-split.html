@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="Why early mortgage payments are mostly interest, and how the split between interest and principal changes over time.">
 <link rel="canonical" href="https://whatstherate.ca/crash-split.html">
-<link rel="icon" href="favicon.svg?v=19" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=19" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=19">
+<link rel="icon" href="favicon.svg?v=20" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=20" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=20">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
 <meta property="og:type" content="website">
@@ -24,27 +24,30 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=19">
+<link rel="preload" href="fonts/source-serif-4-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=20">
 </head>
 <body data-page="crash" data-chapter="split">
 <main id="top">
 <header id="site-header"></header>
 <div class="pg vl">
-<nav class="tabs" aria-label="Mortgages Explained chapters"><a href="crash-course.html">1. What is a mortgage?</a><a href="crash-term.html">2. Term vs amortization</a><a href="crash-split.html" aria-current="page">3. Where your payment goes</a><a href="crash-equity.html">4. Equity</a><a href="crash-insurance.html">5. Insured vs uninsured</a><a href="crash-gds.html">6. GDS and TDS</a><a href="crash-math.html">7. Do the math</a></nav>
+<nav class="tabs" aria-label="Mortgages Explained chapters"><a href="crash-course.html">What is a mortgage?</a><a href="crash-term.html">Term vs amortization</a><a href="crash-split.html" aria-current="page">Where your payment goes</a><a href="crash-equity.html">Equity</a><a href="crash-insurance.html">Insured vs uninsured</a><a href="crash-gds.html">GDS and TDS</a><a href="crash-math.html">Do the math</a></nav>
 <div class="vc">
+<p class="eyebrow">Mortgages Explained</p>
 <h1>Where your <span class="hl">payment goes</span></h1>
+<p class="deck">Why the first years of a mortgage go mostly to interest.</p>
 <div class="cc"><article>
-<div class="kp"><b>Key points</b><ul><li>Your regular payment stays the same, but what it pays for changes over time.</li><li>Early on, most of each payment is interest.</li><li>As you owe less, more of each payment goes to paying down what you borrowed.</li></ul></div>
-<p>Your payment stays the same, but what's inside it changes. Interest is charged on what you still owe, so early payments are mostly interest. As the balance shrinks, more of each payment pays down principal.</p>
-<p class="m">Examples use your numbers from the <a href="calculators.html">interactive calculators</a>: <span id="using">loading…</span>.</p>
-<div id="v"></div>
+<aside class="kp" aria-label="In brief"><b>In brief</b><ul><li>Your regular payment stays the same, but what it pays for changes.</li><li>At the start, most of each payment is interest.</li><li>As your balance falls, more of each payment pays down the loan.</li></ul></aside>
+<p>Interest is charged on the amount you still owe. At the start you owe the most, so most of each payment goes to interest.</p>
+<p>Each payment also lowers your balance a little. A smaller balance means less interest the next month, so a bit more of the same payment goes to principal. This is why the balance falls slowly at first and faster in later years.</p>
+<figure class="fig"><div id="v"></div><figcaption><b>Figure.</b> The share of each year's payments that goes to interest and to principal. <span class="fu">Drawn with your numbers from the <a href="calculators.html">calculators</a>: <span id="using">loading…</span>.</span></figcaption></figure>
 </article></div>
 <nav class="pn"><a href="crash-term.html">← Term vs amortization</a><a href="crash-equity.html">Equity →</a></nav>
 </div>
 </div>
 </main>
-<script src="site.js?v=19"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="19"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
-<script src="crash.js?v=19"></script>
+<script src="site.js?v=20"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="20"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="crash.js?v=20"></script>
 </body>
 </html>

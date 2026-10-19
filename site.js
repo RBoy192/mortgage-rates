@@ -1,4 +1,4 @@
-const SITE_VERSION = "19";
+const SITE_VERSION = "20";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -16,7 +16,7 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
 // Header with links to each page, plus the light / dark switch (light by default; the visitor's choice is remembered)
 (function(){
   const page = document.body.dataset.page, el = $("site-header"), base = page === "404" ? "/" : "";
-  const links = [["calc", "calculators.html", "Interactive Calculators"], ["crash", "crash-course.html", "Mortgages Explained"], ["extras", "rate-history.html", "Extras"]];
+  const links = [["calc", "calculators.html", "Interactive Calculators"], ["history", "rate-history.html", "Rate history"], ["crash", "crash-course.html", "Mortgages Explained"], ["extras", "faq.html", "Extras"]];
   el.className = el.closest(".band") ? "n" : "n band";
   el.innerHTML = `<div class="nw"><a class="brand" href="${base}index.html"><svg class="bm" viewBox="10 10 44 44" aria-hidden="true"><circle cx="21" cy="21" r="7.5" fill="none" stroke="currentColor" stroke-width="5"/><circle cx="43" cy="43" r="7.5" fill="none" stroke="currentColor" stroke-width="5"/><path d="M45 16 19 48" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/></svg>What's the rate?</a>`
     + `<button type="button" class="menu" id="menubtn" aria-expanded="false" aria-controls="mainnav"><span aria-hidden="true">☰</span> Menu</button>`
@@ -260,6 +260,13 @@ const SRC = {
   switch: ["OSFI: uninsured mortgage straight switches", "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/osfi-exempts-uninsured-mortgage-straight-switches-prescribed-mqr-implements-portfolio-lti-limits"],
   bocposted: ["Bank of Canada: posted interest rates offered by chartered banks", "https://www.bankofcanada.ca/rates/banking-and-financial-statistics/posted-interest-rates-offered-by-chartered-banks/"]
 };
+// Calculator messages: warnings stay in view; notes go in the result's "How this is worked out" panel (id + "_n")
+function putMsgs(id, msgs){
+  $(id).innerHTML = msgs.filter(m => m[0] === "w").map(([, t]) => `<p class="msg w">${t}</p>`).join("");
+  const n = $(id + "_n"); if (n) n.innerHTML = msgs.filter(m => m[0] !== "w").map(([, t]) => `<p class="msg">${t}</p>`).join("");
+}
+// Printing shows the workings too
+addEventListener("beforeprint", () => document.querySelectorAll("details.how").forEach(d => { d.open = true; }));
 function srcLinks(keys){
   return '<b>Sources</b><ol class="refs">' + keys.map(k => `<li><a href="${SRC[k][1]}" target="_blank" rel="noopener">${SRC[k][0]}</a></li>`).join("") + '</ol>';
 }
@@ -293,9 +300,9 @@ function logo(name, source){
   return `<span class="lg-logo" aria-hidden="true">${src ? `<img src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" style="${st}" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${ini}'}))">` : `<span>${ini}</span>`}</span>`;
 }
 // Chart colours follow the lender, never its rank, so a bank keeps its colour when others are hidden.
-const LENDER_ORDER = ["BMO", "CIBC", "EQ Bank", "National Bank", "RBC Royal Bank", "Scotiabank", "Tangerine", "TD Canada Trust"];
+const LENDER_ORDER = ["BMO", "CIBC", "EQ Bank", "National Bank", "RBC Royal Bank", "Scotiabank", "Tangerine", "TD Canada Trust", "ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "Servus Credit Union"];
 // Each lender's own page on this site: bmo-mortgage-rates.html and so on
-const LENDER_SLUGS = {"BMO": "bmo", "CIBC": "cibc", "EQ Bank": "eq-bank", "National Bank": "national-bank", "RBC Royal Bank": "rbc", "Scotiabank": "scotiabank", "Tangerine": "tangerine", "TD Canada Trust": "td"};
+const LENDER_SLUGS = {"BMO": "bmo", "CIBC": "cibc", "EQ Bank": "eq-bank", "National Bank": "national-bank", "RBC Royal Bank": "rbc", "Scotiabank": "scotiabank", "Tangerine": "tangerine", "TD Canada Trust": "td", "ATB Financial": "atb", "Alterna Savings": "alterna", "Coast Capital Savings": "coast-capital", "Desjardins": "desjardins", "Servus Credit Union": "servus"};
 const seriesVar = name => { const i = LENDER_ORDER.indexOf(name); return i < 0 ? "var(--mu)" : `var(--s${i + 1})`; };
 
 // ---- Rate history (history.json, one value per lender, product and day) ----

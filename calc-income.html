@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="Find out how much household income you need to qualify for a mortgage on a home you have in mind, with editable GDS, TDS and stress-test rules.">
 <link rel="canonical" href="https://whatstherate.ca/calc-income.html">
-<link rel="icon" href="favicon.svg?v=19" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=19" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=19">
+<link rel="icon" href="favicon.svg?v=20" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=20" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=20">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
 <meta property="og:type" content="website">
@@ -24,7 +24,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=19">
+<link rel="stylesheet" href="style.css?v=20">
 </head>
 <body data-page="calc">
 <main id="top">
@@ -33,8 +33,8 @@
 <nav class="tabs" aria-label="Calculators"><a href="calculators.html">How much can I afford?</a><a href="calc-payment.html">Monthly payment</a><a href="calc-income.html" aria-current="page">How much income do I need?</a><a href="calc-closing.html">Closing costs</a><a href="calc-frequency.html">Payment frequency</a><a href="calc-prepay.html">Prepayment savings</a><a href="calc-renewal.html">Renewal: fixed vs variable</a><a href="calc-penalty.html">Penalty for breaking a mortgage</a><a href="calc-rentbuy.html">Rent vs buy</a><a href="calc-equity.html">Refinance and HELOC</a></nav>
 <div class="vc">
 <h1>How much income do I <span class="hl">need?</span></h1>
-<p class="m">Already have a home in mind? Enter its price, your down payment and your monthly debts to see the income you'd need to qualify. Everything else starts with a typical number (marked "default"), including the qualifying percentages, so change whatever you know to be different, or <button class="lk" id="n_reset" type="button">reset to defaults</button>. <a href="crash-gds.html">How GDS and TDS work</a></p>
-<div class="ex"><span>Try an example:</span><button type="button" data-ex="0">$500,000 condo, 10% down</button><button type="button" data-ex="1">$800,000 house, 20% down</button><button type="button" data-ex="2">$1,000,000 house, 20% down</button><button type="button" id="n_share" class="lk">Copy a link to these numbers</button><button type="button" class="lk" onclick="print()">Print results</button></div>
+<p class="m">See the household income you'd need to buy a home. <button class="lk" id="n_reset" type="button">Reset to defaults</button></p>
+<div class="ex"><span>Try an example:</span><button type="button" data-ex="0">$500,000 condo, 10% down</button><button type="button" data-ex="1">$800,000 house, 20% down</button></div>
 <div class="est">
 <div class="fl">
 <label>Home price <span class="df" data-f="price">default</span><input id="n_price" data-slider="100000,2000000,5000" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
@@ -56,16 +56,17 @@
 <label>Stress test: minimum qualifying rate (%) <span class="df" data-f="floor">default</span><input id="n_floor" data-slider="3,8,0.25" type="number" inputmode="decimal" step="0.25" min="0"></label>
 </div></details>
 </div>
-<div class="res"><p class="say" id="n_say"></p><span class="m">You'd need a household income of about</span><b id="n_income">—</b><span class="s">per year, before tax</span><ul id="n_res"></ul></div>
+<div class="res"><p class="say" id="n_say"></p><b id="n_income">—</b><span class="s">per year, before tax</span><details class="how"><summary>How this is worked out</summary><ul id="n_res"></ul><div id="n_msgs_n"></div></details></div>
 </div>
+<div class="acts"><button type="button" id="n_share" class="lk">Copy a link to these numbers</button><button type="button" class="lk" onclick="print()">Print results</button></div>
 <div id="n_msgs"></div>
-<p class="f">This is an estimate, not an approval. Lenders also look at your credit, employment and other details, and some use different limits, so the income you need may be higher or lower. The mortgage payment is tested at a higher "stress-test" rate than you'd actually pay. Property tax, heating and the other starting values are typical placeholders, not averages for your area.</p>
+<p class="f">An estimate, not an approval. Lenders also check your credit, job and other details.</p>
 <p id="src" data-keys="gds,grid,dof"></p>
 </div>
 </div>
 </main>
-<script src="site.js?v=19"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="19"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=20"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="20"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 (function(){
 let n = Object.assign(loadNeed(), fromURL()), best = {};
@@ -91,7 +92,7 @@ function update(){
     if (r.insured) msgs.push(["", `<b>Insured mortgage.</b> With less than 20% down, your mortgage needs default insurance. The premium (${r.prem.toFixed(2)}%, ${money(r.premium)}) is added to your mortgage before the ratios are worked out. <a href="crash-insurance.html">How insurance works</a>`]);
     if (r.insured && r.years > 25) msgs.push(["", "Insured mortgages are normally limited to 25-year amortizations. Some buyers, such as first-time buyers and buyers of new builds, can choose 30 years, which adds 0.20% to the premium."]);
   }
-  $("n_msgs").innerHTML = msgs.map(([k, t]) => `<p class="msg ${k}">${t}</p>`).join("");
+  putMsgs("n_msgs", msgs);
   $("n_say").textContent = r ? `To buy this home, you'd need a household income of about ${money(r.income)} a year before tax.` : "";
   if (!r) { $("n_income").textContent = "—"; $("n_res").innerHTML = "<li>Enter a home price, a down payment smaller than the price, an interest rate and the qualifying percentages.</li>"; return; }
   $("n_income").textContent = money(r.income);
