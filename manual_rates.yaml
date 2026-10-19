@@ -44,3 +44,41 @@
   rate: 4.20
   checked: 2026-10-19
   source: https://www.cibc.com/en/interest-rates/mortgage-rates.html
+
+# Vancity: the site blocks automated visits (security checkpoint), so these are read by hand from its own page.
+# Fixed rates are the "(special offer)" rows (20% or more down, home under $1 million). Read 2026-10-19.
+- institution: Vancity
+  product: 3-year fixed
+  rate: 4.75
+  checked: 2026-10-19
+  source: https://www.vancity.com/rates/mortgages
+  note: "Special offer: 20% or more down, home under $1 million"
+- institution: Vancity
+  product: 5-year fixed
+  rate: 4.84
+  checked: 2026-10-19
+  source: https://www.vancity.com/rates/mortgages
+  note: "Special offer: 20% or more down, home under $1 million"
+- institution: Vancity
+  product: 5-year variable
+  rate: 3.95
+  checked: 2026-10-19
+  source: https://www.vancity.com/rates/mortgages
+
+# Meridian: the site blocks automated visits, so these are read by hand from its own page.
+# Fixed rates are the "Special offers" table; the variable is the "5-Year Closed" variable row (Prime - 0.81%). Read 2026-10-19.
+- institution: Meridian
+  product: 3-year fixed
+  rate: 4.49
+  checked: 2026-10-19
+  source: https://www.meridiancu.ca/personal/rates-and-fees/mortgage-and-borrowing-rates
+- institution: Meridian
+  product: 5-year fixed
+  rate: 4.74
+  checked: 2026-10-19
+  source: https://www.meridiancu.ca/personal/rates-and-fees/mortgage-and-borrowing-rates
+- institution: Meridian
+  product: 5-year variable
+  rate: 3.64
+  checked: 2026-10-19
+  source: https://www.meridiancu.ca/personal/rates-and-fees/mortgage-and-borrowing-rates

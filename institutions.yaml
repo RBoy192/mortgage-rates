@@ -226,7 +226,7 @@
 # Vancity: the special-offer fixed rates need 20% or more down, a home under $1 million and up to 25 years to pay.
 - name: Vancity
   url: https://www.vancity.com/rates/mortgages
-  mode: auto
+  mode: manual   # the site blocks automated visits, so rates are typed into manual_rates.yaml (labels kept for if that changes)
   rates:
     - product: 3-year fixed
       label: "3-year fixed-term fixed-rate (special offer)"
@@ -241,7 +241,7 @@
 # fixed rates (the last of which is "10-Year Closed"), so the variable reads below that.
 - name: Meridian
   url: https://www.meridiancu.ca/personal/rates-and-fees/mortgage-and-borrowing-rates
-  mode: auto
+  mode: manual   # the site blocks automated visits, so rates are typed into manual_rates.yaml (labels kept for if that changes)
   rates:
     - product: 3-year fixed
       label: "3-Year Closed (special offer)"
