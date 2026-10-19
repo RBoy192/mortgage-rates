@@ -1,0 +1,51 @@
+name: Backfill rate history (one-off)
+# Started by hand from the Actions tab. Reads a year of archived copies of each lender's rate page and
+# commits a review report to backfill/backfill_report.csv. It doesn't change the live site or history.json.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  lender:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 4   # be gentle with the archive
+      matrix:
+        lender: ["RBC Royal Bank", "TD Canada Trust", "CIBC", "Scotiabank", "Tangerine", "National Bank", "EQ Bank", "BMO",
+                 "ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "Servus Credit Union"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: playwright install --with-deps chromium
+      - name: Read archived copies
+        run: python backfill.py "${{ matrix.lender }}" "part-${{ strategy.job-index }}.csv"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: part-${{ strategy.job-index }}
+          path: part-${{ strategy.job-index }}.csv
+  report:
+    needs: lender
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: parts
+          merge-multiple: true
+      - name: Combine and commit the report
+        run: |
+          mkdir -p backfill
+          first=1
+          for f in parts/*.csv; do if [ $first = 1 ]; then cat "$f"; first=0; else tail -n +2 "$f"; fi; done > backfill/backfill_report.csv
+          git config user.name "rates-bot"
+          git config user.email "rates-bot@users.noreply.github.com"
+          git add backfill/backfill_report.csv
+          git commit -m "Rate history backfill report (for review)" || exit 0
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 10; done

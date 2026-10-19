@@ -382,3 +382,9 @@ figcaption b{font-family:var(--bd);color:var(--fg)}
 /* Main table: lender groups */
 tr.grp th{text-align:left;font:700 12px var(--bd);letter-spacing:.12em;text-transform:uppercase;color:var(--mu);background:var(--ln2);padding:10px 20px;border-bottom:0}
 [data-theme="dark"] tr.grp th{background:rgba(255,255,255,.04)}
+td.glow b{box-shadow:inset 0 0 0 2px #FFD23F;border-radius:10px;padding:1px 10px}
+[data-theme="dark"] td.glow b{box-shadow:inset 0 0 0 2px var(--ac)}
+.lowkey{background:var(--lowbg);color:var(--lowfg);border-radius:6px;padding:0 6px;font-weight:700}
+.lowkey.o{background:none;color:inherit;box-shadow:inset 0 0 0 2px #FFD23F}
+[data-theme="dark"] .lowkey{background:none;color:var(--ac)}
+[data-theme="dark"] .lowkey.o{color:inherit;box-shadow:inset 0 0 0 2px var(--ac)}
