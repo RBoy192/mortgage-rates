@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-19T07:32:55Z",
+  "updated_at": "2026-10-19T08:24:25Z",
   "demo": false,
   "rates": [
     {
@@ -7,8 +7,8 @@
       "product": "3-year fixed",
       "rate": 4.99,
       "source": "https://www.rbcroyalbank.com/mortgages/mortgage-rates.html",
-      "fetched_at": "2026-10-19T07:32:22Z",
-      "checked_at": "2026-10-19T07:32:22Z",
+      "fetched_at": "2026-10-19T08:23:54Z",
+      "checked_at": "2026-10-19T08:23:54Z",
       "method": "automatic",
       "stale": false
     },
@@ -17,8 +17,8 @@
       "product": "5-year fixed",
       "rate": 5.14,
       "source": "https://www.rbcroyalbank.com/mortgages/mortgage-rates.html",
-      "fetched_at": "2026-10-19T07:32:22Z",
-      "checked_at": "2026-10-19T07:32:22Z",
+      "fetched_at": "2026-10-19T08:23:54Z",
+      "checked_at": "2026-10-19T08:23:54Z",
       "method": "automatic",
       "stale": false
     },
@@ -27,8 +27,8 @@
       "product": "5-year variable",
       "rate": 4.15,
       "source": "https://www.rbcroyalbank.com/mortgages/mortgage-rates.html",
-      "fetched_at": "2026-10-19T07:32:22Z",
-      "checked_at": "2026-10-19T07:32:22Z",
+      "fetched_at": "2026-10-19T08:23:54Z",
+      "checked_at": "2026-10-19T08:23:54Z",
       "method": "automatic",
       "stale": false
     },
@@ -37,8 +37,8 @@
       "product": "3-year fixed",
       "rate": 5.24,
       "source": "https://www.td.com/ca/en/personal-banking/products/mortgages/mortgage-rates",
-      "fetched_at": "2026-10-19T07:32:31Z",
-      "checked_at": "2026-10-19T07:32:31Z",
+      "fetched_at": "2026-10-19T08:24:00Z",
+      "checked_at": "2026-10-19T08:24:00Z",
       "method": "automatic",
       "stale": false
     },
@@ -47,8 +47,8 @@
       "product": "5-year fixed",
       "rate": 5.39,
       "source": "https://www.td.com/ca/en/personal-banking/products/mortgages/mortgage-rates",
-      "fetched_at": "2026-10-19T07:32:31Z",
-      "checked_at": "2026-10-19T07:32:31Z",
+      "fetched_at": "2026-10-19T08:24:00Z",
+      "checked_at": "2026-10-19T08:24:00Z",
       "method": "automatic",
       "stale": false
     },
@@ -57,8 +57,8 @@
       "product": "5-year variable",
       "rate": 4.29,
       "source": "https://www.td.com/ca/en/personal-banking/products/mortgages/mortgage-rates",
-      "fetched_at": "2026-10-19T07:32:31Z",
-      "checked_at": "2026-10-19T07:32:31Z",
+      "fetched_at": "2026-10-19T08:24:00Z",
+      "checked_at": "2026-10-19T08:24:00Z",
       "method": "automatic",
       "stale": false
     },
@@ -67,8 +67,8 @@
       "product": "5-year variable",
       "rate": 4.9,
       "source": "https://www.scotiabank.com/ca/en/personal/rates-prices/mortgages-rates.html",
-      "fetched_at": "2026-10-19T07:32:37Z",
-      "checked_at": "2026-10-19T07:32:37Z",
+      "fetched_at": "2026-10-19T08:24:07Z",
+      "checked_at": "2026-10-19T08:24:07Z",
       "method": "automatic",
       "stale": false
     },
@@ -77,8 +77,8 @@
       "product": "3-year fixed",
       "rate": 6.05,
       "source": "https://www.scotiabank.com/ca/en/personal/rates-prices/mortgages-rates.html",
-      "fetched_at": "2026-10-19T07:32:37Z",
-      "checked_at": "2026-10-19T07:32:37Z",
+      "fetched_at": "2026-10-19T08:24:07Z",
+      "checked_at": "2026-10-19T08:24:07Z",
       "method": "automatic",
       "stale": false,
       "note": "Posted rate"
@@ -88,8 +88,8 @@
       "product": "5-year fixed",
       "rate": 6.19,
       "source": "https://www.scotiabank.com/ca/en/personal/rates-prices/mortgages-rates.html",
-      "fetched_at": "2026-10-19T07:32:37Z",
-      "checked_at": "2026-10-19T07:32:37Z",
+      "fetched_at": "2026-10-19T08:24:07Z",
+      "checked_at": "2026-10-19T08:24:07Z",
       "method": "automatic",
       "stale": false,
       "note": "Posted rate"
@@ -99,8 +99,8 @@
       "product": "3-year fixed",
       "rate": 4.94,
       "source": "https://www.tangerine.ca/en/rates/mortgage-rates",
-      "fetched_at": "2026-10-19T07:32:38Z",
-      "checked_at": "2026-10-19T07:32:38Z",
+      "fetched_at": "2026-10-19T08:24:09Z",
+      "checked_at": "2026-10-19T08:24:09Z",
       "method": "automatic",
       "stale": false
     },
@@ -109,8 +109,8 @@
       "product": "5-year fixed",
       "rate": 5.19,
       "source": "https://www.tangerine.ca/en/rates/mortgage-rates",
-      "fetched_at": "2026-10-19T07:32:38Z",
-      "checked_at": "2026-10-19T07:32:38Z",
+      "fetched_at": "2026-10-19T08:24:09Z",
+      "checked_at": "2026-10-19T08:24:09Z",
       "method": "automatic",
       "stale": false
     },
@@ -119,8 +119,8 @@
       "product": "5-year variable",
       "rate": 3.95,
       "source": "https://www.tangerine.ca/en/rates/mortgage-rates",
-      "fetched_at": "2026-10-19T07:32:38Z",
-      "checked_at": "2026-10-19T07:32:38Z",
+      "fetched_at": "2026-10-19T08:24:09Z",
+      "checked_at": "2026-10-19T08:24:09Z",
       "method": "automatic",
       "stale": false
     },
@@ -129,8 +129,8 @@
       "product": "3-year fixed",
       "rate": 5.04,
       "source": "https://www.nbc.ca/personal/mortgages/rates.html",
-      "fetched_at": "2026-10-19T07:32:44Z",
-      "checked_at": "2026-10-19T07:32:44Z",
+      "fetched_at": "2026-10-19T08:24:15Z",
+      "checked_at": "2026-10-19T08:24:15Z",
       "method": "automatic",
       "stale": false
     },
@@ -139,8 +139,8 @@
       "product": "5-year fixed",
       "rate": 5.14,
       "source": "https://www.nbc.ca/personal/mortgages/rates.html",
-      "fetched_at": "2026-10-19T07:32:44Z",
-      "checked_at": "2026-10-19T07:32:44Z",
+      "fetched_at": "2026-10-19T08:24:15Z",
+      "checked_at": "2026-10-19T08:24:15Z",
       "method": "automatic",
       "stale": false
     },
@@ -149,8 +149,8 @@
       "product": "5-year variable",
       "rate": 5.04,
       "source": "https://www.nbc.ca/personal/mortgages/rates.html",
-      "fetched_at": "2026-10-19T07:32:44Z",
-      "checked_at": "2026-10-19T07:32:44Z",
+      "fetched_at": "2026-10-19T08:24:15Z",
+      "checked_at": "2026-10-19T08:24:15Z",
       "method": "automatic",
       "stale": false
     },
@@ -159,8 +159,8 @@
       "product": "3-year fixed",
       "rate": 5.49,
       "source": "https://www.eqbank.ca/residential/mortgage-rates",
-      "fetched_at": "2026-10-19T07:32:55Z",
-      "checked_at": "2026-10-19T07:32:55Z",
+      "fetched_at": "2026-10-19T08:24:25Z",
+      "checked_at": "2026-10-19T08:24:25Z",
       "method": "automatic",
       "stale": false,
       "note": "Standard rate"
@@ -170,8 +170,8 @@
       "product": "5-year fixed",
       "rate": 5.59,
       "source": "https://www.eqbank.ca/residential/mortgage-rates",
-      "fetched_at": "2026-10-19T07:32:55Z",
-      "checked_at": "2026-10-19T07:32:55Z",
+      "fetched_at": "2026-10-19T08:24:25Z",
+      "checked_at": "2026-10-19T08:24:25Z",
       "method": "automatic",
       "stale": false,
       "note": "Standard rate"
@@ -181,8 +181,8 @@
       "product": "5-year variable",
       "rate": 4.79,
       "source": "https://www.eqbank.ca/residential/mortgage-rates",
-      "fetched_at": "2026-10-19T07:32:55Z",
-      "checked_at": "2026-10-19T07:32:55Z",
+      "fetched_at": "2026-10-19T08:24:25Z",
+      "checked_at": "2026-10-19T08:24:25Z",
       "method": "automatic",
       "stale": false,
       "note": "Standard rate"
@@ -192,14 +192,14 @@
     "rate": 2.25,
     "as_of": "2026-10-15",
     "source": "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/",
-    "fetched_at": "2026-10-19T07:32:55Z",
+    "fetched_at": "2026-10-19T08:24:25Z",
     "stale": false
   },
   "prime_rate": {
     "rate": 4.45,
     "as_of": "2026-10-14",
     "source": "https://bankofcanada.ca/rates/banking-and-financial-statistics/posted-interest-rates-offered-by-chartered-banks",
-    "fetched_at": "2026-10-19T07:32:55Z",
+    "fetched_at": "2026-10-19T08:24:25Z",
     "stale": false
   }
 }
