@@ -1,4 +1,4 @@
-const SITE_VERSION = "14";
+const SITE_VERSION = "15";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -18,7 +18,7 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
   const page = document.body.dataset.page, el = $("site-header"), base = page === "404" ? "/" : "";
   const links = [["calc", "calculators.html", "Interactive Calculators"], ["crash", "crash-course.html", "Crash course"], ["extras", "rate-history.html", "Extras"]];
   el.className = "n";
-  el.innerHTML = `<div class="nw"><a class="brand" href="${base}index.html"><img src="${base}favicon.svg" alt="" width="28" height="28">What's the rate?</a>`
+  el.innerHTML = `<div class="nw"><a class="brand" href="${base}index.html"><img src="${base}favicon.svg?v=15" alt="" width="28" height="28">What's the rate?</a>`
     + `<button type="button" class="menu" id="menubtn" aria-expanded="false" aria-controls="mainnav"><span aria-hidden="true">☰</span> Menu</button>`
     + `<nav class="mainnav" id="mainnav" aria-label="Main">` + links.map(([k, u, t]) => `<a class="nl" href="${base}${u}"${k === page ? ' aria-current="page"' : ""}>${t}</a>`).join("") + `</nav></div>`
     + `<div class="r">${page === "rates" ? '<span class="pill">Updated hourly</span>' : ""}<button class="mode" id="mode" type="button">`
