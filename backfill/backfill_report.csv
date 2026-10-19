@@ -1,356 +1,52 @@
 lender,product,date,archived_at,rate,via,text_read,error
-RBC Royal Bank,3-year fixed,2025-11-12,20251112153341,,,,no rate found next to the label '3 Year Fixed Closed'
-RBC Royal Bank,5-year fixed,2025-11-12,20251112153341,,,,no rate found next to the label '5 Year Fixed Closed'
-RBC Royal Bank,5-year variable,2025-11-12,20251112153341,,,,no rate found next to the label '5 Year Variable Closed'
-RBC Royal Bank,3-year fixed,2025-12-12,20251212071405,,,,no rate found next to the label '3 Year Fixed Closed'
-RBC Royal Bank,5-year fixed,2025-12-12,20251212071405,,,,no rate found next to the label '5 Year Fixed Closed'
-RBC Royal Bank,5-year variable,2025-12-12,20251212071405,,,,no rate found next to the label '5 Year Variable Closed'
-RBC Royal Bank,3-year fixed,2026-01-16,20260116224808,,,,no rate found next to the label '3 Year Fixed Closed'
-RBC Royal Bank,5-year fixed,2026-01-16,20260116224808,,,,no rate found next to the label '5 Year Fixed Closed'
-RBC Royal Bank,5-year variable,2026-01-16,20260116224808,,,,no rate found next to the label '5 Year Variable Closed'
-RBC Royal Bank,3-year fixed,2026-01-20,20260120095821,,,,no rate found next to the label '3 Year Fixed Closed'
-RBC Royal Bank,5-year fixed,2026-01-20,20260120095821,,,,no rate found next to the label '5 Year Fixed Closed'
-RBC Royal Bank,5-year variable,2026-01-20,20260120095821,,,,no rate found next to the label '5 Year Variable Closed'
-RBC Royal Bank,3-year fixed,2026-02-14,20260214204412,,,,no rate found next to the label '3 Year Fixed Closed'
-RBC Royal Bank,5-year fixed,2026-02-14,20260214204412,,,,no rate found next to the label '5 Year Fixed Closed'
-RBC Royal Bank,5-year variable,2026-02-14,20260214204412,,,,no rate found next to the label '5 Year Variable Closed'
-RBC Royal Bank,3-year fixed,2026-02-20,20260220000120,,,,no rate found next to the label '3 Year Fixed Closed'
-RBC Royal Bank,5-year fixed,2026-02-20,20260220000120,,,,no rate found next to the label '5 Year Fixed Closed'
-RBC Royal Bank,5-year variable,2026-02-20,20260220000120,,,,no rate found next to the label '5 Year Variable Closed'
-RBC Royal Bank,3-year fixed,2026-02-25,20260225180804,,,,no rate found next to the label '3 Year Fixed Closed'
-RBC Royal Bank,5-year fixed,2026-02-25,20260225180804,,,,no rate found next to the label '5 Year Fixed Closed'
-RBC Royal Bank,5-year variable,2026-02-25,20260225180804,,,,no rate found next to the label '5 Year Variable Closed'
-RBC Royal Bank,3-year fixed,2026-03-17,20260317152637,,,,no rate found next to the label '3 Year Fixed Closed'
-RBC Royal Bank,5-year fixed,2026-03-17,20260317152637,,,,no rate found next to the label '5 Year Fixed Closed'
-RBC Royal Bank,5-year variable,2026-03-17,20260317152637,,,,no rate found next to the label '5 Year Variable Closed'
-RBC Royal Bank,3-year fixed,2026-04-10,20260410151559,,,,no rate found next to the label '3 Year Fixed Closed'
-RBC Royal Bank,5-year fixed,2026-04-10,20260410151559,,,,no rate found next to the label '5 Year Fixed Closed'
-RBC Royal Bank,5-year variable,2026-04-10,20260410151559,,,,no rate found next to the label '5 Year Variable Closed'
-RBC Royal Bank,3-year fixed,2026-05-07,20260507174752,,,,no rate found next to the label '3 Year Fixed Closed'
-RBC Royal Bank,5-year fixed,2026-05-07,20260507174752,,,,no rate found next to the label '5 Year Fixed Closed'
-RBC Royal Bank,5-year variable,2026-05-07,20260507174752,,,,no rate found next to the label '5 Year Variable Closed'
-RBC Royal Bank,3-year fixed,2026-05-12,20260512161203,,,,no rate found next to the label '3 Year Fixed Closed'
-RBC Royal Bank,5-year fixed,2026-05-12,20260512161203,,,,no rate found next to the label '5 Year Fixed Closed'
-RBC Royal Bank,5-year variable,2026-05-12,20260512161203,,,,no rate found next to the label '5 Year Variable Closed'
-RBC Royal Bank,3-year fixed,2026-05-20,20260520080037,,,,no rate found next to the label '3 Year Fixed Closed'
-RBC Royal Bank,5-year fixed,2026-05-20,20260520080037,,,,no rate found next to the label '5 Year Fixed Closed'
-RBC Royal Bank,5-year variable,2026-05-20,20260520080037,,,,no rate found next to the label '5 Year Variable Closed'
-RBC Royal Bank,3-year fixed,2026-06-17,20260617165650,4.44,browser,4.440 % 4.480 %,
-RBC Royal Bank,5-year fixed,2026-06-17,20260617165650,4.59,browser,4.590 % 4.620 %,
-RBC Royal Bank,5-year variable,2026-06-17,20260617165650,3.95,browser,rbc prime rate -0.500 % (3.950%) 3.980 %,
-RBC Royal Bank,3-year fixed,2026-07-11,20260711055946,3.95,page,% % 5 year fixed closed % % 5 year variable closed rbc prime rate % (3.950%) %,
-RBC Royal Bank,5-year fixed,2026-07-11,20260711055946,3.95,page,% % 5 year variable closed rbc prime rate % (3.950%) %,
-RBC Royal Bank,5-year variable,2026-07-11,20260711055946,,,,no rate found next to the label '5 Year Variable Closed'
-RBC Royal Bank,3-year fixed,2026-08-03,20260803124336,3.95,page,% % 5 year fixed closed % % 5 year variable closed rbc prime rate % (3.950%) %,
-RBC Royal Bank,5-year fixed,2026-08-03,20260803124336,3.95,page,% % 5 year variable closed rbc prime rate % (3.950%) %,
-RBC Royal Bank,5-year variable,2026-08-03,20260803124336,,,,no rate found next to the label '5 Year Variable Closed'
-RBC Royal Bank,3-year fixed,2026-08-23,20260823151720,3.95,page,% % 5 year fixed closed % % 5 year variable closed rbc prime rate % (3.950%) %,
-RBC Royal Bank,5-year fixed,2026-08-23,20260823151720,3.95,page,% % 5 year variable closed rbc prime rate % (3.950%) %,
-RBC Royal Bank,5-year variable,2026-08-23,20260823151720,,,,no rate found next to the label '5 Year Variable Closed'
-RBC Royal Bank,3-year fixed,2026-08-28,20260828185743,3.95,page,% % 5 year fixed closed % % 5 year variable closed rbc prime rate % (3.950%) %,
-RBC Royal Bank,5-year fixed,2026-08-28,20260828185743,3.95,page,% % 5 year variable closed rbc prime rate % (3.950%) %,
-RBC Royal Bank,5-year variable,2026-08-28,20260828185743,,,,no rate found next to the label '5 Year Variable Closed'
-RBC Royal Bank,3-year fixed,2026-09-16,20260916234148,4.64,page,4.640 % 4.680 %,
-RBC Royal Bank,5-year fixed,2026-09-16,20260916234148,4.89,page,4.890 % 4.920 %,
-RBC Royal Bank,5-year variable,2026-09-16,20260916234148,3.95,page,rbc prime rate -0.500 % (3.950%) 3.980 %,
-RBC Royal Bank,3-year fixed,2026-10-06,20261006220444,4.99,page,4.990 % 5.030 %,
-RBC Royal Bank,5-year fixed,2026-10-06,20261006220444,5.14,page,5.140 % 5.170 %,
-RBC Royal Bank,5-year variable,2026-10-06,20261006220444,4.15,page,rbc prime rate -0.300 % (4.150%) 4.180 %,
-TD Canada Trust,3-year fixed,2025-10-25,20251025144917,4.0,page,% (posted rate: % ) % 5 year fixed closed % (posted rate: % ) % 5 year fixed closed high-ratio 4 % (,
-TD Canada Trust,5-year fixed,2025-10-25,20251025144917,4.0,page,% (posted rate: % ) % 5 year fixed closed high-ratio 4 % (posted rate: % ) % 5 year variable closed ,
-TD Canada Trust,5-year variable,2025-10-25,20251025144917,5.0,page,5 % (td mortgage prime rate % %) (posted rate: td mortgage prime rate ) %,
-TD Canada Trust,3-year fixed,2025-12-14,20251214030808,4.0,page,% (posted rate: % ) % 5 year fixed closed % (posted rate: % ) % 5 year fixed closed high-ratio 4 % (,
-TD Canada Trust,5-year fixed,2025-12-14,20251214030808,4.0,page,% (posted rate: % ) % 5 year fixed closed high-ratio 4 % (posted rate: % ) % 5 year variable closed ,
-TD Canada Trust,5-year variable,2025-12-14,20251214030808,5.0,page,5 % (td mortgage prime rate % %) (posted rate: td mortgage prime rate ) %,
-TD Canada Trust,3-year fixed,2026-01-14,20260114010909,4.0,page,% (posted rate: % ) % 5 year fixed closed % (posted rate: % ) % 5 year fixed closed high-ratio 4 % (,
-TD Canada Trust,5-year fixed,2026-01-14,20260114010909,4.0,page,% (posted rate: % ) % 5 year fixed closed high-ratio 4 % (posted rate: % ) % 5 year variable closed ,
-TD Canada Trust,5-year variable,2026-01-14,20260114010909,5.0,page,5 % (td mortgage prime rate % %) (posted rate: td mortgage prime rate ) %,
-TD Canada Trust,3-year fixed,2026-02-21,20260221035835,4.0,page,% (posted rate: % ) % 5 year fixed closed % (posted rate: % ) % 5 year fixed closed high-ratio 4 % (,
-TD Canada Trust,5-year fixed,2026-02-21,20260221035835,4.0,page,% (posted rate: % ) % 5 year fixed closed high-ratio 4 % (posted rate: % ) % 5 year variable closed ,
-TD Canada Trust,5-year variable,2026-02-21,20260221035835,5.0,page,5 % (td mortgage prime rate % %) (posted rate: td mortgage prime rate ) %,
-TD Canada Trust,3-year fixed,2026-03-19,20260319200128,4.0,page,% (posted rate: % ) % 5 year fixed closed % (posted rate: % ) % 5 year fixed closed high-ratio 4 % (,
-TD Canada Trust,5-year fixed,2026-03-19,20260319200128,4.0,page,% (posted rate: % ) % 5 year fixed closed high-ratio 4 % (posted rate: % ) % 5 year variable closed ,
-TD Canada Trust,5-year variable,2026-03-19,20260319200128,5.0,page,5 % (td mortgage prime rate % %) (posted rate: td mortgage prime rate ) %,
-TD Canada Trust,3-year fixed,2026-04-19,20260419113753,4.0,page,% (posted rate: % ) % 5 year fixed closed % (posted rate: % ) % 5 year fixed closed high-ratio 4 % (,
-TD Canada Trust,5-year fixed,2026-04-19,20260419113753,4.0,page,% (posted rate: % ) % 5 year fixed closed high-ratio 4 % (posted rate: % ) % 5 year variable closed ,
-TD Canada Trust,5-year variable,2026-04-19,20260419113753,5.0,page,5 % (td mortgage prime rate % %) (posted rate: td mortgage prime rate ) %,
-TD Canada Trust,3-year fixed,2026-04-25,20260425121652,4.0,page,% (posted rate: % ) % 5 year fixed closed % (posted rate: % ) % 5 year fixed closed high-ratio 4 % (,
-TD Canada Trust,5-year fixed,2026-04-25,20260425121652,4.0,page,% (posted rate: % ) % 5 year fixed closed high-ratio 4 % (posted rate: % ) % 5 year variable closed ,
-TD Canada Trust,5-year variable,2026-04-25,20260425121652,5.0,page,5 % (td mortgage prime rate % %) (posted rate: td mortgage prime rate ) %,
-TD Canada Trust,3-year fixed,2026-05-19,20260519074107,4.0,page,% (posted rate: % ) % 5 year fixed closed % (posted rate: % ) % 5 year fixed closed high-ratio 4 % (,
-TD Canada Trust,5-year fixed,2026-05-19,20260519074107,4.0,page,% (posted rate: % ) % 5 year fixed closed high-ratio 4 % (posted rate: % ) % 5 year variable closed ,
-TD Canada Trust,5-year variable,2026-05-19,20260519074107,5.0,page,5 % (td mortgage prime rate % %) (posted rate: td mortgage prime rate ) %,
-TD Canada Trust,3-year fixed,2026-06-02,20260602184502,4.0,page,% (posted rate: % ) % 5 year fixed closed % (posted rate: % ) % 5 year fixed closed high-ratio 4 % (,
-TD Canada Trust,5-year fixed,2026-06-02,20260602184502,4.0,page,% (posted rate: % ) % 5 year fixed closed high-ratio 4 % (posted rate: % ) % 5 year variable closed ,
-TD Canada Trust,5-year variable,2026-06-02,20260602184502,5.0,page,5 % (td mortgage prime rate % %) (posted rate: td mortgage prime rate ) %,
-TD Canada Trust,3-year fixed,2026-08-26,20260826145344,4.0,page,% (posted rate: % ) % 5 year fixed closed % (posted rate: % ) % 5 year fixed closed high-ratio 4 % (,
-TD Canada Trust,5-year fixed,2026-08-26,20260826145344,4.0,page,% (posted rate: % ) % 5 year fixed closed high-ratio 4 % (posted rate: % ) % 5 year variable closed ,
-TD Canada Trust,5-year variable,2026-08-26,20260826145344,5.0,page,5 % (td mortgage prime rate % %) (posted rate: td mortgage prime rate ) %,
-TD Canada Trust,3-year fixed,2026-09-30,20260930174222,4.0,page,% (posted rate: % ) % 5 year fixed closed % (posted rate: % ) % 5 year fixed closed high-ratio 4 % (,
-TD Canada Trust,5-year fixed,2026-09-30,20260930174222,4.0,page,% (posted rate: % ) % 5 year fixed closed high-ratio 4 % (posted rate: % ) % 5 year variable closed ,
-TD Canada Trust,5-year variable,2026-09-30,20260930174222,5.0,page,5 % (td mortgage prime rate % %) (posted rate: td mortgage prime rate ) %,
-TD Canada Trust,3-year fixed,2026-10-06,20261006221149,4.0,page,% (posted rate: % ) % 5 year fixed closed % (posted rate: % ) % 5 year fixed closed high-ratio 4 % (,
-TD Canada Trust,5-year fixed,2026-10-06,20261006221149,4.0,page,% (posted rate: % ) % 5 year fixed closed high-ratio 4 % (posted rate: % ) % 5 year variable closed ,
-TD Canada Trust,5-year variable,2026-10-06,20261006221149,5.0,page,5 % (td mortgage prime rate % %) (posted rate: td mortgage prime rate ) %,
-TD Canada Trust,3-year fixed,2026-10-13,20261013212413,4.0,page,% (posted rate: % ) % 5 year fixed closed % (posted rate: % ) % 5 year fixed closed high-ratio 4 % (,
-TD Canada Trust,5-year fixed,2026-10-13,20261013212413,4.0,page,% (posted rate: % ) % 5 year fixed closed high-ratio 4 % (posted rate: % ) % 5 year variable closed ,
-TD Canada Trust,5-year variable,2026-10-13,20261013212413,5.0,page,5 % (td mortgage prime rate % %) (posted rate: td mortgage prime rate ) %,
-Coast Capital Savings,3-year fixed,2025-11-30,20251130210933,3.84,page,3.84% 5 3.88% 2 3.94% 5 3.98% 2,
-Coast Capital Savings,5-year fixed,2025-11-30,20251130210933,3.94,page,3.94% 5 3.96% 2 4.04% 5 4.06% 2,
-Coast Capital Savings,5-year variable,2025-11-30,20251130210933,3.69,page,3.69% 4 3.71% 2 3.79% 4 3.81% 2,
-Coast Capital Savings,3-year fixed,2025-12-12,20251212004421,3.84,page,3.84% 5 3.88% 2 3.94% 5 3.98% 2,
-Coast Capital Savings,5-year fixed,2025-12-12,20251212004421,3.94,page,3.94% 5 3.96% 2 4.04% 5 4.06% 2,
-Coast Capital Savings,5-year variable,2025-12-12,20251212004421,3.69,page,3.69% 4 3.71% 2 3.79% 4 3.81% 2,
-Coast Capital Savings,3-year fixed,2026-02-16,20260216015437,3.94,page,3.94% 5 3.98% 2 4.04% 5 4.08% 2,
-Coast Capital Savings,5-year fixed,2026-02-16,20260216015437,4.09,page,4.09% 5 4.11% 2 4.19% 5 4.21% 2,
-Coast Capital Savings,5-year variable,2026-02-16,20260216015437,3.74,page,3.74% 4 3.76% 2 3.84% 4 3.86% 2,
-Coast Capital Savings,3-year fixed,2026-03-31,20260331232011,3.89,page,3.89% 5 3.93% 2 3.99% 5 4.03% 2,
-Coast Capital Savings,5-year fixed,2026-03-31,20260331232011,4.09,page,4.09% 5 4.11% 2 4.19% 5 4.21% 2,
-Coast Capital Savings,5-year variable,2026-03-31,20260331232011,3.74,page,3.74% 4 3.76% 2 3.84% 4 3.86% 2,
-Desjardins,3-year fixed,2025-11-26,20251126172850,5.99,page,5.99%,
-Desjardins,5-year fixed,2025-11-26,20251126172850,4.44,page,4.44% 2,
-Desjardins,5-year variable,2025-11-26,20251126172850,4.1,page,4.10% 2,
-Desjardins,3-year fixed,2025-12-14,20251214071743,5.99,page,5.99%,
-Desjardins,5-year fixed,2025-12-14,20251214071743,4.39,page,4.39% 2,
-Desjardins,5-year variable,2025-12-14,20251214071743,4.1,page,4.10% 2,
-Desjardins,3-year fixed,2025-12-31,20251231141432,5.99,page,5.99%,
-Desjardins,5-year fixed,2025-12-31,20251231141432,4.39,page,4.39% 2,
-Desjardins,5-year variable,2025-12-31,20251231141432,4.1,page,4.10% 2,
-Desjardins,3-year fixed,2026-04-12,20260412022957,5.99,page,5.99%,
-Desjardins,5-year fixed,2026-04-12,20260412022957,4.49,page,4.49% 2,
-Desjardins,5-year variable,2026-04-12,20260412022957,4.1,page,4.10% 2,
-Desjardins,3-year fixed,2026-04-26,20260426092009,5.99,page,5.99%,
-Desjardins,5-year fixed,2026-04-26,20260426092009,4.49,page,4.49% 2,
-Desjardins,5-year variable,2026-04-26,20260426092009,4.1,page,4.10% 2,
-Desjardins,3-year fixed,2026-06-11,20260611001416,5.99,page,5.99%,
-Desjardins,5-year fixed,2026-06-11,20260611001416,4.49,page,4.49% 2,
-Desjardins,5-year variable,2026-06-11,20260611001416,4.1,page,4.10% 2,
-Servus Credit Union,3-year fixed,2025-11-12,20251112191824,4.34,page,6.04% 4.34%,
-Servus Credit Union,5-year fixed,2025-11-12,20251112191824,4.49,page,¹ 6.09% 4.49%,
-Servus Credit Union,3-year fixed,2025-11-30,20251130193245,4.34,page,6.04% 4.34%,
-Servus Credit Union,5-year fixed,2025-11-30,20251130193245,4.49,page,¹ 6.09% 4.49%,
-Servus Credit Union,3-year fixed,2025-12-13,20251213213130,4.34,page,6.04% 4.34%,
-Servus Credit Union,5-year fixed,2025-12-13,20251213213130,4.49,page,¹ 6.09% 4.49%,
-Servus Credit Union,3-year fixed,2026-01-22,20260122074852,4.34,page,6.04% 4.34%,
-Servus Credit Union,5-year fixed,2026-01-22,20260122074852,4.49,page,¹ 6.09% 4.49%,
-Servus Credit Union,3-year fixed,2026-01-30,20260130203606,4.34,page,6.04% 4.34%,
-Servus Credit Union,5-year fixed,2026-01-30,20260130203606,4.49,page,¹ 6.09% 4.49%,
-Servus Credit Union,3-year fixed,2026-02-04,20260204045334,4.34,page,6.04% 4.34%,
-Servus Credit Union,5-year fixed,2026-02-04,20260204045334,4.49,page,¹ 6.09% 4.49%,
-Servus Credit Union,3-year fixed,2026-02-15,20260215081630,4.34,page,6.04% 4.34%,
-Servus Credit Union,5-year fixed,2026-02-15,20260215081630,4.49,page,¹ 6.09% 4.49%,
-Servus Credit Union,3-year fixed,2026-03-08,20260308164714,4.34,page,6.04% 4.34%,
-Servus Credit Union,5-year fixed,2026-03-08,20260308164714,4.49,page,¹ 6.09% 4.49%,
-Servus Credit Union,3-year fixed,2026-03-15,20260315053741,4.34,page,6.04% 4.34%,
-Servus Credit Union,5-year fixed,2026-03-15,20260315053741,4.49,page,¹ 6.09% 4.49%,
-Servus Credit Union,3-year fixed,2026-04-16,20260416015100,4.39,page,6.04% 4.39%,
-Servus Credit Union,5-year fixed,2026-04-16,20260416015100,4.54,page,¹ 6.09% 4.54%,
-Servus Credit Union,3-year fixed,2026-04-30,20260430202607,4.39,page,6.04% 4.39%,
-Servus Credit Union,5-year fixed,2026-04-30,20260430202607,4.54,page,¹ 6.09% 4.54%,
-Servus Credit Union,3-year fixed,2026-05-10,20260510171519,4.39,page,6.04% 4.39%,
-Servus Credit Union,5-year fixed,2026-05-10,20260510171519,4.54,page,¹ 6.09% 4.54%,
-Servus Credit Union,3-year fixed,2026-06-14,20260614223435,4.39,page,5.94% 4.39%,
-Servus Credit Union,5-year fixed,2026-06-14,20260614223435,4.54,page,¹ 6.09% 4.54%,
-Servus Credit Union,3-year fixed,2026-06-16,20260616184151,4.39,page,5.94% 4.39%,
-Servus Credit Union,5-year fixed,2026-06-16,20260616184151,4.54,page,¹ 6.09% 4.54%,
-CIBC,3-year fixed,2025-10-12,20251012165307,,,,no rate found next to the label '3-year fixed'
-CIBC,5-year fixed,2025-10-12,20251012165307,,,,no rate found next to the label '5-year fixed'
-CIBC,5-year variable,2025-10-12,20251012165307,,,,no rate found next to the label '5 years'
-CIBC,3-year fixed,2025-10-14,20251014104641,4.29,browser,amortizations 25 years or less 4.29% 2 ( 4.31% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2025-10-14,20251014104641,4.44,browser,amortizations 25 years or less 4.44% 2 ( 4.46% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2025-10-14,20251014104641,4.75,browser,4.95% 4.75% 2 4.77% 3,
-CIBC,3-year fixed,2025-10-23,20251023132918,4.29,browser,amortizations 25 years or less 4.29% 2 ( 4.31% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2025-10-23,20251023132918,4.44,browser,amortizations 25 years or less 4.44% 2 ( 4.46% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2025-10-23,20251023132918,4.75,browser,4.95% 4.75% 2 4.77% 3,
-CIBC,3-year fixed,2025-10-28,20251028161345,4.29,browser,amortizations 25 years or less 4.29% 2 ( 4.31% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2025-10-28,20251028161345,4.44,browser,amortizations 25 years or less 4.44% 2 ( 4.46% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2025-10-28,20251028161345,4.75,browser,4.95% 4.75% 2 4.77% 3,
-CIBC,3-year fixed,2025-11-03,20251103172533,4.29,browser,amortizations 25 years or less 4.29% 2 ( 4.31% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2025-11-03,20251103172533,4.44,browser,amortizations 25 years or less 4.44% 2 ( 4.46% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2025-11-03,20251103172533,4.75,browser,4.95% 4.75% 2 4.77% 3,
-CIBC,3-year fixed,2025-11-11,20251111113242,4.29,browser,amortizations 25 years or less 4.29% 2 ( 4.31% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2025-11-11,20251111113242,4.44,browser,amortizations 25 years or less 4.44% 2 ( 4.46% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2025-11-11,20251111113242,4.75,browser,4.95% 4.75% 2 4.77% 3,
-CIBC,3-year fixed,2025-11-24,20251124140935,4.29,browser,amortizations 25 years or less 4.29% 2 ( 4.31% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2025-11-24,20251124140935,4.44,browser,amortizations 25 years or less 4.44% 2 ( 4.46% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2025-11-24,20251124140935,4.75,browser,4.95% 4.75% 2 4.77% 3,
-CIBC,3-year fixed,2025-12-01,20251201201251,4.29,browser,amortizations 25 years or less 4.29% 2 ( 4.31% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2025-12-01,20251201201251,4.44,browser,amortizations 25 years or less 4.44% 2 ( 4.46% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2025-12-01,20251201201251,4.75,browser,4.95% 4.75% 2 4.77% 3,
-CIBC,3-year fixed,2025-12-12,20251212124622,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20251212124622if_/https://www.
-CIBC,5-year fixed,2025-12-12,20251212124622,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20251212124622if_/https://www.
-CIBC,5-year variable,2025-12-12,20251212124622,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20251212124622if_/https://www.
-CIBC,3-year fixed,2025-12-18,20251218185610,4.29,browser,amortizations 25 years or less 4.29% 2 ( 4.31% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2025-12-18,20251218185610,4.44,browser,amortizations 25 years or less 4.44% 2 ( 4.46% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2025-12-18,20251218185610,4.75,browser,4.95% 4.75% 2 4.77% 3,
-CIBC,3-year fixed,2026-02-19,20260219005134,4.29,browser,amortizations 25 years or less 4.29% 2 ( 4.31% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2026-02-19,20260219005134,4.44,browser,amortizations 25 years or less 4.44% 2 ( 4.46% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2026-02-19,20260219005134,4.75,browser,4.95% 4.75% 2 4.77% 3,
-CIBC,3-year fixed,2026-03-17,20260317100914,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260317100914if_/https://www.
-CIBC,5-year fixed,2026-03-17,20260317100914,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260317100914if_/https://www.
-CIBC,5-year variable,2026-03-17,20260317100914,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260317100914if_/https://www.
-CIBC,3-year fixed,2026-03-25,20260325203113,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260325203113if_/https://www.
-CIBC,5-year fixed,2026-03-25,20260325203113,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260325203113if_/https://www.
-CIBC,5-year variable,2026-03-25,20260325203113,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260325203113if_/https://www.
-CIBC,3-year fixed,2026-06-08,20260608084838,4.94,browser,amortizations 25 years or less 4.94% 2 ( 4.96% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2026-06-08,20260608084838,5.14,browser,amortizations 25 years or less 5.14% 2 ( 5.16% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2026-06-08,20260608084838,4.1,browser,4.45% 4.10% 2 4.12% 3,
-CIBC,3-year fixed,2026-06-20,20260620214316,4.94,browser,amortizations 25 years or less 4.94% 2 ( 4.96% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2026-06-20,20260620214316,5.14,browser,amortizations 25 years or less 5.14% 2 ( 5.16% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2026-06-20,20260620214316,4.1,browser,4.45% 4.10% 2 4.12% 3,
-CIBC,3-year fixed,2026-06-22,20260622065623,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260622065623if_/https://www.
-CIBC,5-year fixed,2026-06-22,20260622065623,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260622065623if_/https://www.
-CIBC,5-year variable,2026-06-22,20260622065623,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260622065623if_/https://www.
-CIBC,3-year fixed,2026-07-01,20260701093042,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260701093042if_/https://www.
-CIBC,5-year fixed,2026-07-01,20260701093042,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260701093042if_/https://www.
-CIBC,5-year variable,2026-07-01,20260701093042,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260701093042if_/https://www.
-CIBC,3-year fixed,2026-07-08,20260708175321,4.94,browser,amortizations 25 years or less 4.94% 2 ( 4.96% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2026-07-08,20260708175321,5.14,browser,amortizations 25 years or less 5.14% 2 ( 5.16% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2026-07-08,20260708175321,4.1,browser,4.45% 4.10% 2 4.12% 3,
-CIBC,3-year fixed,2026-07-14,20260714040205,4.94,browser,amortizations 25 years or less 4.94% 2 ( 4.96% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2026-07-14,20260714040205,5.14,browser,amortizations 25 years or less 5.14% 2 ( 5.16% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2026-07-14,20260714040205,4.1,browser,4.45% 4.10% 2 4.12% 3,
-CIBC,3-year fixed,2026-07-20,20260720144551,4.94,browser,amortizations 25 years or less 4.94% 2 ( 4.96% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2026-07-20,20260720144551,5.14,browser,amortizations 25 years or less 5.14% 2 ( 5.16% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2026-07-20,20260720144551,4.1,browser,4.45% 4.10% 2 4.12% 3,
-CIBC,3-year fixed,2026-07-27,20260727053829,4.94,browser,amortizations 25 years or less 4.94% 2 ( 4.96% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2026-07-27,20260727053829,5.14,browser,amortizations 25 years or less 5.14% 2 ( 5.16% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2026-07-27,20260727053829,4.1,browser,4.45% 4.10% 2 4.12% 3,
-CIBC,3-year fixed,2026-08-04,20260804054854,4.94,browser,amortizations 25 years or less 4.94% 2 ( 4.96% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2026-08-04,20260804054854,5.14,browser,amortizations 25 years or less 5.14% 2 ( 5.16% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2026-08-04,20260804054854,4.1,browser,4.45% 4.10% 2 4.12% 3,
-CIBC,3-year fixed,2026-08-11,20260811104604,4.94,browser,amortizations 25 years or less 4.94% 2 ( 4.96% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2026-08-11,20260811104604,5.14,browser,amortizations 25 years or less 5.14% 2 ( 5.16% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2026-08-11,20260811104604,4.1,browser,4.45% 4.10% 2 4.12% 3,
-CIBC,3-year fixed,2026-09-30,20260930172649,4.94,browser,amortizations 25 years or less 4.94% 2 ( 4.96% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2026-09-30,20260930172649,5.14,browser,amortizations 25 years or less 5.14% 2 ( 5.16% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2026-09-30,20260930172649,4.1,browser,4.45% 4.10% 2 4.12% 3,
-Scotiabank,5-year variable,2025-11-10,20251110051619,5.4,browser,5.400% 2,
-Scotiabank,3-year fixed,2025-11-10,20251110051619,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2025-11-10,20251110051619,6.09,browser,6.090%,
-Scotiabank,5-year variable,2025-11-23,20251123114833,5.4,browser,5.400% 2,
-Scotiabank,3-year fixed,2025-11-23,20251123114833,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2025-11-23,20251123114833,6.09,browser,6.090%,
-Scotiabank,5-year variable,2026-01-09,20260109032844,4.9,browser,4.900% 2,
-Scotiabank,3-year fixed,2026-01-09,20260109032844,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2026-01-09,20260109032844,6.09,browser,6.090%,
-Scotiabank,5-year variable,2026-02-20,20260220000120,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260220000120if_/https://www.
-Scotiabank,3-year fixed,2026-02-20,20260220000120,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260220000120if_/https://www.
-Scotiabank,5-year fixed,2026-02-20,20260220000120,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260220000120if_/https://www.
-Scotiabank,5-year variable,2026-03-10,20260310123627,4.9,browser,4.900% 2,
-Scotiabank,3-year fixed,2026-03-10,20260310123627,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2026-03-10,20260310123627,6.09,browser,6.090%,
-Scotiabank,5-year variable,2026-06-08,20260608051313,4.9,browser,4.900% 2,
-Scotiabank,3-year fixed,2026-06-08,20260608051313,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2026-06-08,20260608051313,6.09,browser,6.090%,
-Scotiabank,5-year variable,2026-08-01,20260801014118,4.9,browser,4.900% 2,
-Scotiabank,3-year fixed,2026-08-01,20260801014118,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2026-08-01,20260801014118,6.19,browser,6.190%,
-Scotiabank,5-year variable,2026-09-30,20260930170546,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260930170546if_/https://www.
-Scotiabank,3-year fixed,2026-09-30,20260930170546,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260930170546if_/https://www.
-Scotiabank,5-year fixed,2026-09-30,20260930170546,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260930170546if_/https://www.
-Scotiabank,5-year variable,2026-10-06,20261006222111,4.9,browser,4.900% 2,
-Scotiabank,3-year fixed,2026-10-06,20261006222111,,,,no rate found next to the label '3 years'
-Scotiabank,5-year fixed,2026-10-06,20261006222111,,,,no rate found next to the label '5 years'
-Tangerine,3-year fixed,2025-10-13,20251013023239,4.44,browser,4.44%,
-Tangerine,5-year fixed,2025-10-13,20251013023239,4.49,browser,4.49%,
-Tangerine,5-year variable,2025-10-13,20251013023239,4.25,browser,4.25%,
-Tangerine,3-year fixed,2026-01-15,20260115204149,4.44,page,4.44%,
-Tangerine,5-year fixed,2026-01-15,20260115204149,4.49,page,4.49%,
-Tangerine,5-year variable,2026-01-15,20260115204149,4.0,page,4.00%,
-Tangerine,3-year fixed,2026-04-10,20260410150518,4.44,page,4.44%,
-Tangerine,5-year fixed,2026-04-10,20260410150518,4.49,page,4.49%,
-Tangerine,5-year variable,2026-04-10,20260410150518,4.0,page,4.00%,
-Tangerine,3-year fixed,2026-09-30,20260930141329,4.64,page,4.64%,
-Tangerine,5-year fixed,2026-09-30,20260930141329,4.84,page,4.84%,
-Tangerine,5-year variable,2026-09-30,20260930141329,3.9,page,3.90%,
-National Bank,3-year fixed,2025-11-08,20251108175636,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2025-11-08,20251108175636,4.59,browser,1 4.59%,
-National Bank,5-year variable,2025-11-08,20251108175636,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2025-11-12,20251112014620,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2025-11-12,20251112014620,4.59,browser,1 4.59%,
-National Bank,5-year variable,2025-11-12,20251112014620,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2025-12-11,20251211082537,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2025-12-11,20251211082537,4.54,browser,1 4.54%,
-National Bank,5-year variable,2025-12-11,20251211082537,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2025-12-19,20251219070857,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2025-12-19,20251219070857,4.54,browser,1 4.54%,
-National Bank,5-year variable,2025-12-19,20251219070857,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2026-01-09,20260109233618,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2026-01-09,20260109233618,4.54,browser,1 4.54%,
-National Bank,5-year variable,2026-01-09,20260109233618,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2026-01-25,20260125140937,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2026-01-25,20260125140937,4.54,browser,1 4.54%,
-National Bank,5-year variable,2026-01-25,20260125140937,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2026-02-06,20260206225335,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2026-02-06,20260206225335,4.54,browser,1 4.54%,
-National Bank,5-year variable,2026-02-06,20260206225335,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2026-02-13,20260213185715,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2026-02-13,20260213185715,4.54,browser,1 4.54%,
-National Bank,5-year variable,2026-02-13,20260213185715,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2026-02-20,20260220000121,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2026-02-20,20260220000121,4.54,browser,1 4.54%,
-National Bank,5-year variable,2026-02-20,20260220000121,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2026-03-19,20260319151900,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2026-03-19,20260319151900,4.54,browser,1 4.54%,
-National Bank,5-year variable,2026-03-19,20260319151900,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2026-05-13,20260513062526,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2026-05-13,20260513062526,4.64,browser,1 4.64%,
-National Bank,5-year variable,2026-05-13,20260513062526,4.1,browser,7 4.10%,
-National Bank,3-year fixed,2026-10-06,20261006220419,5.34,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2026-10-06,20261006220419,5.04,browser,1 5.04%,
-National Bank,5-year variable,2026-10-06,20261006220419,5.04,browser,7 5.04%,
-EQ Bank,3-year fixed,2026-06-30,20260630181704,5.24,page,5.24%,
-EQ Bank,5-year fixed,2026-06-30,20260630181704,5.24,page,5.24%,
-EQ Bank,5-year variable,2026-06-30,20260630181704,4.49,page,p + 0.04% with prime 4.45%,
-EQ Bank,3-year fixed,2026-08-14,20260814062528,5.24,page,5.24%,
-EQ Bank,5-year fixed,2026-08-14,20260814062528,5.24,page,5.24%,
-EQ Bank,5-year variable,2026-08-14,20260814062528,4.49,page,p + 0.04% with prime 4.45%,
-EQ Bank,3-year fixed,2026-10-04,20261004025652,5.49,page,5.49%,
-EQ Bank,5-year fixed,2026-10-04,20261004025652,5.59,page,5.59%,
-EQ Bank,5-year variable,2026-10-04,20261004025652,4.69,page,p + 0.24% with prime 4.45%,
-EQ Bank,3-year fixed,2026-10-13,20261013213735,5.49,page,5.49%,
-EQ Bank,5-year fixed,2026-10-13,20261013213735,5.59,page,5.59%,
-EQ Bank,5-year variable,2026-10-13,20261013213735,,,,no 'P + x%' figure found (read: '')
-BMO,3-year fixed,2026-06-06,20260606232756,,,,no rate found next to the label '3 year fixed (closed)'
-BMO,5-year fixed,2026-06-06,20260606232756,,,,no rate found next to the label '5 year Smart Fixed (closed)'
-BMO,5-year variable,2026-06-06,20260606232756,,,,no rate found next to the label '5 year Variable (closed)'
-BMO,3-year fixed,2026-06-09,20260609113250,,,,no rate found next to the label '3 year fixed (closed)'
-BMO,5-year fixed,2026-06-09,20260609113250,,,,no rate found next to the label '5 year Smart Fixed (closed)'
-BMO,5-year variable,2026-06-09,20260609113250,,,,no rate found next to the label '5 year Variable (closed)'
-BMO,3-year fixed,2026-06-15,20260615141952,,,,no rate found next to the label '3 year fixed (closed)'
-BMO,5-year fixed,2026-06-15,20260615141952,,,,no rate found next to the label '5 year Smart Fixed (closed)'
-BMO,5-year variable,2026-06-15,20260615141952,,,,no rate found next to the label '5 year Variable (closed)'
-BMO,3-year fixed,2026-09-03,20260903232437,,,,no rate found next to the label '3 year fixed (closed)'
-BMO,5-year fixed,2026-09-03,20260903232437,,,,no rate found next to the label '5 year Smart Fixed (closed)'
-BMO,5-year variable,2026-09-03,20260903232437,,,,no rate found next to the label '5 year Variable (closed)'
-BMO,3-year fixed,2026-09-26,20260926070343,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260926070343if_/https://www.
-BMO,5-year fixed,2026-09-26,20260926070343,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260926070343if_/https://www.
-BMO,5-year variable,2026-09-26,20260926070343,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260926070343if_/https://www.
-BMO,3-year fixed,2026-09-30,20260930172956,4.74,browser,4.74% 4.77% 4.84% 4.87%,
-BMO,5-year fixed,2026-09-30,20260930172956,4.94,browser,4.94% 4.96%,
-BMO,5-year variable,2026-09-30,20260930172956,4.1,browser,4.10% 4.12% 4.20% 4.22%,
-BMO,3-year fixed,2026-10-06,20261006220848,4.74,browser,4.74% 4.77% 4.84% 4.87%,
-BMO,5-year fixed,2026-10-06,20261006220848,4.94,browser,4.94% 4.96%,
-BMO,5-year variable,2026-10-06,20261006220848,4.1,browser,4.10% 4.12% 4.20% 4.22%,
-BMO,3-year fixed,2026-10-13,20261013215233,4.74,browser,4.74% 4.77% 4.84% 4.87%,
-BMO,5-year fixed,2026-10-13,20261013215233,4.94,browser,4.94% 4.96%,
-BMO,5-year variable,2026-10-13,20261013215233,4.1,browser,4.10% 4.12% 4.20% 4.22%,
-ATB Financial,3-year fixed,2026-01-15,20260115202630,4.49,page,4.49% n/a,
-ATB Financial,5-year fixed,2026-01-15,20260115202630,4.54,page,4.54% 4.44%,
-ATB Financial,5-year variable,2026-01-15,20260115202630,3.95,page,3.95% n/a,
-ATB Financial,3-year fixed,2026-01-21,20260121160935,4.49,page,4.49% n/a,
-ATB Financial,5-year fixed,2026-01-21,20260121160935,4.54,page,4.54% 4.44%,
-ATB Financial,5-year variable,2026-01-21,20260121160935,3.95,page,3.95% n/a,
-ATB Financial,3-year fixed,2026-02-21,20260221035835,4.49,page,4.49% n/a,
-ATB Financial,5-year fixed,2026-02-21,20260221035835,4.54,page,4.54% 4.44%,
-ATB Financial,5-year variable,2026-02-21,20260221035835,3.95,page,3.95% n/a,
-ATB Financial,3-year fixed,2026-04-30,20260430144210,4.49,page,4.49% n/a,
-ATB Financial,5-year fixed,2026-04-30,20260430144210,4.54,page,4.54% 4.44%,
-ATB Financial,5-year variable,2026-04-30,20260430144210,3.95,page,3.95% n/a,
-ATB Financial,3-year fixed,2026-06-11,20260611004949,4.49,page,4.49% n/a,
-ATB Financial,5-year fixed,2026-06-11,20260611004949,4.54,page,4.54% 4.44%,
-ATB Financial,5-year variable,2026-06-11,20260611004949,3.95,page,3.95% n/a,
-ATB Financial,3-year fixed,2026-08-14,20260814172320,4.34,page,4.34% n/a,
-ATB Financial,5-year fixed,2026-08-14,20260814172320,4.39,page,4.39% 4.29%,
-ATB Financial,5-year variable,2026-08-14,20260814172320,3.8,page,3.80% n/a,
+Manulife Bank,3-year fixed,2025-11-14,20251114182053,5.24,page,5.24%,
+Manulife Bank,5-year fixed,2025-11-14,20251114182053,4.44,page,as low as 4.44% ** (apr) 1 manulife bank select mortgage (new clients only),
+Manulife Bank,5-year variable,2025-11-14,20251114182053,4.45,page,4.45%,
+Manulife Bank,3-year fixed,2026-01-07,20260107151616,5.24,page,5.24%,
+Manulife Bank,5-year fixed,2026-01-07,20260107151616,4.19,page,as low as 4.19% ** (apr) 1 manulife bank select mortgage (new clients only),
+Manulife Bank,5-year variable,2026-01-07,20260107151616,4.45,page,4.45%,
+Manulife Bank,3-year fixed,2026-01-23,20260123235423,5.24,page,5.24%,
+Manulife Bank,5-year fixed,2026-01-23,20260123235423,4.49,page,as low as 4.49% ** (apr) 1 manulife bank select mortgage (new clients only),
+Manulife Bank,5-year variable,2026-01-23,20260123235423,4.45,page,4.45%,
+Manulife Bank,3-year fixed,2026-05-13,20260513011525,4.99,page,4.99%,
+Manulife Bank,5-year fixed,2026-05-13,20260513011525,4.69,page,as low as 4.69% ** (apr) 1 manulife bank select mortgage (new clients only),
+Manulife Bank,5-year variable,2026-05-13,20260513011525,4.45,page,4.45%,
+Manulife Bank,3-year fixed,2026-06-07,20260607134622,4.99,page,4.99%,
+Manulife Bank,5-year fixed,2026-06-07,20260607134622,4.69,page,as low as 4.69% ** (apr) 1 manulife bank select mortgage (new clients only),
+Manulife Bank,5-year variable,2026-06-07,20260607134622,4.45,page,4.45%,
+Manulife Bank,3-year fixed,2026-08-30,20260830094157,4.99,page,4.99%,
+Manulife Bank,5-year fixed,2026-08-30,20260830094157,4.69,page,as low as 4.69% ** (apr) 1 manulife bank select mortgage (new clients only),
+Manulife Bank,5-year variable,2026-08-30,20260830094157,4.45,page,4.45%,
+Vancity,3-year fixed,2026-05-17,20260517121924,4.44,page,4.44 % **,
+Vancity,5-year fixed,2026-05-17,20260517121924,4.49,page,4.49 % **,
+Vancity,5-year variable,2026-05-17,20260517121924,,,,no rate found next to the label '5-year variable rate fixed-term (Vancity homeprime rate - 0.50%)'
+Vancity,3-year fixed,2026-05-19,20260519040503,4.44,page,4.44 % **,
+Vancity,5-year fixed,2026-05-19,20260519040503,4.49,page,4.49 % **,
+Vancity,5-year variable,2026-05-19,20260519040503,,,,no rate found next to the label '5-year variable rate fixed-term (Vancity homeprime rate - 0.50%)'
+Meridian,3-year fixed,2026-02-10,20260210220551,,,,no rate found next to the label '3-Year Closed (special offer)'
+Meridian,5-year fixed,2026-02-10,20260210220551,,,,no rate found next to the label '5-Year Closed (special offer)'
+Meridian,5-year variable,2026-02-10,20260210220551,,,,section '10-Year Closed' not found
+Meridian,3-year fixed,2026-03-08,20260308114923,3.99,page,3.99% 4.02% apr 1,
+Meridian,5-year fixed,2026-03-08,20260308114923,4.29,page,4.29% 4.31% apr 1,
+Meridian,5-year variable,2026-03-08,20260308114923,3.79,page,3.79% (prime - 0.66%) 3.81% apr 1,
+Meridian,3-year fixed,2026-03-09,20260309090056,3.99,page,3.99% 4.02% apr 1,
+Meridian,5-year fixed,2026-03-09,20260309090056,4.29,page,4.29% 4.31% apr 1,
+Meridian,5-year variable,2026-03-09,20260309090056,3.79,page,3.79% (prime - 0.66%) 3.81% apr 1,
+Meridian,3-year fixed,2026-10-10,20261010224316,,,,no rate found next to the label '3-Year Closed (special offer)'
+Meridian,5-year fixed,2026-10-10,20261010224316,,,,no rate found next to the label '5-Year Closed (special offer)'
+Meridian,5-year variable,2026-10-10,20261010224316,,,,section '10-Year Closed' not found
+First National,3-year fixed,2026-01-16,20260116060702,4.54,page,4.54,
+First National,5-year fixed,2026-01-16,20260116060702,4.69,page,4.69,
+First National,5-year variable,2026-01-16,20260116060702,4.19,page,prime - 0.26% for the entire term with prime 4.45%,
+First National,3-year fixed,2026-03-08,20260308134342,4.49,page,4.49,
+First National,5-year fixed,2026-03-08,20260308134342,4.59,page,4.59,
+First National,5-year variable,2026-03-08,20260308134342,4.19,page,prime - 0.26% for the entire term with prime 4.45%,
+First National,3-year fixed,2026-04-16,20260416044755,4.89,page,4.89,
+First National,5-year fixed,2026-04-16,20260416044755,4.89,page,4.89,
+First National,5-year variable,2026-04-16,20260416044755,4.39,page,prime - 0.06% for the entire term with prime 4.45%,
+First National,3-year fixed,2026-05-01,20260501022657,4.84,page,4.84,
+First National,5-year fixed,2026-05-01,20260501022657,4.84,page,4.84,
+First National,5-year variable,2026-05-01,20260501022657,4.39,page,prime - 0.06% for the entire term with prime 4.45%,
+First National,3-year fixed,2026-05-12,20260512221023,4.81,page,4.81,
+First National,5-year fixed,2026-05-12,20260512221023,4.79,page,4.79,
+First National,5-year variable,2026-05-12,20260512221023,4.24,page,prime - 0.21% for the entire term with prime 4.45%,
