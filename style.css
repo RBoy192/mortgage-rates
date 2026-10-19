@@ -430,3 +430,11 @@ th[data-p="name"]{text-align:left}
 th button:hover{color:var(--fg)}
 th[aria-sort] button{color:var(--fg)}
 .si{font-size:11px}
+.ill .k.soft2{fill:none;stroke:var(--mu);stroke-width:1.6;opacity:.7}
+.ill .cs.big{font-size:15px}
+.ill .cs.huge{font-size:24px;fill:#10213F}
+.ill .lb.op{font-size:30px;font-weight:800}
+.ill.pizza svg{width:420px;max-width:100%}
+.pk .sq.lo{background:transparent;border:2px solid var(--mu)}
+[data-theme="dark"] .ill text.cs{fill:#10213F}
+.ill .k.w{fill:#fff}
