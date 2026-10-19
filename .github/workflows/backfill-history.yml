@@ -7,6 +7,9 @@ on:
       lenders:
         description: 'Which lenders to read, as a list (leave as "all" for every lender)'
         default: all
+      starts:
+        description: 'Optional start date per lender, e.g. {"Coast Capital Savings": "2017-01-01"} (others start a year back)'
+        default: "{}"
 permissions:
   contents: write
 jobs:
@@ -28,6 +31,8 @@ jobs:
       - run: pip install -r requirements.txt
       - run: playwright install --with-deps chromium
       - name: Read archived copies
+        env:
+          BACKFILL_FROM: ${{ fromJSON(inputs.starts)[matrix.lender] }}
         run: python backfill.py "${{ matrix.lender }}" "part-${{ strategy.job-index }}.csv"
       - uses: actions/upload-artifact@v4
         with:

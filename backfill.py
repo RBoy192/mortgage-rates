@@ -1,4 +1,4 @@
-"""One-off: rebuild up to 12 months of a lender's rate history from archived copies of its own rate page.
+"""One-off: rebuild a lender's rate history from archived copies of its own rate page.
 
 Lenders don't publish their past rates. The Internet Archive (Wayback Machine) has saved copies of their rate
 pages over time; this reads one copy per week with exactly the same rules the hourly scraper uses
@@ -7,7 +7,7 @@ the reviewed results are merged separately. Nothing is estimated: a week whose c
 
 Usage:  python backfill.py "Lender name" out.csv
 """
-import csv, sys, time
+import csv, os, sys, time
 from datetime import date, datetime, timedelta
 
 import requests
@@ -18,7 +18,8 @@ import scraper
 
 CDX = "https://web.archive.org/cdx/search/cdx"
 UA = scraper.USER_AGENT
-START = date.today() - timedelta(days=372)
+# Where to start: BACKFILL_FROM (YYYY-MM-DD) if set, otherwise about a year back
+START = date.fromisoformat(os.environ["BACKFILL_FROM"]) if os.environ.get("BACKFILL_FROM") else date.today() - timedelta(days=372)
 END = date(2026, 10, 13)  # the site's own daily history starts on 2026-10-14
 
 
