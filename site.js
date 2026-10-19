@@ -1,4 +1,4 @@
-const SITE_VERSION = "11";
+const SITE_VERSION = "12";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -241,7 +241,7 @@ const CONTACT_EMAIL = "";
 const perPeriod = (rate, variable, k = 12) => variable ? Math.pow(1 + rate / 1200, 12 / k) - 1 : Math.pow(1 + rate / 200, 2 / k) - 1;
 const pmt = (P, i, n) => i === 0 ? P / n : P * i / (1 - Math.pow(1 + i, -n));
 const balanceAfter = (P, i, pay, m) => i === 0 ? P - pay * m : P * Math.pow(1 + i, m) - pay * (Math.pow(1 + i, m) - 1) / i;
-const yrs = m => { const y = Math.floor(m / 12), r = Math.round(m % 12); return (y ? y + (y === 1 ? " year" : " years") : "") + (y && r ? ", " : "") + (r ? r + (r === 1 ? " month" : " months") : (y ? "" : "0 months")); };
+const yrs = m => { m = Math.round(m); const y = Math.floor(m / 12), r = m % 12; return (y ? y + (y === 1 ? " year" : " years") : "") + (y && r ? ", " : "") + (r ? r + (r === 1 ? " month" : " months") : (y ? "" : "0 months")); };
 
 // ---- Lenders: logo and chart colour ----
 // Logos are the sharpest image each bank publishes, loaded from its own website. [address, zoom, which part to show]

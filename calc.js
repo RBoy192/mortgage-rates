@@ -77,9 +77,14 @@ function makeCalc(cfg){
     try { r = cfg.compute(v, best); } catch (e) { r = null; console.error(e); }
     const msgs = r && r.msgs || [];
     $("msgs").innerHTML = msgs.map(([k, t]) => `<p class="msg ${k}">${t}</p>`).join("");
-    if (!r) { $("out").innerHTML = `<span class="m">${cfg.bigLabel || "Result"}</span><b>—</b><ul id="res"><li>${cfg.empty || "Fill in the numbers to see a result."}</li></ul>`; return; }
+    if (!r) { if ($("below")) $("below").innerHTML = "";
+      $("out").innerHTML = `<span class="m">${cfg.bigLabel || "Result"}</span><b>—</b><ul id="res"><li>${cfg.empty || "Fill in the numbers to see a result."}</li></ul>`; return; }
     $("out").innerHTML = (r.say ? `<p class="say">${r.say}</p>` : "") + `<span class="m">${r.label}</span><b${String(r.big).length > 14 ? ' class="long"' : ""}>${r.big}</b>${r.sub ? `<span class="big-sub">${r.sub}</span>` : ""}`
-      + (r.items && r.items.length ? `<ul id="res">${r.items.map(li).join("")}</ul>` : "") + (r.table || "");
+      + (r.items && r.items.length ? `<ul id="res">${r.items.map(li).join("")}</ul>` : "") + (r.wide ? "" : (r.table || ""));
+    // wide comparison tables go full width under the calculator, so they don't squeeze into the results column
+    let below = $("below");
+    if (!below) { form.closest(".est").insertAdjacentHTML("afterend", '<div id="below" class="below"></div>'); below = $("below"); }
+    below.innerHTML = r.wide && r.table ? `<div class="tw">${r.table}</div>` : "";
     if (r.src && $("src")) $("src").innerHTML = srcLinks(r.src);
   }
   function ready(b){
@@ -213,6 +218,7 @@ const CALCS = {
         label: "Accelerated bi-weekly payments would save you", big: money(saved), sub: `in interest, and you'd be mortgage-free ${yrs(rows[0].m - rows[3].m)} sooner`,
         items: [`"Accelerated" payments are half (bi-weekly) or a quarter (weekly) of the monthly payment. Because there are 26 or 52 of them a year, you pay the equivalent of one extra monthly payment each year.`,
           `Uses ${R.label}${R.variable ? ", compounded monthly" : ", compounded twice a year"}, held for the whole amortization.`],
+        wide: true,
         table: `<table class="cmpt"><thead><tr><th>How often you pay</th><th>Payment</th><th>Paid off in</th><th>Total interest</th></tr></thead><tbody>`
           + rows.map((r, j) => `<tr${j === 3 ? ' class="hl"' : ""}><td>${r.name}</td><td>${money(r.pay)}</td><td>${yrs(r.m)}</td><td>${money(r.int)}</td></tr>`).join("") + "</tbody></table>"
       };

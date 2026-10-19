@@ -220,3 +220,11 @@ th .q{vertical-align:0}
 .t{position:relative}
 @media (max-width:600px){th{white-space:normal;line-height:1.25}th button{text-align:right}}
 .res b.long{font-size:clamp(28px,4vw,36px);line-height:1.2}
+.est .fl{align-content:start}
+.below{margin-top:16px}
+.below:empty{display:none}
+.tw{background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:8px 20px 12px;overflow-x:auto}
+.tw .cmpt{margin-top:4px}
+.cmpt td,.cmpt th{white-space:nowrap}
+.cmpt td:first-child{white-space:normal}
+@media (max-width:600px){.cmpt td,.cmpt th{white-space:normal;padding:8px 6px}.tw{padding:6px 12px 10px}}
