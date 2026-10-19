@@ -91,7 +91,9 @@ function render(){
     .filter(([k]) => H.series[k]).map(([k, name, color]) => ({name, color, points: H.series[k]})));
   const lenderFirst = Object.entries(H.series).filter(([k]) => k.includes("|") && !k.startsWith("posted|")).flatMap(([, s]) => s.map(p => p[0])).sort()[0];
   $("since").textContent = (H.boc_history_from ? `Bank of Canada figures go back to ${dstr(H.boc_history_from)}. ` : "")
-    + (lenderFirst ? `Each lender's own rates start on ${dstr(lenderFirst)}, when this site began saving them once a day; lenders don't publish their past rates.` : "");
+    + (H.lender_archive_note && H.site_history_from
+      ? `Lenders don't publish their past rates. Before ${dstr(H.site_history_from)}, the lines come from archived copies of each lender's own rate page, which were saved at irregular times, so a change between two copies may show up late or be missed. Since then, this site has saved every rate once a day.`
+      : lenderFirst ? `Each lender's own rates start on ${dstr(lenderFirst)}, when this site began saving them once a day; lenders don't publish their past rates.` : "");
 }
 
 $("range").onclick = e => { const b = e.target.closest("button"); if (b) { range = b.dataset.r; save(); render(); } };
