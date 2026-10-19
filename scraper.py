@@ -20,7 +20,8 @@ from urllib.robotparser import RobotFileParser
 USER_AGENT = "MortgageRatesBot/1.0 (+https://whatstherate.ca)"
 MIN_RATE, MAX_RATE = 0.5, 15.0  # anything outside this range is treated as a scraping error
 RATE_RE = re.compile(r"(\d{1,2}(?:\.\d{1,3})?)\s*%")
-PRIME_PLUS_RE = re.compile(r"\bP\s*([+\-\u2212\u2013])\s*(\d{1,2}(?:\.\d{1,3})?)\s*%", re.I)  # "P + 0.34%", "P - 0.85%"
+PLAIN_RE = re.compile(r"(?<![\d.])(\d{1,2}\.\d{2,3})(?![\d.])")  # "5.28" in tables that leave off the % sign (only with  plain: true)
+PRIME_PLUS_RE = re.compile(r"\bP(?:rime)?\s*([+\-\u2212\u2013])\s*(\d{1,2}(?:\.\d{1,3})?)\s*%", re.I)  # "P + 0.34%", "Prime - 0.31%"
 SKIP_TAGS = ("script", "style", "noscript", "template")
 OUT, HISTORY, MANUAL = Path("rates.json"), Path("history.json"), Path("manual_rates.yaml")
 MANUAL_MAX_DAYS = 7  # a hand-entered rate older than this is shown as "not refreshed"
@@ -98,9 +99,10 @@ def check_range(rate):
     return rate
 
 
-def pick(text, nth=1):
-    """Return the nth percentage in text, or None if there are fewer than that."""
-    found = RATE_RE.findall(text)
+def pick(text, nth=1, plain=False):
+    """Return the nth percentage in text, or None if there are fewer than that.
+    plain: the page shows rates as bare numbers like 5.28 (no % sign)."""
+    found = RATE_RE.findall(text) or (PLAIN_RE.findall(text) if plain else [])
     if len(found) < nth:
         return None
     return check_range(float(found[nth - 1]))
@@ -127,7 +129,7 @@ def _smallest(pool, text, needle):  # the innermost elements whose text contains
     return [t for t in pool if id(t) in ids and not any(id(c) in ids for c in t.find_all(True, recursive=False))]
 
 
-def rate_by_label(soup, label, nth=1, after=None, occurrence=1, before=None):
+def rate_by_label(soup, label, nth=1, after=None, occurrence=1, before=None, plain=False):
     """Find the table row or card whose text includes `label` and return (the nth % figure after it, the text it read).
     `after`: only look below the first place on the page that mentions this text.
     `occurrence`: use the 2nd, 3rd... time the label appears (for pages with repeated tables)."""
@@ -141,8 +143,8 @@ def rate_by_label(soup, label, nth=1, after=None, occurrence=1, before=None):
             if el is None or el.name == "[document]":
                 break
             after_text = text[id(el)].split(want, 1)[-1]
-            if RATE_RE.search(after_text):
-                rate = pick(after_text, nth)  # None if this row has fewer figures than nth: don't borrow from other rows
+            if RATE_RE.search(after_text) or (plain and PLAIN_RE.search(after_text)):
+                rate = pick(after_text, nth, plain)  # None if this row has fewer figures than nth: don't borrow from other rows
                 if rate is not None:
                     rates.append((rate, after_text.strip()[:100]))
                 break
@@ -178,7 +180,7 @@ def extract(soup, item):
     if "column" in item:
         shown = cell_by_column(soup, item["label"], item["column"], item.get("after"), item.get("occurrence", 1))
     elif "label" in item and "prime_label" not in item:
-        return rate_by_label(soup, item["label"], item.get("nth", 1), item.get("after"), item.get("occurrence", 1), item.get("before"))
+        return rate_by_label(soup, item["label"], item.get("nth", 1), item.get("after"), item.get("occurrence", 1), item.get("before"), item.get("plain", False))
     elif "label" in item:
         shown = rate_by_label(soup, item["label"], 1, item.get("after"), item.get("occurrence", 1), item.get("before"))[1]
     else:
@@ -190,10 +192,10 @@ def extract(soup, item):
         m = PRIME_PLUS_RE.search(shown)
         if not m:
             raise ValueError(f"no 'P + x%' figure found (read: {shown[:60]!r})")
-        prime, _ = rate_by_label(soup, item["prime_label"])
+        prime, _ = rate_by_label(soup, item["prime_label"], plain=item.get("plain", False))
         spread = float(m.group(2)) * (1 if m.group(1) == "+" else -1)  # minus may be -, − or –
         return check_range(round(prime + spread, 3)), f"{shown[:60]} with prime {prime}%"
-    rate = pick(shown, item.get("nth", 1))
+    rate = pick(shown, item.get("nth", 1), item.get("plain", False))
     if rate is None:
         raise ValueError(f"no rate with a % sign found (read: {shown[:60]!r})")
     return rate, shown[:100]

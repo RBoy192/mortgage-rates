@@ -5,6 +5,7 @@ def ok(r):
     t=r["text_read"]; v=float(r["rate"])
     if "${" in t: return False
     if "with prime" in t: return True
+    if re.fullmatch(r"\d{1,2}\.\d{2,3}", t.strip()): return abs(float(t)-v)<1e-9   # a table cell holding just the number (plain: true)
     m=None
     for d in (2,3):
         m=re.search(re.escape(f"{v:.{d}f}")+r"\s*%", t)

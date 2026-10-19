@@ -312,3 +312,65 @@ class TestBefore(unittest.TestCase):
         self.assertEqual(scraper.extract(soup, {"label": "3 Year", "nth": 2, "after": "Fixed Rate Mortgages", "before": "No Frills"})[0], 4.59)
         with self.assertRaises(ValueError):
             scraper.extract(soup, {"label": "5 Year (Conventional)", "before": "Not on this page"})
+
+
+class TestNewLenders(unittest.TestCase):
+    """Mock pages laid out like each lender's real rate page (October 2026), read with the real institutions.yaml entries."""
+    PAGES = {
+        "Manulife Bank": '<nav><a>Manulife One</a><a>Manulife Bank Select</a></nav><h2>Special rates</h2>'
+            '<div class="c"><p>5-year closed fixed-rate</p><p>As low as 4.89%* (APR)</p><p>Manulife One</p><p>(New clients only)</p></div>'
+            '<div class="c"><p>5-year closed fixed-rate</p><p>As low as 4.94%** (APR)</p><p>Manulife Bank Select Mortgage</p><p>(New clients only)</p></div>'
+            '<div class="c"><p>5-year closed fixed-rate</p><p>As low as 4.79%&dagger; (APR)</p><p>Manulife Bank Select High Ratio mortgage</p></div>'
+            '<h2>Current rates</h2><h3>Manulife One</h3><table><tr><td>Manulife One Base Rate</td><td>4.95%</td></tr>'
+            '<tr><td>3-year closed</td><td>5.29%</td></tr><tr><td>5-year closed</td><td>5.39%</td></tr></table>'
+            '<h3>Manulife Bank Select</h3><table><tr><td>Manulife Bank Prime Rate</td><td>4.45%</td></tr>'
+            '<tr><th>Variable-rate terms</th><th>APR (%)</th></tr><tr><td>5-year closed (Manulife Bank prime + 0.00%)</td><td>4.45%</td></tr>'
+            '<tr><td>5-year open (Manulife Bank prime + 1.00%)</td><td>5.45%</td></tr>'
+            '<tr><th>Fixed-rate terms</th><th>APR (%)</th></tr><tr><td>3-year closed</td><td>5.19%</td></tr><tr><td>5-year closed</td><td>5.39%</td></tr></table>',
+        "Vancity": '<h2>High-ratio insured mortgages.</h2><table><tr><td>3-year fixed-term fixed-rate insured residential</td><td>4.70%</td><td>4.73%</td></tr></table>'
+            '<h2>Fixed-term fixed-rate mortgages.</h2><table><tr><th></th><th>Rates as of 2026-10-01</th></tr>'
+            '<tr><td>3-year fixed-term fixed-rate (special offer)</td><td>4.75%**</td><td>4.78%**</td></tr>'
+            '<tr><td>5-year fixed-term fixed-rate (special offer)</td><td>4.84%**</td><td>4.86%**</td></tr>'
+            '<tr><td>3-year fixed-term residential</td><td>4.80%</td><td>4.83%</td></tr></table>'
+            '<h2>Variable rate mortgages.</h2><table><tr><td>5-year variable rate fixed-term (Vancity homeprime rate - 0.50%)&dagger;&dagger;</td><td>3.95%</td><td>3.97%</td></tr></table>',
+        "Meridian": '<nav><a>Mortgage and borrowing rates</a></nav><p>The current Meridian Prime Rate is 4.45%</p>'
+            '<div><b>4.74% (4.76% APR1)</b><span>Fixed-rate mortgage</span><span>5-Year Closed</span></div>'
+            '<div role="tablist"><button>Fixed rates</button><button>Variable rates</button></div>'
+            '<h3>Special offers</h3><table><tr><td>3-Year Closed (special offer)</td><td>4.49%</td><td>4.52% APR<sup>1</sup></td></tr>'
+            '<tr><td>3-Year Closed High Ratio<sup>2</sup> (special offer)</td><td>4.34%</td><td>4.37% APR</td></tr>'
+            '<tr><td>5-Year Closed (special offer)</td><td>4.74%</td><td>4.76% APR</td></tr></table>'
+            '<h3>Posted rates</h3><table><tr><td>3-Year Closed</td><td>6.54%</td></tr><tr><td>5-Year Closed</td><td>6.49%</td></tr>'
+            '<tr><td>10-Year Closed</td><td>6.99%</td><td>7.00% APR</td></tr></table>'
+            '<table><tr><td>5-Year Closed</td><td>3.64% (Prime - 0.81%)</td><td>3.66% APR</td></tr>'
+            '<tr><td>5-Year Closed High Ratio<sup>2</sup></td><td>3.44% (Prime - 1.01%)</td></tr></table>',
+        "First National": '<nav><a>Adjustable rate mortgages</a></nav><p>Rates effective as of Friday, October 16, 2026</p>'
+            '<h3>Fixed rate mortgages – closed terms</h3><table><tr><th>Mortgage type</th><th>1 year</th><th>2 year</th><th>3 year</th>'
+            '<th>4 year</th><th>5 year</th><th>7 year</th><th>10 year</th></tr>'
+            '<tr><td>Insured</td><td>5.69</td><td>5.34</td><td>5.28</td><td>5.24</td><td>4.99</td><td>5.44</td><td>5.74</td></tr>'
+            '<tr><td>Conventional</td><td>5.69</td><td>5.34</td><td>5.28</td><td>5.24</td><td>5.31</td><td>5.44</td><td>5.74</td></tr></table>'
+            '<h3>Adjustable rate mortgages</h3><table><tr><th>Mortgage type</th><th>5 year</th></tr>'
+            '<tr><td>Insured</td><td>Prime - 0.75% for the entire term</td></tr>'
+            '<tr><td>Conventional</td><td>Prime - 0.31% for the entire term</td></tr></table>'
+            '<p><b>First National Prime Rate: 4.45</b></p>',
+    }
+    WANT = {
+        "Manulife Bank": {"3-year fixed": 5.19, "5-year fixed": 4.94, "5-year variable": 4.45},
+        "Vancity": {"3-year fixed": 4.75, "5-year fixed": 4.84, "5-year variable": 3.95},
+        "Meridian": {"3-year fixed": 4.49, "5-year fixed": 4.74, "5-year variable": 3.64},
+        "First National": {"3-year fixed": 5.28, "5-year fixed": 5.31, "5-year variable": 4.14},
+    }
+
+    def test_new_lenders_read_the_right_rates(self):
+        import yaml
+        conf = {l["name"]: l for l in yaml.safe_load((HERE.parent / "institutions.yaml").read_text())}
+        for name, html in self.PAGES.items():
+            soup = BeautifulSoup(html, "html.parser")
+            for item in scraper.active(conf[name]):
+                with self.subTest(lender=name, product=item["product"]):
+                    self.assertEqual(scraper.extract(soup, item)[0], self.WANT[name][item["product"]])
+
+    def test_plain_numbers_only_when_asked(self):
+        soup = BeautifulSoup('<table><tr><th>Type</th><th>5 year</th></tr><tr><td>Conventional</td><td>5.31</td></tr></table>', "html.parser")
+        with self.assertRaises(ValueError):
+            scraper.extract(soup, {"label": "Conventional", "column": "5 year"})
+        self.assertEqual(scraper.extract(soup, {"label": "Conventional", "column": "5 year", "plain": True})[0], 5.31)

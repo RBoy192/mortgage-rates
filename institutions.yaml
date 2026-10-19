@@ -203,3 +203,75 @@
       nth: 2
       after: "Fixed Rate Mortgages"
       before: "No Frills"
+
+# ---- Added October 2026: more banks and lenders. Each reads the lender's own public rate page. ----
+
+# Manulife Bank: the fixed terms in the "Manulife Bank Select" table are its posted rates; its special
+# "as low as" 5-year rates are in cards at the top (Manulife One first, then Manulife Bank Select, then high ratio).
+- name: Manulife Bank
+  url: https://manulifebank.ca/current-rates.html
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3-year closed"
+      after: "Manulife Bank Prime Rate"
+      note: "Posted rate"
+    - product: 5-year fixed
+      label: "5-year closed fixed-rate"
+      occurrence: 2   # the Manulife Bank Select Mortgage card
+      note: "Special rate for new clients"
+    - product: 5-year variable
+      label: "5-year closed (Manulife Bank prime + 0.00%)"
+
+# Vancity: the special-offer fixed rates need 20% or more down, a home under $1 million and up to 25 years to pay.
+- name: Vancity
+  url: https://www.vancity.com/rates/mortgages
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3-year fixed-term fixed-rate (special offer)"
+      note: "Special offer: 20% or more down, home under $1 million"
+    - product: 5-year fixed
+      label: "5-year fixed-term fixed-rate (special offer)"
+      note: "Special offer: 20% or more down, home under $1 million"
+    - product: 5-year variable
+      label: "5-year variable rate fixed-term (Vancity homeprime rate - 0.50%)"
+
+# Meridian: special offers are in the "Special offers" table; the variable rows come after the posted
+# fixed rates (the last of which is "10-Year Closed"), so the variable reads below that.
+- name: Meridian
+  url: https://www.meridiancu.ca/personal/rates-and-fees/mortgage-and-borrowing-rates
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3-Year Closed (special offer)"
+    - product: 5-year fixed
+      label: "5-Year Closed (special offer)"
+    - product: 5-year variable
+      label: "5-Year Closed"
+      after: "10-Year Closed"
+
+# First National: sells through mortgage brokers. Its tables list terms across the top and show rates without
+# a % sign (plain: true). Uses the "Conventional" row (20% or more down). The variable rate is shown as
+# "Prime - 0.31%", added to First National's own prime rate.
+- name: First National
+  url: https://www.firstnational.ca/mortgage-brokers/mortgage-rates/
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "Conventional"
+      column: "3 year"
+      plain: true
+      note: "Through mortgage brokers"
+    - product: 5-year fixed
+      label: "Conventional"
+      column: "5 year"
+      plain: true
+      note: "Through mortgage brokers"
+    - product: 5-year variable
+      label: "Conventional"
+      column: "5 year"
+      occurrence: 2   # the "Adjustable rate mortgages" table comes after the fixed-rate one
+      prime_label: "First National Prime Rate"
+      plain: true
+      note: "Through mortgage brokers"

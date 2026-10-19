@@ -1,4 +1,4 @@
-const SITE_VERSION = "27";
+const SITE_VERSION = "28";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -323,13 +323,15 @@ function logo(name, source){
   return `<span class="lg-logo" aria-hidden="true">${src ? `<img src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" style="${st}" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${ini}'}))">` : `<span>${ini}</span>`}</span>`;
 }
 // Chart colours follow the lender, never its rank, so a bank keeps its colour when others are hidden.
-const LENDER_ORDER = ["BMO", "CIBC", "EQ Bank", "National Bank", "RBC Royal Bank", "Scotiabank", "Tangerine", "TD Canada Trust", "ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "Servus Credit Union"];
+const LENDER_ORDER = ["BMO", "CIBC", "EQ Bank", "Manulife Bank", "National Bank", "RBC Royal Bank", "Scotiabank", "Tangerine", "TD Canada Trust", "ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "First National", "Meridian", "Servus Credit Union", "Vancity"];
+// Each lender keeps its chart colour for good: new lenders are added at the end of this list.
+const LENDER_COLOURS = ["BMO", "CIBC", "EQ Bank", "National Bank", "RBC Royal Bank", "Scotiabank", "Tangerine", "TD Canada Trust", "ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "Servus Credit Union", "Manulife Bank", "Vancity", "Meridian", "First National"];
 // Lenders that aren't banks (credit unions, co-operatives and ATB, an Alberta Crown corporation). Everyone else is listed as a bank.
-const NON_BANKS = ["ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "Servus Credit Union"];
+const NON_BANKS = ["ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "First National", "Meridian", "Servus Credit Union", "Vancity"];
 const LENDER_GROUPS = [["Banks", n => !NON_BANKS.includes(n)], ["Credit unions and other lenders", n => NON_BANKS.includes(n)]];
 // Each lender's own page on this site: bmo-mortgage-rates.html and so on
-const LENDER_SLUGS = {"BMO": "bmo", "CIBC": "cibc", "EQ Bank": "eq-bank", "National Bank": "national-bank", "RBC Royal Bank": "rbc", "Scotiabank": "scotiabank", "Tangerine": "tangerine", "TD Canada Trust": "td", "ATB Financial": "atb", "Alterna Savings": "alterna", "Coast Capital Savings": "coast-capital", "Desjardins": "desjardins", "Servus Credit Union": "servus"};
-const seriesVar = name => { const i = LENDER_ORDER.indexOf(name); return i < 0 ? "var(--mu)" : `var(--s${i + 1})`; };
+const LENDER_SLUGS = {"BMO": "bmo", "CIBC": "cibc", "EQ Bank": "eq-bank", "National Bank": "national-bank", "RBC Royal Bank": "rbc", "Scotiabank": "scotiabank", "Tangerine": "tangerine", "TD Canada Trust": "td", "ATB Financial": "atb", "Alterna Savings": "alterna", "Coast Capital Savings": "coast-capital", "Desjardins": "desjardins", "Servus Credit Union": "servus", "Manulife Bank": "manulife-bank", "Vancity": "vancity", "Meridian": "meridian", "First National": "first-national"};
+const seriesVar = name => { const i = LENDER_COLOURS.indexOf(name); return i < 0 ? "var(--mu)" : `var(--s${i + 1})`; };
 
 // ---- Rate history (history.json, one value per lender, product and day) ----
 function loadHistory(){ return fetch("history.json?t=" + Date.now(), {cache: "no-store"}).then(r => r.ok ? r.json() : {series: {}}).catch(() => ({series: {}})); }

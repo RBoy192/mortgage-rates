@@ -3,6 +3,10 @@ name: Backfill rate history (one-off)
 # commits a review report to backfill/backfill_report.csv. It doesn't change the live site or history.json.
 on:
   workflow_dispatch:
+    inputs:
+      lenders:
+        description: 'Which lenders to read, as a list (leave as "all" for every lender)'
+        default: all
 permissions:
   contents: write
 jobs:
@@ -13,8 +17,8 @@ jobs:
       fail-fast: false
       max-parallel: 4   # be gentle with the archive
       matrix:
-        lender: ["RBC Royal Bank", "TD Canada Trust", "CIBC", "Scotiabank", "Tangerine", "National Bank", "EQ Bank", "BMO",
-                 "ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "Servus Credit Union"]
+        # e.g. ["Vancity", "Meridian"] to read only those lenders
+        lender: ${{ fromJSON(inputs.lenders == 'all' && '["RBC Royal Bank", "TD Canada Trust", "CIBC", "Scotiabank", "Tangerine", "National Bank", "EQ Bank", "BMO", "ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "Servus Credit Union", "Manulife Bank", "Vancity", "Meridian", "First National"]' || inputs.lenders) }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
