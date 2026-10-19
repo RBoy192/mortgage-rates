@@ -6,7 +6,7 @@
 <title>How much can I afford? | What's the rate?</title>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css?v=11">
 </head>
 <body data-page="calc">
 <main id="top">
@@ -16,28 +16,29 @@
 <div class="vc">
 <h1>How much can I afford?</h1>
 <p class="m">Enter your income and the down payment you've saved. Everything else starts with a typical number (marked "default"), so change whatever you know to be different, or <button class="lk" id="a_reset" type="button">reset to defaults</button>.</p>
+<div class="ex"><span>Try an example:</span><button type="button" data-ex="0">Single, $75,000 income</button><button type="button" data-ex="1">Couple, $160,000 income</button><button type="button" data-ex="2">First-time buyer, $120,000 income, 5% saved</button><button type="button" id="a_share" class="lk">Copy a link to these numbers</button></div>
 <div class="est">
 <div class="fl">
 <label>Household income before tax, per year <span class="df" data-f="income">default</span><input id="a_income" data-slider="20000,500000,1000" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
-<label>Down payment saved <span class="df" data-f="saved">default</span><input id="a_saved" data-slider="0,1000000,5000" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
+<label>Down payment saved <span data-tip="down"></span><span class="df" data-f="saved">default</span><input id="a_saved" data-slider="0,1000000,5000" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
 <label>Monthly debt payments <span class="df" data-f="debts">default</span><input id="a_debts" data-slider="0,5000,25" type="text" inputmode="numeric" data-money="1" autocomplete="off"><span class="s">Car loans, credit cards, lines of credit, student loans. Use the minimum payments.</span></label>
 <details class="as"><summary>Assumptions you can change</summary>
 <div class="fl">
 <label>Property tax per month <span class="df" data-f="tax">default</span><input id="a_tax" data-slider="0,2000,10" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
 <label>Heating per month <span class="df" data-f="heat">default</span><input id="a_heat" data-slider="0,500,5" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
 <label>Condo fees per month <span class="df" data-f="condo">default</span><input id="a_condo" data-slider="0,1500,10" type="text" inputmode="numeric" data-money="1" autocomplete="off"><span class="s">Lenders count half of condo fees.</span></label>
-<label>Amortization (years) <span class="df" data-f="years">default</span><select id="a_years"><option>15</option><option>20</option><option>25</option><option>30</option></select></label>
+<label>Amortization (years) <span data-tip="amortization"></span><span class="df" data-f="years">default</span><select id="a_years"><option>15</option><option>20</option><option>25</option><option>30</option></select></label>
 <label>Interest rate <span class="df" data-f="rate">default</span><select id="a_rate"></select><input id="a_custom" data-slider="0,12,0.05" type="number" inputmode="decimal" step="0.01" min="0" hidden aria-label="Your own interest rate in percent"></label>
 </div></details>
 <details class="as"><summary>Qualifying rules (CMHC defaults, editable)</summary>
 <div class="fl">
-<label>GDS limit (%) <span class="df" data-f="gds">default</span><input id="a_gds" data-slider="20,50,0.5" type="number" inputmode="decimal" step="0.5" min="0"></label>
-<label>TDS limit (%) <span class="df" data-f="tds">default</span><input id="a_tds" data-slider="25,55,0.5" type="number" inputmode="decimal" step="0.5" min="0"></label>
-<label>Stress test: add to your rate (%) <span class="df" data-f="stress">default</span><input id="a_stress" data-slider="0,5,0.25" type="number" inputmode="decimal" step="0.25" min="0"></label>
+<label>GDS limit (%) <span data-tip="gds"></span><span class="df" data-f="gds">default</span><input id="a_gds" data-slider="20,50,0.5" type="number" inputmode="decimal" step="0.5" min="0"></label>
+<label>TDS limit (%) <span data-tip="tds"></span><span class="df" data-f="tds">default</span><input id="a_tds" data-slider="25,55,0.5" type="number" inputmode="decimal" step="0.5" min="0"></label>
+<label>Stress test: add to your rate (%) <span data-tip="stress"></span><span class="df" data-f="stress">default</span><input id="a_stress" data-slider="0,5,0.25" type="number" inputmode="decimal" step="0.25" min="0"></label>
 <label>Stress test: minimum qualifying rate (%) <span class="df" data-f="floor">default</span><input id="a_floor" data-slider="3,8,0.25" type="number" inputmode="decimal" step="0.25" min="0"></label>
 </div></details>
 </div>
-<div class="res"><span class="m">You could afford a home up to about</span><b id="a_price">—</b><ul id="a_res"></ul></div>
+<div class="res"><p class="say" id="a_say"></p><span class="m">You could afford a home up to about</span><b id="a_price">—</b><ul id="a_res"></ul></div>
 </div>
 <div id="a_msgs"></div>
 <p class="f">This is an estimate, not an approval. Lenders also look at your credit, employment and other details, and some use different limits, so you may qualify for more or less. The mortgage payment is tested at a higher "stress-test" rate than you'd actually pay. Property tax, heating and the other starting values are typical placeholders, not averages for your area.</p>
@@ -45,11 +46,12 @@
 </div>
 </div>
 </main>
-<script src="site.js?v=10"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="10"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=11"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="11"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 (function(){
-let a = loadAfford(), best = {};
+let a = Object.assign(loadAfford(), fromURL()), best = {};
+const EX = [{income: 75000, saved: 50000, debts: 300}, {income: 160000, saved: 150000, debts: 800}, {income: 120000, saved: 30000, debts: 400}];
 const IDS = ["income", "saved", "debts", "tax", "heat", "condo", "years", "rate", "custom", "gds", "tds", "stress", "floor"];
 const g = id => $("a_" + id);
 const defRate = () => best[AFF.rate] ? AFF.rate : "custom";
@@ -64,6 +66,7 @@ function update(){
   ["income", "saved", "debts", "tax", "heat", "condo", "years", "gds", "tds", "stress", "floor"].forEach(k => { flags[k] = a[k] === AFF[k]; });
   document.querySelectorAll(".df").forEach(e => { e.hidden = !flags[e.dataset.f]; });
   $("a_msgs").innerHTML = "";
+  $("a_say").textContent = r && !r.none ? `You could afford a home up to about ${money(r.price)}, with a monthly payment of about ${money(r.pay)}.` : "";
   if (!r) { $("a_price").textContent = "—"; $("a_res").innerHTML = "<li>Enter your income, a down payment, an interest rate and the qualifying percentages.</li>"; return; }
   if (r.none) {
     $("a_price").textContent = "—";
@@ -87,6 +90,8 @@ function ready(b){
 }
 IDS.forEach(k => g(k).addEventListener("input", update));
 g("rate").addEventListener("change", update);
+$("a_share").onclick = () => { read(); copyLink(a, $("a_share")); };
+document.querySelectorAll("[data-ex]").forEach(b => b.onclick = () => { a = Object.assign({}, AFF, {rate: defRate()}, EX[+b.dataset.ex]); write(); update(); });
 $("a_reset").onclick = () => { a = Object.assign({}, AFF, {rate: defRate()}); write(); update(); };
 loadRates().then(d => ready(bestRates(groupLenders(d)))).catch(() => ready({}));
 })();

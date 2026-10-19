@@ -27,17 +27,23 @@ function makeCalc(cfg){
   const defOf = f => f.type === "rate" ? (best[f.def] ? f.def : "custom") : f.def;
   const defaults = () => Object.fromEntries(cfg.fields.map(f => [f.k, defOf(f)]));
   let saved = {}; try { saved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
-  v = Object.assign(Object.fromEntries(cfg.fields.map(f => [f.k, f.def])), saved);  // rate fields settle once the rates load
+  const keys = new Set(cfg.fields.map(f => f.k)), url = Object.fromEntries(Object.entries(fromURL()).filter(([k]) => keys.has(k)));
+  v = Object.assign(Object.fromEntries(cfg.fields.map(f => [f.k, f.def])), saved, url);  // rate fields settle once the rates load
+  const TIPS = {years: "amortization", term: "term", down: "down", frate: "fixed", vrate: "variable", change: "variable", extra: "prepayment", lump: "prepayment",
+    kind: "penalty", cmp: "ird", prov: "ltt", heloc: "heloc", value: "equity", balance: cfg.key === "renewal" ? "renewal" : "", rate: "interest", amount: "principal"};
+  // example buttons and the share button, above the form
+  form.closest(".est").insertAdjacentHTML("beforebegin", `<div class="ex">${cfg.examples ? "<span>Try an example:</span>" + cfg.examples.map((e, i) => `<button type="button" data-ex="${i}">${esc(e[0])}</button>`).join("") : ""}<button type="button" id="share" class="lk">Copy a link to these numbers</button></div>`);
 
   // build the form
   cfg.fields.forEach(f => {
     let html;
-    const df = `<span class="df" data-f="${f.k}">default</span>`, help = f.help ? `<span class="s">${f.help}</span>` : "";
+    const df = `${tip(f.tip || TIPS[f.k] || "")}<span class="df" data-f="${f.k}">default</span>`, help = f.help ? `<span class="s">${f.help}</span>` : "";
     if (f.type === "check") html = `<label class="ck"><input id="${fid(f.k)}" type="checkbox">${f.label}</label>`;
     else if (f.type === "select" || f.type === "rate") html = `<label>${f.label} ${df}<select id="${fid(f.k)}">${(f.options || []).map(([val, t]) => `<option value="${esc(val)}">${esc(t)}</option>`).join("")}</select>${help}</label>`;
     else if (f.type === "money") html = `<label>${f.label} ${df}<input id="${fid(f.k)}" type="text" inputmode="numeric" data-money="1" autocomplete="off">${help}</label>`;
     else html = `<label>${f.label} ${df}<input id="${fid(f.k)}" type="number" inputmode="decimal" step="${f.step || 1}" autocomplete="off">${help}</label>`;
     let target = form;
+    if (f.more && !f.group) f.group = "More options";
     if (f.group) {
       if (!groups[f.group]) { form.insertAdjacentHTML("beforeend", `<details class="as"><summary>${f.group}</summary><div class="fl"></div></details>`); groups[f.group] = form.lastElementChild.querySelector(".fl"); }
       target = groups[f.group];
@@ -72,7 +78,7 @@ function makeCalc(cfg){
     const msgs = r && r.msgs || [];
     $("msgs").innerHTML = msgs.map(([k, t]) => `<p class="msg ${k}">${t}</p>`).join("");
     if (!r) { $("out").innerHTML = `<span class="m">${cfg.bigLabel || "Result"}</span><b>—</b><ul id="res"><li>${cfg.empty || "Fill in the numbers to see a result."}</li></ul>`; return; }
-    $("out").innerHTML = `<span class="m">${r.label}</span><b>${r.big}</b>${r.sub ? `<span class="big-sub">${r.sub}</span>` : ""}`
+    $("out").innerHTML = (r.say ? `<p class="say">${r.say}</p>` : "") + `<span class="m">${r.label}</span><b${String(r.big).length > 14 ? ' class="long"' : ""}>${r.big}</b>${r.sub ? `<span class="big-sub">${r.sub}</span>` : ""}`
       + (r.items && r.items.length ? `<ul id="res">${r.items.map(li).join("")}</ul>` : "") + (r.table || "");
     if (r.src && $("src")) $("src").innerHTML = srcLinks(r.src);
   }
@@ -87,6 +93,12 @@ function makeCalc(cfg){
   form.addEventListener("input", update);
   form.addEventListener("change", update);
   $("reset").onclick = () => { v = defaults(); write(); update(); };
+  $("share").onclick = () => { read(); copyLink(v, $("share")); };
+  document.querySelectorAll("[data-ex]").forEach(b => b.onclick = () => {
+    v = Object.assign(defaults(), cfg.examples[+b.dataset.ex][1]);
+    cfg.fields.filter(f => f.type === "rate" && !(v[f.k] in best) && v[f.k] !== "custom").forEach(f => { v[f.k] = defOf(f); });
+    write(); update();
+  });
   if (cfg.src && $("src")) { $("src").className = "f src"; $("src").innerHTML = srcLinks(cfg.src); }
   loadRates().then(d => ready(bestRates(groupLenders(d)))).catch(() => ready({}));
 }
@@ -99,6 +111,8 @@ const CALCS = {
 
   closing: {
     key: "closing", bigLabel: "Estimated closing costs", src: ["buy"],
+    examples: [["First-time buyer, $600,000 condo in Toronto", {prov: "ON", price: 600000, down: 60000, ftb: true, toronto: true}],
+               ["$800,000 house in B.C.", {prov: "BC", price: 800000, down: 160000}], ["$450,000 home in Alberta", {prov: "AB", price: 450000, down: 45000}]],
     fields: [
       {k: "prov", label: "Province", type: "select", def: "ON", options: [["ON", "Ontario"], ["BC", "British Columbia"], ["AB", "Alberta"], ["SK", "Saskatchewan"], ["MB", "Manitoba"], ["QC", "Quebec"], ["NB", "New Brunswick"], ["NS", "Nova Scotia"], ["PE", "Prince Edward Island"], ["NL", "Newfoundland and Labrador"]]},
       F.money("price", "Home price", 500000, "100000,2500000,5000"),
@@ -174,6 +188,7 @@ const CALCS = {
       add("Legal fees", v.legal); add("Home inspection", v.inspect); add("Title insurance", v.title); if (v.other) add("Other", v.other);
       const total = lines.reduce((s, [, a]) => s + a, 0);
       return {
+        say: `Plan on about ${money(total)} in one-time costs when you buy, on top of your down payment.`,
         label: "Estimated closing costs", big: money(total), sub: `${(total / P * 100).toFixed(1)}% of the price. The Financial Consumer Agency of Canada suggests budgeting 1.5% to 4% for closing costs.`,
         table: `<table class="cmpt"><tbody>${lines.map(([l, a]) => `<tr><td>${l}</td><td>${a < 0 ? "−" + money(-a) : money(a)}</td></tr>`).join("")}<tr class="hl"><td>Total</td><td>${money(total)}</td></tr></tbody></table>`,
         msgs, src: [...new Set(src)]
@@ -183,7 +198,8 @@ const CALCS = {
 
   frequency: {
     key: "frequency", bigLabel: "Interest saved", src: ["act"],
-    fields: [F.money("amount", "Mortgage amount", 400000, "50000,2000000,5000"), F.rate(), F.custom(), F.years(25)],
+    examples: [["$400,000 mortgage", {amount: 400000}], ["$650,000 mortgage, 30 years", {amount: 650000, years: 30}]],
+    fields: [F.money("amount", "Mortgage amount", 400000, "50000,2000000,5000"), F.rate(), F.custom(), Object.assign(F.years(25), {more: true})],
     compute(v, best){
       const R = rateInfo(v, best), P = v.amount;
       if (!(P > 0 && R.rate > 0)) return null;
@@ -193,6 +209,7 @@ const CALCS = {
         .map(([name, k, pay]) => Object.assign({name, k, pay}, sim(k, pay)));
       const saved = rows[0].int - rows[3].int;
       return {
+        say: `Paying ${money(rows[3].pay)} every two weeks instead of ${money(rows[0].pay)} a month would save about ${money(saved)} in interest and pay off your mortgage ${yrs(rows[0].m - rows[3].m)} sooner.`,
         label: "Accelerated bi-weekly payments would save you", big: money(saved), sub: `in interest, and you'd be mortgage-free ${yrs(rows[0].m - rows[3].m)} sooner`,
         items: [`"Accelerated" payments are half (bi-weekly) or a quarter (weekly) of the monthly payment. Because there are 26 or 52 of them a year, you pay the equivalent of one extra monthly payment each year.`,
           `Uses ${R.label}${R.variable ? ", compounded monthly" : ", compounded twice a year"}, held for the whole amortization.`],
@@ -204,9 +221,10 @@ const CALCS = {
 
   prepay: {
     key: "prepay", bigLabel: "Interest saved", src: ["pen"],
+    examples: [["$100 extra a month", {balance: 400000, extra: 100, lump: 0}], ["$5,000 lump sum each year", {balance: 400000, extra: 0, lump: 5000}], ["Both", {balance: 400000, extra: 100, lump: 5000}]],
     fields: [
       F.money("balance", "Mortgage balance", 400000, "50000,2000000,5000"), F.rate(), F.custom(),
-      F.num("years", "Years left on your amortization", 25, 1, "1,30,1"),
+      Object.assign(F.num("years", "Years left on your amortization", 25, 1, "1,30,1"), {more: true}),
       F.money("extra", "Extra amount added to each monthly payment", 200, "0,5000,25"),
       F.money("lump", "Lump-sum payment once a year", 5000, "0,100000,500")
     ],
@@ -217,6 +235,7 @@ const CALCS = {
       let bal = B, int = 0, m = 0;
       while (bal > 0.005 && m < n) { const it = bal * i; int += it; bal = bal + it - Math.min(pay + v.extra, bal + it); m++; if (m % 12 === 0 && bal > 0) bal -= Math.min(v.lump, bal); }
       return {
+        say: `Paying a bit extra would save you about ${money(base - int)} in interest and make you mortgage-free ${yrs(n - m)} sooner.`,
         label: "Prepaying would save you", big: money(base - int), sub: `in interest, and you'd be mortgage-free ${yrs(n - m)} sooner`,
         items: [`Regular payment: <strong>${money(pay)}</strong> a month (${R.label}). With your extra amount: ${money(pay + v.extra)}.`,
           `Paid off in <strong>${yrs(m)}</strong> instead of ${yrs(n)}.`,
@@ -228,14 +247,15 @@ const CALCS = {
   },
 
   renewal: {
-    key: "renewal", bigLabel: "Over your term", src: ["act", "boc"],
+    key: "renewal", bigLabel: "Over your term", src: ["act", "boc", "renew"],
+    examples: [["Rates stay the same", {change: 0}], ["Variable rate falls 1%", {change: -1}], ["Variable rate rises 1%", {change: 1}]],
     fields: [
       F.money("balance", "Balance at renewal", 400000, "50000,2000000,5000"),
       F.num("years", "Years left on your amortization", 20, 1, "5,30,1"),
       {k: "term", label: "Term (years)", type: "select", def: 5, options: [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], numeric: true},
       F.rate("frate", "5-year fixed", "Fixed rate"), F.custom("fcustom", "frate", 5, "Your fixed rate (%)"),
       F.rate("vrate", "5-year variable", "Variable rate"), F.custom("vcustom", "vrate", 4.5, "Your variable rate (%)"),
-      F.num("change", "How much you expect the variable rate to move over the term (%)", 0, 0.25, "-3,3,0.25", "It moves gradually from today's rate. 0 means it stays the same; -1 means it falls by 1% by the end of the term.")
+      Object.assign(F.num("change", "How much you expect the variable rate to move over the term (%)", 0, 0.25, "-3,3,0.25", "It moves gradually from today's rate. 0 means it stays the same; -1 means it falls by 1% by the end of the term."), {more: true})
     ],
     compute(v, best){
       const B = v.balance, n = Math.round(v.years * 12), T = Math.min(v.term * 12, n);
@@ -251,6 +271,8 @@ const CALCS = {
       const beText = be >= 0 ? `Variable costs less in interest unless its rate rises by more than about <strong>${be.toFixed(2)}%</strong> over the term.`
         : `Variable only costs less if its rate falls by more than about <strong>${(-be).toFixed(2)}%</strong> over the term.`;
       return {
+        say: Math.abs(diff) < 1 ? `With your assumptions, fixed and variable would cost about the same in interest over ${v.term} years.`
+          : `With your assumptions, ${diff > 0 ? "fixed" : "variable"} would cost about ${money(Math.abs(diff))} less in interest over ${v.term} years.`,
         label: `Over a ${v.term}-year term`, big: Math.abs(diff) < 1 ? "About the same" : `${diff > 0 ? "Fixed" : "Variable"} saves ${money(Math.abs(diff))}`, sub: "in interest, with your assumptions",
         items: [beText, `Fixed balance at the end of the term: ${money(fbal)}. Variable: ${money(vv.bal)}.`],
         table: `<table class="cmpt"><thead><tr><th></th><th>Fixed</th><th>Variable</th></tr></thead><tbody>`
@@ -264,6 +286,7 @@ const CALCS = {
 
   penalty: {
     key: "penalty", bigLabel: "Estimated penalty", src: ["pen", "act10"],
+    examples: [["Fixed rate, 2 years left", {kind: "fixed", balance: 400000, crate: 5.5, months: 24}], ["Variable rate", {kind: "variable", balance: 400000, crate: 4.5, months: 36}]],
     fields: [
       {k: "kind", label: "Your mortgage rate type", type: "select", def: "fixed", options: [["fixed", "Fixed rate"], ["variable", "Variable rate"]]},
       F.money("balance", "Mortgage balance", 300000, "10000,2000000,5000"),
@@ -286,6 +309,7 @@ const CALCS = {
       if (v.kind === "fixed") items.push(`Interest rate differential: ${money(B)} × (${p2(v.crate)} − ${p2(cmp.rate)}) × ${v.months} months ÷ 12 = <strong>${money(ird)}</strong>`);
       items.push(why);
       return {
+        say: `Breaking your mortgage now would cost about ${money(pen)}.`,
         label: "Breaking your mortgage would cost about", big: money(pen), items,
         msgs: [["", "This is a simplified estimate. Lenders calculate the interest rate differential in different ways: some compare posted rates, or take your original discount off the comparison rate, which can make the penalty much larger. Administration fees may also apply. Ask your lender for the exact amount before you decide."]]
       };
@@ -294,11 +318,12 @@ const CALCS = {
 
   rentbuy: {
     key: "rentbuy", bigLabel: "After the years you compare", src: ["buy", "grid"],
+    examples: [["$2,400 rent vs a $550,000 condo", {rent: 2400, price: 550000, down: 55000, condo: 450, horizon: 10}], ["$3,200 rent vs a $900,000 house", {rent: 3200, price: 900000, down: 180000, horizon: 10}]],
     fields: [
       F.money("rent", "Monthly rent", 2500, "500,8000,50"),
       F.money("price", "Home price", 600000, "100000,2500000,5000"),
       F.money("down", "Down payment", 120000, "0,1500000,5000"),
-      F.rate(), F.custom(), F.years(25, [15, 20, 25, 30]),
+      Object.assign(F.rate(), {more: true}), Object.assign(F.custom(), {more: true}), Object.assign(F.years(25, [15, 20, 25, 30]), {more: true}),
       F.num("horizon", "Years to compare", 10, 1, "1,30,1"),
       F.money("tax", "Property tax per month", 350, "0,2000,10", "", {group: "Owning costs"}),
       F.money("ins", "Home insurance per month", 100, "0,500,5", "", {group: "Owning costs"}),
@@ -330,6 +355,7 @@ const CALCS = {
       const msgs = [["", "These results depend heavily on the assumptions about the future, which nobody can know. Try a few different values to see how sensitive the answer is."]];
       if (D < minDown(P) - 1) msgs.unshift(["w", `The down payment is below the minimum for this price (about ${money(minDown(P))}).`]);
       return {
+        say: `After ${v.horizon} ${v.horizon === 1 ? "year" : "years"}, ${diff >= 0 ? "buying" : "renting"} would leave you about ${money(Math.abs(diff))} better off, if the future matches your assumptions.`,
         label: `After ${v.horizon} ${v.horizon === 1 ? "year" : "years"}`, big: `${diff >= 0 ? "Buying" : "Renting"} comes out ahead by ${money(Math.abs(diff))}`,
         items: [`Owning, year 1: <strong>${money(firstOwn)}</strong> a month (${money(pay)} mortgage payment${prem ? `, including ${money(L - (P - D))} insurance added to the mortgage` : ""}, plus tax, insurance, condo fees and maintenance). Renting: ${money(v.rent)} a month.`,
           `Whoever spends less each month invests the difference at ${v.ret}% a year. The renter also invests the ${money(D)} down payment and the closing costs.`],
@@ -344,12 +370,13 @@ const CALCS = {
 
   equity: {
     key: "equity", bigLabel: "You could access up to", src: ["equity", "bank418", "b20"],
+    examples: [["$800,000 home, $350,000 owing", {value: 800000, mort: 350000, other: 0}], ["$600,000 home, $450,000 owing", {value: 600000, mort: 450000, other: 0}]],
     fields: [
       F.money("value", "Home value", 800000, "100000,3000000,5000"),
       F.money("mort", "Mortgage balance", 350000, "0,2500000,5000"),
-      F.money("other", "Other borrowing secured by the home", 0, "0,1000000,1000", "For example, the balance on an existing home equity line of credit."),
-      F.rate("rate", "5-year fixed", "Mortgage rate if you refinance"), F.custom(), F.years(25, [15, 20, 25, 30]),
-      F.num("heloc", "HELOC interest rate (%)", 5.45, 0.05, "0,12,0.05", "A placeholder: ask your lender. HELOC rates are usually set relative to their prime rate.")
+      Object.assign(F.money("other", "Other borrowing secured by the home", 0, "0,1000000,1000", "For example, the balance on an existing home equity line of credit."), {more: true}),
+      Object.assign(F.rate("rate", "5-year fixed", "Mortgage rate if you refinance"), {more: true}), Object.assign(F.custom(), {more: true}), Object.assign(F.years(25, [15, 20, 25, 30]), {more: true}),
+      Object.assign(F.num("heloc", "HELOC interest rate (%)", 5.45, 0.05, "0,12,0.05", "A placeholder: ask your lender. HELOC rates are usually set relative to their prime rate."), {more: true})
     ],
     compute(v, best){
       const V = v.value;
@@ -362,6 +389,7 @@ const CALCS = {
         items.push(`HELOC: a revolving line of credit can't go above 65% of your home's value (${money(V * 0.65)}), so you could get a line of up to <strong>${money(helocNew)}</strong>. Interest only on the full amount at ${p2(v.heloc)} would be about ${money(helocNew * v.heloc / 100 / 12)} a month.`);
       }
       return {
+        say: avail > 0 ? `You could borrow up to about ${money(avail)} more against your home.` : "You probably can't borrow more against your home right now.",
         label: "You could access up to", big: money(avail), sub: "keeping everything you owe on the home at or below 80% of its value",
         items, msgs: [avail <= 0 ? ["w", "You already owe 80% or more of your home's value, so lenders generally can't lend more against it."] : ["", "Lenders still check that you can afford the new borrowing, including the stress test, and they may lend less than these limits."]]
       };

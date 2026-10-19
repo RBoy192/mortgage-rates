@@ -187,3 +187,36 @@ td.st b{opacity:.45}
 .ref a{text-decoration:none;padding:0 1px}
 ol.refs{margin:6px 0 0;padding-left:20px}
 ol.refs li{margin:4px 0}
+
+button.q{display:inline-grid;place-items:center;width:18px;height:18px;padding:0;margin-left:4px;border-radius:50%;border:1px solid var(--mu);background:transparent;color:var(--mu);font:700 11px var(--bd);cursor:pointer;vertical-align:1px;line-height:1}
+button.q:hover,button.q[aria-expanded="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.qpop{position:absolute;z-index:50;background:var(--card);color:var(--fg);border:1px solid var(--ln);border-radius:12px;padding:12px 14px;font:400 14px/1.5 var(--bd);box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.qpop b{display:block;margin-bottom:4px}
+.qpop a{display:block;margin-top:8px;font-size:13px}
+.start{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:28px 0}
+.start>div{background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:20px 24px}
+.start h3{margin:0 0 4px}
+.start p{margin:0 0 10px;color:var(--mu);font-size:14px}
+.start ul{margin:0;padding-left:18px}
+.start li{margin:6px 0}
+.k .per{display:block;font-size:13px;color:var(--mu);margin-top:6px}
+.say{font:600 18px/1.45 var(--bd);margin:0 0 14px;color:var(--fg)}
+.ex{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 14px;font-size:14px}
+.ex button{font:600 13px var(--bd);color:var(--fg);background:var(--card);border:1px solid var(--ln);border-radius:999px;padding:6px 12px;cursor:pointer;min-height:34px}
+.ex button:hover{border-color:var(--fg)}
+.acts{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.kp{background:var(--bg);border:1px solid var(--ln);border-radius:14px;padding:12px 16px 12px 16px;margin:0 0 16px}
+.kp b{display:block;margin-bottom:4px}
+.kp ul{margin:0;padding-left:18px}
+.kp li{margin:4px 0}
+.faq details{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:14px 18px;margin:10px 0}
+.faq summary{cursor:pointer;font:700 17px var(--hd)}
+.faq details p{margin:10px 0 0}
+dl.gl dt{font:700 17px var(--hd);margin-top:18px;scroll-margin-top:16px}
+dl.gl dd{margin:4px 0 0}
+th .q{vertical-align:0}
+.sh{font-size:clamp(22px,3vw,26px);margin:36px 0 0}
+.start{margin-top:14px}
+.t{position:relative}
+@media (max-width:600px){th{white-space:normal;line-height:1.25}th button{text-align:right}}
+.res b.long{font-size:clamp(28px,4vw,36px);line-height:1.2}

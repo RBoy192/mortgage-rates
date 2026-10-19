@@ -1,4 +1,4 @@
-const SITE_VERSION = "10";
+const SITE_VERSION = "11";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -8,7 +8,7 @@ const money = x => Math.round(x).toLocaleString("en-CA", {style:"currency", curr
 const EXT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="vh"> (opens in a new tab)</span>';
 
 // Columns across the top of the rates table: [heading shown, product name as it appears in rates.json]
-const COLUMNS = [["3 yr fixed", "3-year fixed"], ["5 yr var", "5-year variable"], ["5 yr fixed", "5-year fixed"]];
+const COLUMNS = [["3-year fixed", "3-year fixed"], ["5-year variable", "5-year variable"], ["5-year fixed", "5-year fixed"]];
 const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
 
 // Header with links to each page, plus the light / dark switch (light by default; the visitor's choice is remembered)
@@ -222,7 +222,11 @@ const SRC = {
   qcipt: ["Revenu Québec: tax on insurance premiums", "https://www.revenuquebec.ca/en/press-room/tax-news/details/2026-04-09/harmonization-of-the-insurance-premiums-tax-rate-with-the-qst-rate/"],
   skpst: ["Saskatchewan: PST on insurance premiums", "https://www.saskatchewan.ca/government/news-and-media/2017/may/17/changes-made-to-pst-on-insurance-premiums"],
   boc: ["Bank of Canada: policy interest rate", "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"],
-  valet: ["Bank of Canada: Valet data API", "https://www.bankofcanada.ca/valet/docs"]
+  renew: ["Financial Consumer Agency of Canada: renewing your mortgage", "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/renew-mortgage.html"],
+  interest: ["Financial Consumer Agency of Canada: interest on mortgages", "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/interest-on-mortgages.html"],
+  choose: ["Financial Consumer Agency of Canada: choosing a mortgage", "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/choose-mortgage.html"],
+  switch: ["OSFI: uninsured mortgage straight switches", "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/osfi-exempts-uninsured-mortgage-straight-switches-prescribed-mqr-implements-portfolio-lti-limits"],
+  bocposted: ["Bank of Canada: posted interest rates offered by chartered banks", "https://www.bankofcanada.ca/rates/banking-and-financial-statistics/posted-interest-rates-offered-by-chartered-banks/"]
 };
 function srcLinks(keys){
   return '<b>Sources</b><ol class="refs">' + keys.map(k => `<li><a href="${SRC[k][1]}" target="_blank" rel="noopener">${SRC[k][0]}</a></li>`).join("") + '</ol>';
@@ -278,3 +282,72 @@ function arrow(ch){
   const up = ch.diff > 0, amt = Math.abs(ch.diff).toFixed(2);
   return `<span class="chg ${up ? "up" : "dn"}" title="${up ? "Up" : "Down"} ${amt} from ${pct(ch.from)} on ${dstr(ch.date)}"><span aria-hidden="true">${up ? "▲" : "▼"}</span>${amt}<span class="vh"> ${up ? "higher" : "lower"} than on ${dstr(ch.date)}</span></span>`;
 }
+
+// ---- Plain-language explanations: a "?" beside a term shows one of these ----
+const GLOSSARY = {
+  fixed: ["Fixed rate", "An interest rate that stays the same for your whole term, so your payment doesn't change. Fixed rates are usually a little higher than variable rates."],
+  variable: ["Variable rate", "An interest rate that can go up or down during your term, because it moves with your lender's prime rate. It's often lower than a fixed rate to start, but it can change."],
+  prime: ["Prime rate", "The rate each bank sets as its starting point for variable-rate loans. When the Bank of Canada changes its policy rate, banks usually change their prime rate too."],
+  policy: ["Bank of Canada policy rate", "The interest rate the Bank of Canada sets to steer the economy. Banks' prime rates, and so variable mortgage rates, usually follow it."],
+  posted: ["Posted rate", "A lender's standard advertised rate. Lenders often offer a lower \"special\" or discounted rate, and many people can negotiate a rate below the posted one."],
+  special: ["Special-offer rate", "A discounted rate a lender advertises below its posted rate. Where a lender shows both, this site shows the special-offer rate."],
+  term: ["Term", "How long your current mortgage deal (your rate and conditions) lasts, often 1 to 5 years. When it ends, you renew, usually at a new rate."],
+  amortization: ["Amortization", "The total time it would take to pay off your whole mortgage, often 25 or 30 years. A longer amortization means smaller payments but more interest overall."],
+  principal: ["Principal", "The amount you actually borrowed. Each payment pays some interest and some principal."],
+  interest: ["Interest", "What the lender charges you for borrowing, worked out on the amount you still owe."],
+  down: ["Down payment", "The part of the home's price you pay yourself, up front. You borrow the rest. In Canada the minimum is 5% of the first $500,000 and 10% of the part above that, or 20% for homes of $1.5 million or more."],
+  insurance: ["Mortgage default insurance", "Insurance you must buy if your down payment is under 20%. It protects the lender, not you, if the loan isn't repaid. The cost (the premium) is usually added to your mortgage."],
+  gds: ["GDS (gross debt service)", "The share of your monthly income before tax that would go to housing: your mortgage payment, property tax, heating and half of any condo fees. For insured mortgages the limit is 39%."],
+  tds: ["TDS (total debt service)", "Like GDS, but it also counts your other debt payments, such as car loans and credit cards. For insured mortgages the limit is 44%."],
+  stress: ["Stress test", "To make sure you could still afford your payment if rates rose, lenders check whether you qualify at a higher rate: the greater of your rate plus 2% or 5.25%."],
+  equity: ["Equity", "The part of your home you own outright: what it's worth minus what you still owe."],
+  heloc: ["HELOC", "A home equity line of credit: a line of credit backed by your home that you can borrow from and repay as you like, up to a limit."],
+  refinance: ["Refinancing", "Replacing your mortgage with a new, usually larger one, often to borrow against your home's equity."],
+  prepayment: ["Prepayment privileges", "Extra payments your mortgage lets you make each year without a penalty, such as a yearly lump sum or a higher regular payment. Limits vary by lender."],
+  penalty: ["Prepayment penalty", "A fee for paying off or breaking your mortgage before the end of its term. It's often three months' interest, or for fixed rates, sometimes a larger amount called the interest rate differential."],
+  ird: ["Interest rate differential (IRD)", "One way lenders work out a penalty on a fixed-rate mortgage: roughly the interest they lose because rates have fallen since you signed."],
+  ltt: ["Land transfer tax", "A tax most provinces charge when you buy a property, based on its price. Some cities, like Toronto and Montréal, add their own."],
+  closing: ["Closing costs", "One-time costs paid when you buy, on top of your down payment: land transfer tax, legal fees, inspection, title insurance and so on."],
+  renewal: ["Renewal", "When your term ends, you sign a new term, either with your current lender or a different one. Your lender must send a renewal statement at least 21 days before."],
+  accelerated: ["Accelerated payments", "Paying half your monthly payment every two weeks (or a quarter every week). It adds up to one extra monthly payment a year, so you pay off your mortgage sooner."],
+  rvr: ["Relationship pricing", "A lower rate some banks offer to clients who hold other products with them, such as a chequing account or investments."]
+};
+function tip(key){ const g = GLOSSARY[key]; return g ? `<button type="button" class="q" data-q="${key}" aria-label="What does ${esc(g[0])} mean?" aria-expanded="false">?</button>` : ""; }
+function applyTips(root){ (root || document).querySelectorAll("[data-tip]:not([data-tipped])").forEach(el => { el.dataset.tipped = "1"; el.insertAdjacentHTML(el.dataset.tipAt === "after" ? "afterend" : "beforeend", " " + tip(el.dataset.tip)); }); }
+(function(){
+  let box = null, owner = null;
+  const close = () => { if (box) { box.remove(); box = null; } if (owner) { owner.setAttribute("aria-expanded", "false"); owner = null; } };
+  document.addEventListener("click", e => {
+    const b = e.target.closest && e.target.closest("button.q");
+    if (!b) { if (box && !box.contains(e.target)) close(); return; }
+    e.preventDefault(); e.stopPropagation();
+    const same = b === owner; close(); if (same) return;
+    const g = GLOSSARY[b.dataset.q]; if (!g) return;
+    owner = b; b.setAttribute("aria-expanded", "true");
+    box = document.createElement("div"); box.className = "qpop"; box.setAttribute("role", "dialog"); box.setAttribute("aria-label", g[0]);
+    box.innerHTML = `<b>${esc(g[0])}</b>${esc(g[1])}<a href="glossary.html#${b.dataset.q}">More terms in the glossary</a>`;
+    document.body.appendChild(box);
+    const r = b.getBoundingClientRect(), w = Math.min(320, innerWidth - 24);
+    box.style.width = w + "px";
+    box.style.left = Math.max(12, Math.min(innerWidth - w - 12, r.left + scrollX - w / 2 + r.width / 2)) + "px";
+    box.style.top = (r.bottom + scrollY + 8) + "px";
+  }, true);
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && box) { const o = owner; close(); o && o.focus(); } });
+  addEventListener("resize", close);
+  applyTips();
+})();
+
+// ---- Share links: a calculator's numbers saved in the page address ----
+function fromURL(){
+  const o = {}; new URLSearchParams(location.search).forEach((v, k) => { o[k] = v === "true" ? true : v === "false" ? false : (v !== "" && !isNaN(v) ? +v : v); });
+  return o;
+}
+function copyLink(obj, btn){
+  const url = location.origin + location.pathname + "?" + new URLSearchParams(Object.entries(obj).map(([k, v]) => [k, String(v)])).toString();
+  const done = () => { const t = btn.textContent; btn.textContent = "Link copied"; setTimeout(() => { btn.textContent = t; }, 2000); };
+  const fallback = () => { prompt("Copy this link:", url); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, fallback); else fallback();
+  try { history.replaceState(null, "", url); } catch (e) {}
+}
+// "About $575 a month for every $100,000 you borrow" (25-year amortization)
+const per100k = (rate, variable) => pmt(100000, perPeriod(rate, variable), 300);
