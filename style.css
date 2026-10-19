@@ -293,8 +293,8 @@ html.theming,html.theming *,html.theming *::before,html.theming *::after{transit
 .band.home .hero{margin-top:56px;display:grid;row-gap:0;grid-template-columns:minmax(0,1fr) auto;column-gap:32px;align-items:end}
 .band.home .hero>div:first-child{display:contents}
 .band.home .hero h1{grid-column:1/-1}
-.band.home .hero .lede,.band.home #updated{grid-column:1}
-.band.home .hero .side{grid-column:2;grid-row:2/4;align-self:end;margin:0}
+.band.home .hero .lede,.band.home .indep,.band.home #updated{grid-column:1}
+.band.home .hero .side{grid-column:2;grid-row:2/5;align-self:end;margin:0}
 @media (max-width:820px){.band.home .hero{grid-template-columns:1fr}.band.home .hero .side{grid-column:1;grid-row:auto;margin:20px 0 0 auto}}
 a.brand{color:#FFFFFF;font:700 24px var(--hd);gap:16px}
 a.brand .bm{width:34px;height:34px;color:#FFD23F;flex:none}
@@ -316,3 +316,28 @@ h1 .hl{background:linear-gradient(transparent 60%,#FFD23F 60%,#FFD23F 92%,transp
 .band h1 .hl{color:#FFD23F}
 @media print{.band{border-image:none;background:none;color:#000;--fg:#000;--mu:#333;--big:#000}.band h1 .hl,h1 .hl{color:#000;background:none}}
 @media (max-width:700px){a.brand{font-size:20px;gap:10px}a.brand .bm{width:28px;height:28px}}
+/* Rate-type and lender pages */
+.crumbs{font-size:14px;color:var(--mu);margin:0 0 10px}
+.crumbs a{color:var(--mu)}
+table.rank th:nth-child(-n+2),table.rank td:nth-child(-n+2){text-align:left}
+table.rank td.rk{font:700 18px var(--hd);color:var(--mu);width:64px}
+table.rank tr.top td.rk{color:var(--fg)}
+table.rank td.gap{color:var(--mu);font-size:14px;white-space:nowrap;padding-top:20px}
+.lowtag{background:var(--lowbg);color:var(--lowfg);border-radius:999px;padding:2px 10px;font-weight:700;font-size:12px}
+[data-theme="dark"] .lowtag{border:1px solid var(--ac)}
+.k em a{color:inherit}
+.k .s{display:block;margin-top:6px;font-size:13px;color:var(--mu)}
+.k .s a{color:var(--link)}
+.k .chg{margin:0 0 2px}
+.k b.none{color:var(--mu)}
+.lnk{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 8px}
+.lnk a{display:inline-flex;align-items:center;padding:8px 16px;border:1px solid var(--ln);border-radius:999px;background:var(--card);color:var(--fg);text-decoration:none;font-weight:600;font-size:14px}
+.lnk a:hover{border-color:var(--fg)}
+.lnk .lg-logo{width:22px;height:22px;margin-right:8px}
+.start2 .bt{display:flex;flex-direction:column;gap:2px}
+.start2 .bt small{font-size:13px;color:var(--mu);font-weight:500}
+.start2 .bt small:empty{display:none}
+.indep{display:flex;align-items:center;gap:8px;margin:0 0 10px;font:700 15px var(--bd);color:#E8EDF6}
+.indep svg{width:18px;height:18px;color:#FFD23F;flex:none}
+@media (max-width:480px){table.rank td.rk{width:40px}table.rank td.gap{font-size:13px}}
+@media (max-width:600px){#best .k:not(:first-child){display:none}table.rank th:nth-child(4),table.rank td:nth-child(4){display:none}}

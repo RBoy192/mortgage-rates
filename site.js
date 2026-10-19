@@ -1,4 +1,4 @@
-const SITE_VERSION = "18";
+const SITE_VERSION = "19";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -294,6 +294,8 @@ function logo(name, source){
 }
 // Chart colours follow the lender, never its rank, so a bank keeps its colour when others are hidden.
 const LENDER_ORDER = ["BMO", "CIBC", "EQ Bank", "National Bank", "RBC Royal Bank", "Scotiabank", "Tangerine", "TD Canada Trust"];
+// Each lender's own page on this site: bmo-mortgage-rates.html and so on
+const LENDER_SLUGS = {"BMO": "bmo", "CIBC": "cibc", "EQ Bank": "eq-bank", "National Bank": "national-bank", "RBC Royal Bank": "rbc", "Scotiabank": "scotiabank", "Tangerine": "tangerine", "TD Canada Trust": "td"};
 const seriesVar = name => { const i = LENDER_ORDER.indexOf(name); return i < 0 ? "var(--mu)" : `var(--s${i + 1})`; };
 
 // ---- Rate history (history.json, one value per lender, product and day) ----

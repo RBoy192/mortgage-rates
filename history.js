@@ -74,6 +74,11 @@ function chart(el, title, series){
   hit.addEventListener("pointermove", move); hit.addEventListener("pointerdown", move); hit.addEventListener("pointerleave", leave);
 }
 
+// Other pages (rate-type and lender pages) reuse the chart: histChart(element, title, series)
+window.histChart = chart;
+window.histRange = r => { if (r) range = r; return range; };
+if (!$("range")) return;
+
 function render(){
   controls();
   const ls = lenders().filter(n => !hidden.has(n));
