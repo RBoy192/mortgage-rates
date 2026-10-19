@@ -1,10 +1,10 @@
 // Pictures and worked examples for the crash course chapters. Each chapter page sets <body data-chapter="...">.
 (function(){
-if (typeof SITE_VERSION === "undefined" || SITE_VERSION !== "26") return;
+if (typeof SITE_VERSION === "undefined" || SITE_VERSION !== "27") return;
 const share = y => Math.round(y.int / (y.int + y.pr) * 100);
 // A bar split into parts, with its labels in a key underneath (so nothing is squeezed or cut off inside the bar)
-const bar = (parts, inner) => `<div class="bar" role="img" aria-label="${esc(parts.map(p => p.t).join(", "))}">`
-  + parts.map(p => `<div class="seg ${p.c}" style="width:${Math.max(0, p.w).toFixed(2)}%" title="${esc(p.t)}">${inner ? (p.n || "") : ""}</div>`).join("") + `</div>`;
+const bar = (parts, inner) => (parts = parts.filter(p => p.w > 0.05), `<div class="bar" role="img" aria-label="${esc(parts.map(p => p.t).join(", "))}">`
+  + parts.map(p => `<div class="seg ${p.c}" style="width:${Math.max(0, p.w).toFixed(2)}%" title="${esc(p.t)}">${inner ? (p.n || "") : ""}</div>`).join("") + `</div>`);
 const key = parts => `<div class="lg">${parts.map(p => `<span><i class="sq ${p.c}"></i>${p.t}</span>`).join("")}</div>`;
 const CH = {
   basics(c){

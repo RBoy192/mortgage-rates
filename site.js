@@ -1,4 +1,4 @@
-const SITE_VERSION = "26";
+const SITE_VERSION = "27";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -356,7 +356,7 @@ const GLOSSARY = {
   policy: ["Bank of Canada policy rate", "The interest rate the Bank of Canada sets to steer the economy. Banks' prime rates, and so variable mortgage rates, usually follow it."],
   posted: ["Posted rate", "A lender's standard advertised rate. Lenders often offer a lower \"special\" or discounted rate, and many people can negotiate a rate below the posted one."],
   special: ["Special-offer rate", "A discounted rate a lender advertises below its posted rate. Where a lender shows both, this site shows the special-offer rate."],
-  term: ["Term", "How long your current mortgage deal (your rate and conditions) lasts, often 1 to 5 years. When it ends, you renew, usually at a new rate."],
+  term: ["Term", "How long your current rate and conditions last, often 1 to 5 years. When it ends, you renew, usually at a new rate."],
   amortization: ["Amortization", "The total time it would take to pay off your whole mortgage, often 25 or 30 years. A longer amortization means smaller payments but more interest overall."],
   principal: ["Principal", "The amount you actually borrowed. Each payment pays some interest and some principal."],
   interest: ["Interest", "What the lender charges you for borrowing, worked out on the amount you still owe."],
