@@ -379,3 +379,6 @@ figcaption b{font-family:var(--bd);color:var(--fg)}
 .fu{display:block;font-size:14px;margin-top:2px}
 .refsec b{font:700 12px var(--bd);letter-spacing:.14em;text-transform:uppercase}
 .refsec .refs{font:400 15px/1.6 var(--serif)}
+/* Main table: lender groups */
+tr.grp th{text-align:left;font:700 12px var(--bd);letter-spacing:.12em;text-transform:uppercase;color:var(--mu);background:var(--ln2);padding:10px 20px;border-bottom:0}
+[data-theme="dark"] tr.grp th{background:rgba(255,255,255,.04)}

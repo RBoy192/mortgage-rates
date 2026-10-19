@@ -1,4 +1,4 @@
-const SITE_VERSION = "20";
+const SITE_VERSION = "21";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -301,6 +301,9 @@ function logo(name, source){
 }
 // Chart colours follow the lender, never its rank, so a bank keeps its colour when others are hidden.
 const LENDER_ORDER = ["BMO", "CIBC", "EQ Bank", "National Bank", "RBC Royal Bank", "Scotiabank", "Tangerine", "TD Canada Trust", "ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "Servus Credit Union"];
+// Lenders that aren't banks (credit unions, co-operatives and ATB, an Alberta Crown corporation). Everyone else is listed as a bank.
+const NON_BANKS = ["ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "Servus Credit Union"];
+const LENDER_GROUPS = [["Banks", n => !NON_BANKS.includes(n)], ["Credit unions and other lenders", n => NON_BANKS.includes(n)]];
 // Each lender's own page on this site: bmo-mortgage-rates.html and so on
 const LENDER_SLUGS = {"BMO": "bmo", "CIBC": "cibc", "EQ Bank": "eq-bank", "National Bank": "national-bank", "RBC Royal Bank": "rbc", "Scotiabank": "scotiabank", "Tangerine": "tangerine", "TD Canada Trust": "td", "ATB Financial": "atb", "Alterna Savings": "alterna", "Coast Capital Savings": "coast-capital", "Desjardins": "desjardins", "Servus Credit Union": "servus"};
 const seriesVar = name => { const i = LENDER_ORDER.indexOf(name); return i < 0 ? "var(--mu)" : `var(--s${i + 1})`; };

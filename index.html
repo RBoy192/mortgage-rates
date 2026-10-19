@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="Compare today&#x27;s best mortgage rates from Canadian lenders, updated every hour, with free plain-language calculators and guides.">
 <link rel="canonical" href="https://whatstherate.ca/">
-<link rel="icon" href="favicon.svg?v=20" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=20" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=20">
+<link rel="icon" href="favicon.svg?v=21" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=21" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=21">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
 <meta property="og:type" content="website">
@@ -24,7 +24,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=20">
+<link rel="stylesheet" href="style.css?v=21">
 </head>
 <body data-page="rates">
 <main id="top">
@@ -57,8 +57,8 @@
 <p class="f" id="fn1" hidden><b>* BoC policy rate:</b> the Bank of Canada's target for the overnight rate, which is what big financial institutions charge each other for one-day loans. When it changes, banks usually move their prime rates too, which affects variable-rate mortgages.</p>
 <p class="f" id="fn2" hidden><b>** Prime rate:</b> the typical prime lending rate of Canada's major banks, published weekly. Variable-rate mortgages are priced off prime. Each lender sets its own prime rate, so yours may differ slightly.</p>
 </main>
-<script src="site.js?v=20"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="20"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=21"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="21"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 let lenders = [], sortBy = null, updatedAt = null, hist = {series: {}};
 
@@ -105,7 +105,8 @@ function render(){
   document.querySelectorAll("#head th[data-p]").forEach(th => {
     if (th.dataset.p === sortBy) th.setAttribute("aria-sort", "ascending"); else th.removeAttribute("aria-sort");
   });
-  $("rows").innerHTML = rows.length ? rows.map(l => `<tr>
+  // banks first, then credit unions and other lenders; each group sorted on its own
+  const row = l => `<tr>
     <td class="ln">${logo(l.name, l.source)}<a href="${esc(l.source)}" target="_blank" rel="noopener">${esc(l.name)}${EXT}</a></td>
     ${COLUMNS.map(([, p], i) => {
       const c = l.cells[p];
@@ -113,7 +114,11 @@ function render(){
       const low = c.rate === best[i];
       const ch = c.stale ? null : weekChange(hist.series[l.name + "|" + p], c.rate);
       return `<td class="rate${low ? " low" : ""}${c.stale ? " st" : ""}"${c.stale ? ' title="This rate couldn\'t be refreshed in the latest update"' : ""}>${arrow(ch)}<b>${pct(c.rate)}</b></td>`;
-    }).join("")}</tr>`).join("")
+    }).join("")}</tr>`;
+  $("rows").innerHTML = rows.length ? LENDER_GROUPS.map(([title, inGroup]) => {
+      const g = rows.filter(l => inGroup(l.name));
+      return g.length ? `<tr class="grp"><th scope="colgroup" colspan="${COLUMNS.length + 1}">${esc(title)}</th></tr>` + g.map(row).join("") : "";
+    }).join("")
     : `<tr><td colspan="${COLUMNS.length + 1}">No rates yet. Enable a lender in institutions.yaml, then run the update.</td></tr>`;
   $("stalenote").hidden = !lenders.some(l => Object.values(l.cells).some(c => c.stale));
   document.querySelectorAll("#byterm a").forEach((a, i) => { a.querySelector("small").textContent = best[i] === Infinity ? "" : "Lowest today: " + pct(best[i]); });
