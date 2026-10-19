@@ -23,14 +23,14 @@ function controls(){
 
 function chart(el, title, series){
   const end = day(todayISO()), all = series.flatMap(s => s.points.map(p => day(p[0])));
-  if (!all.length) { el.innerHTML = `<h3>${title}</h3><p class="empty">No history yet. It fills in as the site saves each day's rates.</p>`; return; }
+  if (!all.length) { el.innerHTML = `<h2 class="h3">${title}</h2><p class="empty">No history yet. It fills in as the site saves each day's rates.</p>`; return; }
   const span = RANGES.find(r => r[0] === range)[1];
   let start = Math.max(Math.min(...all), end - span * 864e5);
   if (start >= end) start = end - 7 * 864e5;
   const vis = series.map(s => Object.assign({}, s, {v: s.points.filter(p => day(p[0]) >= start), before: valueAt(s.points, start)}))
     .filter(s => s.v.length || s.before != null);
   const vals = vis.flatMap(s => [...s.v.map(p => p[1]), ...(s.before != null ? [s.before] : [])]);
-  if (!vals.length) { el.innerHTML = `<h3>${title}</h3><p class="empty">No rates in this time range.</p>`; return; }
+  if (!vals.length) { el.innerHTML = `<h2 class="h3">${title}</h2><p class="empty">No rates in this time range.</p>`; return; }
   const vmin = Math.min(...vals), vmax = Math.max(...vals);
   const stepY = [0.05, 0.1, 0.25, 0.5, 1, 2].find(s => Math.ceil((vmax + 0.05) / s) - Math.floor((vmin - 0.05) / s) <= 5) || 2;
   const lo = Math.floor((vmin - 0.05) / stepY) * stepY, hi = Math.ceil((vmax + 0.05) / stepY) * stepY;
@@ -46,7 +46,7 @@ function chart(el, title, series){
   };
   const lastDots = vis.map(s => { const r = s.v.length ? s.v[s.v.length - 1][1] : s.before; return `<circle cx="${x(end).toFixed(1)}" cy="${y(r).toFixed(1)}" r="4" fill="${s.color}" stroke="var(--card)" stroke-width="2"/>`; }).join("");
   const dates = [...new Set(vis.flatMap(s => s.v.map(p => p[0])))].sort().reverse();
-  el.innerHTML = `<h3>${title}</h3>`
+  el.innerHTML = `<h2 class="h3">${title}</h2>`
     + `<svg viewBox="0 0 ${W} ${Ht}" width="${W}" height="${Ht}" role="img" aria-label="${esc(title)} rates over time, ${long(start)} to ${long(end)}">`
     + `<g class="ax">${ticks.map(v => `<line class="gl" x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}"/><text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end">${v.toFixed(2)}%</text>`).join("")}`
     + `${xt.map((t, k) => `<text x="${x(t)}" y="${Ht - 6}" text-anchor="${k === 0 ? "start" : k === 3 ? "end" : "middle"}">${short(t)}</text>`).join("")}</g>`
@@ -55,7 +55,7 @@ function chart(el, title, series){
     + `<rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent" style="cursor:crosshair"/></svg>`
     + `<div class="tip" hidden></div>`
     + `<div class="lgd">${vis.map(s => `<span><i style="${s.dash ? `background:repeating-linear-gradient(90deg,${s.color} 0 5px,transparent 5px 8px)` : `background:${s.color}`}"></i>${esc(s.name)}</span>`).join("")}</div>`
-    + `<details class="tv"><summary>Show as a table</summary><div class="t"><table><thead><tr><th>Date</th>${vis.map(s => `<th>${esc(s.name)}</th>`).join("")}</tr></thead><tbody>`
+    + `<details class="tv"><summary>Show as a table</summary><div class="t" tabindex="0" role="region" aria-label="${esc(title)} rates by day"><table><thead><tr><th>Date</th>${vis.map(s => `<th>${esc(s.name)}</th>`).join("")}</tr></thead><tbody>`
     + dates.map(d => `<tr><td>${dstr(d)}</td>${vis.map(s => { const p = s.v.find(q => q[0] === d); return `<td>${p ? pct(p[1]) : "—"}</td>`; }).join("")}</tr>`).join("")
     + `</tbody></table></div><p class="s">Only days when the rate was saved are listed.</p></details>`;
   const svg = el.querySelector("svg"), tip = el.querySelector(".tip"), cross = el.querySelector(".cross"), hit = el.querySelector("rect");

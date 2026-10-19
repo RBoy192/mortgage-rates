@@ -1,6 +1,6 @@
 // Pictures and worked examples for the crash course chapters. Each chapter page sets <body data-chapter="...">.
 (function(){
-if (typeof SITE_VERSION === "undefined" || SITE_VERSION !== "12") return;
+if (typeof SITE_VERSION === "undefined" || SITE_VERSION !== "13") return;
 const share = y => Math.round(y.int / (y.int + y.pr) * 100);
 const CH = {
   basics(c){

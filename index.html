@@ -3,18 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>What's the rate?</title>
+<title>What's the rate? Today's best mortgage rates in Canada</title>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="style.css?v=12">
+<meta name="description" content="Compare today&#x27;s best mortgage rates from Canadian lenders, updated every hour, with free plain-language calculators and guides.">
+<link rel="canonical" href="https://whatstherate.ca/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#10213F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="What's the rate?">
+<meta property="og:title" content="What&#x27;s the rate?">
+<meta property="og:description" content="Compare today&#x27;s best mortgage rates from Canadian lenders, updated every hour, with free plain-language calculators and guides.">
+<meta property="og:url" content="https://whatstherate.ca/">
+<meta property="og:image" content="https://whatstherate.ca/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="What's the rate? Compare today's mortgage rates.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=13">
 </head>
 <body data-page="rates">
 <main id="top">
 <header id="site-header"></header>
 <div class="hero">
 <div><h1>Today's best<br>mortgage rates</h1>
+<p class="lede" id="lede">Compare today's mortgage rates from Canadian lenders, updated every hour.</p>
 <div class="m" id="updated">Loading rates…</div></div>
-<div class="side"><aside class="pr" id="policy" hidden></aside><aside class="pr" id="prime" hidden></aside></div>
+<div class="side"><div class="pr" id="policy" hidden></div><div class="pr" id="prime" hidden></div></div>
 </div>
 <div class="banner" id="demo" hidden>These are sample numbers, not real rates. Add your first lender in institutions.yaml to replace them.</div>
 <div class="c" id="tiles"></div>
@@ -35,8 +54,8 @@
 <p class="f" id="fn1" hidden><b>* BoC policy rate:</b> the Bank of Canada's target for the overnight rate, which is what big financial institutions charge each other for one-day loans. When it changes, banks usually move their prime rates too, which affects variable-rate mortgages.</p>
 <p class="f" id="fn2" hidden><b>** Prime rate:</b> the typical prime lending rate of Canada's major banks, published weekly. Variable-rate mortgages are priced off prime. Each lender sets its own prime rate, so yours may differ slightly.</p>
 </main>
-<script src="site.js?v=12"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="12"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=13"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="13"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 let lenders = [], sortBy = null, updatedAt = null, hist = {series: {}};
 
@@ -98,6 +117,7 @@ function render(){
 
 loadRates().then(d => { try {
   lenders = groupLenders(d);
+  if (lenders.length) $("lede").textContent = `Compare today's mortgage rates from ${lenders.length} Canadian lenders, updated every hour.`;
   updatedAt = d.updated_at; tick();
   $("demo").hidden = !d.demo;
   const today = todayISO();

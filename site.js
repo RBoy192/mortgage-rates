@@ -1,4 +1,6 @@
-const SITE_VERSION = "12";
+const SITE_VERSION = "13";
+// Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
+const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -13,11 +15,12 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
 
 // Header with links to each page, plus the light / dark switch (light by default; the visitor's choice is remembered)
 (function(){
-  const page = document.body.dataset.page, el = $("site-header");
+  const page = document.body.dataset.page, el = $("site-header"), base = page === "404" ? "/" : "";
   const links = [["calc", "calculators.html", "Interactive Calculators"], ["crash", "crash-course.html", "Crash course"], ["extras", "rate-history.html", "Extras"]];
   el.className = "n";
-  el.innerHTML = `<div class="nw"><a class="brand" href="index.html">What's the rate?</a>`
-    + links.map(([k, u, t]) => `<a class="nl" href="${u}"${k === page ? ' aria-current="page"' : ""}>${t}</a>`).join("") + `</div>`
+  el.innerHTML = `<div class="nw"><a class="brand" href="${base}index.html"><img src="${base}favicon.svg" alt="" width="28" height="28">What's the rate?</a>`
+    + `<button type="button" class="menu" id="menubtn" aria-expanded="false" aria-controls="mainnav"><span aria-hidden="true">☰</span> Menu</button>`
+    + `<nav class="mainnav" id="mainnav" aria-label="Main">` + links.map(([k, u, t]) => `<a class="nl" href="${base}${u}"${k === page ? ' aria-current="page"' : ""}>${t}</a>`).join("") + `</nav></div>`
     + `<div class="r">${page === "rates" ? '<span class="pill">Updated hourly</span>' : ""}<button class="mode" id="mode" type="button">`
     + `<svg class="mo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>`
     + `<svg class="su" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>`
@@ -30,6 +33,25 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
     show();
   };
   show();
+  $("menubtn").onclick = () => { const open = $("menubtn").getAttribute("aria-expanded") !== "true"; $("menubtn").setAttribute("aria-expanded", open); el.classList.toggle("open", open); };
+  // "Skip to content" for keyboard and screen-reader users
+  const main = document.querySelector("main"), target = document.querySelector("h1") || main;
+  if (target && !target.id) target.id = "content";
+  target && target.setAttribute("tabindex", "-1");
+  document.body.insertAdjacentHTML("afterbegin", `<a class="skip" href="#${target ? target.id : "top"}">Skip to content</a>`);
+  // On phones, the side list of pages becomes a dropdown
+  document.querySelectorAll("nav.tabs").forEach(nav => {
+    const label = nav.getAttribute("aria-label") || "Pages", links = [...nav.querySelectorAll("a")];
+    const id = "pick-" + label.replace(/\W+/g, "").toLowerCase();
+    nav.insertAdjacentHTML("beforebegin", `<label class="tabsel">${label === "Calculators" ? "Choose a calculator" : label === "Extras" ? "Choose a page" : "Choose a chapter"}<select id="${id}">`
+      + links.map(a => `<option value="${a.getAttribute("href")}"${a.getAttribute("aria-current") ? " selected" : ""}>${esc(a.textContent)}</option>`).join("") + `</select></label>`);
+    $(id).onchange = e => { location.href = e.target.value; };
+  });
+  // Footer on every page
+  const year = new Date().getFullYear();
+  main && main.insertAdjacentHTML("beforeend", `<footer class="sitefoot"><nav aria-label="Footer"><a href="${base}index.html">Today's rates</a><a href="${base}calculators.html">Calculators</a><a href="${base}crash-course.html">Crash course</a><a href="${base}faq.html">FAQ</a><a href="${base}glossary.html">Glossary</a><a href="${base}about.html">About</a><a href="${base}terms.html">Terms and privacy</a></nav>`
+    + `<p>Rates are collected every hour from each lender's own website. Information only, not financial advice: always confirm rates and terms with the lender.</p>`
+    + `<p>© ${year} What's the rate?${typeof CONTACT_EMAIL !== "undefined" && CONTACT_EMAIL ? ` · <a href="mailto:${esc(CONTACT_EMAIL)}">${esc(CONTACT_EMAIL)}</a>` : ""}</p></footer>`);
 })();
 
 // Rates
@@ -233,8 +255,6 @@ function srcLinks(keys){
 }
 (function(){ const el = $("src"); if (el && el.dataset.keys) { el.className = "f src"; el.innerHTML = srcLinks(el.dataset.keys.split(",")); } })();
 
-// Your contact email for the Terms and privacy page. Leave it empty to hide the contact line.
-const CONTACT_EMAIL = "";
 
 // ---- Shared mortgage maths ----
 // Rate per period: Canadian fixed rates compound twice a year, variable rates monthly. k = payments per year.
@@ -351,3 +371,7 @@ function copyLink(obj, btn){
 }
 // "About $575 a month for every $100,000 you borrow" (25-year amortization)
 const per100k = (rate, variable) => pmt(100000, perPeriod(rate, variable), 300);
+
+// Printing: open collapsed sections so everything you entered prints, then put them back
+addEventListener("beforeprint", () => document.querySelectorAll("details").forEach(d => { d.dataset.wasOpen = d.open ? "1" : ""; d.open = true; }));
+addEventListener("afterprint", () => document.querySelectorAll("details").forEach(d => { if (d.dataset.wasOpen === "") d.open = false; }));

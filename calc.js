@@ -32,7 +32,7 @@ function makeCalc(cfg){
   const TIPS = {years: "amortization", term: "term", down: "down", frate: "fixed", vrate: "variable", change: "variable", extra: "prepayment", lump: "prepayment",
     kind: "penalty", cmp: "ird", prov: "ltt", heloc: "heloc", value: "equity", balance: cfg.key === "renewal" ? "renewal" : "", rate: "interest", amount: "principal"};
   // example buttons and the share button, above the form
-  form.closest(".est").insertAdjacentHTML("beforebegin", `<div class="ex">${cfg.examples ? "<span>Try an example:</span>" + cfg.examples.map((e, i) => `<button type="button" data-ex="${i}">${esc(e[0])}</button>`).join("") : ""}<button type="button" id="share" class="lk">Copy a link to these numbers</button></div>`);
+  form.closest(".est").insertAdjacentHTML("beforebegin", `<div class="ex">${cfg.examples ? "<span>Try an example:</span>" + cfg.examples.map((e, i) => `<button type="button" data-ex="${i}">${esc(e[0])}</button>`).join("") : ""}<button type="button" id="share" class="lk">Copy a link to these numbers</button><button type="button" class="lk" onclick="print()">Print results</button></div>`);
 
   // build the form
   cfg.fields.forEach(f => {
@@ -281,7 +281,7 @@ const CALCS = {
           : `With your assumptions, ${diff > 0 ? "fixed" : "variable"} would cost about ${money(Math.abs(diff))} less in interest over ${v.term} years.`,
         label: `Over a ${v.term}-year term`, big: Math.abs(diff) < 1 ? "About the same" : `${diff > 0 ? "Fixed" : "Variable"} saves ${money(Math.abs(diff))}`, sub: "in interest, with your assumptions",
         items: [beText, `Fixed balance at the end of the term: ${money(fbal)}. Variable: ${money(vv.bal)}.`],
-        table: `<table class="cmpt"><thead><tr><th></th><th>Fixed</th><th>Variable</th></tr></thead><tbody>`
+        table: `<table class="cmpt"><thead><tr><th><span class="vh">Compare</span></th><th>Fixed</th><th>Variable</th></tr></thead><tbody>`
           + `<tr><td>Rate</td><td>${pct(Fx.rate)}</td><td>${pct(Vr.rate)}${v.change ? ` → ${pct(Math.max(0.01, Vr.rate + v.change))}` : ""}</td></tr>`
           + `<tr><td>Monthly payment</td><td>${money(fpay)}</td><td>${money(vv.first)}${Math.abs(vv.last - vv.first) >= 1 ? ` → ${money(vv.last)}` : ""}</td></tr>`
           + `<tr><td>Interest over the term</td><td>${money(fint)}</td><td>${money(vv.int)}</td></tr></tbody></table>`,
