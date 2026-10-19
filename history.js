@@ -2,9 +2,10 @@
 (function(){
 if (typeof SITE_VERSION === "undefined") return;
 const RANGES = [["1M", 31], ["3M", 92], ["6M", 183], ["1Y", 366], ["5Y", 1827], ["10Y", 3653], ["All", Infinity]];
-let H = {series: {}}, range = "1Y", hidden = new Set();
-try { range = localStorage.getItem("hist-range2") || "1Y"; hidden = new Set(JSON.parse(localStorage.getItem("hist-hidden") || "[]")); } catch (e) {}
-const save = () => { try { localStorage.setItem("hist-range2", range); localStorage.setItem("hist-hidden", JSON.stringify([...hidden])); } catch (e) {} };
+// The big-bank posted-rate line starts switched off; visitors can tap it on.
+let H = {series: {}}, range = "1Y", hidden = new Set(["Big-bank posted rate (Bank of Canada)"]);
+try { range = localStorage.getItem("hist-range2") || "1Y"; const s = localStorage.getItem("hist-hidden2"); if (s !== null) hidden = new Set(JSON.parse(s)); } catch (e) {}
+const save = () => { try { localStorage.setItem("hist-range2", range); localStorage.setItem("hist-hidden2", JSON.stringify([...hidden])); } catch (e) {} };
 const day = iso => new Date(iso + "T12:00:00").getTime();
 const short = (t, wide) => new Date(t).toLocaleDateString([], wide ? {month: "short", year: "numeric"} : {month: "short", day: "numeric"});  // wide: the chart spans more than a year
 const long = t => new Date(t).toLocaleDateString([], {dateStyle: "medium"});
@@ -27,7 +28,7 @@ function controls(){
 
 function chart(el, title, series){
   const end = day(todayISO()), all = series.flatMap(s => s.points.map(p => day(p[0])));
-  if (!series.length && hidden.size) { el.innerHTML = `<h2 class="h3">${title}</h2>` + mascotNote("No lenders picked. Tap a lender above, or use Show all, to bring the lines back.", "hold"); return; }
+  if (!series.length && [...hidden].some(n => !n.startsWith("Big-bank"))) { el.innerHTML = `<h2 class="h3">${title}</h2>` + mascotNote("No lenders picked. Tap a lender above, or use Show all, to bring the lines back.", "hold"); return; }
   if (!all.length) { el.innerHTML = `<h2 class="h3">${title}</h2>${mascotNote("No history yet. It fills in as the site saves each day's rates.", "hold")}`; return; }
   const span = RANGES.find(r => r[0] === range)[1];
   let start = Math.max(Math.min(...all), end - span * 864e5);
@@ -71,7 +72,7 @@ function chart(el, title, series){
     + lastDots + `<line class="cross" y1="${m.t}" y2="${m.t + ih}" x1="0" x2="0" visibility="hidden"/>`
     + `<rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent" style="cursor:crosshair"/></svg>`
     + `<div class="tip" hidden></div>`
-    + `<div class="lgd">${vis.map(s => `<span><i style="${s.dash ? `background:repeating-linear-gradient(90deg,${s.color} 0 5px,transparent 5px 8px)` : `background:${s.color}`}"></i>${esc(s.name)}</span>`).join("")}</div>`
+    + `<div class="lgd">${vis.map(s => `<span style="--c:${s.color}"><i class="${s.dash ? "dash" : ""}"></i>${esc(s.name)}</span>`).join("")}</div>`
     + `<details class="tv"><summary>Show as a table</summary><div class="t" tabindex="0" role="region" aria-label="${esc(title)} rates by day"><table><thead><tr><th>Date</th>${vis.map(s => `<th>${esc(s.name)}</th>`).join("")}</tr></thead><tbody>`
     + dates.map(d => `<tr><td>${dstr(d)}</td>${vis.map(s => { const p = s.v.find(q => q[0] === d); return `<td>${p ? pct(p[1]) : "—"}</td>`; }).join("")}</tr>`).join("")
     + `</tbody></table></div><p class="s">Only days when the rate was saved are listed.</p></details>`;
@@ -120,7 +121,7 @@ $("quick").onclick = e => {
   const all = lenders(), keep = {all: all, banks: all.filter(n => !NON_BANKS.includes(n)), others: all.filter(n => NON_BANKS.includes(n)), none: []}[b.dataset.q];
   all.forEach(n => keep.includes(n) ? hidden.delete(n) : hidden.add(n));
   const P = "Big-bank posted rate (Bank of Canada)";
-  if (b.dataset.q === "none") hidden.add(P); else if (b.dataset.q === "all") hidden.delete(P);
+  if (b.dataset.q === "none" || b.dataset.q === "all") hidden.add(P);  // Show all means every lender; the posted-rate line stays off until tapped
   save(); render();
 };
 $("chips").onclick = e => { const b = e.target.closest("button"); if (b) { const n = b.dataset.n; hidden.has(n) ? hidden.delete(n) : hidden.add(n); save(); render(); } };
