@@ -286,10 +286,10 @@ def manual_record(name, product, m, url, day=None):
     return rec
 
 
-# Official Bank of Canada series loaded into history.json (a year back, refreshed every run):
+# Official Bank of Canada series loaded into history.json (ten years back, refreshed every run):
 # the policy rate, the major banks' typical prime rate, and their typical posted 3- and 5-year fixed rates.
 BOC_HISTORY = {"policy_rate": "V39079", "prime_rate": "V80691311", "posted|3-year fixed": "V80691334", "posted|5-year fixed": "V80691335"}
-HISTORY_DAYS = 366
+HISTORY_DAYS = 3653  # ten years
 
 
 def changes_only(points):
@@ -302,7 +302,7 @@ def changes_only(points):
 
 
 def boc_history(day=None):
-    """The last year of the BOC_HISTORY series from the Bank of Canada's Valet API, as {key: [[date, value], ...]}."""
+    """The last ten years of the BOC_HISTORY series from the Bank of Canada's Valet API, as {key: [[date, value], ...]}."""
     import requests
     from datetime import timedelta
     start = (date.fromisoformat(day or today()) - timedelta(days=HISTORY_DAYS)).isoformat()

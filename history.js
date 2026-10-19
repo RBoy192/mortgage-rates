@@ -1,12 +1,12 @@
 // Rate history charts. Data: history.json (one value per lender, product and day), written by the hourly update.
 (function(){
 if (typeof SITE_VERSION === "undefined") return;
-const RANGES = [["1M", 31], ["3M", 92], ["6M", 183], ["1Y", 366], ["All", Infinity]];
+const RANGES = [["1M", 31], ["3M", 92], ["6M", 183], ["1Y", 366], ["5Y", 1827], ["10Y", 3653], ["All", Infinity]];
 let H = {series: {}}, range = "1Y", hidden = new Set();
 try { range = localStorage.getItem("hist-range2") || "1Y"; hidden = new Set(JSON.parse(localStorage.getItem("hist-hidden") || "[]")); } catch (e) {}
 const save = () => { try { localStorage.setItem("hist-range2", range); localStorage.setItem("hist-hidden", JSON.stringify([...hidden])); } catch (e) {} };
 const day = iso => new Date(iso + "T12:00:00").getTime();
-const short = t => new Date(t).toLocaleDateString([], {month: "short", day: "numeric"});
+const short = (t, wide) => new Date(t).toLocaleDateString([], wide ? {month: "short", year: "numeric"} : {month: "short", day: "numeric"});  // wide: the chart spans more than a year
 const long = t => new Date(t).toLocaleDateString([], {dateStyle: "medium"});
 const valueAt = (pts, t) => { let v = null; for (const [d, r] of pts) { if (day(d) <= t) v = r; else break; } return v; };
 
@@ -66,7 +66,7 @@ function chart(el, title, series){
   el.innerHTML = `<h2 class="h3">${title}</h2>`
     + `<svg viewBox="0 0 ${W} ${Ht}" width="${W}" height="${Ht}" role="img" aria-label="${esc(title)} rates over time, ${long(start)} to ${long(end)}">`
     + `<g class="ax">${ticks.map(v => `<line class="gl" x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}"/><text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end">${v.toFixed(2)}%</text>`).join("")}`
-    + `${xt.map((t, k) => `<text x="${x(t)}" y="${Ht - 6}" text-anchor="${k === 0 ? "start" : k === 3 ? "end" : "middle"}">${short(t)}</text>`).join("")}</g>`
+    + `${xt.map((t, k) => `<text x="${x(t)}" y="${Ht - 6}" text-anchor="${k === 0 ? "start" : k === 3 ? "end" : "middle"}">${short(t, xt[xt.length - 1] - xt[0] > 400 * 864e5)}</text>`).join("")}</g>`
     + vis.map(s => `<path d="${path(s)}" fill="none" stroke="${s.color}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"${s.dash ? ' stroke-dasharray="6 4"' : ""}/>`).join("")
     + lastDots + `<line class="cross" y1="${m.t}" y2="${m.t + ih}" x1="0" x2="0" visibility="hidden"/>`
     + `<rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent" style="cursor:crosshair"/></svg>`
