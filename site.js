@@ -1,4 +1,4 @@
-const SITE_VERSION = "17";
+const SITE_VERSION = "18";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -16,7 +16,7 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
 // Header with links to each page, plus the light / dark switch (light by default; the visitor's choice is remembered)
 (function(){
   const page = document.body.dataset.page, el = $("site-header"), base = page === "404" ? "/" : "";
-  const links = [["calc", "calculators.html", "Interactive Calculators"], ["crash", "crash-course.html", "Crash course"], ["extras", "rate-history.html", "Extras"]];
+  const links = [["calc", "calculators.html", "Interactive Calculators"], ["crash", "crash-course.html", "Mortgages Explained"], ["extras", "rate-history.html", "Extras"]];
   el.className = el.closest(".band") ? "n" : "n band";
   el.innerHTML = `<div class="nw"><a class="brand" href="${base}index.html"><svg class="bm" viewBox="10 10 44 44" aria-hidden="true"><circle cx="21" cy="21" r="7.5" fill="none" stroke="currentColor" stroke-width="5"/><circle cx="43" cy="43" r="7.5" fill="none" stroke="currentColor" stroke-width="5"/><path d="M45 16 19 48" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/></svg>What's the rate?</a>`
     + `<button type="button" class="menu" id="menubtn" aria-expanded="false" aria-controls="mainnav"><span aria-hidden="true">☰</span> Menu</button>`
@@ -59,7 +59,7 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
   });
   // Footer on every page
   const year = new Date().getFullYear();
-  main && main.insertAdjacentHTML("beforeend", `<footer class="sitefoot"><nav aria-label="Footer"><a href="${base}index.html">Today's rates</a><a href="${base}calculators.html">Calculators</a><a href="${base}crash-course.html">Crash course</a><a href="${base}faq.html">FAQ</a><a href="${base}glossary.html">Glossary</a><a href="${base}about.html">About</a><a href="${base}terms.html">Terms and privacy</a></nav>`
+  main && main.insertAdjacentHTML("beforeend", `<footer class="sitefoot"><nav aria-label="Footer"><a href="${base}index.html">Today's rates</a><a href="${base}calculators.html">Calculators</a><a href="${base}crash-course.html">Mortgages Explained</a><a href="${base}faq.html">FAQ</a><a href="${base}glossary.html">Glossary</a><a href="${base}about.html">About</a><a href="${base}terms.html">Terms and privacy</a></nav>`
     + `<p>Rates are collected every hour from each lender's own website. Information only, not financial advice: always confirm rates and terms with the lender.</p>`
     + `<p>© ${year} What's the rate?${typeof CONTACT_EMAIL !== "undefined" && CONTACT_EMAIL ? ` · <a href="mailto:${esc(CONTACT_EMAIL)}">${esc(CONTACT_EMAIL)}</a>` : ""}</p></footer>`);
 })();

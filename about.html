@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="How What&#x27;s the rate? collects mortgage rates from Canadian lenders&#x27; websites every hour, and how its calculators work.">
 <link rel="canonical" href="https://whatstherate.ca/about.html">
-<link rel="icon" href="favicon.svg?v=17" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=17" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=17">
+<link rel="icon" href="favicon.svg?v=18" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=18" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=18">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
 <meta property="og:type" content="website">
@@ -24,7 +24,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=17">
+<link rel="stylesheet" href="style.css?v=18">
 </head>
 <body data-page="extras">
 <main id="top">
@@ -45,16 +45,16 @@
 <p>The policy interest rate and the prime rate come from the Bank of Canada's official data service. The prime rate shown is the typical rate of Canada's major banks; each lender sets its own.</p>
 <h2>Rate history and arrows</h2>
 <p>Once a day the site saves every lender's rates. The <a href="rate-history.html">rate history</a> charts show how they've moved, and the small arrows in the rates table show how much a rate has changed in the last 7 days.</p>
-<h2>Calculators and the crash course</h2>
-<p>The <a href="calculators.html">calculators</a> and <a href="crash-course.html">crash course</a> follow the rules published by CMHC, the Department of Finance Canada, the Financial Consumer Agency of Canada, provincial governments and federal law. Each page links to its official sources. Results are estimates to help you plan, not offers or advice.</p>
+<h2>Calculators and Mortgages Explained</h2>
+<p>The <a href="calculators.html">calculators</a> and <a href="crash-course.html">Mortgages Explained</a> guide follow the rules published by CMHC, the Department of Finance Canada, the Financial Consumer Agency of Canada, provincial governments and federal law. Each page links to its official sources. Results are estimates to help you plan, not offers or advice.</p>
 <h2>Your rate may be different</h2>
 <p>The rates here are the ones lenders advertise to everyone. The rate you're offered depends on your situation, and many banks offer existing clients lower rates through relationship pricing. Always confirm the current rate and terms with the lender before you decide.</p>
 </div>
 </div>
 </div>
 </main>
-<script src="site.js?v=17"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="17"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=18"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="18"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 loadRates().then(d => {
   const ls = groupLenders(d).sort((a, b) => a.name.localeCompare(b.name));
