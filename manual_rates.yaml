@@ -10,4 +10,37 @@
 #   rate: 5.14
 #   checked: 2026-10-18
 #   source: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
-[]
+
+# BMO: "Special Rates" table, amortization 25 years or less. Read from the bank's page on 2026-10-19.
+- institution: BMO
+  product: 3-year fixed
+  rate: 4.94
+  checked: 2026-10-19
+  source: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
+- institution: BMO
+  product: 5-year fixed
+  rate: 5.14
+  checked: 2026-10-19
+  source: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
+- institution: BMO
+  product: 5-year variable
+  rate: 4.10
+  checked: 2026-10-19
+  source: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
+
+# CIBC: special-offer rates. Fixed from "CIBC Fixed-Rate Closed Mortgage"; variable is the 5-year "CIBC Variable Flex Mortgage". Read 2026-10-19.
+- institution: CIBC
+  product: 3-year fixed
+  rate: 5.09
+  checked: 2026-10-19
+  source: https://www.cibc.com/en/interest-rates/mortgage-rates.html
+- institution: CIBC
+  product: 5-year fixed
+  rate: 5.34
+  checked: 2026-10-19
+  source: https://www.cibc.com/en/interest-rates/mortgage-rates.html
+- institution: CIBC
+  product: 5-year variable
+  rate: 4.20
+  checked: 2026-10-19
+  source: https://www.cibc.com/en/interest-rates/mortgage-rates.html

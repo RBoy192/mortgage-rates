@@ -45,7 +45,7 @@
 # the 5-year variable is in the "CIBC Variable Flex Mortgage" table, which lists the posted rate first, then the special offer.
 - name: CIBC
   url: https://www.cibc.com/en/interest-rates/mortgage-rates.html
-  mode: auto
+  mode: manual   # the site blocks automated visits, so rates are typed into manual_rates.yaml (labels kept for if that changes)
   rates:
     - product: 3-year fixed
       label: "3-year fixed"
@@ -123,7 +123,7 @@
 # ("3 year fixed (closed)" and so on), where the first figure in each row is the rate and the second is the APR.
 - name: BMO
   url: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
-  mode: auto
+  mode: manual   # the site blocks automated visits, so rates are typed into manual_rates.yaml (labels kept for if that changes)
   rates:
     - product: 3-year fixed
       label: "3 year fixed (closed)"
