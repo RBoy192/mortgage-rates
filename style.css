@@ -479,3 +479,13 @@ th[aria-sort] button{color:var(--fg)}
 td.rate .pm{display:block;font-size:12.5px;font-weight:600;color:var(--mu);margin-top:2px;white-space:nowrap}
 td.low .pm,td.glow .pm{margin-top:4px}
 .ctl .quick{flex-wrap:wrap}
+/* Rate history: on wide screens the lenders run down the left, starting level with the first chart */
+@media (min-width:1000px){
+  .hgrid{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;align-items:start}
+  .hside{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto;padding:0 2px 2px}
+  .hside .chips{flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:6px}
+  .hside .chip{justify-content:flex-start;width:100%;text-align:left;border-radius:10px}
+  .hside .chip:first-child{margin-bottom:6px}
+  .hcharts>.chart:first-child{margin-top:0}
+}
+@media (max-width:999.98px){.hside{margin:0 0 16px}}
