@@ -491,12 +491,19 @@ td.low .pm,td.glow .pm{margin-top:4px}
 @media (min-width:1000px){
   .hgrid{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;align-items:start}
   .hside{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto;padding:0 2px 2px}
-  .hside .chips{flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:6px}
-  .hside .chip{justify-content:flex-start;width:100%;text-align:left;border-radius:10px}
+  .hside .chips{flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:4px}
+  .hside .chip{justify-content:flex-start;width:100%;text-align:left;border-radius:10px;min-height:30px;padding:4px 12px;font-size:12.5px}
   .hside .chip:first-child{margin-bottom:6px}
   .hcharts>.chart:first-child{margin-top:0}
 }
-@media (max-width:999.98px){.hside{margin:0 0 16px}}
+.hcharts .lgd{display:none}  /* the lender list beside the charts is the key */
+@media (max-width:999.98px){
+  /* phones and tablets: the lenders become one row that stays at the top of the screen; swipe it sideways */
+  .hside{position:sticky;top:0;z-index:5;background:var(--bg);margin:0 -16px 12px;padding:8px 16px;box-shadow:0 6px 10px -8px rgba(0,0,0,.25)}
+  .hside .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px}
+  .hside .chips::-webkit-scrollbar{display:none}
+  .hside .chip{flex:none}
+}
 /* Phones: policy and prime rates stacked beside the heading; best rates three across; change arrows beside the rates */
 @media (max-width:600px){
   .band.home .hero{grid-template-columns:minmax(0,1fr) auto;column-gap:14px;align-items:center}

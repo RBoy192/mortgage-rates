@@ -26,8 +26,9 @@ function controls(){
   $("chips").innerHTML = (Object.keys(H.series).some(k => k.startsWith("posted|")) ? `<button type="button" class="chip" aria-pressed="${!hidden.has(P)}" data-n="${P}"><i style="background:var(--mu)"></i>Big-bank posted rate</button>` : "") + lenders().map(n => `<button type="button" class="chip" aria-pressed="${!hidden.has(n)}" data-n="${esc(n)}"><i style="background:${seriesVar(n)}"></i>${esc(n)}</button>`).join("");
 }
 
-function chart(el, title, series){
-  const end = day(todayISO()), all = series.flatMap(s => s.points.map(p => day(p[0])));
+// `scale`: the lines the axes are sized for (every lender, shown or not), so filtering never rescales the chart
+function chart(el, title, series, scale = series){
+  const end = day(todayISO()), all = scale.flatMap(s => s.points.map(p => day(p[0])));
   if (!series.length && [...hidden].some(n => !n.startsWith("Big-bank"))) { el.innerHTML = `<h2 class="h3">${title}</h2>` + mascotNote(`No lenders picked. Tap a lender ${matchMedia("(min-width:1000px)").matches && document.querySelector(".hside") ? "on the left" : "above"}, or use Show all, to bring the lines back.`, "hold"); return; }
   if (!all.length) { el.innerHTML = `<h2 class="h3">${title}</h2>${mascotNote("No history yet. It fills in as the site saves each day's rates.", "hold")}`; return; }
   const span = RANGES.find(r => r[0] === range)[1];
@@ -35,8 +36,8 @@ function chart(el, title, series){
   if (start >= end) start = end - 7 * 864e5;
   const vis = series.map(s => Object.assign({}, s, {v: s.points.filter(p => day(p[0]) >= start), before: valueAt(s.points, start)}))
     .filter(s => s.v.length || s.before != null);
-  const vals = vis.flatMap(s => [...s.v.map(p => p[1]), ...(s.before != null ? [s.before] : [])]);
-  if (!vals.length) { el.innerHTML = `<h2 class="h3">${title}</h2><p class="empty">No rates in this time range.</p>`; return; }
+  const vals = scale.flatMap(s => { const v = s.points.filter(p => day(p[0]) >= start).map(p => p[1]), b = valueAt(s.points, start); return b != null ? [...v, b] : v; });
+  if (!vis.length || !vals.length) { el.innerHTML = `<h2 class="h3">${title}</h2><p class="empty">No rates in this time range.</p>`; return; }
   const vmin = Math.min(...vals), vmax = Math.max(...vals);
   const stepY = [0.05, 0.1, 0.25, 0.5, 1, 2].find(s => Math.ceil((vmax + 0.05) / s) - Math.floor((vmin - 0.05) / s) <= 5) || 2;
   const lo = Math.floor((vmin - 0.05) / stepY) * stepY, hi = Math.ceil((vmax + 0.05) / stepY) * stepY;
@@ -147,9 +148,13 @@ function render(){
   const ls = lenders().filter(n => !hidden.has(n));
   // The Bank of Canada publishes the big banks' typical posted rate for fixed terms; it's drawn dashed for context.
   const POSTED = "Big-bank posted rate (Bank of Canada)";
-  COLUMNS.forEach(([, p], k) => chart($("ch" + k), p.charAt(0).toUpperCase() + p.slice(1),
-    ls.filter(n => H.series[n + "|" + p]).map(n => ({name: n, color: seriesVar(n), points: H.series[n + "|" + p]}))
-      .concat(H.series["posted|" + p] && !hidden.has(POSTED) ? [{name: POSTED, color: "var(--mu)", dash: true, points: H.series["posted|" + p]}] : [])));
+  COLUMNS.forEach(([, p], k) => {
+    const line = n => ({name: n, color: seriesVar(n), points: H.series[n + "|" + p]});
+    const posted = H.series["posted|" + p] ? [{name: POSTED, color: "var(--mu)", dash: true, points: H.series["posted|" + p]}] : [];
+    chart($("ch" + k), p.charAt(0).toUpperCase() + p.slice(1),
+      ls.filter(n => H.series[n + "|" + p]).map(line).concat(hidden.has(POSTED) ? [] : posted),
+      lenders().filter(n => H.series[n + "|" + p]).map(line).concat(posted));  // axes fit every line, shown or not
+  });
   chart($("chb"), "Bank of Canada policy rate and prime rate", [["policy_rate", "BoC policy rate", "var(--s1)"], ["prime_rate", "Prime rate", "var(--s2)"]]
     .filter(([k]) => H.series[k]).map(([k, name, color]) => ({name, color, steps: true, points: H.series[k]})));
   const lenderFirst = Object.entries(H.series).filter(([k]) => k.includes("|") && !k.startsWith("posted|")).flatMap(([, s]) => s.map(p => p[0])).sort()[0];
