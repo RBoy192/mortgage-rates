@@ -15,20 +15,36 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - run: playwright install --with-deps chromium
-      - name: Check new lenders
+      - name: Logos
         run: |
           mkdir -p explore
           python - <<'PY' 2>&1 | tee explore/summary.txt
-          import yaml, scraper
-          NEW = ["Affinity Credit Union", "Conexus Credit Union", "Libro Credit Union", "FirstOntario Credit Union", "UNI Financial",
-                 "ICICI Bank Canada", "Access Credit Union", "Assiniboine Credit Union", "Steinbach Credit Union", "Tru Cooperative Bank"]
-          for l in yaml.safe_load(open("institutions.yaml")):
-              if l["name"] not in NEW: continue
-              res, err = scraper.scrape_lender(l)
-              for k, v in res.items(): print(f"{l['name']} | {k} | {v[0]} | {v[1][:90]!r}")
-              for k, v in err.items(): print(f"{l['name']} | {k} | ERROR {str(v)[:120]}")
-              if l.get("mode") == "browser":
-                  open(f"explore/{l['name'].split()[0].lower()}-browser.html", "w").write(scraper.get_html(l["url"], True))
+          import re, requests
+          from bs4 import BeautifulSoup
+          from urllib.parse import urljoin
+          SITES = {"Affinity Credit Union": "https://www.affinitycu.ca/", "Conexus Credit Union": "https://www.conexus.ca/",
+            "Libro Credit Union": "https://www.libro.ca/", "FirstOntario Credit Union": "https://www.firstontario.com/",
+            "UNI Financial": "https://www.uni.ca/en/", "ICICI Bank Canada": "https://www.icicibank.ca/", "Access Credit Union": "https://www.accesscu.ca/",
+            "Assiniboine Credit Union": "https://www.acu.ca/", "Steinbach Credit Union": "https://scu.mb.ca/", "Beem Credit Union": "https://beemcreditunion.ca/",
+            "Tru Cooperative Bank": "https://www.trucooperativebank.ca/"}
+          UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36"}
+          for n, u in SITES.items():
+              try:
+                  r = requests.get(u, headers=UA, timeout=30); s = BeautifulSoup(r.text, "html.parser")
+              except Exception as e:
+                  print(n, "FAILED", e); continue
+              print("=====", n, r.status_code, r.url)
+              for l in s.find_all("link", href=True):
+                  if "icon" in " ".join(l.get("rel", [])): print("  icon", l.get("rel"), l.get("sizes"), urljoin(r.url, l["href"]))
+              for m in s.find_all("meta"):
+                  if m.get("name") in ("theme-color", "msapplication-TileColor") or m.get("property") == "og:image": print("  meta", m.get("name") or m.get("property"), urljoin(r.url, m.get("content", "")))
+              for i in s.find_all("img", src=True):
+                  if re.search(r"logo", i["src"] + " " + i.get("alt", "") + " " + " ".join(i.get("class", [])), re.I): print("  img", urljoin(r.url, i["src"]), i.get("alt"))
+              for i in s.find_all(["svg"]):
+                  if re.search("logo", str(i.get("class")) + str(i.get("aria-label")), re.I):
+                      print("  svgfill", sorted(set(re.findall(r"#[0-9a-fA-F]{6}", str(i))))[:6])
+              css = " ".join(x.get_text() for x in s.find_all("style"))
+              print("  colours", [c for c, _ in __import__("collections").Counter(re.findall(r"#[0-9a-fA-F]{6}", r.text)).most_common(8)])
           PY
           git config user.name "rates-bot"; git config user.email "rates-bot@users.noreply.github.com"
           git checkout --orphan diagnose; git rm -rqf --cached .; git add explore
