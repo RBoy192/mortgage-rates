@@ -173,7 +173,7 @@ body.leaving{opacity:0;transition:opacity .15s ease-in}
 .tip b{display:block;margin-bottom:4px}
 .tip div{display:flex;justify-content:space-between;gap:12px}
 .lgd{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--mu);margin:8px 0 0}
-.lgd span{display:inline-flex;align-items:center;gap:6px;font-weight:600;color:var(--c);color:color-mix(in srgb,var(--c) 50%,var(--fg))}
+.lgd span{display:inline-flex;align-items:center;gap:6px;font-weight:600;color:var(--fg)}
 /* the swatch is drawn like the chart itself: a line in the lender's colour with its end dot */
 .lgd i{position:relative;width:20px;height:3px;border-radius:2px;display:inline-block;background:var(--c)}
 .lgd i::after{content:"";position:absolute;right:-1px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--c)}
