@@ -21,7 +21,7 @@ a.nl{display:inline-block;padding:6px 14px;border:1px solid var(--ln);border-rad
 a.nl:hover{border-color:var(--fg)}
 a.nl[aria-current]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .pill{background:var(--pill);color:var(--pillfg);border-radius:999px;padding:4px 14px;font-weight:700;font-size:14px}
-.mode{display:inline-flex;align-items:center;gap:8px;font:600 14px var(--bd);color:var(--fg);background:var(--card);border:1px solid var(--ln);border-radius:999px;padding:7px 14px;cursor:pointer}
+.mode{display:inline-grid;place-items:center;width:40px;height:40px;color:var(--fg);background:var(--card);border:1px solid var(--ln);border-radius:999px;padding:0;cursor:pointer}
 .mode svg{width:18px;height:18px}
 .su{display:none}
 [data-theme="dark"] .su{display:block}
@@ -347,7 +347,7 @@ table.rank td.gap{color:var(--mu);font-size:14px;white-space:nowrap;padding-top:
 .start2 .bt small:empty{display:none}
 @media (max-width:480px){table.rank td.rk{width:40px}table.rank td.gap{font-size:13px}}
 @media (max-width:600px){#best .k:not(:first-child){display:none}table.rank th:nth-child(4),table.rank td:nth-child(4){display:none}}
-@media (min-width:701px) and (max-width:1180px){.band a.nl{padding:6px 11px;font-size:13px}.band .mode{padding:6px 11px;font-size:13px}a.brand{font-size:21px;gap:12px}a.brand .bm{width:30px;height:30px}.nw{gap:8px}.n{gap:12px 12px}}
+@media (min-width:701px) and (max-width:1180px){.band a.nl{padding:6px 11px;font-size:13px}.band .mode{width:36px;height:36px}a.brand{font-size:21px;gap:12px}a.brand .bm{width:30px;height:30px}.nw{gap:8px}.n{gap:12px 12px}}
 /* Calculators: actions under the result, workings tucked away */
 .acts{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px 20px;margin:12px 0 4px;font-size:14px}
 details.how{margin-top:14px;border-top:1px solid var(--ln);padding-top:10px}
@@ -473,7 +473,7 @@ th[aria-sort] button{color:var(--fg)}
 .payctl{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:0 0 14px;font-size:15px}
 .payctl label{font-weight:600}
 .payctl .dl{display:inline-flex;align-items:center;gap:4px;background:var(--card);border:1px solid var(--ln);border-radius:10px;padding:0 10px}
-.payctl input{width:110px;border:0;background:none;font:700 16px var(--bd);color:var(--fg);padding:8px 0}
+.payctl input{width:110px;border:0;background:none;font:700 16px/1 var(--bd);color:var(--fg);padding:9px 0 9px;margin:0;align-self:center}
 .payctl input:focus{outline:none}
 .payctl .dl:focus-within{outline:3px solid var(--link);outline-offset:1px}
 td.rate .pm{display:block;font-size:12.5px;font-weight:600;color:var(--mu);margin-top:2px;white-space:nowrap}
