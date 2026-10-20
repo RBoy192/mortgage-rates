@@ -264,13 +264,23 @@ h1:focus{outline:none}
 .sitefoot nav a{font-weight:600;font-size:14px}
 .sitefoot p{margin:6px 0}
 @media (max-width:700px){
-  .n{align-items:flex-start}
-  .nw{flex:1}
-  .menu{display:inline-flex;align-items:center;gap:6px;margin-left:auto}
-  .mainnav{display:none;width:100%;flex-direction:column;gap:8px;margin-top:8px}
+  /* one row: logo on the left; light/dark and Menu on the right; the menu opens full width below */
+  .n{align-items:center;gap:10px 8px}
+  .nw{display:contents}
+  .n a.brand{order:1;margin-right:auto}
+  .n .r{order:2;width:auto}
+  .menu{order:3;display:inline-flex;align-items:center;gap:6px}
+  .mainnav{order:4;display:none;width:100%;flex-direction:column;gap:8px;margin-top:8px}
   .n.open .mainnav{display:flex}
   .mainnav a.nl{padding:10px 14px;border-radius:12px}
-  .n .r{width:100%;justify-content:flex-start}
+  .n a.brand{font-size:clamp(16px,5vw,20px);gap:10px}
+  .n a.brand .bm{width:clamp(24px,7vw,28px);height:clamp(24px,7vw,28px)}
+  .n .mode{width:38px;height:38px}
+  .menu{padding:6px 12px;min-height:38px}
+}
+@media (max-width:380px){  /* narrow phones: just the ☰ icon (screen readers still hear "Menu") */
+  .menu{width:38px;padding:0;justify-content:center}
+  .menu .mt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 }
 @media (max-width:820px){
   .vl nav.tabs{display:none}
@@ -487,23 +497,32 @@ th[aria-sort] button{color:var(--fg)}
 td.rate .pm{display:block;font-size:12.5px;font-weight:600;color:var(--mu);margin-top:2px;white-space:nowrap}
 td.low .pm,td.glow .pm{margin-top:4px}
 .ctl .quick{flex-wrap:wrap}
-/* Rate history: on wide screens the lenders run down the left, starting level with the first chart */
+/* Rate history: the time-range and quick-pick buttons stay pinned at the top while scrolling */
+.hbar{position:sticky;top:0;z-index:6;background:var(--bg);margin:0 -16px;padding:8px 16px 4px;box-shadow:0 6px 10px -10px rgba(0,0,0,.3)}
+.hbar .ctl{margin:0 0 4px}
+.hcharts .lgd{display:none}  /* the lender list beside the charts is the key */
+/* wide screens: the lenders run down the left, starting level with the first chart, pinned just below the buttons */
 @media (min-width:1000px){
-  .hgrid{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;align-items:start}
-  .hside{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto;padding:0 2px 2px}
+  .hgrid{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;align-items:start;margin-top:12px}
+  .hside{position:sticky;top:calc(var(--hbar-h,64px) + 12px);max-height:calc(100vh - var(--hbar-h,64px) - 24px);overflow:auto;padding:0 2px 2px}
   .hside .chips{flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:4px}
   .hside .chip{justify-content:flex-start;width:100%;text-align:left;border-radius:10px;min-height:30px;padding:4px 12px;font-size:12.5px}
   .hside .chip:first-child{margin-bottom:6px}
   .hcharts>.chart:first-child{margin-top:0}
 }
-.hcharts .lgd{display:none}  /* the lender list beside the charts is the key */
+/* phones and tablets: buttons and lenders form one pinned bar; the quick picks and lenders scroll sideways */
 @media (max-width:999.98px){
-  /* phones and tablets: the lenders become one row that stays at the top of the screen; swipe it sideways */
-  .hside{position:sticky;top:0;z-index:5;background:var(--bg);margin:0 -16px 12px;padding:8px 16px;box-shadow:0 6px 10px -8px rgba(0,0,0,.25)}
+  .hbar{box-shadow:none;padding-bottom:0}
+  .hbar .ctl{flex-wrap:nowrap;flex-direction:column;align-items:stretch;gap:6px}
+  .hbar .seg2,.hbar .ctl .quick{max-width:100%;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;align-self:flex-start}
+  .hbar .seg2::-webkit-scrollbar{display:none}
+  .hbar .seg2 button{flex:none;min-height:32px;padding:5px 12px}
+  .hside{position:sticky;top:var(--hbar-h,96px);z-index:5;background:var(--bg);margin:0 -16px 12px;padding:4px 16px 8px;box-shadow:0 6px 10px -8px rgba(0,0,0,.25)}
   .hside .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px}
   .hside .chips::-webkit-scrollbar{display:none}
   .hside .chip{flex:none}
 }
+
 /* Phones: policy and prime rates stacked beside the heading; best rates three across; change arrows beside the rates */
 @media (max-width:600px){
   .band.home .hero{grid-template-columns:minmax(0,1fr) auto;column-gap:14px;align-items:center}

@@ -1,4 +1,4 @@
-const SITE_VERSION = "43";
+const SITE_VERSION = "44";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -19,7 +19,7 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
   const links = [["calc", "calculators.html", "Interactive Calculators"], ["history", "rate-history.html", "Rate history"], ["crash", "crash-course.html", "Mortgages Explained"], ["extras", "faq.html", "Extras"]];
   el.className = el.closest(".band") ? "n" : "n band";
   el.innerHTML = `<div class="nw"><a class="brand" href="${base}index.html"><svg class="bm" viewBox="10 10 44 44" aria-hidden="true"><circle cx="21" cy="21" r="7.5" fill="none" stroke="currentColor" stroke-width="5"/><circle cx="43" cy="43" r="7.5" fill="none" stroke="currentColor" stroke-width="5"/><path d="M45 16 19 48" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/></svg>What's the rate?</a>`
-    + `<button type="button" class="menu" id="menubtn" aria-expanded="false" aria-controls="mainnav"><span aria-hidden="true">☰</span> Menu</button>`
+    + `<button type="button" class="menu" id="menubtn" aria-expanded="false" aria-controls="mainnav"><span aria-hidden="true">☰</span> <span class="mt">Menu</span></button>`
     + `<nav class="mainnav" id="mainnav" aria-label="Main">` + links.map(([k, u, t]) => `<a class="nl" href="${base}${u}"${k === page ? ' aria-current="page"' : ""}>${t}</a>`).join("") + `</nav></div>`
     + `<div class="r"><button class="mode" id="mode" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">`
     + `<svg class="mo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>`

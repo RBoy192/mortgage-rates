@@ -176,5 +176,7 @@ $("quick").onclick = e => {
 };
 $("chips").onclick = e => { const b = e.target.closest("button"); if (b) { const n = b.dataset.n; hidden.has(n) ? hidden.delete(n) : hidden.add(n); save(); render(); } };
 let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(render, 150); });
+// The pinned bar of time-range and quick-pick buttons: tell the CSS how tall it is, so the lender list pins just below it
+if (window.ResizeObserver && $("hbar")) new ResizeObserver(([e]) => document.documentElement.style.setProperty("--hbar-h", Math.ceil(e.target.getBoundingClientRect().height) + "px")).observe($("hbar"));
 loadHistory().then(h => { H = h && h.series ? h : {series: {}}; render(); });
 })();
