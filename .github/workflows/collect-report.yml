@@ -1,0 +1,36 @@
+name: Collect a backfill report (one-off)
+# Started by hand: saves the per-lender results of an earlier backfill run to backfill/report-<run>.csv
+# (for runs whose own report step couldn't save them). Changes nothing else.
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "The backfill run's id"
+        required: true
+permissions:
+  contents: write
+  actions: read
+jobs:
+  collect:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: parts
+          merge-multiple: true
+          run-id: ${{ inputs.run_id }}
+          github-token: ${{ github.token }}
+      - name: Combine and commit
+        run: |
+          out="backfill/report-${{ inputs.run_id }}.csv"
+          first=1
+          for f in parts/*.csv; do if [ $first = 1 ]; then cat "$f"; first=0; else tail -n +2 "$f"; fi; done > "$out"
+          wc -l "$out"
+          git config user.name "rates-bot"; git config user.email "rates-bot@users.noreply.github.com"
+          git add "$out"; git commit -m "Backfill report for run ${{ inputs.run_id }} (for review)" || exit 0
+          for i in 1 2 3 4 5; do
+            if git pull --rebase -X theirs && git push; then exit 0; fi
+            sleep $((i * 15))
+          done
+          exit 1

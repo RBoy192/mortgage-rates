@@ -55,10 +55,16 @@ jobs:
       - name: Combine and commit the report
         run: |
           mkdir -p backfill
+          out="backfill/report-${{ github.run_id }}.csv"   # one file per run, so runs never overwrite each other
           first=1
-          for f in parts/*.csv; do if [ $first = 1 ]; then cat "$f"; first=0; else tail -n +2 "$f"; fi; done > backfill/backfill_report.csv
+          for f in parts/*.csv; do if [ $first = 1 ]; then cat "$f"; first=0; else tail -n +2 "$f"; fi; done > "$out"
+          cp "$out" backfill/backfill_report.csv
           git config user.name "rates-bot"
           git config user.email "rates-bot@users.noreply.github.com"
-          git add backfill/backfill_report.csv
+          git add "$out" backfill/backfill_report.csv
           git commit -m "Rate history backfill report (for review)" || exit 0
-          for i in 1 2 3; do git pull --rebase && git push && break; sleep 10; done
+          for i in 1 2 3 4 5; do
+            if git pull --rebase -X theirs && git push; then exit 0; fi
+            sleep $((i * 15))
+          done
+          echo "Couldn't save the report" >&2; exit 1

@@ -1,5 +1,5 @@
 import csv, json, re, collections, sys
-rows=list(csv.DictReader(open("backfill/backfill_report.csv")))
+rows=list(csv.DictReader(open(sys.argv[1] if len(sys.argv) > 1 else "backfill/backfill_report.csv")))  # or a report-<run>.csv
 def ok(r):
     if not r["rate"]: return False
     t=r["text_read"]; v=float(r["rate"])
