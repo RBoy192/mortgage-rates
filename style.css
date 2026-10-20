@@ -558,7 +558,9 @@ td.low .pm,td.glow .pm{margin-top:4px}
   #head th{font-size:12px;white-space:normal;line-height:1.2;vertical-align:bottom}
   #head th button{text-align:inherit}
   #rows td.ln{white-space:normal;font-size:14px;line-height:1.25;width:34%;padding-left:8px}
-  #rows td.ln .lg-logo,#rows td.ln a svg{display:none}  /* names only: logos and the small arrow make them wrap awkwardly */
+  #rows td.ln .lg-logo{display:none}  /* names only: logos make them wrap awkwardly */
+  #rows td.ln a{text-decoration:none}
+  #rows td.ln a svg{width:11px;height:11px;margin-left:3px;vertical-align:1px}
   #rows td.rate b{font-size:16px}
   #rows td.rate .pm{font-size:11px}
   #rows tr.grp th{padding:8px 10px;font-size:11px}
@@ -582,7 +584,7 @@ td.low .pm,td.glow .pm{margin-top:4px}
 @media (max-width:600px){
   #head .yl{display:none}#head .ys{display:inline}  /* "3-yr fixed" on phones */
   /* lender names in their own brand colour (deepened just enough to stay readable) */
-  #rows td.ln a{color:color-mix(in srgb,var(--c) 70%,#000);text-decoration-color:var(--c)}
+  #rows td.ln a{color:color-mix(in srgb,var(--c) 70%,#000)}
   [data-theme="dark"] #rows td.ln a{color:color-mix(in srgb,var(--c) 85%,#fff)}
   /* the two yellow brands (EQ Bank, First National) need a deeper shade to stay readable on white */
   #rows td.ln[style*="--s3)"] a,#rows td.ln[style*="--s17)"] a{color:color-mix(in srgb,var(--c) 58%,#000)}

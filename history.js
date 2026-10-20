@@ -41,9 +41,9 @@ function controls(){
 }
 
 // `scale`: the lines the axes are sized for (every lender, shown or not), so filtering never rescales the chart
-function chart(el, title, series, scale = series){
+function chart(el, title, series, scale = series, nonePicked = false){
   const end = day(todayISO()), all = scale.flatMap(s => s.points.map(p => day(p[0])));
-  if (!series.length && [...hidden].some(n => !n.startsWith("Big-bank"))) { el.innerHTML = `<h2 class="h3">${title}</h2>` + mascotNote(`No lenders picked. Tap a lender ${matchMedia("(min-width:1000px)").matches && document.querySelector(".hside") ? "on the left" : "above"}, or use Show all, to bring the lines back.`, "hold"); return; }
+  if (!series.length && nonePicked) { el.innerHTML = `<h2 class="h3">${title}</h2>` + mascotNote(`No lenders picked. Tap a lender ${matchMedia("(min-width:1000px)").matches && document.querySelector(".hside") ? "on the left" : "above"}, or use Show all, to bring the lines back.`, "hold"); return; }
   if (!all.length) { el.innerHTML = `<h2 class="h3">${title}</h2>${mascotNote("No history yet. It fills in as the site saves each day's rates.", "hold")}`; return; }
   const span = RANGES.find(r => r[0] === range)[1];
   let start = Math.max(Math.min(...all), end - span * 864e5);
@@ -170,7 +170,8 @@ function render(){
     const posted = H.series["posted|" + p] ? [{name: POSTED, color: "var(--mu)", dash: true, points: H.series["posted|" + p]}] : [];
     chart($("ch" + k), p.charAt(0).toUpperCase() + p.slice(1),
       ls.filter(n => H.series[n + "|" + p]).map(line).concat(hidden.has(POSTED) ? [] : posted),
-      lenders().filter(n => H.series[n + "|" + p]).map(line).concat(posted));  // axes fit every line, shown or not
+      lenders().filter(n => H.series[n + "|" + p]).map(line).concat(posted),  // axes fit every line, shown or not
+      avail().length > 0 && !ls.length);  // every lender in this region switched off
   });
   chart($("chb"), "Bank of Canada policy rate and prime rate", [["policy_rate", "BoC policy rate", "var(--s1)"], ["prime_rate", "Prime rate", "var(--s2)"]]
     .filter(([k]) => H.series[k]).map(([k, name, color]) => ({name, color, steps: true, points: H.series[k]})));
@@ -183,16 +184,20 @@ function render(){
 
 $("range").onclick = e => { const b = e.target.closest("button"); if (b) { range = b.dataset.r; save(); render(); } };
 // Quick picks: everyone, banks only, credit unions only, or nobody (then tap lenders one by one)
-$("region").onchange = e => { region = e.target.value; avail().forEach(n => hidden.delete(n)); render(); };  // a new region starts with all its lenders shown
+// Changing region keeps the lender-type choice: Banks only stays banks only, and so on. Hand-picked lenders stay as picked.
+let pick = "all";
+const applyPick = () => { if (!pick) return; const all = avail(), keep = {all, banks: all.filter(n => !NON_BANKS.includes(n)), others: all.filter(n => NON_BANKS.includes(n)), none: []}[pick]; all.forEach(n => keep.includes(n) ? hidden.delete(n) : hidden.add(n)); };
+$("region").onchange = e => { region = e.target.value; applyPick(); render(); };
 $("quick").onclick = e => {
   const b = e.target.closest("button"); if (!b) return;
+  pick = b.dataset.q;
   const all = avail(), keep = {all: all, banks: all.filter(n => !NON_BANKS.includes(n)), others: all.filter(n => NON_BANKS.includes(n)), none: []}[b.dataset.q];
   all.forEach(n => keep.includes(n) ? hidden.delete(n) : hidden.add(n));
   const P = "Big-bank posted rate (Bank of Canada)";
   if (b.dataset.q === "none" || b.dataset.q === "all") hidden.add(P);  // Show all means every lender; the posted-rate line stays off until tapped
   save(); render();
 };
-$("chips").onclick = e => { const b = e.target.closest("button"); if (b) { const n = b.dataset.n; hidden.has(n) ? hidden.delete(n) : hidden.add(n); save(); render(); } };
+$("chips").onclick = e => { const b = e.target.closest("button"); if (b) { const n = b.dataset.n; if (!n.startsWith("Big-bank")) pick = null; hidden.has(n) ? hidden.delete(n) : hidden.add(n); save(); render(); } };
 let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(render, 150); });
 // The pinned bar of time-range and quick-pick buttons: tell the CSS how tall it is, so the lender list pins just below it
 if (window.ResizeObserver && $("hbar")) new ResizeObserver(([e]) => document.documentElement.style.setProperty("--hbar-h", Math.ceil(e.target.getBoundingClientRect().height) + "px")).observe($("hbar"));
