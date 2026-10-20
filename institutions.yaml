@@ -375,3 +375,83 @@
       label: "5-Year Variable Closed"
       prime_label: "ICICI Bank Canada Prime Rate"
       note: "Posted rate"
+
+# ---- Manitoba ----
+# Access: one mortgage table with a "Rates" column; the closed variable row also shows its prime discount, so the rate is read from that column.
+- name: Access Credit Union
+  url: https://www.accesscu.ca/en/rates
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3 Year Fixed"
+    - product: 5-year fixed
+      label: "5 Year Fixed"
+    - product: 5-year variable
+      label: "Variable Closed"
+      column: "Rates"
+
+# Assiniboine (ACU): the page has two copies of its mortgage table with different figures; the copy under the
+# "Rates were last updated" date (it follows the first copy's prime rate line) is read.
+- name: Assiniboine Credit Union
+  url: https://www.acu.ca/rates
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3-year"
+      after: "Prime lending rate"
+      before: "Variable rate open mortgage"
+    - product: 5-year fixed
+      label: "5-year"
+      after: "Prime lending rate"
+      before: "Variable rate open mortgage"
+    - product: 5-year variable
+      label: "Variable rate closed mortgage"
+      after: "Prime lending rate"
+
+# Steinbach: one borrowing table; the conventional (uninsured) rows are read.
+- name: Steinbach Credit Union
+  url: https://scu.mb.ca/rates/borrowing
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "Conventional Fixed 3-year Mortgage"
+    - product: 5-year fixed
+      label: "Conventional Fixed 5-year Mortgage"
+    - product: 5-year variable
+      label: "Conventional Closed Variable Mortgage"
+
+# Beem: rates load with JavaScript. The fixed table lists
+# 25-year and 30-year amortization columns; the 25-year one (the first figure) is read. The variable row shows
+# its prime discount first, so the rate is the 2nd figure.
+- name: Beem Credit Union
+  url: https://beemcreditunion.ca/rates
+  mode: browser
+  rates:
+    - product: 3-year fixed
+      label: "3 year"
+      after: "Fixed closed-rate mortgages"
+      before: "Variable-rate mortgages"
+    - product: 5-year fixed
+      label: "5 year"
+      after: "Fixed closed-rate mortgages"
+      before: "Variable-rate mortgages"
+    - product: 5-year variable
+      label: "5 year (closed variable)"
+      nth: 2
+
+# Tru Cooperative Bank (Envision Financial): rates load with JavaScript. Each 5-year product has an insured and an
+# uninsured row; the uninsured row is read (the second match after the 4-year row).
+- name: Tru Cooperative Bank
+  url: https://www.trucooperativebank.ca/envision-financial/personal/rates/mortgage-rates
+  mode: browser
+  rates:
+    - product: 3-year fixed
+      label: "3 year fixed rate (closed)"
+    - product: 5-year fixed
+      label: "5 year fixed rate (closed)"
+      after: "4 year fixed rate (closed)"
+      occurrence: 2
+    - product: 5-year variable
+      label: "5 year variable rate (closed)"
+      after: "Variable mortgage rates Open/closed"
+      occurrence: 2
