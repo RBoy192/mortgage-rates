@@ -1,285 +1,1327 @@
 lender,product,date,archived_at,rate,via,text_read,error
-CIBC,5-year fixed,2019-01-04,20190104132540,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
-CIBC,5-year variable,2019-01-04,20190104132540,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-01-08,20190108235530,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
-CIBC,5-year variable,2019-01-08,20190108235530,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-01-16,20190116094357,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
-CIBC,5-year variable,2019-01-16,20190116094357,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-01-21,20190121175501,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
-CIBC,5-year variable,2019-01-21,20190121175501,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-01-28,20190128202426,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
-CIBC,5-year variable,2019-01-28,20190128202426,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-02-04,20190204043644,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
-CIBC,5-year variable,2019-02-04,20190204043644,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-02-11,20190211093819,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
-CIBC,5-year variable,2019-02-11,20190211093819,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-02-18,20190218141854,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
-CIBC,5-year variable,2019-02-18,20190218141854,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-02-25,20190225114101,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
-CIBC,5-year variable,2019-02-25,20190225114101,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-03-04,20190304024945,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
-CIBC,5-year variable,2019-03-04,20190304024945,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-03-11,20190311044006,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
-CIBC,5-year variable,2019-03-11,20190311044006,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-03-18,20190318000106,3.39,browser,5.34% 3.39% 1,
-CIBC,5-year variable,2019-03-18,20190318000106,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-03-25,20190325220545,3.39,browser,5.34% 3.39% 1,
-CIBC,5-year variable,2019-03-25,20190325220545,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-04-01,20190401114925,3.39,browser,5.34% 3.39% 1,
-CIBC,5-year variable,2019-04-01,20190401114925,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-04-08,20190408085629,3.39,browser,5.34% 3.39% 1,
-CIBC,5-year variable,2019-04-08,20190408085629,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-04-15,20190415132309,3.39,browser,5.34% 3.39% 1,
-CIBC,5-year variable,2019-04-15,20190415132309,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-04-22,20190422130328,3.39,browser,5.34% 3.39% 1,
-CIBC,5-year variable,2019-04-22,20190422130328,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-04-29,20190429103245,3.39,browser,5.34% 3.39% 1,
-CIBC,5-year variable,2019-04-29,20190429103245,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-05-06,20190506042531,3.39,browser,5.34% 3.39% 1,
-CIBC,5-year variable,2019-05-06,20190506042531,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-05-13,20190513043559,3.39,browser,5.34% 3.39% 1,
-CIBC,5-year variable,2019-05-13,20190513043559,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-05-20,20190520070347,3.39,browser,5.34% 3.39% 1,
-CIBC,5-year variable,2019-05-20,20190520070347,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-05-27,20190527131138,3.39,browser,5.34% 3.39% 1,
-CIBC,5-year variable,2019-05-27,20190527131138,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-06-03,20190603230039,3.39,browser,5.34% 3.39% 1,
-CIBC,5-year variable,2019-06-03,20190603230039,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-06-10,20190610144532,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-06-10,20190610144532,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-06-17,20190617150502,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-06-17,20190617150502,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-06-24,20190624134625,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-06-24,20190624134625,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-07-01,20190701114530,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-07-01,20190701114530,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-07-08,20190708164621,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-07-08,20190708164621,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-07-15,20190715210247,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-07-15,20190715210247,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-07-22,20190722045827,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-07-22,20190722045827,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-07-29,20190729081018,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-07-29,20190729081018,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-08-05,20190805204845,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-08-05,20190805204845,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-08-12,20190812015017,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-08-12,20190812015017,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-08-19,20190819015750,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-08-19,20190819015750,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-08-26,20190826230544,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-08-26,20190826230544,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-09-03,20190903133419,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-09-03,20190903133419,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-09-09,20190909210558,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-09-09,20190909210558,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-09-16,20190916124306,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-09-16,20190916124306,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-09-23,20190923092317,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-09-23,20190923092317,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-09-30,20190930204137,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-09-30,20190930204137,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-10-26,20191026134308,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-10-26,20191026134308,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-11-01,20191101212217,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20191101212217if_/https://www.cibc.com/
-CIBC,5-year variable,2019-11-01,20191101212217,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20191101212217if_/https://www.cibc.com/
-CIBC,5-year fixed,2019-11-09,20191109083906,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-11-09,20191109083906,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-11-15,20191115131052,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-11-15,20191115131052,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-11-19,20191119143536,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-11-19,20191119143536,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-11-26,20191126120427,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-11-26,20191126120427,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-12-07,20191207045230,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-12-07,20191207045230,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-12-10,20191210164733,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-12-10,20191210164733,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-12-17,20191217185646,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-12-17,20191217185646,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-12-24,20191224074402,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-12-24,20191224074402,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2019-12-31,20191231062007,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2019-12-31,20191231062007,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-01-07,20200107091238,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-01-07,20200107091238,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-01-28,20200128082608,,,,"text after the label doesn't match the expected layout: 'rds%rate[5].frcm.published(5_null_null_years_t,null,1,null)('"
-CIBC,5-year variable,2020-01-28,20200128082608,,,,"text after the label doesn't match the expected layout: 'rds%rate[5].frcm.published(5_null_null_years_t,null,1,null)('"
-CIBC,5-year fixed,2020-02-04,20200204032102,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-02-04,20200204032102,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-02-11,20200211013450,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-02-11,20200211013450,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-02-18,20200218030751,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-02-18,20200218030751,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-02-25,20200225051637,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-02-25,20200225051637,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-03-03,20200303223927,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-03-03,20200303223927,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-03-11,20200311000544,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-03-11,20200311000544,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-03-24,20200324002342,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-03-24,20200324002342,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-03-30,20200330110432,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-03-30,20200330110432,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-04-08,20200408001946,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-04-08,20200408001946,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-04-15,20200415014926,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-04-15,20200415014926,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-04-22,20200422022741,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-04-22,20200422022741,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-04-29,20200429033808,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-04-29,20200429033808,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-05-05,20200505232844,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-05-05,20200505232844,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-05-13,20200513101135,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-05-13,20200513101135,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-05-20,20200520033848,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-05-20,20200520033848,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-05-27,20200527064135,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-05-27,20200527064135,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-06-03,20200603044330,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-06-03,20200603044330,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-06-10,20200610153331,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-06-10,20200610153331,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-06-17,20200617154216,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-06-17,20200617154216,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-06-23,20200623172539,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-06-23,20200623172539,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-07-01,20200701170512,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-07-01,20200701170512,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-07-08,20200708185807,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-07-08,20200708185807,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-07-16,20200716002151,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-07-16,20200716002151,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-07-23,20200723110406,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-07-23,20200723110406,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-07-29,20200729234218,2.99,browser,5.34% 2.99% i,
-CIBC,5-year variable,2020-07-29,20200729234218,,,,text after the label doesn't match the expected layout: '5.75%'
-CIBC,5-year fixed,2020-08-08,20200808154229,2.24,browser,4.79% 2.24% i,
-CIBC,5-year variable,2020-08-08,20200808154229,2.03,browser,2.45% 2.03% % iii,
-CIBC,5-year fixed,2020-08-14,20200814092228,2.24,browser,4.79% 2.24% i,
-CIBC,5-year variable,2020-08-14,20200814092228,2.03,browser,2.45% 2.03% % iii,
-CIBC,5-year fixed,2020-08-20,20200820025028,2.24,browser,4.79% 2.24% i,
-CIBC,5-year variable,2020-08-20,20200820025028,2.03,browser,2.45% 2.03% % iii,
-CIBC,5-year fixed,2020-09-13,20200913110311,2.14,browser,4.79% 2.14% i,
-CIBC,5-year variable,2020-09-13,20200913110311,1.93,browser,2.45% 1.93% % iii,
-CIBC,5-year fixed,2020-09-15,20200915040342,2.14,browser,4.79% 2.14% i,
-CIBC,5-year variable,2020-09-15,20200915040342,1.93,browser,2.45% 1.93% % iii,
-CIBC,5-year fixed,2020-09-22,20200922233213,2.14,browser,4.79% 2.14% i,
-CIBC,5-year variable,2020-09-22,20200922233213,1.93,browser,2.45% 1.93% % iii,
-CIBC,5-year fixed,2020-09-29,20200929195458,2.14,browser,4.79% 2.14% i,
-CIBC,5-year variable,2020-09-29,20200929195458,1.93,browser,2.45% 1.93% % iii,
-CIBC,5-year fixed,2020-10-07,20201007070134,2.14,browser,4.79% 2.14% i,
-CIBC,5-year variable,2020-10-07,20201007070134,1.93,browser,2.45% 1.93% % iii,
-CIBC,5-year fixed,2020-10-14,20201014072814,2.14,browser,4.79% 2.14% i,
-CIBC,5-year variable,2020-10-14,20201014072814,1.93,browser,2.45% 1.93% % iii,
-CIBC,5-year fixed,2020-10-28,20201028120225,2.14,browser,4.79% 2.14% i,
-CIBC,5-year variable,2020-10-28,20201028120225,1.93,browser,2.45% 1.93% % iii,
-CIBC,5-year fixed,2020-11-11,20201111170419,2.1,browser,4.79% 2.10% i,
-CIBC,5-year variable,2020-11-11,20201111170419,1.88,browser,2.45% 1.88% % iii,
-CIBC,5-year fixed,2020-11-19,20201119024436,2.1,browser,4.79% 2.10% i,
-CIBC,5-year variable,2020-11-19,20201119024436,1.88,browser,2.45% 1.88% % iii,
-CIBC,5-year fixed,2020-11-26,20201126050404,2.1,browser,4.79% 2.10% i,
-CIBC,5-year variable,2020-11-26,20201126050404,1.88,browser,2.45% 1.88% % iii,
-CIBC,5-year fixed,2020-12-24,20201224165021,2.1,browser,4.79% 2.10% i,
-CIBC,5-year variable,2020-12-24,20201224165021,1.88,browser,2.45% 1.88% % iii,
-CIBC,5-year fixed,2021-01-26,20210126030447,1.99,browser,4.79% 1.99% i,
-CIBC,5-year variable,2021-01-26,20210126030447,1.75,browser,2.45% 1.75% % iii,
-CIBC,5-year fixed,2021-02-03,20210203174231,1.99,browser,4.79% 1.99% i,
-CIBC,5-year variable,2021-02-03,20210203174231,1.75,browser,2.45% 1.75% % iii,
-CIBC,5-year fixed,2021-02-10,20210210195205,1.99,browser,4.79% 1.99% i,
-CIBC,5-year variable,2021-02-10,20210210195205,1.75,browser,2.45% 1.75% % iii,
-CIBC,5-year fixed,2021-02-17,20210217133509,1.99,browser,4.79% 1.99% i,
-CIBC,5-year variable,2021-02-17,20210217133509,1.75,browser,2.45% 1.75% % iii,
-CIBC,5-year fixed,2021-02-25,20210225182003,1.99,browser,4.79% 1.99% i,
-CIBC,5-year variable,2021-02-25,20210225182003,1.75,browser,2.45% 1.75% % iii,
-CIBC,5-year fixed,2021-03-01,20210301195724,1.99,browser,4.79% 1.99% i,
-CIBC,5-year variable,2021-03-01,20210301195724,1.75,browser,2.45% 1.75% % iii,
-CIBC,5-year fixed,2021-03-13,20210313065946,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202103"
-CIBC,5-year variable,2021-03-13,20210313065946,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202103"
-CIBC,5-year fixed,2021-03-20,20210320165738,1.99,browser,4.79% 1.99% i,
-CIBC,5-year variable,2021-03-20,20210320165738,1.75,browser,2.45% 1.75% iii,
-CIBC,5-year fixed,2021-03-22,20210322060408,,,,section 'CIBC Fixed Rate Closed Mortgages' not found
-CIBC,5-year variable,2021-03-22,20210322060408,,,,section 'CIBC Variable Flex Mortgage' not found
-CIBC,5-year fixed,2021-03-29,20210329234609,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-03-29,20210329234609,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-04-10,20210410195428,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-04-10,20210410195428,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-04-13,20210413220616,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-04-13,20210413220616,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-04-19,20210419160048,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-04-19,20210419160048,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-05-01,20210501163416,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-05-01,20210501163416,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-05-07,20210507083059,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-05-07,20210507083059,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-05-10,20210510054707,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-05-10,20210510054707,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-05-17,20210517024518,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-05-17,20210517024518,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-05-31,20210531113017,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-05-31,20210531113017,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-06-07,20210607000558,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-06-07,20210607000558,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-06-21,20210621022324,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-06-21,20210621022324,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-06-28,20210628190209,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-06-28,20210628190209,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-07-07,20210707180810,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-07-07,20210707180810,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-07-14,20210714183931,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-07-14,20210714183931,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-07-22,20210722173400,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20210722173400if_/https://www.
-CIBC,5-year variable,2021-07-22,20210722173400,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20210722173400if_/https://www.
-CIBC,5-year fixed,2021-07-27,20210727091752,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20210727091752if_/https://www.cibc.com/
-CIBC,5-year variable,2021-07-27,20210727091752,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20210727091752if_/https://www.cibc.com/
-CIBC,5-year fixed,2021-08-06,20210806170127,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-08-06,20210806170127,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-08-13,20210813175044,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-08-13,20210813175044,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-08-20,20210820232310,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-08-20,20210820232310,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-08-27,20210827234301,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-08-27,20210827234301,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-09-03,20210903231015,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-09-03,20210903231015,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-09-10,20210910233143,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-09-10,20210910233143,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-09-17,20210917081054,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-09-17,20210917081054,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-09-20,20210920182452,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-09-20,20210920182452,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-09-27,20210927213301,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-09-27,20210927213301,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-10-06,20211006034313,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-10-06,20211006034313,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-10-13,20211013014043,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-10-13,20211013014043,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-10-20,20211020025659,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-10-20,20211020025659,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-10-27,20211027045556,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-10-27,20211027045556,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-11-04,20211104061723,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-11-04,20211104061723,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-11-11,20211111051406,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-11-11,20211111051406,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-11-18,20211118101502,2.44,browser,4.79% 2.44% i,
-CIBC,5-year variable,2021-11-18,20211118101502,1.6,browser,2.45% 1.60% iii,
-CIBC,5-year fixed,2021-11-25,20211125101754,3.99,browser,4.99% 3.99% i,
-CIBC,5-year variable,2021-11-25,20211125101754,2.65,browser,3.20% 2.65% iii,
-CIBC,5-year fixed,2021-12-02,20211202134243,3.99,browser,4.99% 3.99% i,
-CIBC,5-year variable,2021-12-02,20211202134243,2.65,browser,3.20% 2.65% iii,
-CIBC,5-year fixed,2021-12-14,20211214003305,3.99,browser,4.99% 3.99% i,
-CIBC,5-year variable,2021-12-14,20211214003305,2.65,browser,3.20% 2.65% iii,
-CIBC,5-year fixed,2021-12-21,20211221011125,3.99,browser,4.99% 3.99% i,
-CIBC,5-year variable,2021-12-21,20211221011125,2.65,browser,3.20% 2.65% iii,
-CIBC,5-year fixed,2021-12-28,20211228001752,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202112"
-CIBC,5-year variable,2021-12-28,20211228001752,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202112"
+RBC Royal Bank,3-year fixed,2017-01-18,20170118002356,2.74,page,2.740% 2.780%,
+RBC Royal Bank,5-year fixed,2017-01-18,20170118002356,2.99,page,2.990% 3.010%,
+RBC Royal Bank,5-year variable,2017-01-18,20170118002356,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-01-24,20170124215932,2.74,page,2.740% 2.780%,
+RBC Royal Bank,5-year fixed,2017-01-24,20170124215932,2.99,page,2.990% 3.010%,
+RBC Royal Bank,5-year variable,2017-01-24,20170124215932,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-02-01,20170201070136,2.74,page,2.740% 2.780%,
+RBC Royal Bank,5-year fixed,2017-02-01,20170201070136,2.94,page,2.940% 2.960%,
+RBC Royal Bank,5-year variable,2017-02-01,20170201070136,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-02-10,20170210023016,2.74,page,2.740% 2.780%,
+RBC Royal Bank,5-year fixed,2017-02-10,20170210023016,2.94,page,2.940% 2.960%,
+RBC Royal Bank,5-year variable,2017-02-10,20170210023016,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-02-14,20170214213550,2.74,page,2.740% 2.780%,
+RBC Royal Bank,5-year fixed,2017-02-14,20170214213550,2.89,page,2.890% 2.910%,
+RBC Royal Bank,5-year variable,2017-02-14,20170214213550,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-03-04,20170304014852,2.74,page,2.740% 2.780%,
+RBC Royal Bank,5-year fixed,2017-03-04,20170304014852,2.89,page,2.890% 2.910%,
+RBC Royal Bank,5-year variable,2017-03-04,20170304014852,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-03-08,20170308031028,2.74,page,2.740% 2.780%,
+RBC Royal Bank,5-year fixed,2017-03-08,20170308031028,2.89,page,2.890% 2.910%,
+RBC Royal Bank,5-year variable,2017-03-08,20170308031028,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-04-08,20170408014214,2.64,page,2.640% 2.680%,
+RBC Royal Bank,5-year fixed,2017-04-08,20170408014214,2.74,page,2.740% 2.760%,
+RBC Royal Bank,5-year variable,2017-04-08,20170408014214,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-04-25,20170425170301,2.54,page,2.540% 2.580%,
+RBC Royal Bank,5-year fixed,2017-04-25,20170425170301,2.69,page,2.690% 2.710%,
+RBC Royal Bank,5-year variable,2017-04-25,20170425170301,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-05-06,20170506233852,2.54,page,2.540% 2.580%,
+RBC Royal Bank,5-year fixed,2017-05-06,20170506233852,2.69,page,2.690% 2.710%,
+RBC Royal Bank,5-year variable,2017-05-06,20170506233852,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-05-14,20170514104422,2.54,page,2.540% 2.580%,
+RBC Royal Bank,5-year fixed,2017-05-14,20170514104422,2.69,page,2.690% 2.710%,
+RBC Royal Bank,5-year variable,2017-05-14,20170514104422,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-05-16,20170516175258,2.54,page,2.540% 2.580%,
+RBC Royal Bank,5-year fixed,2017-05-16,20170516175258,2.69,page,2.690% 2.710%,
+RBC Royal Bank,5-year variable,2017-05-16,20170516175258,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-05-23,20170523091620,2.44,page,2.440% 2.480%,
+RBC Royal Bank,5-year fixed,2017-05-23,20170523091620,2.64,page,2.640% 2.660%,
+RBC Royal Bank,5-year variable,2017-05-23,20170523091620,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-05-29,20170529112654,2.44,page,2.440% 2.480%,
+RBC Royal Bank,5-year fixed,2017-05-29,20170529112654,2.64,page,2.640% 2.660%,
+RBC Royal Bank,5-year variable,2017-05-29,20170529112654,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-06-07,20170607010659,2.44,page,2.440% 2.480%,
+RBC Royal Bank,5-year fixed,2017-06-07,20170607010659,2.64,page,2.640% 2.660%,
+RBC Royal Bank,5-year variable,2017-06-07,20170607010659,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-06-16,20170616201117,2.44,page,2.440% 2.480%,
+RBC Royal Bank,5-year fixed,2017-06-16,20170616201117,2.64,page,2.640% 2.660%,
+RBC Royal Bank,5-year variable,2017-06-16,20170616201117,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-06-26,20170626093304,2.44,page,2.440% 2.480%,
+RBC Royal Bank,5-year fixed,2017-06-26,20170626093304,2.64,page,2.640% 2.660%,
+RBC Royal Bank,5-year variable,2017-06-26,20170626093304,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-07-04,20170704214723,2.44,page,2.440% 2.480%,
+RBC Royal Bank,5-year fixed,2017-07-04,20170704214723,2.64,page,2.640% 2.660%,
+RBC Royal Bank,5-year variable,2017-07-04,20170704214723,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-07-12,20170712021659,2.64,page,2.640% 2.680%,
+RBC Royal Bank,5-year fixed,2017-07-12,20170712021659,2.84,page,2.840% 2.860%,
+RBC Royal Bank,5-year variable,2017-07-12,20170712021659,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-07-18,20170718210820,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20170718210820if_/http://www.r
+RBC Royal Bank,5-year fixed,2017-07-18,20170718210820,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20170718210820if_/http://www.r
+RBC Royal Bank,5-year variable,2017-07-18,20170718210820,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20170718210820if_/http://www.r
+RBC Royal Bank,3-year fixed,2017-07-27,20170727193323,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20170727193323if_/http://www.r
+RBC Royal Bank,5-year fixed,2017-07-27,20170727193323,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20170727193323if_/http://www.r
+RBC Royal Bank,5-year variable,2017-07-27,20170727193323,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20170727193323if_/http://www.r
+RBC Royal Bank,3-year fixed,2017-08-02,20170802170931,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20170802170931if_/http://www.r
+RBC Royal Bank,5-year fixed,2017-08-02,20170802170931,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20170802170931if_/http://www.r
+RBC Royal Bank,5-year variable,2017-08-02,20170802170931,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20170802170931if_/http://www.r
+RBC Royal Bank,3-year fixed,2017-08-08,20170808093503,2.84,page,2.840% 2.880%,
+RBC Royal Bank,5-year fixed,2017-08-08,20170808093503,3.04,page,3.040% 3.060%,
+RBC Royal Bank,5-year variable,2017-08-08,20170808093503,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-08-15,20170815123233,3.04,page,3.040% 3.080%,
+RBC Royal Bank,5-year fixed,2017-08-15,20170815123233,3.24,page,3.240% 3.260%,
+RBC Royal Bank,5-year variable,2017-08-15,20170815123233,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-08-23,20170823144029,3.04,page,3.040% 3.080%,
+RBC Royal Bank,5-year fixed,2017-08-23,20170823144029,3.24,page,3.240% 3.260%,
+RBC Royal Bank,5-year variable,2017-08-23,20170823144029,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-08-31,20170831070426,2.94,page,2.940% 2.980%,
+RBC Royal Bank,5-year fixed,2017-08-31,20170831070426,3.14,page,3.140% 3.160%,
+RBC Royal Bank,5-year variable,2017-08-31,20170831070426,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-09-04,20170904084405,2.94,page,2.940% 2.980%,
+RBC Royal Bank,5-year fixed,2017-09-04,20170904084405,3.14,page,3.140% 3.160%,
+RBC Royal Bank,5-year variable,2017-09-04,20170904084405,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-09-12,20170912092001,3.09,page,3.090% 3.130%,
+RBC Royal Bank,5-year fixed,2017-09-12,20170912092001,3.29,page,3.290% 3.310%,
+RBC Royal Bank,5-year variable,2017-09-12,20170912092001,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-09-19,20170919044029,3.09,page,3.090% 3.130%,
+RBC Royal Bank,5-year fixed,2017-09-19,20170919044029,3.29,page,3.290% 3.310%,
+RBC Royal Bank,5-year variable,2017-09-19,20170919044029,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-09-29,20170929115036,3.19,page,3.190% 3.230%,
+RBC Royal Bank,5-year fixed,2017-09-29,20170929115036,3.39,page,3.390% 3.410%,
+RBC Royal Bank,5-year variable,2017-09-29,20170929115036,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-10-07,20171007162314,3.19,page,3.190% 3.230%,
+RBC Royal Bank,5-year fixed,2017-10-07,20171007162314,3.39,page,3.390% 3.410%,
+RBC Royal Bank,5-year variable,2017-10-07,20171007162314,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-10-09,20171009051029,3.19,page,3.190% 3.230%,
+RBC Royal Bank,5-year fixed,2017-10-09,20171009051029,3.39,page,3.390% 3.410%,
+RBC Royal Bank,5-year variable,2017-10-09,20171009051029,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-10-17,20171017182755,3.29,page,3.290% 3.330%,
+RBC Royal Bank,5-year fixed,2017-10-17,20171017182755,3.49,page,3.490% 3.510%,
+RBC Royal Bank,5-year variable,2017-10-17,20171017182755,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-10-27,20171027160753,3.29,page,3.290% 3.330%,
+RBC Royal Bank,5-year fixed,2017-10-27,20171027160753,3.49,page,3.490% 3.510%,
+RBC Royal Bank,5-year variable,2017-10-27,20171027160753,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-11-04,20171104075628,3.29,page,3.290% 3.330%,
+RBC Royal Bank,5-year fixed,2017-11-04,20171104075628,3.49,page,3.490% 3.510%,
+RBC Royal Bank,5-year variable,2017-11-04,20171104075628,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-11-06,20171106140647,3.29,page,3.290% 3.330%,
+RBC Royal Bank,5-year fixed,2017-11-06,20171106140647,3.49,page,3.490% 3.510%,
+RBC Royal Bank,5-year variable,2017-11-06,20171106140647,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-11-13,20171113014034,3.19,page,3.190% 3.230%,
+RBC Royal Bank,5-year fixed,2017-11-13,20171113014034,3.39,page,3.390% 3.410%,
+RBC Royal Bank,5-year variable,2017-11-13,20171113014034,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-11-20,20171120083144,3.19,page,3.190% 3.230%,
+RBC Royal Bank,5-year fixed,2017-11-20,20171120083144,3.39,page,3.390% 3.410%,
+RBC Royal Bank,5-year variable,2017-11-20,20171120083144,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-12-04,20171204061436,3.19,page,3.190% 3.230%,
+RBC Royal Bank,5-year fixed,2017-12-04,20171204061436,3.39,page,3.390% 3.410%,
+RBC Royal Bank,5-year variable,2017-12-04,20171204061436,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-12-11,20171211215959,3.19,page,3.190% 3.230%,
+RBC Royal Bank,5-year fixed,2017-12-11,20171211215959,3.39,page,3.390% 3.410%,
+RBC Royal Bank,5-year variable,2017-12-11,20171211215959,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-12-21,20171221052939,3.19,page,3.190% 3.230%,
+RBC Royal Bank,5-year fixed,2017-12-21,20171221052939,3.39,page,3.390% 3.410%,
+RBC Royal Bank,5-year variable,2017-12-21,20171221052939,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2017-12-30,20171230190103,3.19,page,3.190% 3.230%,
+RBC Royal Bank,5-year fixed,2017-12-30,20171230190103,3.39,page,3.390% 3.410%,
+RBC Royal Bank,5-year variable,2017-12-30,20171230190103,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2018-01-10,20180110174424,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20180110174424if_/http://www.r
+RBC Royal Bank,5-year fixed,2018-01-10,20180110174424,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20180110174424if_/http://www.r
+RBC Royal Bank,5-year variable,2018-01-10,20180110174424,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20180110174424if_/http://www.r
+RBC Royal Bank,3-year fixed,2018-01-18,20180118052014,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20180118052014if_/http://www.r
+RBC Royal Bank,5-year fixed,2018-01-18,20180118052014,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20180118052014if_/http://www.r
+RBC Royal Bank,5-year variable,2018-01-18,20180118052014,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20180118052014if_/http://www.r
+RBC Royal Bank,3-year fixed,2018-01-24,20180124082505,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20180124082505if_/http://www.r
+RBC Royal Bank,5-year fixed,2018-01-24,20180124082505,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20180124082505if_/http://www.r
+RBC Royal Bank,5-year variable,2018-01-24,20180124082505,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20180124082505if_/http://www.r
+RBC Royal Bank,3-year fixed,2018-01-29,20180129193220,3.34,page,3.340% 3.380%,
+RBC Royal Bank,5-year fixed,2018-01-29,20180129193220,3.54,page,3.540% 3.560%,
+RBC Royal Bank,5-year variable,2018-01-29,20180129193220,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2018-02-10,20180210015339,3.34,page,3.340% 3.380%,
+RBC Royal Bank,5-year fixed,2018-02-10,20180210015339,3.54,page,3.540% 3.560%,
+RBC Royal Bank,5-year variable,2018-02-10,20180210015339,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2018-02-12,20180212182410,3.34,page,3.340% 3.380%,
+RBC Royal Bank,5-year fixed,2018-02-12,20180212182410,3.54,page,3.540% 3.560%,
+RBC Royal Bank,5-year variable,2018-02-12,20180212182410,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2018-02-20,20180220101535,3.34,page,3.340% 3.380%,
+RBC Royal Bank,5-year fixed,2018-02-20,20180220101535,3.54,page,3.540% 3.560%,
+RBC Royal Bank,5-year variable,2018-02-20,20180220101535,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2018-02-28,20180228121929,3.34,page,3.340% 3.380%,
+RBC Royal Bank,5-year fixed,2018-02-28,20180228121929,3.54,page,3.540% 3.560%,
+RBC Royal Bank,5-year variable,2018-02-28,20180228121929,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2018-03-08,20180308090143,3.34,page,3.340% 3.380%,
+RBC Royal Bank,5-year fixed,2018-03-08,20180308090143,3.54,page,3.540% 3.560%,
+RBC Royal Bank,5-year variable,2018-03-08,20180308090143,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2018-03-12,20180312123906,3.34,page,3.340% 3.380%,
+RBC Royal Bank,5-year fixed,2018-03-12,20180312123906,3.54,page,3.540% 3.560%,
+RBC Royal Bank,5-year variable,2018-03-12,20180312123906,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2018-03-21,20180321031450,3.34,page,3.340% 3.380%,
+RBC Royal Bank,5-year fixed,2018-03-21,20180321031450,3.54,page,3.540% 3.560%,
+RBC Royal Bank,5-year variable,2018-03-21,20180321031450,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2018-03-27,20180327125845,,,,browser: the replayed rates came from a copy 462 days away
+RBC Royal Bank,5-year fixed,2018-03-27,20180327125845,,,,browser: the replayed rates came from a copy 462 days away
+RBC Royal Bank,5-year variable,2018-03-27,20180327125845,,,,browser: the replayed rates came from a copy 462 days away
+RBC Royal Bank,3-year fixed,2018-04-03,20180403025855,,,,browser: the replayed rates came from a copy 173 days away
+RBC Royal Bank,5-year fixed,2018-04-03,20180403025855,,,,browser: the replayed rates came from a copy 173 days away
+RBC Royal Bank,5-year variable,2018-04-03,20180403025855,,,,browser: the replayed rates came from a copy 173 days away
+RBC Royal Bank,3-year fixed,2018-04-09,20180409224959,3.34,page,3.340% 3.380%,
+RBC Royal Bank,5-year fixed,2018-04-09,20180409224959,3.54,page,3.540% 3.560%,
+RBC Royal Bank,5-year variable,2018-04-09,20180409224959,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2018-04-16,20180416045707,3.34,page,3.340% 3.380%,
+RBC Royal Bank,5-year fixed,2018-04-16,20180416045707,3.54,page,3.540% 3.560%,
+RBC Royal Bank,5-year variable,2018-04-16,20180416045707,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2018-04-23,20180423022057,3.34,page,3.340% 3.380%,
+RBC Royal Bank,5-year fixed,2018-04-23,20180423022057,3.54,page,3.540% 3.560%,
+RBC Royal Bank,5-year variable,2018-04-23,20180423022057,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2018-05-01,20180501201427,3.49,page,3.490% 3.530%,
+RBC Royal Bank,5-year fixed,2018-05-01,20180501201427,3.74,page,3.740% 3.760%,
+RBC Royal Bank,5-year variable,2018-05-01,20180501201427,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2018-05-12,20180512141815,3.49,page,3.490% 3.530%,
+RBC Royal Bank,5-year fixed,2018-05-12,20180512141815,3.74,page,3.740% 3.760%,
+RBC Royal Bank,5-year variable,2018-05-12,20180512141815,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2018-05-16,20180516231238,3.49,page,3.490% 3.530%,
+RBC Royal Bank,5-year fixed,2018-05-16,20180516231238,3.74,page,3.740% 3.760%,
+RBC Royal Bank,5-year variable,2018-05-16,20180516231238,,,,text after the label doesn't match the expected layout: 'amortization or less fixed mortgage rates (1) term special o'
+RBC Royal Bank,3-year fixed,2018-05-27,20180527075639,,,,browser: the replayed rates came from a copy 227 days away
+RBC Royal Bank,5-year fixed,2018-05-27,20180527075639,,,,browser: the replayed rates came from a copy 227 days away
+RBC Royal Bank,5-year variable,2018-05-27,20180527075639,,,,browser: the replayed rates came from a copy 227 days away
+RBC Royal Bank,3-year fixed,2018-06-03,20180603075503,3.49,page,3.490% 3.530%,
+RBC Royal Bank,5-year fixed,2018-06-03,20180603075503,3.74,page,3.740% 3.760%,
+RBC Royal Bank,5-year variable,2018-06-03,20180603075503,2.45,page,"rbc prime rate - 1.000% (2.450%) available until june 4th, 2018* 2.470%",
+RBC Royal Bank,3-year fixed,2018-06-05,20180605171038,3.49,page,3.490% 3.530%,
+RBC Royal Bank,5-year fixed,2018-06-05,20180605171038,3.74,page,3.740% 3.760%,
+RBC Royal Bank,5-year variable,2018-06-05,20180605171038,2.65,page,rbc prime rate - 0.800% (2.650%) 2.670%,
+RBC Royal Bank,3-year fixed,2018-06-17,20180617084600,3.49,page,3.490% 3.530%,
+RBC Royal Bank,5-year fixed,2018-06-17,20180617084600,3.74,page,3.740% 3.760%,
+RBC Royal Bank,5-year variable,2018-06-17,20180617084600,2.65,page,rbc prime rate - 0.800% (2.650%) 2.670%,
+RBC Royal Bank,3-year fixed,2018-06-18,20180618205439,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20180618205439if_/http://www.r
+RBC Royal Bank,5-year fixed,2018-06-18,20180618205439,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20180618205439if_/http://www.r
+RBC Royal Bank,5-year variable,2018-06-18,20180618205439,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20180618205439if_/http://www.r
+RBC Royal Bank,3-year fixed,2018-06-26,20180626053833,3.49,page,3.490% 3.530%,
+RBC Royal Bank,5-year fixed,2018-06-26,20180626053833,3.74,page,3.740% 3.760%,
+RBC Royal Bank,5-year variable,2018-06-26,20180626053833,2.65,page,rbc prime rate - 0.800% (2.650%) 2.670%,
+RBC Royal Bank,3-year fixed,2018-07-03,20180703095743,3.49,page,3.490% 3.530%,
+RBC Royal Bank,5-year fixed,2018-07-03,20180703095743,3.74,page,3.740% 3.760%,
+RBC Royal Bank,5-year variable,2018-07-03,20180703095743,2.65,page,rbc prime rate - 0.800% (2.650%) 2.670%,
+RBC Royal Bank,3-year fixed,2018-07-11,20180711084220,,,,browser: the replayed rates came from a copy 568 days away
+RBC Royal Bank,5-year fixed,2018-07-11,20180711084220,,,,browser: the replayed rates came from a copy 568 days away
+RBC Royal Bank,5-year variable,2018-07-11,20180711084220,,,,browser: the replayed rates came from a copy 568 days away
+RBC Royal Bank,3-year fixed,2018-07-18,20180718101117,,,,browser: the replayed rates came from a copy 575 days away
+RBC Royal Bank,5-year fixed,2018-07-18,20180718101117,,,,browser: the replayed rates came from a copy 575 days away
+RBC Royal Bank,5-year variable,2018-07-18,20180718101117,,,,browser: the replayed rates came from a copy 575 days away
+RBC Royal Bank,3-year fixed,2018-07-31,20180731033932,,,,browser: the replayed rates came from a copy 588 days away
+RBC Royal Bank,5-year fixed,2018-07-31,20180731033932,,,,browser: the replayed rates came from a copy 588 days away
+RBC Royal Bank,5-year variable,2018-07-31,20180731033932,,,,browser: the replayed rates came from a copy 588 days away
+RBC Royal Bank,3-year fixed,2018-08-12,20180812012012,,,,browser: the replayed rates came from a copy 600 days away
+RBC Royal Bank,5-year fixed,2018-08-12,20180812012012,,,,browser: the replayed rates came from a copy 600 days away
+RBC Royal Bank,5-year variable,2018-08-12,20180812012012,,,,browser: the replayed rates came from a copy 600 days away
+RBC Royal Bank,3-year fixed,2018-08-18,20180818121021,,,,browser: the replayed rates came from a copy 325 days away
+RBC Royal Bank,5-year fixed,2018-08-18,20180818121021,,,,browser: the replayed rates came from a copy 325 days away
+RBC Royal Bank,5-year variable,2018-08-18,20180818121021,,,,browser: the replayed rates came from a copy 325 days away
+RBC Royal Bank,3-year fixed,2018-08-27,20180827093442,,,,browser: the replayed rates came from a copy 316 days away
+RBC Royal Bank,5-year fixed,2018-08-27,20180827093442,,,,browser: the replayed rates came from a copy 316 days away
+RBC Royal Bank,5-year variable,2018-08-27,20180827093442,,,,browser: the replayed rates came from a copy 316 days away
+RBC Royal Bank,3-year fixed,2018-09-13,20180913025408,,,,browser: the replayed rates came from a copy 299 days away
+RBC Royal Bank,5-year fixed,2018-09-13,20180913025408,,,,browser: the replayed rates came from a copy 299 days away
+RBC Royal Bank,5-year variable,2018-09-13,20180913025408,,,,browser: the replayed rates came from a copy 299 days away
+RBC Royal Bank,3-year fixed,2018-09-18,20180918232113,,,,browser: the replayed rates came from a copy 294 days away
+RBC Royal Bank,5-year fixed,2018-09-18,20180918232113,,,,browser: the replayed rates came from a copy 294 days away
+RBC Royal Bank,5-year variable,2018-09-18,20180918232113,,,,browser: the replayed rates came from a copy 294 days away
+RBC Royal Bank,3-year fixed,2018-10-05,20181005204842,,,,browser: the replayed rates came from a copy 277 days away
+RBC Royal Bank,5-year fixed,2018-10-05,20181005204842,,,,browser: the replayed rates came from a copy 277 days away
+RBC Royal Bank,5-year variable,2018-10-05,20181005204842,,,,browser: the replayed rates came from a copy 277 days away
+RBC Royal Bank,3-year fixed,2018-10-19,20181019102833,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20181019102833if_/http://www.r
+RBC Royal Bank,5-year fixed,2018-10-19,20181019102833,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20181019102833if_/http://www.r
+RBC Royal Bank,5-year variable,2018-10-19,20181019102833,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20181019102833if_/http://www.r
+RBC Royal Bank,3-year fixed,2018-10-22,20181022163603,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20181022163603if_/http://www.rbcroyalba
+RBC Royal Bank,5-year fixed,2018-10-22,20181022163603,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20181022163603if_/http://www.rbcroyalba
+RBC Royal Bank,5-year variable,2018-10-22,20181022163603,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20181022163603if_/http://www.rbcroyalba
+RBC Royal Bank,3-year fixed,2018-10-30,20181030183219,,,,browser: the replayed rates came from a copy 252 days away
+RBC Royal Bank,5-year fixed,2018-10-30,20181030183219,,,,browser: the replayed rates came from a copy 252 days away
+RBC Royal Bank,5-year variable,2018-10-30,20181030183219,,,,browser: the replayed rates came from a copy 252 days away
+RBC Royal Bank,3-year fixed,2018-11-15,20181115114107,,,,browser: the replayed rates came from a copy 236 days away
+RBC Royal Bank,5-year fixed,2018-11-15,20181115114107,,,,browser: the replayed rates came from a copy 236 days away
+RBC Royal Bank,5-year variable,2018-11-15,20181115114107,,,,browser: the replayed rates came from a copy 236 days away
+RBC Royal Bank,3-year fixed,2018-11-19,20181119140829,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20181119140829if_/http://www.r
+RBC Royal Bank,5-year fixed,2018-11-19,20181119140829,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20181119140829if_/http://www.r
+RBC Royal Bank,5-year variable,2018-11-19,20181119140829,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20181119140829if_/http://www.r
+RBC Royal Bank,3-year fixed,2018-12-01,20181201145535,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20181201145535if_/http://www.r
+RBC Royal Bank,5-year fixed,2018-12-01,20181201145535,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20181201145535if_/http://www.r
+RBC Royal Bank,5-year variable,2018-12-01,20181201145535,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20181201145535if_/http://www.r
+RBC Royal Bank,3-year fixed,2018-12-20,20181220132819,,,,browser: the replayed rates came from a copy 201 days away
+RBC Royal Bank,5-year fixed,2018-12-20,20181220132819,,,,browser: the replayed rates came from a copy 201 days away
+RBC Royal Bank,5-year variable,2018-12-20,20181220132819,,,,browser: the replayed rates came from a copy 201 days away
+RBC Royal Bank,3-year fixed,2019-01-02,20190102154736,,,,browser: the replayed rates came from a copy 188 days away
+RBC Royal Bank,5-year fixed,2019-01-02,20190102154736,,,,browser: the replayed rates came from a copy 188 days away
+RBC Royal Bank,5-year variable,2019-01-02,20190102154736,,,,browser: the replayed rates came from a copy 188 days away
+RBC Royal Bank,3-year fixed,2019-01-19,20190119010201,,,,browser: the replayed rates came from a copy 171 days away
+RBC Royal Bank,5-year fixed,2019-01-19,20190119010201,,,,browser: the replayed rates came from a copy 171 days away
+RBC Royal Bank,5-year variable,2019-01-19,20190119010201,,,,browser: the replayed rates came from a copy 171 days away
+RBC Royal Bank,3-year fixed,2019-02-02,20190202091703,,,,browser: the replayed rates came from a copy 157 days away
+RBC Royal Bank,5-year fixed,2019-02-02,20190202091703,,,,browser: the replayed rates came from a copy 157 days away
+RBC Royal Bank,5-year variable,2019-02-02,20190202091703,,,,browser: the replayed rates came from a copy 157 days away
+RBC Royal Bank,3-year fixed,2019-02-20,20190220110451,,,,browser: the replayed rates came from a copy 139 days away
+RBC Royal Bank,5-year fixed,2019-02-20,20190220110451,,,,browser: the replayed rates came from a copy 139 days away
+RBC Royal Bank,5-year variable,2019-02-20,20190220110451,,,,browser: the replayed rates came from a copy 139 days away
+RBC Royal Bank,3-year fixed,2019-03-12,20190312050935,,,,browser: the replayed rates came from a copy 119 days away
+RBC Royal Bank,5-year fixed,2019-03-12,20190312050935,,,,browser: the replayed rates came from a copy 119 days away
+RBC Royal Bank,5-year variable,2019-03-12,20190312050935,,,,browser: the replayed rates came from a copy 119 days away
+RBC Royal Bank,3-year fixed,2019-03-21,20190321003953,,,,browser: the replayed rates came from a copy 110 days away
+RBC Royal Bank,5-year fixed,2019-03-21,20190321003953,,,,browser: the replayed rates came from a copy 110 days away
+RBC Royal Bank,5-year variable,2019-03-21,20190321003953,,,,browser: the replayed rates came from a copy 110 days away
+RBC Royal Bank,3-year fixed,2019-03-31,20190331024034,3.44,page,closed 3.440% 3.480%,
+RBC Royal Bank,5-year fixed,2019-03-31,20190331024034,3.49,page,closed 3.490% 3.510%,
+RBC Royal Bank,5-year variable,2019-03-31,20190331024034,3.45,page,closed rbc prime rate - 0.500% (3.450%) 3.470%,
+RBC Royal Bank,3-year fixed,2019-04-01,20190401221203,,,,browser: the replayed rates came from a copy 99 days away
+RBC Royal Bank,5-year fixed,2019-04-01,20190401221203,,,,browser: the replayed rates came from a copy 99 days away
+RBC Royal Bank,5-year variable,2019-04-01,20190401221203,,,,browser: the replayed rates came from a copy 99 days away
+RBC Royal Bank,3-year fixed,2019-04-11,20190411220343,,,,browser: the replayed rates came from a copy 89 days away
+RBC Royal Bank,5-year fixed,2019-04-11,20190411220343,,,,browser: the replayed rates came from a copy 89 days away
+RBC Royal Bank,5-year variable,2019-04-11,20190411220343,,,,browser: the replayed rates came from a copy 89 days away
+RBC Royal Bank,3-year fixed,2019-04-19,20190419220405,,,,browser: the replayed rates came from a copy 825 days away
+RBC Royal Bank,5-year fixed,2019-04-19,20190419220405,,,,browser: the replayed rates came from a copy 825 days away
+RBC Royal Bank,5-year variable,2019-04-19,20190419220405,,,,browser: the replayed rates came from a copy 825 days away
+RBC Royal Bank,3-year fixed,2019-04-23,20190423231711,,,,browser: the replayed rates came from a copy 77 days away
+RBC Royal Bank,5-year fixed,2019-04-23,20190423231711,,,,browser: the replayed rates came from a copy 77 days away
+RBC Royal Bank,5-year variable,2019-04-23,20190423231711,,,,browser: the replayed rates came from a copy 77 days away
+RBC Royal Bank,3-year fixed,2019-05-06,20190506142825,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20190506142825if_/http://www.r
+RBC Royal Bank,5-year fixed,2019-05-06,20190506142825,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20190506142825if_/http://www.r
+RBC Royal Bank,5-year variable,2019-05-06,20190506142825,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20190506142825if_/http://www.r
+RBC Royal Bank,3-year fixed,2019-05-17,20190517134253,,,,browser: the replayed rates came from a copy 72 days away
+RBC Royal Bank,5-year fixed,2019-05-17,20190517134253,,,,browser: the replayed rates came from a copy 72 days away
+RBC Royal Bank,5-year variable,2019-05-17,20190517134253,,,,browser: the replayed rates came from a copy 72 days away
+RBC Royal Bank,3-year fixed,2019-05-25,20190525075934,,,,browser: the replayed rates came from a copy 45 days away
+RBC Royal Bank,5-year fixed,2019-05-25,20190525075934,,,,browser: the replayed rates came from a copy 45 days away
+RBC Royal Bank,5-year variable,2019-05-25,20190525075934,,,,browser: the replayed rates came from a copy 45 days away
+RBC Royal Bank,3-year fixed,2019-05-28,20190528194827,,,,browser: the replayed rates came from a copy 42 days away
+RBC Royal Bank,5-year fixed,2019-05-28,20190528194827,,,,browser: the replayed rates came from a copy 42 days away
+RBC Royal Bank,5-year variable,2019-05-28,20190528194827,,,,browser: the replayed rates came from a copy 42 days away
+RBC Royal Bank,3-year fixed,2019-06-05,20190605012016,,,,browser: the replayed rates came from a copy 34 days away
+RBC Royal Bank,5-year fixed,2019-06-05,20190605012016,,,,browser: the replayed rates came from a copy 34 days away
+RBC Royal Bank,5-year variable,2019-06-05,20190605012016,,,,browser: the replayed rates came from a copy 34 days away
+RBC Royal Bank,3-year fixed,2019-06-11,20190611023416,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20190611023416if_/http://www.rbcroyalba
+RBC Royal Bank,5-year fixed,2019-06-11,20190611023416,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20190611023416if_/http://www.rbcroyalba
+RBC Royal Bank,5-year variable,2019-06-11,20190611023416,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20190611023416if_/http://www.rbcroyalba
+RBC Royal Bank,3-year fixed,2019-06-25,20190625092732,3.3,browser (data within 14 days),closed 3.300% 3.340%,
+RBC Royal Bank,5-year fixed,2019-06-25,20190625092732,3.14,browser (data within 14 days),closed 3.140% 3.160%,
+RBC Royal Bank,5-year variable,2019-06-25,20190625092732,3.35,browser (data within 14 days),closed rbc prime rate - 0.600% (3.350%) 3.370%,
+RBC Royal Bank,3-year fixed,2019-07-09,20190709141942,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20190709141942if_/http://www.r
+RBC Royal Bank,5-year fixed,2019-07-09,20190709141942,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20190709141942if_/http://www.r
+RBC Royal Bank,5-year variable,2019-07-09,20190709141942,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20190709141942if_/http://www.r
+RBC Royal Bank,3-year fixed,2019-07-21,20190721113453,3.3,browser (data within 11 days),closed 3.300% 3.340%,
+RBC Royal Bank,5-year fixed,2019-07-21,20190721113453,3.14,browser (data within 11 days),closed 3.140% 3.160%,
+RBC Royal Bank,5-year variable,2019-07-21,20190721113453,3.35,browser (data within 11 days),closed rbc prime rate - 0.600% (3.350%) 3.370%,
+RBC Royal Bank,3-year fixed,2019-07-26,20190726180717,,,,browser: the replayed rates came from a copy 16 days away
+RBC Royal Bank,5-year fixed,2019-07-26,20190726180717,,,,browser: the replayed rates came from a copy 16 days away
+RBC Royal Bank,5-year variable,2019-07-26,20190726180717,,,,browser: the replayed rates came from a copy 16 days away
+RBC Royal Bank,3-year fixed,2019-07-30,20190730171023,,,,browser: the replayed rates came from a copy 20 days away
+RBC Royal Bank,5-year fixed,2019-07-30,20190730171023,,,,browser: the replayed rates came from a copy 20 days away
+RBC Royal Bank,5-year variable,2019-07-30,20190730171023,,,,browser: the replayed rates came from a copy 20 days away
+RBC Royal Bank,3-year fixed,2019-08-14,20190814142139,,,,browser: the replayed rates came from a copy 35 days away
+RBC Royal Bank,5-year fixed,2019-08-14,20190814142139,,,,browser: the replayed rates came from a copy 35 days away
+RBC Royal Bank,5-year variable,2019-08-14,20190814142139,,,,browser: the replayed rates came from a copy 35 days away
+RBC Royal Bank,3-year fixed,2019-08-26,20190826185014,,,,browser: the replayed rates came from a copy 70 days away
+RBC Royal Bank,5-year fixed,2019-08-26,20190826185014,,,,browser: the replayed rates came from a copy 70 days away
+RBC Royal Bank,5-year variable,2019-08-26,20190826185014,,,,browser: the replayed rates came from a copy 70 days away
+RBC Royal Bank,3-year fixed,2019-09-06,20190906100339,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20190906100339if_/http://www.r
+RBC Royal Bank,5-year fixed,2019-09-06,20190906100339,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20190906100339if_/http://www.r
+RBC Royal Bank,5-year variable,2019-09-06,20190906100339,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20190906100339if_/http://www.r
+RBC Royal Bank,3-year fixed,2019-09-10,20190910163512,,,,browser: the replayed rates came from a copy 55 days away
+RBC Royal Bank,5-year fixed,2019-09-10,20190910163512,,,,browser: the replayed rates came from a copy 55 days away
+RBC Royal Bank,5-year variable,2019-09-10,20190910163512,,,,browser: the replayed rates came from a copy 55 days away
+RBC Royal Bank,3-year fixed,2019-09-18,20190918202033,3.2,page,closed 3.200% 3.240%,
+RBC Royal Bank,5-year fixed,2019-09-18,20190918202033,3.04,page,closed 3.040% 3.060%,
+RBC Royal Bank,5-year variable,2019-09-18,20190918202033,3.35,page,closed rbc prime rate - 0.600% (3.350%) 3.370%,
+RBC Royal Bank,3-year fixed,2019-09-27,20190927150304,,,,browser: the replayed rates came from a copy 38 days away
+RBC Royal Bank,5-year fixed,2019-09-27,20190927150304,,,,browser: the replayed rates came from a copy 38 days away
+RBC Royal Bank,5-year variable,2019-09-27,20190927150304,,,,browser: the replayed rates came from a copy 38 days away
+RBC Royal Bank,3-year fixed,2019-10-03,20191003055450,,,,browser: the replayed rates came from a copy 32 days away
+RBC Royal Bank,5-year fixed,2019-10-03,20191003055450,,,,browser: the replayed rates came from a copy 32 days away
+RBC Royal Bank,5-year variable,2019-10-03,20191003055450,,,,browser: the replayed rates came from a copy 32 days away
+RBC Royal Bank,3-year fixed,2019-10-24,20191024145835,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20191024145835if_/http://www.r
+RBC Royal Bank,5-year fixed,2019-10-24,20191024145835,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20191024145835if_/http://www.r
+RBC Royal Bank,5-year variable,2019-10-24,20191024145835,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20191024145835if_/http://www.r
+RBC Royal Bank,3-year fixed,2019-11-04,20191104094658,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20191104094658if_/https://www.rbcroyalb
+RBC Royal Bank,5-year fixed,2019-11-04,20191104094658,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20191104094658if_/https://www.rbcroyalb
+RBC Royal Bank,5-year variable,2019-11-04,20191104094658,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20191104094658if_/https://www.rbcroyalb
+RBC Royal Bank,3-year fixed,2019-11-12,20191112004511,3.4,page,closed 3.400% 3.440%,
+RBC Royal Bank,5-year fixed,2019-11-12,20191112004511,3.24,page,closed 3.240% 3.260%,
+RBC Royal Bank,5-year variable,2019-11-12,20191112004511,3.35,page,closed rbc prime rate - 0.600% (3.350%) 3.370%,
+RBC Royal Bank,3-year fixed,2019-11-23,20191123230533,,,,browser: the replayed rates came from a copy 19 days away
+RBC Royal Bank,5-year fixed,2019-11-23,20191123230533,,,,browser: the replayed rates came from a copy 19 days away
+RBC Royal Bank,5-year variable,2019-11-23,20191123230533,,,,browser: the replayed rates came from a copy 19 days away
+RBC Royal Bank,3-year fixed,2019-11-25,20191125170825,,,,browser: the replayed rates came from a copy 17 days away
+RBC Royal Bank,5-year fixed,2019-11-25,20191125170825,,,,browser: the replayed rates came from a copy 17 days away
+RBC Royal Bank,5-year variable,2019-11-25,20191125170825,,,,browser: the replayed rates came from a copy 17 days away
+RBC Royal Bank,3-year fixed,2019-12-12,20191212173706,,,,section doesn't mention 'Special Offers'
+RBC Royal Bank,5-year fixed,2019-12-12,20191212173706,,,,section doesn't mention 'Special Offers'
+RBC Royal Bank,5-year variable,2019-12-12,20191212173706,,,,section doesn't mention 'Special Offers'
+RBC Royal Bank,3-year fixed,2019-12-24,20191224042609,,,,section doesn't mention 'Special Offers'
+RBC Royal Bank,5-year fixed,2019-12-24,20191224042609,,,,section doesn't mention 'Special Offers'
+RBC Royal Bank,5-year variable,2019-12-24,20191224042609,,,,section doesn't mention 'Special Offers'
+RBC Royal Bank,3-year fixed,2020-01-23,20200123080413,,,,browser: the replayed rates came from a copy 42 days away
+RBC Royal Bank,5-year fixed,2020-01-23,20200123080413,,,,browser: the replayed rates came from a copy 42 days away
+RBC Royal Bank,5-year variable,2020-01-23,20200123080413,,,,browser: the replayed rates came from a copy 42 days away
+RBC Royal Bank,3-year fixed,2020-02-22,20200222113714,,,,browser: the replayed rates came from a copy 38 days away
+RBC Royal Bank,5-year fixed,2020-02-22,20200222113714,,,,browser: the replayed rates came from a copy 38 days away
+RBC Royal Bank,5-year variable,2020-02-22,20200222113714,,,,browser: the replayed rates came from a copy 38 days away
+RBC Royal Bank,3-year fixed,2020-02-24,20200224013204,,,,browser: the replayed rates came from a copy 36 days away
+RBC Royal Bank,5-year fixed,2020-02-24,20200224013204,,,,browser: the replayed rates came from a copy 36 days away
+RBC Royal Bank,5-year variable,2020-02-24,20200224013204,,,,browser: the replayed rates came from a copy 36 days away
+RBC Royal Bank,3-year fixed,2020-03-03,20200303060703,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20200303060703if_/http://www.r
+RBC Royal Bank,5-year fixed,2020-03-03,20200303060703,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20200303060703if_/http://www.r
+RBC Royal Bank,5-year variable,2020-03-03,20200303060703,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20200303060703if_/http://www.r
+RBC Royal Bank,3-year fixed,2020-03-31,20200331190459,3.09,page,closed 3.090% 3.130%,
+RBC Royal Bank,5-year fixed,2020-03-31,20200331190459,3.34,page,closed 3.340% 3.370%,
+RBC Royal Bank,5-year variable,2020-03-31,20200331190459,2.45,page,closed rbc prime rate + 0.000% (2.450%) 2.480%,
+RBC Royal Bank,3-year fixed,2020-04-25,20200425034441,2.89,page,closed 2.890% 2.930%,
+RBC Royal Bank,5-year fixed,2020-04-25,20200425034441,3.09,page,closed 3.090% 3.120%,
+RBC Royal Bank,5-year variable,2020-04-25,20200425034441,2.45,page,closed rbc prime rate + 0.000% (2.450%) 2.480%,
+RBC Royal Bank,3-year fixed,2020-05-02,20200502101334,2.89,browser (data within 3 days),closed 2.890% 2.930%,
+RBC Royal Bank,5-year fixed,2020-05-02,20200502101334,3.09,browser (data within 3 days),closed 3.090% 3.120%,
+RBC Royal Bank,5-year variable,2020-05-02,20200502101334,2.45,browser (data within 3 days),closed rbc prime rate + 0.000% (2.450%) 2.480%,
+RBC Royal Bank,3-year fixed,2020-05-05,20200505093714,2.89,page,closed 2.890% 2.930%,
+RBC Royal Bank,5-year fixed,2020-05-05,20200505093714,3.09,page,closed 3.090% 3.120%,
+RBC Royal Bank,5-year variable,2020-05-05,20200505093714,2.45,page,closed rbc prime rate + 0.000% (2.450%) 2.480%,
+RBC Royal Bank,3-year fixed,2020-06-01,20200601135013,,,,browser: the replayed rates came from a copy 27 days away
+RBC Royal Bank,5-year fixed,2020-06-01,20200601135013,,,,browser: the replayed rates came from a copy 27 days away
+RBC Royal Bank,5-year variable,2020-06-01,20200601135013,,,,browser: the replayed rates came from a copy 27 days away
+RBC Royal Bank,3-year fixed,2020-07-01,20200701172255,,,,browser: the replayed rates came from a copy 93 days away
+RBC Royal Bank,5-year fixed,2020-07-01,20200701172255,,,,browser: the replayed rates came from a copy 93 days away
+RBC Royal Bank,5-year variable,2020-07-01,20200701172255,,,,browser: the replayed rates came from a copy 93 days away
+RBC Royal Bank,3-year fixed,2020-07-31,20200731224053,,,,browser: the replayed rates came from a copy 87 days away
+RBC Royal Bank,5-year fixed,2020-07-31,20200731224053,,,,browser: the replayed rates came from a copy 87 days away
+RBC Royal Bank,5-year variable,2020-07-31,20200731224053,,,,browser: the replayed rates came from a copy 87 days away
+RBC Royal Bank,3-year fixed,2020-08-15,20200815055953,2.39,page,closed 2.390% 2.430%,
+RBC Royal Bank,5-year fixed,2020-08-15,20200815055953,2.49,page,closed 2.490% 2.520%,
+RBC Royal Bank,5-year variable,2020-08-15,20200815055953,2.15,page,closed rbc prime rate - 0.300% (2.150%) 2.180%,
+RBC Royal Bank,3-year fixed,2020-10-30,20201030112927,2.19,page,closed 2.190% 2.230%,
+RBC Royal Bank,5-year fixed,2020-10-30,20201030112927,2.22,page,closed 2.220% 2.250%,
+RBC Royal Bank,5-year variable,2020-10-30,20201030112927,2.1,page,closed rbc prime rate - 0.350% (2.100%) 2.130%,
+RBC Royal Bank,3-year fixed,2020-11-04,20201104082232,2.19,page,closed 2.190% 2.230%,
+RBC Royal Bank,5-year fixed,2020-11-04,20201104082232,2.22,page,closed 2.220% 2.250%,
+RBC Royal Bank,5-year variable,2020-11-04,20201104082232,2.1,page,closed rbc prime rate - 0.350% (2.100%) 2.130%,
+RBC Royal Bank,3-year fixed,2020-12-03,20201203022540,2.19,page,closed 2.190% 2.230%,
+RBC Royal Bank,5-year fixed,2020-12-03,20201203022540,2.22,page,closed 2.220% 2.250%,
+RBC Royal Bank,5-year variable,2020-12-03,20201203022540,2.1,page,closed rbc prime rate - 0.350% (2.100%) 2.130%,
+RBC Royal Bank,3-year fixed,2021-02-25,20210225072005,,,,browser: the replayed rates came from a copy 147 days away
+RBC Royal Bank,5-year fixed,2021-02-25,20210225072005,,,,browser: the replayed rates came from a copy 147 days away
+RBC Royal Bank,5-year variable,2021-02-25,20210225072005,,,,browser: the replayed rates came from a copy 147 days away
+RBC Royal Bank,3-year fixed,2021-03-02,20210302143908,,,,browser: the replayed rates came from a copy 152 days away
+RBC Royal Bank,5-year fixed,2021-03-02,20210302143908,,,,browser: the replayed rates came from a copy 152 days away
+RBC Royal Bank,5-year variable,2021-03-02,20210302143908,,,,browser: the replayed rates came from a copy 152 days away
+RBC Royal Bank,3-year fixed,2021-04-11,20210411222135,,,,browser: the replayed rates came from a copy 192 days away
+RBC Royal Bank,5-year fixed,2021-04-11,20210411222135,,,,browser: the replayed rates came from a copy 192 days away
+RBC Royal Bank,5-year variable,2021-04-11,20210411222135,,,,browser: the replayed rates came from a copy 192 days away
+RBC Royal Bank,3-year fixed,2021-11-29,20211129232404,2.69,page,closed 2.690% 2.730%,
+RBC Royal Bank,5-year fixed,2021-11-29,20211129232404,2.94,page,closed 2.940% 2.970%,
+RBC Royal Bank,5-year variable,2021-11-29,20211129232404,1.6,page,closed rbc prime rate - 0.850% (1.600%) 1.630%,
+RBC Royal Bank,3-year fixed,2021-12-18,20211218231649,,,,browser: the replayed rates came from a copy 81 days away
+RBC Royal Bank,5-year fixed,2021-12-18,20211218231649,,,,browser: the replayed rates came from a copy 81 days away
+RBC Royal Bank,5-year variable,2021-12-18,20211218231649,,,,browser: the replayed rates came from a copy 81 days away
+RBC Royal Bank,3-year fixed,2022-02-05,20220205102106,2.94,page,closed 2.940% 2.980%,
+RBC Royal Bank,5-year fixed,2022-02-05,20220205102106,3.19,page,closed 3.190% 3.220%,
+RBC Royal Bank,5-year variable,2022-02-05,20220205102106,1.7,page,closed rbc prime rate - 0.750% (1.700%) 1.730%,
+RBC Royal Bank,3-year fixed,2022-03-09,20220309061734,3.09,page,closed 3.090% 3.130%,
+RBC Royal Bank,5-year fixed,2022-03-09,20220309061734,3.34,page,closed 3.340% 3.370%,
+RBC Royal Bank,5-year variable,2022-03-09,20220309061734,1.95,page,closed rbc prime rate - 0.750% (1.950%) 1.980%,
+RBC Royal Bank,3-year fixed,2022-04-12,20220412210135,3.55,page,closed 3.550% 3.590%,
+RBC Royal Bank,5-year fixed,2022-04-12,20220412210135,3.94,page,closed 3.940% 3.970%,
+RBC Royal Bank,5-year variable,2022-04-12,20220412210135,2.2,page,closed rbc prime rate - 0.500% (2.200%) 2.280%,
+RBC Royal Bank,3-year fixed,2022-04-21,20220421214948,3.75,browser (data within 4 days),closed 3.750% 3.790%,
+RBC Royal Bank,5-year fixed,2022-04-21,20220421214948,4.14,browser (data within 4 days),closed 4.140% 4.170%,
+RBC Royal Bank,5-year variable,2022-04-21,20220421214948,2.7,browser (data within 4 days),closed rbc prime rate - 0.500% (2.700%) 2.730%,
+RBC Royal Bank,3-year fixed,2022-04-25,20220425150938,3.75,page,closed 3.750% 3.790%,
+RBC Royal Bank,5-year fixed,2022-04-25,20220425150938,4.14,page,closed 4.140% 4.170%,
+RBC Royal Bank,5-year variable,2022-04-25,20220425150938,2.7,page,closed rbc prime rate - 0.500% (2.700%) 2.730%,
+RBC Royal Bank,3-year fixed,2022-05-10,20220510183521,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220510183521if_/https://www.
+RBC Royal Bank,5-year fixed,2022-05-10,20220510183521,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220510183521if_/https://www.
+RBC Royal Bank,5-year variable,2022-05-10,20220510183521,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220510183521if_/https://www.
+RBC Royal Bank,3-year fixed,2022-05-29,20220529150546,4.2,page,closed 4.200% 4.240%,
+RBC Royal Bank,5-year fixed,2022-05-29,20220529150546,4.59,page,closed 4.590% 4.620%,
+RBC Royal Bank,5-year variable,2022-05-29,20220529150546,2.8,page,closed rbc prime rate - 0.400% (2.800%) 2.830%,
+RBC Royal Bank,3-year fixed,2022-06-02,20220602135424,4.2,page,closed 4.200% 4.240%,
+RBC Royal Bank,5-year fixed,2022-06-02,20220602135424,4.59,page,closed 4.590% 4.620%,
+RBC Royal Bank,5-year variable,2022-06-02,20220602135424,3.3,page,closed rbc prime rate - 0.400% (3.300%) 3.330%,
+RBC Royal Bank,3-year fixed,2022-06-13,20220613214338,4.4,page,closed 4.400% 4.440%,
+RBC Royal Bank,5-year fixed,2022-06-13,20220613214338,4.79,page,closed 4.790% 4.820%,
+RBC Royal Bank,5-year variable,2022-06-13,20220613214338,3.3,page,closed rbc prime rate - 0.400% (3.300%) 3.330%,
+RBC Royal Bank,3-year fixed,2022-08-08,20220808140812,,,,browser: the replayed rates came from a copy 30 days away
+RBC Royal Bank,5-year fixed,2022-08-08,20220808140812,,,,browser: the replayed rates came from a copy 30 days away
+RBC Royal Bank,5-year variable,2022-08-08,20220808140812,,,,browser: the replayed rates came from a copy 30 days away
+RBC Royal Bank,3-year fixed,2022-08-18,20220818233349,5.2,page,closed 5.200% 5.240%,
+RBC Royal Bank,5-year fixed,2022-08-18,20220818233349,5.54,page,closed 5.540% 5.570%,
+RBC Royal Bank,5-year variable,2022-08-18,20220818233349,4.5,page,closed rbc prime rate - 0.200% (4.500%) 4.530%,
+RBC Royal Bank,3-year fixed,2022-09-07,20220907160722,5.3,page,closed 5.300% 5.340%,
+RBC Royal Bank,5-year fixed,2022-09-07,20220907160722,5.54,page,closed 5.540% 5.570%,
+RBC Royal Bank,5-year variable,2022-09-07,20220907160722,4.5,page,closed rbc prime rate - 0.200% (4.500%) 4.530%,
+RBC Royal Bank,3-year fixed,2022-09-21,20220921224256,5.45,page,closed 5.450% 5.490%,
+RBC Royal Bank,5-year fixed,2022-09-21,20220921224256,5.54,page,closed 5.540% 5.570%,
+RBC Royal Bank,5-year variable,2022-09-21,20220921224256,5.25,page,closed rbc prime rate - 0.200% (5.250%) 5.280%,
+RBC Royal Bank,3-year fixed,2022-11-28,20221128053736,5.7,page,closed 5.700% 5.740%,
+RBC Royal Bank,5-year fixed,2022-11-28,20221128053736,5.69,page,closed 5.690% 5.720%,
+RBC Royal Bank,5-year variable,2022-11-28,20221128053736,5.75,page,closed rbc prime rate - 0.200% (5.750%) 5.780%,
+RBC Royal Bank,3-year fixed,2022-12-16,20221216022305,5.7,page,closed 5.700% 5.740%,
+RBC Royal Bank,5-year fixed,2022-12-16,20221216022305,5.69,page,closed 5.690% 5.720%,
+RBC Royal Bank,5-year variable,2022-12-16,20221216022305,6.25,page,closed rbc prime rate - 0.200% (6.250%) 6.280%,
+RBC Royal Bank,3-year fixed,2022-12-22,20221222171157,5.7,page,closed 5.700% 5.740%,
+RBC Royal Bank,5-year fixed,2022-12-22,20221222171157,5.69,page,closed 5.690% 5.720%,
+RBC Royal Bank,5-year variable,2022-12-22,20221222171157,6.25,page,closed rbc prime rate - 0.200% (6.250%) 6.280%,
+RBC Royal Bank,3-year fixed,2023-01-11,20230111061535,5.7,page,closed 5.700% 5.740%,
+RBC Royal Bank,5-year fixed,2023-01-11,20230111061535,5.69,page,closed 5.690% 5.720%,
+RBC Royal Bank,5-year variable,2023-01-11,20230111061535,6.25,page,closed rbc prime rate - 0.200% (6.250%) 6.280%,
+RBC Royal Bank,3-year fixed,2023-02-06,20230206183713,5.7,page,closed 5.700% 5.740%,
+RBC Royal Bank,5-year fixed,2023-02-06,20230206183713,5.69,page,closed 5.690% 5.720%,
+RBC Royal Bank,5-year variable,2023-02-06,20230206183713,6.5,page,closed rbc prime rate - 0.200% (6.500%) 6.530%,
+RBC Royal Bank,3-year fixed,2023-02-16,20230216113224,5.7,page,closed 5.700% 5.740%,
+RBC Royal Bank,5-year fixed,2023-02-16,20230216113224,5.69,page,closed 5.690% 5.720%,
+RBC Royal Bank,5-year variable,2023-02-16,20230216113224,6.5,page,closed rbc prime rate - 0.200% (6.500%) 6.530%,
+RBC Royal Bank,3-year fixed,2023-03-06,20230306055051,5.7,page,closed 5.700% 5.740%,
+RBC Royal Bank,5-year fixed,2023-03-06,20230306055051,5.69,page,closed 5.690% 5.720%,
+RBC Royal Bank,5-year variable,2023-03-06,20230306055051,6.5,page,closed rbc prime rate - 0.200% (6.500%) 6.530%,
+RBC Royal Bank,3-year fixed,2023-03-14,20230314204249,5.7,page,closed 5.700% 5.740%,
+RBC Royal Bank,5-year fixed,2023-03-14,20230314204249,5.69,page,closed 5.690% 5.720%,
+RBC Royal Bank,5-year variable,2023-03-14,20230314204249,6.5,page,closed rbc prime rate - 0.200% (6.500%) 6.530%,
+RBC Royal Bank,3-year fixed,2023-03-21,20230321183441,5.59,page,closed 5.590% 5.630%,
+RBC Royal Bank,5-year fixed,2023-03-21,20230321183441,5.54,page,closed 5.540% 5.570%,
+RBC Royal Bank,5-year variable,2023-03-21,20230321183441,6.5,page,closed rbc prime rate - 0.200% (6.500%) 6.530%,
+RBC Royal Bank,3-year fixed,2023-03-31,20230331055345,5.59,page,closed 5.590% 5.630%,
+RBC Royal Bank,5-year fixed,2023-03-31,20230331055345,5.54,page,closed 5.540% 5.570%,
+RBC Royal Bank,5-year variable,2023-03-31,20230331055345,6.5,page,closed rbc prime rate - 0.200% (6.500%) 6.530%,
+RBC Royal Bank,3-year fixed,2023-04-06,20230406020224,5.59,page,closed 5.590% 5.630%,
+RBC Royal Bank,5-year fixed,2023-04-06,20230406020224,5.54,page,closed 5.540% 5.570%,
+RBC Royal Bank,5-year variable,2023-04-06,20230406020224,6.5,page,closed rbc prime rate - 0.200% (6.500%) 6.530%,
+RBC Royal Bank,3-year fixed,2023-06-01,20230601162822,5.89,page,closed 5.890% 5.930%,
+RBC Royal Bank,5-year fixed,2023-06-01,20230601162822,5.74,page,closed 5.740% 5.770%,
+RBC Royal Bank,5-year variable,2023-06-01,20230601162822,6.5,page,closed rbc prime rate - 0.200% (6.500%) 6.530%,
+RBC Royal Bank,3-year fixed,2023-09-21,20230921130911,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230921130911if_/https://www.
+RBC Royal Bank,5-year fixed,2023-09-21,20230921130911,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230921130911if_/https://www.
+RBC Royal Bank,5-year variable,2023-09-21,20230921130911,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230921130911if_/https://www.
+RBC Royal Bank,3-year fixed,2023-11-14,20231114014408,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231114014408if_/https://www.
+RBC Royal Bank,5-year fixed,2023-11-14,20231114014408,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231114014408if_/https://www.
+RBC Royal Bank,5-year variable,2023-11-14,20231114014408,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231114014408if_/https://www.
+RBC Royal Bank,3-year fixed,2023-11-27,20231127201349,6.7,page,closed 6.700% 6.740%,
+RBC Royal Bank,5-year fixed,2023-11-27,20231127201349,6.49,page,closed 6.490% 6.520%,
+RBC Royal Bank,5-year variable,2023-11-27,20231127201349,7.15,page,closed rbc prime rate - 0.050% (7.150%) 7.180%,
+RBC Royal Bank,3-year fixed,2023-12-28,20231228141448,6.05,page,closed 6.050% 6.090%,
+RBC Royal Bank,5-year fixed,2023-12-28,20231228141448,5.79,page,closed 5.790% 5.820%,
+RBC Royal Bank,5-year variable,2023-12-28,20231228141448,6.99,page,closed rbc prime rate - 0.210% (6.990%) 7.020%,
+RBC Royal Bank,3-year fixed,2024-01-18,20240118110041,5.85,page,closed 5.850% 5.890%,
+RBC Royal Bank,5-year fixed,2024-01-18,20240118110041,5.59,page,closed 5.590% 5.620%,
+RBC Royal Bank,5-year variable,2024-01-18,20240118110041,6.89,page,closed rbc prime rate - 0.310% (6.890%) 6.920%,
+RBC Royal Bank,3-year fixed,2024-01-31,20240131083318,,,,browser: the replayed rates came from a copy 62 days away
+RBC Royal Bank,5-year fixed,2024-01-31,20240131083318,,,,browser: the replayed rates came from a copy 62 days away
+RBC Royal Bank,5-year variable,2024-01-31,20240131083318,,,,browser: the replayed rates came from a copy 62 days away
+RBC Royal Bank,3-year fixed,2024-02-29,20240229025822,5.85,page,closed 5.850% 5.890%,
+RBC Royal Bank,5-year fixed,2024-02-29,20240229025822,5.59,page,closed 5.590% 5.620%,
+RBC Royal Bank,5-year variable,2024-02-29,20240229025822,6.89,page,closed rbc prime rate - 0.310% (6.890%) 6.920%,
+RBC Royal Bank,3-year fixed,2024-03-29,20240329175959,5.65,page,closed 5.650% 5.690%,
+RBC Royal Bank,5-year fixed,2024-03-29,20240329175959,5.59,page,closed 5.590% 5.620%,
+RBC Royal Bank,5-year variable,2024-03-29,20240329175959,6.89,page,closed rbc prime rate - 0.310% (6.890%) 6.920%,
+RBC Royal Bank,3-year fixed,2024-05-18,20240518232944,5.55,page,closed 5.550% 5.590%,
+RBC Royal Bank,5-year fixed,2024-05-18,20240518232944,5.14,page,closed 5.140% 5.170%,
+RBC Royal Bank,5-year variable,2024-05-18,20240518232944,6.89,page,closed rbc prime rate - 0.310% (6.890%) 6.920%,
+RBC Royal Bank,3-year fixed,2024-06-19,20240619232113,,,,browser: the replayed rates came from a copy 104 days away
+RBC Royal Bank,5-year fixed,2024-06-19,20240619232113,,,,browser: the replayed rates came from a copy 104 days away
+RBC Royal Bank,5-year variable,2024-06-19,20240619232113,,,,browser: the replayed rates came from a copy 104 days away
+RBC Royal Bank,3-year fixed,2024-08-03,20240803083425,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240803083425if_/https://www.
+RBC Royal Bank,5-year fixed,2024-08-03,20240803083425,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240803083425if_/https://www.
+RBC Royal Bank,5-year variable,2024-08-03,20240803083425,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240803083425if_/https://www.
+RBC Royal Bank,3-year fixed,2024-08-05,20240805132548,5.19,page,closed 5.190% 5.230%,
+RBC Royal Bank,5-year fixed,2024-08-05,20240805132548,5.04,page,closed 5.040% 5.070%,
+RBC Royal Bank,5-year variable,2024-08-05,20240805132548,6.1,page,closed rbc prime rate - 0.600% (6.100%) 6.130%,
+RBC Royal Bank,3-year fixed,2024-08-21,20240821151132,5.09,browser (data within 14 days),closed 5.090% 5.130%,
+RBC Royal Bank,5-year fixed,2024-08-21,20240821151132,4.94,browser (data within 14 days),closed 4.940% 4.970%,
+RBC Royal Bank,5-year variable,2024-08-21,20240821151132,6.1,browser (data within 14 days),closed rbc prime rate - 0.600% (6.100%) 6.130%,
+RBC Royal Bank,3-year fixed,2024-09-02,20240902123716,5.09,page,closed 5.090% 5.130%,
+RBC Royal Bank,5-year fixed,2024-09-02,20240902123716,4.94,page,closed 4.940% 4.970%,
+RBC Royal Bank,5-year variable,2024-09-02,20240902123716,6.1,page,closed rbc prime rate - 0.600% (6.100%) 6.130%,
+RBC Royal Bank,3-year fixed,2024-09-15,20240915202258,4.99,browser (data within 9 days),closed 4.990% 5.030%,
+RBC Royal Bank,5-year fixed,2024-09-15,20240915202258,4.84,browser (data within 9 days),closed 4.840% 4.870%,
+RBC Royal Bank,5-year variable,2024-09-15,20240915202258,5.85,browser (data within 9 days),closed rbc prime rate - 0.600% (5.850%) 5.880%,
+RBC Royal Bank,3-year fixed,2024-09-20,20240920044208,4.84,page,closed 4.840% 4.880%,
+RBC Royal Bank,5-year fixed,2024-09-20,20240920044208,4.74,page,closed 4.740% 4.770%,
+RBC Royal Bank,5-year variable,2024-09-20,20240920044208,5.85,page,closed rbc prime rate - 0.600% (5.850%) 5.880%,
+RBC Royal Bank,3-year fixed,2024-11-07,20241107011615,4.74,page,closed 4.740% 4.780%,
+RBC Royal Bank,5-year fixed,2024-11-07,20241107011615,4.74,page,closed 4.740% 4.770%,
+RBC Royal Bank,5-year variable,2024-11-07,20241107011615,5.35,page,closed rbc prime rate - 0.600% (5.350%) 5.380%,
+RBC Royal Bank,3-year fixed,2024-11-25,20241125045043,4.74,page,closed 4.740% 4.780%,
+RBC Royal Bank,5-year fixed,2024-11-25,20241125045043,4.74,page,closed 4.740% 4.770%,
+RBC Royal Bank,5-year variable,2024-11-25,20241125045043,5.35,page,closed rbc prime rate - 0.600% (5.350%) 5.380%,
+RBC Royal Bank,3-year fixed,2024-12-20,20241220085649,4.89,page,closed 4.890% 4.930%,
+RBC Royal Bank,5-year fixed,2024-12-20,20241220085649,4.89,page,closed 4.890% 4.920%,
+RBC Royal Bank,5-year variable,2024-12-20,20241220085649,4.95,page,closed rbc prime rate - 0.500% (4.950%) 4.980%,
+RBC Royal Bank,3-year fixed,2025-01-11,20250111001434,4.89,page,closed 4.890% 4.930%,
+RBC Royal Bank,5-year fixed,2025-01-11,20250111001434,4.89,page,closed 4.890% 4.920%,
+RBC Royal Bank,5-year variable,2025-01-11,20250111001434,4.95,page,closed rbc prime rate - 0.500% (4.950%) 4.980%,
+RBC Royal Bank,3-year fixed,2025-01-15,20250115031234,4.89,page,closed 4.890% 4.930%,
+RBC Royal Bank,5-year fixed,2025-01-15,20250115031234,4.89,page,closed 4.890% 4.920%,
+RBC Royal Bank,5-year variable,2025-01-15,20250115031234,4.95,page,closed rbc prime rate - 0.500% (4.950%) 4.980%,
+RBC Royal Bank,3-year fixed,2025-01-24,20250124220729,4.89,page,closed 4.890% 4.930%,
+RBC Royal Bank,5-year fixed,2025-01-24,20250124220729,4.89,page,closed 4.890% 4.920%,
+RBC Royal Bank,5-year variable,2025-01-24,20250124220729,4.95,page,closed rbc prime rate - 0.500% (4.950%) 4.980%,
+RBC Royal Bank,3-year fixed,2025-02-06,20250206133603,4.89,page,closed 4.890% 4.930%,
+RBC Royal Bank,5-year fixed,2025-02-06,20250206133603,4.89,page,closed 4.890% 4.920%,
+RBC Royal Bank,5-year variable,2025-02-06,20250206133603,4.7,page,closed rbc prime rate - 0.500% (4.700%) 4.730%,
+RBC Royal Bank,3-year fixed,2025-03-04,20250304114926,4.64,page,closed 4.640% 4.680%,
+RBC Royal Bank,5-year fixed,2025-03-04,20250304114926,4.59,page,closed 4.590% 4.620%,
+RBC Royal Bank,5-year variable,2025-03-04,20250304114926,4.75,page,closed rbc prime rate - 0.450% (4.750%) 4.780%,
+RBC Royal Bank,3-year fixed,2025-03-26,20250326004934,,,,browser: the replayed rates came from a copy 50 days away
+RBC Royal Bank,5-year fixed,2025-03-26,20250326004934,,,,browser: the replayed rates came from a copy 50 days away
+RBC Royal Bank,5-year variable,2025-03-26,20250326004934,,,,browser: the replayed rates came from a copy 50 days away
+RBC Royal Bank,3-year fixed,2025-04-03,20250403163517,4.29,page,closed 4.290% 4.330%,
+RBC Royal Bank,5-year fixed,2025-04-03,20250403163517,4.29,page,closed 4.290% 4.320%,
+RBC Royal Bank,5-year variable,2025-04-03,20250403163517,4.55,page,closed rbc prime rate - 0.400% (4.550%) 4.580%,
+RBC Royal Bank,3-year fixed,2025-04-21,20250421221008,4.29,page,closed 4.290% 4.330%,
+RBC Royal Bank,5-year fixed,2025-04-21,20250421221008,4.29,page,closed 4.290% 4.320%,
+RBC Royal Bank,5-year variable,2025-04-21,20250421221008,4.55,page,closed rbc prime rate - 0.400% (4.550%) 4.580%,
+RBC Royal Bank,3-year fixed,2025-06-01,20250601214825,4.44,page,closed 4.440% 4.480%,
+RBC Royal Bank,5-year fixed,2025-06-01,20250601214825,4.49,page,closed 4.490% 4.520%,
+RBC Royal Bank,5-year variable,2025-06-01,20250601214825,4.55,page,closed rbc prime rate - 0.400% (4.550%) 4.580%,
+RBC Royal Bank,3-year fixed,2025-07-07,20250707232744,4.44,page,closed 4.440% 4.480%,
+RBC Royal Bank,5-year fixed,2025-07-07,20250707232744,4.49,page,closed 4.490% 4.520%,
+RBC Royal Bank,5-year variable,2025-07-07,20250707232744,4.55,page,closed rbc prime rate - 0.400% (4.550%) 4.580%,
+RBC Royal Bank,3-year fixed,2025-07-27,20250727173515,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250727173515if_/https://www.
+RBC Royal Bank,5-year fixed,2025-07-27,20250727173515,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250727173515if_/https://www.
+RBC Royal Bank,5-year variable,2025-07-27,20250727173515,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250727173515if_/https://www.
+RBC Royal Bank,3-year fixed,2025-07-30,20250730003851,,,,browser: the replayed rates came from a copy 100 days away
+RBC Royal Bank,5-year fixed,2025-07-30,20250730003851,,,,browser: the replayed rates came from a copy 100 days away
+RBC Royal Bank,5-year variable,2025-07-30,20250730003851,,,,browser: the replayed rates came from a copy 100 days away
+RBC Royal Bank,3-year fixed,2025-08-10,20250810053517,,,,browser: the replayed rates came from a copy 111 days away
+RBC Royal Bank,5-year fixed,2025-08-10,20250810053517,,,,browser: the replayed rates came from a copy 111 days away
+RBC Royal Bank,5-year variable,2025-08-10,20250810053517,,,,browser: the replayed rates came from a copy 111 days away
+RBC Royal Bank,3-year fixed,2025-09-12,20250912065144,4.39,page,closed 4.390% 4.430%,
+RBC Royal Bank,5-year fixed,2025-09-12,20250912065144,4.59,page,closed 4.590% 4.620%,
+RBC Royal Bank,5-year variable,2025-09-12,20250912065144,4.45,page,closed rbc prime rate - 0.500% (4.450%) 4.480%,
+RBC Royal Bank,3-year fixed,2025-09-18,20250918002213,4.39,page,closed 4.390% 4.430%,
+RBC Royal Bank,5-year fixed,2025-09-18,20250918002213,4.59,page,closed 4.590% 4.620%,
+RBC Royal Bank,5-year variable,2025-09-18,20250918002213,4.45,page,closed rbc prime rate - 0.500% (4.450%) 4.480%,
+RBC Royal Bank,3-year fixed,2025-10-09,20251009105441,4.39,page,closed 4.390% 4.430%,
+RBC Royal Bank,5-year fixed,2025-10-09,20251009105441,4.59,page,closed 4.590% 4.620%,
+RBC Royal Bank,5-year variable,2025-10-09,20251009105441,4.2,page,closed rbc prime rate - 0.500% (4.200%) 4.230%,
+RBC Royal Bank,3-year fixed,2025-11-12,20251112153341,4.39,page,closed 4.390% 4.430%,
+RBC Royal Bank,5-year fixed,2025-11-12,20251112153341,4.59,page,closed 4.590% 4.620%,
+RBC Royal Bank,5-year variable,2025-11-12,20251112153341,3.95,page,closed rbc prime rate - 0.500% (3.950%) 3.980%,
+RBC Royal Bank,3-year fixed,2025-12-12,20251212071405,4.39,page,closed 4.390% 4.430%,
+RBC Royal Bank,5-year fixed,2025-12-12,20251212071405,4.59,page,closed 4.590% 4.620%,
+RBC Royal Bank,5-year variable,2025-12-12,20251212071405,3.95,page,closed rbc prime rate - 0.500% (3.950%) 3.980%,
+RBC Royal Bank,3-year fixed,2026-01-16,20260116224808,4.39,page,closed 4.390% 4.430%,
+RBC Royal Bank,5-year fixed,2026-01-16,20260116224808,4.59,page,closed 4.590% 4.620%,
+RBC Royal Bank,5-year variable,2026-01-16,20260116224808,3.95,page,closed rbc prime rate - 0.500% (3.950%) 3.980%,
+RBC Royal Bank,3-year fixed,2026-01-20,20260120095821,4.39,page,closed 4.390% 4.430%,
+RBC Royal Bank,5-year fixed,2026-01-20,20260120095821,4.59,page,closed 4.590% 4.620%,
+RBC Royal Bank,5-year variable,2026-01-20,20260120095821,3.95,page,closed rbc prime rate - 0.500% (3.950%) 3.980%,
+RBC Royal Bank,3-year fixed,2026-02-14,20260214204412,4.39,page,closed 4.390% 4.430%,
+RBC Royal Bank,5-year fixed,2026-02-14,20260214204412,4.59,page,closed 4.590% 4.620%,
+RBC Royal Bank,5-year variable,2026-02-14,20260214204412,3.95,page,closed rbc prime rate - 0.500% (3.950%) 3.980%,
+RBC Royal Bank,3-year fixed,2026-02-20,20260220000120,4.39,page,closed 4.390% 4.430%,
+RBC Royal Bank,5-year fixed,2026-02-20,20260220000120,4.59,page,closed 4.590% 4.620%,
+RBC Royal Bank,5-year variable,2026-02-20,20260220000120,3.95,page,closed rbc prime rate - 0.500% (3.950%) 3.980%,
+RBC Royal Bank,3-year fixed,2026-02-25,20260225180804,4.39,page,closed 4.390% 4.430%,
+RBC Royal Bank,5-year fixed,2026-02-25,20260225180804,4.59,page,closed 4.590% 4.620%,
+RBC Royal Bank,5-year variable,2026-02-25,20260225180804,3.95,page,closed rbc prime rate - 0.500% (3.950%) 3.980%,
+RBC Royal Bank,3-year fixed,2026-03-17,20260317152637,,,,browser: the replayed rates came from a copy 237 days away
+RBC Royal Bank,5-year fixed,2026-03-17,20260317152637,,,,browser: the replayed rates came from a copy 237 days away
+RBC Royal Bank,5-year variable,2026-03-17,20260317152637,,,,browser: the replayed rates came from a copy 237 days away
+RBC Royal Bank,3-year fixed,2026-04-10,20260410151559,,,,browser: the replayed rates came from a copy 261 days away
+RBC Royal Bank,5-year fixed,2026-04-10,20260410151559,,,,browser: the replayed rates came from a copy 261 days away
+RBC Royal Bank,5-year variable,2026-04-10,20260410151559,,,,browser: the replayed rates came from a copy 261 days away
+RBC Royal Bank,3-year fixed,2026-05-07,20260507174752,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260507174752if_/https://www.
+RBC Royal Bank,5-year fixed,2026-05-07,20260507174752,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260507174752if_/https://www.
+RBC Royal Bank,5-year variable,2026-05-07,20260507174752,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260507174752if_/https://www.
+RBC Royal Bank,3-year fixed,2026-05-12,20260512161203,,,,browser: the replayed rates came from a copy 293 days away
+RBC Royal Bank,5-year fixed,2026-05-12,20260512161203,,,,browser: the replayed rates came from a copy 293 days away
+RBC Royal Bank,5-year variable,2026-05-12,20260512161203,,,,browser: the replayed rates came from a copy 293 days away
+RBC Royal Bank,3-year fixed,2026-05-20,20260520080037,,,,browser: the replayed rates came from a copy 301 days away
+RBC Royal Bank,5-year fixed,2026-05-20,20260520080037,,,,browser: the replayed rates came from a copy 301 days away
+RBC Royal Bank,5-year variable,2026-05-20,20260520080037,,,,browser: the replayed rates came from a copy 301 days away
+RBC Royal Bank,3-year fixed,2026-06-17,20260617165650,,,,browser: the replayed rates came from a copy 329 days away
+RBC Royal Bank,5-year fixed,2026-06-17,20260617165650,,,,browser: the replayed rates came from a copy 329 days away
+RBC Royal Bank,5-year variable,2026-06-17,20260617165650,,,,browser: the replayed rates came from a copy 329 days away
+RBC Royal Bank,3-year fixed,2026-07-11,20260711055946,3.95,page,% % 5 year fixed closed % % 5 year variable closed rbc prime rate % (3.950%) %,
+RBC Royal Bank,5-year fixed,2026-07-11,20260711055946,3.95,page,% % 5 year variable closed rbc prime rate % (3.950%) %,
+RBC Royal Bank,5-year variable,2026-07-11,20260711055946,,,,no rate found next to the label '5 Year Variable Closed'
+RBC Royal Bank,3-year fixed,2026-08-03,20260803124336,,,,browser: the replayed rates came from a copy 155 days away
+RBC Royal Bank,5-year fixed,2026-08-03,20260803124336,,,,browser: the replayed rates came from a copy 155 days away
+RBC Royal Bank,5-year variable,2026-08-03,20260803124336,,,,browser: the replayed rates came from a copy 155 days away
+RBC Royal Bank,3-year fixed,2026-08-23,20260823151720,3.95,page,% % 5 year fixed closed % % 5 year variable closed rbc prime rate % (3.950%) %,
+RBC Royal Bank,5-year fixed,2026-08-23,20260823151720,3.95,page,% % 5 year variable closed rbc prime rate % (3.950%) %,
+RBC Royal Bank,5-year variable,2026-08-23,20260823151720,,,,no rate found next to the label '5 Year Variable Closed'
+RBC Royal Bank,3-year fixed,2026-08-28,20260828185743,3.95,page,% % 5 year fixed closed % % 5 year variable closed rbc prime rate % (3.950%) %,
+RBC Royal Bank,5-year fixed,2026-08-28,20260828185743,3.95,page,% % 5 year variable closed rbc prime rate % (3.950%) %,
+RBC Royal Bank,5-year variable,2026-08-28,20260828185743,,,,no rate found next to the label '5 Year Variable Closed'
+RBC Royal Bank,3-year fixed,2026-09-16,20260916234148,4.64,page,4.640 % 4.680 %,
+RBC Royal Bank,5-year fixed,2026-09-16,20260916234148,4.89,page,4.890 % 4.920 %,
+RBC Royal Bank,5-year variable,2026-09-16,20260916234148,3.95,page,rbc prime rate -0.500 % (3.950%) 3.980 %,
+RBC Royal Bank,3-year fixed,2026-10-06,20261006220444,4.99,page,4.990 % 5.030 %,
+RBC Royal Bank,5-year fixed,2026-10-06,20261006220444,5.14,page,5.140 % 5.170 %,
+RBC Royal Bank,5-year variable,2026-10-06,20261006220444,4.15,page,rbc prime rate -0.300 % (4.150%) 4.180 %,
+TD Canada Trust,3-year fixed,2019-05-01,20190501151657,3.19,page,3.19 % 3.22 %,
+TD Canada Trust,5-year fixed,2019-05-01,20190501151657,3.29,page,3.29 % 3.31 %,
+TD Canada Trust,5-year variable,2019-05-01,20190501151657,3.45,page,3.45 % (special rate is td mortgage prime rate - 0.65%) 3.47 %,
+TD Canada Trust,3-year fixed,2019-05-10,20190510100007,2.96,page,2.96 % 2.99 %,
+TD Canada Trust,5-year fixed,2019-05-10,20190510100007,3.29,page,3.29 % 3.31 %,
+TD Canada Trust,5-year variable,2019-05-10,20190510100007,3.45,page,3.45 % (special rate is td mortgage prime rate - 0.65%) 3.47 %,
+TD Canada Trust,3-year fixed,2019-05-18,20190518124108,2.96,page,2.96 % 2.99 %,
+TD Canada Trust,5-year fixed,2019-05-18,20190518124108,3.29,page,3.29 % 3.31 %,
+TD Canada Trust,5-year variable,2019-05-18,20190518124108,3.45,page,3.45 % (special rate is td mortgage prime rate - 0.65%) 3.47 %,
+TD Canada Trust,3-year fixed,2019-05-28,20190528084914,2.96,page,2.96 % 2.99 %,
+TD Canada Trust,5-year fixed,2019-05-28,20190528084914,3.29,page,3.29 % 3.31 %,
+TD Canada Trust,5-year variable,2019-05-28,20190528084914,3.35,page,3.35 % (special rate is td mortgage prime rate - 0.75%) 3.37 %,
+TD Canada Trust,3-year fixed,2019-06-11,20190611210525,2.96,page,2.96 % 2.99 %,
+TD Canada Trust,5-year fixed,2019-06-11,20190611210525,3.29,page,3.29 % 3.31 %,
+TD Canada Trust,5-year variable,2019-06-11,20190611210525,3.35,page,3.35 % (special rate is td mortgage prime rate - 0.75%) 3.37 %,
+TD Canada Trust,3-year fixed,2019-06-22,20190622215755,2.92,page,2.92 % 2.95 %,
+TD Canada Trust,5-year fixed,2019-06-22,20190622215755,2.97,page,2.97 % 2.99 %,
+TD Canada Trust,5-year variable,2019-06-22,20190622215755,3.35,page,3.35 % (special rate is td mortgage prime rate - 0.75%) 3.37 %,
+TD Canada Trust,3-year fixed,2019-07-17,20190717184942,2.92,page,2.92 % 2.95 %,
+TD Canada Trust,5-year fixed,2019-07-17,20190717184942,2.97,page,2.97 % 2.99 %,
+TD Canada Trust,5-year variable,2019-07-17,20190717184942,3.35,page,3.35 % (special rate is td mortgage prime rate - 0.75%) 3.37 %,
+TD Canada Trust,3-year fixed,2019-07-25,20190725032356,2.92,page,2.92 % 2.95 %,
+TD Canada Trust,5-year fixed,2019-07-25,20190725032356,2.97,page,2.97 % 2.99 %,
+TD Canada Trust,5-year variable,2019-07-25,20190725032356,3.35,page,3.35 % (special rate is td mortgage prime rate - 0.75%) 3.37 %,
+TD Canada Trust,3-year fixed,2019-08-01,20190801145318,2.92,page,2.92 % 2.95 %,
+TD Canada Trust,5-year fixed,2019-08-01,20190801145318,2.97,page,2.97 % 2.99 %,
+TD Canada Trust,5-year variable,2019-08-01,20190801145318,3.35,page,3.35 % (special rate is td mortgage prime rate - 0.75%) 3.37 %,
+TD Canada Trust,3-year fixed,2019-08-14,20190814060933,2.92,page,2.92 % 2.95 %,
+TD Canada Trust,5-year fixed,2019-08-14,20190814060933,2.87,page,2.87 % 2.89 %,
+TD Canada Trust,5-year variable,2019-08-14,20190814060933,3.35,page,3.35 % (special rate is td mortgage prime rate - 0.75%) 3.37 %,
+TD Canada Trust,3-year fixed,2019-08-19,20190819075207,2.92,page,2.92 % 2.95 %,
+TD Canada Trust,5-year fixed,2019-08-19,20190819075207,2.87,page,2.87 % 2.89 %,
+TD Canada Trust,5-year variable,2019-08-19,20190819075207,3.35,page,3.35 % (special rate is td mortgage prime rate - 0.75%) 3.37 %,
+TD Canada Trust,3-year fixed,2019-09-15,20190915063254,2.92,page,2.92 % 2.95 %,
+TD Canada Trust,5-year fixed,2019-09-15,20190915063254,2.87,page,2.87 % 2.89 %,
+TD Canada Trust,5-year variable,2019-09-15,20190915063254,3.35,page,3.35 % (special rate is td mortgage prime rate - 0.75%) 3.37 %,
+TD Canada Trust,3-year fixed,2019-09-20,20190920133801,2.92,page,2.92 % 2.95 %,
+TD Canada Trust,5-year fixed,2019-09-20,20190920133801,2.87,page,2.87 % 2.89 %,
+TD Canada Trust,5-year variable,2019-09-20,20190920133801,3.35,page,3.35 % (special rate is td mortgage prime rate - 0.75%) 3.37 %,
+TD Canada Trust,3-year fixed,2019-09-26,20190926005519,3.02,page,3.02 % 3.05 %,
+TD Canada Trust,5-year fixed,2019-09-26,20190926005519,2.97,page,2.97 % 2.99 %,
+TD Canada Trust,5-year variable,2019-09-26,20190926005519,3.35,page,3.35 % (special rate is td mortgage prime rate - 0.75%) 3.37 %,
+TD Canada Trust,3-year fixed,2019-10-01,20191001005953,3.02,page,3.02 % 3.05 %,
+TD Canada Trust,5-year fixed,2019-10-01,20191001005953,2.97,page,2.97 % 2.99 %,
+TD Canada Trust,5-year variable,2019-10-01,20191001005953,3.35,page,3.35 % (special rate is td mortgage prime rate - 0.75%) 3.37 %,
+TD Canada Trust,3-year fixed,2019-12-14,20191214202945,3.09,page,7 3.09 % 3.12 %,
+TD Canada Trust,5-year fixed,2019-12-14,20191214202945,3.07,page,7 3.07 % 3.09 %,
+TD Canada Trust,5-year variable,2019-12-14,20191214202945,3.35,page,6 3.35 % (special rate is td mortgage prime rate - 0.75%) 3.37 %,
+TD Canada Trust,3-year fixed,2020-05-08,20200508074012,2.89,page,7 2.89 % 2.92 %,
+TD Canada Trust,5-year fixed,2020-05-08,20200508074012,3.09,page,7 3.09 % 3.11 %,
+TD Canada Trust,5-year variable,2020-05-08,20200508074012,2.35,page,6 2.35 % 2.37 %,
+TD Canada Trust,3-year fixed,2020-05-23,20200523151937,2.74,page,7 2.74 % 2.77 %,
+TD Canada Trust,5-year fixed,2020-05-23,20200523151937,2.97,page,7 2.97 % 2.99 %,
+TD Canada Trust,5-year variable,2020-05-23,20200523151937,2.35,page,6 2.35 % 2.37 %,
+TD Canada Trust,3-year fixed,2020-06-29,20200629090940,2.54,page,7 2.54 % 2.58 %,
+TD Canada Trust,5-year fixed,2020-06-29,20200629090940,2.57,page,7 2.57 % 2.59 %,
+TD Canada Trust,5-year variable,2020-06-29,20200629090940,2.2,page,6 2.20 % 2.22 %,
+TD Canada Trust,3-year fixed,2020-07-25,20200725004056,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20200725004056if_/https://www.
+TD Canada Trust,5-year fixed,2020-07-25,20200725004056,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20200725004056if_/https://www.
+TD Canada Trust,5-year variable,2020-07-25,20200725004056,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20200725004056if_/https://www.
+TD Canada Trust,3-year fixed,2020-08-12,20200812174830,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20200812174830if_/https://www.
+TD Canada Trust,5-year fixed,2020-08-12,20200812174830,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20200812174830if_/https://www.
+TD Canada Trust,5-year variable,2020-08-12,20200812174830,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20200812174830if_/https://www.
+TD Canada Trust,3-year fixed,2020-09-27,20200927231641,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20200927231641if_/https://www.
+TD Canada Trust,5-year fixed,2020-09-27,20200927231641,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20200927231641if_/https://www.
+TD Canada Trust,5-year variable,2020-09-27,20200927231641,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20200927231641if_/https://www.
+TD Canada Trust,3-year fixed,2020-10-31,20201031170834,2.14,page,7 2.14 % 2.18 %,
+TD Canada Trust,5-year fixed,2020-10-31,20201031170834,2.14,page,7 2.14 % 2.16 %,
+TD Canada Trust,5-year variable,2020-10-31,20201031170834,1.97,page,6 1.97 % 1.99 %,
+TD Canada Trust,3-year fixed,2020-11-11,20201111194536,2.14,page,7 2.14 % 2.18 %,
+TD Canada Trust,5-year fixed,2020-11-11,20201111194536,2.14,page,7 2.14 % 2.16 %,
+TD Canada Trust,5-year variable,2020-11-11,20201111194536,1.97,page,6 1.97 % 1.99 %,
+TD Canada Trust,3-year fixed,2020-12-16,20201216155139,2.14,page,7 2.14 % 2.18 %,
+TD Canada Trust,5-year fixed,2020-12-16,20201216155139,1.94,page,7 1.94 % 1.96 %,
+TD Canada Trust,5-year variable,2020-12-16,20201216155139,1.7,page,6 1.70 % 1.72 %,
+TD Canada Trust,3-year fixed,2021-01-18,20210118013558,2.14,page,7 2.14 % 2.18 %,
+TD Canada Trust,5-year fixed,2021-01-18,20210118013558,1.94,page,7 1.94 % 1.96 %,
+TD Canada Trust,5-year variable,2021-01-18,20210118013558,1.7,page,6 1.70 % 1.72 %,
+TD Canada Trust,3-year fixed,2021-03-16,20210316033340,2.14,page,7 2.14 % 2.18 %,
+TD Canada Trust,5-year fixed,2021-03-16,20210316033340,2.34,page,7 2.34 % 2.36 %,
+TD Canada Trust,5-year variable,2021-03-16,20210316033340,1.55,page,6 1.55 % 1.57 %,
+TD Canada Trust,3-year fixed,2021-04-15,20210415140445,2.14,page,7 2.14 % 2.18 %,
+TD Canada Trust,5-year fixed,2021-04-15,20210415140445,2.44,page,7 2.44 % 2.46 %,
+TD Canada Trust,5-year variable,2021-04-15,20210415140445,1.55,page,6 1.55 % 1.57 %,
+TD Canada Trust,3-year fixed,2021-07-29,20210729193312,2.14,page,6 2.14 % 2.18 %,
+TD Canada Trust,5-year fixed,2021-07-29,20210729193312,2.44,page,6 2.44 % 2.46 %,
+TD Canada Trust,5-year variable,2021-07-29,20210729193312,1.55,page,8 1.55 % 1.57 %,
+TD Canada Trust,3-year fixed,2021-08-04,20210804153827,2.14,page,6 2.14 % 2.18 %,
+TD Canada Trust,5-year fixed,2021-08-04,20210804153827,2.44,page,6 2.44 % 2.46 %,
+TD Canada Trust,5-year variable,2021-08-04,20210804153827,1.55,page,8 1.55 % 1.57 %,
+TD Canada Trust,3-year fixed,2021-09-24,20210924184654,2.14,page,6 2.14 % 2.18 %,
+TD Canada Trust,5-year fixed,2021-09-24,20210924184654,1.99,page,6 1.99 % 2.01 %,
+TD Canada Trust,5-year variable,2021-09-24,20210924184654,1.55,page,8 1.55 % 1.57 %,
+TD Canada Trust,3-year fixed,2021-11-05,20211105140800,,,,browser: the replayed rates came from a copy 76 days away
+TD Canada Trust,5-year fixed,2021-11-05,20211105140800,,,,browser: the replayed rates came from a copy 76 days away
+TD Canada Trust,5-year variable,2021-11-05,20211105140800,,,,browser: the replayed rates came from a copy 76 days away
+TD Canada Trust,3-year fixed,2021-11-15,20211115222438,,,,browser: the replayed rates came from a copy 66 days away
+TD Canada Trust,5-year fixed,2021-11-15,20211115222438,,,,browser: the replayed rates came from a copy 66 days away
+TD Canada Trust,5-year variable,2021-11-15,20211115222438,,,,browser: the replayed rates came from a copy 66 days away
+TD Canada Trust,3-year fixed,2022-01-13,20220113001518,2.64,page,6 2.64 % 2.675 %,
+TD Canada Trust,5-year fixed,2022-01-13,20220113001518,2.84,page,6 2.84 % 2.862 %,
+TD Canada Trust,5-year variable,2022-01-13,20220113001518,1.55,page,8 1.55 % td mortgage prime rate : 1.572 %,
+TD Canada Trust,3-year fixed,2022-01-20,20220120161610,2.79,page,6 2.79 % 2.825 %,
+TD Canada Trust,5-year fixed,2022-01-20,20220120161610,2.94,page,6 2.94 % 2.962 %,
+TD Canada Trust,5-year variable,2022-01-20,20220120161610,1.55,page,8 1.55 % td mortgage prime rate : 1.572 %,
+TD Canada Trust,3-year fixed,2022-03-10,20220310172357,,,,browser: the replayed rates came from a copy 28 days away
+TD Canada Trust,5-year fixed,2022-03-10,20220310172357,,,,browser: the replayed rates came from a copy 28 days away
+TD Canada Trust,5-year variable,2022-03-10,20220310172357,,,,browser: the replayed rates came from a copy 28 days away
+TD Canada Trust,3-year fixed,2022-03-25,20220325161339,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220325161339if_/https://www.
+TD Canada Trust,5-year fixed,2022-03-25,20220325161339,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220325161339if_/https://www.
+TD Canada Trust,5-year variable,2022-03-25,20220325161339,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220325161339if_/https://www.
+TD Canada Trust,3-year fixed,2022-04-07,20220407171405,3.69,browser (data within 0 days),6 3.69% 3.725%,
+TD Canada Trust,5-year fixed,2022-04-07,20220407171405,3.99,browser (data within 0 days),6 3.99% 4.011%,
+TD Canada Trust,5-year variable,2022-04-07,20220407171405,2.15,browser (data within 0 days),8 2.15% td mortgage prime rate - 0.70% : 2.15% 2.172%,
+TD Canada Trust,3-year fixed,2022-04-20,20220420151005,,,,text after the label doesn't match the expected layout: 'posted rate: 3.89% special rate: unable to get the rate 3 ap'
+TD Canada Trust,5-year fixed,2022-04-20,20220420151005,,,,text after the label doesn't match the expected layout: 'posted rate: 4.59% special rate: unable to get the rate 3 ap'
+TD Canada Trust,5-year variable,2022-04-20,20220420151005,,,,text after the label doesn't match the expected layout: 'td mortgage prime rate unable to get the rate : unable to ge'
+TD Canada Trust,3-year fixed,2022-05-20,20220520004805,4.29,browser (data within 12 days),6 4.29% 4.325%,
+TD Canada Trust,5-year fixed,2022-05-20,20220520004805,4.59,browser (data within 12 days),6 4.59% 4.611%,
+TD Canada Trust,5-year variable,2022-05-20,20220520004805,2.7,browser (data within 12 days),8 2.70% td mortgage prime rate - 0.65% : 2.70% 2.722%,
+TD Canada Trust,3-year fixed,2022-06-01,20220601135919,4.29,browser (data within 0 days),6 4.29% 4.325%,
+TD Canada Trust,5-year fixed,2022-06-01,20220601135919,4.59,browser (data within 0 days),6 4.59% 4.611%,
+TD Canada Trust,5-year variable,2022-06-01,20220601135919,2.7,browser (data within 0 days),8 2.70% td mortgage prime rate - 0.65% : 2.70% 2.722%,
+TD Canada Trust,3-year fixed,2022-06-10,20220610021535,4.64,browser (data within 6 days),6 4.64% 4.675%,
+TD Canada Trust,5-year fixed,2022-06-10,20220610021535,4.84,browser (data within 6 days),6 4.84% 4.861%,
+TD Canada Trust,5-year variable,2022-06-10,20220610021535,3.3,browser (data within 6 days),8 3.30% td mortgage prime rate - 0.55% : 3.30% 3.322%,
+TD Canada Trust,3-year fixed,2022-06-16,20220616001917,4.64,browser (data within 0 days),6 4.64% 4.675%,
+TD Canada Trust,5-year fixed,2022-06-16,20220616001917,4.84,browser (data within 0 days),6 4.84% 4.861%,
+TD Canada Trust,5-year variable,2022-06-16,20220616001917,3.3,browser (data within 0 days),8 3.30% td mortgage prime rate - 0.55% : 3.30% 3.322%,
+TD Canada Trust,3-year fixed,2022-07-02,20220702193137,,,,"text after the label doesn't match the expected layout: 'posted rate: 5.34% special rate: 3 apr : 5.175% 4 , 5'"
+TD Canada Trust,5-year fixed,2022-07-02,20220702193137,,,,"text after the label doesn't match the expected layout: 'posted rate: 6.04% special rate: 3 apr : 5.261% 4 , 5'"
+TD Canada Trust,5-year variable,2022-07-02,20220702193137,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate : apr 4 , 5 : 3.322%'"
+TD Canada Trust,3-year fixed,2022-07-13,20220713152642,5.14,browser (data within 0 days),6 5.14% 5.175%,
+TD Canada Trust,5-year fixed,2022-07-13,20220713152642,5.24,browser (data within 0 days),6 5.24% 5.261%,
+TD Canada Trust,5-year variable,2022-07-13,20220713152642,3.3,browser (data within 0 days),8 3.30% td mortgage prime rate - 0.55% : 3.30% 3.322%,
+TD Canada Trust,3-year fixed,2022-07-23,20220723055346,5.24,browser (data within 3 days),6 5.24% 5.275%,
+TD Canada Trust,5-year fixed,2022-07-23,20220723055346,5.34,browser (data within 3 days),6 5.34% 5.361%,
+TD Canada Trust,5-year variable,2022-07-23,20220723055346,4.35,browser (data within 3 days),8 4.35% td mortgage prime rate - 0.50% : 4.35% 4.371%,
+TD Canada Trust,3-year fixed,2022-07-25,20220725233552,5.24,browser (data within 0 days),6 5.24% 5.275%,
+TD Canada Trust,5-year fixed,2022-07-25,20220725233552,5.34,browser (data within 0 days),6 5.34% 5.361%,
+TD Canada Trust,5-year variable,2022-07-25,20220725233552,4.35,browser (data within 0 days),8 4.35% td mortgage prime rate - 0.50% : 4.35% 4.371%,
+TD Canada Trust,3-year fixed,2022-08-08,20220808134622,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220808134622if_/https://www.
+TD Canada Trust,5-year fixed,2022-08-08,20220808134622,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220808134622if_/https://www.
+TD Canada Trust,5-year variable,2022-08-08,20220808134622,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220808134622if_/https://www.
+TD Canada Trust,3-year fixed,2022-08-24,20220824140817,5.24,browser (data within 0 days),6 5.24% 5.275%,
+TD Canada Trust,5-year fixed,2022-08-24,20220824140817,5.34,browser (data within 0 days),6 5.34% 5.361%,
+TD Canada Trust,5-year variable,2022-08-24,20220824140817,4.35,browser (data within 0 days),8 4.35% td mortgage prime rate - 0.50% : 4.35% 4.371%,
+TD Canada Trust,3-year fixed,2022-10-14,20221014033201,5.59,browser (data within 1 days),6 5.59% 5.624%,
+TD Canada Trust,5-year fixed,2022-10-14,20221014033201,5.54,browser (data within 1 days),6 5.54% 5.561%,
+TD Canada Trust,5-year variable,2022-10-14,20221014033201,5.2,browser (data within 1 days),8 5.20% td mortgage prime rate - 0.40% : 5.20% 5.221%,
+TD Canada Trust,3-year fixed,2022-11-27,20221127014155,,,,browser: the replayed rates came from a copy 44 days away
+TD Canada Trust,5-year fixed,2022-11-27,20221127014155,,,,browser: the replayed rates came from a copy 44 days away
+TD Canada Trust,5-year variable,2022-11-27,20221127014155,,,,browser: the replayed rates came from a copy 44 days away
+TD Canada Trust,3-year fixed,2022-12-02,20221202225105,,,,browser: the replayed rates came from a copy 49 days away
+TD Canada Trust,5-year fixed,2022-12-02,20221202225105,,,,browser: the replayed rates came from a copy 49 days away
+TD Canada Trust,5-year variable,2022-12-02,20221202225105,,,,browser: the replayed rates came from a copy 49 days away
+TD Canada Trust,3-year fixed,2023-01-25,20230125155251,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2023-01-25,20230125155251,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2023-01-25,20230125155251,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2023-01-30,20230130181113,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2023-01-30,20230130181113,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2023-01-30,20230130181113,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2023-02-06,20230206183808,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230206183808if_/https://www.
+TD Canada Trust,5-year fixed,2023-02-06,20230206183808,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230206183808if_/https://www.
+TD Canada Trust,5-year variable,2023-02-06,20230206183808,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230206183808if_/https://www.
+TD Canada Trust,3-year fixed,2023-03-02,20230302051926,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2023-03-02,20230302051926,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2023-03-02,20230302051926,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2023-06-04,20230604023354,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2023-06-04,20230604023354,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2023-06-04,20230604023354,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2023-06-07,20230607142112,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2023-06-07,20230607142112,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2023-06-07,20230607142112,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2023-07-14,20230714100220,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230714100220if_/https://www.
+TD Canada Trust,5-year fixed,2023-07-14,20230714100220,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230714100220if_/https://www.
+TD Canada Trust,5-year variable,2023-07-14,20230714100220,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230714100220if_/https://www.
+TD Canada Trust,3-year fixed,2023-07-21,20230721072924,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20230721072924if_/https://www.td.com/ca
+TD Canada Trust,5-year fixed,2023-07-21,20230721072924,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20230721072924if_/https://www.td.com/ca
+TD Canada Trust,5-year variable,2023-07-21,20230721072924,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20230721072924if_/https://www.td.com/ca
+TD Canada Trust,3-year fixed,2023-07-28,20230728074652,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2023-07-28,20230728074652,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2023-07-28,20230728074652,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2023-08-11,20230811091932,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2023-08-11,20230811091932,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2023-08-11,20230811091932,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2023-08-18,20230818093433,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2023-08-18,20230818093433,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2023-08-18,20230818093433,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2023-08-26,20230826091757,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2023-08-26,20230826091757,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2023-08-26,20230826091757,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2023-09-09,20230909100540,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230909100540if_/https://www.
+TD Canada Trust,5-year fixed,2023-09-09,20230909100540,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230909100540if_/https://www.
+TD Canada Trust,5-year variable,2023-09-09,20230909100540,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230909100540if_/https://www.
+TD Canada Trust,3-year fixed,2023-09-16,20230916105619,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2023-09-16,20230916105619,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2023-09-16,20230916105619,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2023-09-21,20230921233216,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2023-09-21,20230921233216,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2023-09-21,20230921233216,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2023-09-30,20230930122859,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2023-09-30,20230930122859,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2023-09-30,20230930122859,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2023-10-03,20231003205040,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231003205040if_/https://www.
+TD Canada Trust,5-year fixed,2023-10-03,20231003205040,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231003205040if_/https://www.
+TD Canada Trust,5-year variable,2023-10-03,20231003205040,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231003205040if_/https://www.
+TD Canada Trust,3-year fixed,2023-10-15,20231015150216,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2023-10-15,20231015150216,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2023-10-15,20231015150216,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2023-10-23,20231023105912,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2023-10-23,20231023105912,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2023-10-23,20231023105912,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2023-10-30,20231030124151,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231030124151if_/https://www.
+TD Canada Trust,5-year fixed,2023-10-30,20231030124151,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231030124151if_/https://www.
+TD Canada Trust,5-year variable,2023-10-30,20231030124151,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231030124151if_/https://www.
+TD Canada Trust,3-year fixed,2023-11-06,20231106125751,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231106125751if_/https://www.
+TD Canada Trust,5-year fixed,2023-11-06,20231106125751,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231106125751if_/https://www.
+TD Canada Trust,5-year variable,2023-11-06,20231106125751,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231106125751if_/https://www.
+TD Canada Trust,3-year fixed,2023-11-20,20231120141353,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231120141353if_/https://www.
+TD Canada Trust,5-year fixed,2023-11-20,20231120141353,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231120141353if_/https://www.
+TD Canada Trust,5-year variable,2023-11-20,20231120141353,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231120141353if_/https://www.
+TD Canada Trust,3-year fixed,2023-11-27,20231127171922,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2023-11-27,20231127171922,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2023-11-27,20231127171922,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2023-12-04,20231204155159,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2023-12-04,20231204155159,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2023-12-04,20231204155159,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2023-12-11,20231211185359,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2023-12-11,20231211185359,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2023-12-11,20231211185359,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2023-12-18,20231218173253,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231218173253if_/https://www.
+TD Canada Trust,5-year fixed,2023-12-18,20231218173253,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231218173253if_/https://www.
+TD Canada Trust,5-year variable,2023-12-18,20231218173253,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231218173253if_/https://www.
+TD Canada Trust,3-year fixed,2024-01-08,20240108190541,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 4 year fixed '"
+TD Canada Trust,5-year fixed,2024-01-08,20240108190541,,,,"text after the label doesn't match the expected layout: 'posted rate: % special rate: % 3 apr : % 4 , 5 6 year fixed '"
+TD Canada Trust,5-year variable,2024-01-08,20240108190541,,,,"text after the label doesn't match the expected layout: 'td mortgage prime rate %: % apr 4 , 5 : %'"
+TD Canada Trust,3-year fixed,2024-01-17,20240117033257,,,,browser: the replayed rates came from a copy 82 days away
+TD Canada Trust,5-year fixed,2024-01-17,20240117033257,,,,browser: the replayed rates came from a copy 82 days away
+TD Canada Trust,5-year variable,2024-01-17,20240117033257,,,,browser: the replayed rates came from a copy 82 days away
+TD Canada Trust,3-year fixed,2024-01-22,20240122204139,,,,browser: the replayed rates came from a copy 229 days away
+TD Canada Trust,5-year fixed,2024-01-22,20240122204139,,,,browser: the replayed rates came from a copy 229 days away
+TD Canada Trust,5-year variable,2024-01-22,20240122204139,,,,browser: the replayed rates came from a copy 229 days away
+TD Canada Trust,3-year fixed,2024-01-29,20240129215159,,,,browser: the replayed rates came from a copy 94 days away
+TD Canada Trust,5-year fixed,2024-01-29,20240129215159,,,,browser: the replayed rates came from a copy 94 days away
+TD Canada Trust,5-year variable,2024-01-29,20240129215159,,,,browser: the replayed rates came from a copy 94 days away
+TD Canada Trust,3-year fixed,2024-02-12,20240212231833,,,,browser: the replayed rates came from a copy 89 days away
+TD Canada Trust,5-year fixed,2024-02-12,20240212231833,,,,browser: the replayed rates came from a copy 89 days away
+TD Canada Trust,5-year variable,2024-02-12,20240212231833,,,,browser: the replayed rates came from a copy 89 days away
+TD Canada Trust,3-year fixed,2024-02-19,20240219235510,,,,browser: the replayed rates came from a copy 82 days away
+TD Canada Trust,5-year fixed,2024-02-19,20240219235510,,,,browser: the replayed rates came from a copy 82 days away
+TD Canada Trust,5-year variable,2024-02-19,20240219235510,,,,browser: the replayed rates came from a copy 82 days away
+TD Canada Trust,3-year fixed,2024-02-26,20240226043333,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240226043333if_/https://www.
+TD Canada Trust,5-year fixed,2024-02-26,20240226043333,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240226043333if_/https://www.
+TD Canada Trust,5-year variable,2024-02-26,20240226043333,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240226043333if_/https://www.
+TD Canada Trust,3-year fixed,2024-03-12,20240312035427,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240312035427if_/https://www.
+TD Canada Trust,5-year fixed,2024-03-12,20240312035427,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240312035427if_/https://www.
+TD Canada Trust,5-year variable,2024-03-12,20240312035427,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240312035427if_/https://www.
+TD Canada Trust,3-year fixed,2024-03-19,20240319033041,,,,browser: the replayed rates came from a copy 53 days away
+TD Canada Trust,5-year fixed,2024-03-19,20240319033041,,,,browser: the replayed rates came from a copy 53 days away
+TD Canada Trust,5-year variable,2024-03-19,20240319033041,,,,browser: the replayed rates came from a copy 53 days away
+TD Canada Trust,3-year fixed,2024-04-02,20240402041831,,,,browser: the replayed rates came from a copy 39 days away
+TD Canada Trust,5-year fixed,2024-04-02,20240402041831,,,,browser: the replayed rates came from a copy 39 days away
+TD Canada Trust,5-year variable,2024-04-02,20240402041831,,,,browser: the replayed rates came from a copy 39 days away
+TD Canada Trust,3-year fixed,2024-04-09,20240409050239,,,,browser: the replayed rates came from a copy 32 days away
+TD Canada Trust,5-year fixed,2024-04-09,20240409050239,,,,browser: the replayed rates came from a copy 32 days away
+TD Canada Trust,5-year variable,2024-04-09,20240409050239,,,,browser: the replayed rates came from a copy 32 days away
+TD Canada Trust,3-year fixed,2024-04-18,20240418172329,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240418172329if_/https://www.
+TD Canada Trust,5-year fixed,2024-04-18,20240418172329,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240418172329if_/https://www.
+TD Canada Trust,5-year variable,2024-04-18,20240418172329,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240418172329if_/https://www.
+TD Canada Trust,3-year fixed,2024-05-02,20240502185515,,,,browser: the replayed rates came from a copy 24 days away
+TD Canada Trust,5-year fixed,2024-05-02,20240502185515,,,,browser: the replayed rates came from a copy 24 days away
+TD Canada Trust,5-year variable,2024-05-02,20240502185515,,,,browser: the replayed rates came from a copy 24 days away
+TD Canada Trust,3-year fixed,2024-05-11,20240511191530,,,,browser: the replayed rates came from a copy 33 days away
+TD Canada Trust,5-year fixed,2024-05-11,20240511191530,,,,browser: the replayed rates came from a copy 33 days away
+TD Canada Trust,5-year variable,2024-05-11,20240511191530,,,,browser: the replayed rates came from a copy 33 days away
+TD Canada Trust,3-year fixed,2024-05-15,20240515182809,5.71,browser (data within 4 days),6 5.71 % 5.744 %,
+TD Canada Trust,5-year fixed,2024-05-15,20240515182809,5.6,browser (data within 4 days),6 5.60 % 5.621 %,
+TD Canada Trust,5-year variable,2024-05-15,20240515182809,6.95,browser (data within 4 days),8 6.95 % td mortgage prime rate -0.40 %: 6.95 % 6.971 %,
+TD Canada Trust,3-year fixed,2024-05-25,20240525222315,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240525222315if_/https://www.
+TD Canada Trust,5-year fixed,2024-05-25,20240525222315,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240525222315if_/https://www.
+TD Canada Trust,5-year variable,2024-05-25,20240525222315,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240525222315if_/https://www.
+TD Canada Trust,3-year fixed,2024-05-28,20240528042920,,,,browser: the replayed rates came from a copy 50 days away
+TD Canada Trust,5-year fixed,2024-05-28,20240528042920,,,,browser: the replayed rates came from a copy 50 days away
+TD Canada Trust,5-year variable,2024-05-28,20240528042920,,,,browser: the replayed rates came from a copy 50 days away
+TD Canada Trust,3-year fixed,2024-06-06,20240606142740,,,,browser: the replayed rates came from a copy 59 days away
+TD Canada Trust,5-year fixed,2024-06-06,20240606142740,,,,browser: the replayed rates came from a copy 59 days away
+TD Canada Trust,5-year variable,2024-06-06,20240606142740,,,,browser: the replayed rates came from a copy 59 days away
+TD Canada Trust,3-year fixed,2024-06-24,20240624185024,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240624185024if_/https://www.
+TD Canada Trust,5-year fixed,2024-06-24,20240624185024,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240624185024if_/https://www.
+TD Canada Trust,5-year variable,2024-06-24,20240624185024,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240624185024if_/https://www.
+TD Canada Trust,3-year fixed,2024-07-01,20240701191416,,,,browser: the replayed rates came from a copy 24 days away
+TD Canada Trust,5-year fixed,2024-07-01,20240701191416,,,,browser: the replayed rates came from a copy 24 days away
+TD Canada Trust,5-year variable,2024-07-01,20240701191416,,,,browser: the replayed rates came from a copy 24 days away
+TD Canada Trust,3-year fixed,2024-07-09,20240709184616,,,,browser: the replayed rates came from a copy 27 days away
+TD Canada Trust,5-year fixed,2024-07-09,20240709184616,,,,browser: the replayed rates came from a copy 27 days away
+TD Canada Trust,5-year variable,2024-07-09,20240709184616,,,,browser: the replayed rates came from a copy 27 days away
+TD Canada Trust,3-year fixed,2024-07-16,20240716205201,,,,browser: the replayed rates came from a copy 29 days away
+TD Canada Trust,5-year fixed,2024-07-16,20240716205201,,,,browser: the replayed rates came from a copy 29 days away
+TD Canada Trust,5-year variable,2024-07-16,20240716205201,,,,browser: the replayed rates came from a copy 29 days away
+TD Canada Trust,3-year fixed,2024-08-02,20240802042258,5.4,browser (data within 3 days),6 5.40 % 5.434 %,
+TD Canada Trust,5-year fixed,2024-08-02,20240802042258,5.31,browser (data within 3 days),6 5.31 % 5.331 %,
+TD Canada Trust,5-year variable,2024-08-02,20240802042258,6.3,browser (data within 3 days),8 6.30 % td mortgage prime rate -0.55 %: 6.30 % 6.321 %,
+TD Canada Trust,3-year fixed,2024-08-05,20240805193700,5.4,browser (data within 1 days),6 5.40 % 5.434 %,
+TD Canada Trust,5-year fixed,2024-08-05,20240805193700,5.31,browser (data within 1 days),6 5.31 % 5.331 %,
+TD Canada Trust,5-year variable,2024-08-05,20240805193700,6.3,browser (data within 1 days),8 6.30 % td mortgage prime rate -0.55 %: 6.30 % 6.321 %,
+TD Canada Trust,3-year fixed,2024-08-20,20240820002534,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240820002534if_/https://www.
+TD Canada Trust,5-year fixed,2024-08-20,20240820002534,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240820002534if_/https://www.
+TD Canada Trust,5-year variable,2024-08-20,20240820002534,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240820002534if_/https://www.
+TD Canada Trust,3-year fixed,2024-09-03,20240903013308,,,,browser: the replayed rates came from a copy 29 days away
+TD Canada Trust,5-year fixed,2024-09-03,20240903013308,,,,browser: the replayed rates came from a copy 29 days away
+TD Canada Trust,5-year variable,2024-09-03,20240903013308,,,,browser: the replayed rates came from a copy 29 days away
+TD Canada Trust,3-year fixed,2024-10-05,20241005220017,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20241005220017if_/https://www.
+TD Canada Trust,5-year fixed,2024-10-05,20241005220017,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20241005220017if_/https://www.
+TD Canada Trust,5-year variable,2024-10-05,20241005220017,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20241005220017if_/https://www.
+TD Canada Trust,3-year fixed,2024-10-07,20241007210829,,,,browser: the replayed rates came from a copy 63 days away
+TD Canada Trust,5-year fixed,2024-10-07,20241007210829,,,,browser: the replayed rates came from a copy 63 days away
+TD Canada Trust,5-year variable,2024-10-07,20241007210829,,,,browser: the replayed rates came from a copy 63 days away
+TD Canada Trust,3-year fixed,2024-10-15,20241015044523,,,,browser: the replayed rates came from a copy 60 days away
+TD Canada Trust,5-year fixed,2024-10-15,20241015044523,,,,browser: the replayed rates came from a copy 60 days away
+TD Canada Trust,5-year variable,2024-10-15,20241015044523,,,,browser: the replayed rates came from a copy 60 days away
+TD Canada Trust,3-year fixed,2024-11-17,20241117051725,,,,browser: the replayed rates came from a copy 27 days away
+TD Canada Trust,5-year fixed,2024-11-17,20241117051725,,,,browser: the replayed rates came from a copy 27 days away
+TD Canada Trust,5-year variable,2024-11-17,20241117051725,,,,browser: the replayed rates came from a copy 27 days away
+TD Canada Trust,3-year fixed,2024-11-21,20241121133836,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20241121133836if_/https://www.
+TD Canada Trust,5-year fixed,2024-11-21,20241121133836,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20241121133836if_/https://www.
+TD Canada Trust,5-year variable,2024-11-21,20241121133836,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20241121133836if_/https://www.
+TD Canada Trust,3-year fixed,2024-12-08,20241208123735,5.09,browser (data within 6 days),5.09 % (posted rate: 6.94 % ) 5.124 %,
+TD Canada Trust,5-year fixed,2024-12-08,20241208123735,5.09,browser (data within 6 days),5.09 % (posted rate: 6.79 % ) 5.111 %,
+TD Canada Trust,5-year variable,2024-12-08,20241208123735,5.19,browser (data within 6 days),5 5.19 % (td mortgage prime rate 5.60 % -0.41 %) (posted rate: td mortgage prime rate ) 5.211 %,
+TD Canada Trust,3-year fixed,2024-12-09,20241209014213,5.09,browser (data within 5 days),5.09 % (posted rate: 6.94 % ) 5.124 %,
+TD Canada Trust,5-year fixed,2024-12-09,20241209014213,5.09,browser (data within 5 days),5.09 % (posted rate: 6.79 % ) 5.111 %,
+TD Canada Trust,5-year variable,2024-12-09,20241209014213,5.19,browser (data within 5 days),5 5.19 % (td mortgage prime rate 5.60 % -0.41 %) (posted rate: td mortgage prime rate ) 5.211 %,
+TD Canada Trust,3-year fixed,2024-12-18,20241218114217,,,,browser: the replayed rates came from a copy 19 days away
+TD Canada Trust,5-year fixed,2024-12-18,20241218114217,,,,browser: the replayed rates came from a copy 19 days away
+TD Canada Trust,5-year variable,2024-12-18,20241218114217,,,,browser: the replayed rates came from a copy 19 days away
+TD Canada Trust,3-year fixed,2025-01-20,20250120063803,,,,text after the label doesn't match the expected layout: 'posted rate: % special rate 2 : % apr 3 : % 4 year fixed clo'
+TD Canada Trust,5-year fixed,2025-01-20,20250120063803,,,,text after the label doesn't match the expected layout: 'posted rate: % special rate 2 : % apr 3 : % 6 year fixed clo'
+TD Canada Trust,5-year variable,2025-01-20,20250120063803,,,,text after the label doesn't match the expected layout: 'mortgage posted rate : (td mortgage prime rate: %) special r'
+TD Canada Trust,3-year fixed,2025-01-30,20250130172803,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250130172803if_/https://www.
+TD Canada Trust,5-year fixed,2025-01-30,20250130172803,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250130172803if_/https://www.
+TD Canada Trust,5-year variable,2025-01-30,20250130172803,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250130172803if_/https://www.
+TD Canada Trust,3-year fixed,2025-02-14,20250214211417,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250214211417if_/https://www.
+TD Canada Trust,5-year fixed,2025-02-14,20250214211417,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250214211417if_/https://www.
+TD Canada Trust,5-year variable,2025-02-14,20250214211417,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250214211417if_/https://www.
+TD Canada Trust,3-year fixed,2025-02-18,20250218195716,,,,browser: the replayed rates came from a copy 43 days away
+TD Canada Trust,5-year fixed,2025-02-18,20250218195716,,,,browser: the replayed rates came from a copy 43 days away
+TD Canada Trust,5-year variable,2025-02-18,20250218195716,,,,browser: the replayed rates came from a copy 43 days away
+TD Canada Trust,3-year fixed,2025-03-07,20250307181655,,,,browser: the replayed rates came from a copy 23 days away
+TD Canada Trust,5-year fixed,2025-03-07,20250307181655,,,,browser: the replayed rates came from a copy 23 days away
+TD Canada Trust,5-year variable,2025-03-07,20250307181655,,,,browser: the replayed rates came from a copy 23 days away
+TD Canada Trust,3-year fixed,2025-04-05,20250405221245,,,,browser: the replayed rates came from a copy 89 days away
+TD Canada Trust,5-year fixed,2025-04-05,20250405221245,,,,browser: the replayed rates came from a copy 89 days away
+TD Canada Trust,5-year variable,2025-04-05,20250405221245,,,,browser: the replayed rates came from a copy 89 days away
+TD Canada Trust,3-year fixed,2025-04-23,20250423171322,,,,browser: the replayed rates came from a copy 36 days away
+TD Canada Trust,5-year fixed,2025-04-23,20250423171322,,,,browser: the replayed rates came from a copy 36 days away
+TD Canada Trust,5-year variable,2025-04-23,20250423171322,,,,browser: the replayed rates came from a copy 36 days away
+TD Canada Trust,3-year fixed,2025-04-30,20250430165131,,,,browser: the replayed rates came from a copy 114 days away
+TD Canada Trust,5-year fixed,2025-04-30,20250430165131,,,,browser: the replayed rates came from a copy 114 days away
+TD Canada Trust,5-year variable,2025-04-30,20250430165131,,,,browser: the replayed rates came from a copy 114 days away
+TD Canada Trust,3-year fixed,2025-07-09,20250709044431,4.49,browser (data within 0 days),4.49 % (posted rate: 6.05 % ) 4.524 %,
+TD Canada Trust,5-year fixed,2025-07-09,20250709044431,4.59,browser (data within 0 days),4.59 % (posted rate: 6.09 % ) 4.611 %,
+TD Canada Trust,5-year variable,2025-07-09,20250709044431,4.79,browser (data within 0 days),5 4.79 % (td mortgage prime rate 5.10 % -0.31 %) (posted rate: td mortgage prime rate ) 4.811 %,
+TD Canada Trust,3-year fixed,2025-07-19,20250719211506,,,,browser: the replayed rates came from a copy 291 days away
+TD Canada Trust,5-year fixed,2025-07-19,20250719211506,,,,browser: the replayed rates came from a copy 291 days away
+TD Canada Trust,5-year variable,2025-07-19,20250719211506,,,,browser: the replayed rates came from a copy 291 days away
+TD Canada Trust,3-year fixed,2025-08-03,20250803003532,,,,browser: the replayed rates came from a copy 25 days away
+TD Canada Trust,5-year fixed,2025-08-03,20250803003532,,,,browser: the replayed rates came from a copy 25 days away
+TD Canada Trust,5-year variable,2025-08-03,20250803003532,,,,browser: the replayed rates came from a copy 25 days away
+TD Canada Trust,3-year fixed,2025-08-29,20250829051400,,,,browser: the replayed rates came from a copy 32 days away
+TD Canada Trust,5-year fixed,2025-08-29,20250829051400,,,,browser: the replayed rates came from a copy 32 days away
+TD Canada Trust,5-year variable,2025-08-29,20250829051400,,,,browser: the replayed rates came from a copy 32 days away
+TD Canada Trust,3-year fixed,2025-09-12,20250912133342,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250912133342if_/https://www.
+TD Canada Trust,5-year fixed,2025-09-12,20250912133342,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250912133342if_/https://www.
+TD Canada Trust,5-year variable,2025-09-12,20250912133342,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250912133342if_/https://www.
+TD Canada Trust,3-year fixed,2025-09-25,20250925122713,,,,browser: the replayed rates came from a copy 27 days away
+TD Canada Trust,5-year fixed,2025-09-25,20250925122713,,,,browser: the replayed rates came from a copy 27 days away
+TD Canada Trust,5-year variable,2025-09-25,20250925122713,,,,browser: the replayed rates came from a copy 27 days away
+TD Canada Trust,3-year fixed,2025-10-25,20251025144917,4.44,browser (data within 10 days),4.44 % (posted rate: 6.05 % ) 4.475 %,
+TD Canada Trust,5-year fixed,2025-10-25,20251025144917,4.69,browser (data within 10 days),4.69 % (posted rate: 6.09 % ) 4.711 %,
+TD Canada Trust,5-year variable,2025-10-25,20251025144917,4.49,browser (data within 10 days),5 4.49 % (td mortgage prime rate 4.85 % -0.36 %) (posted rate: td mortgage prime rate ) 4.511 %,
+TD Canada Trust,3-year fixed,2025-12-14,20251214030808,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20251214030808if_/https://www.
+TD Canada Trust,5-year fixed,2025-12-14,20251214030808,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20251214030808if_/https://www.
+TD Canada Trust,5-year variable,2025-12-14,20251214030808,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20251214030808if_/https://www.
+TD Canada Trust,3-year fixed,2026-01-14,20260114010909,,,,browser: the replayed rates came from a copy 259 days away
+TD Canada Trust,5-year fixed,2026-01-14,20260114010909,,,,browser: the replayed rates came from a copy 259 days away
+TD Canada Trust,5-year variable,2026-01-14,20260114010909,,,,browser: the replayed rates came from a copy 259 days away
+TD Canada Trust,3-year fixed,2026-02-21,20260221035835,,,,browser: the replayed rates came from a copy 221 days away
+TD Canada Trust,5-year fixed,2026-02-21,20260221035835,,,,browser: the replayed rates came from a copy 221 days away
+TD Canada Trust,5-year variable,2026-02-21,20260221035835,,,,browser: the replayed rates came from a copy 221 days away
+TD Canada Trust,3-year fixed,2026-03-19,20260319200128,,,,browser: the replayed rates came from a copy 195 days away
+TD Canada Trust,5-year fixed,2026-03-19,20260319200128,,,,browser: the replayed rates came from a copy 195 days away
+TD Canada Trust,5-year variable,2026-03-19,20260319200128,,,,browser: the replayed rates came from a copy 195 days away
+TD Canada Trust,3-year fixed,2026-04-19,20260419113753,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260419113753if_/https://www.
+TD Canada Trust,5-year fixed,2026-04-19,20260419113753,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260419113753if_/https://www.
+TD Canada Trust,5-year variable,2026-04-19,20260419113753,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260419113753if_/https://www.
+TD Canada Trust,3-year fixed,2026-04-25,20260425121652,,,,browser: the replayed rates came from a copy 158 days away
+TD Canada Trust,5-year fixed,2026-04-25,20260425121652,,,,browser: the replayed rates came from a copy 158 days away
+TD Canada Trust,5-year variable,2026-04-25,20260425121652,,,,browser: the replayed rates came from a copy 158 days away
+TD Canada Trust,3-year fixed,2026-05-19,20260519074107,,,,browser: the replayed rates came from a copy 134 days away
+TD Canada Trust,5-year fixed,2026-05-19,20260519074107,,,,browser: the replayed rates came from a copy 134 days away
+TD Canada Trust,5-year variable,2026-05-19,20260519074107,,,,browser: the replayed rates came from a copy 134 days away
+TD Canada Trust,3-year fixed,2026-06-02,20260602184502,,,,browser: the replayed rates came from a copy 120 days away
+TD Canada Trust,5-year fixed,2026-06-02,20260602184502,,,,browser: the replayed rates came from a copy 120 days away
+TD Canada Trust,5-year variable,2026-06-02,20260602184502,,,,browser: the replayed rates came from a copy 120 days away
+TD Canada Trust,3-year fixed,2026-08-26,20260826145344,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260826145344if_/https://www.
+TD Canada Trust,5-year fixed,2026-08-26,20260826145344,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260826145344if_/https://www.
+TD Canada Trust,5-year variable,2026-08-26,20260826145344,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260826145344if_/https://www.
+TD Canada Trust,3-year fixed,2026-09-30,20260930174222,,,,browser: the replayed rates came from a copy 65 days away
+TD Canada Trust,5-year fixed,2026-09-30,20260930174222,,,,browser: the replayed rates came from a copy 65 days away
+TD Canada Trust,5-year variable,2026-09-30,20260930174222,,,,browser: the replayed rates came from a copy 65 days away
+TD Canada Trust,3-year fixed,2026-10-06,20261006221149,,,,browser: the replayed rates came from a copy 71 days away
+TD Canada Trust,5-year fixed,2026-10-06,20261006221149,,,,browser: the replayed rates came from a copy 71 days away
+TD Canada Trust,5-year variable,2026-10-06,20261006221149,,,,browser: the replayed rates came from a copy 71 days away
+TD Canada Trust,3-year fixed,2026-10-13,20261013212413,,,,browser: the replayed rates came from a copy 78 days away
+TD Canada Trust,5-year fixed,2026-10-13,20261013212413,,,,browser: the replayed rates came from a copy 78 days away
+TD Canada Trust,5-year variable,2026-10-13,20261013212413,,,,browser: the replayed rates came from a copy 78 days away
+National Bank,3-year fixed,2022-05-21,20220521182504,,,,browser: the replayed rates came from a copy 445 days away
+National Bank,5-year fixed,2022-05-21,20220521182504,,,,browser: the replayed rates came from a copy 445 days away
+National Bank,5-year variable,2022-05-21,20220521182504,,,,browser: the replayed rates came from a copy 445 days away
+National Bank,3-year fixed,2022-06-24,20220624085945,,,,no rate found next to the label '3 year fixed rate'
+National Bank,5-year fixed,2022-06-24,20220624085945,5.19,browser (data within 5 days),1 5.19% ( 5.23% ** apr 2 ),
+National Bank,5-year variable,2022-06-24,20220624085945,3.25,browser (data within 5 days),7 3.25% prime rate – 0.45% *** ( 3.29% ** apr 2 ),
+National Bank,3-year fixed,2022-07-07,20220707223602,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220707223602if_/https://www.
+National Bank,5-year fixed,2022-07-07,20220707223602,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220707223602if_/https://www.
+National Bank,5-year variable,2022-07-07,20220707223602,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220707223602if_/https://www.
+National Bank,3-year fixed,2022-08-18,20220818200258,,,,no rate found next to the label '3 year fixed rate'
+National Bank,5-year fixed,2022-08-18,20220818200258,5.39,browser (data within 3 days),1 5.39% ( 5.43% ** apr 2 ),
+National Bank,5-year variable,2022-08-18,20220818200258,4.35,browser (data within 3 days),7 4.35% prime rate – 0.35% *** ( 4.39% ** apr 2 ),
+National Bank,3-year fixed,2022-08-27,20220827044851,,,,no rate found next to the label '3 year fixed rate'
+National Bank,5-year fixed,2022-08-27,20220827044851,5.39,browser (data within 0 days),1 5.39% ( 5.43% ** apr 2 ),
+National Bank,5-year variable,2022-08-27,20220827044851,4.35,browser (data within 0 days),7 4.35% prime rate – 0.35% *** ( 4.39% ** apr 2 ),
+National Bank,3-year fixed,2022-10-06,20221006064852,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20221006064852if_/https://www.
+National Bank,5-year fixed,2022-10-06,20221006064852,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20221006064852if_/https://www.
+National Bank,5-year variable,2022-10-06,20221006064852,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20221006064852if_/https://www.
+National Bank,3-year fixed,2023-01-25,20230125053519,,,,no rate found next to the label '3 year fixed rate'
+National Bank,5-year fixed,2023-01-25,20230125053519,5.69,browser (data within 0 days),1 5.69% ( 5.73% ** apr 2 ),
+National Bank,5-year variable,2023-01-25,20230125053519,6.25,browser (data within 0 days),7 6.25% prime rate – 0.20% *** ( 6.29% ** apr 2 ),
+National Bank,3-year fixed,2023-02-07,20230207042754,,,,no rate found next to the label '3 year fixed rate'
+National Bank,5-year fixed,2023-02-07,20230207042754,5.69,browser (data within 11 days),1 5.69% ( 5.73% ** apr 2 ),
+National Bank,5-year variable,2023-02-07,20230207042754,6.5,browser (data within 11 days),7 6.50% prime rate – 0.20% *** ( 6.54% ** apr 2 ),
+National Bank,3-year fixed,2023-02-23,20230223090245,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230223090245if_/https://www.
+National Bank,5-year fixed,2023-02-23,20230223090245,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230223090245if_/https://www.
+National Bank,5-year variable,2023-02-23,20230223090245,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230223090245if_/https://www.
+National Bank,3-year fixed,2023-03-31,20230331161923,,,,no rate found next to the label '3 year fixed rate'
+National Bank,5-year fixed,2023-03-31,20230331161923,5.54,browser (data within 4 days),1 5.54% ( 5.58% ** apr 2 ),
+National Bank,5-year variable,2023-03-31,20230331161923,6.5,browser (data within 4 days),7 6.50% prime rate – 0.20% *** ( 6.54% ** apr 2 ),
+National Bank,3-year fixed,2023-05-24,20230524205047,,,,no rate found next to the label '3 year fixed rate'
+National Bank,5-year fixed,2023-05-24,20230524205047,5.54,browser (data within 7 days),1 5.54% ( 5.58% ** apr 2 ),
+National Bank,5-year variable,2023-05-24,20230524205047,6.5,browser (data within 7 days),7 6.50% prime rate – 0.20% *** ( 6.54% ** apr 2 ),
+National Bank,3-year fixed,2023-06-01,20230601045627,,,,no rate found next to the label '3 year fixed rate'
+National Bank,5-year fixed,2023-06-01,20230601045627,5.54,browser (data within 6 days),1 5.54% ( 5.58% ** apr 2 ),
+National Bank,5-year variable,2023-06-01,20230601045627,6.5,browser (data within 6 days),7 6.50% prime rate – 0.20% *** ( 6.54% ** apr 2 ),
+National Bank,3-year fixed,2023-08-01,20230801200728,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230801200728if_/http://www.n
+National Bank,5-year fixed,2023-08-01,20230801200728,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230801200728if_/http://www.n
+National Bank,5-year variable,2023-08-01,20230801200728,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230801200728if_/http://www.n
+National Bank,3-year fixed,2023-09-25,20230925110930,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20230925110930if_/https://www.nbc.ca/pe
+National Bank,5-year fixed,2023-09-25,20230925110930,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20230925110930if_/https://www.nbc.ca/pe
+National Bank,5-year variable,2023-09-25,20230925110930,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20230925110930if_/https://www.nbc.ca/pe
+National Bank,3-year fixed,2023-11-16,20231116203128,,,,no rate found next to the label '3 year fixed rate'
+National Bank,5-year fixed,2023-11-16,20231116203128,6.49,browser (data within 0 days),1 6.49% ( 6.53% ** apr 2 ),
+National Bank,5-year variable,2023-11-16,20231116203128,7.0,browser (data within 0 days),7 7.00% prime rate – 0.20% *** ( 7.04% ** apr 2 ),
+National Bank,3-year fixed,2023-11-29,20231129045154,,,,no rate found next to the label '3 year fixed rate'
+National Bank,5-year fixed,2023-11-29,20231129045154,6.49,browser (data within 14 days),1 6.49% ( 6.53% ** apr 2 ),
+National Bank,5-year variable,2023-11-29,20231129045154,7.0,browser (data within 14 days),7 7.00% prime rate – 0.20% *** ( 7.04% ** apr 2 ),
+National Bank,3-year fixed,2024-01-18,20240118011418,,,,no rate found next to the label '3 year fixed rate'
+National Bank,5-year fixed,2024-01-18,20240118011418,5.69,browser (data within 1 days),1 5.69% ( 5.73% ** apr 2 ),
+National Bank,5-year variable,2024-01-18,20240118011418,6.95,browser (data within 1 days),7 6.95% prime rate – 0.25% *** ( 6.99% ** apr 2 ),
+National Bank,3-year fixed,2024-01-23,20240123011154,,,,no rate found next to the label '3 year fixed rate'
+National Bank,5-year fixed,2024-01-23,20240123011154,5.69,browser (data within 0 days),1 5.69% ( 5.73% ** apr 2 ),
+National Bank,5-year variable,2024-01-23,20240123011154,6.95,browser (data within 0 days),7 6.95% prime rate – 0.25% *** ( 6.99% ** apr 2 ),
+National Bank,3-year fixed,2024-02-03,20240203052057,,,,no rate found next to the label '3 year fixed rate'
+National Bank,5-year fixed,2024-02-03,20240203052057,5.69,browser (data within 0 days),1 5.69% ( 5.73% ** apr 2 ),
+National Bank,5-year variable,2024-02-03,20240203052057,6.95,browser (data within 0 days),7 6.95% prime rate – 0.25% *** ( 6.99% ** apr 2 ),
+National Bank,3-year fixed,2024-02-21,20240221215236,,,,no rate found next to the label '3 year fixed rate'
+National Bank,5-year fixed,2024-02-21,20240221215236,5.59,browser (data within 5 days),1 5.59% ( 5.63% ** apr 2 ),
+National Bank,5-year variable,2024-02-21,20240221215236,6.95,browser (data within 5 days),7 6.95% prime rate – 0.25% *** ( 6.99% ** apr 2 ),
+National Bank,3-year fixed,2024-03-28,20240328122108,,,,browser: the replayed rates came from a copy 41 days away
+National Bank,5-year fixed,2024-03-28,20240328122108,,,,browser: the replayed rates came from a copy 41 days away
+National Bank,5-year variable,2024-03-28,20240328122108,,,,browser: the replayed rates came from a copy 41 days away
+National Bank,3-year fixed,2024-05-29,20240529014716,,,,browser: the replayed rates came from a copy 103 days away
+National Bank,5-year fixed,2024-05-29,20240529014716,,,,browser: the replayed rates came from a copy 103 days away
+National Bank,5-year variable,2024-05-29,20240529014716,,,,browser: the replayed rates came from a copy 103 days away
+National Bank,3-year fixed,2024-06-08,20240608002552,,,,browser: the replayed rates came from a copy 113 days away
+National Bank,5-year fixed,2024-06-08,20240608002552,,,,browser: the replayed rates came from a copy 113 days away
+National Bank,5-year variable,2024-06-08,20240608002552,,,,browser: the replayed rates came from a copy 113 days away
+National Bank,3-year fixed,2024-09-05,20240905182743,,,,browser: the replayed rates came from a copy 202 days away
+National Bank,5-year fixed,2024-09-05,20240905182743,,,,browser: the replayed rates came from a copy 202 days away
+National Bank,5-year variable,2024-09-05,20240905182743,,,,browser: the replayed rates came from a copy 202 days away
+National Bank,3-year fixed,2024-09-10,20240910233401,,,,browser: the replayed rates came from a copy 207 days away
+National Bank,5-year fixed,2024-09-10,20240910233401,,,,browser: the replayed rates came from a copy 207 days away
+National Bank,5-year variable,2024-09-10,20240910233401,,,,browser: the replayed rates came from a copy 207 days away
+National Bank,3-year fixed,2024-10-08,20241008124006,,,,browser: the replayed rates came from a copy 195 days away
+National Bank,5-year fixed,2024-10-08,20241008124006,,,,browser: the replayed rates came from a copy 195 days away
+National Bank,5-year variable,2024-10-08,20241008124006,,,,browser: the replayed rates came from a copy 195 days away
+National Bank,3-year fixed,2025-01-07,20250107142525,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250107142525if_/https://www.
+National Bank,5-year fixed,2025-01-07,20250107142525,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250107142525if_/https://www.
+National Bank,5-year variable,2025-01-07,20250107142525,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250107142525if_/https://www.
+National Bank,3-year fixed,2025-01-16,20250116185827,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250116185827if_/https://www.
+National Bank,5-year fixed,2025-01-16,20250116185827,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250116185827if_/https://www.
+National Bank,5-year variable,2025-01-16,20250116185827,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250116185827if_/https://www.
+National Bank,3-year fixed,2025-01-23,20250123095709,,,,browser: the replayed rates came from a copy 88 days away
+National Bank,5-year fixed,2025-01-23,20250123095709,,,,browser: the replayed rates came from a copy 88 days away
+National Bank,5-year variable,2025-01-23,20250123095709,,,,browser: the replayed rates came from a copy 88 days away
+National Bank,3-year fixed,2025-01-27,20250127064843,,,,browser: the replayed rates came from a copy 84 days away
+National Bank,5-year fixed,2025-01-27,20250127064843,,,,browser: the replayed rates came from a copy 84 days away
+National Bank,5-year variable,2025-01-27,20250127064843,,,,browser: the replayed rates came from a copy 84 days away
+National Bank,3-year fixed,2025-02-05,20250205081701,,,,browser: the replayed rates came from a copy 75 days away
+National Bank,5-year fixed,2025-02-05,20250205081701,,,,browser: the replayed rates came from a copy 75 days away
+National Bank,5-year variable,2025-02-05,20250205081701,,,,browser: the replayed rates came from a copy 75 days away
+National Bank,3-year fixed,2025-02-20,20250220120348,,,,browser: the replayed rates came from a copy 60 days away
+National Bank,5-year fixed,2025-02-20,20250220120348,,,,browser: the replayed rates came from a copy 60 days away
+National Bank,5-year variable,2025-02-20,20250220120348,,,,browser: the replayed rates came from a copy 60 days away
+National Bank,3-year fixed,2025-03-19,20250319184808,,,,browser: the replayed rates came from a copy 33 days away
+National Bank,5-year fixed,2025-03-19,20250319184808,,,,browser: the replayed rates came from a copy 33 days away
+National Bank,5-year variable,2025-03-19,20250319184808,,,,browser: the replayed rates came from a copy 33 days away
+National Bank,3-year fixed,2025-03-27,20250327073913,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250327073913if_/https://www.
+National Bank,5-year fixed,2025-03-27,20250327073913,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250327073913if_/https://www.
+National Bank,5-year variable,2025-03-27,20250327073913,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250327073913if_/https://www.
+National Bank,3-year fixed,2025-04-24,20250424140416,,,,no rate found next to the label '3 year fixed rate'
+National Bank,5-year fixed,2025-04-24,20250424140416,,,,no rate found next to the label '5 year fixed rate'
+National Bank,5-year variable,2025-04-24,20250424140416,,,,no rate found next to the label '5 year variable rate'
+National Bank,3-year fixed,2025-05-04,20250504003241,5.49,page,"1 ${p1.tac3ans|percent:""true""} ** apr 2 ${p1.tauxpromo4ansf|percent:""true""} 4 year fixed rate 1 ${p1",
+National Bank,5-year fixed,2025-05-04,20250504003241,5.49,page,"1 ${p1.tac5ans|percent:""true""} ** apr 2 5.49% 1 year fixed rate 1 5.61% ** apr 2 4.79% 2 year fixed ",
+National Bank,5-year variable,2025-05-04,20250504003241,5.49,page,"7 prime rate – ${p2.tauxbase|percent:""true""} *** ${p2.tac5ans|percent:""true""} ** apr 2 ${p1.tauxprom",
+National Bank,3-year fixed,2025-05-16,20250516150638,5.49,page,"1 ${p1.tac3ans|percent:""true""} ** apr 2 ${p1.tauxpromo4ansf|percent:""true""} 4 year fixed rate 1 ${p1",
+National Bank,5-year fixed,2025-05-16,20250516150638,5.49,page,"1 ${p1.tac5ans|percent:""true""} ** apr 2 5.49% 1 year fixed rate 1 5.61% ** apr 2 4.79% 2 year fixed ",
+National Bank,5-year variable,2025-05-16,20250516150638,5.49,page,"7 prime rate – ${p2.tauxbase|percent:""true""} *** ${p2.tac5ans|percent:""true""} ** apr 2 ${p1.tauxprom",
+National Bank,3-year fixed,2025-06-15,20250615120313,5.49,page,"1 ${p1.tac3ans|percent:""true""} ** apr 2 ${p1.tauxpromo4ansf|percent:""true""} 4 year fixed rate 1 ${p1",
+National Bank,5-year fixed,2025-06-15,20250615120313,5.49,page,"1 ${p1.tac5ans|percent:""true""} ** apr 2 5.49% 1 year fixed rate 1 5.61% ** apr 2 4.79% 2 year fixed ",
+National Bank,5-year variable,2025-06-15,20250615120313,5.49,page,"7 prime rate – ${p2.tauxbase|percent:""true""} *** ${p2.tac5ans|percent:""true""} ** apr 2 ${p1.tauxprom",
+National Bank,3-year fixed,2025-06-18,20250618232923,5.49,page,"1 ${p1.tac3ans|percent:""true""} ** apr 2 ${p1.tauxpromo4ansf|percent:""true""} 4 year fixed rate 1 ${p1",
+National Bank,5-year fixed,2025-06-18,20250618232923,5.49,page,"1 ${p1.tac5ans|percent:""true""} ** apr 2 5.49% 1 year fixed rate 1 5.61% ** apr 2 4.79% 2 year fixed ",
+National Bank,5-year variable,2025-06-18,20250618232923,5.49,page,"7 prime rate – ${p2.tauxbase|percent:""true""} *** ${p2.tac5ans|percent:""true""} ** apr 2 ${p1.tauxprom",
+National Bank,3-year fixed,2025-06-25,20250625233823,5.49,page,"1 ${p1.tac3ans|percent:""true""} ** apr 2 ${p1.tauxpromo4ansf|percent:""true""} 4 year fixed rate 1 ${p1",
+National Bank,5-year fixed,2025-06-25,20250625233823,5.49,page,"1 ${p1.tac5ans|percent:""true""} ** apr 2 5.49% 1 year fixed rate 1 5.61% ** apr 2 4.79% 2 year fixed ",
+National Bank,5-year variable,2025-06-25,20250625233823,5.49,page,"7 prime rate – ${p2.tauxbase|percent:""true""} *** ${p2.tac5ans|percent:""true""} ** apr 2 ${p1.tauxprom",
+National Bank,3-year fixed,2025-07-25,20250725180408,5.26,browser (data within 1 days),"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
+National Bank,5-year fixed,2025-07-25,20250725180408,4.59,browser (data within 1 days),1 4.59%,
+National Bank,5-year variable,2025-07-25,20250725180408,4.45,browser (data within 1 days),7 4.45%,
+National Bank,3-year fixed,2025-08-02,20250802000941,5.26,browser (data within 9 days),"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
+National Bank,5-year fixed,2025-08-02,20250802000941,4.59,browser (data within 9 days),1 4.59%,
+National Bank,5-year variable,2025-08-02,20250802000941,4.45,browser (data within 9 days),7 4.45%,
+National Bank,3-year fixed,2025-09-16,20250916130943,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250916130943if_/https://www.
+National Bank,5-year fixed,2025-09-16,20250916130943,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250916130943if_/https://www.
+National Bank,5-year variable,2025-09-16,20250916130943,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250916130943if_/https://www.
+National Bank,3-year fixed,2025-09-25,20250925144658,5.26,page,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
+National Bank,5-year fixed,2025-09-25,20250925144658,,,,browser: the replayed rates came from a copy 63 days away
+National Bank,5-year variable,2025-09-25,20250925144658,,,,browser: the replayed rates came from a copy 63 days away
+National Bank,3-year fixed,2025-11-08,20251108175636,5.26,page,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
+National Bank,5-year fixed,2025-11-08,20251108175636,,,,browser: the replayed rates came from a copy 23 days away
+National Bank,5-year variable,2025-11-08,20251108175636,,,,browser: the replayed rates came from a copy 23 days away
+National Bank,3-year fixed,2025-11-12,20251112014620,5.26,page,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
+National Bank,5-year fixed,2025-11-12,20251112014620,,,,browser: the replayed rates came from a copy 19 days away
+National Bank,5-year variable,2025-11-12,20251112014620,,,,browser: the replayed rates came from a copy 19 days away
+National Bank,3-year fixed,2025-12-11,20251211082537,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20251211082537if_/https://www.
+National Bank,5-year fixed,2025-12-11,20251211082537,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20251211082537if_/https://www.
+National Bank,5-year variable,2025-12-11,20251211082537,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20251211082537if_/https://www.
+National Bank,3-year fixed,2025-12-19,20251219070857,5.26,browser (data within 12 days),"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
+National Bank,5-year fixed,2025-12-19,20251219070857,4.54,browser (data within 12 days),1 4.54%,
+National Bank,5-year variable,2025-12-19,20251219070857,4.45,browser (data within 12 days),7 4.45%,
+National Bank,3-year fixed,2026-01-09,20260109233618,5.26,page,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
+National Bank,5-year fixed,2026-01-09,20260109233618,,,,browser: the replayed rates came from a copy 33 days away
+National Bank,5-year variable,2026-01-09,20260109233618,,,,browser: the replayed rates came from a copy 33 days away
+National Bank,3-year fixed,2026-01-25,20260125140937,5.26,page,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
+National Bank,5-year fixed,2026-01-25,20260125140937,,,,browser: the replayed rates came from a copy 45 days away
+National Bank,5-year variable,2026-01-25,20260125140937,,,,browser: the replayed rates came from a copy 45 days away
+National Bank,3-year fixed,2026-02-06,20260206225335,5.26,page,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
+National Bank,5-year fixed,2026-02-06,20260206225335,,,,browser: the replayed rates came from a copy 33 days away
+National Bank,5-year variable,2026-02-06,20260206225335,,,,browser: the replayed rates came from a copy 33 days away
+National Bank,3-year fixed,2026-02-13,20260213185715,5.26,page,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
+National Bank,5-year fixed,2026-02-13,20260213185715,,,,browser: the replayed rates came from a copy 26 days away
+National Bank,5-year variable,2026-02-13,20260213185715,,,,browser: the replayed rates came from a copy 26 days away
+National Bank,3-year fixed,2026-02-20,20260220000121,5.26,page,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
+National Bank,5-year fixed,2026-02-20,20260220000121,,,,browser: the replayed rates came from a copy 19 days away
+National Bank,5-year variable,2026-02-20,20260220000121,,,,browser: the replayed rates came from a copy 19 days away
+National Bank,3-year fixed,2026-03-19,20260319151900,5.26,browser (data within 11 days),"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
+National Bank,5-year fixed,2026-03-19,20260319151900,4.54,browser (data within 11 days),1 4.54%,
+National Bank,5-year variable,2026-03-19,20260319151900,4.45,browser (data within 11 days),7 4.45%,
+National Bank,3-year fixed,2026-05-13,20260513062526,5.26,page,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
+National Bank,5-year fixed,2026-05-13,20260513062526,,,,browser: the replayed rates came from a copy 44 days away
+National Bank,5-year variable,2026-05-13,20260513062526,,,,browser: the replayed rates came from a copy 44 days away
+National Bank,3-year fixed,2026-10-06,20261006220419,5.34,browser (data within 0 days),"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
+National Bank,5-year fixed,2026-10-06,20261006220419,5.04,browser (data within 0 days),1 5.04%,
+National Bank,5-year variable,2026-10-06,20261006220419,5.04,browser (data within 0 days),7 5.04%,
+National Bank,3-year fixed,2026-10-13,20261013212909,5.34,browser (data within 0 days),"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
+National Bank,5-year fixed,2026-10-13,20261013212909,5.04,browser (data within 0 days),1 5.04%,
+National Bank,5-year variable,2026-10-13,20261013212909,5.04,browser (data within 0 days),7 5.04%,
+Tangerine,3-year fixed,2022-10-06,20221006100818,5.37,browser (data within 1 days),5.37%,
+Tangerine,5-year fixed,2022-10-06,20221006100818,5.34,browser (data within 1 days),5.34%,
+Tangerine,5-year variable,2022-10-06,20221006100818,5.15,browser (data within 1 days),5.15%,
+Tangerine,3-year fixed,2022-12-07,20221207194734,5.62,browser (data within 4 days),5.62%,
+Tangerine,5-year fixed,2022-12-07,20221207194734,5.59,browser (data within 4 days),5.59%,
+Tangerine,5-year variable,2022-12-07,20221207194734,5.75,browser (data within 4 days),5.75%,
+Tangerine,3-year fixed,2023-03-19,20230319081929,5.74,browser (data within 12 days),5.74%,
+Tangerine,5-year fixed,2023-03-19,20230319081929,5.74,browser (data within 12 days),5.74%,
+Tangerine,5-year variable,2023-03-19,20230319081929,6.65,browser (data within 12 days),6.65%,
+Tangerine,3-year fixed,2023-11-13,20231113111839,,,,browser: the replayed rates came from a copy 50 days away
+Tangerine,5-year fixed,2023-11-13,20231113111839,,,,browser: the replayed rates came from a copy 50 days away
+Tangerine,5-year variable,2023-11-13,20231113111839,,,,browser: the replayed rates came from a copy 50 days away
+Tangerine,3-year fixed,2023-12-28,20231228141650,5.99,browser (data within 6 days),5.99%,
+Tangerine,5-year fixed,2023-12-28,20231228141650,5.89,browser (data within 6 days),5.89%,
+Tangerine,5-year variable,2023-12-28,20231228141650,7.0,browser (data within 6 days),7.00%,
+Tangerine,3-year fixed,2024-02-22,20240222064042,5.64,browser (data within 4 days),5.64%,
+Tangerine,5-year fixed,2024-02-22,20240222064042,5.54,browser (data within 4 days),5.54%,
+Tangerine,5-year variable,2024-02-22,20240222064042,6.85,browser (data within 4 days),6.85%,
+Tangerine,3-year fixed,2024-06-16,20240616212645,,,,browser: the replayed rates came from a copy 93 days away
+Tangerine,5-year fixed,2024-06-16,20240616212645,,,,browser: the replayed rates came from a copy 93 days away
+Tangerine,5-year variable,2024-06-16,20240616212645,,,,browser: the replayed rates came from a copy 93 days away
+Tangerine,3-year fixed,2024-08-02,20240802045759,,,,browser: the replayed rates came from a copy 140 days away
+Tangerine,5-year fixed,2024-08-02,20240802045759,,,,browser: the replayed rates came from a copy 140 days away
+Tangerine,5-year variable,2024-08-02,20240802045759,,,,browser: the replayed rates came from a copy 140 days away
+Tangerine,3-year fixed,2024-09-14,20240914102517,,,,browser: the replayed rates came from a copy 183 days away
+Tangerine,5-year fixed,2024-09-14,20240914102517,,,,browser: the replayed rates came from a copy 183 days away
+Tangerine,5-year variable,2024-09-14,20240914102517,,,,browser: the replayed rates came from a copy 183 days away
+Tangerine,3-year fixed,2025-01-22,20250122203830,,,,browser: the replayed rates came from a copy 313 days away
+Tangerine,5-year fixed,2025-01-22,20250122203830,,,,browser: the replayed rates came from a copy 313 days away
+Tangerine,5-year variable,2025-01-22,20250122203830,,,,browser: the replayed rates came from a copy 313 days away
+Tangerine,3-year fixed,2025-05-15,20250515055811,4.69,browser (data within 3 days),4.69%,
+Tangerine,5-year fixed,2025-05-15,20250515055811,4.79,browser (data within 3 days),4.79%,
+Tangerine,5-year variable,2025-05-15,20250515055811,4.4,browser (data within 3 days),4.40%,
+Tangerine,3-year fixed,2025-07-27,20250727000844,,,,browser: the replayed rates came from a copy 73 days away
+Tangerine,5-year fixed,2025-07-27,20250727000844,,,,browser: the replayed rates came from a copy 73 days away
+Tangerine,5-year variable,2025-07-27,20250727000844,,,,browser: the replayed rates came from a copy 73 days away
+Tangerine,3-year fixed,2025-08-09,20250809145613,,,,browser: the replayed rates came from a copy 86 days away
+Tangerine,5-year fixed,2025-08-09,20250809145613,,,,browser: the replayed rates came from a copy 86 days away
+Tangerine,5-year variable,2025-08-09,20250809145613,,,,browser: the replayed rates came from a copy 86 days away
+Tangerine,3-year fixed,2025-09-01,20250901160709,4.44,browser (data within 1 days),4.44%,
+Tangerine,5-year fixed,2025-09-01,20250901160709,4.49,browser (data within 1 days),4.49%,
+Tangerine,5-year variable,2025-09-01,20250901160709,4.5,browser (data within 1 days),4.50%,
+Tangerine,3-year fixed,2025-10-13,20251013023239,,,,browser: the replayed rates came from a copy 165 days away
+Tangerine,5-year fixed,2025-10-13,20251013023239,,,,browser: the replayed rates came from a copy 165 days away
+Tangerine,5-year variable,2025-10-13,20251013023239,,,,browser: the replayed rates came from a copy 165 days away
+Tangerine,3-year fixed,2026-01-15,20260115204149,4.44,page,4.44%,
+Tangerine,5-year fixed,2026-01-15,20260115204149,4.49,page,4.49%,
+Tangerine,5-year variable,2026-01-15,20260115204149,4.0,page,4.00%,
+Tangerine,3-year fixed,2026-04-10,20260410150518,4.44,page,4.44%,
+Tangerine,5-year fixed,2026-04-10,20260410150518,4.49,page,4.49%,
+Tangerine,5-year variable,2026-04-10,20260410150518,4.0,page,4.00%,
+Tangerine,3-year fixed,2026-09-30,20260930141329,4.64,page,4.64%,
+Tangerine,5-year fixed,2026-09-30,20260930141329,4.84,page,4.84%,
+Tangerine,5-year variable,2026-09-30,20260930141329,3.9,page,3.90%,
+Tangerine,3-year fixed,2026-10-13,20261013214256,4.64,page,4.64%,
+Tangerine,5-year fixed,2026-10-13,20261013214256,4.84,page,4.84%,
+Tangerine,5-year variable,2026-10-13,20261013214256,3.9,page,3.90%,
+BMO,3-year fixed,2026-06-06,20260606232756,,,,no rate found next to the label '3 year fixed (closed)'
+BMO,5-year fixed,2026-06-06,20260606232756,,,,no rate found next to the label '5 year Smart Fixed (closed)'
+BMO,5-year variable,2026-06-06,20260606232756,,,,no rate found next to the label '5 year Variable (closed)'
+BMO,3-year fixed,2026-06-09,20260609113250,,,,no rate found next to the label '3 year fixed (closed)'
+BMO,5-year fixed,2026-06-09,20260609113250,,,,no rate found next to the label '5 year Smart Fixed (closed)'
+BMO,5-year variable,2026-06-09,20260609113250,,,,no rate found next to the label '5 year Variable (closed)'
+BMO,3-year fixed,2026-06-15,20260615141952,,,,browser: the replayed rates came from a copy 20 days away
+BMO,5-year fixed,2026-06-15,20260615141952,,,,browser: the replayed rates came from a copy 20 days away
+BMO,5-year variable,2026-06-15,20260615141952,,,,browser: the replayed rates came from a copy 20 days away
+BMO,3-year fixed,2026-09-03,20260903232437,,,,no rate found next to the label '3 year fixed (closed)'
+BMO,5-year fixed,2026-09-03,20260903232437,,,,no rate found next to the label '5 year Smart Fixed (closed)'
+BMO,5-year variable,2026-09-03,20260903232437,,,,no rate found next to the label '5 year Variable (closed)'
+BMO,3-year fixed,2026-09-26,20260926070343,4.74,browser (data within 4 days),4.74% 4.77% 4.84% 4.87%,
+BMO,5-year fixed,2026-09-26,20260926070343,4.94,browser (data within 4 days),4.94% 4.96%,
+BMO,5-year variable,2026-09-26,20260926070343,4.1,browser (data within 4 days),4.10% 4.12% 4.20% 4.22%,
+BMO,3-year fixed,2026-09-30,20260930172956,4.74,browser (data within 4 days),4.74% 4.77% 4.84% 4.87%,
+BMO,5-year fixed,2026-09-30,20260930172956,4.94,browser (data within 4 days),4.94% 4.96%,
+BMO,5-year variable,2026-09-30,20260930172956,4.1,browser (data within 4 days),4.10% 4.12% 4.20% 4.22%,
+BMO,3-year fixed,2026-10-06,20261006220848,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20261006220848if_/https://www.
+BMO,5-year fixed,2026-10-06,20261006220848,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20261006220848if_/https://www.
+BMO,5-year variable,2026-10-06,20261006220848,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20261006220848if_/https://www.
+BMO,3-year fixed,2026-10-13,20261013215233,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20261013215233if_/https://www.
+BMO,5-year fixed,2026-10-13,20261013215233,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20261013215233if_/https://www.
+BMO,5-year variable,2026-10-13,20261013215233,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20261013215233if_/https://www.
