@@ -20,7 +20,7 @@ CDX = "https://web.archive.org/cdx/search/cdx"
 UA = scraper.USER_AGENT
 # Where to start: BACKFILL_FROM (YYYY-MM-DD) if set, otherwise about a year back
 START = date.fromisoformat(os.environ["BACKFILL_FROM"]) if os.environ.get("BACKFILL_FROM") else date.today() - timedelta(days=372)
-END = date(2026, 10, 13)  # the site's own daily history starts on 2026-10-14
+END = date.fromisoformat(os.environ["BACKFILL_TO"]) if os.environ.get("BACKFILL_TO") else date(2026, 10, 13)  # the site's own daily history starts on 2026-10-14
 
 
 def get(url, **kw):

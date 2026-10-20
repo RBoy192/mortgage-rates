@@ -10,6 +10,9 @@ on:
       starts:
         description: 'Optional start date per lender, e.g. {"Coast Capital Savings": "2017-01-01"} (others start a year back)'
         default: "{}"
+      until:
+        description: 'Optional last date to read, YYYY-MM-DD (for splitting a long lender into shorter runs)'
+        default: ""
 permissions:
   contents: write
 jobs:
@@ -33,6 +36,7 @@ jobs:
       - name: Read archived copies
         env:
           BACKFILL_FROM: ${{ fromJSON(inputs.starts)[matrix.lender] }}
+          BACKFILL_TO: ${{ inputs.until }}
         run: python backfill.py "${{ matrix.lender }}" "part-${{ strategy.job-index }}.csv"
       - uses: actions/upload-artifact@v4
         with:
