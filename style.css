@@ -169,6 +169,14 @@ body.leaving{opacity:0;transition:opacity .15s ease-in}
 .chart .ax text{fill:var(--mu);font:12px var(--bd)}
 .chart .gl{stroke:var(--grid);stroke-width:1}
 .chart .cross{stroke:var(--mu);stroke-width:1;stroke-dasharray:3 3}
+.lpop{position:absolute;pointer-events:none;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;background:var(--fg);color:var(--bg);border-radius:8px;padding:5px 10px;font:600 13px var(--bd);box-shadow:0 4px 14px rgba(0,0,0,.18);opacity:0;transform:translateY(4px);transition:opacity .15s ease,transform .15s ease;z-index:3}
+.lpop.on{opacity:1;transform:none}
+.lpop i{width:10px;height:10px;border-radius:50%;flex:none;box-shadow:0 0 0 2px var(--bg)}
+.lpop b{font-weight:800}
+.chart svg path.ln{transition:opacity .15s ease,stroke-width .15s ease}
+.chart svg.focus path.ln{opacity:.3}
+.chart svg.focus path.ln.on{opacity:1;stroke-width:3.5}
+@media (prefers-reduced-motion:reduce){.lpop,.chart svg path.ln{transition:none}}
 .tip{position:absolute;pointer-events:none;background:var(--bg);border:1px solid var(--ln);border-radius:10px;padding:8px 12px;font-size:13px;box-shadow:0 4px 16px rgba(0,0,0,.12);min-width:180px;z-index:2}
 .tip b{display:block;margin-bottom:4px}
 .tip div{display:flex;justify-content:space-between;gap:12px}

@@ -66,6 +66,7 @@ function chart(el, title, series){
     if (raw.length && raw[raw.length - 1][0] < end) raw.push([end, raw[raw.length - 1][1]]);
     const runs = [[]];  // split at long gaps (not for Bank of Canada lines, which only store the dates rates changed)
     raw.forEach((p, k) => { if (k && p[0] - raw[k - 1][0] > GAP && !s.dash && !s.steps) runs.push([]); runs[runs.length - 1].push(p); });
+    s.runs = runs;
     return runs.map(curve).join("");
   };
   const lastDots = vis.map(s => { const r = s.v.length ? s.v[s.v.length - 1][1] : s.before; return `<circle cx="${x(end).toFixed(1)}" cy="${y(r).toFixed(1)}" r="4" fill="${s.color}" stroke="var(--card)" stroke-width="2"/>`; }).join("");
@@ -74,27 +75,55 @@ function chart(el, title, series){
     + `<svg viewBox="0 0 ${W} ${Ht}" width="${W}" height="${Ht}" role="img" aria-label="${esc(title)} rates over time, ${long(start)} to ${long(end)}">`
     + `<g class="ax">${ticks.map(v => `<line class="gl" x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}"/><text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end">${v.toFixed(2)}%</text>`).join("")}`
     + `${xt.map((t, k) => `<text x="${x(t)}" y="${Ht - 6}" text-anchor="${k === 0 ? "start" : k === 3 ? "end" : "middle"}">${short(t, xt[xt.length - 1] - xt[0] > 200 * 864e5)}</text>`).join("")}</g>`
-    + vis.map(s => `<path d="${path(s)}" fill="none" stroke="${s.color}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"${s.dash ? ' stroke-dasharray="6 4"' : ""}/>`).join("")
+    + vis.map((s, i) => `<path class="ln" data-i="${i}" d="${path(s)}" fill="none" stroke="${s.color}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"${s.dash ? ' stroke-dasharray="6 4"' : ""}/>`).join("")
     + lastDots + `<line class="cross" y1="${m.t}" y2="${m.t + ih}" x1="0" x2="0" visibility="hidden"/>`
     + `<rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent" style="cursor:crosshair"/></svg>`
-    + `<div class="tip" hidden></div>`
+    + `<div class="tip" hidden></div><div class="lpop" aria-hidden="true"></div>`
     + `<div class="lgd">${vis.map(s => `<span style="--c:${s.color}"><i class="${s.dash ? "dash" : ""}"></i>${esc(s.name)}</span>`).join("")}</div>`
     + `<details class="tv"><summary>Show as a table</summary><div class="t" tabindex="0" role="region" aria-label="${esc(title)} rates by day"><table><thead><tr><th>Date</th>${vis.map(s => `<th>${esc(s.name)}</th>`).join("")}</tr></thead><tbody>`
     + dates.map(d => `<tr><td>${dstr(d)}</td>${vis.map(s => { const p = s.v.find(q => q[0] === d); return `<td>${p ? pct(p[1]) : "—"}</td>`; }).join("")}</tr>`).join("")
     + `</tbody></table></div><p class="s">Only days when the rate was saved are listed.</p></details>`;
   const svg = el.querySelector("svg"), tip = el.querySelector(".tip"), cross = el.querySelector(".cross"), hit = el.querySelector("rect");
+  const pop = el.querySelector(".lpop"), lines = [...svg.querySelectorAll("path.ln")];
+  // Where a line is drawn at time t (straight between readings, close to the curve), or null in a gap
+  const lineAt = (s, t) => {
+    for (const run of s.runs || []) {
+      if (!run.length || t < run[0][0] || t > run[run.length - 1][0]) continue;
+      for (let k = 1; k < run.length; k++) if (t <= run[k][0]) { const [t0, v0] = run[k - 1], [t1, v1] = run[k]; return t1 === t0 ? v1 : v0 + (v1 - v0) * (t - t0) / (t1 - t0); }
+      return run[run.length - 1][1];
+    }
+    return null;
+  };
+  const near = (t, sy) => {  // the line closest to the pointer, if it's within about 14px
+    let best = null;
+    vis.forEach((s, i) => { const v = lineAt(s, t); if (v == null) return; const dy = Math.abs(y(v) - sy); if (dy < 14 && (!best || dy < best.dy)) best = {s, i, dy, v}; });
+    return best;
+  };
+  const unfocus = () => { pop.classList.remove("on"); svg.classList.remove("focus"); lines.forEach(p => p.classList.remove("on")); };
   const move = e => {
     const r = svg.getBoundingClientRect(), sx = (e.clientX - r.left) * W / r.width;
     const t = Math.min(end, Math.max(start, start + (sx - m.l) / iw * (end - start)));
-    const rows = vis.map(s => [s, valueAt(s.points, t)]).filter(([, v]) => v != null).sort((a, b) => a[1] - b[1]);
+    const rows = vis.filter(s => lineAt(s, t) != null).map(s => [s, valueAt(s.points, t)]).filter(([, v]) => v != null).sort((a, b) => a[1] - b[1]);  // skip lines in a gap
     cross.setAttribute("x1", x(t)); cross.setAttribute("x2", x(t)); cross.setAttribute("visibility", "visible");
     tip.innerHTML = `<b>${long(t)}</b>` + rows.map(([s, v]) => `<div><span><i class="sq" style="background:${s.color}"></i>${esc(s.name)}</span><span>${pct(v)}</span></div>`).join("");
     tip.hidden = false;
-    const left = (x(t) / W) * r.width + svg.offsetLeft;
-    tip.style.left = Math.min(Math.max(0, left + 12), el.clientWidth - tip.offsetWidth - 8) + "px";
-    tip.style.top = (svg.offsetTop + 8) + "px";
+    const er = el.getBoundingClientRect(), ox = r.left - er.left, oy = r.top - er.top;  // the drawing's position inside the card
+    const left = (x(t) / W) * r.width + ox;
+    const right = left < el.clientWidth / 2;  // keep the list on the side away from the pointer
+    tip.style.left = (right ? Math.min(left + 16, el.clientWidth - tip.offsetWidth - 8) : Math.max(8, left - tip.offsetWidth - 16)) + "px";
+    tip.style.top = (oy + 8) + "px";
+    const sy = (e.clientY - r.top) * Ht / r.height, hitLine = near(t, sy);
+    if (!hitLine) return unfocus();
+    tip.hidden = true;  // near a line: just name that line
+    const v = valueAt(hitLine.s.points, t);
+    pop.innerHTML = `<i style="background:${hitLine.s.color}"></i>${esc(hitLine.s.name)}${v != null ? ` <b>${pct(v)}</b>` : ""}`;
+    const px = left, py = (y(hitLine.v) / Ht) * r.height + oy;
+    pop.style.left = Math.min(Math.max(0, px + 14), el.clientWidth - pop.offsetWidth - 8) + "px";
+    pop.style.top = Math.max(0, py - pop.offsetHeight - 10) + "px";
+    pop.classList.add("on"); svg.classList.add("focus");
+    lines.forEach((p, k) => p.classList.toggle("on", k === hitLine.i));
   };
-  const leave = () => { tip.hidden = true; cross.setAttribute("visibility", "hidden"); };
+  const leave = () => { tip.hidden = true; cross.setAttribute("visibility", "hidden"); unfocus(); };
   hit.addEventListener("pointermove", move); hit.addEventListener("pointerdown", move); hit.addEventListener("pointerleave", leave);
 }
 
