@@ -1,0 +1,16 @@
+affinity.svg 200 image/svg+xml 5732 None
+conexus.svg 200 image/svg+xml 1057 None
+libro.jpg 200 image/jpeg 6436 None
+firstontario.png 200 image/png 332 *
+firstontario.svg 200 image/svg+xml 2762 *
+uni.png 200 image/png 8910 None
+icici.ico 200 image/vnd.microsoft.icon 9662 https://www.icici.bank.in
+icici.png 200 image/png 17982 https://www.icici.bank.in
+access.svg 200 image/svg+xml 3755 None
+access.ico 200 image/x-icon 123023 None
+acu.png 200 image/png 78954 *
+scu.svg 200 image/svg+xml 5873 None
+scu.png 200 image/png 1606 None
+beem.ico 200 image/x-icon 15406 https://beemcreditunion.ca/
+tru.svg 200 image/svg+xml 608 None
+truh.svg 200 image/svg+xml 4720 None
