@@ -1,4 +1,4 @@
-const SITE_VERSION = "51";
+const SITE_VERSION = "52";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -326,7 +326,7 @@ const LOGOS = {
   "ICICI Bank Canada": ["https://www.icicibank.ca/favicon.ico"],
   "Access Credit Union": ["https://www.accesscu.ca/media/1266/small-logo.svg"],
   "Assiniboine Credit Union": ["https://www.acu.ca/hubfs/ACU_Digital-_RGB_Asterisk-only-1.png"],
-  "Steinbach Credit Union": ["https://scu.mb.ca/getContentAsset/5a857dfe-9852-4124-b5ab-58cd8501ec0b/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/logo.svg?language=en-CA#svgView(viewBox(0,10,42,42))"],  // just the S mark from the wide logo
+  "Steinbach Credit Union": ["https://scu.mb.ca/getContentAsset/fe2b794e-3779-4199-839e-c1c500e5fd30/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/favicon-32x32.png?language=en-CA"],
   "Beem Credit Union": ["https://beemcreditunion.ca/favicon.ico"],
   "Tru Cooperative Bank": ["https://www.trucooperativebank.ca/content/dam/trucooperativebank/images/logos/tcb/TCB-Favicon_32_BLCK-REV.svg"]
 };
