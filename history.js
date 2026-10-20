@@ -73,7 +73,7 @@ function chart(el, title, series){
   el.innerHTML = `<h2 class="h3">${title}</h2>`
     + `<svg viewBox="0 0 ${W} ${Ht}" width="${W}" height="${Ht}" role="img" aria-label="${esc(title)} rates over time, ${long(start)} to ${long(end)}">`
     + `<g class="ax">${ticks.map(v => `<line class="gl" x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}"/><text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end">${v.toFixed(2)}%</text>`).join("")}`
-    + `${xt.map((t, k) => `<text x="${x(t)}" y="${Ht - 6}" text-anchor="${k === 0 ? "start" : k === 3 ? "end" : "middle"}">${short(t, xt[xt.length - 1] - xt[0] > 400 * 864e5)}</text>`).join("")}</g>`
+    + `${xt.map((t, k) => `<text x="${x(t)}" y="${Ht - 6}" text-anchor="${k === 0 ? "start" : k === 3 ? "end" : "middle"}">${short(t, xt[xt.length - 1] - xt[0] > 200 * 864e5)}</text>`).join("")}</g>`
     + vis.map(s => `<path d="${path(s)}" fill="none" stroke="${s.color}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"${s.dash ? ' stroke-dasharray="6 4"' : ""}/>`).join("")
     + lastDots + `<line class="cross" y1="${m.t}" y2="${m.t + ih}" x1="0" x2="0" visibility="hidden"/>`
     + `<rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent" style="cursor:crosshair"/></svg>`
