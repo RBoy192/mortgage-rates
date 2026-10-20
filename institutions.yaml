@@ -325,7 +325,7 @@
       label: "5 Year Closed"
     - product: 5-year variable
       label: "1st Mortgage Variable 5 Year Closed"
-      nth: 2
+      column: "Rate"   # the label cell also shows the prime discount
 
 # FirstOntario: "Fixed Rate Mortgage" then "Variable Rate Mortgage" tables (the specials above them are high-ratio only).
 - name: FirstOntario Credit Union
@@ -420,12 +420,12 @@
     - product: 5-year variable
       label: "Conventional Closed Variable Mortgage"
 
-# Beem: rates load with JavaScript. The fixed table lists
-# 25-year and 30-year amortization columns; the 25-year one (the first figure) is read. The variable row shows
-# its prime discount first, so the rate is the 2nd figure.
+# Beem: the site blocks automated visits, so rates are typed into manual_rates.yaml (labels kept for if that changes).
+# The fixed table lists 25-year and 30-year amortization columns; the 25-year one (the first figure) is read.
+# The variable row shows its prime discount first, so the rate is the 2nd figure.
 - name: Beem Credit Union
   url: https://beemcreditunion.ca/rates
-  mode: browser
+  mode: manual
   rates:
     - product: 3-year fixed
       label: "3 year"

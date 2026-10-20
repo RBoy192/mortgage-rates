@@ -82,3 +82,20 @@
   rate: 3.64
   checked: 2026-10-20
   source: https://www.meridiancu.ca/personal/rates-and-fees/mortgage-and-borrowing-rates
+
+# Beem Credit Union: "Fixed closed-rate mortgages" table, 25-year rate column; variable is "5 year (closed variable)". Read 2026-10-20.
+- institution: Beem Credit Union
+  product: 3-year fixed
+  rate: 4.54
+  checked: 2026-10-20
+  source: https://beemcreditunion.ca/rates
+- institution: Beem Credit Union
+  product: 5-year fixed
+  rate: 4.69
+  checked: 2026-10-20
+  source: https://beemcreditunion.ca/rates
+- institution: Beem Credit Union
+  product: 5-year variable
+  rate: 3.75
+  checked: 2026-10-20
+  source: https://beemcreditunion.ca/rates

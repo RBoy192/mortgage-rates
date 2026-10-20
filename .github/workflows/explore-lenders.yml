@@ -21,7 +21,7 @@ jobs:
           python - <<'PY' 2>&1 | tee explore/summary.txt
           import yaml, scraper
           NEW = ["Affinity Credit Union", "Conexus Credit Union", "Libro Credit Union", "FirstOntario Credit Union", "UNI Financial",
-                 "ICICI Bank Canada", "Access Credit Union", "Assiniboine Credit Union", "Steinbach Credit Union", "Beem Credit Union", "Tru Cooperative Bank"]
+                 "ICICI Bank Canada", "Access Credit Union", "Assiniboine Credit Union", "Steinbach Credit Union", "Tru Cooperative Bank"]
           for l in yaml.safe_load(open("institutions.yaml")):
               if l["name"] not in NEW: continue
               res, err = scraper.scrape_lender(l)
