@@ -28,7 +28,7 @@ function controls(){
 
 function chart(el, title, series){
   const end = day(todayISO()), all = series.flatMap(s => s.points.map(p => day(p[0])));
-  if (!series.length && [...hidden].some(n => !n.startsWith("Big-bank"))) { el.innerHTML = `<h2 class="h3">${title}</h2>` + mascotNote("No lenders picked. Tap a lender above, or use Show all, to bring the lines back.", "hold"); return; }
+  if (!series.length && [...hidden].some(n => !n.startsWith("Big-bank"))) { el.innerHTML = `<h2 class="h3">${title}</h2>` + mascotNote(`No lenders picked. Tap a lender ${matchMedia("(min-width:1000px)").matches && document.querySelector(".hside") ? "on the left" : "above"}, or use Show all, to bring the lines back.`, "hold"); return; }
   if (!all.length) { el.innerHTML = `<h2 class="h3">${title}</h2>${mascotNote("No history yet. It fills in as the site saves each day's rates.", "hold")}`; return; }
   const span = RANGES.find(r => r[0] === range)[1];
   let start = Math.max(Math.min(...all), end - span * 864e5);
