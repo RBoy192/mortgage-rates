@@ -98,6 +98,47 @@ def read(soup, items):
     return found, errors
 
 
+MAX_DATA_DAYS = 14  # a replayed page's rate data must come from an archived copy within this many days of the page
+
+
+def replay(ts, original):
+    """Open the archived page in a browser so its scripts run, and report how far (in days) the rate data it
+    loaded was saved from the page itself. The archive fills each request with the nearest copy it has, which can
+    be months away, so a replay whose data is far off is not dated reliably."""
+    import re
+    from playwright.sync_api import sync_playwright
+    seen = []
+    def on_response(resp):
+        req = resp.request
+        m = re.search(r"/web/(\d{14})[a-z_]*/", resp.url)
+        if not m or req.resource_type not in ("xhr", "fetch", "script"):
+            return
+        target = resp.url.split(m.group(0), 1)[-1].lower()
+        if req.resource_type == "script" and not re.search(r"rate|taux|mortgage|hypoth", target):
+            return  # ordinary site scripts (frameworks, analytics) don't carry rates
+        seen.append(abs((datetime.strptime(m.group(1)[:8], "%Y%m%d") - datetime.strptime(ts[:8], "%Y%m%d")).days))
+    with sync_playwright() as pw:
+        b = pw.chromium.launch()
+        page = b.new_page(user_agent=UA)
+        page.on("response", on_response)
+        page.goto(f"https://web.archive.org/web/{ts}if_/{original}", wait_until="domcontentloaded", timeout=60000)
+        try:
+            page.wait_for_function(r"/\d\.\d{2,3}\s*%/.test(document.body.innerText)", timeout=30000)
+            last, steady = None, 0
+            for _ in range(20):
+                shown = page.inner_text("body")
+                steady = steady + 1 if shown == last else 0
+                if steady >= 3:
+                    break
+                last = shown
+                page.wait_for_timeout(1000)
+        except Exception:
+            pass
+        html = page.content()
+        b.close()
+    return html, max(seen) if seen else 0
+
+
 def main(name, out):
     lender = next(l for l in yaml.safe_load(open("institutions.yaml")) if l["name"] == name)
     items = scraper.active(lender)
@@ -116,10 +157,13 @@ def main(name, out):
         missing = [i for i in items if i["product"] not in found]
         if missing and (use_browser or not found):  # rates filled in by JavaScript: replay the archived page in a browser
             try:
-                more, errors = read(BeautifulSoup(scraper.get_html(f"https://web.archive.org/web/{ts}if_/{original}", browser=True), "html.parser"), missing)
+                html, offset = replay(ts, original)
+                if offset > MAX_DATA_DAYS:
+                    raise ValueError(f"the replayed rates came from a copy {offset} days away")
+                more, errors = read(BeautifulSoup(html, "html.parser"), missing)
                 if more:
                     found.update(more)
-                    via = "browser"
+                    via = f"browser (data within {offset} days)"
             except Exception as e:
                 errors = {i["product"]: f"browser: {str(e)[:100]}" for i in missing}
         for item in items:
