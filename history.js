@@ -68,6 +68,8 @@ function chart(el, title, series, scale = series){
     const runs = [[]];  // split at long gaps (not for Bank of Canada lines, which only store the dates rates changed)
     raw.forEach((p, k) => { if (k && p[0] - raw[k - 1][0] > GAP && !s.dash && !s.steps) runs.push([]); runs[runs.length - 1].push(p); });
     s.runs = runs;
+    // a faint dotted straight line across each gap: no saved reading in between
+    s.bridge = runs.slice(1).map((r, k) => { const a = runs[k][runs[k].length - 1], b = r[0]; return `M${x(a[0]).toFixed(1)},${y(a[1]).toFixed(1)}L${x(b[0]).toFixed(1)},${y(b[1]).toFixed(1)}`; }).join("");
     return runs.map(curve).join("");
   };
   const lastDots = vis.map(s => { const r = s.v.length ? s.v[s.v.length - 1][1] : s.before; return `<circle cx="${x(end).toFixed(1)}" cy="${y(r).toFixed(1)}" r="4" fill="${s.color}" stroke="var(--card)" stroke-width="2"/>`; }).join("");
@@ -76,6 +78,7 @@ function chart(el, title, series, scale = series){
     + `<svg viewBox="0 0 ${W} ${Ht}" width="${W}" height="${Ht}" role="img" aria-label="${esc(title)} rates over time, ${long(start)} to ${long(end)}">`
     + `<g class="ax">${ticks.map(v => `<line class="gl" x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}"/><text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end">${v.toFixed(2)}%</text>`).join("")}`
     + `${xt.map((t, k) => `<text x="${x(t)}" y="${Ht - 6}" text-anchor="${k === 0 ? "start" : k === 3 ? "end" : "middle"}">${short(t, xt[xt.length - 1] - xt[0] > 200 * 864e5)}</text>`).join("")}</g>`
+    + vis.map(s => { path(s); return s.bridge ? `<path class="gapln" d="${s.bridge}" fill="none" stroke="${s.color}" stroke-width="1.5" stroke-dasharray="1.5 5" stroke-linecap="round"/>` : ""; }).join("")
     + vis.map((s, i) => `<path class="ln" data-i="${i}" d="${path(s)}" fill="none" stroke="${s.color}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"${s.dash ? ' stroke-dasharray="6 4"' : ""}/>`).join("")
     + lastDots + `<line class="cross" y1="${m.t}" y2="${m.t + ih}" x1="0" x2="0" visibility="hidden"/>`
     + `<rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent" style="cursor:crosshair"/></svg>`
@@ -160,7 +163,7 @@ function render(){
   const lenderFirst = Object.entries(H.series).filter(([k]) => k.includes("|") && !k.startsWith("posted|")).flatMap(([, s]) => s.map(p => p[0])).sort()[0];
   $("since").textContent = (H.boc_history_from ? `Bank of Canada figures go back to ${dstr(H.boc_history_from)}. ` : "")
     + (H.lender_archive_note && H.site_history_from
-      ? `Lenders don't publish their past rates. Before ${dstr(H.site_history_from)}, the lines come from archived copies of each lender's own rate page, which were saved at irregular times, so a change between two copies may show up late or be missed. Since then, this site has saved every rate once a day.`
+      ? `Lenders don't publish their past rates. Before ${dstr(H.site_history_from)}, the lines come from archived copies of each lender's own rate page, which were saved at irregular times, so a change between two copies may show up late or be missed. A faint dotted line means no copy was saved in between. Since then, this site has saved every rate once a day.`
       : lenderFirst ? `Each lender's own rates start on ${dstr(lenderFirst)}, when this site began saving them once a day; lenders don't publish their past rates.` : "");
 }
 
