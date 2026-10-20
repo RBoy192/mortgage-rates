@@ -23,11 +23,19 @@ jobs:
           from urllib.parse import urljoin, urlparse
           from playwright.sync_api import sync_playwright
           START = {
-            "tru": ["https://www.trucooperativebank.ca/"], "beem": ["https://www.beemcu.ca/", "https://www.beemcreditunion.ca/", "https://www.blueshorefinancial.com/", "https://www.gffg.com/"],
-            "access": ["https://www.accesscu.ca/en/personal"], "steinbach": ["https://scu.mb.ca/personal"], "assiniboine": ["https://www.acu.ca/"],
-            "duca": ["https://duca.com/rates"], "firstontario": ["https://www.firstontario.com/rates/mortgages"], "uni": ["https://www.uni.ca/en/rates/product/residential-mortgage-loans"],
-            "conexus": ["https://www.conexus.ca/rates/mortgage-rates"],
+            "access": ["https://www.accesscu.ca/en/rates"], "steinbach": ["https://scu.mb.ca/rates"], "assiniboine": ["https://www.acu.ca/rates"],
+            "duca": ["https://www.duca.com/rates"], "beem": ["https://www.blueshorefinancial.com/", "https://www.gffg.com/"],
+            "tru": ["https://www.envisionfinancial.ca/", "https://www.islandsavings.ca/", "https://www.valleyfirst.com/"],
           }
+          import requests
+          for key, starts in START.items():
+              for i, s in enumerate(starts):
+                  try:
+                      r = requests.get(s, headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36"}, timeout=30)
+                      print(f"{key}: plain {s} -> {r.url} [{r.status_code}] {len(r.text)} bytes")
+                      open(f"explore/{key}-raw{i}.html", "w").write(r.text)
+                  except Exception as e:
+                      print(f"{key}: plain {s} failed {str(e)[:80]}")
           UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"
           def text_of(page):
               return page.evaluate("document.body ? document.body.innerText : ''")
