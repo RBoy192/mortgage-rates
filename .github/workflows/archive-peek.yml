@@ -1,0 +1,53 @@
+name: Save archived pages for study (one-off)
+# Started by hand. Saves the archived copies sampled in backfill/survey_report.csv for the named lenders (raw and after
+# the page's scripts run) to the "diagnose" branch, so older page layouts can be studied. Changes nothing on main.
+on:
+  workflow_dispatch:
+    inputs:
+      lenders:
+        description: "Lender names, comma-separated"
+        required: true
+permissions:
+  contents: write
+jobs:
+  peek:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: playwright install --with-deps chromium
+      - name: Save copies
+        env:
+          LENDERS: ${{ inputs.lenders }}
+        run: |
+          python - <<'PY'
+          import csv, os, re, time, gzip, pathlib
+          import backfill, scraper
+          want = [n.strip() for n in os.environ["LENDERS"].split(",")]
+          out = pathlib.Path("peek"); out.mkdir()
+          for r in csv.DictReader(open("backfill/survey_report.csv")):
+              if r["lender"] not in want or not r["archived_at"]:
+                  continue
+              slug = re.sub(r"[^a-z0-9]+", "-", r["lender"].lower())
+              ts, url = r["archived_at"], r["archived_url"]
+              try:
+                  raw = backfill.get(f"https://web.archive.org/web/{ts}id_/{url}").text
+                  gzip.open(out / f"{slug}-{ts}-raw.html.gz", "wt").write(raw)
+              except Exception as e:
+                  print("raw failed", slug, ts, e)
+              try:
+                  html = scraper.get_html(f"https://web.archive.org/web/{ts}if_/{url}", browser=True)
+                  gzip.open(out / f"{slug}-{ts}-js.html.gz", "wt").write(html)
+              except Exception as e:
+                  print("browser failed", slug, ts, e)
+              time.sleep(2)
+          PY
+          ls peek | wc -l
+          git config user.name "rates-bot"; git config user.email "rates-bot@users.noreply.github.com"
+          git checkout --orphan diagnose; git rm -rqf --cached .; git add peek
+          git commit -qm "Archived pages for study"; git push -f origin diagnose
