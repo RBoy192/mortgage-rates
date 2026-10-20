@@ -88,4 +88,4 @@ def read_all(rows, start, only=None):
             time.sleep(1.5)
 
 if __name__ == "__main__":
-    main(sys.argv[1], *(sys.argv[2:3]), only=sys.argv[3].split(",") if len(sys.argv) > 3 else None)
+    main(sys.argv[1], *(sys.argv[2:3]), only=sys.argv[3].split(",") if len(sys.argv) > 3 and sys.argv[3] else None)

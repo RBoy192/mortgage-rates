@@ -16,14 +16,28 @@ function lenders(){
   return [...names].sort((a, b) => (LENDER_ORDER.indexOf(a) + 1 || 99) - (LENDER_ORDER.indexOf(b) + 1 || 99) || a.localeCompare(b));
 }
 
+// Region filter: Nationwide shows lenders that lend across Canada; a province adds its local lenders.
+// Only provinces with at least one local lender are offered (Ontario and British Columbia first). Starts on Nationwide.
+let region = "Nationwide";
+const PROVINCES = (() => { const s = new Set(Object.values(LENDER_REGIONS).flat()); return ["Ontario", "British Columbia"].filter(p => s.has(p)).concat([...s].filter(p => p !== "Ontario" && p !== "British Columbia").sort()); })();
+const local = n => !!LENDER_REGIONS[n];
+const inRegion = n => region === "Nationwide" ? !local(n) : (!local(n) || LENDER_REGIONS[n].includes(region));
+const avail = () => lenders().filter(inRegion);
+
 function controls(){
+  $("region").innerHTML = ["Nationwide", ...PROVINCES].map(p => `<option${p === region ? " selected" : ""}>${p}</option>`).join("");
   $("range").innerHTML = RANGES.map(([k]) => `<button type="button" aria-pressed="${k === range}" data-r="${k}">${k}</button>`).join("");
-  const P = "Big-bank posted rate (Bank of Canada)", all = lenders(), shown = all.filter(n => !hidden.has(n));
+  const P = "Big-bank posted rate (Bank of Canada)", all = avail(), shown = all.filter(n => !hidden.has(n));
   const banks = all.filter(n => !NON_BANKS.includes(n)), only = set => shown.length === set.length && set.every(n => !hidden.has(n));
   $("quick").innerHTML = [["all", "Show all", shown.length === all.length], ["banks", "Banks only", only(banks)],
     ["others", "Credit unions and others", only(all.filter(n => NON_BANKS.includes(n)))], ["none", "Clear all", !shown.length && hidden.has(P)]]
     .map(([k, t, on]) => `<button type="button" data-q="${k}" aria-pressed="${on}">${t}</button>`).join("");
-  $("chips").innerHTML = (Object.keys(H.series).some(k => k.startsWith("posted|")) ? `<button type="button" class="chip" aria-pressed="${!hidden.has(P)}" data-n="${P}"><i style="background:var(--mu)"></i>Big-bank posted rate</button>` : "") + lenders().map(n => `<button type="button" class="chip" aria-pressed="${!hidden.has(n)}" data-n="${esc(n)}"><i style="background:${seriesVar(n)}"></i>${esc(n)}</button>`).join("");
+  $("chips").innerHTML = (Object.keys(H.series).some(k => k.startsWith("posted|")) ? `<button type="button" class="chip" aria-pressed="${!hidden.has(P)}" data-n="${P}"><i style="background:var(--mu)"></i>Big-bank posted rate</button>` : "") + (() => {
+    const chip = n => `<button type="button" class="chip" aria-pressed="${!hidden.has(n)}" data-n="${esc(n)}"><i style="background:${seriesVar(n)}"></i>${esc(n)}</button>`;
+    if (region === "Nationwide") return all.map(chip).join("");
+    const here = all.filter(local), nat = all.filter(n => !local(n));  // a province: its own lenders first, then the nationwide ones
+    return `<p class="chh">${esc(region)}</p>` + here.map(chip).join("") + `<p class="chh">Nationwide</p>` + nat.map(chip).join("");
+  })();
 }
 
 // `scale`: the lines the axes are sized for (every lender, shown or not), so filtering never rescales the chart
@@ -148,7 +162,7 @@ if (!$("range")) return;
 
 function render(){
   controls();
-  const ls = lenders().filter(n => !hidden.has(n));
+  const ls = avail().filter(n => !hidden.has(n));
   // The Bank of Canada publishes the big banks' typical posted rate for fixed terms; it's drawn dashed for context.
   const POSTED = "Big-bank posted rate (Bank of Canada)";
   COLUMNS.forEach(([, p], k) => {
@@ -169,9 +183,10 @@ function render(){
 
 $("range").onclick = e => { const b = e.target.closest("button"); if (b) { range = b.dataset.r; save(); render(); } };
 // Quick picks: everyone, banks only, credit unions only, or nobody (then tap lenders one by one)
+$("region").onchange = e => { region = e.target.value; avail().forEach(n => hidden.delete(n)); render(); };  // a new region starts with all its lenders shown
 $("quick").onclick = e => {
   const b = e.target.closest("button"); if (!b) return;
-  const all = lenders(), keep = {all: all, banks: all.filter(n => !NON_BANKS.includes(n)), others: all.filter(n => NON_BANKS.includes(n)), none: []}[b.dataset.q];
+  const all = avail(), keep = {all: all, banks: all.filter(n => !NON_BANKS.includes(n)), others: all.filter(n => NON_BANKS.includes(n)), none: []}[b.dataset.q];
   all.forEach(n => keep.includes(n) ? hidden.delete(n) : hidden.add(n));
   const P = "Big-bank posted rate (Bank of Canada)";
   if (b.dataset.q === "none" || b.dataset.q === "all") hidden.add(P);  // Show all means every lender; the posted-rate line stays off until tapped

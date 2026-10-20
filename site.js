@@ -1,4 +1,4 @@
-const SITE_VERSION = "46";
+const SITE_VERSION = "47";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -331,6 +331,9 @@ const LENDER_ORDER = ["BMO", "CIBC", "EQ Bank", "Manulife Bank", "National Bank"
 // Each lender keeps its chart colour for good: new lenders are added at the end of this list.
 const LENDER_COLOURS = ["BMO", "CIBC", "EQ Bank", "National Bank", "RBC Royal Bank", "Scotiabank", "Tangerine", "TD Canada Trust", "ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "Servus Credit Union", "Manulife Bank", "Vancity", "Meridian", "First National"];
 // Lenders that aren't banks (credit unions, co-operatives and ATB, an Alberta Crown corporation). Everyone else is listed as a bank.
+// Where each lender offers mortgages. Lenders not listed here lend across Canada.
+const LENDER_REGIONS = {"Alterna Savings": ["Ontario"], "Meridian": ["Ontario"], "Desjardins": ["Ontario", "Quebec"],
+  "Coast Capital Savings": ["British Columbia"], "Vancity": ["British Columbia"], "ATB Financial": ["Alberta"], "Servus Credit Union": ["Alberta"]};
 const NON_BANKS = ["ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "First National", "Meridian", "Servus Credit Union", "Vancity"];
 const LENDER_GROUPS = [["Banks", n => !NON_BANKS.includes(n)], ["Credit unions and other lenders", n => NON_BANKS.includes(n)]];
 // Each lender's own page on this site: bmo-mortgage-rates.html and so on
