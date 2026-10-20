@@ -1,4 +1,4 @@
-const SITE_VERSION = "49";
+const SITE_VERSION = "50";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -318,7 +318,7 @@ const LOGOS = {
   "Meridian": ["https://www.meridiancu.ca/getContentAsset/6c76e806-df80-4b7c-a633-cab25199417c/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/meridian-icon.svg?language=en-US"],
   "Servus Credit Union": ["https://servus.ca/media/ihwf0qof/favicon.png"],
   "Coast Capital Savings": ["https://www.coastcapitalsavings.com/media/3890/coast-capital-symbol_rgb_foamwhite.svg", 0.7, "center", "contain", "#0056FF"],  // white mark, shown on Coast's own blue
-  "Affinity Credit Union": ["https://www.affinitycu.ca/images/default-source/default-album/affinity-cu-logo-rgb-chevron---for-website.svg?sfvrsn=63b5d980_4", 1, "left", "cover"],
+  "Affinity Credit Union": ["https://www.affinitycu.ca/favicon.ico"],
   "Conexus Credit Union": ["https://www.conexus.ca/getContentAsset/d7c3a8a8-0ce7-47ff-84d2-47a877629ca7/e477a59e-1df6-4e2f-9986-20ab37342540/favicon.svg?language=en-US"],
   "Libro Credit Union": ["https://www.libro.ca/uploads/2025/12/cropped-favicon-2025-180x180.jpg"],
   "FirstOntario Credit Union": ["https://www.firstontario.com/wp-content/uploads/2026/02/apple-touch-icon.png"],
@@ -326,7 +326,7 @@ const LOGOS = {
   "ICICI Bank Canada": ["https://www.icicibank.ca/favicon.ico"],
   "Access Credit Union": ["https://www.accesscu.ca/media/1266/small-logo.svg"],
   "Assiniboine Credit Union": ["https://www.acu.ca/hubfs/ACU_Digital-_RGB_Asterisk-only-1.png"],
-  "Steinbach Credit Union": ["https://scu.mb.ca/getContentAsset/5a857dfe-9852-4124-b5ab-58cd8501ec0b/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/logo.svg?language=en-CA", 1, "left", "cover"],
+  "Steinbach Credit Union": ["https://scu.mb.ca/getContentAsset/5a857dfe-9852-4124-b5ab-58cd8501ec0b/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/logo.svg?language=en-CA#svgView(viewBox(0,10,42,42))"]  // just the S mark from the wide logo,
   "Beem Credit Union": ["https://beemcreditunion.ca/favicon.ico"],
   "Tru Cooperative Bank": ["https://www.trucooperativebank.ca/content/dam/trucooperativebank/images/logos/tcb/TCB-Favicon_32_BLCK-REV.svg"]
 };
