@@ -1,376 +1,285 @@
 lender,product,date,archived_at,rate,via,text_read,error
-Scotiabank,5-year variable,2023-01-07,20230107004232,6.65,browser,6.650% 2,
-Scotiabank,3-year fixed,2023-01-07,20230107004232,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-01-07,20230107004232,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-01-14,20230114012117,6.65,browser,6.650% 2,
-Scotiabank,3-year fixed,2023-01-14,20230114012117,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-01-14,20230114012117,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-01-30,20230130194633,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2023-01-30,20230130194633,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-01-30,20230130194633,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-02-06,20230206211332,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2023-02-06,20230206211332,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-02-06,20230206211332,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-02-13,20230213215646,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2023-02-13,20230213215646,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-02-13,20230213215646,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-02-20,20230220221909,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2023-02-20,20230220221909,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-02-20,20230220221909,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-02-27,20230227232148,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2023-02-27,20230227232148,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-02-27,20230227232148,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-03-06,20230306230020,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2023-03-06,20230306230020,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-03-06,20230306230020,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-03-14,20230314231528,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2023-03-14,20230314231528,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-03-14,20230314231528,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-03-29,20230329124620,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+CIBC,5-year fixed,2019-01-04,20190104132540,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
+CIBC,5-year variable,2019-01-04,20190104132540,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-01-08,20190108235530,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
+CIBC,5-year variable,2019-01-08,20190108235530,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-01-16,20190116094357,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
+CIBC,5-year variable,2019-01-16,20190116094357,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-01-21,20190121175501,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
+CIBC,5-year variable,2019-01-21,20190121175501,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-01-28,20190128202426,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
+CIBC,5-year variable,2019-01-28,20190128202426,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-02-04,20190204043644,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
+CIBC,5-year variable,2019-02-04,20190204043644,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-02-11,20190211093819,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
+CIBC,5-year variable,2019-02-11,20190211093819,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-02-18,20190218141854,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
+CIBC,5-year variable,2019-02-18,20190218141854,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-02-25,20190225114101,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
+CIBC,5-year variable,2019-02-25,20190225114101,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-03-04,20190304024945,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
+CIBC,5-year variable,2019-03-04,20190304024945,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-03-11,20190311044006,,,,text after the label doesn't match the expected layout: '5.34% ask for details'
+CIBC,5-year variable,2019-03-11,20190311044006,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-03-18,20190318000106,3.39,browser,5.34% 3.39% 1,
+CIBC,5-year variable,2019-03-18,20190318000106,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-03-25,20190325220545,3.39,browser,5.34% 3.39% 1,
+CIBC,5-year variable,2019-03-25,20190325220545,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-04-01,20190401114925,3.39,browser,5.34% 3.39% 1,
+CIBC,5-year variable,2019-04-01,20190401114925,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-04-08,20190408085629,3.39,browser,5.34% 3.39% 1,
+CIBC,5-year variable,2019-04-08,20190408085629,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-04-15,20190415132309,3.39,browser,5.34% 3.39% 1,
+CIBC,5-year variable,2019-04-15,20190415132309,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-04-22,20190422130328,3.39,browser,5.34% 3.39% 1,
+CIBC,5-year variable,2019-04-22,20190422130328,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-04-29,20190429103245,3.39,browser,5.34% 3.39% 1,
+CIBC,5-year variable,2019-04-29,20190429103245,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-05-06,20190506042531,3.39,browser,5.34% 3.39% 1,
+CIBC,5-year variable,2019-05-06,20190506042531,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-05-13,20190513043559,3.39,browser,5.34% 3.39% 1,
+CIBC,5-year variable,2019-05-13,20190513043559,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-05-20,20190520070347,3.39,browser,5.34% 3.39% 1,
+CIBC,5-year variable,2019-05-20,20190520070347,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-05-27,20190527131138,3.39,browser,5.34% 3.39% 1,
+CIBC,5-year variable,2019-05-27,20190527131138,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-06-03,20190603230039,3.39,browser,5.34% 3.39% 1,
+CIBC,5-year variable,2019-06-03,20190603230039,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-06-10,20190610144532,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-06-10,20190610144532,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-06-17,20190617150502,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-06-17,20190617150502,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-06-24,20190624134625,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-06-24,20190624134625,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-07-01,20190701114530,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-07-01,20190701114530,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-07-08,20190708164621,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-07-08,20190708164621,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-07-15,20190715210247,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-07-15,20190715210247,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-07-22,20190722045827,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-07-22,20190722045827,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-07-29,20190729081018,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-07-29,20190729081018,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-08-05,20190805204845,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-08-05,20190805204845,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-08-12,20190812015017,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-08-12,20190812015017,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-08-19,20190819015750,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-08-19,20190819015750,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-08-26,20190826230544,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-08-26,20190826230544,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-09-03,20190903133419,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-09-03,20190903133419,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-09-09,20190909210558,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-09-09,20190909210558,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-09-16,20190916124306,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-09-16,20190916124306,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-09-23,20190923092317,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-09-23,20190923092317,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-09-30,20190930204137,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-09-30,20190930204137,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-10-26,20191026134308,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-10-26,20191026134308,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-11-01,20191101212217,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20191101212217if_/https://www.cibc.com/
+CIBC,5-year variable,2019-11-01,20191101212217,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20191101212217if_/https://www.cibc.com/
+CIBC,5-year fixed,2019-11-09,20191109083906,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-11-09,20191109083906,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-11-15,20191115131052,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-11-15,20191115131052,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-11-19,20191119143536,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-11-19,20191119143536,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-11-26,20191126120427,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-11-26,20191126120427,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-12-07,20191207045230,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-12-07,20191207045230,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-12-10,20191210164733,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-12-10,20191210164733,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-12-17,20191217185646,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-12-17,20191217185646,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-12-24,20191224074402,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-12-24,20191224074402,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2019-12-31,20191231062007,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2019-12-31,20191231062007,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-01-07,20200107091238,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-01-07,20200107091238,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-01-28,20200128082608,,,,"text after the label doesn't match the expected layout: 'rds%rate[5].frcm.published(5_null_null_years_t,null,1,null)('"
+CIBC,5-year variable,2020-01-28,20200128082608,,,,"text after the label doesn't match the expected layout: 'rds%rate[5].frcm.published(5_null_null_years_t,null,1,null)('"
+CIBC,5-year fixed,2020-02-04,20200204032102,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-02-04,20200204032102,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-02-11,20200211013450,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-02-11,20200211013450,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-02-18,20200218030751,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-02-18,20200218030751,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-02-25,20200225051637,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-02-25,20200225051637,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-03-03,20200303223927,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-03-03,20200303223927,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-03-11,20200311000544,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-03-11,20200311000544,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-03-24,20200324002342,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-03-24,20200324002342,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-03-30,20200330110432,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-03-30,20200330110432,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-04-08,20200408001946,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-04-08,20200408001946,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-04-15,20200415014926,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-04-15,20200415014926,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-04-22,20200422022741,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-04-22,20200422022741,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-04-29,20200429033808,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-04-29,20200429033808,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-05-05,20200505232844,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-05-05,20200505232844,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-05-13,20200513101135,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-05-13,20200513101135,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-05-20,20200520033848,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-05-20,20200520033848,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-05-27,20200527064135,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-05-27,20200527064135,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-06-03,20200603044330,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-06-03,20200603044330,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-06-10,20200610153331,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-06-10,20200610153331,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-06-17,20200617154216,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-06-17,20200617154216,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-06-23,20200623172539,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-06-23,20200623172539,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-07-01,20200701170512,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-07-01,20200701170512,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-07-08,20200708185807,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-07-08,20200708185807,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-07-16,20200716002151,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-07-16,20200716002151,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-07-23,20200723110406,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-07-23,20200723110406,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-07-29,20200729234218,2.99,browser,5.34% 2.99% i,
+CIBC,5-year variable,2020-07-29,20200729234218,,,,text after the label doesn't match the expected layout: '5.75%'
+CIBC,5-year fixed,2020-08-08,20200808154229,2.24,browser,4.79% 2.24% i,
+CIBC,5-year variable,2020-08-08,20200808154229,2.03,browser,2.45% 2.03% % iii,
+CIBC,5-year fixed,2020-08-14,20200814092228,2.24,browser,4.79% 2.24% i,
+CIBC,5-year variable,2020-08-14,20200814092228,2.03,browser,2.45% 2.03% % iii,
+CIBC,5-year fixed,2020-08-20,20200820025028,2.24,browser,4.79% 2.24% i,
+CIBC,5-year variable,2020-08-20,20200820025028,2.03,browser,2.45% 2.03% % iii,
+CIBC,5-year fixed,2020-09-13,20200913110311,2.14,browser,4.79% 2.14% i,
+CIBC,5-year variable,2020-09-13,20200913110311,1.93,browser,2.45% 1.93% % iii,
+CIBC,5-year fixed,2020-09-15,20200915040342,2.14,browser,4.79% 2.14% i,
+CIBC,5-year variable,2020-09-15,20200915040342,1.93,browser,2.45% 1.93% % iii,
+CIBC,5-year fixed,2020-09-22,20200922233213,2.14,browser,4.79% 2.14% i,
+CIBC,5-year variable,2020-09-22,20200922233213,1.93,browser,2.45% 1.93% % iii,
+CIBC,5-year fixed,2020-09-29,20200929195458,2.14,browser,4.79% 2.14% i,
+CIBC,5-year variable,2020-09-29,20200929195458,1.93,browser,2.45% 1.93% % iii,
+CIBC,5-year fixed,2020-10-07,20201007070134,2.14,browser,4.79% 2.14% i,
+CIBC,5-year variable,2020-10-07,20201007070134,1.93,browser,2.45% 1.93% % iii,
+CIBC,5-year fixed,2020-10-14,20201014072814,2.14,browser,4.79% 2.14% i,
+CIBC,5-year variable,2020-10-14,20201014072814,1.93,browser,2.45% 1.93% % iii,
+CIBC,5-year fixed,2020-10-28,20201028120225,2.14,browser,4.79% 2.14% i,
+CIBC,5-year variable,2020-10-28,20201028120225,1.93,browser,2.45% 1.93% % iii,
+CIBC,5-year fixed,2020-11-11,20201111170419,2.1,browser,4.79% 2.10% i,
+CIBC,5-year variable,2020-11-11,20201111170419,1.88,browser,2.45% 1.88% % iii,
+CIBC,5-year fixed,2020-11-19,20201119024436,2.1,browser,4.79% 2.10% i,
+CIBC,5-year variable,2020-11-19,20201119024436,1.88,browser,2.45% 1.88% % iii,
+CIBC,5-year fixed,2020-11-26,20201126050404,2.1,browser,4.79% 2.10% i,
+CIBC,5-year variable,2020-11-26,20201126050404,1.88,browser,2.45% 1.88% % iii,
+CIBC,5-year fixed,2020-12-24,20201224165021,2.1,browser,4.79% 2.10% i,
+CIBC,5-year variable,2020-12-24,20201224165021,1.88,browser,2.45% 1.88% % iii,
+CIBC,5-year fixed,2021-01-26,20210126030447,1.99,browser,4.79% 1.99% i,
+CIBC,5-year variable,2021-01-26,20210126030447,1.75,browser,2.45% 1.75% % iii,
+CIBC,5-year fixed,2021-02-03,20210203174231,1.99,browser,4.79% 1.99% i,
+CIBC,5-year variable,2021-02-03,20210203174231,1.75,browser,2.45% 1.75% % iii,
+CIBC,5-year fixed,2021-02-10,20210210195205,1.99,browser,4.79% 1.99% i,
+CIBC,5-year variable,2021-02-10,20210210195205,1.75,browser,2.45% 1.75% % iii,
+CIBC,5-year fixed,2021-02-17,20210217133509,1.99,browser,4.79% 1.99% i,
+CIBC,5-year variable,2021-02-17,20210217133509,1.75,browser,2.45% 1.75% % iii,
+CIBC,5-year fixed,2021-02-25,20210225182003,1.99,browser,4.79% 1.99% i,
+CIBC,5-year variable,2021-02-25,20210225182003,1.75,browser,2.45% 1.75% % iii,
+CIBC,5-year fixed,2021-03-01,20210301195724,1.99,browser,4.79% 1.99% i,
+CIBC,5-year variable,2021-03-01,20210301195724,1.75,browser,2.45% 1.75% % iii,
+CIBC,5-year fixed,2021-03-13,20210313065946,,,,"browser: Page.goto: Timeout 60000ms exceeded.
 Call log:
-  - navigating to ""https://web.archive.org/web/202303"
-Scotiabank,3-year fixed,2023-03-29,20230329124620,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+  - navigating to ""https://web.archive.org/web/202103"
+CIBC,5-year variable,2021-03-13,20210313065946,,,,"browser: Page.goto: Timeout 60000ms exceeded.
 Call log:
-  - navigating to ""https://web.archive.org/web/202303"
-Scotiabank,5-year fixed,2023-03-29,20230329124620,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+  - navigating to ""https://web.archive.org/web/202103"
+CIBC,5-year fixed,2021-03-20,20210320165738,1.99,browser,4.79% 1.99% i,
+CIBC,5-year variable,2021-03-20,20210320165738,1.75,browser,2.45% 1.75% iii,
+CIBC,5-year fixed,2021-03-22,20210322060408,,,,section 'CIBC Fixed Rate Closed Mortgages' not found
+CIBC,5-year variable,2021-03-22,20210322060408,,,,section 'CIBC Variable Flex Mortgage' not found
+CIBC,5-year fixed,2021-03-29,20210329234609,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-03-29,20210329234609,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-04-10,20210410195428,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-04-10,20210410195428,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-04-13,20210413220616,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-04-13,20210413220616,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-04-19,20210419160048,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-04-19,20210419160048,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-05-01,20210501163416,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-05-01,20210501163416,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-05-07,20210507083059,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-05-07,20210507083059,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-05-10,20210510054707,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-05-10,20210510054707,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-05-17,20210517024518,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-05-17,20210517024518,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-05-31,20210531113017,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-05-31,20210531113017,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-06-07,20210607000558,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-06-07,20210607000558,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-06-21,20210621022324,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-06-21,20210621022324,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-06-28,20210628190209,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-06-28,20210628190209,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-07-07,20210707180810,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-07-07,20210707180810,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-07-14,20210714183931,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-07-14,20210714183931,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-07-22,20210722173400,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20210722173400if_/https://www.
+CIBC,5-year variable,2021-07-22,20210722173400,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20210722173400if_/https://www.
+CIBC,5-year fixed,2021-07-27,20210727091752,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20210727091752if_/https://www.cibc.com/
+CIBC,5-year variable,2021-07-27,20210727091752,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20210727091752if_/https://www.cibc.com/
+CIBC,5-year fixed,2021-08-06,20210806170127,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-08-06,20210806170127,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-08-13,20210813175044,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-08-13,20210813175044,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-08-20,20210820232310,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-08-20,20210820232310,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-08-27,20210827234301,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-08-27,20210827234301,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-09-03,20210903231015,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-09-03,20210903231015,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-09-10,20210910233143,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-09-10,20210910233143,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-09-17,20210917081054,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-09-17,20210917081054,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-09-20,20210920182452,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-09-20,20210920182452,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-09-27,20210927213301,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-09-27,20210927213301,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-10-06,20211006034313,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-10-06,20211006034313,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-10-13,20211013014043,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-10-13,20211013014043,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-10-20,20211020025659,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-10-20,20211020025659,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-10-27,20211027045556,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-10-27,20211027045556,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-11-04,20211104061723,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-11-04,20211104061723,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-11-11,20211111051406,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-11-11,20211111051406,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-11-18,20211118101502,2.44,browser,4.79% 2.44% i,
+CIBC,5-year variable,2021-11-18,20211118101502,1.6,browser,2.45% 1.60% iii,
+CIBC,5-year fixed,2021-11-25,20211125101754,3.99,browser,4.99% 3.99% i,
+CIBC,5-year variable,2021-11-25,20211125101754,2.65,browser,3.20% 2.65% iii,
+CIBC,5-year fixed,2021-12-02,20211202134243,3.99,browser,4.99% 3.99% i,
+CIBC,5-year variable,2021-12-02,20211202134243,2.65,browser,3.20% 2.65% iii,
+CIBC,5-year fixed,2021-12-14,20211214003305,3.99,browser,4.99% 3.99% i,
+CIBC,5-year variable,2021-12-14,20211214003305,2.65,browser,3.20% 2.65% iii,
+CIBC,5-year fixed,2021-12-21,20211221011125,3.99,browser,4.99% 3.99% i,
+CIBC,5-year variable,2021-12-21,20211221011125,2.65,browser,3.20% 2.65% iii,
+CIBC,5-year fixed,2021-12-28,20211228001752,,,,"browser: Page.goto: Timeout 60000ms exceeded.
 Call log:
-  - navigating to ""https://web.archive.org/web/202303"
-Scotiabank,5-year variable,2023-04-05,20230405195304,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2023-04-05,20230405195304,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-04-05,20230405195304,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-04-12,20230412071346,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2023-04-12,20230412071346,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-04-12,20230412071346,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-04-19,20230419200157,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2023-04-19,20230419200157,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-04-19,20230419200157,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-04-26,20230426205220,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2023-04-26,20230426205220,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-04-26,20230426205220,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-05-04,20230504025717,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2023-05-04,20230504025717,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-05-04,20230504025717,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-05-10,20230510230552,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2023-05-10,20230510230552,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-05-10,20230510230552,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-05-17,20230517234853,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2023-05-17,20230517234853,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-05-17,20230517234853,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-05-25,20230525003808,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2023-05-25,20230525003808,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-05-25,20230525003808,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-06-01,20230601012657,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2023-06-01,20230601012657,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-06-01,20230601012657,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-06-05,20230605131358,7.4,browser,7.400% 2,
-Scotiabank,3-year fixed,2023-06-05,20230605131358,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-06-05,20230605131358,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-06-15,20230615075347,7.4,browser,7.400% 2,
-Scotiabank,3-year fixed,2023-06-15,20230615075347,6.44,browser,6.440%,
-Scotiabank,5-year fixed,2023-06-15,20230615075347,6.34,browser,6.340%,
-Scotiabank,5-year variable,2023-07-14,20230714072733,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-07-14,20230714072733,6.89,browser,6.890%,
-Scotiabank,5-year fixed,2023-07-14,20230714072733,6.54,browser,6.540%,
-Scotiabank,5-year variable,2023-07-21,20230721075320,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-07-21,20230721075320,6.89,browser,6.890%,
-Scotiabank,5-year fixed,2023-07-21,20230721075320,6.54,browser,6.540%,
-Scotiabank,5-year variable,2023-07-28,20230728081728,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-07-28,20230728081728,6.89,browser,6.890%,
-Scotiabank,5-year fixed,2023-07-28,20230728081728,6.54,browser,6.540%,
-Scotiabank,5-year variable,2023-08-04,20230804084117,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-08-04,20230804084117,6.89,browser,6.890%,
-Scotiabank,5-year fixed,2023-08-04,20230804084117,6.54,browser,6.540%,
-Scotiabank,5-year variable,2023-08-11,20230811095936,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-08-11,20230811095936,6.89,browser,6.890%,
-Scotiabank,5-year fixed,2023-08-11,20230811095936,6.54,browser,6.540%,
-Scotiabank,5-year variable,2023-08-18,20230818101150,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-08-18,20230818101150,6.89,browser,6.890%,
-Scotiabank,5-year fixed,2023-08-18,20230818101150,6.54,browser,6.540%,
-Scotiabank,5-year variable,2023-08-22,20230822120947,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-08-22,20230822120947,6.89,browser,6.890%,
-Scotiabank,5-year fixed,2023-08-22,20230822120947,6.54,browser,6.540%,
-Scotiabank,5-year variable,2023-09-02,20230902100719,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-09-02,20230902100719,7.04,browser,7.040%,
-Scotiabank,5-year fixed,2023-09-02,20230902100719,6.84,browser,6.840%,
-Scotiabank,5-year variable,2023-09-09,20230909103808,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+  - navigating to ""https://web.archive.org/web/202112"
+CIBC,5-year variable,2021-12-28,20211228001752,,,,"browser: Page.goto: Timeout 60000ms exceeded.
 Call log:
-  - navigating to ""https://web.archive.org/web/202309"
-Scotiabank,3-year fixed,2023-09-09,20230909103808,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202309"
-Scotiabank,5-year fixed,2023-09-09,20230909103808,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202309"
-Scotiabank,5-year variable,2023-09-16,20230916112457,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-09-16,20230916112457,7.04,browser,7.040%,
-Scotiabank,5-year fixed,2023-09-16,20230916112457,6.84,browser,6.840%,
-Scotiabank,5-year variable,2023-09-23,20230923121259,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-09-23,20230923121259,7.04,browser,7.040%,
-Scotiabank,5-year fixed,2023-09-23,20230923121259,6.84,browser,6.840%,
-Scotiabank,5-year variable,2023-09-30,20230930070537,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-09-30,20230930070537,7.04,browser,7.040%,
-Scotiabank,5-year fixed,2023-09-30,20230930070537,6.84,browser,6.840%,
-Scotiabank,5-year variable,2023-10-08,20231008122349,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202310"
-Scotiabank,3-year fixed,2023-10-08,20231008122349,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202310"
-Scotiabank,5-year fixed,2023-10-08,20231008122349,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202310"
-Scotiabank,5-year variable,2023-10-13,20231013154712,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-10-13,20231013154712,7.24,browser,7.240%,
-Scotiabank,5-year fixed,2023-10-13,20231013154712,7.04,browser,7.040%,
-Scotiabank,5-year variable,2023-10-22,20231022134727,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-10-22,20231022134727,7.24,browser,7.240%,
-Scotiabank,5-year fixed,2023-10-22,20231022134727,7.04,browser,7.040%,
-Scotiabank,5-year variable,2023-10-23,20231023231958,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20231023231958if_/https://www.scotiaban
-Scotiabank,3-year fixed,2023-10-23,20231023231958,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20231023231958if_/https://www.scotiaban
-Scotiabank,5-year fixed,2023-10-23,20231023231958,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20231023231958if_/https://www.scotiaban
-Scotiabank,5-year variable,2023-11-05,20231105170150,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-11-05,20231105170150,7.24,browser,7.240%,
-Scotiabank,5-year fixed,2023-11-05,20231105170150,7.04,browser,7.040%,
-Scotiabank,5-year variable,2023-11-12,20231112174056,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-11-12,20231112174056,7.24,browser,7.240%,
-Scotiabank,5-year fixed,2023-11-12,20231112174056,7.04,browser,7.040%,
-Scotiabank,5-year variable,2023-11-19,20231119182152,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-11-19,20231119182152,7.24,browser,7.240%,
-Scotiabank,5-year fixed,2023-11-19,20231119182152,7.04,browser,7.040%,
-Scotiabank,5-year variable,2023-11-26,20231126190254,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202311"
-Scotiabank,3-year fixed,2023-11-26,20231126190254,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202311"
-Scotiabank,5-year fixed,2023-11-26,20231126190254,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202311"
-Scotiabank,5-year variable,2023-12-03,20231203195051,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-12-03,20231203195051,7.24,browser,7.240%,
-Scotiabank,5-year fixed,2023-12-03,20231203195051,7.04,browser,7.040%,
-Scotiabank,5-year variable,2023-12-08,20231208152738,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-12-08,20231208152738,7.24,browser,7.240%,
-Scotiabank,5-year fixed,2023-12-08,20231208152738,7.04,browser,7.040%,
-Scotiabank,5-year variable,2023-12-17,20231217220850,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-12-17,20231217220850,7.24,browser,7.240%,
-Scotiabank,5-year fixed,2023-12-17,20231217220850,7.04,browser,7.040%,
-Scotiabank,5-year variable,2023-12-24,20231224225547,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-12-24,20231224225547,7.24,browser,7.240%,
-Scotiabank,5-year fixed,2023-12-24,20231224225547,7.04,browser,7.040%,
-Scotiabank,5-year variable,2023-12-25,20231225211712,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2023-12-25,20231225211712,7.24,browser,7.240%,
-Scotiabank,5-year fixed,2023-12-25,20231225211712,7.04,browser,7.040%,
-Scotiabank,5-year variable,2024-01-01,20240101213820,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-01-01,20240101213820,7.24,browser,7.240%,
-Scotiabank,5-year fixed,2024-01-01,20240101213820,7.04,browser,7.040%,
-Scotiabank,5-year variable,2024-01-08,20240108221138,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-01-08,20240108221138,7.24,browser,7.240%,
-Scotiabank,5-year fixed,2024-01-08,20240108221138,7.04,browser,7.040%,
-Scotiabank,5-year variable,2024-01-15,20240115230656,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202401"
-Scotiabank,3-year fixed,2024-01-15,20240115230656,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202401"
-Scotiabank,5-year fixed,2024-01-15,20240115230656,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202401"
-Scotiabank,5-year variable,2024-01-22,20240122233428,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-01-22,20240122233428,7.04,browser,7.040%,
-Scotiabank,5-year fixed,2024-01-22,20240122233428,6.89,browser,6.890%,
-Scotiabank,5-year variable,2024-01-29,20240129233059,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-01-29,20240129233059,6.94,browser,6.940%,
-Scotiabank,5-year fixed,2024-01-29,20240129233059,6.79,browser,6.790%,
-Scotiabank,5-year variable,2024-02-06,20240206003027,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-02-06,20240206003027,6.94,browser,6.940%,
-Scotiabank,5-year fixed,2024-02-06,20240206003027,6.79,browser,6.790%,
-Scotiabank,5-year variable,2024-02-13,20240213010958,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-02-13,20240213010958,6.94,browser,6.940%,
-Scotiabank,5-year fixed,2024-02-13,20240213010958,6.79,browser,6.790%,
-Scotiabank,5-year variable,2024-02-20,20240220022245,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-02-20,20240220022245,6.94,browser,6.940%,
-Scotiabank,5-year fixed,2024-02-20,20240220022245,6.79,browser,6.790%,
-Scotiabank,5-year variable,2024-02-27,20240227033701,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-02-27,20240227033701,6.94,browser,6.940%,
-Scotiabank,5-year fixed,2024-02-27,20240227033701,6.79,browser,6.790%,
-Scotiabank,5-year variable,2024-03-12,20240312031403,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-03-12,20240312031403,6.94,browser,6.940%,
-Scotiabank,5-year fixed,2024-03-12,20240312031403,6.79,browser,6.790%,
-Scotiabank,5-year variable,2024-03-19,20240319044354,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20240319044354if_/https://www.scotiaban
-Scotiabank,3-year fixed,2024-03-19,20240319044354,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20240319044354if_/https://www.scotiaban
-Scotiabank,5-year fixed,2024-03-19,20240319044354,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20240319044354if_/https://www.scotiaban
-Scotiabank,5-year variable,2024-03-26,20240326051438,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-03-26,20240326051438,6.94,browser,6.940%,
-Scotiabank,5-year fixed,2024-03-26,20240326051438,6.79,browser,6.790%,
-Scotiabank,5-year variable,2024-04-02,20240402053743,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-04-02,20240402053743,6.94,browser,6.940%,
-Scotiabank,5-year fixed,2024-04-02,20240402053743,6.79,browser,6.790%,
-Scotiabank,5-year variable,2024-04-09,20240409061801,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-04-09,20240409061801,6.94,browser,6.940%,
-Scotiabank,5-year fixed,2024-04-09,20240409061801,6.79,browser,6.790%,
-Scotiabank,5-year variable,2024-04-15,20240415055306,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-04-15,20240415055306,6.94,browser,6.940%,
-Scotiabank,5-year fixed,2024-04-15,20240415055306,6.79,browser,6.790%,
-Scotiabank,5-year variable,2024-04-25,20240425171326,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-04-25,20240425171326,6.94,browser,6.940%,
-Scotiabank,5-year fixed,2024-04-25,20240425171326,6.79,browser,6.790%,
-Scotiabank,5-year variable,2024-05-03,20240503160439,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-05-03,20240503160439,6.94,browser,6.940%,
-Scotiabank,5-year fixed,2024-05-03,20240503160439,6.79,browser,6.790%,
-Scotiabank,5-year variable,2024-05-09,20240509192529,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-05-09,20240509192529,6.94,browser,6.940%,
-Scotiabank,5-year fixed,2024-05-09,20240509192529,6.79,browser,6.790%,
-Scotiabank,5-year variable,2024-05-18,20240518211009,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-05-18,20240518211009,6.94,browser,6.940%,
-Scotiabank,5-year fixed,2024-05-18,20240518211009,6.79,browser,6.790%,
-Scotiabank,5-year variable,2024-05-25,20240525214047,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202405"
-Scotiabank,3-year fixed,2024-05-25,20240525214047,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202405"
-Scotiabank,5-year fixed,2024-05-25,20240525214047,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202405"
-Scotiabank,5-year variable,2024-06-01,20240601225153,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-06-01,20240601225153,6.94,browser,6.940%,
-Scotiabank,5-year fixed,2024-06-01,20240601225153,6.79,browser,6.790%,
-Scotiabank,5-year variable,2024-06-08,20240608235604,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-06-08,20240608235604,6.94,browser,6.940%,
-Scotiabank,5-year fixed,2024-06-08,20240608235604,6.79,browser,6.790%,
-Scotiabank,5-year variable,2024-06-16,20240616001453,7.65,browser,7.650% 2,
-Scotiabank,3-year fixed,2024-06-16,20240616001453,6.94,browser,6.940%,
-Scotiabank,5-year fixed,2024-06-16,20240616001453,6.79,browser,6.790%,
-Scotiabank,5-year variable,2024-06-23,20240623015041,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2024-06-23,20240623015041,6.74,browser,6.740%,
-Scotiabank,5-year fixed,2024-06-23,20240623015041,6.59,browser,6.590%,
-Scotiabank,5-year variable,2024-06-25,20240625050527,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2024-06-25,20240625050527,6.74,browser,6.740%,
-Scotiabank,5-year fixed,2024-06-25,20240625050527,6.59,browser,6.590%,
-Scotiabank,5-year variable,2024-07-07,20240707034855,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2024-07-07,20240707034855,6.74,browser,6.740%,
-Scotiabank,5-year fixed,2024-07-07,20240707034855,6.59,browser,6.590%,
-Scotiabank,5-year variable,2024-07-15,20240715010535,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2024-07-15,20240715010535,,,,no rate found next to the label '3 years'
-Scotiabank,5-year fixed,2024-07-15,20240715010535,,,,no rate found next to the label '5 years'
-Scotiabank,5-year variable,2024-07-22,20240722025843,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2024-07-22,20240722025843,6.74,browser,6.740%,
-Scotiabank,5-year fixed,2024-07-22,20240722025843,6.59,browser,6.590%,
-Scotiabank,5-year variable,2024-07-29,20240729055619,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2024-07-29,20240729055619,6.74,browser,6.740%,
-Scotiabank,5-year fixed,2024-07-29,20240729055619,6.59,browser,6.590%,
-Scotiabank,5-year variable,2024-08-05,20240805063344,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202408"
-Scotiabank,3-year fixed,2024-08-05,20240805063344,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202408"
-Scotiabank,5-year fixed,2024-08-05,20240805063344,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202408"
-Scotiabank,5-year variable,2024-08-12,20240812005556,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2024-08-12,20240812005556,6.74,browser,6.740%,
-Scotiabank,5-year fixed,2024-08-12,20240812005556,6.59,browser,6.590%,
-Scotiabank,5-year variable,2024-08-19,20240819075107,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2024-08-19,20240819075107,6.74,browser,6.740%,
-Scotiabank,5-year fixed,2024-08-19,20240819075107,6.59,browser,6.590%,
-Scotiabank,5-year variable,2024-08-26,20240826084729,7.15,browser,7.150% 2,
-Scotiabank,3-year fixed,2024-08-26,20240826084729,6.74,browser,6.740%,
-Scotiabank,5-year fixed,2024-08-26,20240826084729,6.59,browser,6.590%,
-Scotiabank,5-year variable,2024-09-02,20240902091926,6.9,browser,6.900% 2,
-Scotiabank,3-year fixed,2024-09-02,20240902091926,6.54,browser,6.540%,
-Scotiabank,5-year fixed,2024-09-02,20240902091926,6.49,browser,6.490%,
-Scotiabank,5-year variable,2024-09-09,20240909100325,6.9,browser,6.900% 2,
-Scotiabank,3-year fixed,2024-09-09,20240909100325,6.54,browser,6.540%,
-Scotiabank,5-year fixed,2024-09-09,20240909100325,6.49,browser,6.490%,
-Scotiabank,5-year variable,2024-09-16,20240916120349,6.9,browser,6.900% 2,
-Scotiabank,3-year fixed,2024-09-16,20240916120349,6.54,browser,6.540%,
-Scotiabank,5-year fixed,2024-09-16,20240916120349,6.49,browser,6.490%,
-Scotiabank,5-year variable,2024-09-23,20240923132216,6.9,browser,6.900% 2,
-Scotiabank,3-year fixed,2024-09-23,20240923132216,6.54,browser,6.540%,
-Scotiabank,5-year fixed,2024-09-23,20240923132216,6.49,browser,6.490%,
-Scotiabank,5-year variable,2024-09-30,20240930193456,6.9,browser,6.900% 2,
-Scotiabank,3-year fixed,2024-09-30,20240930193456,6.54,browser,6.540%,
-Scotiabank,5-year fixed,2024-09-30,20240930193456,6.49,browser,6.490%,
-Scotiabank,5-year variable,2024-10-07,20241007202343,6.9,browser,6.900% 2,
-Scotiabank,3-year fixed,2024-10-07,20241007202343,6.54,browser,6.540%,
-Scotiabank,5-year fixed,2024-10-07,20241007202343,6.49,browser,6.490%,
-Scotiabank,5-year variable,2024-12-07,20241207090004,6.4,browser,6.400% 2,
-Scotiabank,3-year fixed,2024-12-07,20241207090004,6.54,browser,6.540%,
-Scotiabank,5-year fixed,2024-12-07,20241207090004,6.49,browser,6.490%,
-Scotiabank,5-year variable,2024-12-17,20241217144740,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
-Scotiabank,3-year fixed,2024-12-17,20241217144740,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
-Scotiabank,5-year fixed,2024-12-17,20241217144740,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
-Scotiabank,5-year variable,2025-01-07,20250107141218,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20250107141218if_/https://www.scotiaban
-Scotiabank,3-year fixed,2025-01-07,20250107141218,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20250107141218if_/https://www.scotiaban
-Scotiabank,5-year fixed,2025-01-07,20250107141218,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20250107141218if_/https://www.scotiaban
-Scotiabank,5-year variable,2025-01-18,20250118033403,5.4,browser,5.400% 2,
-Scotiabank,3-year fixed,2025-01-18,20250118033403,6.54,browser,6.540%,
-Scotiabank,5-year fixed,2025-01-18,20250118033403,6.49,browser,6.490%,
-Scotiabank,5-year variable,2025-01-23,20250123134625,5.4,browser,5.400% 2,
-Scotiabank,3-year fixed,2025-01-23,20250123134625,6.54,browser,6.540%,
-Scotiabank,5-year fixed,2025-01-23,20250123134625,6.49,browser,6.490%,
-Scotiabank,5-year variable,2025-01-30,20250130142452,5.4,browser,5.400% 2,
-Scotiabank,3-year fixed,2025-01-30,20250130142452,6.54,browser,6.540%,
-Scotiabank,5-year fixed,2025-01-30,20250130142452,6.49,browser,6.490%,
-Scotiabank,5-year variable,2025-03-13,20250313213136,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20250313213136if_/https://www.scotiaban
-Scotiabank,3-year fixed,2025-03-13,20250313213136,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20250313213136if_/https://www.scotiaban
-Scotiabank,5-year fixed,2025-03-13,20250313213136,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20250313213136if_/https://www.scotiaban
-Scotiabank,5-year variable,2025-04-05,20250405155503,5.4,browser,5.400% 2,
-Scotiabank,3-year fixed,2025-04-05,20250405155503,6.54,browser,6.540%,
-Scotiabank,5-year fixed,2025-04-05,20250405155503,6.49,browser,6.490%,
-Scotiabank,5-year variable,2025-04-20,20250420170428,5.4,browser,5.400% 2,
-Scotiabank,3-year fixed,2025-04-20,20250420170428,6.54,browser,6.540%,
-Scotiabank,5-year fixed,2025-04-20,20250420170428,6.49,browser,6.490%,
-Scotiabank,5-year variable,2025-05-09,20250509031059,5.4,browser,5.400% 2,
-Scotiabank,3-year fixed,2025-05-09,20250509031059,6.54,browser,6.540%,
-Scotiabank,5-year fixed,2025-05-09,20250509031059,6.49,browser,6.490%,
-Scotiabank,5-year variable,2025-06-09,20250609035903,5.4,browser,5.400% 2,
-Scotiabank,3-year fixed,2025-06-09,20250609035903,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2025-06-09,20250609035903,6.09,browser,6.090%,
-Scotiabank,5-year variable,2025-06-26,20250626154614,5.4,browser,5.400% 2,
-Scotiabank,3-year fixed,2025-06-26,20250626154614,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2025-06-26,20250626154614,6.09,browser,6.090%,
-Scotiabank,5-year variable,2025-07-10,20250710044346,5.4,browser,5.400% 2,
-Scotiabank,3-year fixed,2025-07-10,20250710044346,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2025-07-10,20250710044346,6.09,browser,6.090%,
-Scotiabank,5-year variable,2025-08-02,20250802003313,5.4,browser,5.400% 2,
-Scotiabank,3-year fixed,2025-08-02,20250802003313,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2025-08-02,20250802003313,6.09,browser,6.090%,
-Scotiabank,5-year variable,2025-08-10,20250810143421,5.4,browser,5.400% 2,
-Scotiabank,3-year fixed,2025-08-10,20250810143421,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2025-08-10,20250810143421,6.09,browser,6.090%,
-Scotiabank,5-year variable,2025-09-15,20250915081013,5.4,browser,5.400% 2,
-Scotiabank,3-year fixed,2025-09-15,20250915081013,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2025-09-15,20250915081013,6.09,browser,6.090%,
-Scotiabank,5-year variable,2025-10-11,20251011094320,5.4,browser,5.400% 2,
-Scotiabank,3-year fixed,2025-10-11,20251011094320,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2025-10-11,20251011094320,6.09,browser,6.090%,
-Scotiabank,5-year variable,2025-11-10,20251110051619,5.4,browser,5.400% 2,
-Scotiabank,3-year fixed,2025-11-10,20251110051619,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2025-11-10,20251110051619,6.09,browser,6.090%,
-Scotiabank,5-year variable,2025-11-23,20251123114833,5.4,browser,5.400% 2,
-Scotiabank,3-year fixed,2025-11-23,20251123114833,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2025-11-23,20251123114833,6.09,browser,6.090%,
-Scotiabank,5-year variable,2026-01-09,20260109032844,4.9,browser,4.900% 2,
-Scotiabank,3-year fixed,2026-01-09,20260109032844,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2026-01-09,20260109032844,6.09,browser,6.090%,
-Scotiabank,5-year variable,2026-02-20,20260220000120,4.9,browser,4.900% 2,
-Scotiabank,3-year fixed,2026-02-20,20260220000120,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2026-02-20,20260220000120,6.09,browser,6.090%,
-Scotiabank,5-year variable,2026-03-10,20260310123627,4.9,browser,4.900% 2,
-Scotiabank,3-year fixed,2026-03-10,20260310123627,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2026-03-10,20260310123627,6.09,browser,6.090%,
-Scotiabank,5-year variable,2026-06-08,20260608051313,4.9,browser,4.900% 2,
-Scotiabank,3-year fixed,2026-06-08,20260608051313,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2026-06-08,20260608051313,6.09,browser,6.090%,
-Scotiabank,5-year variable,2026-08-01,20260801014118,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
-Scotiabank,3-year fixed,2026-08-01,20260801014118,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
-Scotiabank,5-year fixed,2026-08-01,20260801014118,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
-Scotiabank,5-year variable,2026-09-30,20260930170546,4.9,browser,4.900% 2,
-Scotiabank,3-year fixed,2026-09-30,20260930170546,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2026-09-30,20260930170546,6.19,browser,6.190%,
-Scotiabank,5-year variable,2026-10-06,20261006222111,4.9,browser,4.900% 2,
-Scotiabank,3-year fixed,2026-10-06,20261006222111,6.05,browser,6.050%,
-Scotiabank,5-year fixed,2026-10-06,20261006222111,6.19,browser,6.190%,
+  - navigating to ""https://web.archive.org/web/202112"
