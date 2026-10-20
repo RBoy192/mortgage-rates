@@ -1,0 +1,80 @@
+name: Explore lender rate pages (temporary)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  explore:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: playwright install --with-deps chromium
+      - name: Explore
+        run: |
+          mkdir -p explore
+          python - <<'PY' 2>&1 | tee explore/summary.txt
+          import re, json, scraper
+          from urllib.parse import urljoin, urlparse
+          from playwright.sync_api import sync_playwright
+          START = {
+            "tru": ["https://www.trucooperativebank.ca/"], "beem": ["https://www.beem.ca/", "https://www.beemcu.ca/", "https://www.blueshorefinancial.com/"],
+            "access": ["https://www.accesscu.ca/"], "steinbach": ["https://www.scu.mb.ca/"], "assiniboine": ["https://www.acu.ca/personal/mortgages", "https://www.acu.ca/"],
+            "conexus": ["https://www.conexus.ca/rates/mortgage-rates"], "affinity": ["https://www.affinitycu.ca/"], "libro": ["https://www.libro.ca/"],
+            "duca": ["https://www.duca.com/"], "firstontario": ["https://www.firstontario.com/"], "uni": ["https://www.uni.ca/en/"],
+            "hometrust": ["https://www.hometrust.ca/"], "icici": ["https://www.icicibank.ca/"], "wealthone": ["https://www.wealthonebankofcanada.com/"],
+            "bridgewater": ["https://www.bridgewaterbank.ca/"], "cff": ["https://www.cffbank.ca/"],
+          }
+          UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"
+          def text_of(page):
+              return page.evaluate("document.body ? document.body.innerText : ''")
+          with sync_playwright() as pw:
+              b = pw.chromium.launch()
+              for key, starts in START.items():
+                  pg = b.new_page(user_agent=UA)
+                  seen = []
+                  for s in starts:
+                      try:
+                          r = pg.goto(s, wait_until="domcontentloaded", timeout=45000); pg.wait_for_timeout(4000)
+                          status = r.status if r else None
+                      except Exception as e:
+                          print(f"{key}: {s} failed {str(e)[:80]}"); continue
+                      print(f"{key}: {s} -> {pg.url} status {status} title {pg.title()[:60]!r}")
+                      links = pg.evaluate("[...document.querySelectorAll('a[href]')].map(a=>[a.href, (a.innerText||'').trim().slice(0,60)])")
+                      cands = []
+                      for href, txt in links:
+                          h = href.lower(); x = (txt or "").lower()
+                          if urlparse(href).netloc and urlparse(href).netloc.split(".")[-2] != urlparse(pg.url).netloc.split(".")[-2]: continue
+                          score = ("rate" in h or "rate" in x) * 2 + ("mortgage" in h or "mortgage" in x) * 2 + ("residential" in h)
+                          if score >= 3: cands.append((score, href, txt))
+                      cands = sorted(set(cands), key=lambda c: (-c[0], len(c[1])))[:4]
+                      for sc, href, txt in cands: print(f"   link {sc} {href} | {txt}")
+                      seen.append(pg.url)
+                      for sc, href, txt in cands[:2]:
+                          try:
+                              pg.goto(href, wait_until="domcontentloaded", timeout=45000); pg.wait_for_timeout(5000)
+                          except Exception as e:
+                              print("   visit failed", href, str(e)[:60]); continue
+                          body = text_of(pg)
+                          n = len(re.findall(r"\d\.\d{2,3}\s*%", body))
+                          print(f"   visited {pg.url} rates-with-%: {n}")
+                          open(f"explore/{key}-{len(seen)}.txt", "w").write(pg.url + "\n\n" + body)
+                          seen.append(pg.url)
+                      break
+                  # also try a plain (no-browser) fetch of the best page to see if the rates are in the HTML
+                  if len(seen) > 1:
+                      try:
+                          html = scraper.get_html(seen[1]); print(f"   plain fetch ok, {len(re.findall(r'[0-9][.][0-9]{2,3}[ ]*%', html))} % figures in HTML, robots ok: {scraper.robots_ok(seen[1])}")
+                      except Exception as e:
+                          print("   plain fetch failed", str(e)[:80])
+                  pg.close()
+              b.close()
+          PY
+          git config user.name "rates-bot"; git config user.email "rates-bot@users.noreply.github.com"
+          git checkout --orphan diagnose; git rm -rqf --cached .; git add explore
+          git commit -qm "Lender pages"; git push -f origin diagnose
