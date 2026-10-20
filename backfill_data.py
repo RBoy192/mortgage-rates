@@ -41,13 +41,14 @@ def scotiabank(d):  # posted rates for conventional residential mortgages (the s
 SOURCES = [
     ("Tangerine", "https://www.tangerine.ca/content/dam/tangerine-shared/product-rates/currentRates.json", tangerine),
     ("TD Canada Trust", "https://psservice.td.com/ca/en/carate/getRates", td),
-    ("Scotiabank", "https://dmtsms.scotiabank.com/api/rates/daily/nonspecialmortgage", scotiabank),
+    # Scotiabank's nonspecialmortgage file was left out: from late 2024 it kept showing the same posted rates while
+    # Scotiabank's own rate page changed, so its copies aren't a reliable record.
 ]
 
-def main(out, start="2017-01-01"):
+def main(out, start="2017-01-01", only=None):
     rows = []
     try:
-        read_all(rows, start)
+        read_all(rows, start, only)
     finally:  # save whatever was read, even if something failed part-way
         with open(out, "w", newline="") as f:
             w = csv.writer(f)
@@ -55,8 +56,10 @@ def main(out, start="2017-01-01"):
             w.writerows(rows)
 
 
-def read_all(rows, start):
+def read_all(rows, start, only=None):
     for name, url, read in SOURCES:
+        if only and name not in only:
+            continue
         try:
             caps = backfill.get(backfill.CDX, params={"url": url, "from": start.replace("-", ""), "to": backfill.END.strftime("%Y%m%d"),
                                                       "output": "json", "filter": "statuscode:200", "collapse": "timestamp:8", "fl": "timestamp,original"}).json()[1:]
@@ -85,4 +88,4 @@ def read_all(rows, start):
             time.sleep(1.5)
 
 if __name__ == "__main__":
-    main(sys.argv[1], *(sys.argv[2:3]))
+    main(sys.argv[1], *(sys.argv[2:3]), only=sys.argv[3].split(",") if len(sys.argv) > 3 else None)
