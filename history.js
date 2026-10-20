@@ -45,9 +45,8 @@ function chart(el, title, series){
   const ticks = []; for (let v = lo; v <= hi + 1e-9; v += stepY) ticks.push(v);
   const xt = [0, 1, 2, 3].map(k => start + (end - start) * k / 3);
   // Smooth curve through the saved points (monotone, so it never bulges above or below the real rates)
-  const path = s => {
-    const raw = (s.before != null && (!s.v.length || day(s.v[0][0]) > start) ? [[start, s.before]] : []).concat(s.v.map(p => [day(p[0]), p[1]]));
-    if (raw.length && raw[raw.length - 1][0] < end) raw.push([end, raw[raw.length - 1][1]]);
+  const GAP = 120 * 864e5;  // more than ~4 months between readings: leave a gap rather than draw a line we can't vouch for
+  const curve = raw => {
     const P = raw.map(([t, r]) => [x(t), y(r)]).filter((p, k, a) => !k || p[0] > a[k - 1][0] + 0.01);
     if (P.length < 2) return P.length ? `M${P[0][0].toFixed(1)},${P[0][1].toFixed(1)}h0.1` : "";
     const n = P.length, dx = [], m = [], tg = new Array(n);
@@ -61,6 +60,13 @@ function chart(el, title, series){
       d += `C${(P[k][0] + h).toFixed(1)},${(P[k][1] + tg[k] * h).toFixed(1)} ${(P[k + 1][0] - h).toFixed(1)},${(P[k + 1][1] - tg[k + 1] * h).toFixed(1)} ${P[k + 1][0].toFixed(1)},${P[k + 1][1].toFixed(1)}`;
     }
     return d;
+  };
+  const path = s => {
+    const raw = (s.before != null && (!s.v.length || day(s.v[0][0]) > start) ? [[start, s.before]] : []).concat(s.v.map(p => [day(p[0]), p[1]]));
+    if (raw.length && raw[raw.length - 1][0] < end) raw.push([end, raw[raw.length - 1][1]]);
+    const runs = [[]];  // split at long gaps (not for Bank of Canada lines, which only store the dates rates changed)
+    raw.forEach((p, k) => { if (k && p[0] - raw[k - 1][0] > GAP && !s.dash && !s.steps) runs.push([]); runs[runs.length - 1].push(p); });
+    return runs.map(curve).join("");
   };
   const lastDots = vis.map(s => { const r = s.v.length ? s.v[s.v.length - 1][1] : s.before; return `<circle cx="${x(end).toFixed(1)}" cy="${y(r).toFixed(1)}" r="4" fill="${s.color}" stroke="var(--card)" stroke-width="2"/>`; }).join("");
   const dates = [...new Set(vis.flatMap(s => s.v.map(p => p[0])))].sort().reverse();
@@ -106,7 +112,7 @@ function render(){
     ls.filter(n => H.series[n + "|" + p]).map(n => ({name: n, color: seriesVar(n), points: H.series[n + "|" + p]}))
       .concat(H.series["posted|" + p] && !hidden.has(POSTED) ? [{name: POSTED, color: "var(--mu)", dash: true, points: H.series["posted|" + p]}] : [])));
   chart($("chb"), "Bank of Canada policy rate and prime rate", [["policy_rate", "BoC policy rate", "var(--s1)"], ["prime_rate", "Prime rate", "var(--s2)"]]
-    .filter(([k]) => H.series[k]).map(([k, name, color]) => ({name, color, points: H.series[k]})));
+    .filter(([k]) => H.series[k]).map(([k, name, color]) => ({name, color, steps: true, points: H.series[k]})));
   const lenderFirst = Object.entries(H.series).filter(([k]) => k.includes("|") && !k.startsWith("posted|")).flatMap(([, s]) => s.map(p => p[0])).sort()[0];
   $("since").textContent = (H.boc_history_from ? `Bank of Canada figures go back to ${dstr(H.boc_history_from)}. ` : "")
     + (H.lender_archive_note && H.site_history_from
