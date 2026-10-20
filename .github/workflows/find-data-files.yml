@@ -6,7 +6,6 @@ permissions:
 jobs:
   find:
     runs-on: ubuntu-24.04
-    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -14,57 +13,31 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
-      - run: playwright install --with-deps chromium
-      - name: Find
+      - name: Save samples
         run: |
-          python - <<'PY' > found.txt 2>&1 || true
-          import re, time, json, yaml, collections
-          import backfill
-          from playwright.sync_api import sync_playwright
-          conf = {l["name"]: l for l in yaml.safe_load(open("institutions.yaml"))}
-          banks = ["CIBC", "TD Canada Trust", "National Bank", "Scotiabank", "Tangerine", "RBC Royal Bank", "EQ Bank", "BMO", "Manulife Bank"]
-          def cdx(url, extra=None, fl="timestamp,original,mimetype"):
-              p = {"url": url, "from": "20251001", "to": "20261013", "output": "json", "filter": "statuscode:200", "collapse": "timestamp:8", "fl": fl}
-              p.update(extra or {})
-              try: return backfill.get(backfill.CDX, params=p).json()[1:]
-              except Exception as e: return [["error", str(e)[:80], ""]]
-          with sync_playwright() as pw:
-              b = pw.chromium.launch()
-              for name in banks:
-                  url = conf[name]["url"]
-                  snaps = cdx(url)
-                  print(f"===== {name}: {len(snaps)} days with page copies since Oct 2025 ({url})")
-                  if not snaps or snaps[0][0] == "error":
-                      continue
-                  ts, orig = snaps[-1][0], snaps[-1][1]
-                  urls = set()
-                  page = b.new_page()
-                  def on_resp(resp, urls=urls):
-                      rt = resp.request.resource_type
-                      if rt in ("xhr", "fetch", "script", "document"):
-                          m = re.search(r"/web/\d{14}[a-z_]*/(.*)", resp.url)
-                          if m: urls.add((rt, m.group(1)))
-                  page.on("response", on_resp)
-                  try:
-                      page.goto(f"https://web.archive.org/web/{ts}if_/{orig}", wait_until="domcontentloaded", timeout=60000)
-                      page.wait_for_timeout(12000)
-                  except Exception as e:
-                      print("  replay failed", str(e)[:80])
-                  page.close()
-                  for rt, u in sorted(urls):
-                      if rt == "script" and not re.search(r"rate|taux|mortgage|hypoth", u, re.I): continue
-                      if re.search(r"analytics|gtm|tag|adobe|onetrust|cookie|font|\.css", u, re.I): continue
-                      n = cdx(u)
-                      print(f"  {rt:6} {len(n):4} days  {u[:160]}")
-                      time.sleep(1)
-              b.close()
-          # moved pages: other mortgage-rate addresses on these sites
-          for site in ("eqbank.ca", "bmo.com", "tangerine.ca", "td.com", "cibc.com", "nbc.ca", "scotiabank.com"):
-              rows = cdx(f"{site}/*", {"filter": ["statuscode:200", "original:.*(mortgage-rate|mortgages/rates|mortgage_rate|taux-hypothecaires).*"], "collapse": "urlkey", "limit": "60"}, fl="original")
-              print(f"===== other rate-page addresses on {site}:")
-              for r in rows[:40]: print("   ", r[0][:150])
+          mkdir -p samples
+          python - <<'PY' 2>&1 | tee samples/list.txt
+          import re, time, backfill
+          urls = {
+            "tangerine": "https://www.tangerine.ca/content/dam/tangerine-shared/product-rates/currentRates.json",
+            "td": "https://psservice.td.com/ca/en/carate/getRates",
+            "cibc1": "https://www.cibconline.cibc.com/ebm-pno/api/v1/json/productRatesLegacy?lobId=1&sourceProductCode=PRIME%2c",
+            "cibc5": "https://www.cibconline.cibc.com/ebm-pno/api/v1/json/productRatesLegacy?lobId=5&sourceProductCode=FRCM%2c5YRVARCLO%2cMICRO%2cFOM%2cMICROVAR%2cCCM%2cVROM%2c",
+            "bmo_rates": "https://www.bmo.com/public-data/api/v2.0/bmo-ca-mortgages-rates.json",
+            "bmo_epm": "https://www.bmo.com/public-data/api/epm/v1.0/bmo-epm-mortgage.json",
+            "scotia_ns": "https://dmtsms.scotiabank.com/api/rates/daily/nonspecialmortgage",
+            "scotia_var": "https://dmtsms.scotiabank.com/api/rates/daily/varmortgage",
+          }
+          for k, u in urls.items():
+              rows = backfill.get(backfill.CDX, params={"url": u, "from": "20250101", "output": "json", "filter": "statuscode:200", "fl": "timestamp,original"}).json()[1:]
+              days = sorted({r[0][:8] for r in rows})
+              print(k, len(rows), "captures on", len(days), "days:", " ".join(d[2:] for d in days))
+              if rows:
+                  ts, orig = rows[-1]
+                  body = backfill.get(f"https://web.archive.org/web/{ts}id_/{orig}").text
+                  open(f"samples/{k}-{ts}.txt", "w").write(body)
+              time.sleep(2)
           PY
-          cat found.txt
           git config user.name "rates-bot"; git config user.email "rates-bot@users.noreply.github.com"
-          git checkout --orphan diagnose; git rm -rqf --cached .; git add found.txt
-          git commit -qm "Rate data files"; git push -f origin diagnose
+          git checkout --orphan diagnose; git rm -rqf --cached .; git add samples
+          git commit -qm "Data file samples"; git push -f origin diagnose
