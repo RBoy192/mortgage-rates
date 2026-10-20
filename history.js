@@ -109,8 +109,9 @@ function chart(el, title, series){
     tip.hidden = false;
     const er = el.getBoundingClientRect(), ox = r.left - er.left, oy = r.top - er.top;  // the drawing's position inside the card
     const left = (x(t) / W) * r.width + ox;
+    const touch = e.pointerType === "touch" || e.pointerType === "pen", gapX = touch ? 36 : 16;  // a finger covers more than a cursor
     const right = left < el.clientWidth / 2;  // keep the list on the side away from the pointer
-    tip.style.left = (right ? Math.min(left + 16, el.clientWidth - tip.offsetWidth - 8) : Math.max(8, left - tip.offsetWidth - 16)) + "px";
+    tip.style.left = (right ? Math.min(left + gapX, el.clientWidth - tip.offsetWidth - 8) : Math.max(8, left - tip.offsetWidth - gapX)) + "px";
     tip.style.top = (oy + 8) + "px";
     const sy = (e.clientY - r.top) * Ht / r.height, hitLine = near(t, sy);
     if (!hitLine) return unfocus();
@@ -118,13 +119,22 @@ function chart(el, title, series){
     const v = valueAt(hitLine.s.points, t);
     pop.innerHTML = `<i style="background:${hitLine.s.color}"></i>${esc(hitLine.s.name)}${v != null ? ` <b>${pct(v)}</b>` : ""}`;
     const px = left, py = (y(hitLine.v) / Ht) * r.height + oy;
-    pop.style.left = Math.min(Math.max(0, px + 14), el.clientWidth - pop.offsetWidth - 8) + "px";
-    pop.style.top = Math.max(0, py - pop.offsetHeight - 10) + "px";
+    if (touch) {  // well above the fingertip, on the side away from the finger, so the name isn't hidden under it
+      const fy = e.clientY - er.top;
+      pop.style.left = (right ? Math.min(px + 32, el.clientWidth - pop.offsetWidth - 8) : Math.max(8, px - pop.offsetWidth - 32)) + "px";
+      pop.style.top = Math.max(0, Math.min(py, fy) - pop.offsetHeight - 48) + "px";
+    } else {
+      pop.style.left = Math.min(Math.max(0, px + 14), el.clientWidth - pop.offsetWidth - 8) + "px";
+      pop.style.top = Math.max(0, py - pop.offsetHeight - 10) + "px";
+    }
     pop.classList.add("on"); svg.classList.add("focus");
     lines.forEach((p, k) => p.classList.toggle("on", k === hitLine.i));
   };
   const leave = () => { tip.hidden = true; cross.setAttribute("visibility", "hidden"); unfocus(); };
-  hit.addEventListener("pointermove", move); hit.addEventListener("pointerdown", move); hit.addEventListener("pointerleave", leave);
+  hit.addEventListener("pointermove", move); hit.addEventListener("pointerdown", move);
+  // A mouse leaving hides the labels; after a tap they stay until the next tap somewhere else on the page.
+  hit.addEventListener("pointerleave", e => { if (e.pointerType === "mouse") leave(); });
+  document.addEventListener("pointerdown", e => { if (e.pointerType !== "mouse" && !el.contains(e.target)) leave(); });
 }
 
 // Other pages (rate-type and lender pages) reuse the chart: histChart(element, title, series)
