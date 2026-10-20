@@ -546,3 +546,35 @@ td.low .pm,td.glow .pm{margin-top:4px}
   td.rate .rc{display:inline-flex;flex-direction:column-reverse;align-items:flex-end;white-space:nowrap}
   td.rate .rc .chg{margin:2px 0 0;vertical-align:0;font-size:11px}
 }
+
+/* Rates table: the lender column stays in place when the table scrolls sideways */
+.t th:first-child,.t td:first-child{position:sticky;left:0;z-index:1;background:var(--tbg)}
+[data-theme="dark"] .t th:first-child,[data-theme="dark"] .t td:first-child{background:var(--bg)}
+.t tr.grp th:first-child{background:var(--ln2)}
+[data-theme="dark"] .t tr.grp th:first-child{background:#162236}
+/* Phones: all three rate columns fit on screen; the payment box sits on one line */
+@media (max-width:600px){
+  #rows td,#head th{padding:10px 6px}
+  #head th{font-size:12px;white-space:normal;line-height:1.2;vertical-align:bottom}
+  #head th button{text-align:inherit}
+  #rows td.ln{white-space:normal;font-size:14px;line-height:1.25;width:34%;padding-left:8px}
+  #rows td.ln .lg-logo,#rows td.ln a svg{display:none}  /* names only: logos and the small arrow make them wrap awkwardly */
+  #rows td.rate b{font-size:16px}
+  #rows td.rate .pm{font-size:11px}
+  #rows tr.grp th{padding:8px 10px;font-size:11px}
+  .payctl{flex-wrap:nowrap;gap:6px;font-size:14px;margin-bottom:12px}
+  .payctl label{flex:none;white-space:nowrap}
+  .payctl .s{font-size:13px}
+  .payctl .dl{padding:0 8px}
+  .payctl input{width:84px;font-size:15px;padding:7px 0}
+  .payctl .s{white-space:nowrap}
+}
+@media (max-width:380px){
+  #rows td,#head th{padding:9px 4px}
+  #rows td.ln{font-size:13px;padding-left:6px}
+  #rows td.rate b{font-size:14.5px}
+  #rows td.low b,#rows td.glow b{padding:1px 4px}
+  #head th{font-size:11px}
+  .payctl{font-size:13px}
+  .payctl input{width:72px}
+}

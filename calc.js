@@ -220,7 +220,7 @@ const CALCS = {
       const saved = rows[0].int - rows[3].int;
       return {
         say: `Paying ${money(rows[3].pay)} every two weeks instead of ${money(rows[0].pay)} a month would save about ${money(saved)} in interest and pay off your mortgage ${yrs(rows[0].m - rows[3].m)} sooner.`,
-        label: "Accelerated bi-weekly payments would save you", big: money(saved), sub: `in interest, and you'd be mortgage-free ${yrs(rows[0].m - rows[3].m)} sooner`,
+        label: "Accelerated bi-weekly payments would save you", big: money(saved), sub: `In interest. You'd also be mortgage-free ${yrs(rows[0].m - rows[3].m)} sooner.`,
         items: [`"Accelerated" payments are half (bi-weekly) or a quarter (weekly) of the monthly payment. Because there are 26 or 52 of them a year, you pay the equivalent of one extra monthly payment each year.`,
           `Uses ${R.label}${R.variable ? ", compounded monthly" : ", compounded twice a year"}, held for the whole amortization.`],
         wide: true,
@@ -247,7 +247,7 @@ const CALCS = {
       while (bal > 0.005 && m < n) { const it = bal * i; int += it; bal = bal + it - Math.min(pay + v.extra, bal + it); m++; if (m % 12 === 0 && bal > 0) bal -= Math.min(v.lump, bal); }
       return {
         say: `Paying a bit extra would save you about ${money(base - int)} in interest and make you mortgage-free ${yrs(n - m)} sooner.`,
-        label: "Prepaying would save you", big: money(base - int), sub: `in interest, and you'd be mortgage-free ${yrs(n - m)} sooner`,
+        label: "Prepaying would save you", big: money(base - int), sub: `In interest. You'd also be mortgage-free ${yrs(n - m)} sooner.`,
         items: [`Regular payment: <strong>${money(pay)}</strong> a month (${R.label}). With your extra amount: ${money(pay + v.extra)}.`,
           `Paid off in <strong>${yrs(m)}</strong> instead of ${yrs(n)}.`,
           `Total interest: <strong>${money(int)}</strong> instead of ${money(base)}, if the rate stayed the same.`]
@@ -284,7 +284,7 @@ const CALCS = {
       return {
         say: Math.abs(diff) < 1 ? `With your assumptions, fixed and variable would cost about the same in interest over ${v.term} years.`
           : `With your assumptions, ${diff > 0 ? "fixed" : "variable"} would cost about ${money(Math.abs(diff))} less in interest over ${v.term} years.`,
-        label: `Over a ${v.term}-year term`, big: Math.abs(diff) < 1 ? "About the same" : `${diff > 0 ? "Fixed" : "Variable"} saves ${money(Math.abs(diff))}`, sub: "in interest, with your assumptions",
+        label: `Over a ${v.term}-year term`, big: Math.abs(diff) < 1 ? "About the same" : `${diff > 0 ? "Fixed" : "Variable"} saves ${money(Math.abs(diff))}`, sub: "In interest, based on your assumptions",
         items: [beText, `Fixed balance at the end of the term: ${money(fbal)}. Variable: ${money(vv.bal)}.`],
         table: `<table class="cmpt"><thead><tr><th><span class="vh">Compare</span></th><th>Fixed</th><th>Variable</th></tr></thead><tbody>`
           + `<tr><td>Rate</td><td>${pct(Fx.rate)}</td><td>${pct(Vr.rate)}${v.change ? ` → ${pct(Math.max(0.01, Vr.rate + v.change))}` : ""}</td></tr>`
@@ -401,7 +401,7 @@ const CALCS = {
       }
       return {
         say: avail > 0 ? `You could borrow up to about ${money(avail)} more against your home.` : "You probably can't borrow more against your home right now.",
-        label: "You could access up to", big: money(avail), sub: "keeping everything you owe on the home at or below 80% of its value",
+        label: "You could access up to", big: money(avail), sub: "Keeping everything you owe on the home at or below 80% of its value",
         items, msgs: [avail <= 0 ? ["w", "You already owe 80% or more of your home's value, so lenders generally can't lend more against it."] : ["", "Lenders still check that you can afford the new borrowing, including the stress test, and they may lend less than these limits."]]
       };
     }
