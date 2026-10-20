@@ -21,7 +21,7 @@ USER_AGENT = "MortgageRatesBot/1.0 (+https://whatstherate.ca)"
 MIN_RATE, MAX_RATE = 0.5, 15.0  # anything outside this range is treated as a scraping error
 RATE_RE = re.compile(r"(\d{1,2}(?:[.,]\d{1,3})?)\s*%")  # also "4,89 %" (decimal comma, as some pages write it)
 PLAIN_RE = re.compile(r"(?<![\d.])(\d{1,2}\.\d{2,3})(?![\d.])")  # "5.28" in tables that leave off the % sign (only with  plain: true)
-PRIME_PLUS_RE = re.compile(r"\bP(?:rime)?\d?\s*([+\-\u2212\u2013])\s*(\d{1,2}(?:\.\d{1,3})?)\s*%", re.I)  # "P + 0.34%", "Prime - 0.31%"
+PRIME_PLUS_RE = re.compile(r"\bP(?:rime)?\s?\d?\s*([+\-\u2212\u2013])\s*(\d{1,2}(?:\.\d{1,3})?)\s*%", re.I)  # "P + 0.34%", "Prime - 0.31%"
 SKIP_TAGS = ("script", "style", "noscript", "template")
 OUT, HISTORY, MANUAL = Path("rates.json"), Path("history.json"), Path("manual_rates.yaml")
 MANUAL_MAX_DAYS = 7  # a hand-entered rate older than this is shown as "not refreshed"
@@ -156,20 +156,31 @@ def rate_by_label(soup, label, nth=1, after=None, occurrence=1, before=None, pla
 
 def cell_by_column(soup, label, column, after=None, occurrence=1):
     """In a table, find the row whose first cell includes `label` and return the text of its cell under the
-    column heading that includes `column` (for tables that list terms across the top)."""
+    column heading that includes `column` (for tables that list terms across the top). Works for HTML tables and
+    for tables built from elements marked role="row" / role="cell"."""
     want, col = norm(label), norm(column)
     tags, text = _tags(soup, after)
-    rows = [t for t in tags if t.name == "tr" and t.find(["td", "th"]) and want in norm(t.find(["td", "th"]).get_text(" "))]
+    is_row = lambda t: t.name == "tr" or t.get("role") == "row"
+    cells_of = lambda r: (r.find_all(["td", "th"], recursive=False) or r.find_all(["td", "th"])) if r.name == "tr" \
+        else r.find_all(attrs={"role": ["cell", "gridcell", "columnheader", "rowheader"]})
+    rows = [t for t in tags if is_row(t) and cells_of(t) and want in norm(cells_of(t)[0].get_text(" "))]
     if len(rows) < occurrence:
         raise ValueError(f"no table row labelled {label!r}")
     row = rows[occurrence - 1]
-    table = row.find_parent("table")
-    head = next((tr for tr in table.find_all("tr") if tr.find("th")), None) or table.find("tr")
-    heads = [norm(c.get_text(" ")) for c in head.find_all(["th", "td"])]
+    if row.name == "tr":
+        table = row.find_parent("table")
+        head = next((tr for tr in table.find_all("tr") if tr.find("th")), None) or table.find("tr")
+    else:
+        table = row.find_parent(attrs={"role": ["table", "grid"]})
+        if table is None:
+            raise ValueError(f"row {label!r} is not inside a table")
+        head = next((r for r in table.find_all(attrs={"role": "row"}) if r.find(attrs={"role": "columnheader"})), None) \
+            or table.find(attrs={"role": "row"})
+    heads = [norm(c.get_text(" ")) for c in cells_of(head)]
     idx = next((i for i, h in enumerate(heads) if col in h), None)
     if idx is None:
         raise ValueError(f"no column headed {column!r}")
-    cells = row.find_all(["td", "th"], recursive=False) or row.find_all(["td", "th"])
+    cells = cells_of(row)
     if idx >= len(cells):
         raise ValueError(f"row {label!r} has no cell under {column!r}")
     return norm(cells[idx].get_text(" ", strip=True))

@@ -1,4 +1,4 @@
-const SITE_VERSION = "48";
+const SITE_VERSION = "49";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -317,7 +317,18 @@ const LOGOS = {
   "ATB Financial": ["https://www.atb.com/static/img/apple-touch-icon-180x180.png"],
   "Meridian": ["https://www.meridiancu.ca/getContentAsset/6c76e806-df80-4b7c-a633-cab25199417c/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/meridian-icon.svg?language=en-US"],
   "Servus Credit Union": ["https://servus.ca/media/ihwf0qof/favicon.png"],
-  "Coast Capital Savings": ["https://www.coastcapitalsavings.com/media/3890/coast-capital-symbol_rgb_foamwhite.svg", 0.7, "center", "contain", "#0056FF"]  // white mark, shown on Coast's own blue
+  "Coast Capital Savings": ["https://www.coastcapitalsavings.com/media/3890/coast-capital-symbol_rgb_foamwhite.svg", 0.7, "center", "contain", "#0056FF"],  // white mark, shown on Coast's own blue
+  "Affinity Credit Union": ["https://www.affinitycu.ca/images/default-source/default-album/affinity-cu-logo-rgb-chevron---for-website.svg?sfvrsn=63b5d980_4", 1, "left", "cover"],
+  "Conexus Credit Union": ["https://www.conexus.ca/getContentAsset/d7c3a8a8-0ce7-47ff-84d2-47a877629ca7/e477a59e-1df6-4e2f-9986-20ab37342540/favicon.svg?language=en-US"],
+  "Libro Credit Union": ["https://www.libro.ca/uploads/2025/12/cropped-favicon-2025-180x180.jpg"],
+  "FirstOntario Credit Union": ["https://www.firstontario.com/wp-content/uploads/2026/02/apple-touch-icon.png"],
+  "UNI Financial": ["https://www.uni.ca/UNIassetsEN/ico/uni114x114.png"],
+  "ICICI Bank Canada": ["https://www.icicibank.ca/favicon.ico"],
+  "Access Credit Union": ["https://www.accesscu.ca/media/1266/small-logo.svg"],
+  "Assiniboine Credit Union": ["https://www.acu.ca/hubfs/ACU_Digital-_RGB_Asterisk-only-1.png"],
+  "Steinbach Credit Union": ["https://scu.mb.ca/getContentAsset/5a857dfe-9852-4124-b5ab-58cd8501ec0b/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/logo.svg?language=en-CA", 1, "left", "cover"],
+  "Beem Credit Union": ["https://beemcreditunion.ca/favicon.ico"],
+  "Tru Cooperative Bank": ["https://www.trucooperativebank.ca/content/dam/trucooperativebank/images/logos/tcb/TCB-Favicon_32_BLCK-REV.svg"]
 };
 function logo(name, source){
   const w = name.split(/\s+/), ini = esc(/^[A-Z]{2,4}$/.test(w[0]) ? w[0] : w.map(x => x[0]).join("").slice(0, 2).toUpperCase());
@@ -327,17 +338,18 @@ function logo(name, source){
   return `<span class="lg-logo" aria-hidden="true"${bg ? ` style="background:${bg};border-radius:6px;overflow:hidden"` : ""}>${src ? `<img src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" style="${st}" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${ini}'}))">` : `<span>${ini}</span>`}</span>`;
 }
 // Chart colours follow the lender, never its rank, so a bank keeps its colour when others are hidden.
-const LENDER_ORDER = ["BMO", "CIBC", "EQ Bank", "Manulife Bank", "National Bank", "RBC Royal Bank", "Scotiabank", "Tangerine", "TD Canada Trust", "ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "First National", "Meridian", "Servus Credit Union", "Vancity"];
+const LENDER_ORDER = ["BMO", "CIBC", "EQ Bank", "ICICI Bank Canada", "Manulife Bank", "National Bank", "RBC Royal Bank", "Scotiabank", "Tangerine", "TD Canada Trust", "Access Credit Union", "Affinity Credit Union", "Alterna Savings", "Assiniboine Credit Union", "ATB Financial", "Beem Credit Union", "Coast Capital Savings", "Conexus Credit Union", "Desjardins", "First National", "FirstOntario Credit Union", "Libro Credit Union", "Meridian", "Servus Credit Union", "Steinbach Credit Union", "Tru Cooperative Bank", "UNI Financial", "Vancity"];
 // Each lender keeps its chart colour for good: new lenders are added at the end of this list.
-const LENDER_COLOURS = ["BMO", "CIBC", "EQ Bank", "National Bank", "RBC Royal Bank", "Scotiabank", "Tangerine", "TD Canada Trust", "ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "Servus Credit Union", "Manulife Bank", "Vancity", "Meridian", "First National"];
+const LENDER_COLOURS = ["BMO", "CIBC", "EQ Bank", "National Bank", "RBC Royal Bank", "Scotiabank", "Tangerine", "TD Canada Trust", "ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "Servus Credit Union", "Manulife Bank", "Vancity", "Meridian", "First National", "Affinity Credit Union", "Conexus Credit Union", "Libro Credit Union", "FirstOntario Credit Union", "UNI Financial", "ICICI Bank Canada", "Access Credit Union", "Assiniboine Credit Union", "Steinbach Credit Union", "Beem Credit Union", "Tru Cooperative Bank"];
 // Lenders that aren't banks (credit unions, co-operatives and ATB, an Alberta Crown corporation). Everyone else is listed as a bank.
 // Where each lender offers mortgages. Lenders not listed here lend across Canada.
 const LENDER_REGIONS = {"Alterna Savings": ["Ontario"], "Meridian": ["Ontario"], "Desjardins": ["Ontario", "Quebec"],
-  "Coast Capital Savings": ["British Columbia"], "Vancity": ["British Columbia"], "ATB Financial": ["Alberta"], "Servus Credit Union": ["Alberta"]};
-const NON_BANKS = ["ATB Financial", "Alterna Savings", "Coast Capital Savings", "Desjardins", "First National", "Meridian", "Servus Credit Union", "Vancity"];
+  "Coast Capital Savings": ["British Columbia"], "Vancity": ["British Columbia"], "ATB Financial": ["Alberta"], "Servus Credit Union": ["Alberta"],
+  "Affinity Credit Union": ["Saskatchewan"], "Conexus Credit Union": ["Saskatchewan"], "Libro Credit Union": ["Ontario"], "FirstOntario Credit Union": ["Ontario"], "UNI Financial": ["New Brunswick"], "ICICI Bank Canada": ["Ontario", "British Columbia", "Alberta"], "Access Credit Union": ["Manitoba"], "Assiniboine Credit Union": ["Manitoba"], "Steinbach Credit Union": ["Manitoba"], "Beem Credit Union": ["British Columbia"], "Tru Cooperative Bank": ["British Columbia"]};
+const NON_BANKS = ["Access Credit Union", "Affinity Credit Union", "Alterna Savings", "Assiniboine Credit Union", "ATB Financial", "Beem Credit Union", "Coast Capital Savings", "Conexus Credit Union", "Desjardins", "First National", "FirstOntario Credit Union", "Libro Credit Union", "Meridian", "Servus Credit Union", "Steinbach Credit Union", "Tru Cooperative Bank", "UNI Financial", "Vancity"];
 const LENDER_GROUPS = [["Banks", n => !NON_BANKS.includes(n)], ["Credit unions and other lenders", n => NON_BANKS.includes(n)]];
 // Each lender's own page on this site: bmo-mortgage-rates.html and so on
-const LENDER_SLUGS = {"BMO": "bmo", "CIBC": "cibc", "EQ Bank": "eq-bank", "National Bank": "national-bank", "RBC Royal Bank": "rbc", "Scotiabank": "scotiabank", "Tangerine": "tangerine", "TD Canada Trust": "td", "ATB Financial": "atb", "Alterna Savings": "alterna", "Coast Capital Savings": "coast-capital", "Desjardins": "desjardins", "Servus Credit Union": "servus", "Manulife Bank": "manulife-bank", "Vancity": "vancity", "Meridian": "meridian", "First National": "first-national"};
+const LENDER_SLUGS = {"BMO": "bmo", "CIBC": "cibc", "EQ Bank": "eq-bank", "National Bank": "national-bank", "RBC Royal Bank": "rbc", "Scotiabank": "scotiabank", "Tangerine": "tangerine", "TD Canada Trust": "td", "ATB Financial": "atb", "Alterna Savings": "alterna", "Coast Capital Savings": "coast-capital", "Desjardins": "desjardins", "Servus Credit Union": "servus", "Manulife Bank": "manulife-bank", "Vancity": "vancity", "Meridian": "meridian", "First National": "first-national", "Affinity Credit Union": "affinity", "Conexus Credit Union": "conexus", "Libro Credit Union": "libro", "FirstOntario Credit Union": "firstontario", "UNI Financial": "uni", "ICICI Bank Canada": "icici", "Access Credit Union": "access", "Assiniboine Credit Union": "assiniboine", "Steinbach Credit Union": "steinbach", "Beem Credit Union": "beem", "Tru Cooperative Bank": "tru"};
 const seriesVar = name => { const i = LENDER_COLOURS.indexOf(name); return i < 0 ? "var(--mu)" : `var(--s${i + 1})`; };
 
 // ---- Rate history (history.json, one value per lender, product and day) ----

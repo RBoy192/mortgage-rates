@@ -352,12 +352,36 @@ class TestNewLenders(unittest.TestCase):
             '<tr><td>Insured</td><td>Prime - 0.75% for the entire term</td></tr>'
             '<tr><td>Conventional</td><td>Prime - 0.31% for the entire term</td></tr></table>'
             '<p><b>First National Prime Rate: 4.45</b></p>',
+        "Libro Credit Union": '<div role="table"><div role="rowgroup"><div role="row"><div role="columnheader">Range</div><div role="columnheader">Rate</div></div></div>'
+            '<div role="rowgroup"><div role="row"><div role="cell">1st Mortgage Variable 5 Year Closed from (Prime - 0.30%)</div><div role="cell">4.150% Open option + 0.80%</div></div>'
+            '<div role="row"><div role="cell">3 Year Closed</div><div role="cell">5.090%</div></div><div role="row"><div role="cell">3 Year Closed - High-Ratio</div><div role="cell">4.390%</div></div>'
+            '<div role="row"><div role="cell">5 Year Closed</div><div role="cell">5.140%</div></div></div></div>',
+        "ICICI Bank Canada": '<table><tr><th>Term</th><th>iGlobal Rates</th><th>Posted Rates</th></tr>'
+            '<tr><td>3-Year Fixed Closed</td><td>** Contact our Mortgage Specialist</td><td>6.14%</td></tr>'
+            '<tr><td>5-Year Fixed Closed</td><td>** Contact our Mortgage Specialist</td><td>6.14%</td></tr>'
+            '<tr><td>5-Year Variable Closed</td><td>** Contact our Mortgage Specialist</td><td>Prime<sup>6</sup> + 1.00%</td></tr></table>'
+            '<p>ICICI Bank Canada Prime Rate is 4.45% as of October 30, 2025.</p>',
+        "Access Credit Union": '<table><tr><th>Mortgages</th><th>Rates</th></tr><tr><td>3 Year Fixed</td><td>4.19%</td></tr><tr><td>5 Year Fixed</td><td>4.39%</td></tr>'
+            '<tr><td>Variable Open (Prime)</td><td>4.45%</td></tr><tr><td>Variable Closed (Prime - 0.90%)</td><td>3.55%</td></tr></table>',
+        "Steinbach Credit Union": '<table><tr><td>High-Ratio Fixed 3-year Mortgage</td><td></td><td>4.09%</td></tr><tr><td>High-Ratio Closed Variable Mortgage</td><td></td><td>3.55%</td></tr>'
+            '<tr><td>Conventional Fixed 3-year Mortgage</td><td></td><td>4.19%</td></tr><tr><td>Conventional Fixed 5-year Mortgage</td><td></td><td>4.39%</td></tr>'
+            '<tr><td>Conventional Closed Variable Mortgage</td><td></td><td>3.55%</td></tr></table>',
+        "Tru Cooperative Bank": '<h3>Featured mortgage rates</h3><p>5-Year Fixed Closed - Insured 4.59%</p><h2>Fixed mortgage rates</h2><table>'
+            '<tr><td>3 year fixed rate (closed)<sup>2</sup></td><td>4.64%</td><td>4.67%</td></tr><tr><td>4 year fixed rate (closed)<sup>2</sup></td><td>4.69%</td><td>4.72%</td></tr>'
+            '<tr><td>5 year fixed rate (closed) - insured<sup>3</sup></td><td>4.59%</td><td>4.61%</td></tr><tr><td>5 year fixed rate (closed)<sup>2</sup></td><td>4.74%</td><td>4.76%</td></tr></table>'
+            '<h2>Variable mortgage rates</h2><p>Open/closed Mortgage Rates</p><table>'
+            '<tr><td>5 year variable rate (closed) - insured<sup>3</sup></td><td>3.70%</td><td>3.72%</td></tr><tr><td>5 year variable rate (closed)<sup>2</sup></td><td>3.85%</td><td>3.87%</td></tr></table>',
     }
     WANT = {
         "Manulife Bank": {"3-year fixed": 5.19, "5-year fixed": 4.94, "5-year variable": 4.45},
         "Vancity": {"3-year fixed": 4.75, "5-year fixed": 4.84, "5-year variable": 3.95},
         "Meridian": {"3-year fixed": 4.49, "5-year fixed": 4.74, "5-year variable": 3.64},
         "First National": {"3-year fixed": 5.28, "5-year fixed": 5.31, "5-year variable": 4.14},
+        "Libro Credit Union": {"3-year fixed": 5.09, "5-year fixed": 5.14, "5-year variable": 4.15},
+        "ICICI Bank Canada": {"3-year fixed": 6.14, "5-year fixed": 6.14, "5-year variable": 5.45},
+        "Access Credit Union": {"3-year fixed": 4.19, "5-year fixed": 4.39, "5-year variable": 3.55},
+        "Steinbach Credit Union": {"3-year fixed": 4.19, "5-year fixed": 4.39, "5-year variable": 3.55},
+        "Tru Cooperative Bank": {"3-year fixed": 4.64, "5-year fixed": 4.74, "5-year variable": 3.85},
     }
 
     def test_new_lenders_read_the_right_rates(self):
