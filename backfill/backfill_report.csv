@@ -1,747 +1,121 @@
 lender,product,date,archived_at,rate,via,text_read,error
-CIBC,5-year fixed,2023-01-07,20230107030709,,,,browser: the replayed rates came from a copy 435 days away
-CIBC,5-year variable,2023-01-07,20230107030709,,,,browser: the replayed rates came from a copy 435 days away
-CIBC,5-year fixed,2023-01-11,20230111062210,,,,browser: the replayed rates came from a copy 439 days away
-CIBC,5-year variable,2023-01-11,20230111062210,,,,browser: the replayed rates came from a copy 439 days away
-CIBC,5-year fixed,2023-01-31,20230131000923,,,,browser: the replayed rates came from a copy 64 days away
-CIBC,5-year variable,2023-01-31,20230131000923,,,,browser: the replayed rates came from a copy 64 days away
-CIBC,5-year fixed,2023-02-06,20230206132121,,,,browser: the replayed rates came from a copy 58 days away
-CIBC,5-year variable,2023-02-06,20230206132121,,,,browser: the replayed rates came from a copy 58 days away
-CIBC,5-year fixed,2023-02-14,20230214013347,,,,browser: the replayed rates came from a copy 473 days away
-CIBC,5-year variable,2023-02-14,20230214013347,,,,browser: the replayed rates came from a copy 473 days away
-CIBC,5-year fixed,2023-02-21,20230221001010,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202302"
-CIBC,5-year variable,2023-02-21,20230221001010,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202302"
-CIBC,5-year fixed,2023-02-28,20230228012058,,,,browser: the replayed rates came from a copy 487 days away
-CIBC,5-year variable,2023-02-28,20230228012058,,,,browser: the replayed rates came from a copy 487 days away
-CIBC,5-year fixed,2023-03-07,20230307101625,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202303"
-CIBC,5-year variable,2023-03-07,20230307101625,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202303"
-CIBC,5-year fixed,2023-03-15,20230315001053,,,,browser: the replayed rates came from a copy 502 days away
-CIBC,5-year variable,2023-03-15,20230315001053,,,,browser: the replayed rates came from a copy 502 days away
-CIBC,5-year fixed,2023-03-22,20230322040300,,,,browser: the replayed rates came from a copy 509 days away
-CIBC,5-year variable,2023-03-22,20230322040300,,,,browser: the replayed rates came from a copy 509 days away
-CIBC,5-year fixed,2023-03-29,20230329211943,,,,browser: the replayed rates came from a copy 28 days away
-CIBC,5-year variable,2023-03-29,20230329211943,,,,browser: the replayed rates came from a copy 28 days away
-CIBC,5-year fixed,2023-04-05,20230405204523,,,,browser: the replayed rates came from a copy 523 days away
-CIBC,5-year variable,2023-04-05,20230405204523,,,,browser: the replayed rates came from a copy 523 days away
-CIBC,5-year fixed,2023-04-12,20230412214305,,,,browser: the replayed rates came from a copy 29 days away
-CIBC,5-year variable,2023-04-12,20230412214305,,,,browser: the replayed rates came from a copy 29 days away
-CIBC,5-year fixed,2023-04-21,20230421040745,,,,browser: the replayed rates came from a copy 531 days away
-CIBC,5-year variable,2023-04-21,20230421040745,,,,browser: the replayed rates came from a copy 531 days away
-CIBC,5-year fixed,2023-05-05,20230505000024,,,,browser: the replayed rates came from a copy 517 days away
-CIBC,5-year variable,2023-05-05,20230505000024,,,,browser: the replayed rates came from a copy 517 days away
-CIBC,5-year fixed,2023-05-12,20230512001654,,,,browser: the replayed rates came from a copy 510 days away
-CIBC,5-year variable,2023-05-12,20230512001654,,,,browser: the replayed rates came from a copy 510 days away
-CIBC,5-year fixed,2023-05-19,20230519220203,,,,browser: the replayed rates came from a copy 503 days away
-CIBC,5-year variable,2023-05-19,20230519220203,,,,browser: the replayed rates came from a copy 503 days away
-CIBC,5-year fixed,2023-05-27,20230527002448,,,,browser: the replayed rates came from a copy 495 days away
-CIBC,5-year variable,2023-05-27,20230527002448,,,,browser: the replayed rates came from a copy 495 days away
-CIBC,5-year fixed,2023-06-01,20230601061122,,,,browser: the replayed rates came from a copy 490 days away
-CIBC,5-year variable,2023-06-01,20230601061122,,,,browser: the replayed rates came from a copy 490 days away
-CIBC,5-year fixed,2023-06-10,20230610013823,,,,browser: the replayed rates came from a copy 88 days away
-CIBC,5-year variable,2023-06-10,20230610013823,,,,browser: the replayed rates came from a copy 88 days away
-CIBC,5-year fixed,2023-06-17,20230617021552,,,,browser: the replayed rates came from a copy 474 days away
-CIBC,5-year variable,2023-06-17,20230617021552,,,,browser: the replayed rates came from a copy 474 days away
-CIBC,5-year fixed,2023-07-14,20230714085554,,,,browser: the replayed rates came from a copy 447 days away
-CIBC,5-year variable,2023-07-14,20230714085554,,,,browser: the replayed rates came from a copy 447 days away
-CIBC,5-year fixed,2023-07-21,20230721080133,,,,browser: the replayed rates came from a copy 440 days away
-CIBC,5-year variable,2023-07-21,20230721080133,,,,browser: the replayed rates came from a copy 440 days away
-CIBC,5-year fixed,2023-07-28,20230728082431,,,,browser: the replayed rates came from a copy 433 days away
-CIBC,5-year variable,2023-07-28,20230728082431,,,,browser: the replayed rates came from a copy 433 days away
-CIBC,5-year fixed,2023-08-04,20230804101737,,,,browser: the replayed rates came from a copy 426 days away
-CIBC,5-year variable,2023-08-04,20230804101737,,,,browser: the replayed rates came from a copy 426 days away
-CIBC,5-year fixed,2023-08-11,20230811121738,,,,browser: the replayed rates came from a copy 419 days away
-CIBC,5-year variable,2023-08-11,20230811121738,,,,browser: the replayed rates came from a copy 419 days away
-CIBC,5-year fixed,2023-08-18,20230818104959,,,,browser: the replayed rates came from a copy 412 days away
-CIBC,5-year variable,2023-08-18,20230818104959,,,,browser: the replayed rates came from a copy 412 days away
-CIBC,5-year fixed,2023-08-25,20230825131914,,,,browser: the replayed rates came from a copy 405 days away
-CIBC,5-year variable,2023-08-25,20230825131914,,,,browser: the replayed rates came from a copy 405 days away
-CIBC,5-year fixed,2023-09-01,20230901115150,,,,browser: the replayed rates came from a copy 398 days away
-CIBC,5-year variable,2023-09-01,20230901115150,,,,browser: the replayed rates came from a copy 398 days away
-CIBC,5-year fixed,2023-09-05,20230905232910,,,,browser: the replayed rates came from a copy 394 days away
-CIBC,5-year variable,2023-09-05,20230905232910,,,,browser: the replayed rates came from a copy 394 days away
-CIBC,5-year fixed,2023-09-15,20230915130616,,,,browser: the replayed rates came from a copy 384 days away
-CIBC,5-year variable,2023-09-15,20230915130616,,,,browser: the replayed rates came from a copy 384 days away
-CIBC,5-year fixed,2023-09-22,20230922152305,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202309"
-CIBC,5-year variable,2023-09-22,20230922152305,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202309"
-CIBC,5-year fixed,2023-09-29,20230929144207,,,,browser: the replayed rates came from a copy 370 days away
-CIBC,5-year variable,2023-09-29,20230929144207,,,,browser: the replayed rates came from a copy 370 days away
-CIBC,5-year fixed,2023-10-06,20231006150316,,,,browser: the replayed rates came from a copy 363 days away
-CIBC,5-year variable,2023-10-06,20231006150316,,,,browser: the replayed rates came from a copy 363 days away
-CIBC,5-year fixed,2023-10-13,20231013181203,,,,browser: the replayed rates came from a copy 356 days away
-CIBC,5-year variable,2023-10-13,20231013181203,,,,browser: the replayed rates came from a copy 356 days away
-CIBC,5-year fixed,2023-10-20,20231020175044,,,,browser: the replayed rates came from a copy 220 days away
-CIBC,5-year variable,2023-10-20,20231020175044,,,,browser: the replayed rates came from a copy 220 days away
-CIBC,5-year fixed,2023-10-27,20231027192132,,,,browser: the replayed rates came from a copy 342 days away
-CIBC,5-year variable,2023-10-27,20231027192132,,,,browser: the replayed rates came from a copy 342 days away
-CIBC,5-year fixed,2023-11-03,20231103193851,,,,browser: the replayed rates came from a copy 335 days away
-CIBC,5-year variable,2023-11-03,20231103193851,,,,browser: the replayed rates came from a copy 335 days away
-CIBC,5-year fixed,2023-11-10,20231110184301,,,,browser: the replayed rates came from a copy 328 days away
-CIBC,5-year variable,2023-11-10,20231110184301,,,,browser: the replayed rates came from a copy 328 days away
-CIBC,5-year fixed,2023-11-17,20231117210900,,,,browser: the replayed rates came from a copy 321 days away
-CIBC,5-year variable,2023-11-17,20231117210900,,,,browser: the replayed rates came from a copy 321 days away
-CIBC,5-year fixed,2023-11-24,20231124230859,,,,browser: the replayed rates came from a copy 314 days away
-CIBC,5-year variable,2023-11-24,20231124230859,,,,browser: the replayed rates came from a copy 314 days away
-CIBC,5-year fixed,2023-12-01,20231201223453,,,,browser: the replayed rates came from a copy 307 days away
-CIBC,5-year variable,2023-12-01,20231201223453,,,,browser: the replayed rates came from a copy 307 days away
-CIBC,5-year fixed,2023-12-08,20231208225454,,,,browser: the replayed rates came from a copy 300 days away
-CIBC,5-year variable,2023-12-08,20231208225454,,,,browser: the replayed rates came from a copy 300 days away
-CIBC,5-year fixed,2023-12-16,20231216000624,,,,browser: the replayed rates came from a copy 292 days away
-CIBC,5-year variable,2023-12-16,20231216000624,,,,browser: the replayed rates came from a copy 292 days away
-CIBC,5-year fixed,2023-12-23,20231223011315,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20231223011315if_/https://www.cibc.com/
-CIBC,5-year variable,2023-12-23,20231223011315,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20231223011315if_/https://www.cibc.com/
-CIBC,5-year fixed,2023-12-31,20231231021637,,,,browser: the replayed rates came from a copy 277 days away
-CIBC,5-year variable,2023-12-31,20231231021637,,,,browser: the replayed rates came from a copy 277 days away
-CIBC,5-year fixed,2024-01-01,20240101002908,,,,browser: the replayed rates came from a copy 276 days away
-CIBC,5-year variable,2024-01-01,20240101002908,,,,browser: the replayed rates came from a copy 276 days away
-CIBC,5-year fixed,2024-01-08,20240108030959,,,,browser: the replayed rates came from a copy 269 days away
-CIBC,5-year variable,2024-01-08,20240108030959,,,,browser: the replayed rates came from a copy 269 days away
-CIBC,5-year fixed,2024-01-15,20240115024558,,,,browser: the replayed rates came from a copy 262 days away
-CIBC,5-year variable,2024-01-15,20240115024558,,,,browser: the replayed rates came from a copy 262 days away
-CIBC,5-year fixed,2024-01-22,20240122043501,,,,browser: the replayed rates came from a copy 255 days away
-CIBC,5-year variable,2024-01-22,20240122043501,,,,browser: the replayed rates came from a copy 255 days away
-CIBC,5-year fixed,2024-01-29,20240129031703,,,,browser: the replayed rates came from a copy 248 days away
-CIBC,5-year variable,2024-01-29,20240129031703,,,,browser: the replayed rates came from a copy 248 days away
-CIBC,5-year fixed,2024-02-05,20240205051838,,,,browser: the replayed rates came from a copy 241 days away
-CIBC,5-year variable,2024-02-05,20240205051838,,,,browser: the replayed rates came from a copy 241 days away
-CIBC,5-year fixed,2024-02-12,20240212061819,,,,browser: the replayed rates came from a copy 160 days away
-CIBC,5-year variable,2024-02-12,20240212061819,,,,browser: the replayed rates came from a copy 160 days away
-CIBC,5-year fixed,2024-02-19,20240219061950,,,,browser: the replayed rates came from a copy 227 days away
-CIBC,5-year variable,2024-02-19,20240219061950,,,,browser: the replayed rates came from a copy 227 days away
-CIBC,5-year fixed,2024-02-26,20240226074046,,,,browser: the replayed rates came from a copy 220 days away
-CIBC,5-year variable,2024-02-26,20240226074046,,,,browser: the replayed rates came from a copy 220 days away
-CIBC,5-year fixed,2024-03-12,20240312043633,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202403"
-CIBC,5-year variable,2024-03-12,20240312043633,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202403"
-CIBC,5-year fixed,2024-03-19,20240319040534,,,,browser: the replayed rates came from a copy 198 days away
-CIBC,5-year variable,2024-03-19,20240319040534,,,,browser: the replayed rates came from a copy 198 days away
-CIBC,5-year fixed,2024-03-26,20240326065056,,,,browser: the replayed rates came from a copy 191 days away
-CIBC,5-year variable,2024-03-26,20240326065056,,,,browser: the replayed rates came from a copy 191 days away
-CIBC,5-year fixed,2024-04-02,20240402064913,,,,browser: the replayed rates came from a copy 184 days away
-CIBC,5-year variable,2024-04-02,20240402064913,,,,browser: the replayed rates came from a copy 184 days away
-CIBC,5-year fixed,2024-04-08,20240408175127,,,,browser: the replayed rates came from a copy 178 days away
-CIBC,5-year variable,2024-04-08,20240408175127,,,,browser: the replayed rates came from a copy 178 days away
-CIBC,5-year fixed,2024-04-18,20240418183423,,,,browser: the replayed rates came from a copy 168 days away
-CIBC,5-year variable,2024-04-18,20240418183423,,,,browser: the replayed rates came from a copy 168 days away
-CIBC,5-year fixed,2024-04-25,20240425191718,,,,browser: the replayed rates came from a copy 161 days away
-CIBC,5-year variable,2024-04-25,20240425191718,,,,browser: the replayed rates came from a copy 161 days away
-CIBC,5-year fixed,2024-05-02,20240502201552,,,,browser: the replayed rates came from a copy 154 days away
-CIBC,5-year variable,2024-05-02,20240502201552,,,,browser: the replayed rates came from a copy 154 days away
-CIBC,5-year fixed,2024-05-09,20240509213319,,,,browser: the replayed rates came from a copy 147 days away
-CIBC,5-year variable,2024-05-09,20240509213319,,,,browser: the replayed rates came from a copy 147 days away
-CIBC,5-year fixed,2024-05-14,20240514001426,,,,browser: the replayed rates came from a copy 142 days away
-CIBC,5-year variable,2024-05-14,20240514001426,,,,browser: the replayed rates came from a copy 142 days away
-CIBC,5-year fixed,2024-05-24,20240524213538,,,,browser: the replayed rates came from a copy 132 days away
-CIBC,5-year variable,2024-05-24,20240524213538,,,,browser: the replayed rates came from a copy 132 days away
-CIBC,5-year fixed,2024-06-01,20240601001759,,,,browser: the replayed rates came from a copy 124 days away
-CIBC,5-year variable,2024-06-01,20240601001759,,,,browser: the replayed rates came from a copy 124 days away
-CIBC,5-year fixed,2024-06-05,20240605025906,,,,browser: the replayed rates came from a copy 120 days away
-CIBC,5-year variable,2024-06-05,20240605025906,,,,browser: the replayed rates came from a copy 120 days away
-CIBC,5-year fixed,2024-06-13,20240613174927,,,,browser: the replayed rates came from a copy 112 days away
-CIBC,5-year variable,2024-06-13,20240613174927,,,,browser: the replayed rates came from a copy 112 days away
-CIBC,5-year fixed,2024-06-22,20240622030940,,,,browser: the replayed rates came from a copy 103 days away
-CIBC,5-year variable,2024-06-22,20240622030940,,,,browser: the replayed rates came from a copy 103 days away
-CIBC,5-year fixed,2024-06-29,20240629042122,,,,browser: the replayed rates came from a copy 96 days away
-CIBC,5-year variable,2024-06-29,20240629042122,,,,browser: the replayed rates came from a copy 96 days away
-CIBC,3-year fixed,2024-07-06,20240706053152,,,,browser: the replayed rates came from a copy 89 days away
-CIBC,5-year fixed,2024-07-06,20240706053152,,,,browser: the replayed rates came from a copy 89 days away
-CIBC,5-year variable,2024-07-06,20240706053152,,,,browser: the replayed rates came from a copy 89 days away
-CIBC,3-year fixed,2024-07-13,20240713070201,,,,browser: the replayed rates came from a copy 82 days away
-CIBC,5-year fixed,2024-07-13,20240713070201,,,,browser: the replayed rates came from a copy 82 days away
-CIBC,5-year variable,2024-07-13,20240713070201,,,,browser: the replayed rates came from a copy 82 days away
-CIBC,3-year fixed,2024-07-15,20240715151107,,,,browser: the replayed rates came from a copy 80 days away
-CIBC,5-year fixed,2024-07-15,20240715151107,,,,browser: the replayed rates came from a copy 80 days away
-CIBC,5-year variable,2024-07-15,20240715151107,,,,browser: the replayed rates came from a copy 80 days away
-CIBC,3-year fixed,2024-07-27,20240727085424,,,,browser: the replayed rates came from a copy 68 days away
-CIBC,5-year fixed,2024-07-27,20240727085424,,,,browser: the replayed rates came from a copy 68 days away
-CIBC,5-year variable,2024-07-27,20240727085424,,,,browser: the replayed rates came from a copy 68 days away
-CIBC,3-year fixed,2024-08-03,20240803093015,,,,browser: the replayed rates came from a copy 61 days away
-CIBC,5-year fixed,2024-08-03,20240803093015,,,,browser: the replayed rates came from a copy 61 days away
-CIBC,5-year variable,2024-08-03,20240803093015,,,,browser: the replayed rates came from a copy 61 days away
-CIBC,3-year fixed,2024-08-11,20240811233635,,,,browser: the replayed rates came from a copy 53 days away
-CIBC,5-year fixed,2024-08-11,20240811233635,,,,browser: the replayed rates came from a copy 53 days away
-CIBC,5-year variable,2024-08-11,20240811233635,,,,browser: the replayed rates came from a copy 53 days away
-CIBC,3-year fixed,2024-08-14,20240814173715,,,,browser: the replayed rates came from a copy 50 days away
-CIBC,5-year fixed,2024-08-14,20240814173715,,,,browser: the replayed rates came from a copy 50 days away
-CIBC,5-year variable,2024-08-14,20240814173715,,,,browser: the replayed rates came from a copy 50 days away
-CIBC,3-year fixed,2024-08-19,20240819001636,,,,browser: the replayed rates came from a copy 45 days away
-CIBC,5-year fixed,2024-08-19,20240819001636,,,,browser: the replayed rates came from a copy 45 days away
-CIBC,5-year variable,2024-08-19,20240819001636,,,,browser: the replayed rates came from a copy 45 days away
-CIBC,3-year fixed,2024-08-26,20240826020822,,,,browser: the replayed rates came from a copy 40 days away
-CIBC,5-year fixed,2024-08-26,20240826020822,,,,browser: the replayed rates came from a copy 40 days away
-CIBC,5-year variable,2024-08-26,20240826020822,,,,browser: the replayed rates came from a copy 40 days away
-CIBC,3-year fixed,2024-09-03,20240903023336,,,,browser: the replayed rates came from a copy 36 days away
-CIBC,5-year fixed,2024-09-03,20240903023336,,,,browser: the replayed rates came from a copy 36 days away
-CIBC,5-year variable,2024-09-03,20240903023336,,,,browser: the replayed rates came from a copy 36 days away
-CIBC,3-year fixed,2024-09-10,20240910025043,,,,browser: the replayed rates came from a copy 29 days away
-CIBC,5-year fixed,2024-09-10,20240910025043,,,,browser: the replayed rates came from a copy 29 days away
-CIBC,5-year variable,2024-09-10,20240910025043,,,,browser: the replayed rates came from a copy 29 days away
-CIBC,3-year fixed,2024-09-18,20240918033808,,,,browser: the replayed rates came from a copy 21 days away
-CIBC,5-year fixed,2024-09-18,20240918033808,,,,browser: the replayed rates came from a copy 21 days away
-CIBC,5-year variable,2024-09-18,20240918033808,,,,browser: the replayed rates came from a copy 21 days away
-CIBC,3-year fixed,2024-09-25,20240925050608,4.79,browser (data within 14 days),amortizations 25 years or less 4.79% 2 ( 4.81% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2024-09-25,20240925050608,4.64,browser (data within 14 days),amortizations 25 years or less 4.64% 2 ( 4.66% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2024-09-25,20240925050608,5.95,browser (data within 14 days),6.45% 5.95% 2 5.97% 3,
-CIBC,3-year fixed,2024-10-02,20241002051636,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202410"
-CIBC,5-year fixed,2024-10-02,20241002051636,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202410"
-CIBC,5-year variable,2024-10-02,20241002051636,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202410"
-CIBC,3-year fixed,2024-10-09,20241009062837,4.79,browser (data within 6 days),amortizations 25 years or less 4.79% 2 ( 4.81% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2024-10-09,20241009062837,4.64,browser (data within 6 days),amortizations 25 years or less 4.64% 2 ( 4.66% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2024-10-09,20241009062837,5.95,browser (data within 6 days),6.45% 5.95% 2 5.97% 3,
-CIBC,3-year fixed,2024-10-14,20241014185505,,,,browser: the replayed rates came from a copy 39 days away
-CIBC,5-year fixed,2024-10-14,20241014185505,,,,browser: the replayed rates came from a copy 39 days away
-CIBC,5-year variable,2024-10-14,20241014185505,,,,browser: the replayed rates came from a copy 39 days away
-CIBC,3-year fixed,2024-11-09,20241109141911,,,,browser: the replayed rates came from a copy 34 days away
-CIBC,5-year fixed,2024-11-09,20241109141911,,,,browser: the replayed rates came from a copy 34 days away
-CIBC,5-year variable,2024-11-09,20241109141911,,,,browser: the replayed rates came from a copy 34 days away
-CIBC,3-year fixed,2024-11-26,20241126232351,,,,browser: the replayed rates came from a copy 17 days away
-CIBC,5-year fixed,2024-11-26,20241126232351,,,,browser: the replayed rates came from a copy 17 days away
-CIBC,5-year variable,2024-11-26,20241126232351,,,,browser: the replayed rates came from a copy 17 days away
-CIBC,3-year fixed,2024-12-14,20241214025546,,,,browser: the replayed rates came from a copy 66 days away
-CIBC,5-year fixed,2024-12-14,20241214025546,,,,browser: the replayed rates came from a copy 66 days away
-CIBC,5-year variable,2024-12-14,20241214025546,,,,browser: the replayed rates came from a copy 66 days away
-CIBC,3-year fixed,2024-12-16,20241216215405,,,,browser: the replayed rates came from a copy 74 days away
-CIBC,5-year fixed,2024-12-16,20241216215405,,,,browser: the replayed rates came from a copy 74 days away
-CIBC,5-year variable,2024-12-16,20241216215405,,,,browser: the replayed rates came from a copy 74 days away
-CIBC,3-year fixed,2024-12-25,20241225041958,,,,browser: the replayed rates came from a copy 77 days away
-CIBC,5-year fixed,2024-12-25,20241225041958,,,,browser: the replayed rates came from a copy 77 days away
-CIBC,5-year variable,2024-12-25,20241225041958,,,,browser: the replayed rates came from a copy 77 days away
-CIBC,3-year fixed,2025-01-07,20250107210324,,,,browser: the replayed rates came from a copy 90 days away
-CIBC,5-year fixed,2025-01-07,20250107210324,,,,browser: the replayed rates came from a copy 90 days away
-CIBC,5-year variable,2025-01-07,20250107210324,,,,browser: the replayed rates came from a copy 90 days away
-CIBC,3-year fixed,2025-01-19,20250119164923,,,,browser: the replayed rates came from a copy 102 days away
-CIBC,5-year fixed,2025-01-19,20250119164923,,,,browser: the replayed rates came from a copy 102 days away
-CIBC,5-year variable,2025-01-19,20250119164923,,,,browser: the replayed rates came from a copy 102 days away
-CIBC,3-year fixed,2025-01-20,20250120063803,,,,browser: the replayed rates came from a copy 103 days away
-CIBC,5-year fixed,2025-01-20,20250120063803,,,,browser: the replayed rates came from a copy 103 days away
-CIBC,5-year variable,2025-01-20,20250120063803,,,,browser: the replayed rates came from a copy 103 days away
-CIBC,3-year fixed,2025-01-27,20250127093010,,,,browser: the replayed rates came from a copy 110 days away
-CIBC,5-year fixed,2025-01-27,20250127093010,,,,browser: the replayed rates came from a copy 110 days away
-CIBC,5-year variable,2025-01-27,20250127093010,,,,browser: the replayed rates came from a copy 110 days away
-CIBC,3-year fixed,2025-02-07,20250207181626,,,,browser: the replayed rates came from a copy 121 days away
-CIBC,5-year fixed,2025-02-07,20250207181626,,,,browser: the replayed rates came from a copy 121 days away
-CIBC,5-year variable,2025-02-07,20250207181626,,,,browser: the replayed rates came from a copy 121 days away
-CIBC,3-year fixed,2025-03-20,20250320084031,,,,browser: the replayed rates came from a copy 113 days away
-CIBC,5-year fixed,2025-03-20,20250320084031,,,,browser: the replayed rates came from a copy 113 days away
-CIBC,5-year variable,2025-03-20,20250320084031,,,,browser: the replayed rates came from a copy 113 days away
-CIBC,3-year fixed,2025-04-04,20250404011733,,,,browser: the replayed rates came from a copy 98 days away
-CIBC,5-year fixed,2025-04-04,20250404011733,,,,browser: the replayed rates came from a copy 98 days away
-CIBC,5-year variable,2025-04-04,20250404011733,,,,browser: the replayed rates came from a copy 98 days away
-CIBC,3-year fixed,2025-05-22,20250522144727,,,,browser: the replayed rates came from a copy 50 days away
-CIBC,5-year fixed,2025-05-22,20250522144727,,,,browser: the replayed rates came from a copy 50 days away
-CIBC,5-year variable,2025-05-22,20250522144727,,,,browser: the replayed rates came from a copy 50 days away
-CIBC,3-year fixed,2025-06-07,20250607010544,,,,browser: the replayed rates came from a copy 34 days away
-CIBC,5-year fixed,2025-06-07,20250607010544,,,,browser: the replayed rates came from a copy 34 days away
-CIBC,5-year variable,2025-06-07,20250607010544,,,,browser: the replayed rates came from a copy 34 days away
-CIBC,3-year fixed,2025-06-17,20250617024948,,,,browser: the replayed rates came from a copy 24 days away
-CIBC,5-year fixed,2025-06-17,20250617024948,,,,browser: the replayed rates came from a copy 24 days away
-CIBC,5-year variable,2025-06-17,20250617024948,,,,browser: the replayed rates came from a copy 24 days away
-CIBC,3-year fixed,2025-07-11,20250711201344,4.29,browser (data within 3 days),amortizations 25 years or less 4.29% 2 ( 4.31% 3 apr) available for new mortgages only.,
-CIBC,5-year fixed,2025-07-11,20250711201344,4.44,browser (data within 3 days),amortizations 25 years or less 4.44% 2 ( 4.46% 3 apr) available for new mortgages only.,
-CIBC,5-year variable,2025-07-11,20250711201344,4.75,browser (data within 3 days),4.95% 4.75% 2 4.77% 3,
-CIBC,3-year fixed,2025-07-26,20250726083515,,,,browser: the replayed rates came from a copy 15 days away
-CIBC,5-year fixed,2025-07-26,20250726083515,,,,browser: the replayed rates came from a copy 15 days away
-CIBC,5-year variable,2025-07-26,20250726083515,,,,browser: the replayed rates came from a copy 15 days away
-CIBC,3-year fixed,2025-08-01,20250801005854,,,,browser: the replayed rates came from a copy 21 days away
-CIBC,5-year fixed,2025-08-01,20250801005854,,,,browser: the replayed rates came from a copy 21 days away
-CIBC,5-year variable,2025-08-01,20250801005854,,,,browser: the replayed rates came from a copy 21 days away
-CIBC,3-year fixed,2025-08-15,20250815221248,,,,browser: the replayed rates came from a copy 35 days away
-CIBC,5-year fixed,2025-08-15,20250815221248,,,,browser: the replayed rates came from a copy 35 days away
-CIBC,5-year variable,2025-08-15,20250815221248,,,,browser: the replayed rates came from a copy 35 days away
-CIBC,3-year fixed,2025-09-10,20250910024917,,,,browser: the replayed rates came from a copy 61 days away
-CIBC,5-year fixed,2025-09-10,20250910024917,,,,browser: the replayed rates came from a copy 61 days away
-CIBC,5-year variable,2025-09-10,20250910024917,,,,browser: the replayed rates came from a copy 61 days away
-CIBC,3-year fixed,2025-09-15,20250915095324,,,,browser: the replayed rates came from a copy 66 days away
-CIBC,5-year fixed,2025-09-15,20250915095324,,,,browser: the replayed rates came from a copy 66 days away
-CIBC,5-year variable,2025-09-15,20250915095324,,,,browser: the replayed rates came from a copy 66 days away
-CIBC,3-year fixed,2025-09-24,20250924114456,,,,browser: the replayed rates came from a copy 75 days away
-CIBC,5-year fixed,2025-09-24,20250924114456,,,,browser: the replayed rates came from a copy 75 days away
-CIBC,5-year variable,2025-09-24,20250924114456,,,,browser: the replayed rates came from a copy 75 days away
-CIBC,3-year fixed,2025-09-30,20250930101122,,,,browser: the replayed rates came from a copy 81 days away
-CIBC,5-year fixed,2025-09-30,20250930101122,,,,browser: the replayed rates came from a copy 81 days away
-CIBC,5-year variable,2025-09-30,20250930101122,,,,browser: the replayed rates came from a copy 81 days away
-CIBC,3-year fixed,2025-10-07,20251007152300,,,,browser: the replayed rates came from a copy 88 days away
-CIBC,5-year fixed,2025-10-07,20251007152300,,,,browser: the replayed rates came from a copy 88 days away
-CIBC,5-year variable,2025-10-07,20251007152300,,,,browser: the replayed rates came from a copy 88 days away
-CIBC,3-year fixed,2025-10-14,20251014104641,,,,browser: the replayed rates came from a copy 95 days away
-CIBC,5-year fixed,2025-10-14,20251014104641,,,,browser: the replayed rates came from a copy 95 days away
-CIBC,5-year variable,2025-10-14,20251014104641,,,,browser: the replayed rates came from a copy 95 days away
-CIBC,3-year fixed,2025-10-23,20251023132918,,,,browser: the replayed rates came from a copy 104 days away
-CIBC,5-year fixed,2025-10-23,20251023132918,,,,browser: the replayed rates came from a copy 104 days away
-CIBC,5-year variable,2025-10-23,20251023132918,,,,browser: the replayed rates came from a copy 104 days away
-CIBC,3-year fixed,2025-10-28,20251028161345,,,,browser: the replayed rates came from a copy 109 days away
-CIBC,5-year fixed,2025-10-28,20251028161345,,,,browser: the replayed rates came from a copy 109 days away
-CIBC,5-year variable,2025-10-28,20251028161345,,,,browser: the replayed rates came from a copy 109 days away
-CIBC,3-year fixed,2025-11-03,20251103172533,,,,browser: the replayed rates came from a copy 115 days away
-CIBC,5-year fixed,2025-11-03,20251103172533,,,,browser: the replayed rates came from a copy 115 days away
-CIBC,5-year variable,2025-11-03,20251103172533,,,,browser: the replayed rates came from a copy 115 days away
-CIBC,3-year fixed,2025-11-11,20251111113242,,,,browser: the replayed rates came from a copy 123 days away
-CIBC,5-year fixed,2025-11-11,20251111113242,,,,browser: the replayed rates came from a copy 123 days away
-CIBC,5-year variable,2025-11-11,20251111113242,,,,browser: the replayed rates came from a copy 123 days away
-CIBC,3-year fixed,2025-11-24,20251124140935,,,,browser: the replayed rates came from a copy 136 days away
-CIBC,5-year fixed,2025-11-24,20251124140935,,,,browser: the replayed rates came from a copy 136 days away
-CIBC,5-year variable,2025-11-24,20251124140935,,,,browser: the replayed rates came from a copy 136 days away
-CIBC,3-year fixed,2025-12-01,20251201201251,,,,browser: the replayed rates came from a copy 143 days away
-CIBC,5-year fixed,2025-12-01,20251201201251,,,,browser: the replayed rates came from a copy 143 days away
-CIBC,5-year variable,2025-12-01,20251201201251,,,,browser: the replayed rates came from a copy 143 days away
-CIBC,3-year fixed,2025-12-12,20251212124622,,,,browser: the replayed rates came from a copy 154 days away
-CIBC,5-year fixed,2025-12-12,20251212124622,,,,browser: the replayed rates came from a copy 154 days away
-CIBC,5-year variable,2025-12-12,20251212124622,,,,browser: the replayed rates came from a copy 154 days away
-CIBC,3-year fixed,2025-12-18,20251218185610,,,,browser: the replayed rates came from a copy 160 days away
-CIBC,5-year fixed,2025-12-18,20251218185610,,,,browser: the replayed rates came from a copy 160 days away
-CIBC,5-year variable,2025-12-18,20251218185610,,,,browser: the replayed rates came from a copy 160 days away
-CIBC,3-year fixed,2026-02-19,20260219005134,,,,browser: the replayed rates came from a copy 223 days away
-CIBC,5-year fixed,2026-02-19,20260219005134,,,,browser: the replayed rates came from a copy 223 days away
-CIBC,5-year variable,2026-02-19,20260219005134,,,,browser: the replayed rates came from a copy 223 days away
-CIBC,3-year fixed,2026-03-17,20260317100914,,,,browser: the replayed rates came from a copy 197 days away
-CIBC,5-year fixed,2026-03-17,20260317100914,,,,browser: the replayed rates came from a copy 197 days away
-CIBC,5-year variable,2026-03-17,20260317100914,,,,browser: the replayed rates came from a copy 197 days away
-CIBC,3-year fixed,2026-03-25,20260325203113,,,,browser: the replayed rates came from a copy 189 days away
-CIBC,5-year fixed,2026-03-25,20260325203113,,,,browser: the replayed rates came from a copy 189 days away
-CIBC,5-year variable,2026-03-25,20260325203113,,,,browser: the replayed rates came from a copy 189 days away
-CIBC,3-year fixed,2026-06-08,20260608084838,,,,browser: the replayed rates came from a copy 114 days away
-CIBC,5-year fixed,2026-06-08,20260608084838,,,,browser: the replayed rates came from a copy 114 days away
-CIBC,5-year variable,2026-06-08,20260608084838,,,,browser: the replayed rates came from a copy 114 days away
-CIBC,3-year fixed,2026-06-20,20260620214316,,,,browser: the replayed rates came from a copy 102 days away
-CIBC,5-year fixed,2026-06-20,20260620214316,,,,browser: the replayed rates came from a copy 102 days away
-CIBC,5-year variable,2026-06-20,20260620214316,,,,browser: the replayed rates came from a copy 102 days away
-CIBC,3-year fixed,2026-06-22,20260622065623,,,,browser: the replayed rates came from a copy 100 days away
-CIBC,5-year fixed,2026-06-22,20260622065623,,,,browser: the replayed rates came from a copy 100 days away
-CIBC,5-year variable,2026-06-22,20260622065623,,,,browser: the replayed rates came from a copy 100 days away
-CIBC,3-year fixed,2026-07-01,20260701093042,,,,browser: the replayed rates came from a copy 91 days away
-CIBC,5-year fixed,2026-07-01,20260701093042,,,,browser: the replayed rates came from a copy 91 days away
-CIBC,5-year variable,2026-07-01,20260701093042,,,,browser: the replayed rates came from a copy 91 days away
-CIBC,3-year fixed,2026-07-08,20260708175321,,,,browser: the replayed rates came from a copy 84 days away
-CIBC,5-year fixed,2026-07-08,20260708175321,,,,browser: the replayed rates came from a copy 84 days away
-CIBC,5-year variable,2026-07-08,20260708175321,,,,browser: the replayed rates came from a copy 84 days away
-CIBC,3-year fixed,2026-07-14,20260714040205,,,,browser: the replayed rates came from a copy 78 days away
-CIBC,5-year fixed,2026-07-14,20260714040205,,,,browser: the replayed rates came from a copy 78 days away
-CIBC,5-year variable,2026-07-14,20260714040205,,,,browser: the replayed rates came from a copy 78 days away
-CIBC,3-year fixed,2026-07-20,20260720144551,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202607"
-CIBC,5-year fixed,2026-07-20,20260720144551,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202607"
-CIBC,5-year variable,2026-07-20,20260720144551,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202607"
-CIBC,3-year fixed,2026-07-27,20260727053829,,,,browser: the replayed rates came from a copy 65 days away
-CIBC,5-year fixed,2026-07-27,20260727053829,,,,browser: the replayed rates came from a copy 65 days away
-CIBC,5-year variable,2026-07-27,20260727053829,,,,browser: the replayed rates came from a copy 65 days away
-CIBC,3-year fixed,2026-08-04,20260804054854,,,,browser: the replayed rates came from a copy 57 days away
-CIBC,5-year fixed,2026-08-04,20260804054854,,,,browser: the replayed rates came from a copy 57 days away
-CIBC,5-year variable,2026-08-04,20260804054854,,,,browser: the replayed rates came from a copy 57 days away
-CIBC,3-year fixed,2026-08-11,20260811104604,,,,browser: the replayed rates came from a copy 50 days away
-CIBC,5-year fixed,2026-08-11,20260811104604,,,,browser: the replayed rates came from a copy 50 days away
-CIBC,5-year variable,2026-08-11,20260811104604,,,,browser: the replayed rates came from a copy 50 days away
-CIBC,3-year fixed,2026-09-30,20260930172649,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202609"
-CIBC,5-year fixed,2026-09-30,20260930172649,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202609"
-CIBC,5-year variable,2026-09-30,20260930172649,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202609"
-CIBC,3-year fixed,2026-10-13,20261013214652,,,,no rate found next to the label '3-year fixed'
-CIBC,5-year fixed,2026-10-13,20261013214652,,,,no rate found next to the label '5-year fixed'
-CIBC,5-year variable,2026-10-13,20261013214652,,,,section 'CIBC Variable Flex Mortgage' not found
-Scotiabank,5-year variable,2023-01-07,20230107004232,6.65,browser (data within 0 days),6.650% 2,
-Scotiabank,3-year fixed,2023-01-07,20230107004232,6.44,browser (data within 0 days),6.440%,
-Scotiabank,5-year fixed,2023-01-07,20230107004232,6.34,browser (data within 0 days),6.340%,
-Scotiabank,5-year variable,2023-01-14,20230114012117,6.65,browser (data within 0 days),6.650% 2,
-Scotiabank,3-year fixed,2023-01-14,20230114012117,6.44,browser (data within 0 days),6.440%,
-Scotiabank,5-year fixed,2023-01-14,20230114012117,6.34,browser (data within 0 days),6.340%,
-Scotiabank,5-year variable,2023-01-30,20230130194633,7.15,browser (data within 0 days),7.150% 2,
-Scotiabank,3-year fixed,2023-01-30,20230130194633,6.44,browser (data within 0 days),6.440%,
-Scotiabank,5-year fixed,2023-01-30,20230130194633,6.34,browser (data within 0 days),6.340%,
-Scotiabank,5-year variable,2023-02-06,20230206211332,7.15,browser (data within 0 days),7.150% 2,
-Scotiabank,3-year fixed,2023-02-06,20230206211332,6.44,browser (data within 0 days),6.440%,
-Scotiabank,5-year fixed,2023-02-06,20230206211332,6.34,browser (data within 0 days),6.340%,
-Scotiabank,5-year variable,2023-02-13,20230213215646,,,,browser: the replayed rates came from a copy 91 days away
-Scotiabank,3-year fixed,2023-02-13,20230213215646,,,,browser: the replayed rates came from a copy 91 days away
-Scotiabank,5-year fixed,2023-02-13,20230213215646,,,,browser: the replayed rates came from a copy 91 days away
-Scotiabank,5-year variable,2023-02-20,20230220221909,7.15,browser (data within 0 days),7.150% 2,
-Scotiabank,3-year fixed,2023-02-20,20230220221909,6.44,browser (data within 0 days),6.440%,
-Scotiabank,5-year fixed,2023-02-20,20230220221909,6.34,browser (data within 0 days),6.340%,
-Scotiabank,5-year variable,2023-02-27,20230227232148,7.15,browser (data within 0 days),7.150% 2,
-Scotiabank,3-year fixed,2023-02-27,20230227232148,6.44,browser (data within 0 days),6.440%,
-Scotiabank,5-year fixed,2023-02-27,20230227232148,6.34,browser (data within 0 days),6.340%,
-Scotiabank,5-year variable,2023-03-06,20230306230020,7.15,browser (data within 1 days),7.150% 2,
-Scotiabank,3-year fixed,2023-03-06,20230306230020,6.44,browser (data within 1 days),6.440%,
-Scotiabank,5-year fixed,2023-03-06,20230306230020,6.34,browser (data within 1 days),6.340%,
-Scotiabank,5-year variable,2023-03-14,20230314231528,7.15,browser (data within 0 days),7.150% 2,
-Scotiabank,3-year fixed,2023-03-14,20230314231528,6.44,browser (data within 0 days),6.440%,
-Scotiabank,5-year fixed,2023-03-14,20230314231528,6.34,browser (data within 0 days),6.340%,
-Scotiabank,5-year variable,2023-03-29,20230329124620,7.15,browser (data within 0 days),7.150% 2,
-Scotiabank,3-year fixed,2023-03-29,20230329124620,6.44,browser (data within 0 days),6.440%,
-Scotiabank,5-year fixed,2023-03-29,20230329124620,6.34,browser (data within 0 days),6.340%,
-Scotiabank,5-year variable,2023-04-05,20230405195304,7.15,browser (data within 0 days),7.150% 2,
-Scotiabank,3-year fixed,2023-04-05,20230405195304,6.44,browser (data within 0 days),6.440%,
-Scotiabank,5-year fixed,2023-04-05,20230405195304,6.34,browser (data within 0 days),6.340%,
-Scotiabank,5-year variable,2023-04-12,20230412071346,7.15,browser (data within 1 days),7.150% 2,
-Scotiabank,3-year fixed,2023-04-12,20230412071346,6.44,browser (data within 1 days),6.440%,
-Scotiabank,5-year fixed,2023-04-12,20230412071346,6.34,browser (data within 1 days),6.340%,
-Scotiabank,5-year variable,2023-04-19,20230419200157,7.15,browser (data within 0 days),7.150% 2,
-Scotiabank,3-year fixed,2023-04-19,20230419200157,6.44,browser (data within 0 days),6.440%,
-Scotiabank,5-year fixed,2023-04-19,20230419200157,6.34,browser (data within 0 days),6.340%,
-Scotiabank,5-year variable,2023-04-26,20230426205220,7.15,browser (data within 0 days),7.150% 2,
-Scotiabank,3-year fixed,2023-04-26,20230426205220,6.44,browser (data within 0 days),6.440%,
-Scotiabank,5-year fixed,2023-04-26,20230426205220,6.34,browser (data within 0 days),6.340%,
-Scotiabank,5-year variable,2023-05-04,20230504025717,7.15,browser (data within 8 days),7.150% 2,
-Scotiabank,3-year fixed,2023-05-04,20230504025717,6.44,browser (data within 8 days),6.440%,
-Scotiabank,5-year fixed,2023-05-04,20230504025717,6.34,browser (data within 8 days),6.340%,
-Scotiabank,5-year variable,2023-05-10,20230510230552,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202305"
-Scotiabank,3-year fixed,2023-05-10,20230510230552,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202305"
-Scotiabank,5-year fixed,2023-05-10,20230510230552,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202305"
-Scotiabank,5-year variable,2023-05-17,20230517234853,7.15,browser (data within 0 days),7.150% 2,
-Scotiabank,3-year fixed,2023-05-17,20230517234853,6.44,browser (data within 0 days),6.440%,
-Scotiabank,5-year fixed,2023-05-17,20230517234853,6.34,browser (data within 0 days),6.340%,
-Scotiabank,5-year variable,2023-05-25,20230525003808,7.15,browser (data within 0 days),7.150% 2,
-Scotiabank,3-year fixed,2023-05-25,20230525003808,6.44,browser (data within 0 days),6.440%,
-Scotiabank,5-year fixed,2023-05-25,20230525003808,6.34,browser (data within 0 days),6.340%,
-Scotiabank,5-year variable,2023-06-01,20230601012657,7.15,browser (data within 0 days),7.150% 2,
-Scotiabank,3-year fixed,2023-06-01,20230601012657,6.44,browser (data within 0 days),6.440%,
-Scotiabank,5-year fixed,2023-06-01,20230601012657,6.34,browser (data within 0 days),6.340%,
-Scotiabank,5-year variable,2023-06-05,20230605131358,7.4,browser (data within 3 days),7.400% 2,
-Scotiabank,3-year fixed,2023-06-05,20230605131358,6.44,browser (data within 3 days),6.440%,
-Scotiabank,5-year fixed,2023-06-05,20230605131358,6.34,browser (data within 3 days),6.340%,
-Scotiabank,5-year variable,2023-06-15,20230615075347,7.4,browser (data within 0 days),7.400% 2,
-Scotiabank,3-year fixed,2023-06-15,20230615075347,6.44,browser (data within 0 days),6.440%,
-Scotiabank,5-year fixed,2023-06-15,20230615075347,6.34,browser (data within 0 days),6.340%,
-Scotiabank,5-year variable,2023-07-14,20230714072733,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
-Scotiabank,3-year fixed,2023-07-14,20230714072733,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
-Scotiabank,5-year fixed,2023-07-14,20230714072733,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
-Scotiabank,5-year variable,2023-07-21,20230721075320,7.65,browser (data within 0 days),7.650% 2,
-Scotiabank,3-year fixed,2023-07-21,20230721075320,6.89,browser (data within 0 days),6.890%,
-Scotiabank,5-year fixed,2023-07-21,20230721075320,6.54,browser (data within 0 days),6.540%,
-Scotiabank,5-year variable,2023-07-28,20230728081728,,,,browser: the replayed rates came from a copy 74 days away
-Scotiabank,3-year fixed,2023-07-28,20230728081728,,,,browser: the replayed rates came from a copy 74 days away
-Scotiabank,5-year fixed,2023-07-28,20230728081728,,,,browser: the replayed rates came from a copy 74 days away
-Scotiabank,5-year variable,2023-08-04,20230804084117,7.65,browser (data within 0 days),7.650% 2,
-Scotiabank,3-year fixed,2023-08-04,20230804084117,6.89,browser (data within 0 days),6.890%,
-Scotiabank,5-year fixed,2023-08-04,20230804084117,6.54,browser (data within 0 days),6.540%,
-Scotiabank,5-year variable,2023-08-11,20230811095936,7.65,browser (data within 0 days),7.650% 2,
-Scotiabank,3-year fixed,2023-08-11,20230811095936,6.89,browser (data within 0 days),6.890%,
-Scotiabank,5-year fixed,2023-08-11,20230811095936,6.54,browser (data within 0 days),6.540%,
-Scotiabank,5-year variable,2023-08-18,20230818101150,,,,browser: the replayed rates came from a copy 95 days away
-Scotiabank,3-year fixed,2023-08-18,20230818101150,,,,browser: the replayed rates came from a copy 95 days away
-Scotiabank,5-year fixed,2023-08-18,20230818101150,,,,browser: the replayed rates came from a copy 95 days away
-Scotiabank,5-year variable,2023-08-22,20230822120947,7.65,browser (data within 4 days),7.650% 2,
-Scotiabank,3-year fixed,2023-08-22,20230822120947,6.89,browser (data within 4 days),6.890%,
-Scotiabank,5-year fixed,2023-08-22,20230822120947,6.54,browser (data within 4 days),6.540%,
-Scotiabank,5-year variable,2023-09-02,20230902100719,7.65,browser (data within 0 days),7.650% 2,
-Scotiabank,3-year fixed,2023-09-02,20230902100719,7.04,browser (data within 0 days),7.040%,
-Scotiabank,5-year fixed,2023-09-02,20230902100719,6.84,browser (data within 0 days),6.840%,
-Scotiabank,5-year variable,2023-09-09,20230909103808,7.65,browser (data within 0 days),7.650% 2,
-Scotiabank,3-year fixed,2023-09-09,20230909103808,7.04,browser (data within 0 days),7.040%,
-Scotiabank,5-year fixed,2023-09-09,20230909103808,6.84,browser (data within 0 days),6.840%,
-Scotiabank,5-year variable,2023-09-16,20230916112457,7.65,browser (data within 0 days),7.650% 2,
-Scotiabank,3-year fixed,2023-09-16,20230916112457,7.04,browser (data within 0 days),7.040%,
-Scotiabank,5-year fixed,2023-09-16,20230916112457,6.84,browser (data within 0 days),6.840%,
-Scotiabank,5-year variable,2023-09-23,20230923121259,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
-Scotiabank,3-year fixed,2023-09-23,20230923121259,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
-Scotiabank,5-year fixed,2023-09-23,20230923121259,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
-Scotiabank,5-year variable,2023-09-30,20230930070537,7.65,browser (data within 1 days),7.650% 2,
-Scotiabank,3-year fixed,2023-09-30,20230930070537,7.04,browser (data within 1 days),7.040%,
-Scotiabank,5-year fixed,2023-09-30,20230930070537,6.84,browser (data within 1 days),6.840%,
-Scotiabank,5-year variable,2023-10-08,20231008122349,7.65,browser (data within 0 days),7.650% 2,
-Scotiabank,3-year fixed,2023-10-08,20231008122349,7.24,browser (data within 0 days),7.240%,
-Scotiabank,5-year fixed,2023-10-08,20231008122349,7.04,browser (data within 0 days),7.040%,
-Scotiabank,5-year variable,2023-10-13,20231013154712,7.65,browser (data within 0 days),7.650% 2,
-Scotiabank,3-year fixed,2023-10-13,20231013154712,7.24,browser (data within 0 days),7.240%,
-Scotiabank,5-year fixed,2023-10-13,20231013154712,7.04,browser (data within 0 days),7.040%,
-Scotiabank,5-year variable,2023-10-22,20231022134727,7.65,browser (data within 0 days),7.650% 2,
-Scotiabank,3-year fixed,2023-10-22,20231022134727,7.24,browser (data within 0 days),7.240%,
-Scotiabank,5-year fixed,2023-10-22,20231022134727,7.04,browser (data within 0 days),7.040%,
-Scotiabank,5-year variable,2023-10-23,20231023231958,7.65,browser (data within 1 days),7.650% 2,
-Scotiabank,3-year fixed,2023-10-23,20231023231958,7.24,browser (data within 1 days),7.240%,
-Scotiabank,5-year fixed,2023-10-23,20231023231958,7.04,browser (data within 1 days),7.040%,
-Scotiabank,5-year variable,2023-11-05,20231105170150,7.65,browser (data within 0 days),7.650% 2,
-Scotiabank,3-year fixed,2023-11-05,20231105170150,7.24,browser (data within 0 days),7.240%,
-Scotiabank,5-year fixed,2023-11-05,20231105170150,7.04,browser (data within 0 days),7.040%,
-Scotiabank,5-year variable,2023-11-12,20231112174056,7.65,browser (data within 0 days),7.650% 2,
-Scotiabank,3-year fixed,2023-11-12,20231112174056,7.24,browser (data within 0 days),7.240%,
-Scotiabank,5-year fixed,2023-11-12,20231112174056,7.04,browser (data within 0 days),7.040%,
-Scotiabank,5-year variable,2023-11-19,20231119182152,7.65,browser (data within 0 days),7.650% 2,
-Scotiabank,3-year fixed,2023-11-19,20231119182152,7.24,browser (data within 0 days),7.240%,
-Scotiabank,5-year fixed,2023-11-19,20231119182152,7.04,browser (data within 0 days),7.040%,
-Scotiabank,5-year variable,2023-11-26,20231126190254,7.65,browser (data within 0 days),7.650% 2,
-Scotiabank,3-year fixed,2023-11-26,20231126190254,7.24,browser (data within 0 days),7.240%,
-Scotiabank,5-year fixed,2023-11-26,20231126190254,7.04,browser (data within 0 days),7.040%,
-Scotiabank,5-year variable,2023-12-03,20231203195051,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202312"
-Scotiabank,3-year fixed,2023-12-03,20231203195051,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202312"
-Scotiabank,5-year fixed,2023-12-03,20231203195051,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202312"
-Scotiabank,5-year variable,2023-12-08,20231208152738,7.65,browser (data within 5 days),7.650% 2,
-Scotiabank,3-year fixed,2023-12-08,20231208152738,7.24,browser (data within 5 days),7.240%,
-Scotiabank,5-year fixed,2023-12-08,20231208152738,7.04,browser (data within 5 days),7.040%,
-Scotiabank,5-year variable,2023-12-17,20231217220850,7.65,browser (data within 1 days),7.650% 2,
-Scotiabank,3-year fixed,2023-12-17,20231217220850,7.24,browser (data within 1 days),7.240%,
-Scotiabank,5-year fixed,2023-12-17,20231217220850,7.04,browser (data within 1 days),7.040%,
-Scotiabank,5-year variable,2023-12-24,20231224225547,7.65,browser (data within 0 days),7.650% 2,
-Scotiabank,3-year fixed,2023-12-24,20231224225547,7.24,browser (data within 0 days),7.240%,
-Scotiabank,5-year fixed,2023-12-24,20231224225547,7.04,browser (data within 0 days),7.040%,
-Scotiabank,5-year variable,2023-12-25,20231225211712,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202312"
-Scotiabank,3-year fixed,2023-12-25,20231225211712,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202312"
-Scotiabank,5-year fixed,2023-12-25,20231225211712,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202312"
-Scotiabank,5-year variable,2024-01-01,20240101213820,,,,browser: the replayed rates came from a copy 34 days away
-Scotiabank,3-year fixed,2024-01-01,20240101213820,,,,browser: the replayed rates came from a copy 34 days away
-Scotiabank,5-year fixed,2024-01-01,20240101213820,,,,browser: the replayed rates came from a copy 34 days away
-Scotiabank,5-year variable,2024-01-08,20240108221138,,,,browser: the replayed rates came from a copy 27 days away
-Scotiabank,3-year fixed,2024-01-08,20240108221138,,,,browser: the replayed rates came from a copy 27 days away
-Scotiabank,5-year fixed,2024-01-08,20240108221138,,,,browser: the replayed rates came from a copy 27 days away
-Scotiabank,5-year variable,2024-01-15,20240115230656,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202401"
-Scotiabank,3-year fixed,2024-01-15,20240115230656,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202401"
-Scotiabank,5-year fixed,2024-01-15,20240115230656,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202401"
-Scotiabank,5-year variable,2024-01-22,20240122233428,7.65,browser (data within 1 days),7.650% 2,
-Scotiabank,3-year fixed,2024-01-22,20240122233428,7.04,browser (data within 1 days),7.040%,
-Scotiabank,5-year fixed,2024-01-22,20240122233428,6.89,browser (data within 1 days),6.890%,
-Scotiabank,5-year variable,2024-01-29,20240129233059,7.65,browser (data within 1 days),7.650% 2,
-Scotiabank,3-year fixed,2024-01-29,20240129233059,6.94,browser (data within 1 days),6.940%,
-Scotiabank,5-year fixed,2024-01-29,20240129233059,6.79,browser (data within 1 days),6.790%,
-Scotiabank,5-year variable,2024-02-06,20240206003027,7.65,browser (data within 2 days),7.650% 2,
-Scotiabank,3-year fixed,2024-02-06,20240206003027,6.94,browser (data within 2 days),6.940%,
-Scotiabank,5-year fixed,2024-02-06,20240206003027,6.79,browser (data within 2 days),6.790%,
-Scotiabank,5-year variable,2024-02-13,20240213010958,7.65,browser (data within 1 days),7.650% 2,
-Scotiabank,3-year fixed,2024-02-13,20240213010958,6.94,browser (data within 1 days),6.940%,
-Scotiabank,5-year fixed,2024-02-13,20240213010958,6.79,browser (data within 1 days),6.790%,
-Scotiabank,5-year variable,2024-02-20,20240220022245,7.65,browser (data within 0 days),7.650% 2,
-Scotiabank,3-year fixed,2024-02-20,20240220022245,6.94,browser (data within 0 days),6.940%,
-Scotiabank,5-year fixed,2024-02-20,20240220022245,6.79,browser (data within 0 days),6.790%,
-Scotiabank,5-year variable,2024-02-27,20240227033701,7.65,browser (data within 1 days),7.650% 2,
-Scotiabank,3-year fixed,2024-02-27,20240227033701,6.94,browser (data within 1 days),6.940%,
-Scotiabank,5-year fixed,2024-02-27,20240227033701,6.79,browser (data within 1 days),6.790%,
-Scotiabank,5-year variable,2024-03-12,20240312031403,7.65,browser (data within 0 days),7.650% 2,
-Scotiabank,3-year fixed,2024-03-12,20240312031403,6.94,browser (data within 0 days),6.940%,
-Scotiabank,5-year fixed,2024-03-12,20240312031403,6.79,browser (data within 0 days),6.790%,
-Scotiabank,5-year variable,2024-03-19,20240319044354,7.65,browser (data within 7 days),7.650% 2,
-Scotiabank,3-year fixed,2024-03-19,20240319044354,6.94,browser (data within 7 days),6.940%,
-Scotiabank,5-year fixed,2024-03-19,20240319044354,6.79,browser (data within 7 days),6.790%,
-Scotiabank,5-year variable,2024-03-26,20240326051438,7.65,browser (data within 2 days),7.650% 2,
-Scotiabank,3-year fixed,2024-03-26,20240326051438,6.94,browser (data within 2 days),6.940%,
-Scotiabank,5-year fixed,2024-03-26,20240326051438,6.79,browser (data within 2 days),6.790%,
-Scotiabank,5-year variable,2024-04-02,20240402053743,7.65,browser (data within 1 days),7.650% 2,
-Scotiabank,3-year fixed,2024-04-02,20240402053743,6.94,browser (data within 1 days),6.940%,
-Scotiabank,5-year fixed,2024-04-02,20240402053743,6.79,browser (data within 1 days),6.790%,
-Scotiabank,5-year variable,2024-04-09,20240409061801,,,,browser: the replayed rates came from a copy 28 days away
-Scotiabank,3-year fixed,2024-04-09,20240409061801,,,,browser: the replayed rates came from a copy 28 days away
-Scotiabank,5-year fixed,2024-04-09,20240409061801,,,,browser: the replayed rates came from a copy 28 days away
-Scotiabank,5-year variable,2024-04-15,20240415055306,7.65,browser (data within 3 days),7.650% 2,
-Scotiabank,3-year fixed,2024-04-15,20240415055306,6.94,browser (data within 3 days),6.940%,
-Scotiabank,5-year fixed,2024-04-15,20240415055306,6.79,browser (data within 3 days),6.790%,
-Scotiabank,5-year variable,2024-04-25,20240425171326,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202404"
-Scotiabank,3-year fixed,2024-04-25,20240425171326,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202404"
-Scotiabank,5-year fixed,2024-04-25,20240425171326,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202404"
-Scotiabank,5-year variable,2024-05-03,20240503160439,7.65,browser (data within 7 days),7.650% 2,
-Scotiabank,3-year fixed,2024-05-03,20240503160439,6.94,browser (data within 7 days),6.940%,
-Scotiabank,5-year fixed,2024-05-03,20240503160439,6.79,browser (data within 7 days),6.790%,
-Scotiabank,5-year variable,2024-05-09,20240509192529,7.65,browser (data within 13 days),7.650% 2,
-Scotiabank,3-year fixed,2024-05-09,20240509192529,6.94,browser (data within 13 days),6.940%,
-Scotiabank,5-year fixed,2024-05-09,20240509192529,6.79,browser (data within 13 days),6.790%,
-Scotiabank,5-year variable,2024-05-18,20240518211009,,,,browser: the replayed rates came from a copy 22 days away
-Scotiabank,3-year fixed,2024-05-18,20240518211009,,,,browser: the replayed rates came from a copy 22 days away
-Scotiabank,5-year fixed,2024-05-18,20240518211009,,,,browser: the replayed rates came from a copy 22 days away
-Scotiabank,5-year variable,2024-05-25,20240525214047,,,,browser: the replayed rates came from a copy 29 days away
-Scotiabank,3-year fixed,2024-05-25,20240525214047,,,,browser: the replayed rates came from a copy 29 days away
-Scotiabank,5-year fixed,2024-05-25,20240525214047,,,,browser: the replayed rates came from a copy 29 days away
-Scotiabank,5-year variable,2024-06-01,20240601225153,,,,browser: the replayed rates came from a copy 81 days away
-Scotiabank,3-year fixed,2024-06-01,20240601225153,,,,browser: the replayed rates came from a copy 81 days away
-Scotiabank,5-year fixed,2024-06-01,20240601225153,,,,browser: the replayed rates came from a copy 81 days away
-Scotiabank,5-year variable,2024-06-08,20240608235604,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202406"
-Scotiabank,3-year fixed,2024-06-08,20240608235604,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202406"
-Scotiabank,5-year fixed,2024-06-08,20240608235604,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202406"
-Scotiabank,5-year variable,2024-06-16,20240616001453,,,,browser: the replayed rates came from a copy 51 days away
-Scotiabank,3-year fixed,2024-06-16,20240616001453,,,,browser: the replayed rates came from a copy 51 days away
-Scotiabank,5-year fixed,2024-06-16,20240616001453,,,,browser: the replayed rates came from a copy 51 days away
-Scotiabank,5-year variable,2024-06-23,20240623015041,,,,browser: the replayed rates came from a copy 50 days away
-Scotiabank,3-year fixed,2024-06-23,20240623015041,,,,browser: the replayed rates came from a copy 50 days away
-Scotiabank,5-year fixed,2024-06-23,20240623015041,,,,browser: the replayed rates came from a copy 50 days away
-Scotiabank,5-year variable,2024-06-25,20240625050527,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202406"
-Scotiabank,3-year fixed,2024-06-25,20240625050527,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202406"
-Scotiabank,5-year fixed,2024-06-25,20240625050527,,,,"browser: Page.goto: Timeout 60000ms exceeded.
-Call log:
-  - navigating to ""https://web.archive.org/web/202406"
-Scotiabank,5-year variable,2024-07-07,20240707034855,,,,browser: the replayed rates came from a copy 36 days away
-Scotiabank,3-year fixed,2024-07-07,20240707034855,,,,browser: the replayed rates came from a copy 36 days away
-Scotiabank,5-year fixed,2024-07-07,20240707034855,,,,browser: the replayed rates came from a copy 36 days away
-Scotiabank,5-year variable,2024-07-15,20240715010535,,,,browser: the replayed rates came from a copy 28 days away
-Scotiabank,3-year fixed,2024-07-15,20240715010535,,,,browser: the replayed rates came from a copy 28 days away
-Scotiabank,5-year fixed,2024-07-15,20240715010535,,,,browser: the replayed rates came from a copy 28 days away
-Scotiabank,5-year variable,2024-07-22,20240722025843,,,,browser: the replayed rates came from a copy 21 days away
-Scotiabank,3-year fixed,2024-07-22,20240722025843,,,,browser: the replayed rates came from a copy 21 days away
-Scotiabank,5-year fixed,2024-07-22,20240722025843,,,,browser: the replayed rates came from a copy 21 days away
-Scotiabank,5-year variable,2024-07-29,20240729055619,7.15,browser (data within 14 days),7.150% 2,
-Scotiabank,3-year fixed,2024-07-29,20240729055619,6.74,browser (data within 14 days),6.740%,
-Scotiabank,5-year fixed,2024-07-29,20240729055619,6.59,browser (data within 14 days),6.590%,
-Scotiabank,5-year variable,2024-08-05,20240805063344,7.15,browser (data within 7 days),7.150% 2,
-Scotiabank,3-year fixed,2024-08-05,20240805063344,6.74,browser (data within 7 days),6.740%,
-Scotiabank,5-year fixed,2024-08-05,20240805063344,6.59,browser (data within 7 days),6.590%,
-Scotiabank,5-year variable,2024-08-12,20240812005556,,,,browser: the replayed rates came from a copy 52 days away
-Scotiabank,3-year fixed,2024-08-12,20240812005556,,,,browser: the replayed rates came from a copy 52 days away
-Scotiabank,5-year fixed,2024-08-12,20240812005556,,,,browser: the replayed rates came from a copy 52 days away
-Scotiabank,5-year variable,2024-08-19,20240819075107,,,,browser: the replayed rates came from a copy 45 days away
-Scotiabank,3-year fixed,2024-08-19,20240819075107,,,,browser: the replayed rates came from a copy 45 days away
-Scotiabank,5-year fixed,2024-08-19,20240819075107,,,,browser: the replayed rates came from a copy 45 days away
-Scotiabank,5-year variable,2024-08-26,20240826084729,7.15,browser (data within 11 days),7.150% 2,
-Scotiabank,3-year fixed,2024-08-26,20240826084729,6.74,browser (data within 11 days),6.740%,
-Scotiabank,5-year fixed,2024-08-26,20240826084729,6.59,browser (data within 11 days),6.590%,
-Scotiabank,5-year variable,2024-09-02,20240902091926,6.9,browser (data within 8 days),6.900% 2,
-Scotiabank,3-year fixed,2024-09-02,20240902091926,6.54,browser (data within 8 days),6.540%,
-Scotiabank,5-year fixed,2024-09-02,20240902091926,6.49,browser (data within 8 days),6.490%,
-Scotiabank,5-year variable,2024-09-09,20240909100325,6.9,browser (data within 2 days),6.900% 2,
-Scotiabank,3-year fixed,2024-09-09,20240909100325,,,,no rate found next to the label '3 years'
-Scotiabank,5-year fixed,2024-09-09,20240909100325,,,,no rate found next to the label '5 years'
-Scotiabank,5-year variable,2024-09-16,20240916120349,6.9,browser (data within 7 days),6.900% 2,
-Scotiabank,3-year fixed,2024-09-16,20240916120349,6.54,browser (data within 7 days),6.540%,
-Scotiabank,5-year fixed,2024-09-16,20240916120349,6.49,browser (data within 7 days),6.490%,
-Scotiabank,5-year variable,2024-09-23,20240923132216,6.9,browser (data within 14 days),6.900% 2,
-Scotiabank,3-year fixed,2024-09-23,20240923132216,6.54,browser (data within 14 days),6.540%,
-Scotiabank,5-year fixed,2024-09-23,20240923132216,6.49,browser (data within 14 days),6.490%,
-Scotiabank,5-year variable,2024-09-30,20240930193456,,,,browser: the replayed rates came from a copy 21 days away
-Scotiabank,3-year fixed,2024-09-30,20240930193456,,,,browser: the replayed rates came from a copy 21 days away
-Scotiabank,5-year fixed,2024-09-30,20240930193456,,,,browser: the replayed rates came from a copy 21 days away
-Scotiabank,5-year variable,2024-10-07,20241007202343,,,,browser: the replayed rates came from a copy 28 days away
-Scotiabank,3-year fixed,2024-10-07,20241007202343,,,,browser: the replayed rates came from a copy 28 days away
-Scotiabank,5-year fixed,2024-10-07,20241007202343,,,,browser: the replayed rates came from a copy 28 days away
-Scotiabank,5-year variable,2024-12-07,20241207090004,,,,browser: the replayed rates came from a copy 19 days away
-Scotiabank,3-year fixed,2024-12-07,20241207090004,,,,browser: the replayed rates came from a copy 19 days away
-Scotiabank,5-year fixed,2024-12-07,20241207090004,,,,browser: the replayed rates came from a copy 19 days away
-Scotiabank,5-year variable,2024-12-17,20241217144740,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
-Scotiabank,3-year fixed,2024-12-17,20241217144740,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
-Scotiabank,5-year fixed,2024-12-17,20241217144740,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
-Scotiabank,5-year variable,2025-01-07,20250107141218,,,,browser: the replayed rates came from a copy 50 days away
-Scotiabank,3-year fixed,2025-01-07,20250107141218,,,,browser: the replayed rates came from a copy 50 days away
-Scotiabank,5-year fixed,2025-01-07,20250107141218,,,,browser: the replayed rates came from a copy 50 days away
-Scotiabank,5-year variable,2025-01-18,20250118033403,,,,browser: the replayed rates came from a copy 54 days away
-Scotiabank,3-year fixed,2025-01-18,20250118033403,,,,browser: the replayed rates came from a copy 54 days away
-Scotiabank,5-year fixed,2025-01-18,20250118033403,,,,browser: the replayed rates came from a copy 54 days away
-Scotiabank,5-year variable,2025-01-23,20250123134625,,,,browser: the replayed rates came from a copy 49 days away
-Scotiabank,3-year fixed,2025-01-23,20250123134625,,,,browser: the replayed rates came from a copy 49 days away
-Scotiabank,5-year fixed,2025-01-23,20250123134625,,,,browser: the replayed rates came from a copy 49 days away
-Scotiabank,5-year variable,2025-01-30,20250130142452,,,,browser: the replayed rates came from a copy 42 days away
-Scotiabank,3-year fixed,2025-01-30,20250130142452,,,,browser: the replayed rates came from a copy 42 days away
-Scotiabank,5-year fixed,2025-01-30,20250130142452,,,,browser: the replayed rates came from a copy 42 days away
-Scotiabank,5-year variable,2025-03-13,20250313213136,,,,browser: the replayed rates came from a copy 77 days away
-Scotiabank,3-year fixed,2025-03-13,20250313213136,,,,browser: the replayed rates came from a copy 77 days away
-Scotiabank,5-year fixed,2025-03-13,20250313213136,,,,browser: the replayed rates came from a copy 77 days away
-Scotiabank,5-year variable,2025-04-05,20250405155503,,,,browser: the replayed rates came from a copy 100 days away
-Scotiabank,3-year fixed,2025-04-05,20250405155503,,,,browser: the replayed rates came from a copy 100 days away
-Scotiabank,5-year fixed,2025-04-05,20250405155503,,,,browser: the replayed rates came from a copy 100 days away
-Scotiabank,5-year variable,2025-04-20,20250420170428,,,,browser: the replayed rates came from a copy 115 days away
-Scotiabank,3-year fixed,2025-04-20,20250420170428,,,,browser: the replayed rates came from a copy 115 days away
-Scotiabank,5-year fixed,2025-04-20,20250420170428,,,,browser: the replayed rates came from a copy 115 days away
-Scotiabank,5-year variable,2025-05-09,20250509031059,,,,browser: the replayed rates came from a copy 134 days away
-Scotiabank,3-year fixed,2025-05-09,20250509031059,,,,browser: the replayed rates came from a copy 134 days away
-Scotiabank,5-year fixed,2025-05-09,20250509031059,,,,browser: the replayed rates came from a copy 134 days away
-Scotiabank,5-year variable,2025-06-09,20250609035903,,,,browser: the replayed rates came from a copy 29 days away
-Scotiabank,3-year fixed,2025-06-09,20250609035903,,,,browser: the replayed rates came from a copy 29 days away
-Scotiabank,5-year fixed,2025-06-09,20250609035903,,,,browser: the replayed rates came from a copy 29 days away
-Scotiabank,5-year variable,2025-06-26,20250626154614,5.4,browser (data within 0 days),5.400% 2,
-Scotiabank,3-year fixed,2025-06-26,20250626154614,6.05,browser (data within 0 days),6.050%,
-Scotiabank,5-year fixed,2025-06-26,20250626154614,6.09,browser (data within 0 days),6.090%,
-Scotiabank,5-year variable,2025-07-10,20250710044346,,,,browser: the replayed rates came from a copy 196 days away
-Scotiabank,3-year fixed,2025-07-10,20250710044346,,,,browser: the replayed rates came from a copy 196 days away
-Scotiabank,5-year fixed,2025-07-10,20250710044346,,,,browser: the replayed rates came from a copy 196 days away
-Scotiabank,5-year variable,2025-08-02,20250802003313,,,,browser: the replayed rates came from a copy 219 days away
-Scotiabank,3-year fixed,2025-08-02,20250802003313,,,,browser: the replayed rates came from a copy 219 days away
-Scotiabank,5-year fixed,2025-08-02,20250802003313,,,,browser: the replayed rates came from a copy 219 days away
-Scotiabank,5-year variable,2025-08-10,20250810143421,5.4,browser (data within 8 days),5.400% 2,
-Scotiabank,3-year fixed,2025-08-10,20250810143421,6.05,browser (data within 8 days),6.050%,
-Scotiabank,5-year fixed,2025-08-10,20250810143421,6.09,browser (data within 8 days),6.090%,
-Scotiabank,5-year variable,2025-09-15,20250915081013,,,,browser: the replayed rates came from a copy 263 days away
-Scotiabank,3-year fixed,2025-09-15,20250915081013,,,,browser: the replayed rates came from a copy 263 days away
-Scotiabank,5-year fixed,2025-09-15,20250915081013,,,,browser: the replayed rates came from a copy 263 days away
-Scotiabank,5-year variable,2025-10-11,20251011094320,,,,browser: the replayed rates came from a copy 65 days away
-Scotiabank,3-year fixed,2025-10-11,20251011094320,,,,browser: the replayed rates came from a copy 65 days away
-Scotiabank,5-year fixed,2025-10-11,20251011094320,,,,browser: the replayed rates came from a copy 65 days away
-Scotiabank,5-year variable,2025-11-10,20251110051619,,,,browser: the replayed rates came from a copy 319 days away
-Scotiabank,3-year fixed,2025-11-10,20251110051619,,,,browser: the replayed rates came from a copy 319 days away
-Scotiabank,5-year fixed,2025-11-10,20251110051619,,,,browser: the replayed rates came from a copy 319 days away
-Scotiabank,5-year variable,2025-11-23,20251123114833,,,,browser: the replayed rates came from a copy 332 days away
-Scotiabank,3-year fixed,2025-11-23,20251123114833,,,,browser: the replayed rates came from a copy 332 days away
-Scotiabank,5-year fixed,2025-11-23,20251123114833,,,,browser: the replayed rates came from a copy 332 days away
-Scotiabank,5-year variable,2026-01-09,20260109032844,,,,browser: the replayed rates came from a copy 379 days away
-Scotiabank,3-year fixed,2026-01-09,20260109032844,,,,browser: the replayed rates came from a copy 379 days away
-Scotiabank,5-year fixed,2026-01-09,20260109032844,,,,browser: the replayed rates came from a copy 379 days away
-Scotiabank,5-year variable,2026-02-20,20260220000120,,,,browser: the replayed rates came from a copy 421 days away
-Scotiabank,3-year fixed,2026-02-20,20260220000120,,,,browser: the replayed rates came from a copy 421 days away
-Scotiabank,5-year fixed,2026-02-20,20260220000120,,,,browser: the replayed rates came from a copy 421 days away
-Scotiabank,5-year variable,2026-03-10,20260310123627,,,,browser: the replayed rates came from a copy 51 days away
-Scotiabank,3-year fixed,2026-03-10,20260310123627,,,,browser: the replayed rates came from a copy 51 days away
-Scotiabank,5-year fixed,2026-03-10,20260310123627,,,,browser: the replayed rates came from a copy 51 days away
-Scotiabank,5-year variable,2026-06-08,20260608051313,,,,browser: the replayed rates came from a copy 60 days away
-Scotiabank,3-year fixed,2026-06-08,20260608051313,,,,browser: the replayed rates came from a copy 60 days away
-Scotiabank,5-year fixed,2026-06-08,20260608051313,,,,browser: the replayed rates came from a copy 60 days away
-Scotiabank,5-year variable,2026-08-01,20260801014118,,,,browser: the replayed rates came from a copy 60 days away
-Scotiabank,3-year fixed,2026-08-01,20260801014118,,,,browser: the replayed rates came from a copy 60 days away
-Scotiabank,5-year fixed,2026-08-01,20260801014118,,,,browser: the replayed rates came from a copy 60 days away
-Scotiabank,5-year variable,2026-09-30,20260930170546,4.9,browser (data within 0 days),4.900% 2,
-Scotiabank,3-year fixed,2026-09-30,20260930170546,6.05,browser (data within 0 days),6.050%,
-Scotiabank,5-year fixed,2026-09-30,20260930170546,6.19,browser (data within 0 days),6.190%,
-Scotiabank,5-year variable,2026-10-06,20261006222111,4.9,browser (data within 0 days),4.900% 2,
-Scotiabank,3-year fixed,2026-10-06,20261006222111,6.05,browser (data within 0 days),6.050%,
-Scotiabank,5-year fixed,2026-10-06,20261006222111,6.19,browser (data within 0 days),6.190%,
-Scotiabank,5-year variable,2026-10-13,20261013213601,4.9,browser (data within 0 days),4.900% 2,
-Scotiabank,3-year fixed,2026-10-13,20261013213601,6.05,browser (data within 0 days),6.050%,
-Scotiabank,5-year fixed,2026-10-13,20261013213601,6.19,browser (data within 0 days),6.190%,
+Affinity Credit Union,3-year fixed,2025-10-30,20251030201604,4.44,page,4.44%,
+Affinity Credit Union,5-year fixed,2025-10-30,20251030201604,4.34,page,4.34%,
+Affinity Credit Union,5-year variable,2025-10-30,20251030201604,,,,no rate found next to the label '5 Year Closed'
+Affinity Credit Union,3-year fixed,2025-12-16,20251216092133,4.44,page,4.44%,
+Affinity Credit Union,5-year fixed,2025-12-16,20251216092133,4.34,page,4.34%,
+Affinity Credit Union,5-year variable,2025-12-16,20251216092133,,,,no rate found next to the label '5 Year Closed'
+Affinity Credit Union,3-year fixed,2026-04-06,20260406192216,4.34,page,4.34%,
+Affinity Credit Union,5-year fixed,2026-04-06,20260406192216,4.34,page,4.34%,
+Affinity Credit Union,5-year variable,2026-04-06,20260406192216,,,,no rate found next to the label '5 Year Closed'
+Affinity Credit Union,3-year fixed,2026-04-23,20260423002030,4.34,page,4.34%,
+Affinity Credit Union,5-year fixed,2026-04-23,20260423002030,4.34,page,4.34%,
+Affinity Credit Union,5-year variable,2026-04-23,20260423002030,,,,no rate found next to the label '5 Year Closed'
+Affinity Credit Union,3-year fixed,2026-09-06,20260906042219,4.34,page,4.34%,
+Affinity Credit Union,5-year fixed,2026-09-06,20260906042219,4.34,page,4.34%,
+Affinity Credit Union,5-year variable,2026-09-06,20260906042219,3.85,page,prime - 0.60% with prime 4.45%,
+Affinity Credit Union,3-year fixed,2026-09-28,20260928175314,4.34,page,4.34%,
+Affinity Credit Union,5-year fixed,2026-09-28,20260928175314,4.34,page,4.34%,
+Affinity Credit Union,5-year variable,2026-09-28,20260928175314,3.85,page,prime - 0.60% with prime 4.45%,
+Conexus Credit Union,3-year fixed,2025-12-05,20251205153417,4.49,page,4.49%,
+Conexus Credit Union,5-year fixed,2025-12-05,20251205153417,4.54,page,4.54%,
+Conexus Credit Union,5-year variable,2025-12-05,20251205153417,,,,no rate found next to the label 'Flex Feature mortgage rate'
+Conexus Credit Union,3-year fixed,2026-04-15,20260415224817,4.49,page,4.49%,
+Conexus Credit Union,5-year fixed,2026-04-15,20260415224817,4.54,page,4.54%,
+Conexus Credit Union,5-year variable,2026-04-15,20260415224817,,,,no rate found next to the label 'Flex Feature mortgage rate'
+Conexus Credit Union,3-year fixed,2026-06-06,20260606230209,4.49,page,4.49%,
+Conexus Credit Union,5-year fixed,2026-06-06,20260606230209,4.54,page,4.54%,
+Conexus Credit Union,5-year variable,2026-06-06,20260606230209,,,,no rate found next to the label 'Flex Feature mortgage rate'
+Libro Credit Union,3-year fixed,2025-12-17,20251217000226,4.69,page,4.690%,
+Libro Credit Union,5-year fixed,2025-12-17,20251217000226,4.79,page,4.790%,
+Libro Credit Union,5-year variable,2025-12-17,20251217000226,4.15,page,4.150%,
+Libro Credit Union,3-year fixed,2026-03-11,20260311191857,4.69,page,4.690%,
+Libro Credit Union,5-year fixed,2026-03-11,20260311191857,4.79,page,4.790%,
+Libro Credit Union,5-year variable,2026-03-11,20260311191857,4.15,page,4.150%,
+FirstOntario Credit Union,3-year fixed,2026-05-11,20260511113345,4.69,page,4.69%,
+FirstOntario Credit Union,5-year fixed,2026-05-11,20260511113345,4.79,page,4.79%,
+FirstOntario Credit Union,5-year variable,2026-05-11,20260511113345,4.15,page,4.15%,
+FirstOntario Credit Union,3-year fixed,2026-06-13,20260613153044,4.69,page,4.69%,
+FirstOntario Credit Union,5-year fixed,2026-06-13,20260613153044,4.79,page,4.79%,
+FirstOntario Credit Union,5-year variable,2026-06-13,20260613153044,4.05,page,4.05%,
+FirstOntario Credit Union,3-year fixed,2026-06-19,20260619012636,4.69,page,4.69%,
+FirstOntario Credit Union,5-year fixed,2026-06-19,20260619012636,4.79,page,4.79%,
+FirstOntario Credit Union,5-year variable,2026-06-19,20260619012636,4.05,page,4.05%,
+UNI Financial,3-year fixed,2025-11-16,20251116221136,4.34,page,"4,34 %",
+UNI Financial,5-year fixed,2025-11-16,20251116221136,4.54,page,"4,54 %",
+UNI Financial,5-year variable,2025-11-16,20251116221136,3.95,page,4.45% 3.95%,
+UNI Financial,3-year fixed,2025-12-13,20251213075246,4.34,page,"4,34 %",
+UNI Financial,5-year fixed,2025-12-13,20251213075246,4.54,page,"4,54 %",
+UNI Financial,5-year variable,2025-12-13,20251213075246,3.95,page,4.45% 3.95%,
+UNI Financial,3-year fixed,2026-02-19,20260219074021,4.34,page,"4,34 %",
+UNI Financial,5-year fixed,2026-02-19,20260219074021,4.54,page,"4,54 %",
+UNI Financial,5-year variable,2026-02-19,20260219074021,3.95,page,4.45% 3.95%,
+UNI Financial,3-year fixed,2026-04-17,20260417032300,4.44,page,"4,44 %",
+UNI Financial,5-year fixed,2026-04-17,20260417032300,4.64,page,"4,64 %",
+UNI Financial,5-year variable,2026-04-17,20260417032300,4.0,page,4.45% 4.00%,
+ICICI Bank Canada,3-year fixed,2025-10-14,20251014012621,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year fixed,2025-10-14,20251014012621,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year variable,2025-10-14,20251014012621,5.7,page,** contact our mortgage specialist prime 6 + 1.00% with prime 4.7%,
+ICICI Bank Canada,3-year fixed,2025-11-09,20251109192437,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year fixed,2025-11-09,20251109192437,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year variable,2025-11-09,20251109192437,5.45,page,** contact our mortgage specialist prime 6 + 1.00% with prime 4.45%,
+ICICI Bank Canada,3-year fixed,2025-11-13,20251113135049,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year fixed,2025-11-13,20251113135049,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year variable,2025-11-13,20251113135049,5.45,page,** contact our mortgage specialist prime 6 + 1.00% with prime 4.45%,
+ICICI Bank Canada,3-year fixed,2025-12-17,20251217125047,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year fixed,2025-12-17,20251217125047,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year variable,2025-12-17,20251217125047,5.45,page,** contact our mortgage specialist prime 6 + 1.00% with prime 4.45%,
+ICICI Bank Canada,3-year fixed,2026-01-01,20260101082010,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year fixed,2026-01-01,20260101082010,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year variable,2026-01-01,20260101082010,5.45,page,** contact our mortgage specialist prime 6 + 1.00% with prime 4.45%,
+ICICI Bank Canada,3-year fixed,2026-02-08,20260208213539,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year fixed,2026-02-08,20260208213539,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year variable,2026-02-08,20260208213539,5.45,page,** contact our mortgage specialist prime 6 + 1.00% with prime 4.45%,
+ICICI Bank Canada,3-year fixed,2026-03-15,20260315084434,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year fixed,2026-03-15,20260315084434,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year variable,2026-03-15,20260315084434,5.45,page,** contact our mortgage specialist prime 6 + 1.00% with prime 4.45%,
+ICICI Bank Canada,3-year fixed,2026-04-17,20260417061001,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year fixed,2026-04-17,20260417061001,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year variable,2026-04-17,20260417061001,5.45,page,** contact our mortgage specialist prime 6 + 1.00% with prime 4.45%,
+ICICI Bank Canada,3-year fixed,2026-05-26,20260526085926,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year fixed,2026-05-26,20260526085926,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year variable,2026-05-26,20260526085926,5.45,page,** contact our mortgage specialist prime 6 + 1.00% with prime 4.45%,
+ICICI Bank Canada,3-year fixed,2026-06-16,20260616092343,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year fixed,2026-06-16,20260616092343,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year variable,2026-06-16,20260616092343,5.45,page,** contact our mortgage specialist prime 6 + 1.00% with prime 4.45%,
+ICICI Bank Canada,3-year fixed,2026-08-13,20260813203104,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year fixed,2026-08-13,20260813203104,6.14,page,** contact our mortgage specialist 6.14%,
+ICICI Bank Canada,5-year variable,2026-08-13,20260813203104,5.45,page,** contact our mortgage specialist prime 6 + 1.00% with prime 4.45%,
+Access Credit Union,3-year fixed,2026-03-14,20260314022631,4.19,page,4.19%,
+Access Credit Union,5-year fixed,2026-03-14,20260314022631,4.09,page,4.09%,
+Access Credit Union,5-year variable,2026-03-14,20260314022631,3.55,page,3.55%,
+Access Credit Union,3-year fixed,2026-07-18,20260718160114,4.19,page,4.19%,
+Access Credit Union,5-year fixed,2026-07-18,20260718160114,4.19,page,4.19%,
+Access Credit Union,5-year variable,2026-07-18,20260718160114,3.55,page,3.55%,
+Access Credit Union,3-year fixed,2026-08-17,20260817155933,4.19,page,4.19%,
+Access Credit Union,5-year fixed,2026-08-17,20260817155933,4.29,page,4.29%,
+Access Credit Union,5-year variable,2026-08-17,20260817155933,3.55,page,3.55%,
+Assiniboine Credit Union,3-year fixed,2025-11-22,20251122030127,,,,browser: the replayed rates came from a copy 137 days away
+Assiniboine Credit Union,5-year fixed,2025-11-22,20251122030127,,,,browser: the replayed rates came from a copy 137 days away
+Assiniboine Credit Union,5-year variable,2025-11-22,20251122030127,,,,browser: the replayed rates came from a copy 137 days away
+Assiniboine Credit Union,3-year fixed,2026-01-17,20260117161010,,,,browser: the replayed rates came from a copy 182 days away
+Assiniboine Credit Union,5-year fixed,2026-01-17,20260117161010,,,,browser: the replayed rates came from a copy 182 days away
+Assiniboine Credit Union,5-year variable,2026-01-17,20260117161010,,,,browser: the replayed rates came from a copy 182 days away
+Assiniboine Credit Union,3-year fixed,2026-02-08,20260208133944,,,,browser: the replayed rates came from a copy 188 days away
+Assiniboine Credit Union,5-year fixed,2026-02-08,20260208133944,,,,browser: the replayed rates came from a copy 188 days away
+Assiniboine Credit Union,5-year variable,2026-02-08,20260208133944,,,,browser: the replayed rates came from a copy 188 days away
+Assiniboine Credit Union,3-year fixed,2026-05-17,20260517054038,3.99,page,3.99%,
+Assiniboine Credit Union,5-year fixed,2026-05-17,20260517054038,4.09,page,4.09%,
+Assiniboine Credit Union,5-year variable,2026-05-17,20260517054038,3.6,page,rate 5-year 3.60%,
+Assiniboine Credit Union,3-year fixed,2026-07-18,20260718160356,3.99,page,3.99%,
+Assiniboine Credit Union,5-year fixed,2026-07-18,20260718160356,4.09,page,4.09%,
+Assiniboine Credit Union,5-year variable,2026-07-18,20260718160356,3.6,page,rate 5-year 3.60%,
+Steinbach Credit Union,3-year fixed,2026-04-13,20260413014621,4.19,page,4.19%,
+Steinbach Credit Union,5-year fixed,2026-04-13,20260413014621,3.99,page,3.99%,
+Steinbach Credit Union,5-year variable,2026-04-13,20260413014621,3.45,page,3.45%,
+Tru Cooperative Bank,3-year fixed,2026-06-08,20260608180033,,,,browser: the replayed rates came from a copy 73 days away
+Tru Cooperative Bank,5-year fixed,2026-06-08,20260608180033,,,,browser: the replayed rates came from a copy 73 days away
+Tru Cooperative Bank,5-year variable,2026-06-08,20260608180033,,,,browser: the replayed rates came from a copy 73 days away
+Tru Cooperative Bank,3-year fixed,2026-07-18,20260718154528,,,,browser: the replayed rates came from a copy 33 days away
+Tru Cooperative Bank,5-year fixed,2026-07-18,20260718154528,,,,browser: the replayed rates came from a copy 33 days away
+Tru Cooperative Bank,5-year variable,2026-07-18,20260718154528,,,,browser: the replayed rates came from a copy 33 days away
