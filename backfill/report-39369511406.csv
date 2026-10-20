@@ -1,0 +1,484 @@
+lender,product,date,archived_at,rate,via,text_read,error
+Scotiabank,5-year variable,2019-01-25,20190125162847,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-01-25,20190125162847,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-01-25,20190125162847,5.44,browser,5.440%,
+Scotiabank,5-year variable,2019-01-30,20190130122453,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-01-30,20190130122453,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-01-30,20190130122453,5.44,browser,5.440%,
+Scotiabank,5-year variable,2019-02-07,20190207192904,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-02-07,20190207192904,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-02-07,20190207192904,5.44,browser,5.440%,
+Scotiabank,5-year variable,2019-02-12,20190212124459,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-02-12,20190212124459,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-02-12,20190212124459,5.44,browser,5.440%,
+Scotiabank,5-year variable,2019-02-18,20190218072828,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-02-18,20190218072828,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-02-18,20190218072828,5.44,browser,5.440%,
+Scotiabank,5-year variable,2019-03-01,20190301142203,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-03-01,20190301142203,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-03-01,20190301142203,5.44,browser,5.440%,
+Scotiabank,5-year variable,2019-03-08,20190308064150,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-03-08,20190308064150,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-03-08,20190308064150,5.44,browser,5.440%,
+Scotiabank,5-year variable,2019-03-13,20190313003347,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-03-13,20190313003347,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-03-13,20190313003347,5.44,browser,5.440%,
+Scotiabank,5-year variable,2019-03-19,20190319051152,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-03-19,20190319051152,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-03-19,20190319051152,5.34,browser,5.340%,
+Scotiabank,5-year variable,2019-03-27,20190327050138,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20190327050138if_/https://www.
+Scotiabank,3-year fixed,2019-03-27,20190327050138,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20190327050138if_/https://www.
+Scotiabank,5-year fixed,2019-03-27,20190327050138,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20190327050138if_/https://www.
+Scotiabank,5-year variable,2019-04-03,20190403010942,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/201904"
+Scotiabank,3-year fixed,2019-04-03,20190403010942,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/201904"
+Scotiabank,5-year fixed,2019-04-03,20190403010942,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/201904"
+Scotiabank,5-year variable,2019-04-08,20190408085930,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-04-08,20190408085930,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-04-08,20190408085930,5.34,browser,5.340%,
+Scotiabank,5-year variable,2019-04-15,20190415232546,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-04-15,20190415232546,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-04-15,20190415232546,5.34,browser,5.340%,
+Scotiabank,5-year variable,2019-04-23,20190423170012,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-04-23,20190423170012,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-04-23,20190423170012,5.34,browser,5.340%,
+Scotiabank,5-year variable,2019-05-04,20190504120517,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-05-04,20190504120517,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-05-04,20190504120517,5.34,browser,5.340%,
+Scotiabank,5-year variable,2019-05-08,20190508130419,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-05-08,20190508130419,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-05-08,20190508130419,5.34,browser,5.340%,
+Scotiabank,5-year variable,2019-05-16,20190516140516,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-05-16,20190516140516,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-05-16,20190516140516,5.34,browser,5.340%,
+Scotiabank,5-year variable,2019-05-22,20190522113703,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-05-22,20190522113703,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-05-22,20190522113703,5.34,browser,5.340%,
+Scotiabank,5-year variable,2019-05-28,20190528205735,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-05-28,20190528205735,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-05-28,20190528205735,5.34,browser,5.340%,
+Scotiabank,5-year variable,2019-06-04,20190604111225,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2019-06-04,20190604111225,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2019-06-04,20190604111225,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2019-06-11,20190611104945,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/201906"
+Scotiabank,3-year fixed,2019-06-11,20190611104945,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/201906"
+Scotiabank,5-year fixed,2019-06-11,20190611104945,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/201906"
+Scotiabank,5-year variable,2019-06-18,20190618104817,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-06-18,20190618104817,4.44,browser,4.440%,
+Scotiabank,5-year fixed,2019-06-18,20190618104817,5.34,browser,5.340%,
+Scotiabank,5-year variable,2019-06-28,20190628124400,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2019-06-28,20190628124400,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2019-06-28,20190628124400,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2019-07-03,20190703134938,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-07-03,20190703134938,4.39,browser,4.390%,
+Scotiabank,5-year fixed,2019-07-03,20190703134938,5.19,browser,5.190%,
+Scotiabank,5-year variable,2019-07-08,20190708161619,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-07-08,20190708161619,4.39,browser,4.390%,
+Scotiabank,5-year fixed,2019-07-08,20190708161619,5.19,browser,5.190%,
+Scotiabank,5-year variable,2019-07-17,20190717075500,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-07-17,20190717075500,4.39,browser,4.390%,
+Scotiabank,5-year fixed,2019-07-17,20190717075500,5.19,browser,5.190%,
+Scotiabank,5-year variable,2019-07-22,20190722122655,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-07-22,20190722122655,4.39,browser,4.390%,
+Scotiabank,5-year fixed,2019-07-22,20190722122655,5.19,browser,5.190%,
+Scotiabank,5-year variable,2019-07-31,20190731122037,3.05,browser,3.050% 2,
+Scotiabank,3-year fixed,2019-07-31,20190731122037,4.19,browser,4.190%,
+Scotiabank,5-year fixed,2019-07-31,20190731122037,4.99,browser,4.990%,
+Scotiabank,5-year variable,2019-08-08,20190808081632,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-08-08,20190808081632,4.39,browser,4.390%,
+Scotiabank,5-year fixed,2019-08-08,20190808081632,5.19,browser,5.190%,
+Scotiabank,5-year variable,2019-08-13,20190813010043,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-08-13,20190813010043,4.39,browser,4.390%,
+Scotiabank,5-year fixed,2019-08-13,20190813010043,5.19,browser,5.190%,
+Scotiabank,5-year variable,2019-08-20,20190820003015,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-08-20,20190820003015,4.39,browser,4.390%,
+Scotiabank,5-year fixed,2019-08-20,20190820003015,5.19,browser,5.190%,
+Scotiabank,5-year variable,2019-08-26,20190826002525,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-08-26,20190826002525,4.39,browser,4.390%,
+Scotiabank,5-year fixed,2019-08-26,20190826002525,5.19,browser,5.190%,
+Scotiabank,5-year variable,2019-09-11,20190911101719,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-09-11,20190911101719,4.39,browser,4.390%,
+Scotiabank,5-year fixed,2019-09-11,20190911101719,5.19,browser,5.190%,
+Scotiabank,5-year variable,2019-09-20,20190920111651,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-09-20,20190920111651,4.39,browser,4.390%,
+Scotiabank,5-year fixed,2019-09-20,20190920111651,5.19,browser,5.190%,
+Scotiabank,5-year variable,2019-09-26,20190926030427,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2019-09-26,20190926030427,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2019-09-26,20190926030427,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2019-10-06,20191006062823,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-10-06,20191006062823,4.39,browser,4.390%,
+Scotiabank,5-year fixed,2019-10-06,20191006062823,5.19,browser,5.190%,
+Scotiabank,5-year variable,2019-10-16,20191016192738,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-10-16,20191016192738,4.39,browser,4.390%,
+Scotiabank,5-year fixed,2019-10-16,20191016192738,5.19,browser,5.190%,
+Scotiabank,5-year variable,2019-12-08,20191208032507,4.15,browser,4.150% 2,
+Scotiabank,3-year fixed,2019-12-08,20191208032507,4.39,browser,4.390%,
+Scotiabank,5-year fixed,2019-12-08,20191208032507,5.19,browser,5.190%,
+Scotiabank,5-year variable,2020-07-24,20200724211727,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2020-07-24,20200724211727,3.79,browser,3.790%,
+Scotiabank,5-year fixed,2020-07-24,20200724211727,4.79,browser,4.790%,
+Scotiabank,5-year variable,2020-08-14,20200814232951,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2020-08-14,20200814232951,3.79,browser,3.790%,
+Scotiabank,5-year fixed,2020-08-14,20200814232951,4.79,browser,4.790%,
+Scotiabank,5-year variable,2020-10-29,20201029021511,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2020-10-29,20201029021511,3.79,browser,3.790%,
+Scotiabank,5-year fixed,2020-10-29,20201029021511,4.79,browser,4.790%,
+Scotiabank,5-year variable,2020-11-02,20201102183748,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2020-11-02,20201102183748,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2020-11-02,20201102183748,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2020-12-10,20201210173852,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2020-12-10,20201210173852,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2020-12-10,20201210173852,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2020-12-17,20201217182426,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2020-12-17,20201217182426,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2020-12-17,20201217182426,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2020-12-24,20201224191541,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2020-12-24,20201224191541,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2020-12-24,20201224191541,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2020-12-31,20201231202312,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2020-12-31,20201231202312,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2020-12-31,20201231202312,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-01-16,20210116150751,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-01-16,20210116150751,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-01-16,20210116150751,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-01-19,20210119091317,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-01-19,20210119091317,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-01-19,20210119091317,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-01-28,20210128040734,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-01-28,20210128040734,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-01-28,20210128040734,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-02-04,20210204053110,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-02-04,20210204053110,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-02-04,20210204053110,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-02-11,20210211063815,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-02-11,20210211063815,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-02-11,20210211063815,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-02-18,20210218092635,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-02-18,20210218092635,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-02-18,20210218092635,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-02-25,20210225111924,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-02-25,20210225111924,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-02-25,20210225111924,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-03-05,20210305122001,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-03-05,20210305122001,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-03-05,20210305122001,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-03-12,20210312135736,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-03-12,20210312135736,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-03-12,20210312135736,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-03-19,20210319195415,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-03-19,20210319195415,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-03-19,20210319195415,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-03-26,20210326211719,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-03-26,20210326211719,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-03-26,20210326211719,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-04-10,20210410224725,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-04-10,20210410224725,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-04-10,20210410224725,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-04-12,20210412123226,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-04-12,20210412123226,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-04-12,20210412123226,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-04-25,20210425044103,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-04-25,20210425044103,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-04-25,20210425044103,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-05-02,20210502065333,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-05-02,20210502065333,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-05-02,20210502065333,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-05-03,20210503053110,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-05-03,20210503053110,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-05-03,20210503053110,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-05-10,20210510070523,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-05-10,20210510070523,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-05-10,20210510070523,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-05-17,20210517075652,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-05-17,20210517075652,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-05-17,20210517075652,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-05-30,20210530234846,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-05-30,20210530234846,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-05-30,20210530234846,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-06-06,20210606234015,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-06-06,20210606234015,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-06-06,20210606234015,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-06-14,20210614005854,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-06-14,20210614005854,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-06-14,20210614005854,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-06-21,20210621005105,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-06-21,20210621005105,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-06-21,20210621005105,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-06-29,20210629024105,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-06-29,20210629024105,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-06-29,20210629024105,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-07-06,20210706032847,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-07-06,20210706032847,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-07-06,20210706032847,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-07-13,20210713043610,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-07-13,20210713043610,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-07-13,20210713043610,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-07-20,20210720054234,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202107"
+Scotiabank,3-year fixed,2021-07-20,20210720054234,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202107"
+Scotiabank,5-year fixed,2021-07-20,20210720054234,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202107"
+Scotiabank,5-year variable,2021-07-27,20210727072457,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-07-27,20210727072457,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-07-27,20210727072457,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-08-03,20210803072824,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-08-03,20210803072824,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-08-03,20210803072824,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-08-10,20210810093310,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-08-10,20210810093310,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-08-10,20210810093310,4.79,browser,4.790%,
+Scotiabank,5-year variable,2021-08-17,20210817103828,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-08-17,20210817103828,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-08-17,20210817103828,4.79,browser,4.790%,
+Scotiabank,5-year variable,2021-08-24,20210824121448,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-08-24,20210824121448,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-08-24,20210824121448,4.79,browser,4.790%,
+Scotiabank,5-year variable,2021-09-01,20210901171742,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-09-01,20210901171742,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-09-01,20210901171742,4.79,browser,4.790%,
+Scotiabank,5-year variable,2021-09-08,20210908175730,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-09-08,20210908175730,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-09-08,20210908175730,4.79,browser,4.790%,
+Scotiabank,5-year variable,2021-09-15,20210915195157,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-09-15,20210915195157,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-09-15,20210915195157,4.79,browser,4.790%,
+Scotiabank,5-year variable,2021-09-22,20210922202820,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-09-22,20210922202820,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-09-22,20210922202820,4.79,browser,4.790%,
+Scotiabank,5-year variable,2021-09-27,20210927025248,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-09-27,20210927025248,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-09-27,20210927025248,4.79,browser,4.790%,
+Scotiabank,5-year variable,2021-10-05,20211005051616,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2021-10-05,20211005051616,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2021-10-05,20211005051616,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2021-10-15,20211015005247,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-10-15,20211015005247,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-10-15,20211015005247,4.79,browser,4.790%,
+Scotiabank,5-year variable,2021-10-22,20211022042251,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-10-22,20211022042251,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-10-22,20211022042251,4.79,browser,4.790%,
+Scotiabank,5-year variable,2021-10-29,20211029055416,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-10-29,20211029055416,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-10-29,20211029055416,4.79,browser,4.790%,
+Scotiabank,5-year variable,2021-11-05,20211105084825,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-11-05,20211105084825,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-11-05,20211105084825,4.79,browser,4.790%,
+Scotiabank,5-year variable,2021-11-12,20211112111050,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-11-12,20211112111050,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-11-12,20211112111050,4.79,browser,4.790%,
+Scotiabank,5-year variable,2021-11-19,20211119115526,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-11-19,20211119115526,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-11-19,20211119115526,4.79,browser,4.790%,
+Scotiabank,5-year variable,2021-11-26,20211126142456,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-11-26,20211126142456,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-11-26,20211126142456,4.79,browser,4.790%,
+Scotiabank,5-year variable,2021-12-08,20211208125854,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202112"
+Scotiabank,3-year fixed,2021-12-08,20211208125854,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202112"
+Scotiabank,5-year fixed,2021-12-08,20211208125854,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202112"
+Scotiabank,5-year variable,2021-12-13,20211213222815,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-12-13,20211213222815,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-12-13,20211213222815,4.79,browser,4.790%,
+Scotiabank,5-year variable,2021-12-20,20211220231909,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-12-20,20211220231909,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-12-20,20211220231909,4.79,browser,4.790%,
+Scotiabank,5-year variable,2021-12-28,20211228231107,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2021-12-28,20211228231107,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2021-12-28,20211228231107,4.79,browser,4.790%,
+Scotiabank,5-year variable,2022-01-05,20220105230800,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2022-01-05,20220105230800,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2022-01-05,20220105230800,4.79,browser,4.790%,
+Scotiabank,5-year variable,2022-01-14,20220114002828,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2022-01-14,20220114002828,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2022-01-14,20220114002828,4.79,browser,4.790%,
+Scotiabank,5-year variable,2022-01-24,20220124211243,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2022-01-24,20220124211243,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2022-01-24,20220124211243,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2022-02-01,20220201010839,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2022-02-01,20220201010839,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2022-02-01,20220201010839,4.79,browser,4.790%,
+Scotiabank,5-year variable,2022-02-08,20220208023657,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2022-02-08,20220208023657,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2022-02-08,20220208023657,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2022-02-16,20220216044134,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2022-02-16,20220216044134,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2022-02-16,20220216044134,4.79,browser,4.790%,
+Scotiabank,5-year variable,2022-02-23,20220223061158,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2022-02-23,20220223061158,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2022-02-23,20220223061158,4.79,browser,4.790%,
+Scotiabank,5-year variable,2022-03-02,20220302073128,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2022-03-02,20220302073128,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2022-03-02,20220302073128,4.79,browser,4.790%,
+Scotiabank,5-year variable,2022-03-09,20220309085817,2.65,browser,2.650% 2,
+Scotiabank,3-year fixed,2022-03-09,20220309085817,3.49,browser,3.490%,
+Scotiabank,5-year fixed,2022-03-09,20220309085817,4.79,browser,4.790%,
+Scotiabank,5-year variable,2022-03-17,20220317175034,2.9,browser,2.900% 2,
+Scotiabank,3-year fixed,2022-03-17,20220317175034,3.69,browser,3.690%,
+Scotiabank,5-year fixed,2022-03-17,20220317175034,4.99,browser,4.990%,
+Scotiabank,5-year variable,2022-03-25,20220325190525,2.9,browser,2.900% 2,
+Scotiabank,3-year fixed,2022-03-25,20220325190525,3.69,browser,3.690%,
+Scotiabank,5-year fixed,2022-03-25,20220325190525,4.99,browser,4.990%,
+Scotiabank,5-year variable,2022-04-01,20220401204506,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2022-04-01,20220401204506,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2022-04-01,20220401204506,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2022-04-09,20220409030632,2.9,browser,2.900% 2,
+Scotiabank,3-year fixed,2022-04-09,20220409030632,4.19,browser,4.190%,
+Scotiabank,5-year fixed,2022-04-09,20220409030632,4.99,browser,4.990%,
+Scotiabank,5-year variable,2022-04-14,20220414095028,3.4,browser,3.400% 2,
+Scotiabank,3-year fixed,2022-04-14,20220414095028,4.19,browser,4.190%,
+Scotiabank,5-year fixed,2022-04-14,20220414095028,4.99,browser,4.990%,
+Scotiabank,5-year variable,2022-04-18,20220418011441,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202204"
+Scotiabank,3-year fixed,2022-04-18,20220418011441,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202204"
+Scotiabank,5-year fixed,2022-04-18,20220418011441,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202204"
+Scotiabank,5-year variable,2022-04-25,20220425014110,3.4,browser,3.400% 2,
+Scotiabank,3-year fixed,2022-04-25,20220425014110,4.19,browser,4.190%,
+Scotiabank,5-year fixed,2022-04-25,20220425014110,4.99,browser,4.990%,
+Scotiabank,5-year variable,2022-05-03,20220503012739,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2022-05-03,20220503012739,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2022-05-03,20220503012739,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2022-05-11,20220511003006,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202205"
+Scotiabank,3-year fixed,2022-05-11,20220511003006,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202205"
+Scotiabank,5-year fixed,2022-05-11,20220511003006,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202205"
+Scotiabank,5-year variable,2022-05-18,20220518004800,3.4,browser,3.400% 2,
+Scotiabank,3-year fixed,2022-05-18,20220518004800,4.59,browser,4.590%,
+Scotiabank,5-year fixed,2022-05-18,20220518004800,4.99,browser,4.990%,
+Scotiabank,5-year variable,2022-05-25,20220525010247,3.4,browser,3.400% 2,
+Scotiabank,3-year fixed,2022-05-25,20220525010247,4.59,browser,4.590%,
+Scotiabank,5-year fixed,2022-05-25,20220525010247,4.99,browser,4.990%,
+Scotiabank,5-year variable,2022-06-01,20220601021355,3.4,browser,3.400% 2,
+Scotiabank,3-year fixed,2022-06-01,20220601021355,4.59,browser,4.590%,
+Scotiabank,5-year fixed,2022-06-01,20220601021355,5.39,browser,5.390%,
+Scotiabank,5-year variable,2022-06-06,20220606083300,3.9,browser,3.900% 2,
+Scotiabank,3-year fixed,2022-06-06,20220606083300,4.99,browser,4.990%,
+Scotiabank,5-year fixed,2022-06-06,20220606083300,5.39,browser,5.390%,
+Scotiabank,5-year variable,2022-06-15,20220615205142,3.9,browser,3.900% 2,
+Scotiabank,3-year fixed,2022-06-15,20220615205142,5.44,browser,5.440%,
+Scotiabank,5-year fixed,2022-06-15,20220615205142,5.84,browser,5.840%,
+Scotiabank,5-year variable,2022-06-22,20220622220109,3.9,browser,3.900% 2,
+Scotiabank,3-year fixed,2022-06-22,20220622220109,5.44,browser,5.440%,
+Scotiabank,5-year fixed,2022-06-22,20220622220109,5.84,browser,5.840%,
+Scotiabank,5-year variable,2022-06-28,20220628193158,3.9,browser,3.900% 2,
+Scotiabank,3-year fixed,2022-06-28,20220628193158,5.44,browser,5.440%,
+Scotiabank,5-year fixed,2022-06-28,20220628193158,5.84,browser,5.840%,
+Scotiabank,5-year variable,2022-07-06,20220706234622,3.9,browser,3.900% 2,
+Scotiabank,3-year fixed,2022-07-06,20220706234622,5.44,browser,5.440%,
+Scotiabank,5-year fixed,2022-07-06,20220706234622,5.84,browser,5.840%,
+Scotiabank,5-year variable,2022-07-14,20220714004819,4.9,browser,4.900% 2,
+Scotiabank,3-year fixed,2022-07-14,20220714004819,5.44,browser,5.440%,
+Scotiabank,5-year fixed,2022-07-14,20220714004819,5.84,browser,5.840%,
+Scotiabank,5-year variable,2022-07-21,20220721033837,4.9,browser,4.900% 2,
+Scotiabank,3-year fixed,2022-07-21,20220721033837,5.64,browser,5.640%,
+Scotiabank,5-year fixed,2022-07-21,20220721033837,5.99,browser,5.990%,
+Scotiabank,5-year variable,2022-07-28,20220728030245,4.9,browser,4.900% 2,
+Scotiabank,3-year fixed,2022-07-28,20220728030245,5.64,browser,5.640%,
+Scotiabank,5-year fixed,2022-07-28,20220728030245,5.99,browser,5.990%,
+Scotiabank,5-year variable,2022-08-04,20220804032625,4.9,browser,4.900% 2,
+Scotiabank,3-year fixed,2022-08-04,20220804032625,5.64,browser,5.640%,
+Scotiabank,5-year fixed,2022-08-04,20220804032625,5.99,browser,5.990%,
+Scotiabank,5-year variable,2022-08-11,20220811040613,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202208"
+Scotiabank,3-year fixed,2022-08-11,20220811040613,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202208"
+Scotiabank,5-year fixed,2022-08-11,20220811040613,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202208"
+Scotiabank,5-year variable,2022-08-18,20220818052332,4.9,browser,4.900% 2,
+Scotiabank,3-year fixed,2022-08-18,20220818052332,5.64,browser,5.640%,
+Scotiabank,5-year fixed,2022-08-18,20220818052332,5.99,browser,5.990%,
+Scotiabank,5-year variable,2022-08-25,20220825193022,5.65,browser,5.650% 2,
+Scotiabank,3-year fixed,2022-08-25,20220825193022,5.64,browser,5.640%,
+Scotiabank,5-year fixed,2022-08-25,20220825193022,5.99,browser,5.990%,
+Scotiabank,5-year variable,2022-09-01,20220901200710,5.65,browser,5.650% 2,
+Scotiabank,3-year fixed,2022-09-01,20220901200710,5.64,browser,5.640%,
+Scotiabank,5-year fixed,2022-09-01,20220901200710,5.99,browser,5.990%,
+Scotiabank,5-year variable,2022-09-08,20220908203841,5.65,browser,5.650% 2,
+Scotiabank,3-year fixed,2022-09-08,20220908203841,5.64,browser,5.640%,
+Scotiabank,5-year fixed,2022-09-08,20220908203841,5.99,browser,5.990%,
+Scotiabank,5-year variable,2022-09-15,20220915211022,5.65,browser,5.650% 2,
+Scotiabank,3-year fixed,2022-09-15,20220915211022,5.64,browser,5.640%,
+Scotiabank,5-year fixed,2022-09-15,20220915211022,5.99,browser,5.990%,
+Scotiabank,5-year variable,2022-09-22,20220922215417,5.65,browser,5.650% 2,
+Scotiabank,3-year fixed,2022-09-22,20220922215417,5.64,browser,5.640%,
+Scotiabank,5-year fixed,2022-09-22,20220922215417,5.99,browser,5.990%,
+Scotiabank,5-year variable,2022-09-26,20220926025237,5.65,browser,5.650% 2,
+Scotiabank,3-year fixed,2022-09-26,20220926025237,5.64,browser,5.640%,
+Scotiabank,5-year fixed,2022-09-26,20220926025237,5.99,browser,5.990%,
+Scotiabank,5-year variable,2022-10-07,20221007064746,5.65,browser,5.650% 2,
+Scotiabank,3-year fixed,2022-10-07,20221007064746,6.04,browser,6.040%,
+Scotiabank,5-year fixed,2022-10-07,20221007064746,6.14,browser,6.140%,
+Scotiabank,5-year variable,2022-10-14,20221014172245,5.65,browser,5.650% 2,
+Scotiabank,3-year fixed,2022-10-14,20221014172245,6.04,browser,6.040%,
+Scotiabank,5-year fixed,2022-10-14,20221014172245,6.14,browser,6.140%,
+Scotiabank,5-year variable,2022-10-21,20221021175855,5.65,browser,5.650% 2,
+Scotiabank,3-year fixed,2022-10-21,20221021175855,6.04,browser,6.040%,
+Scotiabank,5-year fixed,2022-10-21,20221021175855,6.14,browser,6.140%,
+Scotiabank,5-year variable,2022-10-28,20221028184011,6.15,browser,6.150% 2,
+Scotiabank,3-year fixed,2022-10-28,20221028184011,6.04,browser,6.040%,
+Scotiabank,5-year fixed,2022-10-28,20221028184011,6.14,browser,6.140%,
+Scotiabank,5-year variable,2022-11-04,20221104201741,6.15,browser,6.150% 2,
+Scotiabank,3-year fixed,2022-11-04,20221104201741,6.04,browser,6.040%,
+Scotiabank,5-year fixed,2022-11-04,20221104201741,6.14,browser,6.140%,
+Scotiabank,5-year variable,2022-11-12,20221112024013,6.15,browser,6.150% 2,
+Scotiabank,3-year fixed,2022-11-12,20221112024013,6.04,browser,6.040%,
+Scotiabank,5-year fixed,2022-11-12,20221112024013,6.14,browser,6.140%,
+Scotiabank,5-year variable,2022-11-18,20221118212117,6.15,browser,6.150% 2,
+Scotiabank,3-year fixed,2022-11-18,20221118212117,6.04,browser,6.040%,
+Scotiabank,5-year fixed,2022-11-18,20221118212117,6.14,browser,6.140%,
+Scotiabank,5-year variable,2022-11-25,20221125225010,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20221125225010if_/https://www.scotiaban
+Scotiabank,3-year fixed,2022-11-25,20221125225010,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20221125225010if_/https://www.scotiaban
+Scotiabank,5-year fixed,2022-11-25,20221125225010,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20221125225010if_/https://www.scotiaban
+Scotiabank,5-year variable,2022-12-02,20221202222807,6.15,browser,6.150% 2,
+Scotiabank,3-year fixed,2022-12-02,20221202222807,6.04,browser,6.040%,
+Scotiabank,5-year fixed,2022-12-02,20221202222807,6.14,browser,6.140%,
+Scotiabank,5-year variable,2022-12-09,20221209231011,6.65,browser,6.650% 2,
+Scotiabank,3-year fixed,2022-12-09,20221209231011,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2022-12-09,20221209231011,6.34,browser,6.340%,
+Scotiabank,5-year variable,2022-12-16,20221216232910,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202212"
+Scotiabank,3-year fixed,2022-12-16,20221216232910,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202212"
+Scotiabank,5-year fixed,2022-12-16,20221216232910,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202212"
+Scotiabank,5-year variable,2022-12-23,20221223234253,6.65,browser,6.650% 2,
+Scotiabank,3-year fixed,2022-12-23,20221223234253,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2022-12-23,20221223234253,6.34,browser,6.340%,
+Scotiabank,5-year variable,2022-12-31,20221231002744,6.65,browser,6.650% 2,
+Scotiabank,3-year fixed,2022-12-31,20221231002744,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2022-12-31,20221231002744,6.34,browser,6.340%,
