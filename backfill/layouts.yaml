@@ -1,0 +1,60 @@
+# Older layouts of lenders' rate pages, used only when rebuilding history from archived copies (backfill.py).
+# For an archived copy dated on or before `until`, the lender's rates are read with these settings instead of
+# the ones in institutions.yaml. Same options as institutions.yaml, plus two safety checks:
+#   pattern:  a regular expression the text right after the label must match; its first group is the rate.
+#             A copy that doesn't match (a blank template, a different column) is skipped, never guessed.
+#   requires: text that must appear between `after` and `before` (e.g. only read a table of special offers).
+
+RBC Royal Bank:
+  # "Special Rates" page, 2017 to mid-2026: "25 Year Amortization or Less" fixed table, then the variable table.
+  - until: 2026-06-16
+    rates:
+      - product: 3-year fixed
+        label: "3 Year"
+        after: "25 Year Amortization or Less"
+        before: "Greater than 25 Year"
+        requires: "Special Offers"
+        pattern: '^\s*(?:closed\s*)?(\d{1,2}\.\d{3})\s*%'
+      - product: 5-year fixed
+        label: "5 Year"
+        after: "25 Year Amortization or Less"
+        before: "Greater than 25 Year"
+        requires: "Special Offers"
+        pattern: '^\s*(?:closed\s*)?(\d{1,2}\.\d{3})\s*%'
+      - product: 5-year variable   # the rate is shown in brackets after the prime spread; before mid-2018 it wasn't shown
+        label: "5 Year"
+        after: "25 Year Amortization or Less"
+        before: "Greater than 25 Year"
+        requires: "Special Offers"
+        pattern: '^\s*(?:closed\s*)?rbc prime rate\s*[-+−]\s*\d+\.\d+\s*%\s*\((\d{1,2}\.\d{3})%\)'
+
+TD Canada Trust:
+  # Same row labels throughout; many archived copies are blank templates or show only the APR, so the
+  # special rate must come right after the label (after an optional footnote number) with two decimals.
+  - until: 2026-10-13
+    rates:
+      - product: 3-year fixed
+        label: "3 Year Fixed Closed"
+        pattern: '^\s*(?:\d\s+)?(\d{1,2}\.\d{2})\s*%'
+      - product: 5-year fixed
+        label: "5 Year Fixed Closed"
+        pattern: '^\s*(?:\d\s+)?(\d{1,2}\.\d{2})\s*%'
+      - product: 5-year variable
+        label: "5 Year Variable Closed"
+        pattern: '^\s*(?:\d\s+)?(\d{1,2}\.\d{2})\s*%'
+
+CIBC:
+  # Tables of "Posted Rate | Special Offers", 2018 to mid-2024. The 3-year special wasn't published ("Ask for
+  # details"), so there's no 3-year reading for this period; the special offer is the 2nd figure.
+  - until: 2024-06-30
+    rates:
+      - product: 5-year fixed
+        label: "5 years"
+        after: "CIBC Fixed Rate Closed Mortgages"
+        before: "CIBC Fixed Rate Open"
+        pattern: '^\s*\d{1,2}\.\d{2}%\s*(\d{1,2}\.\d{2})%'
+      - product: 5-year variable
+        label: "5 years"
+        after: "CIBC Variable Flex Mortgage"
+        before: "CIBC Variable Rate Open"
+        pattern: '^\s*\d{1,2}\.\d{2}%\s*(\d{1,2}\.\d{2})%'

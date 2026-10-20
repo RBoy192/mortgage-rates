@@ -49,11 +49,50 @@ def weekly_snapshots(url):
     return [picked[k] for k in sorted(picked)]
 
 
+LAYOUTS = yaml.safe_load(open("backfill/layouts.yaml")) if os.path.exists("backfill/layouts.yaml") else {}
+
+
+def items_for(lender, day):
+    """The settings for an archived copy from `day`: an older layout from backfill/layouts.yaml if one covers it."""
+    for era in LAYOUTS.get(lender["name"]) or []:
+        if day <= str(era["until"]):
+            return [i for i in era["rates"] if i.get("enabled", True)]
+    return scraper.active(lender)
+
+
+def read_one(soup, item):
+    if "pattern" not in item and "requires" not in item:
+        return scraper.extract(soup, item)
+    import re
+    if "requires" in item:
+        tags, text = scraper._tags(soup, item.get("after"), item.get("before"))
+        if not any(scraper.norm(item["requires"]) in text[id(t)] for t in tags):
+            raise ValueError(f"section doesn't mention {item['requires']!r}")
+    # Check each place the label appears, in page order, and use the first whose text matches the pattern
+    # (pages often repeat a label in hidden or template blocks before the real table row).
+    want = scraper.norm(item["label"])
+    tags, text = scraper._tags(soup, item.get("after"), item.get("before"))
+    found = scraper._smallest(tags, text, want)
+    shown = ""
+    for el in found[:10]:
+        for _ in range(6):  # climb from the label to the row that also holds the figures
+            if el is None or el.name == "[document]":
+                break
+            shown = text[id(el)].split(want, 1)[-1].strip()
+            if scraper.RATE_RE.search(shown):
+                break
+            el = el.parent
+        m = re.search(item["pattern"], shown[:160], re.I)
+        if m:
+            return scraper.check_range(float(m.group(1))), shown[:100]
+    raise ValueError(f"text after the label doesn't match the expected layout: {shown[:60]!r}")
+
+
 def read(soup, items):
     found, errors = {}, {}
     for item in items:
         try:
-            found[item["product"]] = scraper.extract(soup, item)
+            found[item["product"]] = read_one(soup, item)
         except Exception as e:
             errors[item["product"]] = str(e)[:120]
     return found, errors
@@ -67,6 +106,7 @@ def main(name, out):
     rows, use_browser = [], lender.get("mode") in ("browser", "manual")
     for ts, original in snaps:
         day = f"{ts[:4]}-{ts[4:6]}-{ts[6:8]}"
+        items = items_for(lender, day)  # an older page layout, if backfill/layouts.yaml has one for this date
         found, errors = {}, {i["product"]: "not read" for i in items}
         try:  # the page exactly as archived, without the archive's toolbar or link rewriting
             found, errors = read(BeautifulSoup(get(f"https://web.archive.org/web/{ts}id_/{original}").text, "html.parser"), items)
