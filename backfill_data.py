@@ -46,10 +46,24 @@ SOURCES = [
 
 def main(out, start="2017-01-01"):
     rows = []
+    try:
+        read_all(rows, start)
+    finally:  # save whatever was read, even if something failed part-way
+        with open(out, "w", newline="") as f:
+            w = csv.writer(f)
+            w.writerow(["lender", "product", "date", "archived_at", "rate", "via", "text_read", "error"])
+            w.writerows(rows)
+
+
+def read_all(rows, start):
     for name, url, read in SOURCES:
-        caps = backfill.get(backfill.CDX, params={"url": url, "from": start.replace("-", ""), "to": backfill.END.strftime("%Y%m%d"),
-                                                  "output": "json", "filter": "statuscode:200", "collapse": "timestamp:8", "fl": "timestamp,original"}).json()[1:]
-        print(f"{name}: {len(caps)} days with a saved copy of the data file")
+        try:
+            caps = backfill.get(backfill.CDX, params={"url": url, "from": start.replace("-", ""), "to": backfill.END.strftime("%Y%m%d"),
+                                                      "output": "json", "filter": "statuscode:200", "collapse": "timestamp:8", "fl": "timestamp,original"}).json()[1:]
+        except Exception as e:
+            print(f"{name}: couldn't list the archived copies ({str(e)[:80]})")
+            continue
+        print(f"{name}: {len(caps)} days with a saved copy of the data file", flush=True)
         for ts, original in caps:
             day = f"{ts[:4]}-{ts[4:6]}-{ts[6:8]}"
             try:
@@ -69,10 +83,6 @@ def main(out, start="2017-01-01"):
                 elif name != "Scotiabank" or product != "5-year variable":
                     rows.append([name, product, day, ts, "", "", "", err])
             time.sleep(1.5)
-    with open(out, "w", newline="") as f:
-        w = csv.writer(f)
-        w.writerow(["lender", "product", "date", "archived_at", "rate", "via", "text_read", "error"])
-        w.writerows(rows)
 
 if __name__ == "__main__":
     main(sys.argv[1], *(sys.argv[2:3]))

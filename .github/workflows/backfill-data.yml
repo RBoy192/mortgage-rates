@@ -20,7 +20,7 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
-      - run: python backfill_data.py "backfill/report-data-${{ github.run_id }}.csv" "${{ inputs.since }}"
+      - run: python backfill_data.py "backfill/report-data-${{ github.run_id }}.csv" "${{ inputs.since }}" || echo "finished with errors; saving what was read"
       - name: Commit the report
         run: |
           git config user.name "rates-bot"; git config user.email "rates-bot@users.noreply.github.com"
