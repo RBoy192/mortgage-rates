@@ -326,7 +326,7 @@ const LOGOS = {
   "ICICI Bank Canada": ["https://www.icicibank.ca/favicon.ico"],
   "Access Credit Union": ["https://www.accesscu.ca/media/1266/small-logo.svg"],
   "Assiniboine Credit Union": ["https://www.acu.ca/hubfs/ACU_Digital-_RGB_Asterisk-only-1.png"],
-  "Steinbach Credit Union": ["https://scu.mb.ca/getContentAsset/5a857dfe-9852-4124-b5ab-58cd8501ec0b/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/logo.svg?language=en-CA#svgView(viewBox(0,10,42,42))"]  // just the S mark from the wide logo,
+  "Steinbach Credit Union": ["https://scu.mb.ca/getContentAsset/5a857dfe-9852-4124-b5ab-58cd8501ec0b/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/logo.svg?language=en-CA#svgView(viewBox(0,10,42,42))"],  // just the S mark from the wide logo
   "Beem Credit Union": ["https://beemcreditunion.ca/favicon.ico"],
   "Tru Cooperative Bank": ["https://www.trucooperativebank.ca/content/dam/trucooperativebank/images/logos/tcb/TCB-Favicon_32_BLCK-REV.svg"]
 };
