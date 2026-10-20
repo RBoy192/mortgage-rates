@@ -1,0 +1,46 @@
+name: Measure logo colours (one-off)
+# Started by hand. Downloads each lender's logo (logo_urls.json) and saves its main colours to the "diagnose" branch.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  colours:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow cairosvg requests
+      - name: Measure
+        run: |
+          python - <<'PY' > colours.txt 2>&1 || true
+          import io, json, colorsys, collections, requests, cairosvg
+          from PIL import Image
+          UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"
+          for name, url in json.load(open("logo_urls.json")).items():
+              try:
+                  r = requests.get(url, headers={"User-Agent": UA}, timeout=30); r.raise_for_status()
+                  data = r.content
+                  if url.split("?")[0].endswith(".svg") or data.lstrip()[:5] in (b"<?xml", b"<svg "):
+                      data = cairosvg.svg2png(bytestring=data, output_width=256)
+                  im = Image.open(io.BytesIO(data))
+                  if getattr(im, "n_frames", 1) > 1 or im.format == "ICO":
+                      im.size = max(im.info.get("sizes", [im.size]))
+                  im = im.convert("RGBA"); im.thumbnail((128, 128))
+                  c = collections.Counter()
+                  for (R, G, B, A) in im.getdata():
+                      if A < 160: continue
+                      h, l, s = colorsys.rgb_to_hls(R / 255, G / 255, B / 255)
+                      if s < 0.25 or l > 0.92 or l < 0.08: continue  # skip white, black and greys
+                      c[(R // 8 * 8, G // 8 * 8, B // 8 * 8)] += 1
+                  top = ["#%02X%02X%02X (%d)" % (k + (v,)) for k, v in c.most_common(3)]
+                  print(name, "|", " ".join(top) or "no colour (white/grey/black only)")
+              except Exception as e:
+                  print(name, "| failed:", str(e)[:80])
+          PY
+          cat colours.txt
+          git config user.name "rates-bot"; git config user.email "rates-bot@users.noreply.github.com"
+          git checkout --orphan diagnose; git rm -rqf --cached .; git add colours.txt
+          git commit -qm "Logo colours"; git push -f origin diagnose
