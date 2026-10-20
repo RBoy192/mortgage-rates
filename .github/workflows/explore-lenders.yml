@@ -23,9 +23,8 @@ jobs:
           from urllib.parse import urljoin, urlparse
           from playwright.sync_api import sync_playwright
           START = {
-            "access": ["https://www.accesscu.ca/en/rates"], "steinbach": ["https://scu.mb.ca/rates"], "assiniboine": ["https://www.acu.ca/rates"],
-            "duca": ["https://www.duca.com/rates"], "beem": ["https://www.blueshorefinancial.com/", "https://www.gffg.com/"],
-            "tru": ["https://www.envisionfinancial.ca/", "https://www.islandsavings.ca/", "https://www.valleyfirst.com/"],
+            "steinbach": ["https://scu.mb.ca/rates/borrowing"], "beem": ["https://beemcreditunion.ca/rates"],
+            "tru": ["https://www.trucooperativebank.ca/envision-financial/personal/rates/mortgage-rates"],
           }
           import requests
           for key, starts in START.items():

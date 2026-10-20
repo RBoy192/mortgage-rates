@@ -19,9 +19,9 @@ from urllib.robotparser import RobotFileParser
 
 USER_AGENT = "MortgageRatesBot/1.0 (+https://whatstherate.ca)"
 MIN_RATE, MAX_RATE = 0.5, 15.0  # anything outside this range is treated as a scraping error
-RATE_RE = re.compile(r"(\d{1,2}(?:\.\d{1,3})?)\s*%")
+RATE_RE = re.compile(r"(\d{1,2}(?:[.,]\d{1,3})?)\s*%")  # also "4,89 %" (decimal comma, as some pages write it)
 PLAIN_RE = re.compile(r"(?<![\d.])(\d{1,2}\.\d{2,3})(?![\d.])")  # "5.28" in tables that leave off the % sign (only with  plain: true)
-PRIME_PLUS_RE = re.compile(r"\bP(?:rime)?\s*([+\-\u2212\u2013])\s*(\d{1,2}(?:\.\d{1,3})?)\s*%", re.I)  # "P + 0.34%", "Prime - 0.31%"
+PRIME_PLUS_RE = re.compile(r"\bP(?:rime)?\d?\s*([+\-\u2212\u2013])\s*(\d{1,2}(?:\.\d{1,3})?)\s*%", re.I)  # "P + 0.34%", "Prime - 0.31%"
 SKIP_TAGS = ("script", "style", "noscript", "template")
 OUT, HISTORY, MANUAL = Path("rates.json"), Path("history.json"), Path("manual_rates.yaml")
 MANUAL_MAX_DAYS = 7  # a hand-entered rate older than this is shown as "not refreshed"
@@ -105,7 +105,7 @@ def pick(text, nth=1, plain=False):
     found = RATE_RE.findall(text) or (PLAIN_RE.findall(text) if plain else [])
     if len(found) < nth:
         return None
-    return check_range(float(found[nth - 1]))
+    return check_range(float(found[nth - 1].replace(",", ".")))
 
 
 def _tags(soup, after=None, before=None):

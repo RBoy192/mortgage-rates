@@ -275,3 +275,103 @@
       prime_label: "First National Prime Rate"
       plain: true
       note: "Through mortgage brokers"
+
+# ---- Added October 2026: more credit unions (Saskatchewan, Ontario, New Brunswick) and ICICI Bank Canada ----
+
+# Affinity: the "CU Flex" table is its regular closed mortgage ("Straight Rate", above it, has fewer features);
+# the closed variable rate is shown as "Prime - 0.50%", added to Affinity's own prime rate.
+- name: Affinity Credit Union
+  url: https://www.affinitycu.ca/rates/mortgage-rates
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3 Year Closed"
+      after: "CU Flex"
+      before: "Posted Mortgage Rates"
+    - product: 5-year fixed
+      label: "5 Year Closed"
+      after: "CU Flex"
+      before: "Posted Mortgage Rates"
+    - product: 5-year variable
+      label: "5 Year Closed"
+      after: "Variable Rate Closed Mortgage"
+      prime_label: "Affinity Prime Rate"
+
+# Conexus: the first table lists its everyday rates ("Board rates" below are posted rates); the variable rate is
+# its "Flex Feature mortgage rate" card, which shows the rate after the label.
+- name: Conexus Credit Union
+  url: https://www.conexus.ca/rates/mortgage-rates
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3 year closed"
+      after: "5 year variable closed"
+      before: "Board rates"
+    - product: 5-year fixed
+      label: "5 year closed"
+      after: "5 year variable closed"
+      before: "Board rates"
+    - product: 5-year variable
+      label: "Flex Feature mortgage rate"
+
+# Libro: one table; the variable row reads "from (Prime - 0.30%) 4.150%", so the rate is the 2nd figure.
+- name: Libro Credit Union
+  url: https://www.libro.ca/rates-fees/mortgage/
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3 Year Closed"
+    - product: 5-year fixed
+      label: "5 Year Closed"
+    - product: 5-year variable
+      label: "1st Mortgage Variable 5 Year Closed"
+      nth: 2
+
+# FirstOntario: "Fixed Rate Mortgage" then "Variable Rate Mortgage" tables (the specials above them are high-ratio only).
+- name: FirstOntario Credit Union
+  url: https://www.firstontario.com/personal/rates/
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3-year closed"
+      after: "Fixed Rate Mortgage"
+    - product: 5-year fixed
+      label: "5-year closed"
+      after: "Fixed Rate Mortgage"
+      before: "Variable Rate Mortgage"
+    - product: 5-year variable
+      label: "5-year closed"
+      after: "Variable Rate Mortgage"
+
+# UNI: "Special Offers" rows (written with decimal commas, "4,89 %"); variable: the "Reduced variable rate" row lists
+# the posted rate, then the special offer.
+- name: UNI Financial
+  url: https://www.uni.ca/en/rates/product/residential-mortgage-loans
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3 Years Fixed Rate"
+      note: "Special offer"
+    - product: 5-year fixed
+      label: "5 Years Fixed Rate"
+      note: "Special offer"
+    - product: 5-year variable
+      label: "Reduced variable rate"
+      nth: 2
+      note: "Special offer"
+
+# ICICI Bank Canada: publishes only posted rates (its special "iGlobal" rates say to contact a specialist).
+- name: ICICI Bank Canada
+  url: https://www.icicibank.ca/personal/creditservices/mortgages/global-customer-program
+  mode: auto
+  rates:
+    - product: 3-year fixed
+      label: "3-Year Fixed Closed"
+      note: "Posted rate"
+    - product: 5-year fixed
+      label: "5-Year Fixed Closed"
+      note: "Posted rate"
+    - product: 5-year variable
+      label: "5-Year Variable Closed"
+      prime_label: "ICICI Bank Canada Prime Rate"
+      note: "Posted rate"

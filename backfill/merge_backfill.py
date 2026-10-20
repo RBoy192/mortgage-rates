@@ -2,7 +2,7 @@ import csv, json, re, collections, sys
 rows=list(csv.DictReader(open(sys.argv[1] if len(sys.argv) > 1 else "backfill/backfill_report.csv")))  # or a report-<run>.csv
 def ok(r):
     if not r["rate"]: return False
-    t=r["text_read"]; v=float(r["rate"])
+    t=r["text_read"].replace(",", "."); v=float(r["rate"])  # decimal commas read as points
     if "${" in t: return False
     if "with prime" in t: return True
     if re.fullmatch(r"\d{1,2}\.\d{2,3}", t.strip()): return abs(float(t)-v)<1e-9   # a table cell holding just the number (plain: true)
