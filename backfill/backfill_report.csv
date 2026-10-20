@@ -1,871 +1,376 @@
 lender,product,date,archived_at,rate,via,text_read,error
-Coast Capital Savings,3-year fixed,2017-09-19,20170919222714,2.74,page,- closed 2.740% 2 2.940% 2,
-Coast Capital Savings,5-year fixed,2017-09-19,20170919222714,3.04,page,- closed 3.040% 2 3.240% 2,
-Coast Capital Savings,5-year variable,2017-09-19,20170919222714,2.6,page,- closed 2.600% 3,
-Coast Capital Savings,3-year fixed,2017-10-28,20171028095020,3.04,page,- closed 3.040% 2 3.240% 2,
-Coast Capital Savings,5-year fixed,2017-10-28,20171028095020,3.29,page,- closed 3.290% 2 3.490% 2,
-Coast Capital Savings,5-year variable,2017-10-28,20171028095020,2.55,page,- closed (up to 25 year amortization) 2.550% 3,
-Coast Capital Savings,3-year fixed,2019-08-18,20190818092250,2.79,page,- closed 2.790% 2 2.890% 2,
-Coast Capital Savings,5-year fixed,2019-08-18,20190818092250,2.89,page,- closed 2.890% 2 2.990% 2,
-Coast Capital Savings,5-year variable,2019-08-18,20190818092250,3.2,page,- closed (up to 25 year amortization) 3.200% 3,
-Coast Capital Savings,3-year fixed,2019-10-20,20191020215656,2.69,page,- closed 2.690% 2 2.790% 2,
-Coast Capital Savings,5-year fixed,2019-10-20,20191020215656,2.89,page,- closed 2.890% 2 2.990% 2,
-Coast Capital Savings,5-year variable,2019-10-20,20191020215656,3.2,page,- closed (up to 25 year amortization) 3.200% 3,
-Coast Capital Savings,3-year fixed,2019-12-06,20191206105919,2.79,page,- closed 2.790% 2 2.890% 2,
-Coast Capital Savings,5-year fixed,2019-12-06,20191206105919,2.89,page,- closed 2.890% 2 2.990% 2,
-Coast Capital Savings,5-year variable,2019-12-06,20191206105919,3.2,page,- closed (up to 25 year amortization) 3.200% 3,
-Coast Capital Savings,3-year fixed,2020-08-10,20200810052532,2.24,page,- closed 2.240% 2 2.340% 2,
-Coast Capital Savings,5-year fixed,2020-08-10,20200810052532,2.24,page,- closed 2.240% 2 2.340% 2,
-Coast Capital Savings,5-year variable,2020-08-10,20200810052532,2.05,page,- closed (up to 25 year amortization) 2.050% 3,
-Coast Capital Savings,3-year fixed,2020-10-30,20201030111459,1.94,page,- closed 1.940% 2 2.040% 2,
-Coast Capital Savings,5-year fixed,2020-10-30,20201030111459,1.89,page,- closed 1.890% 2 1.990% 2,
-Coast Capital Savings,5-year variable,2020-10-30,20201030111459,1.8,page,- closed (up to 25 year amortization) 1.800% 3,
-Coast Capital Savings,3-year fixed,2021-01-22,20210122040109,1.89,page,- closed 1.890% 2 1.990% 2,
-Coast Capital Savings,5-year fixed,2021-01-22,20210122040109,1.84,page,- closed 1.840% 2 1.940% 2,
-Coast Capital Savings,5-year variable,2021-01-22,20210122040109,1.65,page,- closed (up to 25 year amortization) 1.650% 3,
-Coast Capital Savings,3-year fixed,2021-04-10,20210410113744,1.99,page,- closed 1.990% 2 2.090% 2,
-Coast Capital Savings,5-year fixed,2021-04-10,20210410113744,2.14,page,- closed 2.140% 2 2.240% 2,
-Coast Capital Savings,5-year variable,2021-04-10,20210410113744,1.4,page,- closed (up to 25 year amortization) 1.400% 3,
-Coast Capital Savings,3-year fixed,2021-04-20,20210420103920,1.99,page,- closed 1.990% 2 2.090% 2,
-Coast Capital Savings,5-year fixed,2021-04-20,20210420103920,2.14,page,- closed 2.140% 2 2.240% 2,
-Coast Capital Savings,5-year variable,2021-04-20,20210420103920,1.4,page,- closed (up to 25 year amortization) 1.400% 3,
-Coast Capital Savings,3-year fixed,2021-07-27,20210727091629,1.99,page,- closed 1.990% 2 2.090% 2,
-Coast Capital Savings,5-year fixed,2021-07-27,20210727091629,2.24,page,- closed 2.240% 2 2.340% 2,
-Coast Capital Savings,5-year variable,2021-07-27,20210727091629,1.45,page,- closed (up to 25 year amortization) 1.450% 3,
-Coast Capital Savings,3-year fixed,2021-08-29,20210829062707,1.99,page,- closed 1.990% 2 2.090% 2,
-Coast Capital Savings,5-year fixed,2021-08-29,20210829062707,2.24,page,- closed 2.240% 2 2.340% 2,
-Coast Capital Savings,5-year variable,2021-08-29,20210829062707,1.45,page,- closed (up to 25 year amortization) 1.450% 3,
-Coast Capital Savings,3-year fixed,2021-09-25,20210925033609,1.99,page,- closed 1.990% 2 2.090% 2,
-Coast Capital Savings,5-year fixed,2021-09-25,20210925033609,2.24,page,- closed 2.240% 2 2.340% 2,
-Coast Capital Savings,5-year variable,2021-09-25,20210925033609,1.4,page,- closed (up to 25 year amortization) 1.400% 3,
-Coast Capital Savings,3-year fixed,2021-12-08,20211208030600,2.54,page,- closed 2.540% 2 2.640% 2,
-Coast Capital Savings,5-year fixed,2021-12-08,20211208030600,2.72,page,- closed 2.720% 2 2.820% 2,
-Coast Capital Savings,5-year variable,2021-12-08,20211208030600,1.35,page,- closed (up to 25 year amortization) 1.350% 3,
-Coast Capital Savings,3-year fixed,2022-05-29,20220529120749,4.04,page,- closed 4.040% 2 4.140% 2,
-Coast Capital Savings,5-year fixed,2022-05-29,20220529120749,4.24,page,- closed 4.240% 2 4.340% 2,
-Coast Capital Savings,5-year variable,2022-05-29,20220529120749,2.69,page,- closed (up to 25 year amortization) 2.690% 3,
-Coast Capital Savings,3-year fixed,2022-08-19,20220819230832,5.1,page,5.1% 2 5.2% 2,
-Coast Capital Savings,5-year fixed,2022-08-19,20220819230832,5.24,page,5.24% 2 5.34% 2,
-Coast Capital Savings,5-year variable,2022-08-19,20220819230832,4.24,page,4.24% 3 4.34%,
-Coast Capital Savings,3-year fixed,2022-09-24,20220924232647,5.29,page,5.29% 2 5.39% 2,
-Coast Capital Savings,5-year fixed,2022-09-24,20220924232647,5.35,page,5.35% 2 5.45% 2,
-Coast Capital Savings,5-year variable,2022-09-24,20220924232647,4.99,page,4.99% 3 5.09%,
-Coast Capital Savings,3-year fixed,2022-12-07,20221207102431,5.44,page,5.44% 2 5.54% 2,
-Coast Capital Savings,5-year fixed,2022-12-07,20221207102431,5.44,page,5.44% 2 5.54% 2,
-Coast Capital Savings,5-year variable,2022-12-07,20221207102431,5.64,page,5.64% 3 5.74%,
-Coast Capital Savings,3-year fixed,2023-02-09,20230209031714,5.14,page,5.14% 2 5.24% 2,
-Coast Capital Savings,5-year fixed,2023-02-09,20230209031714,5.24,page,5.24% 2 5.34% 2,
-Coast Capital Savings,5-year variable,2023-02-09,20230209031714,6.39,page,6.39% 3 6.49%,
-Coast Capital Savings,3-year fixed,2023-03-26,20230326182208,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230326182208if_/https://www.
-Coast Capital Savings,5-year fixed,2023-03-26,20230326182208,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230326182208if_/https://www.
-Coast Capital Savings,5-year variable,2023-03-26,20230326182208,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230326182208if_/https://www.
-Coast Capital Savings,3-year fixed,2023-05-23,20230523131829,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230523131829if_/https://www.
-Coast Capital Savings,5-year fixed,2023-05-23,20230523131829,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230523131829if_/https://www.
-Coast Capital Savings,5-year variable,2023-05-23,20230523131829,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230523131829if_/https://www.
-Coast Capital Savings,3-year fixed,2023-08-03,20230803181547,6.04,page,6.04% 2 6.14% 2,
-Coast Capital Savings,5-year fixed,2023-08-03,20230803181547,5.79,page,5.79% 2 5.89% 2,
-Coast Capital Savings,5-year variable,2023-08-03,20230803181547,6.79,page,6.79% 3 6.89%,
-Coast Capital Savings,3-year fixed,2023-09-27,20230927190827,6.19,page,6.19% 2 6.29% 2,
-Coast Capital Savings,5-year fixed,2023-09-27,20230927190827,5.89,page,5.89% 2 5.99% 2,
-Coast Capital Savings,5-year variable,2023-09-27,20230927190827,6.89,page,6.89% 3 6.99%,
-Coast Capital Savings,3-year fixed,2023-10-19,20231019015424,6.39,page,6.39% (6.43% apr) 2 6.49% (6.53% apr) 2,
-Coast Capital Savings,5-year fixed,2023-10-19,20231019015424,6.09,page,6.09% (6.11% apr) 2 6.19% (6.21% apr) 2,
-Coast Capital Savings,5-year variable,2023-10-19,20231019015424,6.79,page,6.79% (6.81% apr) 3 6.89% (6.91% apr) 3,
-Coast Capital Savings,3-year fixed,2024-01-10,20240110212944,5.84,page,5.84% 5 5.88% 2 5.94% 5 5.98% 2,
-Coast Capital Savings,5-year fixed,2024-01-10,20240110212944,5.54,page,5.54% 5 5.56% 2 5.64% 5 5.66% 2,
-Coast Capital Savings,5-year variable,2024-01-10,20240110212944,6.69,page,6.69% 4 6.71% 2 6.79% 4 6.81% 2,
-Coast Capital Savings,3-year fixed,2024-01-18,20240118042739,5.74,page,5.74% 5 5.78% 2 5.84% 5 5.88% 2,
-Coast Capital Savings,5-year fixed,2024-01-18,20240118042739,5.39,page,5.39% 5 5.41% 2 5.49% 5 5.51% 2,
-Coast Capital Savings,5-year variable,2024-01-18,20240118042739,6.59,page,6.59% 4 6.61% 2 6.69% 4 6.71% 2,
-Coast Capital Savings,3-year fixed,2024-02-25,20240225084136,5.44,page,5.44% 5 5.48% 2 5.54% 5 5.58% 2,
-Coast Capital Savings,5-year fixed,2024-02-25,20240225084136,5.29,page,5.29% 5 5.31% 2 5.39% 5 5.41% 2,
-Coast Capital Savings,5-year variable,2024-02-25,20240225084136,6.59,page,6.59% 4 6.61% 2 6.69% 4 6.71% 2,
-Coast Capital Savings,3-year fixed,2024-04-19,20240419093013,5.04,page,5.04% 5 5.08% 2 5.14% 5 5.18% 2,
-Coast Capital Savings,5-year fixed,2024-04-19,20240419093013,4.94,page,4.94% 5 4.96% 2 5.04% 5 5.06% 2,
-Coast Capital Savings,5-year variable,2024-04-19,20240419093013,6.49,page,6.49% 4 6.51% 2 6.59% 4 6.61% 2,
-Coast Capital Savings,3-year fixed,2024-05-10,20240510003507,5.04,page,5.04% 5 5.07% 2 5.14% 5 5.17% 2,
-Coast Capital Savings,5-year fixed,2024-05-10,20240510003507,4.94,page,4.94% 5 4.96% 2 5.04% 5 5.06% 2,
-Coast Capital Savings,5-year variable,2024-05-10,20240510003507,6.49,page,6.49% 4 6.51% 2 6.59% 4 6.61% 2,
-Coast Capital Savings,3-year fixed,2024-06-05,20240605031511,5.29,page,5.29% 5 5.32% 2 5.39% 5 5.42% 2,
-Coast Capital Savings,5-year fixed,2024-06-05,20240605031511,5.04,page,5.04% 5 5.06% 2 5.14% 5 5.16% 2,
-Coast Capital Savings,5-year variable,2024-06-05,20240605031511,6.69,page,6.69% 4 6.71% 2 6.79% 4 6.81% 2,
-Coast Capital Savings,3-year fixed,2024-06-27,20240627115018,5.29,page,5.29% 5 5.32% 2 5.39% 5 5.42% 2,
-Coast Capital Savings,5-year fixed,2024-06-27,20240627115018,5.04,page,5.04% 5 5.06% 2 5.14% 5 5.16% 2,
-Coast Capital Savings,5-year variable,2024-06-27,20240627115018,6.44,page,6.44% 4 6.46% 2 6.54% 4 6.56% 2,
-Coast Capital Savings,3-year fixed,2024-07-14,20240714202119,5.19,page,5.19% 5 5.22% 2 5.29% 5 5.32% 2,
-Coast Capital Savings,5-year fixed,2024-07-14,20240714202119,5.04,page,5.04% 5 5.06% 2 5.14% 5 5.16% 2,
-Coast Capital Savings,5-year variable,2024-07-14,20240714202119,6.44,page,6.44% 4 6.46% 2 6.54% 4 6.56% 2,
-Coast Capital Savings,3-year fixed,2024-09-13,20240913193423,4.54,page,4.54% 5 4.57% 2 4.64% 5 4.67% 2,
-Coast Capital Savings,5-year fixed,2024-09-13,20240913193423,4.44,page,4.44% 5 4.46% 2 4.54% 5 4.56% 2,
-Coast Capital Savings,5-year variable,2024-09-13,20240913193423,5.64,page,5.64% 4 5.66% 2 5.74% 4 5.76% 2,
-Coast Capital Savings,3-year fixed,2024-10-01,20241001033746,4.49,page,4.49% 5 4.52% 2 4.59% 5 4.62% 2,
-Coast Capital Savings,5-year fixed,2024-10-01,20241001033746,4.39,page,4.39% 5 4.41% 2 4.49% 5 4.51% 2,
-Coast Capital Savings,5-year variable,2024-10-01,20241001033746,5.54,page,5.54% 4 5.56% 2 5.64% 4 5.66% 2,
-Coast Capital Savings,3-year fixed,2024-10-12,20241012195557,4.34,page,4.34% 5 4.37% 2 4.44% 5 4.47% 2,
-Coast Capital Savings,5-year fixed,2024-10-12,20241012195557,4.34,page,4.34% 5 4.36% 2 4.44% 5 4.46% 2,
-Coast Capital Savings,5-year variable,2024-10-12,20241012195557,5.54,page,5.54% 4 5.56% 2 5.64% 4 5.66% 2,
-Coast Capital Savings,3-year fixed,2024-11-19,20241119122345,4.24,page,4.24% 5 4.27% 2 4.34% 5 4.37% 2,
-Coast Capital Savings,5-year fixed,2024-11-19,20241119122345,4.34,page,4.34% 5 4.36% 2 4.44% 5 4.46% 2,
-Coast Capital Savings,5-year variable,2024-11-19,20241119122345,5.04,page,5.04% 4 5.06% 2 5.14% 4 5.16% 2,
-Coast Capital Savings,3-year fixed,2025-01-14,20250114222557,4.19,page,4.19% 5 4.22% 2 4.29% 5 4.32% 2,
-Coast Capital Savings,5-year fixed,2025-01-14,20250114222557,4.19,page,4.19% 5 4.21% 2 4.29% 5 4.31% 2,
-Coast Capital Savings,5-year variable,2025-01-14,20250114222557,4.54,page,4.54% 4 4.56% 2 4.64% 4 4.66% 2,
-Coast Capital Savings,3-year fixed,2025-02-19,20250219220652,4.24,page,4.24% 5 4.27% 2 4.34% 5 4.37% 2,
-Coast Capital Savings,5-year fixed,2025-02-19,20250219220652,4.29,page,4.29% 5 4.31% 2 4.39% 5 4.41% 2,
-Coast Capital Savings,5-year variable,2025-02-19,20250219220652,4.39,page,4.39% 4 4.41% 2 4.49% 4 4.51% 2,
-Coast Capital Savings,3-year fixed,2025-04-16,20250416015111,4.04,page,4.04% 5 4.08% 2 4.14% 5 4.18% 2,
-Coast Capital Savings,5-year fixed,2025-04-16,20250416015111,4.14,page,4.14% 5 4.16% 2 4.24% 5 4.26% 2,
-Coast Capital Savings,5-year variable,2025-04-16,20250416015111,4.14,page,4.14% 4 4.16% 2 4.24% 4 4.26% 2,
-Coast Capital Savings,3-year fixed,2025-05-14,20250514175858,4.14,page,4.14% 5 4.18% 2 4.24% 5 4.28% 2,
-Coast Capital Savings,5-year fixed,2025-05-14,20250514175858,4.24,page,4.24% 5 4.26% 2 4.34% 5 4.36% 2,
-Coast Capital Savings,5-year variable,2025-05-14,20250514175858,4.39,page,4.39% 4 4.41% 2 4.49% 4 4.51% 2,
-Coast Capital Savings,3-year fixed,2025-05-23,20250523220542,4.14,page,4.14% 5 4.18% 2 4.24% 5 4.28% 2,
-Coast Capital Savings,5-year fixed,2025-05-23,20250523220542,4.24,page,4.24% 5 4.26% 2 4.34% 5 4.36% 2,
-Coast Capital Savings,5-year variable,2025-05-23,20250523220542,4.39,page,4.39% 4 4.41% 2 4.49% 4 4.51% 2,
-Coast Capital Savings,3-year fixed,2025-06-22,20250622153228,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250622153228if_/https://www.
-Coast Capital Savings,5-year fixed,2025-06-22,20250622153228,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250622153228if_/https://www.
-Coast Capital Savings,5-year variable,2025-06-22,20250622153228,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250622153228if_/https://www.
-Coast Capital Savings,3-year fixed,2025-07-25,20250725093945,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250725093945if_/https://www.
-Coast Capital Savings,5-year fixed,2025-07-25,20250725093945,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250725093945if_/https://www.
-Coast Capital Savings,5-year variable,2025-07-25,20250725093945,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250725093945if_/https://www.
-Coast Capital Savings,3-year fixed,2025-08-06,20250806142444,4.24,page,4.24% 5 4.28% 2 4.34% 5 4.38% 2,
-Coast Capital Savings,5-year fixed,2025-08-06,20250806142444,4.29,page,4.29% 5 4.31% 2 4.39% 5 4.41% 2,
-Coast Capital Savings,5-year variable,2025-08-06,20250806142444,4.39,page,4.39% 4 4.41% 2 4.49% 4 4.51% 2,
-Coast Capital Savings,3-year fixed,2025-09-03,20250903031505,4.09,page,4.09% 5 4.13% 2 4.19% 5 4.23% 2,
-Coast Capital Savings,5-year fixed,2025-09-03,20250903031505,4.19,page,4.19% 5 4.21% 2 4.29% 5 4.31% 2,
-Coast Capital Savings,5-year variable,2025-09-03,20250903031505,4.29,page,4.29% 4 4.31% 2 4.39% 4 4.41% 2,
-Coast Capital Savings,3-year fixed,2025-09-15,20250915100213,3.99,page,3.99% 5 4.03% 2 4.09% 5 4.13% 2,
-Coast Capital Savings,5-year fixed,2025-09-15,20250915100213,4.09,page,4.09% 5 4.11% 2 4.19% 5 4.21% 2,
-Coast Capital Savings,5-year variable,2025-09-15,20250915100213,4.24,page,4.24% 4 4.26% 2 4.34% 4 4.36% 2,
-Coast Capital Savings,3-year fixed,2025-10-09,20251009233225,3.99,page,3.99% 5 4.03% 2 4.09% 5 4.13% 2,
-Coast Capital Savings,5-year fixed,2025-10-09,20251009233225,4.09,page,4.09% 5 4.11% 2 4.19% 5 4.21% 2,
-Coast Capital Savings,5-year variable,2025-10-09,20251009233225,3.99,page,3.99% 4 4.01% 2 4.09% 4 4.11% 2,
-Coast Capital Savings,3-year fixed,2025-11-30,20251130210933,3.84,page,3.84% 5 3.88% 2 3.94% 5 3.98% 2,
-Coast Capital Savings,5-year fixed,2025-11-30,20251130210933,3.94,page,3.94% 5 3.96% 2 4.04% 5 4.06% 2,
-Coast Capital Savings,5-year variable,2025-11-30,20251130210933,3.69,page,3.69% 4 3.71% 2 3.79% 4 3.81% 2,
-Coast Capital Savings,3-year fixed,2025-12-12,20251212004421,3.84,page,3.84% 5 3.88% 2 3.94% 5 3.98% 2,
-Coast Capital Savings,5-year fixed,2025-12-12,20251212004421,3.94,page,3.94% 5 3.96% 2 4.04% 5 4.06% 2,
-Coast Capital Savings,5-year variable,2025-12-12,20251212004421,3.69,page,3.69% 4 3.71% 2 3.79% 4 3.81% 2,
-Coast Capital Savings,3-year fixed,2026-02-16,20260216015437,3.94,page,3.94% 5 3.98% 2 4.04% 5 4.08% 2,
-Coast Capital Savings,5-year fixed,2026-02-16,20260216015437,4.09,page,4.09% 5 4.11% 2 4.19% 5 4.21% 2,
-Coast Capital Savings,5-year variable,2026-02-16,20260216015437,3.74,page,3.74% 4 3.76% 2 3.84% 4 3.86% 2,
-Coast Capital Savings,3-year fixed,2026-03-31,20260331232011,3.89,page,3.89% 5 3.93% 2 3.99% 5 4.03% 2,
-Coast Capital Savings,5-year fixed,2026-03-31,20260331232011,4.09,page,4.09% 5 4.11% 2 4.19% 5 4.21% 2,
-Coast Capital Savings,5-year variable,2026-03-31,20260331232011,3.74,page,3.74% 4 3.76% 2 3.84% 4 3.86% 2,
-First National,3-year fixed,2016-12-22,20161222224741,,,,no table row labelled 'Conventional'
-First National,5-year fixed,2016-12-22,20161222224741,,,,no table row labelled 'Conventional'
-First National,5-year variable,2016-12-22,20161222224741,,,,no table row labelled 'Conventional'
-First National,3-year fixed,2017-06-06,20170606171023,2.64,page,2.64%,
-First National,5-year fixed,2017-06-06,20170606171023,2.79,page,2.79%,
-First National,5-year variable,2017-06-06,20170606171023,,,,no table row labelled 'Conventional'
-First National,3-year fixed,2018-10-12,20181012151544,3.84,page,3.84,
-First National,5-year fixed,2018-10-12,20181012151544,3.94,page,3.94,
-First National,5-year variable,2018-10-12,20181012151544,,,,no table row labelled 'Conventional'
-First National,3-year fixed,2018-10-15,20181015232528,3.84,page,3.84,
-First National,5-year fixed,2018-10-15,20181015232528,3.94,page,3.94,
-First National,5-year variable,2018-10-15,20181015232528,,,,no table row labelled 'Conventional'
-First National,3-year fixed,2019-01-11,20190111172044,3.99,page,3.99,
-First National,5-year fixed,2019-01-11,20190111172044,3.79,page,3.79,
-First National,5-year variable,2019-01-11,20190111172044,,,,no table row labelled 'Conventional'
-First National,3-year fixed,2019-04-13,20190413164227,3.59,page,3.59,
-First National,5-year fixed,2019-04-13,20190413164227,3.24,page,3.24,
-First National,5-year variable,2019-04-13,20190413164227,,,,no table row labelled 'Conventional'
-First National,3-year fixed,2019-07-19,20190719101301,3.34,page,3.34,
-First National,5-year fixed,2019-07-19,20190719101301,3.09,page,3.09,
-First National,5-year variable,2019-07-19,20190719101301,,,,no table row labelled 'Conventional'
-First National,3-year fixed,2019-08-20,20190820031534,2.99,page,2.99,
-First National,5-year fixed,2019-08-20,20190820031534,2.94,page,2.94,
-First National,5-year variable,2019-08-20,20190820031534,,,,no table row labelled 'Conventional'
-First National,3-year fixed,2019-09-18,20190918050536,2.99,page,2.99,
-First National,5-year fixed,2019-09-18,20190918050536,2.94,page,2.94,
-First National,5-year variable,2019-09-18,20190918050536,,,,no table row labelled 'Conventional'
-First National,3-year fixed,2019-11-12,20191112212811,3.09,page,3.09,
-First National,5-year fixed,2019-11-12,20191112212811,3.09,page,3.09,
-First National,5-year variable,2019-11-12,20191112212811,,,,no table row labelled 'Conventional'
-First National,3-year fixed,2020-05-14,20200514024014,2.94,page,2.94,
-First National,5-year fixed,2020-05-14,20200514024014,2.79,page,2.79,
-First National,5-year variable,2020-05-14,20200514024014,,,,no table row labelled 'Conventional'
-First National,3-year fixed,2020-08-14,20200814045814,2.24,page,2.24,
-First National,5-year fixed,2020-08-14,20200814045814,2.19,page,2.19,
-First National,5-year variable,2020-08-14,20200814045814,2.05,page,prime - 0.40% for the entire term with prime 2.45%,
-First National,3-year fixed,2020-09-20,20200920140255,2.14,page,2.14,
-First National,5-year fixed,2020-09-20,20200920140255,2.04,page,2.04,
-First National,5-year variable,2020-09-20,20200920140255,1.95,page,prime - 0.50% for the entire term with prime 2.45%,
-First National,3-year fixed,2020-09-29,20200929072905,2.14,page,2.14,
-First National,5-year fixed,2020-09-29,20200929072905,2.04,page,2.04,
-First National,5-year variable,2020-09-29,20200929072905,1.95,page,prime - 0.50% for the entire term with prime 2.45%,
-First National,3-year fixed,2020-10-24,20201024090357,2.14,page,2.14,
-First National,5-year fixed,2020-10-24,20201024090357,2.04,page,2.04,
-First National,5-year variable,2020-10-24,20201024090357,1.95,page,prime - 0.50% for the entire term with prime 2.45%,
-First National,3-year fixed,2020-11-11,20201111220225,2.14,page,2.14,
-First National,5-year fixed,2020-11-11,20201111220225,2.04,page,2.04,
-First National,5-year variable,2020-11-11,20201111220225,1.95,page,prime - 0.50% for the entire term with prime 2.45%,
-First National,3-year fixed,2020-11-25,20201125051400,2.14,page,2.14,
-First National,5-year fixed,2020-11-25,20201125051400,2.04,page,2.04,
-First National,5-year variable,2020-11-25,20201125051400,1.95,page,prime - 0.50% for the entire term with prime 2.45%,
-First National,3-year fixed,2021-01-17,20210117031643,2.14,page,2.14,
-First National,5-year fixed,2021-01-17,20210117031643,1.94,page,1.94,
-First National,5-year variable,2021-01-17,20210117031643,1.7,page,prime - 0.75% for the entire term with prime 2.45%,
-First National,3-year fixed,2021-01-24,20210124214406,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20210124214406if_/https://www6
-First National,5-year fixed,2021-01-24,20210124214406,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20210124214406if_/https://www6
-First National,5-year variable,2021-01-24,20210124214406,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20210124214406if_/https://www6
-First National,3-year fixed,2021-03-03,20210303082537,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20210303082537if_/https://www5
-First National,5-year fixed,2021-03-03,20210303082537,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20210303082537if_/https://www5
-First National,5-year variable,2021-03-03,20210303082537,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20210303082537if_/https://www5
-First National,3-year fixed,2021-04-12,20210412032522,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20210412032522if_/https://www6
-First National,5-year fixed,2021-04-12,20210412032522,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20210412032522if_/https://www6
-First National,5-year variable,2021-04-12,20210412032522,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20210412032522if_/https://www6
-First National,3-year fixed,2021-05-15,20210515203556,2.14,page,2.14,
-First National,5-year fixed,2021-05-15,20210515203556,2.34,page,2.34,
-First National,5-year variable,2021-05-15,20210515203556,1.55,page,prime - 0.90% for the entire term with prime 2.45%,
-First National,3-year fixed,2021-06-24,20210624150958,2.14,page,2.14,
-First National,5-year fixed,2021-06-24,20210624150958,2.34,page,2.34,
-First National,5-year variable,2021-06-24,20210624150958,1.55,page,prime - 0.90% for the entire term with prime 2.45%,
-First National,3-year fixed,2021-07-24,20210724043613,2.14,page,2.14,
-First National,5-year fixed,2021-07-24,20210724043613,2.34,page,2.34,
-First National,5-year variable,2021-07-24,20210724043613,1.55,page,prime - 0.90% for the entire term with prime 2.45%,
-First National,3-year fixed,2021-09-23,20210923174521,2.14,page,2.14,
-First National,5-year fixed,2021-09-23,20210923174521,2.09,page,2.09,
-First National,5-year variable,2021-09-23,20210923174521,1.45,page,prime - 1.00% for the entire term with prime 2.45%,
-First National,3-year fixed,2022-01-19,20220119042904,2.79,page,2.79,
-First National,5-year fixed,2022-01-19,20220119042904,2.94,page,2.94,
-First National,5-year variable,2022-01-19,20220119042904,1.55,page,prime - 0.90% for the entire term with prime 2.45%,
-First National,3-year fixed,2022-05-23,20220523051901,4.64,page,4.64,
-First National,5-year fixed,2022-05-23,20220523051901,4.84,page,4.84,
-First National,5-year variable,2022-05-23,20220523051901,2.7,page,prime - 0.50% for the entire term with prime 3.2%,
-First National,3-year fixed,2022-06-25,20220625015500,5.39,page,5.39,
-First National,5-year fixed,2022-06-25,20220625015500,5.49,page,5.49,
-First National,5-year variable,2022-06-25,20220625015500,3.3,page,prime - 0.40% for the entire term with prime 3.7%,
-First National,3-year fixed,2022-08-07,20220807190134,5.64,page,5.64,
-First National,5-year fixed,2022-08-07,20220807190134,5.64,page,5.64,
-First National,5-year variable,2022-08-07,20220807190134,4.3,page,prime - 0.40% for the entire term with prime 4.7%,
-First National,3-year fixed,2022-11-29,20221129005405,5.59,page,5.59,
-First National,5-year fixed,2022-11-29,20221129005405,5.54,page,5.54,
-First National,5-year variable,2022-11-29,20221129005405,5.55,page,prime - 0.40% for the entire term with prime 5.95%,
-First National,3-year fixed,2023-01-31,20230131182919,5.34,page,5.34,
-First National,5-year fixed,2023-01-31,20230131182919,5.24,page,5.24,
-First National,5-year variable,2023-01-31,20230131182919,6.45,page,prime - 0.25% for the entire term with prime 6.7%,
-First National,3-year fixed,2023-03-21,20230321114101,5.34,page,5.34,
-First National,5-year fixed,2023-03-21,20230321114101,5.24,page,5.24,
-First National,5-year variable,2023-03-21,20230321114101,6.45,page,prime - 0.25% for the entire term with prime 6.7%,
-First National,3-year fixed,2023-06-07,20230607021657,5.34,page,5.34,
-First National,5-year fixed,2023-06-07,20230607021657,5.14,page,5.14,
-First National,5-year variable,2023-06-07,20230607021657,6.45,page,prime - 0.25% for the entire term with prime 6.7%,
-First National,3-year fixed,2023-09-29,20230929101435,6.86,page,6.86,
-First National,5-year fixed,2023-09-29,20230929101435,6.49,page,6.49,
-First National,5-year variable,2023-09-29,20230929101435,7.05,page,prime - 0.15% for the entire term with prime 7.2%,
-First National,3-year fixed,2024-01-19,20240119042950,5.96,page,5.96,
-First National,5-year fixed,2024-01-19,20240119042950,5.72,page,5.72,
-First National,5-year variable,2024-01-19,20240119042950,7.1,page,prime - 0.10% for the entire term with prime 7.2%,
-First National,3-year fixed,2024-01-24,20240124222250,5.96,page,5.96,
-First National,5-year fixed,2024-01-24,20240124222250,5.72,page,5.72,
-First National,5-year variable,2024-01-24,20240124222250,7.1,page,prime - 0.10% for the entire term with prime 7.2%,
-First National,3-year fixed,2024-02-25,20240225050739,5.91,page,5.91,
-First National,5-year fixed,2024-02-25,20240225050739,5.67,page,5.67,
-First National,5-year variable,2024-02-25,20240225050739,7.05,page,prime - 0.15% for the entire term with prime 7.2%,
-First National,3-year fixed,2024-06-16,20240616054509,5.76,page,5.76,
-First National,5-year fixed,2024-06-16,20240616054509,5.67,page,5.67,
-First National,5-year variable,2024-06-16,20240616054509,6.8,page,prime - 0.15% for the entire term with prime 6.95%,
-First National,3-year fixed,2024-08-10,20240810032052,5.5,page,5.50,
-First National,5-year fixed,2024-08-10,20240810032052,5.4,page,5.40,
-First National,5-year variable,2024-08-10,20240810032052,6.55,page,prime - 0.15% for the entire term with prime 6.7%,
-First National,3-year fixed,2024-09-08,20240908062146,5.22,page,5.22,
-First National,5-year fixed,2024-09-08,20240908062146,5.12,page,5.12,
-First National,5-year variable,2024-09-08,20240908062146,6.3,page,prime - 0.15% for the entire term with prime 6.45%,
-First National,3-year fixed,2024-10-14,20241014121542,4.94,page,4.94,
-First National,5-year fixed,2024-10-14,20241014121542,4.84,page,4.84,
-First National,5-year variable,2024-10-14,20241014121542,6.4,page,prime - 0.05% for the entire term with prime 6.45%,
-First National,3-year fixed,2024-12-12,20241212212942,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20241212212942if_/https://www.
-First National,5-year fixed,2024-12-12,20241212212942,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20241212212942if_/https://www.
-First National,5-year variable,2024-12-12,20241212212942,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20241212212942if_/https://www.
-First National,3-year fixed,2025-01-07,20250107082048,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250107082048if_/https://www.
-First National,5-year fixed,2025-01-07,20250107082048,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250107082048if_/https://www.
-First National,5-year variable,2025-01-07,20250107082048,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250107082048if_/https://www.
-First National,3-year fixed,2025-04-23,20250423104522,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250423104522if_/https://www6
-First National,5-year fixed,2025-04-23,20250423104522,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250423104522if_/https://www6
-First National,5-year variable,2025-04-23,20250423104522,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250423104522if_/https://www6
-First National,3-year fixed,2025-05-19,20250519014857,4.29,page,4.29,
-First National,5-year fixed,2025-05-19,20250519014857,4.44,page,4.44,
-First National,5-year variable,2025-05-19,20250519014857,4.59,page,prime - 0.36% for the entire term with prime 4.95%,
-First National,3-year fixed,2025-07-09,20250709141016,4.24,page,4.24,
-First National,5-year fixed,2025-07-09,20250709141016,4.36,page,4.36,
-First National,5-year variable,2025-07-09,20250709141016,4.3,page,prime - 0.65% for the entire term with prime 4.95%,
-First National,3-year fixed,2025-08-02,20250802213639,4.74,page,4.74,
-First National,5-year fixed,2025-08-02,20250802213639,4.84,page,4.84,
-First National,5-year variable,2025-08-02,20250802213639,4.79,page,prime - 0.16% for the entire term with prime 4.95%,
-First National,3-year fixed,2025-08-08,20250808074052,4.74,page,4.74,
-First National,5-year fixed,2025-08-08,20250808074052,4.84,page,4.84,
-First National,5-year variable,2025-08-08,20250808074052,4.94,page,prime - 0.01% for the entire term with prime 4.95%,
-First National,3-year fixed,2025-08-14,20250814075534,4.84,page,4.84,
-First National,5-year fixed,2025-08-14,20250814075534,4.94,page,4.94,
-First National,5-year variable,2025-08-14,20250814075534,4.94,page,prime - 0.01% for the entire term with prime 4.95%,
-First National,3-year fixed,2025-08-25,20250825060912,4.84,page,4.84,
-First National,5-year fixed,2025-08-25,20250825060912,4.94,page,4.94,
-First National,5-year variable,2025-08-25,20250825060912,4.94,page,prime - 0.01% for the entire term with prime 4.95%,
-First National,3-year fixed,2025-09-10,20250910204659,4.84,page,4.84,
-First National,5-year fixed,2025-09-10,20250910204659,4.94,page,4.94,
-First National,5-year variable,2025-09-10,20250910204659,4.94,page,prime - 0.01% for the entire term with prime 4.95%,
-First National,3-year fixed,2025-09-17,20250917234128,4.84,page,4.84,
-First National,5-year fixed,2025-09-17,20250917234128,4.94,page,4.94,
-First National,5-year variable,2025-09-17,20250917234128,4.94,page,prime - 0.01% for the entire term with prime 4.95%,
-First National,3-year fixed,2026-01-16,20260116060702,4.54,page,4.54,
-First National,5-year fixed,2026-01-16,20260116060702,4.69,page,4.69,
-First National,5-year variable,2026-01-16,20260116060702,4.19,page,prime - 0.26% for the entire term with prime 4.45%,
-First National,3-year fixed,2026-03-08,20260308134342,4.49,page,4.49,
-First National,5-year fixed,2026-03-08,20260308134342,4.59,page,4.59,
-First National,5-year variable,2026-03-08,20260308134342,4.19,page,prime - 0.26% for the entire term with prime 4.45%,
-First National,3-year fixed,2026-04-16,20260416044755,4.89,page,4.89,
-First National,5-year fixed,2026-04-16,20260416044755,4.89,page,4.89,
-First National,5-year variable,2026-04-16,20260416044755,4.39,page,prime - 0.06% for the entire term with prime 4.45%,
-First National,3-year fixed,2026-05-01,20260501022657,4.84,page,4.84,
-First National,5-year fixed,2026-05-01,20260501022657,4.84,page,4.84,
-First National,5-year variable,2026-05-01,20260501022657,4.39,page,prime - 0.06% for the entire term with prime 4.45%,
-First National,3-year fixed,2026-05-12,20260512221023,4.81,page,4.81,
-First National,5-year fixed,2026-05-12,20260512221023,4.79,page,4.79,
-First National,5-year variable,2026-05-12,20260512221023,4.24,page,prime - 0.21% for the entire term with prime 4.45%,
-Manulife Bank,3-year fixed,2018-12-17,20181217162438,3.89,page,3.89%,
-Manulife Bank,5-year fixed,2018-12-17,20181217162438,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2018-12-17,20181217162438,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2019-07-15,20190715184055,3.69,page,3.69%,
-Manulife Bank,5-year fixed,2019-07-15,20190715184055,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2019-07-15,20190715184055,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2019-07-22,20190722224436,3.69,page,3.69%,
-Manulife Bank,5-year fixed,2019-07-22,20190722224436,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2019-07-22,20190722224436,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2019-08-18,20190818121045,3.69,page,3.69%,
-Manulife Bank,5-year fixed,2019-08-18,20190818121045,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2019-08-18,20190818121045,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2019-08-20,20190820012226,3.69,page,3.69%,
-Manulife Bank,5-year fixed,2019-08-20,20190820012226,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2019-08-20,20190820012226,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2019-08-26,20190826001017,3.69,page,3.69%,
-Manulife Bank,5-year fixed,2019-08-26,20190826001017,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2019-08-26,20190826001017,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2019-10-03,20191003103459,3.69,page,3.69%,
-Manulife Bank,5-year fixed,2019-10-03,20191003103459,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2019-10-03,20191003103459,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2019-10-13,20191013210755,3.69,page,3.69%,
-Manulife Bank,5-year fixed,2019-10-13,20191013210755,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2019-10-13,20191013210755,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2019-12-16,20191216081725,3.69,page,3.69%,
-Manulife Bank,5-year fixed,2019-12-16,20191216081725,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2019-12-16,20191216081725,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2020-04-29,20200429073738,3.64,page,3.64%,
-Manulife Bank,5-year fixed,2020-04-29,20200429073738,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2020-04-29,20200429073738,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2020-09-24,20200924190353,2.89,page,2.89%,
-Manulife Bank,5-year fixed,2020-09-24,20200924190353,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2020-09-24,20200924190353,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2020-11-12,20201112024300,2.69,page,2.69%,
-Manulife Bank,5-year fixed,2020-11-12,20201112024300,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2020-11-12,20201112024300,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2020-12-04,20201204175751,2.69,page,2.69%,
-Manulife Bank,5-year fixed,2020-12-04,20201204175751,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2020-12-04,20201204175751,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2021-01-17,20210117065926,2.49,page,2.49%,
-Manulife Bank,5-year fixed,2021-01-17,20210117065926,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2021-01-17,20210117065926,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2021-03-04,20210304163459,2.49,page,2.49%,
-Manulife Bank,5-year fixed,2021-03-04,20210304163459,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2021-03-04,20210304163459,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2021-03-26,20210326130700,2.49,page,2.49%,
-Manulife Bank,5-year fixed,2021-03-26,20210326130700,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2021-03-26,20210326130700,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2021-04-15,20210415044404,2.49,page,2.49%,
-Manulife Bank,5-year fixed,2021-04-15,20210415044404,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2021-04-15,20210415044404,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2021-04-22,20210422200425,2.49,page,2.49%,
-Manulife Bank,5-year fixed,2021-04-22,20210422200425,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2021-04-22,20210422200425,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2021-06-23,20210623042750,2.49,page,2.49%,
-Manulife Bank,5-year fixed,2021-06-23,20210623042750,,,,no rate found next to the label '5-year closed fixed-rate'
-Manulife Bank,5-year variable,2021-06-23,20210623042750,,,,no rate found next to the label '5-year closed (Manulife Bank prime + 0.00%)'
-Manulife Bank,3-year fixed,2021-09-27,20210927170416,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20210927170416if_/https://www.
-Manulife Bank,5-year fixed,2021-09-27,20210927170416,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20210927170416if_/https://www.
-Manulife Bank,5-year variable,2021-09-27,20210927170416,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20210927170416if_/https://www.
-Manulife Bank,3-year fixed,2021-10-24,20211024202419,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20211024202419if_/https://www.
-Manulife Bank,5-year fixed,2021-10-24,20211024202419,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20211024202419if_/https://www.
-Manulife Bank,5-year variable,2021-10-24,20211024202419,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20211024202419if_/https://www.
-Manulife Bank,3-year fixed,2022-01-19,20220119082351,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220119082351if_/https://www.
-Manulife Bank,5-year fixed,2022-01-19,20220119082351,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220119082351if_/https://www.
-Manulife Bank,5-year variable,2022-01-19,20220119082351,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220119082351if_/https://www.
-Manulife Bank,3-year fixed,2022-07-01,20220701233359,5.14,page,5.14%,
-Manulife Bank,5-year fixed,2022-07-01,20220701233359,5.14,page,as low as 5.14% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2022-07-01,20220701233359,3.7,page,3.70%,
-Manulife Bank,3-year fixed,2022-08-11,20220811031108,5.14,page,5.14%,
-Manulife Bank,5-year fixed,2022-08-11,20220811031108,4.99,page,as low as 4.99% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2022-08-11,20220811031108,4.7,page,4.70%,
-Manulife Bank,3-year fixed,2022-10-04,20221004172316,5.64,page,5.64%,
-Manulife Bank,5-year fixed,2022-10-04,20221004172316,4.99,page,as low as 4.99% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2022-10-04,20221004172316,5.45,page,5.45%,
-Manulife Bank,3-year fixed,2022-11-02,20221102040430,6.04,page,6.04%,
-Manulife Bank,5-year fixed,2022-11-02,20221102040430,5.44,page,as low as 5.44% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2022-11-02,20221102040430,5.95,page,5.95%,
-Manulife Bank,3-year fixed,2023-01-27,20230127083736,5.89,page,5.89%,
-Manulife Bank,5-year fixed,2023-01-27,20230127083736,4.79,page,as low as 4.79% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2023-01-27,20230127083736,6.7,page,6.70%,
-Manulife Bank,3-year fixed,2023-03-23,20230323203345,5.89,page,5.89%,
-Manulife Bank,5-year fixed,2023-03-23,20230323203345,4.69,page,as low as 4.69% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2023-03-23,20230323203345,6.7,page,6.70%,
-Manulife Bank,3-year fixed,2023-06-04,20230604044756,5.94,page,5.94%,
-Manulife Bank,5-year fixed,2023-06-04,20230604044756,4.89,page,as low as 4.89% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2023-06-04,20230604044756,6.7,page,6.70%,
-Manulife Bank,3-year fixed,2023-10-06,20231006101248,6.89,page,6.89%,
-Manulife Bank,5-year fixed,2023-10-06,20231006101248,5.89,page,as low as 5.89% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2023-10-06,20231006101248,7.2,page,7.20%,
-Manulife Bank,3-year fixed,2023-10-26,20231026143711,6.89,page,6.89%,
-Manulife Bank,5-year fixed,2023-10-26,20231026143711,5.84,page,as low as 5.84% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2023-10-26,20231026143711,7.2,page,7.20%,
-Manulife Bank,3-year fixed,2023-12-16,20231216124916,6.54,page,6.54%,
-Manulife Bank,5-year fixed,2023-12-16,20231216124916,5.59,page,as low as 5.59% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2023-12-16,20231216124916,7.2,page,7.20%,
-Manulife Bank,3-year fixed,2024-01-10,20240110051335,6.54,page,6.54%,
-Manulife Bank,5-year fixed,2024-01-10,20240110051335,5.24,page,as low as 5.24% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2024-01-10,20240110051335,7.2,page,7.20%,
-Manulife Bank,3-year fixed,2024-01-20,20240120224312,6.29,page,6.29%,
-Manulife Bank,5-year fixed,2024-01-20,20240120224312,5.49,page,as low as 5.49% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2024-01-20,20240120224312,7.2,page,7.20%,
-Manulife Bank,3-year fixed,2024-03-02,20240302105117,6.29,page,6.29%,
-Manulife Bank,5-year fixed,2024-03-02,20240302105117,5.49,page,as low as 5.49% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2024-03-02,20240302105117,7.2,page,7.20%,
-Manulife Bank,3-year fixed,2024-04-15,20240415143020,6.29,page,6.29%,
-Manulife Bank,5-year fixed,2024-04-15,20240415143020,4.89,page,as low as 4.89% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2024-04-15,20240415143020,7.2,page,7.20%,
-Manulife Bank,3-year fixed,2024-07-23,20240723182145,6.04,page,6.04%,
-Manulife Bank,5-year fixed,2024-07-23,20240723182145,4.99,page,as low as 4.99% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2024-07-23,20240723182145,6.95,page,6.95%,
-Manulife Bank,3-year fixed,2024-09-03,20240903230314,5.59,page,5.59%,
-Manulife Bank,5-year fixed,2024-09-03,20240903230314,4.74,page,as low as 4.74% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2024-09-03,20240903230314,6.7,page,6.70%,
-Manulife Bank,3-year fixed,2024-11-05,20241105231150,5.29,page,5.29%,
-Manulife Bank,5-year fixed,2024-11-05,20241105231150,4.49,page,as low as 4.49% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2024-11-05,20241105231150,5.95,page,5.95%,
-Manulife Bank,3-year fixed,2024-12-14,20241214105323,5.29,page,5.29%,
-Manulife Bank,5-year fixed,2024-12-14,20241214105323,4.49,page,as low as 4.49% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2024-12-14,20241214105323,5.45,page,5.45%,
-Manulife Bank,3-year fixed,2025-03-21,20250321010902,5.34,page,5.34%,
-Manulife Bank,5-year fixed,2025-03-21,20250321010902,4.44,page,as low as 4.44% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2025-03-21,20250321010902,4.95,page,4.95%,
-Manulife Bank,3-year fixed,2025-06-20,20250620044346,5.24,page,5.24%,
-Manulife Bank,5-year fixed,2025-06-20,20250620044346,4.44,page,as low as 4.44% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2025-06-20,20250620044346,4.95,page,4.95%,
-Manulife Bank,3-year fixed,2025-07-21,20250721201441,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250721201441if_/https://www.
-Manulife Bank,5-year fixed,2025-07-21,20250721201441,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250721201441if_/https://www.
-Manulife Bank,5-year variable,2025-07-21,20250721201441,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250721201441if_/https://www.
-Manulife Bank,3-year fixed,2025-08-01,20250801013118,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250801013118if_/https://www.
-Manulife Bank,5-year fixed,2025-08-01,20250801013118,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250801013118if_/https://www.
-Manulife Bank,5-year variable,2025-08-01,20250801013118,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250801013118if_/https://www.
-Manulife Bank,3-year fixed,2025-09-15,20250915192635,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250915192635if_/https://www.
-Manulife Bank,5-year fixed,2025-09-15,20250915192635,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250915192635if_/https://www.
-Manulife Bank,5-year variable,2025-09-15,20250915192635,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250915192635if_/https://www.
-Manulife Bank,3-year fixed,2025-11-14,20251114182053,5.24,page,5.24%,
-Manulife Bank,5-year fixed,2025-11-14,20251114182053,4.44,page,as low as 4.44% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2025-11-14,20251114182053,4.45,page,4.45%,
-Manulife Bank,3-year fixed,2026-01-07,20260107151616,5.24,page,5.24%,
-Manulife Bank,5-year fixed,2026-01-07,20260107151616,4.19,page,as low as 4.19% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2026-01-07,20260107151616,4.45,page,4.45%,
-Manulife Bank,3-year fixed,2026-01-23,20260123235423,5.24,page,5.24%,
-Manulife Bank,5-year fixed,2026-01-23,20260123235423,4.49,page,as low as 4.49% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2026-01-23,20260123235423,4.45,page,4.45%,
-Manulife Bank,3-year fixed,2026-05-13,20260513011525,4.99,page,4.99%,
-Manulife Bank,5-year fixed,2026-05-13,20260513011525,4.69,page,as low as 4.69% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2026-05-13,20260513011525,4.45,page,4.45%,
-Manulife Bank,3-year fixed,2026-06-07,20260607134622,4.99,page,4.99%,
-Manulife Bank,5-year fixed,2026-06-07,20260607134622,4.69,page,as low as 4.69% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2026-06-07,20260607134622,4.45,page,4.45%,
-Manulife Bank,3-year fixed,2026-08-30,20260830094157,4.99,page,4.99%,
-Manulife Bank,5-year fixed,2026-08-30,20260830094157,4.69,page,as low as 4.69% ** (apr) 1 manulife bank select mortgage (new clients only),
-Manulife Bank,5-year variable,2026-08-30,20260830094157,4.45,page,4.45%,
-Tangerine,3-year fixed,2022-10-06,20221006100818,5.37,browser,5.37%,
-Tangerine,5-year fixed,2022-10-06,20221006100818,5.34,browser,5.34%,
-Tangerine,5-year variable,2022-10-06,20221006100818,5.15,browser,5.15%,
-Tangerine,3-year fixed,2022-12-07,20221207194734,5.62,browser,5.62%,
-Tangerine,5-year fixed,2022-12-07,20221207194734,5.59,browser,5.59%,
-Tangerine,5-year variable,2022-12-07,20221207194734,5.75,browser,5.75%,
-Tangerine,3-year fixed,2023-03-19,20230319081929,5.74,browser,5.74%,
-Tangerine,5-year fixed,2023-03-19,20230319081929,5.74,browser,5.74%,
-Tangerine,5-year variable,2023-03-19,20230319081929,6.65,browser,6.65%,
-Tangerine,3-year fixed,2023-11-13,20231113111839,6.69,browser,6.69%,
-Tangerine,5-year fixed,2023-11-13,20231113111839,6.49,browser,6.49%,
-Tangerine,5-year variable,2023-11-13,20231113111839,7.1,browser,7.10%,
-Tangerine,3-year fixed,2023-12-28,20231228141650,5.99,browser,5.99%,
-Tangerine,5-year fixed,2023-12-28,20231228141650,5.89,browser,5.89%,
-Tangerine,5-year variable,2023-12-28,20231228141650,7.0,browser,7.00%,
-Tangerine,3-year fixed,2024-02-22,20240222064042,5.64,browser,5.64%,
-Tangerine,5-year fixed,2024-02-22,20240222064042,5.54,browser,5.54%,
-Tangerine,5-year variable,2024-02-22,20240222064042,6.85,browser,6.85%,
-Tangerine,3-year fixed,2024-06-16,20240616212645,5.49,browser,5.49%,
-Tangerine,5-year fixed,2024-06-16,20240616212645,5.44,browser,5.44%,
-Tangerine,5-year variable,2024-06-16,20240616212645,6.55,browser,6.55%,
-Tangerine,3-year fixed,2024-08-02,20240802045759,5.44,browser,5.44%,
-Tangerine,5-year fixed,2024-08-02,20240802045759,5.24,browser,5.24%,
-Tangerine,5-year variable,2024-08-02,20240802045759,6.25,browser,6.25%,
-Tangerine,3-year fixed,2024-09-14,20240914102517,5.14,browser,5.14%,
-Tangerine,5-year fixed,2024-09-14,20240914102517,4.99,browser,4.99%,
-Tangerine,5-year variable,2024-09-14,20240914102517,6.0,browser,6.00%,
-Tangerine,3-year fixed,2025-01-22,20250122203830,,,,no rate found next to the label '3 Year Fixed Mortgage'
-Tangerine,5-year fixed,2025-01-22,20250122203830,,,,no rate found next to the label '5 Year Fixed Mortgage'
-Tangerine,5-year variable,2025-01-22,20250122203830,,,,no rate found next to the label '5 Year Variable Mortgage'
-Tangerine,3-year fixed,2025-05-15,20250515055811,4.69,browser,4.69%,
-Tangerine,5-year fixed,2025-05-15,20250515055811,4.79,browser,4.79%,
-Tangerine,5-year variable,2025-05-15,20250515055811,4.4,browser,4.40%,
-Tangerine,3-year fixed,2025-07-27,20250727000844,4.44,browser,4.44%,
-Tangerine,5-year fixed,2025-07-27,20250727000844,4.49,browser,4.49%,
-Tangerine,5-year variable,2025-07-27,20250727000844,4.5,browser,4.50%,
-Tangerine,3-year fixed,2025-08-09,20250809145613,4.44,browser,4.44%,
-Tangerine,5-year fixed,2025-08-09,20250809145613,4.49,browser,4.49%,
-Tangerine,5-year variable,2025-08-09,20250809145613,4.5,browser,4.50%,
-Tangerine,3-year fixed,2025-09-01,20250901160709,4.44,browser,4.44%,
-Tangerine,5-year fixed,2025-09-01,20250901160709,4.49,browser,4.49%,
-Tangerine,5-year variable,2025-09-01,20250901160709,4.5,browser,4.50%,
-Tangerine,3-year fixed,2025-10-13,20251013023239,4.44,browser,4.44%,
-Tangerine,5-year fixed,2025-10-13,20251013023239,4.49,browser,4.49%,
-Tangerine,5-year variable,2025-10-13,20251013023239,4.25,browser,4.25%,
-Tangerine,3-year fixed,2026-01-15,20260115204149,4.44,browser,4.44%,
-Tangerine,5-year fixed,2026-01-15,20260115204149,4.49,browser,4.49%,
-Tangerine,5-year variable,2026-01-15,20260115204149,4.0,browser,4.00%,
-Tangerine,3-year fixed,2026-04-10,20260410150518,4.44,page,4.44%,
-Tangerine,5-year fixed,2026-04-10,20260410150518,4.49,page,4.49%,
-Tangerine,5-year variable,2026-04-10,20260410150518,4.0,page,4.00%,
-Tangerine,3-year fixed,2026-09-30,20260930141329,4.64,page,4.64%,
-Tangerine,5-year fixed,2026-09-30,20260930141329,4.84,page,4.84%,
-Tangerine,5-year variable,2026-09-30,20260930141329,3.9,page,3.90%,
-National Bank,3-year fixed,2022-05-21,20220521182504,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2022-05-21,20220521182504,4.54,browser,1 4.54% ( 4.58% ** apr 2 ),
-National Bank,5-year variable,2022-05-21,20220521182504,2.7,browser,7 2.70% prime rate – 0.50% *** ( 2.75% ** apr 2 ),
-National Bank,3-year fixed,2022-06-24,20220624085945,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2022-06-24,20220624085945,5.19,browser,1 5.19% ( 5.23% ** apr 2 ),
-National Bank,5-year variable,2022-06-24,20220624085945,3.25,browser,7 3.25% prime rate – 0.45% *** ( 3.29% ** apr 2 ),
-National Bank,3-year fixed,2022-07-07,20220707223602,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2022-07-07,20220707223602,5.24,browser,1 5.24% ( 5.28% ** apr 2 ),
-National Bank,5-year variable,2022-07-07,20220707223602,3.25,browser,7 3.25% prime rate – 0.45% *** ( 3.29% ** apr 2 ),
-National Bank,3-year fixed,2022-08-18,20220818200258,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220818200258if_/https://www.
-National Bank,5-year fixed,2022-08-18,20220818200258,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220818200258if_/https://www.
-National Bank,5-year variable,2022-08-18,20220818200258,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220818200258if_/https://www.
-National Bank,3-year fixed,2022-08-27,20220827044851,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220827044851if_/https://www.
-National Bank,5-year fixed,2022-08-27,20220827044851,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220827044851if_/https://www.
-National Bank,5-year variable,2022-08-27,20220827044851,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20220827044851if_/https://www.
-National Bank,3-year fixed,2022-10-06,20221006064852,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2022-10-06,20221006064852,5.39,browser,1 5.39% ( 5.43% ** apr 2 ),
-National Bank,5-year variable,2022-10-06,20221006064852,5.2,browser,7 5.20% prime rate – 0.25% *** ( 5.24% ** apr 2 ),
-National Bank,3-year fixed,2023-01-25,20230125053519,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2023-01-25,20230125053519,5.69,browser,1 5.69% ( 5.73% ** apr 2 ),
-National Bank,5-year variable,2023-01-25,20230125053519,6.25,browser,7 6.25% prime rate – 0.20% *** ( 6.29% ** apr 2 ),
-National Bank,3-year fixed,2023-02-07,20230207042754,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2023-02-07,20230207042754,5.69,browser,1 5.69% ( 5.73% ** apr 2 ),
-National Bank,5-year variable,2023-02-07,20230207042754,6.5,browser,7 6.50% prime rate – 0.20% *** ( 6.54% ** apr 2 ),
-National Bank,3-year fixed,2023-02-23,20230223090245,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230223090245if_/https://www.
-National Bank,5-year fixed,2023-02-23,20230223090245,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230223090245if_/https://www.
-National Bank,5-year variable,2023-02-23,20230223090245,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230223090245if_/https://www.
-National Bank,3-year fixed,2023-03-31,20230331161923,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2023-03-31,20230331161923,5.54,browser,1 5.54% ( 5.58% ** apr 2 ),
-National Bank,5-year variable,2023-03-31,20230331161923,6.5,browser,7 6.50% prime rate – 0.20% *** ( 6.54% ** apr 2 ),
-National Bank,3-year fixed,2023-05-24,20230524205047,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230524205047if_/https://www.
-National Bank,5-year fixed,2023-05-24,20230524205047,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230524205047if_/https://www.
-National Bank,5-year variable,2023-05-24,20230524205047,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20230524205047if_/https://www.
-National Bank,3-year fixed,2023-06-01,20230601045627,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2023-06-01,20230601045627,5.54,browser,1 5.54% ( 5.58% ** apr 2 ),
-National Bank,5-year variable,2023-06-01,20230601045627,6.5,browser,7 6.50% prime rate – 0.20% *** ( 6.54% ** apr 2 ),
-National Bank,3-year fixed,2023-08-01,20230801200728,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2023-08-01,20230801200728,6.19,browser,1 6.19% ( 6.23% ** apr 2 ),
-National Bank,5-year variable,2023-08-01,20230801200728,7.0,browser,7 7.00% prime rate – 0.20% *** ( 7.04% ** apr 2 ),
-National Bank,3-year fixed,2023-09-25,20230925110930,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2023-09-25,20230925110930,6.29,browser,1 6.29% ( 6.33% ** apr 2 ),
-National Bank,5-year variable,2023-09-25,20230925110930,7.0,browser,7 7.00% prime rate – 0.20% *** ( 7.04% ** apr 2 ),
-National Bank,3-year fixed,2023-11-16,20231116203128,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231116203128if_/https://www.
-National Bank,5-year fixed,2023-11-16,20231116203128,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231116203128if_/https://www.
-National Bank,5-year variable,2023-11-16,20231116203128,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231116203128if_/https://www.
-National Bank,3-year fixed,2023-11-29,20231129045154,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231129045154if_/https://www.
-National Bank,5-year fixed,2023-11-29,20231129045154,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231129045154if_/https://www.
-National Bank,5-year variable,2023-11-29,20231129045154,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20231129045154if_/https://www.
-National Bank,3-year fixed,2024-01-18,20240118011418,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2024-01-18,20240118011418,5.69,browser,1 5.69% ( 5.73% ** apr 2 ),
-National Bank,5-year variable,2024-01-18,20240118011418,6.95,browser,7 6.95% prime rate – 0.25% *** ( 6.99% ** apr 2 ),
-National Bank,3-year fixed,2024-01-23,20240123011154,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2024-01-23,20240123011154,5.69,browser,1 5.69% ( 5.73% ** apr 2 ),
-National Bank,5-year variable,2024-01-23,20240123011154,6.95,browser,7 6.95% prime rate – 0.25% *** ( 6.99% ** apr 2 ),
-National Bank,3-year fixed,2024-02-03,20240203052057,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2024-02-03,20240203052057,5.69,browser,1 5.69% ( 5.73% ** apr 2 ),
-National Bank,5-year variable,2024-02-03,20240203052057,6.95,browser,7 6.95% prime rate – 0.25% *** ( 6.99% ** apr 2 ),
-National Bank,3-year fixed,2024-02-21,20240221215236,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2024-02-21,20240221215236,5.59,browser,1 5.59% ( 5.63% ** apr 2 ),
-National Bank,5-year variable,2024-02-21,20240221215236,6.95,browser,7 6.95% prime rate – 0.25% *** ( 6.99% ** apr 2 ),
-National Bank,3-year fixed,2024-03-28,20240328122108,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2024-03-28,20240328122108,5.59,browser,1 5.59% ( 5.63% ** apr 2 ),
-National Bank,5-year variable,2024-03-28,20240328122108,6.95,browser,7 6.95% prime rate – 0.25% *** ( 6.99% ** apr 2 ),
-National Bank,3-year fixed,2024-05-29,20240529014716,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2024-05-29,20240529014716,5.59,browser,1 5.59% ( 5.63% ** apr 2 ),
-National Bank,5-year variable,2024-05-29,20240529014716,6.95,browser,7 6.95% prime rate – 0.25% *** ( 6.99% ** apr 2 ),
-National Bank,3-year fixed,2024-06-08,20240608002552,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2024-06-08,20240608002552,5.59,browser,1 5.59% ( 5.63% ** apr 2 ),
-National Bank,5-year variable,2024-06-08,20240608002552,6.7,browser,7 6.70% prime rate – 0.25% *** ( 6.74% ** apr 2 ),
-National Bank,3-year fixed,2024-09-05,20240905182743,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2024-09-05,20240905182743,4.94,browser,1 4.94% ( 4.98% ** apr 2 ),
-National Bank,5-year variable,2024-09-05,20240905182743,5.95,browser,7 5.95% prime rate – 0.50% *** ( 5.99% ** apr 2 ),
-National Bank,3-year fixed,2024-09-10,20240910233401,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2024-09-10,20240910233401,4.94,browser,1 4.94% ( 4.98% ** apr 2 ),
-National Bank,5-year variable,2024-09-10,20240910233401,5.95,browser,7 5.95% prime rate – 0.50% *** ( 5.99% ** apr 2 ),
-National Bank,3-year fixed,2024-10-08,20241008124006,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2024-10-08,20241008124006,4.74,browser,1 4.74% ( 4.78% ** apr 2 ),
-National Bank,5-year variable,2024-10-08,20241008124006,5.95,browser,7 5.95% prime rate – 0.50% *** ( 5.99% ** apr 2 ),
-National Bank,3-year fixed,2025-01-07,20250107142525,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250107142525if_/https://www.
-National Bank,5-year fixed,2025-01-07,20250107142525,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250107142525if_/https://www.
-National Bank,5-year variable,2025-01-07,20250107142525,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250107142525if_/https://www.
-National Bank,3-year fixed,2025-01-16,20250116185827,4.89,browser,1 4.89% ( 4.94% ** apr 2 ),
-National Bank,5-year fixed,2025-01-16,20250116185827,4.84,browser,1 4.84% ( 4.88% ** apr 2 ),
-National Bank,5-year variable,2025-01-16,20250116185827,4.95,browser,7 4.95% prime rate – 0.50% *** ( 4.99% ** apr 2 ),
-National Bank,3-year fixed,2025-01-23,20250123095709,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2025-01-23,20250123095709,,,,no rate found next to the label '5 year fixed rate'
-National Bank,5-year variable,2025-01-23,20250123095709,,,,no rate found next to the label '5 year variable rate'
-National Bank,3-year fixed,2025-01-27,20250127064843,4.89,browser,1 4.89% ( 4.94% ** apr 2 ),
-National Bank,5-year fixed,2025-01-27,20250127064843,4.84,browser,1 4.84% ( 4.88% ** apr 2 ),
-National Bank,5-year variable,2025-01-27,20250127064843,4.95,browser,7 4.95% prime rate – 0.50% *** ( 4.99% ** apr 2 ),
-National Bank,3-year fixed,2025-02-05,20250205081701,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250205081701if_/https://www.
-National Bank,5-year fixed,2025-02-05,20250205081701,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250205081701if_/https://www.
-National Bank,5-year variable,2025-02-05,20250205081701,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250205081701if_/https://www.
-National Bank,3-year fixed,2025-02-20,20250220120348,4.69,browser,1 4.69% ( 4.74% ** apr 2 ),
-National Bank,5-year fixed,2025-02-20,20250220120348,4.59,browser,1 4.59% ( 4.63% ** apr 2 ),
-National Bank,5-year variable,2025-02-20,20250220120348,4.7,browser,7 4.70% prime rate – 0.50% *** ( 4.74% ** apr 2 ),
-National Bank,3-year fixed,2025-03-19,20250319184808,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250319184808if_/https://www.
-National Bank,5-year fixed,2025-03-19,20250319184808,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250319184808if_/https://www.
-National Bank,5-year variable,2025-03-19,20250319184808,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250319184808if_/https://www.
-National Bank,3-year fixed,2025-03-27,20250327073913,5.49,page,"1 ${p1.tac3ans|percent:""true""} ** apr 2 ${p1.tauxpromo4ansf|percent:""true""} 4 year fixed rate 1 ${p1",
-National Bank,5-year fixed,2025-03-27,20250327073913,5.49,page,"1 ${p1.tac5ans|percent:""true""} ** apr 2 5.49% 1 year fixed rate 1 5.61% ** apr 2 4.79% 2 year fixed ",
-National Bank,5-year variable,2025-03-27,20250327073913,5.49,page,"7 prime rate – ${p2.tauxbase|percent:""true""} *** ${p2.tac5ans|percent:""true""} ** apr 2 ${p1.tauxprom",
-National Bank,3-year fixed,2025-04-24,20250424140416,,,,no rate found next to the label '3 year fixed rate'
-National Bank,5-year fixed,2025-04-24,20250424140416,,,,no rate found next to the label '5 year fixed rate'
-National Bank,5-year variable,2025-04-24,20250424140416,,,,no rate found next to the label '5 year variable rate'
-National Bank,3-year fixed,2025-05-04,20250504003241,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250504003241if_/https://www.
-National Bank,5-year fixed,2025-05-04,20250504003241,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250504003241if_/https://www.
-National Bank,5-year variable,2025-05-04,20250504003241,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250504003241if_/https://www.
-National Bank,3-year fixed,2025-05-16,20250516150638,5.49,page,"1 ${p1.tac3ans|percent:""true""} ** apr 2 ${p1.tauxpromo4ansf|percent:""true""} 4 year fixed rate 1 ${p1",
-National Bank,5-year fixed,2025-05-16,20250516150638,5.49,page,"1 ${p1.tac5ans|percent:""true""} ** apr 2 5.49% 1 year fixed rate 1 5.61% ** apr 2 4.79% 2 year fixed ",
-National Bank,5-year variable,2025-05-16,20250516150638,5.49,page,"7 prime rate – ${p2.tauxbase|percent:""true""} *** ${p2.tac5ans|percent:""true""} ** apr 2 ${p1.tauxprom",
-National Bank,3-year fixed,2025-06-15,20250615120313,5.49,page,"1 ${p1.tac3ans|percent:""true""} ** apr 2 ${p1.tauxpromo4ansf|percent:""true""} 4 year fixed rate 1 ${p1",
-National Bank,5-year fixed,2025-06-15,20250615120313,5.49,page,"1 ${p1.tac5ans|percent:""true""} ** apr 2 5.49% 1 year fixed rate 1 5.61% ** apr 2 4.79% 2 year fixed ",
-National Bank,5-year variable,2025-06-15,20250615120313,5.49,page,"7 prime rate – ${p2.tauxbase|percent:""true""} *** ${p2.tac5ans|percent:""true""} ** apr 2 ${p1.tauxprom",
-National Bank,3-year fixed,2025-06-18,20250618232923,5.49,page,"1 ${p1.tac3ans|percent:""true""} ** apr 2 ${p1.tauxpromo4ansf|percent:""true""} 4 year fixed rate 1 ${p1",
-National Bank,5-year fixed,2025-06-18,20250618232923,5.49,page,"1 ${p1.tac5ans|percent:""true""} ** apr 2 5.49% 1 year fixed rate 1 5.61% ** apr 2 4.79% 2 year fixed ",
-National Bank,5-year variable,2025-06-18,20250618232923,5.49,page,"7 prime rate – ${p2.tauxbase|percent:""true""} *** ${p2.tac5ans|percent:""true""} ** apr 2 ${p1.tauxprom",
-National Bank,3-year fixed,2025-06-25,20250625233823,5.49,page,"1 ${p1.tac3ans|percent:""true""} ** apr 2 ${p1.tauxpromo4ansf|percent:""true""} 4 year fixed rate 1 ${p1",
-National Bank,5-year fixed,2025-06-25,20250625233823,5.49,page,"1 ${p1.tac5ans|percent:""true""} ** apr 2 5.49% 1 year fixed rate 1 5.61% ** apr 2 4.79% 2 year fixed ",
-National Bank,5-year variable,2025-06-25,20250625233823,5.49,page,"7 prime rate – ${p2.tauxbase|percent:""true""} *** ${p2.tac5ans|percent:""true""} ** apr 2 ${p1.tauxprom",
-National Bank,3-year fixed,2025-07-25,20250725180408,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2025-07-25,20250725180408,4.59,browser,1 4.59%,
-National Bank,5-year variable,2025-07-25,20250725180408,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2025-08-02,20250802000941,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2025-08-02,20250802000941,4.59,browser,1 4.59%,
-National Bank,5-year variable,2025-08-02,20250802000941,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2025-09-16,20250916130943,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2025-09-16,20250916130943,4.59,browser,1 4.59%,
-National Bank,5-year variable,2025-09-16,20250916130943,4.6,browser,7 4.60%,
-National Bank,3-year fixed,2025-09-25,20250925144658,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2025-09-25,20250925144658,4.59,browser,1 4.59%,
-National Bank,5-year variable,2025-09-25,20250925144658,4.35,browser,7 4.35%,
-National Bank,3-year fixed,2025-11-08,20251108175636,4.44,browser,1 4.44% 4.49% **,
-National Bank,5-year fixed,2025-11-08,20251108175636,4.59,browser,1 4.59%,
-National Bank,5-year variable,2025-11-08,20251108175636,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2025-11-12,20251112014620,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2025-11-12,20251112014620,4.59,browser,1 4.59%,
-National Bank,5-year variable,2025-11-12,20251112014620,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2025-12-11,20251211082537,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2025-12-11,20251211082537,4.54,browser,1 4.54%,
-National Bank,5-year variable,2025-12-11,20251211082537,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2025-12-19,20251219070857,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2025-12-19,20251219070857,4.54,browser,1 4.54%,
-National Bank,5-year variable,2025-12-19,20251219070857,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2026-01-09,20260109233618,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2026-01-09,20260109233618,4.54,browser,1 4.54%,
-National Bank,5-year variable,2026-01-09,20260109233618,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2026-01-25,20260125140937,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260125140937if_/https://www.
-National Bank,5-year fixed,2026-01-25,20260125140937,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260125140937if_/https://www.
-National Bank,5-year variable,2026-01-25,20260125140937,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260125140937if_/https://www.
-National Bank,3-year fixed,2026-02-06,20260206225335,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260206225335if_/https://www.
-National Bank,5-year fixed,2026-02-06,20260206225335,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260206225335if_/https://www.
-National Bank,5-year variable,2026-02-06,20260206225335,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20260206225335if_/https://www.
-National Bank,3-year fixed,2026-02-13,20260213185715,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2026-02-13,20260213185715,4.54,browser,1 4.54%,
-National Bank,5-year variable,2026-02-13,20260213185715,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2026-02-20,20260220000121,5.26,browser,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2026-02-20,20260220000121,4.54,browser,1 4.54%,
-National Bank,5-year variable,2026-02-20,20260220000121,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2026-03-19,20260319151900,4.39,browser,1 4.39% 4.44% **,
-National Bank,5-year fixed,2026-03-19,20260319151900,4.54,browser,1 4.54%,
-National Bank,5-year variable,2026-03-19,20260319151900,4.45,browser,7 4.45%,
-National Bank,3-year fixed,2026-05-13,20260513062526,4.54,browser,1 4.54% 4.59% **,
-National Bank,5-year fixed,2026-05-13,20260513062526,4.64,browser,1 4.64%,
-National Bank,5-year variable,2026-05-13,20260513062526,4.1,browser,7 4.10%,
-National Bank,3-year fixed,2026-10-06,20261006220419,5.34,page,"1 ${p1.tauxpromo3ansf|percent:""true""} ${p1.tac3ans|percent:""true""} ** 4 year fixed rate 1 ${p1.tauxp",
-National Bank,5-year fixed,2026-10-06,20261006220419,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20261006220419if_/https://www.
-National Bank,5-year variable,2026-10-06,20261006220419,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20261006220419if_/https://www.
-Desjardins,3-year fixed,2023-10-16,20231016131135,7.29,page,7.29%,
-Desjardins,5-year fixed,2023-10-16,20231016131135,6.49,page,6.49% 2,
-Desjardins,5-year variable,2023-10-16,20231016131135,7.15,page,7.15% 2,
-Desjardins,3-year fixed,2023-10-30,20231030142450,7.29,page,7.29%,
-Desjardins,5-year fixed,2023-10-30,20231030142450,6.49,page,6.49% 2,
-Desjardins,5-year variable,2023-10-30,20231030142450,7.15,page,7.15% 2,
-Desjardins,3-year fixed,2023-11-06,20231106150330,7.29,page,7.29%,
-Desjardins,5-year fixed,2023-11-06,20231106150330,6.49,page,6.49% 2,
-Desjardins,5-year variable,2023-11-06,20231106150330,7.15,page,7.15% 2,
-Desjardins,3-year fixed,2023-11-13,20231113154206,7.29,page,7.29%,
-Desjardins,5-year fixed,2023-11-13,20231113154206,6.49,page,6.49% 2,
-Desjardins,5-year variable,2023-11-13,20231113154206,7.15,page,7.15% 2,
-Desjardins,3-year fixed,2023-11-27,20231127182946,7.29,page,7.29%,
-Desjardins,5-year fixed,2023-11-27,20231127182946,6.49,page,6.49% 2,
-Desjardins,5-year variable,2023-11-27,20231127182946,7.15,page,7.15% 2,
-Desjardins,3-year fixed,2023-12-04,20231204122722,7.29,page,7.29%,
-Desjardins,5-year fixed,2023-12-04,20231204122722,6.49,page,6.49% 2,
-Desjardins,5-year variable,2023-12-04,20231204122722,7.15,page,7.15% 2,
-Desjardins,3-year fixed,2023-12-11,20231211211658,7.19,page,7.19%,
-Desjardins,5-year fixed,2023-12-11,20231211211658,6.39,page,6.39% 2,
-Desjardins,5-year variable,2023-12-11,20231211211658,7.05,page,7.05% 2,
-Desjardins,3-year fixed,2023-12-25,20231225211600,7.19,page,7.19%,
-Desjardins,5-year fixed,2023-12-25,20231225211600,5.89,page,5.89% 2,
-Desjardins,5-year variable,2023-12-25,20231225211600,7.05,page,7.05% 2,
-Desjardins,3-year fixed,2024-01-08,20240108223614,7.19,page,7.19%,
-Desjardins,5-year fixed,2024-01-08,20240108223614,5.89,page,5.89% 2,
-Desjardins,5-year variable,2024-01-08,20240108223614,7.05,page,7.05% 2,
-Desjardins,3-year fixed,2024-01-16,20240116000739,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-01-16,20240116000739,5.74,page,5.74% 2,
-Desjardins,5-year variable,2024-01-16,20240116000739,6.95,page,6.95% 2,
-Desjardins,3-year fixed,2024-01-22,20240122231138,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-01-22,20240122231138,5.69,page,5.69% 2,
-Desjardins,5-year variable,2024-01-22,20240122231138,6.95,page,6.95% 2,
-Desjardins,3-year fixed,2024-01-30,20240130234615,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-01-30,20240130234615,5.69,page,5.69% 2,
-Desjardins,5-year variable,2024-01-30,20240130234615,6.95,page,6.95% 2,
-Desjardins,3-year fixed,2024-02-06,20240206235637,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-02-06,20240206235637,5.69,page,5.69% 2,
-Desjardins,5-year variable,2024-02-06,20240206235637,6.95,page,6.95% 2,
-Desjardins,3-year fixed,2024-02-14,20240214010108,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-02-14,20240214010108,5.59,page,5.59% 3,
-Desjardins,5-year variable,2024-02-14,20240214010108,6.95,page,6.95% 3,
-Desjardins,3-year fixed,2024-02-21,20240221005610,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-02-21,20240221005610,5.59,page,5.59% 3,
-Desjardins,5-year variable,2024-02-21,20240221005610,6.95,page,6.95% 3,
-Desjardins,3-year fixed,2024-02-28,20240228015004,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-02-28,20240228015004,5.59,page,5.59% 3,
-Desjardins,5-year variable,2024-02-28,20240228015004,6.95,page,6.95% 3,
-Desjardins,3-year fixed,2024-03-12,20240312023050,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-03-12,20240312023050,5.59,page,5.59% 3,
-Desjardins,5-year variable,2024-03-12,20240312023050,6.95,page,6.95% 3,
-Desjardins,3-year fixed,2024-03-19,20240319043209,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-03-19,20240319043209,5.59,page,5.59% 3,
-Desjardins,5-year variable,2024-03-19,20240319043209,6.95,page,6.95% 3,
-Desjardins,3-year fixed,2024-03-26,20240326045730,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-03-26,20240326045730,5.59,page,5.59% 3,
-Desjardins,5-year variable,2024-03-26,20240326045730,6.95,page,6.95% 3,
-Desjardins,3-year fixed,2024-04-18,20240418170151,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240418170151if_/https://www.
-Desjardins,5-year fixed,2024-04-18,20240418170151,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240418170151if_/https://www.
-Desjardins,5-year variable,2024-04-18,20240418170151,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240418170151if_/https://www.
-Desjardins,3-year fixed,2024-05-02,20240502182958,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240502182958if_/https://www.
-Desjardins,5-year fixed,2024-05-02,20240502182958,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240502182958if_/https://www.
-Desjardins,5-year variable,2024-05-02,20240502182958,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20240502182958if_/https://www.
-Desjardins,3-year fixed,2024-05-09,20240509200353,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-05-09,20240509200353,5.59,page,5.59% 3,
-Desjardins,5-year variable,2024-05-09,20240509200353,6.95,page,6.95% 3,
-Desjardins,3-year fixed,2024-05-21,20240521094933,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-05-21,20240521094933,5.59,page,5.59% 3,
-Desjardins,5-year variable,2024-05-21,20240521094933,6.95,page,6.95% 3,
-Desjardins,3-year fixed,2024-05-31,20240531210725,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-05-31,20240531210725,5.59,page,5.59% 3,
-Desjardins,5-year variable,2024-05-31,20240531210725,6.95,page,6.95% 3,
-Desjardins,3-year fixed,2024-06-08,20240608064146,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-06-08,20240608064146,5.59,page,5.59% 3,
-Desjardins,5-year variable,2024-06-08,20240608064146,6.7,page,6.70% 3,
-Desjardins,3-year fixed,2024-06-14,20240614123725,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-06-14,20240614123725,5.59,page,5.59% 3,
-Desjardins,5-year variable,2024-06-14,20240614123725,6.7,page,6.70% 3,
-Desjardins,3-year fixed,2024-06-21,20240621234733,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-06-21,20240621234733,5.29,page,5.29% 3,
-Desjardins,5-year variable,2024-06-21,20240621234733,6.5,page,6.50% 3,
-Desjardins,3-year fixed,2024-06-29,20240629102516,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-06-29,20240629102516,5.29,page,5.29% 3,
-Desjardins,5-year variable,2024-06-29,20240629102516,6.5,page,6.50% 3,
-Desjardins,3-year fixed,2024-07-06,20240706004044,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-07-06,20240706004044,5.29,page,5.29% 2,
-Desjardins,5-year variable,2024-07-06,20240706004044,6.5,page,6.50% 2,
-Desjardins,3-year fixed,2024-07-13,20240713101044,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-07-13,20240713101044,5.29,page,5.29% 2,
-Desjardins,5-year variable,2024-07-13,20240713101044,6.5,page,6.50% 2,
-Desjardins,3-year fixed,2024-07-20,20240720115503,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-07-20,20240720115503,5.29,page,5.29% 2,
-Desjardins,5-year variable,2024-07-20,20240720115503,6.5,page,6.50% 2,
-Desjardins,3-year fixed,2024-07-27,20240727070348,6.99,page,6.99%,
-Desjardins,5-year fixed,2024-07-27,20240727070348,5.29,page,5.29% 2,
-Desjardins,5-year variable,2024-07-27,20240727070348,6.25,page,6.25% 2,
-Desjardins,3-year fixed,2024-08-03,20240803051051,6.89,page,6.89%,
-Desjardins,5-year fixed,2024-08-03,20240803051051,5.19,page,5.19% 2,
-Desjardins,5-year variable,2024-08-03,20240803051051,6.25,page,6.25% 2,
-Desjardins,3-year fixed,2024-08-12,20240812013831,6.89,page,6.89%,
-Desjardins,5-year fixed,2024-08-12,20240812013831,5.19,page,5.19% 2,
-Desjardins,5-year variable,2024-08-12,20240812013831,6.25,page,6.25% 2,
-Desjardins,3-year fixed,2024-08-19,20240819022302,6.89,page,6.89%,
-Desjardins,5-year fixed,2024-08-19,20240819022302,5.19,page,5.19% 2,
-Desjardins,5-year variable,2024-08-19,20240819022302,6.25,page,6.25% 2,
-Desjardins,3-year fixed,2024-08-26,20240826041650,6.89,page,6.89%,
-Desjardins,5-year fixed,2024-08-26,20240826041650,5.19,page,5.19% 2,
-Desjardins,5-year variable,2024-08-26,20240826041650,6.25,page,6.25% 2,
-Desjardins,3-year fixed,2024-09-02,20240902052508,6.74,page,6.74%,
-Desjardins,5-year fixed,2024-09-02,20240902052508,4.99,page,4.99% 2,
-Desjardins,5-year variable,2024-09-02,20240902052508,6.25,page,6.25% 2,
-Desjardins,3-year fixed,2024-09-09,20240909040733,6.74,page,6.74%,
-Desjardins,5-year fixed,2024-09-09,20240909040733,4.99,page,4.99% 2,
-Desjardins,5-year variable,2024-09-09,20240909040733,6.0,page,6.00% 2,
-Desjardins,3-year fixed,2024-09-16,20240916070900,6.64,page,6.64%,
-Desjardins,5-year fixed,2024-09-16,20240916070900,4.89,page,4.89% 2,
-Desjardins,5-year variable,2024-09-16,20240916070900,6.0,page,6.00% 2,
-Desjardins,3-year fixed,2024-09-24,20240924072031,6.64,page,6.64%,
-Desjardins,5-year fixed,2024-09-24,20240924072031,4.89,page,4.89% 2,
-Desjardins,5-year variable,2024-09-24,20240924072031,6.0,page,6.00% 2,
-Desjardins,3-year fixed,2024-10-01,20241001080913,6.49,page,6.49%,
-Desjardins,5-year fixed,2024-10-01,20241001080913,4.79,page,4.79% 2,
-Desjardins,5-year variable,2024-10-01,20241001080913,6.0,page,6.00% 2,
-Desjardins,3-year fixed,2024-10-08,20241008133133,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20241008133133if_/https://www.
-Desjardins,5-year fixed,2024-10-08,20241008133133,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20241008133133if_/https://www.
-Desjardins,5-year variable,2024-10-08,20241008133133,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20241008133133if_/https://www.
-Desjardins,3-year fixed,2025-01-14,20250114122511,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250114122511if_/https://www.
-Desjardins,5-year fixed,2025-01-14,20250114122511,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250114122511if_/https://www.
-Desjardins,5-year variable,2025-01-14,20250114122511,,,,browser: Page.goto: net::ERR_CONNECTION_REFUSED at https://web.archive.org/web/20250114122511if_/https://www.
-Desjardins,3-year fixed,2025-03-13,20250313004311,6.39,page,6.39%,
-Desjardins,5-year fixed,2025-03-13,20250313004311,4.69,page,4.69% 2,
-Desjardins,5-year variable,2025-03-13,20250313004311,4.7,page,4.70% 2,
-Desjardins,3-year fixed,2025-04-18,20250418124737,6.29,page,6.29%,
-Desjardins,5-year fixed,2025-04-18,20250418124737,4.49,page,4.49% 2,
-Desjardins,5-year variable,2025-04-18,20250418124737,4.45,page,4.45% 2,
-Desjardins,3-year fixed,2025-05-11,20250511235254,6.29,page,6.29%,
-Desjardins,5-year fixed,2025-05-11,20250511235254,4.49,page,4.49% 2,
-Desjardins,5-year variable,2025-05-11,20250511235254,4.6,page,4.60% 2,
-Desjardins,3-year fixed,2025-06-13,20250613022529,6.19,page,6.19%,
-Desjardins,5-year fixed,2025-06-13,20250613022529,4.64,page,4.64% 2,
-Desjardins,5-year variable,2025-06-13,20250613022529,4.6,page,4.60% 2,
-Desjardins,3-year fixed,2025-07-20,20250720144618,6.09,page,6.09%,
-Desjardins,5-year fixed,2025-07-20,20250720144618,4.64,page,4.64% 2,
-Desjardins,5-year variable,2025-07-20,20250720144618,4.6,page,4.60% 2,
-Desjardins,3-year fixed,2025-08-05,20250805225723,6.09,page,6.09%,
-Desjardins,5-year fixed,2025-08-05,20250805225723,4.64,page,4.64% 2,
-Desjardins,5-year variable,2025-08-05,20250805225723,4.6,page,4.60% 2,
-Desjardins,3-year fixed,2025-08-15,20250815222022,6.09,page,6.09%,
-Desjardins,5-year fixed,2025-08-15,20250815222022,4.64,page,4.64% 2,
-Desjardins,5-year variable,2025-08-15,20250815222022,4.6,page,4.60% 2,
-Desjardins,3-year fixed,2025-08-21,20250821005908,6.09,page,6.09%,
-Desjardins,5-year fixed,2025-08-21,20250821005908,4.64,page,4.64% 2,
-Desjardins,5-year variable,2025-08-21,20250821005908,4.6,page,4.60% 2,
-Desjardins,3-year fixed,2025-11-26,20251126172850,5.99,page,5.99%,
-Desjardins,5-year fixed,2025-11-26,20251126172850,4.44,page,4.44% 2,
-Desjardins,5-year variable,2025-11-26,20251126172850,4.1,page,4.10% 2,
-Desjardins,3-year fixed,2025-12-14,20251214071743,5.99,page,5.99%,
-Desjardins,5-year fixed,2025-12-14,20251214071743,4.39,page,4.39% 2,
-Desjardins,5-year variable,2025-12-14,20251214071743,4.1,page,4.10% 2,
-Desjardins,3-year fixed,2025-12-31,20251231141432,5.99,page,5.99%,
-Desjardins,5-year fixed,2025-12-31,20251231141432,4.39,page,4.39% 2,
-Desjardins,5-year variable,2025-12-31,20251231141432,4.1,page,4.10% 2,
-Desjardins,3-year fixed,2026-04-12,20260412022957,5.99,page,5.99%,
-Desjardins,5-year fixed,2026-04-12,20260412022957,4.49,page,4.49% 2,
-Desjardins,5-year variable,2026-04-12,20260412022957,4.1,page,4.10% 2,
-Desjardins,3-year fixed,2026-04-26,20260426092009,5.99,page,5.99%,
-Desjardins,5-year fixed,2026-04-26,20260426092009,4.49,page,4.49% 2,
-Desjardins,5-year variable,2026-04-26,20260426092009,4.1,page,4.10% 2,
-Desjardins,3-year fixed,2026-06-11,20260611001416,5.99,page,5.99%,
-Desjardins,5-year fixed,2026-06-11,20260611001416,4.49,page,4.49% 2,
-Desjardins,5-year variable,2026-06-11,20260611001416,4.1,page,4.10% 2,
+Scotiabank,5-year variable,2023-01-07,20230107004232,6.65,browser,6.650% 2,
+Scotiabank,3-year fixed,2023-01-07,20230107004232,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-01-07,20230107004232,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-01-14,20230114012117,6.65,browser,6.650% 2,
+Scotiabank,3-year fixed,2023-01-14,20230114012117,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-01-14,20230114012117,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-01-30,20230130194633,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2023-01-30,20230130194633,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-01-30,20230130194633,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-02-06,20230206211332,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2023-02-06,20230206211332,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-02-06,20230206211332,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-02-13,20230213215646,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2023-02-13,20230213215646,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-02-13,20230213215646,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-02-20,20230220221909,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2023-02-20,20230220221909,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-02-20,20230220221909,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-02-27,20230227232148,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2023-02-27,20230227232148,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-02-27,20230227232148,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-03-06,20230306230020,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2023-03-06,20230306230020,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-03-06,20230306230020,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-03-14,20230314231528,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2023-03-14,20230314231528,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-03-14,20230314231528,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-03-29,20230329124620,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202303"
+Scotiabank,3-year fixed,2023-03-29,20230329124620,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202303"
+Scotiabank,5-year fixed,2023-03-29,20230329124620,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202303"
+Scotiabank,5-year variable,2023-04-05,20230405195304,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2023-04-05,20230405195304,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-04-05,20230405195304,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-04-12,20230412071346,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2023-04-12,20230412071346,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-04-12,20230412071346,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-04-19,20230419200157,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2023-04-19,20230419200157,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-04-19,20230419200157,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-04-26,20230426205220,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2023-04-26,20230426205220,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-04-26,20230426205220,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-05-04,20230504025717,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2023-05-04,20230504025717,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-05-04,20230504025717,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-05-10,20230510230552,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2023-05-10,20230510230552,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-05-10,20230510230552,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-05-17,20230517234853,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2023-05-17,20230517234853,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-05-17,20230517234853,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-05-25,20230525003808,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2023-05-25,20230525003808,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-05-25,20230525003808,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-06-01,20230601012657,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2023-06-01,20230601012657,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-06-01,20230601012657,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-06-05,20230605131358,7.4,browser,7.400% 2,
+Scotiabank,3-year fixed,2023-06-05,20230605131358,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-06-05,20230605131358,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-06-15,20230615075347,7.4,browser,7.400% 2,
+Scotiabank,3-year fixed,2023-06-15,20230615075347,6.44,browser,6.440%,
+Scotiabank,5-year fixed,2023-06-15,20230615075347,6.34,browser,6.340%,
+Scotiabank,5-year variable,2023-07-14,20230714072733,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-07-14,20230714072733,6.89,browser,6.890%,
+Scotiabank,5-year fixed,2023-07-14,20230714072733,6.54,browser,6.540%,
+Scotiabank,5-year variable,2023-07-21,20230721075320,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-07-21,20230721075320,6.89,browser,6.890%,
+Scotiabank,5-year fixed,2023-07-21,20230721075320,6.54,browser,6.540%,
+Scotiabank,5-year variable,2023-07-28,20230728081728,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-07-28,20230728081728,6.89,browser,6.890%,
+Scotiabank,5-year fixed,2023-07-28,20230728081728,6.54,browser,6.540%,
+Scotiabank,5-year variable,2023-08-04,20230804084117,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-08-04,20230804084117,6.89,browser,6.890%,
+Scotiabank,5-year fixed,2023-08-04,20230804084117,6.54,browser,6.540%,
+Scotiabank,5-year variable,2023-08-11,20230811095936,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-08-11,20230811095936,6.89,browser,6.890%,
+Scotiabank,5-year fixed,2023-08-11,20230811095936,6.54,browser,6.540%,
+Scotiabank,5-year variable,2023-08-18,20230818101150,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-08-18,20230818101150,6.89,browser,6.890%,
+Scotiabank,5-year fixed,2023-08-18,20230818101150,6.54,browser,6.540%,
+Scotiabank,5-year variable,2023-08-22,20230822120947,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-08-22,20230822120947,6.89,browser,6.890%,
+Scotiabank,5-year fixed,2023-08-22,20230822120947,6.54,browser,6.540%,
+Scotiabank,5-year variable,2023-09-02,20230902100719,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-09-02,20230902100719,7.04,browser,7.040%,
+Scotiabank,5-year fixed,2023-09-02,20230902100719,6.84,browser,6.840%,
+Scotiabank,5-year variable,2023-09-09,20230909103808,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202309"
+Scotiabank,3-year fixed,2023-09-09,20230909103808,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202309"
+Scotiabank,5-year fixed,2023-09-09,20230909103808,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202309"
+Scotiabank,5-year variable,2023-09-16,20230916112457,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-09-16,20230916112457,7.04,browser,7.040%,
+Scotiabank,5-year fixed,2023-09-16,20230916112457,6.84,browser,6.840%,
+Scotiabank,5-year variable,2023-09-23,20230923121259,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-09-23,20230923121259,7.04,browser,7.040%,
+Scotiabank,5-year fixed,2023-09-23,20230923121259,6.84,browser,6.840%,
+Scotiabank,5-year variable,2023-09-30,20230930070537,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-09-30,20230930070537,7.04,browser,7.040%,
+Scotiabank,5-year fixed,2023-09-30,20230930070537,6.84,browser,6.840%,
+Scotiabank,5-year variable,2023-10-08,20231008122349,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202310"
+Scotiabank,3-year fixed,2023-10-08,20231008122349,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202310"
+Scotiabank,5-year fixed,2023-10-08,20231008122349,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202310"
+Scotiabank,5-year variable,2023-10-13,20231013154712,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-10-13,20231013154712,7.24,browser,7.240%,
+Scotiabank,5-year fixed,2023-10-13,20231013154712,7.04,browser,7.040%,
+Scotiabank,5-year variable,2023-10-22,20231022134727,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-10-22,20231022134727,7.24,browser,7.240%,
+Scotiabank,5-year fixed,2023-10-22,20231022134727,7.04,browser,7.040%,
+Scotiabank,5-year variable,2023-10-23,20231023231958,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20231023231958if_/https://www.scotiaban
+Scotiabank,3-year fixed,2023-10-23,20231023231958,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20231023231958if_/https://www.scotiaban
+Scotiabank,5-year fixed,2023-10-23,20231023231958,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20231023231958if_/https://www.scotiaban
+Scotiabank,5-year variable,2023-11-05,20231105170150,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-11-05,20231105170150,7.24,browser,7.240%,
+Scotiabank,5-year fixed,2023-11-05,20231105170150,7.04,browser,7.040%,
+Scotiabank,5-year variable,2023-11-12,20231112174056,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-11-12,20231112174056,7.24,browser,7.240%,
+Scotiabank,5-year fixed,2023-11-12,20231112174056,7.04,browser,7.040%,
+Scotiabank,5-year variable,2023-11-19,20231119182152,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-11-19,20231119182152,7.24,browser,7.240%,
+Scotiabank,5-year fixed,2023-11-19,20231119182152,7.04,browser,7.040%,
+Scotiabank,5-year variable,2023-11-26,20231126190254,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202311"
+Scotiabank,3-year fixed,2023-11-26,20231126190254,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202311"
+Scotiabank,5-year fixed,2023-11-26,20231126190254,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202311"
+Scotiabank,5-year variable,2023-12-03,20231203195051,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-12-03,20231203195051,7.24,browser,7.240%,
+Scotiabank,5-year fixed,2023-12-03,20231203195051,7.04,browser,7.040%,
+Scotiabank,5-year variable,2023-12-08,20231208152738,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-12-08,20231208152738,7.24,browser,7.240%,
+Scotiabank,5-year fixed,2023-12-08,20231208152738,7.04,browser,7.040%,
+Scotiabank,5-year variable,2023-12-17,20231217220850,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-12-17,20231217220850,7.24,browser,7.240%,
+Scotiabank,5-year fixed,2023-12-17,20231217220850,7.04,browser,7.040%,
+Scotiabank,5-year variable,2023-12-24,20231224225547,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-12-24,20231224225547,7.24,browser,7.240%,
+Scotiabank,5-year fixed,2023-12-24,20231224225547,7.04,browser,7.040%,
+Scotiabank,5-year variable,2023-12-25,20231225211712,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2023-12-25,20231225211712,7.24,browser,7.240%,
+Scotiabank,5-year fixed,2023-12-25,20231225211712,7.04,browser,7.040%,
+Scotiabank,5-year variable,2024-01-01,20240101213820,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-01-01,20240101213820,7.24,browser,7.240%,
+Scotiabank,5-year fixed,2024-01-01,20240101213820,7.04,browser,7.040%,
+Scotiabank,5-year variable,2024-01-08,20240108221138,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-01-08,20240108221138,7.24,browser,7.240%,
+Scotiabank,5-year fixed,2024-01-08,20240108221138,7.04,browser,7.040%,
+Scotiabank,5-year variable,2024-01-15,20240115230656,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202401"
+Scotiabank,3-year fixed,2024-01-15,20240115230656,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202401"
+Scotiabank,5-year fixed,2024-01-15,20240115230656,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202401"
+Scotiabank,5-year variable,2024-01-22,20240122233428,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-01-22,20240122233428,7.04,browser,7.040%,
+Scotiabank,5-year fixed,2024-01-22,20240122233428,6.89,browser,6.890%,
+Scotiabank,5-year variable,2024-01-29,20240129233059,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-01-29,20240129233059,6.94,browser,6.940%,
+Scotiabank,5-year fixed,2024-01-29,20240129233059,6.79,browser,6.790%,
+Scotiabank,5-year variable,2024-02-06,20240206003027,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-02-06,20240206003027,6.94,browser,6.940%,
+Scotiabank,5-year fixed,2024-02-06,20240206003027,6.79,browser,6.790%,
+Scotiabank,5-year variable,2024-02-13,20240213010958,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-02-13,20240213010958,6.94,browser,6.940%,
+Scotiabank,5-year fixed,2024-02-13,20240213010958,6.79,browser,6.790%,
+Scotiabank,5-year variable,2024-02-20,20240220022245,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-02-20,20240220022245,6.94,browser,6.940%,
+Scotiabank,5-year fixed,2024-02-20,20240220022245,6.79,browser,6.790%,
+Scotiabank,5-year variable,2024-02-27,20240227033701,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-02-27,20240227033701,6.94,browser,6.940%,
+Scotiabank,5-year fixed,2024-02-27,20240227033701,6.79,browser,6.790%,
+Scotiabank,5-year variable,2024-03-12,20240312031403,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-03-12,20240312031403,6.94,browser,6.940%,
+Scotiabank,5-year fixed,2024-03-12,20240312031403,6.79,browser,6.790%,
+Scotiabank,5-year variable,2024-03-19,20240319044354,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20240319044354if_/https://www.scotiaban
+Scotiabank,3-year fixed,2024-03-19,20240319044354,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20240319044354if_/https://www.scotiaban
+Scotiabank,5-year fixed,2024-03-19,20240319044354,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20240319044354if_/https://www.scotiaban
+Scotiabank,5-year variable,2024-03-26,20240326051438,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-03-26,20240326051438,6.94,browser,6.940%,
+Scotiabank,5-year fixed,2024-03-26,20240326051438,6.79,browser,6.790%,
+Scotiabank,5-year variable,2024-04-02,20240402053743,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-04-02,20240402053743,6.94,browser,6.940%,
+Scotiabank,5-year fixed,2024-04-02,20240402053743,6.79,browser,6.790%,
+Scotiabank,5-year variable,2024-04-09,20240409061801,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-04-09,20240409061801,6.94,browser,6.940%,
+Scotiabank,5-year fixed,2024-04-09,20240409061801,6.79,browser,6.790%,
+Scotiabank,5-year variable,2024-04-15,20240415055306,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-04-15,20240415055306,6.94,browser,6.940%,
+Scotiabank,5-year fixed,2024-04-15,20240415055306,6.79,browser,6.790%,
+Scotiabank,5-year variable,2024-04-25,20240425171326,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-04-25,20240425171326,6.94,browser,6.940%,
+Scotiabank,5-year fixed,2024-04-25,20240425171326,6.79,browser,6.790%,
+Scotiabank,5-year variable,2024-05-03,20240503160439,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-05-03,20240503160439,6.94,browser,6.940%,
+Scotiabank,5-year fixed,2024-05-03,20240503160439,6.79,browser,6.790%,
+Scotiabank,5-year variable,2024-05-09,20240509192529,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-05-09,20240509192529,6.94,browser,6.940%,
+Scotiabank,5-year fixed,2024-05-09,20240509192529,6.79,browser,6.790%,
+Scotiabank,5-year variable,2024-05-18,20240518211009,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-05-18,20240518211009,6.94,browser,6.940%,
+Scotiabank,5-year fixed,2024-05-18,20240518211009,6.79,browser,6.790%,
+Scotiabank,5-year variable,2024-05-25,20240525214047,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202405"
+Scotiabank,3-year fixed,2024-05-25,20240525214047,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202405"
+Scotiabank,5-year fixed,2024-05-25,20240525214047,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202405"
+Scotiabank,5-year variable,2024-06-01,20240601225153,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-06-01,20240601225153,6.94,browser,6.940%,
+Scotiabank,5-year fixed,2024-06-01,20240601225153,6.79,browser,6.790%,
+Scotiabank,5-year variable,2024-06-08,20240608235604,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-06-08,20240608235604,6.94,browser,6.940%,
+Scotiabank,5-year fixed,2024-06-08,20240608235604,6.79,browser,6.790%,
+Scotiabank,5-year variable,2024-06-16,20240616001453,7.65,browser,7.650% 2,
+Scotiabank,3-year fixed,2024-06-16,20240616001453,6.94,browser,6.940%,
+Scotiabank,5-year fixed,2024-06-16,20240616001453,6.79,browser,6.790%,
+Scotiabank,5-year variable,2024-06-23,20240623015041,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2024-06-23,20240623015041,6.74,browser,6.740%,
+Scotiabank,5-year fixed,2024-06-23,20240623015041,6.59,browser,6.590%,
+Scotiabank,5-year variable,2024-06-25,20240625050527,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2024-06-25,20240625050527,6.74,browser,6.740%,
+Scotiabank,5-year fixed,2024-06-25,20240625050527,6.59,browser,6.590%,
+Scotiabank,5-year variable,2024-07-07,20240707034855,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2024-07-07,20240707034855,6.74,browser,6.740%,
+Scotiabank,5-year fixed,2024-07-07,20240707034855,6.59,browser,6.590%,
+Scotiabank,5-year variable,2024-07-15,20240715010535,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2024-07-15,20240715010535,,,,no rate found next to the label '3 years'
+Scotiabank,5-year fixed,2024-07-15,20240715010535,,,,no rate found next to the label '5 years'
+Scotiabank,5-year variable,2024-07-22,20240722025843,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2024-07-22,20240722025843,6.74,browser,6.740%,
+Scotiabank,5-year fixed,2024-07-22,20240722025843,6.59,browser,6.590%,
+Scotiabank,5-year variable,2024-07-29,20240729055619,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2024-07-29,20240729055619,6.74,browser,6.740%,
+Scotiabank,5-year fixed,2024-07-29,20240729055619,6.59,browser,6.590%,
+Scotiabank,5-year variable,2024-08-05,20240805063344,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202408"
+Scotiabank,3-year fixed,2024-08-05,20240805063344,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202408"
+Scotiabank,5-year fixed,2024-08-05,20240805063344,,,,"browser: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to ""https://web.archive.org/web/202408"
+Scotiabank,5-year variable,2024-08-12,20240812005556,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2024-08-12,20240812005556,6.74,browser,6.740%,
+Scotiabank,5-year fixed,2024-08-12,20240812005556,6.59,browser,6.590%,
+Scotiabank,5-year variable,2024-08-19,20240819075107,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2024-08-19,20240819075107,6.74,browser,6.740%,
+Scotiabank,5-year fixed,2024-08-19,20240819075107,6.59,browser,6.590%,
+Scotiabank,5-year variable,2024-08-26,20240826084729,7.15,browser,7.150% 2,
+Scotiabank,3-year fixed,2024-08-26,20240826084729,6.74,browser,6.740%,
+Scotiabank,5-year fixed,2024-08-26,20240826084729,6.59,browser,6.590%,
+Scotiabank,5-year variable,2024-09-02,20240902091926,6.9,browser,6.900% 2,
+Scotiabank,3-year fixed,2024-09-02,20240902091926,6.54,browser,6.540%,
+Scotiabank,5-year fixed,2024-09-02,20240902091926,6.49,browser,6.490%,
+Scotiabank,5-year variable,2024-09-09,20240909100325,6.9,browser,6.900% 2,
+Scotiabank,3-year fixed,2024-09-09,20240909100325,6.54,browser,6.540%,
+Scotiabank,5-year fixed,2024-09-09,20240909100325,6.49,browser,6.490%,
+Scotiabank,5-year variable,2024-09-16,20240916120349,6.9,browser,6.900% 2,
+Scotiabank,3-year fixed,2024-09-16,20240916120349,6.54,browser,6.540%,
+Scotiabank,5-year fixed,2024-09-16,20240916120349,6.49,browser,6.490%,
+Scotiabank,5-year variable,2024-09-23,20240923132216,6.9,browser,6.900% 2,
+Scotiabank,3-year fixed,2024-09-23,20240923132216,6.54,browser,6.540%,
+Scotiabank,5-year fixed,2024-09-23,20240923132216,6.49,browser,6.490%,
+Scotiabank,5-year variable,2024-09-30,20240930193456,6.9,browser,6.900% 2,
+Scotiabank,3-year fixed,2024-09-30,20240930193456,6.54,browser,6.540%,
+Scotiabank,5-year fixed,2024-09-30,20240930193456,6.49,browser,6.490%,
+Scotiabank,5-year variable,2024-10-07,20241007202343,6.9,browser,6.900% 2,
+Scotiabank,3-year fixed,2024-10-07,20241007202343,6.54,browser,6.540%,
+Scotiabank,5-year fixed,2024-10-07,20241007202343,6.49,browser,6.490%,
+Scotiabank,5-year variable,2024-12-07,20241207090004,6.4,browser,6.400% 2,
+Scotiabank,3-year fixed,2024-12-07,20241207090004,6.54,browser,6.540%,
+Scotiabank,5-year fixed,2024-12-07,20241207090004,6.49,browser,6.490%,
+Scotiabank,5-year variable,2024-12-17,20241217144740,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2024-12-17,20241217144740,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2024-12-17,20241217144740,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2025-01-07,20250107141218,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20250107141218if_/https://www.scotiaban
+Scotiabank,3-year fixed,2025-01-07,20250107141218,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20250107141218if_/https://www.scotiaban
+Scotiabank,5-year fixed,2025-01-07,20250107141218,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20250107141218if_/https://www.scotiaban
+Scotiabank,5-year variable,2025-01-18,20250118033403,5.4,browser,5.400% 2,
+Scotiabank,3-year fixed,2025-01-18,20250118033403,6.54,browser,6.540%,
+Scotiabank,5-year fixed,2025-01-18,20250118033403,6.49,browser,6.490%,
+Scotiabank,5-year variable,2025-01-23,20250123134625,5.4,browser,5.400% 2,
+Scotiabank,3-year fixed,2025-01-23,20250123134625,6.54,browser,6.540%,
+Scotiabank,5-year fixed,2025-01-23,20250123134625,6.49,browser,6.490%,
+Scotiabank,5-year variable,2025-01-30,20250130142452,5.4,browser,5.400% 2,
+Scotiabank,3-year fixed,2025-01-30,20250130142452,6.54,browser,6.540%,
+Scotiabank,5-year fixed,2025-01-30,20250130142452,6.49,browser,6.490%,
+Scotiabank,5-year variable,2025-03-13,20250313213136,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20250313213136if_/https://www.scotiaban
+Scotiabank,3-year fixed,2025-03-13,20250313213136,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20250313213136if_/https://www.scotiaban
+Scotiabank,5-year fixed,2025-03-13,20250313213136,,,,browser: Page.goto: net::ERR_TIMED_OUT at https://web.archive.org/web/20250313213136if_/https://www.scotiaban
+Scotiabank,5-year variable,2025-04-05,20250405155503,5.4,browser,5.400% 2,
+Scotiabank,3-year fixed,2025-04-05,20250405155503,6.54,browser,6.540%,
+Scotiabank,5-year fixed,2025-04-05,20250405155503,6.49,browser,6.490%,
+Scotiabank,5-year variable,2025-04-20,20250420170428,5.4,browser,5.400% 2,
+Scotiabank,3-year fixed,2025-04-20,20250420170428,6.54,browser,6.540%,
+Scotiabank,5-year fixed,2025-04-20,20250420170428,6.49,browser,6.490%,
+Scotiabank,5-year variable,2025-05-09,20250509031059,5.4,browser,5.400% 2,
+Scotiabank,3-year fixed,2025-05-09,20250509031059,6.54,browser,6.540%,
+Scotiabank,5-year fixed,2025-05-09,20250509031059,6.49,browser,6.490%,
+Scotiabank,5-year variable,2025-06-09,20250609035903,5.4,browser,5.400% 2,
+Scotiabank,3-year fixed,2025-06-09,20250609035903,6.05,browser,6.050%,
+Scotiabank,5-year fixed,2025-06-09,20250609035903,6.09,browser,6.090%,
+Scotiabank,5-year variable,2025-06-26,20250626154614,5.4,browser,5.400% 2,
+Scotiabank,3-year fixed,2025-06-26,20250626154614,6.05,browser,6.050%,
+Scotiabank,5-year fixed,2025-06-26,20250626154614,6.09,browser,6.090%,
+Scotiabank,5-year variable,2025-07-10,20250710044346,5.4,browser,5.400% 2,
+Scotiabank,3-year fixed,2025-07-10,20250710044346,6.05,browser,6.050%,
+Scotiabank,5-year fixed,2025-07-10,20250710044346,6.09,browser,6.090%,
+Scotiabank,5-year variable,2025-08-02,20250802003313,5.4,browser,5.400% 2,
+Scotiabank,3-year fixed,2025-08-02,20250802003313,6.05,browser,6.050%,
+Scotiabank,5-year fixed,2025-08-02,20250802003313,6.09,browser,6.090%,
+Scotiabank,5-year variable,2025-08-10,20250810143421,5.4,browser,5.400% 2,
+Scotiabank,3-year fixed,2025-08-10,20250810143421,6.05,browser,6.050%,
+Scotiabank,5-year fixed,2025-08-10,20250810143421,6.09,browser,6.090%,
+Scotiabank,5-year variable,2025-09-15,20250915081013,5.4,browser,5.400% 2,
+Scotiabank,3-year fixed,2025-09-15,20250915081013,6.05,browser,6.050%,
+Scotiabank,5-year fixed,2025-09-15,20250915081013,6.09,browser,6.090%,
+Scotiabank,5-year variable,2025-10-11,20251011094320,5.4,browser,5.400% 2,
+Scotiabank,3-year fixed,2025-10-11,20251011094320,6.05,browser,6.050%,
+Scotiabank,5-year fixed,2025-10-11,20251011094320,6.09,browser,6.090%,
+Scotiabank,5-year variable,2025-11-10,20251110051619,5.4,browser,5.400% 2,
+Scotiabank,3-year fixed,2025-11-10,20251110051619,6.05,browser,6.050%,
+Scotiabank,5-year fixed,2025-11-10,20251110051619,6.09,browser,6.090%,
+Scotiabank,5-year variable,2025-11-23,20251123114833,5.4,browser,5.400% 2,
+Scotiabank,3-year fixed,2025-11-23,20251123114833,6.05,browser,6.050%,
+Scotiabank,5-year fixed,2025-11-23,20251123114833,6.09,browser,6.090%,
+Scotiabank,5-year variable,2026-01-09,20260109032844,4.9,browser,4.900% 2,
+Scotiabank,3-year fixed,2026-01-09,20260109032844,6.05,browser,6.050%,
+Scotiabank,5-year fixed,2026-01-09,20260109032844,6.09,browser,6.090%,
+Scotiabank,5-year variable,2026-02-20,20260220000120,4.9,browser,4.900% 2,
+Scotiabank,3-year fixed,2026-02-20,20260220000120,6.05,browser,6.050%,
+Scotiabank,5-year fixed,2026-02-20,20260220000120,6.09,browser,6.090%,
+Scotiabank,5-year variable,2026-03-10,20260310123627,4.9,browser,4.900% 2,
+Scotiabank,3-year fixed,2026-03-10,20260310123627,6.05,browser,6.050%,
+Scotiabank,5-year fixed,2026-03-10,20260310123627,6.09,browser,6.090%,
+Scotiabank,5-year variable,2026-06-08,20260608051313,4.9,browser,4.900% 2,
+Scotiabank,3-year fixed,2026-06-08,20260608051313,6.05,browser,6.050%,
+Scotiabank,5-year fixed,2026-06-08,20260608051313,6.09,browser,6.090%,
+Scotiabank,5-year variable,2026-08-01,20260801014118,,,,no rate found next to the label 'Scotia Flex Value Mortgage-Closed 5 Year Term'
+Scotiabank,3-year fixed,2026-08-01,20260801014118,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year fixed,2026-08-01,20260801014118,,,,section 'Scotia Flex Value Mortgage-Open 5 Year Term' not found
+Scotiabank,5-year variable,2026-09-30,20260930170546,4.9,browser,4.900% 2,
+Scotiabank,3-year fixed,2026-09-30,20260930170546,6.05,browser,6.050%,
+Scotiabank,5-year fixed,2026-09-30,20260930170546,6.19,browser,6.190%,
+Scotiabank,5-year variable,2026-10-06,20261006222111,4.9,browser,4.900% 2,
+Scotiabank,3-year fixed,2026-10-06,20261006222111,6.05,browser,6.050%,
+Scotiabank,5-year fixed,2026-10-06,20261006222111,6.19,browser,6.190%,
