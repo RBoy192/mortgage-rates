@@ -744,3 +744,6 @@ details.fold:first-of-type{margin-top:28px;border-top:1px solid var(--ln)}
 .paytab td.ln .lg-logo{float:left;margin:0 10px 0 0}
 .paytab td.ln a{display:block;overflow:hidden;padding-top:3px}
 @media (max-width:600px){.paytab td.ln .lg-logo{margin:1px 0 0}.paytab td.ln a{overflow:visible;padding-top:0}}
+/* Extras menu: keep every entry ("Monthly Payment Estimator") on one line */
+.tabs[aria-label="Extras"] a{white-space:nowrap!important}
+@media (min-width:821px){body[data-page="extras"] .vl{grid-template-columns:250px minmax(0,1fr)}}

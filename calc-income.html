@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="Find out how much household income you need to qualify for a mortgage on a home you have in mind, with editable GDS, TDS and stress-test rules.">
 <link rel="canonical" href="https://whatstherate.ca/calc-income.html">
-<link rel="icon" href="favicon.svg?v=62" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=62" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=62">
+<link rel="icon" href="favicon.svg?v=63" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=63" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=63">
 <link rel="alternate" type="application/atom+xml" title="Mortgage rate changes" href="feed.xml">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=62">
+<link rel="stylesheet" href="style.css?v=63">
 </head>
 <body data-page="calc">
 <main id="top">
@@ -39,7 +39,7 @@
 <div class="est">
 <div class="fl">
 <label>Home price <span class="df" data-f="price">default</span><input id="n_price" data-slider="100000,2000000,5000" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
-<label>Down payment <span class="df" data-f="saved">default</span><input id="n_saved" data-slider="0,1000000,5000" type="text" inputmode="numeric" data-money="1" autocomplete="off"><span class="s" id="n_pct"></span></label>
+<label for="n_saved">Down payment <span class="df" data-f="saved">default</span><span class="sg" id="n_unit" role="group" aria-label="Enter the down payment as"><button type="button" data-u="$" aria-pressed="true">$</button><button type="button" data-u="%" aria-pressed="false">%</button></span><input id="n_saved" data-slider="0,1000000,5000" type="text" inputmode="numeric" data-money="1" autocomplete="off"><span class="s" id="n_pct"></span></label>
 <label>Monthly debt payments <span class="df" data-f="debts">default</span><input id="n_debts" data-slider="0,5000,25" type="text" inputmode="numeric" data-money="1" autocomplete="off"><span class="s">Car loans, credit cards, lines of credit, student loans. Use the minimum payments.</span></label>
 <details class="as"><summary>Assumptions you can change</summary>
 <div class="fl">
@@ -66,8 +66,8 @@
 </div>
 </div>
 </main>
-<script src="site.js?v=62"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="62"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=63"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="63"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 (function(){
 let n = Object.assign(loadNeed(), fromURL()), best = {};
@@ -75,8 +75,28 @@ const EX = [{price: 500000, saved: 50000, condo: 450}, {price: 800000, saved: 16
 const IDS = ["price", "saved", "debts", "tax", "heat", "condo", "years", "rate", "custom", "gds", "tds", "stress", "floor"];
 const g = id => $("n_" + id);
 const defRate = () => best[NEED.rate] ? NEED.rate : "custom";
-const write = () => IDS.forEach(k => { setv("n_" + k, n[k]); });
-const read = () => { const o = {}; IDS.forEach(k => { o[k] = k === "rate" ? g(k).value : val("n_" + k); }); n = o; };
+// The down payment can be typed in dollars or as a percentage of the price (remembered in this browser). It's kept in dollars.
+let unit = "$";
+try { if (localStorage.getItem("need-dp-unit") === "%") unit = "%"; } catch (e) {}
+const pctMode = () => unit === "%";
+function applyUnit(){
+  const el = g("saved");
+  if (pctMode()) { el.dataset.money = "0"; el.dataset.slider = "0,100,0.5"; el.inputMode = "decimal"; el.setAttribute("aria-label", "Down payment, as a percentage of the home price"); }
+  else { el.dataset.money = "1"; el.dataset.slider = "0,1000000,5000"; el.inputMode = "numeric"; el.removeAttribute("aria-label"); }
+  document.querySelectorAll("#n_unit button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.u === unit)));
+}
+const write = () => IDS.forEach(k => {
+  if (k === "saved" && pctMode()) setv("n_saved", n.price > 0 ? +(n.saved / n.price * 100).toFixed(2) : 0);
+  else setv("n_" + k, n[k]);
+});
+const read = () => { const o = {}; IDS.forEach(k => { o[k] = k === "rate" ? g(k).value : val("n_" + k); });
+  if (pctMode()) o.saved = Math.round(o.price * o.saved / 100); n = o; };
+applyUnit();
+document.querySelectorAll("#n_unit button").forEach(b => b.addEventListener("click", e => {
+  e.preventDefault(); if (b.dataset.u === unit) return;
+  read(); unit = b.dataset.u; try { localStorage.setItem("need-dp-unit", unit); } catch (er) {}
+  applyUnit(); write(); update();
+}));
 
 function update(){
   read(); saveNeed(n);
@@ -85,7 +105,7 @@ function update(){
   const flags = {rate: n.rate === defRate() && (n.rate !== "custom" || n.custom === NEED.custom)};
   ["price", "saved", "debts", "tax", "heat", "condo", "years", "gds", "tds", "stress", "floor"].forEach(k => { flags[k] = n[k] === NEED[k]; });
   document.querySelectorAll(".df").forEach(e => { e.hidden = !flags[e.dataset.f]; });
-  $("n_pct").textContent = n.price > 0 ? "= " + (n.saved / n.price * 100).toFixed(1) + "% of the price" : "";
+  $("n_pct").textContent = n.price > 0 ? (pctMode() ? "= " + money(n.saved) : "= " + (n.saved / n.price * 100).toFixed(1) + "% of the price") : "";
   const msgs = [];
   if (r) {
     if (r.belowMin) msgs.push(["w", `Your down payment is below the minimum for this price, about ${money(r.min)} (${(r.min / r.price * 100).toFixed(1)}%). In Canada the minimum is 5% of the first $500,000 plus 10% of the part up to $1.5 million, and 20% from $1.5 million.`]);
