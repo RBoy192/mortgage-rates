@@ -1,6 +1,6 @@
 // Pictures and worked examples for the crash course chapters. Each chapter page sets <body data-chapter="...">.
 (function(){
-if (typeof SITE_VERSION === "undefined" || SITE_VERSION !== "64") return;
+if (typeof SITE_VERSION === "undefined" || SITE_VERSION !== "65") return;
 const share = y => Math.round(y.int / (y.int + y.pr) * 100);
 // A bar split into parts, with its labels in a key underneath (so nothing is squeezed or cut off inside the bar)
 const bar = (parts, inner) => (parts = parts.filter(p => p.w > 0.05), `<div class="bar" role="img" aria-label="${esc(parts.map(p => p.t).join(", "))}">`
