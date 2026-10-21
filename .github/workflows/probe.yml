@@ -20,7 +20,7 @@ jobs:
       - name: Dump pages
         run: |
           mkdir -p probe
-          python - <<'PY' 2>&1 | tee probe/summary.txt
+          python - <<'PY' > probe/summary.txt 2>&1 || echo "python exited $?" >> probe/summary.txt
           import yaml, scraper, re
           from bs4 import BeautifulSoup
           for l in yaml.safe_load(open("institutions.yaml")):
@@ -37,6 +37,7 @@ jobs:
                   if n >= 3:
                       open(f"probe/{key}.html", "w").write(html); open(f"probe/{key}.txt", "w").write(txt); break
           PY
+          true
           git config user.name "rates-bot"; git config user.email "rates-bot@users.noreply.github.com"
           git checkout --orphan diagnose; git rm -rqf --cached .; git add probe
           git commit -qm "Lender pages"; git push -f origin diagnose
