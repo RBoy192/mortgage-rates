@@ -1,0 +1,863 @@
+
+
+<script src="/Cookies/Shared/cookie-popup.js"></script>
+<link rel="stylesheet" href="/Cookies/Shared/cookie-popup.css">
+
+<div id="overlayPopup"></div>
+
+<div id="cookie-popup" class="container">
+    <div id="regularScreen">
+        <div class="row">
+            <div class="col-xs-8">
+                <!-- margin:0; to center verticaly the text , this is used here to override bootstrap margin bottom of 10px on <p> -->
+                <p style="margin:0;">By clicking on <strong>"Accept all cookies"</strong> you accept that cookies may be <a href="/en/about/section/cookie-policy/"><u>stored on your device</u></a> in order to improve site navigation, analyze site usage and contribute to our marketing efforts</p>
+            </div>
+            <div class="col-xs-4 centered">
+                <button id="btnAccpetCookies" class="btn" onclick="acceptCookies()">Accept all cookies</button>
+                <button id="btnGereLesPreferances" class="btn" onclick="openPreferencesModal()"><u>Manage preferences</u></button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="mobileScreen">
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- margin:0; to center verticaly the text , this is used here to override bootstrap margin bottom of 10px on <p> -->
+                <p style="margin:0;">By clicking on <strong>"Accept all cookies"</strong> you accept that cookies may be <a href="/en/about/section/cookie-policy/"><u>stored on your device</u></a> in order to improve site navigation, analyze site usage and contribute to our marketing efforts</p>
+            </div>
+        </div>
+        <div class="row centered">
+            <div class="col-xs-12">
+                <button id="btnAccpetCookies" class="btn" onclick="acceptCookies()">Accept all cookies</button>
+                <button id="btnGereLesPreferances" class="btn" onclick="openPreferencesModal()"><u>Manage preferences</u></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- preferences-modal.cfm -->
+
+
+<link rel="stylesheet" href="/Cookies/Shared/cookie-preferences-modal.css">
+<script src="/Cookies/Shared/cookie-preferences-modal.js"></script>
+
+<div id="manage-preferences-modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closePreferencesModal()">&times;</span>
+
+        <div class="row">
+        <!-- xs-10 instread of xs-12 , the reason is xm-12 overlap the close-button who is out of the row for placement-->
+            <div class="col-xs-10">
+                <h4 class="h4Override">Manage preferences</h4>
+            </div>
+        </div>
+
+        <div class="modal-body">
+
+            
+
+<!-- Notes here that we use categoryTitle as the Unique ID for each category , 2 category should never have the same name -->
+
+
+<link rel="stylesheet" href="/Cookies/Shared/cookie-category.css">
+<script src="/Cookies/Shared/cookie-category.js"></script>
+
+<!-- using this as a UniqueID without Space-->
+
+    <div class="row center">
+        <div class="col-xs-8">
+            <div data-toggle="collapse" data-target="#Necessarycookies" style="cursor: pointer;" onclick="toggleIcons(Necessarycookies)" >
+                <h4 class="h4Override">
+                    <!-- creating a Unique ID for each icon -->
+                    
+
+                    <i id="plusIconNecessarycookies" class="fa fa-plus faIcon" aria-hidden="true" style="display: inline;"></i>
+                    <i id="minusIconNecessarycookies" class="fa fa-minus faIcon" aria-hidden="true" style="display: none;"></i>
+                    <strong>Necessary cookies</strong>
+                </h4>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <label class="toggle-label" for="Necessary cookies" style="text-align: right;">
+
+                
+                    <input type="checkbox" checked id="Necessary cookies" name="category" class="toggle-checkbox">
+                
+                <!-- F6F8FF = light blue -->
+                    <span style="background-color: #F6F8FF; border-radius: 25px; padding: 3px;">Always active</span>
+                
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="Necessarycookies" class="collapse categoryDetails">
+                <p>These cookies make a website usable by providing basic functions such as page navigation and access to secure sections of the website. The website cannot function properly without these cookies.</p>
+            </div>
+        </div>
+    </div>
+
+            <hr>
+
+            
+
+<!-- Notes here that we use categoryTitle as the Unique ID for each category , 2 category should never have the same name -->
+
+
+<link rel="stylesheet" href="/Cookies/Shared/cookie-category.css">
+<script src="/Cookies/Shared/cookie-category.js"></script>
+
+<!-- using this as a UniqueID without Space-->
+
+    <div class="row center">
+        <div class="col-xs-8">
+            <div data-toggle="collapse" data-target="#Analyticalcookies" style="cursor: pointer;" onclick="toggleIcons(Analyticalcookies)" >
+                <h4 class="h4Override">
+                    <!-- creating a Unique ID for each icon -->
+                    
+
+                    <i id="plusIconAnalyticalcookies" class="fa fa-plus faIcon" aria-hidden="true" style="display: inline;"></i>
+                    <i id="minusIconAnalyticalcookies" class="fa fa-minus faIcon" aria-hidden="true" style="display: none;"></i>
+                    <strong>Analytical cookies</strong>
+                </h4>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <label class="toggle-label" for="Analytical cookies" style="text-align: right;">
+
+                
+                    <input type="checkbox" id="Analytical cookies" name="category" class="toggle-checkbox">
+                
+                    <span class="slider"></span>
+                
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="Analyticalcookies" class="collapse categoryDetails">
+                <p>These cookies enable us or our third-party analytics providers to collect information and statistics about how you and other visitors use our services. This information helps us to improve our services and products for you and others.</p>
+            </div>
+        </div>
+    </div>
+
+            <hr>
+
+            
+
+<!-- Notes here that we use categoryTitle as the Unique ID for each category , 2 category should never have the same name -->
+
+
+<link rel="stylesheet" href="/Cookies/Shared/cookie-category.css">
+<script src="/Cookies/Shared/cookie-category.js"></script>
+
+<!-- using this as a UniqueID without Space-->
+
+    <div class="row center">
+        <div class="col-xs-8">
+            <div data-toggle="collapse" data-target="#Preferencecookies" style="cursor: pointer;" onclick="toggleIcons(Preferencecookies)" >
+                <h4 class="h4Override">
+                    <!-- creating a Unique ID for each icon -->
+                    
+
+                    <i id="plusIconPreferencecookies" class="fa fa-plus faIcon" aria-hidden="true" style="display: inline;"></i>
+                    <i id="minusIconPreferencecookies" class="fa fa-minus faIcon" aria-hidden="true" style="display: none;"></i>
+                    <strong>Preference cookies</strong>
+                </h4>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <label class="toggle-label" for="Preference cookies" style="text-align: right;">
+
+                
+                    <input type="checkbox" id="Preference cookies" name="category" class="toggle-checkbox">
+                
+                    <span class="slider"></span>
+                
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="Preferencecookies" class="collapse categoryDetails">
+                <p>These cookies enable the website to remember information that modifies the behavior or appearance of the website, such as your preferred language or the region in which you are located.</p>
+            </div>
+        </div>
+    </div>
+
+            <hr>
+
+            
+
+<!-- Notes here that we use categoryTitle as the Unique ID for each category , 2 category should never have the same name -->
+
+
+<link rel="stylesheet" href="/Cookies/Shared/cookie-category.css">
+<script src="/Cookies/Shared/cookie-category.js"></script>
+
+<!-- using this as a UniqueID without Space-->
+
+    <div class="row center">
+        <div class="col-xs-8">
+            <div data-toggle="collapse" data-target="#Advertisingcookies" style="cursor: pointer;" onclick="toggleIcons(Advertisingcookies)" >
+                <h4 class="h4Override">
+                    <!-- creating a Unique ID for each icon -->
+                    
+
+                    <i id="plusIconAdvertisingcookies" class="fa fa-plus faIcon" aria-hidden="true" style="display: inline;"></i>
+                    <i id="minusIconAdvertisingcookies" class="fa fa-minus faIcon" aria-hidden="true" style="display: none;"></i>
+                    <strong>Advertising cookies</strong>
+                </h4>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <label class="toggle-label" for="Advertising cookies" style="text-align: right;">
+
+                
+                    <input type="checkbox" id="Advertising cookies" name="category" class="toggle-checkbox">
+                
+                    <span class="slider"></span>
+                
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="Advertisingcookies" class="collapse categoryDetails">
+                <p>These cookies are used to track visitors across the Web. The aim is to display ads that are relevant and attractive to the individual user and therefore more interesting to publishers and their third-party advertisers.</p>
+            </div>
+        </div>
+    </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12" style="text-align: center;">
+                <button id="btnSavePreferences" class="btn" onclick="saveInformation()">Confirm selection</button>
+                <!-- <button id="btnClose" class="btn" onclick="closePreferencesModal()">Close</button> -->
+            </div>
+        </div>
+
+    </div>
+</div>  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<title>Residential mortgage loans - UNI Financial cooperation</title>
+    <meta name="description" content="Rates in force for Residential mortgage loans.">
+    <link rel="stylesheet" media="print" href="/UNIassetsFR/css/print.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="UNI Financial Cooperation">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- IE 9 Fallback-->
+<!--[if IE 9]>
+    <link href="../assets/css/ie.css" rel="stylesheet">
+<![endif]-->
+<!-- FAVICONS -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/UNIassetsEN/ico/uni114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/UNIassetsEN/ico/uni114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/UNIassetsEN/ico/uni72x72.png">
+<link rel="apple-touch-icon-precomposed" href="/UNIassetsEN/ico/uni57x57.png">
+<link rel="shortcut icon" href="/UNIassetsEN/ico/favicon.png">
+<!-- CSS -->
+<link href="/UNIassetsEN/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="/UNIassetsEN/css/main.css?v=1.5" rel="stylesheet" type="text/css">
+<link href="/UNIassetsEN/css/my-custom-styles.css?v=1.5" rel="stylesheet" type="text/css">
+<link href="/UNIassetsEN/css/caissescolaire.css" rel="stylesheet" type="text/css">
+<link href="/UNIassetsFR/script/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"><meta name="robots" content="index, follow" />
+<META HTTP-EQUIV="EXPIRES" CONTENT="{ts '2026-10-20 22:44:04'}">
+
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W93566R');</script>
+<!-- End Google Tag Manager -->
+
+
+
+
+    <style type="text/css">
+    h3 {
+        color:#009639;
+    }
+    </style>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+    <script src="https://www.uni.ca/fr/assets/js/sticky.js" type="text/javascript"></script>
+<script>var __uzdbm_1 = "73514b60-2401-4d3c-b864-ade0d27f7a03";var __uzdbm_2 = "NWI2YzUyZTEtZGE0dS00NjFlLWIwZDctNzk4ZDY1MWU5NThmJDE3Mi4xODQuMjEzLjE3OA==";var __uzdbm_3 = "";var __uzdbm_4 = "false";var __uzdbm_5 = "";var __uzdbm_6 = "";var __uzdbm_7 = "";</script> <script>   (function (w, d, e, u, c, g, a, b) {     w["SSJSConnectorObj"] = w["SSJSConnectorObj"] || {       ss_cid: c,       domain_info: "auto",     };     w[g] = function (i, j) {       w["SSJSConnectorObj"][i] = j;     };     a = d.createElement(e);     a.async = true;     if (       navigator.userAgent.indexOf('MSIE') !== -1 ||       navigator.appVersion.indexOf('Trident/') > -1     ) {       u = u.replace("/advanced/", "/advanced/ie/");     }     a.src = u;     b = d.getElementsByTagName(e)[0];     b.parentNode.insertBefore(a, b);   })(     window, document, "script", "https://www.uni.ca/18f5227b-e27b-445a-a53f-f845fbe69b40/stormcaster.js", "da4w", "ssConf"   );   ssConf("c1", "https://www.uni.ca");   ssConf("c3", "c99a4269-161c-4242-a3f0-28d44fa6ce24");   ssConf("au", "uni.ca");   ssConf("cu", "validate.perfdrive.com, ssc"); </script></head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W93566R"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+	<!-- WRAPPER -->
+	<div class="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container">
+            <div style="float:left;">
+                    <a href="https://www.uni.ca/en/" class="navbar-brand navbar-logo navbar-logo-bigger">
+                        <img src="/UNIassetsEN/img/logo/uni-logo.png" alt="Uni" class="img-responsive">
+                    </a>
+                </div>
+				<!-- TOPBAR -->
+              
+				<!-- END TOPBAR -->
+				<div class="navbar-header">
+                    
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+						<span class="sr-only">Toggle Navigation</span>
+						<i class="fa fa-bars"></i>
+					</button>
+				 <ul class="list-inline top-nav" style="float:right; padding-top:10px; margin-right:20px;" id="ClientMobile">       
+                     <li class="dropdown"><a href="#" class="Main-menu" style="color:#01963a; font-size:18px;"><i class="fa fa-user"></i> Connexion</a></li>
+                </ul>
+				</div>
+                				                
+               <div id="main-nav" class="navbar-collapse-mobile collapse navbar-mega-menu">
+
+  <div class="mobile-search">
+    <form action="https://www.uni.ca/en/search/" method="post">
+      <input type="text" name="recherche" placeholder="&#xf002 Search">
+    </form>
+  </div>
+
+  <ul class="nav navbar-nav navbar-right" style="background-color:#FFF; margin-top: 0px; padding: 0px 15px;">
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle mobile" data-toggle="dropdown">Personal
+        <i class="fal fa-chevron-circle-down closed-icon"></i>
+        <i class="fal fa-chevron-circle-up open-icon"></i>
+      </a>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="/en/homebuying/" style="color:#545454;">My home</a></li>
+        <li><a href="/en/wealth/" style="color:#545454;">Wealth</a></li>
+        <li><a href="https://info.uni.ca/en/studies" style="color:#545454;">My education</a></li>
+        <li><a href="/en/blog/" style="color:#545454;">All Blogs</a> </li>
+        <li><a href="/en/products" style="color:#545454;">All our products</a> </li>
+        <li><a href="/en/promotions/" style="color:#545454; border-bottom: 1px solid;">Offers and Promotions</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle mobile" data-toggle="dropdown">Business
+        <i class="fal fa-chevron-circle-down closed-icon"></i>
+        <i class="fal fa-chevron-circle-up open-icon"></i>
+      </a>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="/en/business/" style="color:#545454;">Home</a></li>
+        <li><a href="/en/business/find-an-account-manager" style="color:#545454;">Find an account manager</a></li>
+        <li><a href="/en/business/testimonials/#Out-of-province-financing" style="color:#545454;">Out-of-province financing</a></li>
+        <li><a href="/en/business/testimonials/#operational-efficiency" style="color:#545454;">Operational Efficiency</a></li>
+        <li><a href="/en/products" style="color:#545454; border-bottom: 1px solid;">All our products</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle mobile" data-toggle="dropdown">Community
+        <i class="fal fa-chevron-circle-down closed-icon"></i>
+        <i class="fal fa-chevron-circle-up open-icon"></i>
+      </a>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="/en/community/" style="color:#545454;">Home</a></li>
+        <li><a href="/en/community/community-impact-2025/" style="color:#545454;">2025 Community Impact<i class="far fa-external-link-alt"></i></a></li>
+        <li><a href="/en/community/donations-and-sponsorships/" style="color:#545454;">Submit a demand</a></li>
+        <li><a href="/en/community/supported-projects/" style="color:#545454;">Supported projects</a></li>
+        <li><a href="/en/community/contact-us/" style="color:#545454; border-bottom: 1px solid;">Contact us</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle mobile" data-toggle="dropdown">About
+        <i class="fal fa-chevron-circle-down closed-icon"></i>
+        <i class="fal fa-chevron-circle-up open-icon"></i>
+      </a>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="/en/about/#profile" style="color:#545454;">Profile</a></li>
+        <li><a href="/en/about/#governance-and-democracy" style="color:#545454;">Governance and democracy</a></li>
+        <li><a href="/en/about/#news" style="color:#545454;">News</a></li>
+        <li><a href="/en/about/section/60-years-and-older" style="color:#545454;">60 years and older</a></li>
+        <li><a href="/en/about/section/confidentiality/" style="color:#545454;">Confidentiality</a></li>
+        <li><a href="/en/about/section/everyday-security/" style="color:#545454; border-bottom: 1px solid;">Security</a></li>
+        <li><a href="https://info.uni.ca/en/accessibility" style="color:#545454;" target="_blank">Accessibility</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown"><a class="dropdown-toggle mobile" style="color: #fff; background-color: #76bd1d;" href="https://info.uni.ca/en/my-profile-guide/personal/tutorials">Need help for My Profile?&nbsp;&nbsp;<i style="color: #fff" class="far fa-external-link-alt"></i></a></li>
+
+    <li class="dropdown">
+      <a style="font-weight: 300; color: #fff; background-color: #484444;" href="#" class="dropdown-toggle mobile" data-toggle="dropdown"><i class="fal fa-user-circle" style="position: initial; color: #fff"></i><em>&nbsp;&nbsp;Accounts login</em>
+        <i class="fal fa-chevron-circle-down closed-icon" style="color: #fff"></i>
+        <i class="fal fa-chevron-circle-up open-icon" style="color: #fff"></i>
+      </a>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="https://auth.uni.ca/8fbe68de-5a19-4aa0-bce6-0a3cc0119e26/oauth2/v2.0/authorize?p=B2C_1A_USERNAME_SUSI_UI&client_id=5409db44-9be1-4edf-a791-be577994bfa8&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fob.uni.ca%2FuniAzureLogin&scope=openid&response_type=code&prompt=login&ui_locales=en" onclick="_gaq.push(['_trackEvent',  'Liens', 'Mon Profil', 'Accueil mobile'])">My Profile<i class="far fa-external-link-alt"></i></a></li>
+        <li><a href="https://auth.uni.ca/8fbe68de-5a19-4aa0-bce6-0a3cc0119e26/oauth2/v2.0/authorize?p=B2C_1A_USERNAME_SUSI_UI&client_id=5409db44-9be1-4edf-a791-be577994bfa8&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fob.uni.ca%2FuniAzureLogin&scope=openid&response_type=code&prompt=login&ui_locales=en" onclick="_gaq.push(['_trackEvent',  'Liens', 'Mon Profil Jeunesse', 'Mon Profil Jeunesse'])">My Profile Youth<i class="far fa-external-link-alt"></i></a></li>
+        <li><a href="/en/aviso/" target="_blank">Aviso Wealth<i class="far fa-external-link-alt"></i></a></li>
+        <li><a href="https://www.qtrade.ca/en/investor/apply.html?partner=uni" target="_blank">QTrade<i class="far fa-external-link-alt"></i></a></li>
+        <li><a href="https://servicepostal.uni.ca" target="_blank">Acadia Postal Service<i class="far fa-external-link-alt"></i></a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a style="font-weight: 300; color: #fff; background-color: #484444;" href="#" class="dropdown-toggle mobile" data-toggle="dropdown"><i class="fal fa-lightbulb" style="position: initial; color: #fff"></i><em>&nbsp;&nbsp;Tools</em>
+        <i class="fal fa-chevron-circle-down closed-icon" style="color: #fff"></i>
+        <i class="fal fa-chevron-circle-up open-icon" style="color: #fff"></i>
+      </a>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="/en/rates/">Current rates</a></li>
+        <li><a href="/en/calculators/">Calculators</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a style="font-weight: 300; color: #fff; background-color: #484444;" href="#" class="dropdown-toggle mobile" data-toggle="dropdown"><i class="fal fa-map-marker-alt" style="position: initial; color: #fff"></i><em>&nbsp;&nbsp;Contact us</em>
+        <i class="fal fa-chevron-circle-down closed-icon" style="color: #fff"></i>
+        <i class="fal fa-chevron-circle-up open-icon" style="color: #fff"></i>
+      </a>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="/en/contact-us/result" style="color:#545454;">Find a business location</a></li>
+        <li><a href="/en/contact-us/" style="color:#545454;">Contact us</a></li>
+      </ul>
+    </li>
+
+    
+        <li class="dropdown"><a href="https://www.uni.ca/fr/taux/produit/pret-hypothecaire-residentiel" class="dropdown-toggle mobile" style="border-top: 1px solid; border-bottom: none;">Fran&ccedil;ais </a></li>
+      
+  </ul>
+</div>
+<div id="main-nav2" style="padding-bottom:5px" class="navbar-collapse collapse navbar-mega-menu">
+  <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personal <i class="fal fa-angle-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a class='main-option' href="/en/homebuying/">My Home</a></li>
+          <li><a class='main-option' href="/en/wealth/">Wealth</a></li>
+          <li><a class='main-option' href="https://info.uni.ca/en/studies">My Education</a></li>
+          <li class='main-option-top-border' ><a href="/en/blog/">All Blogs</a></li>
+          <li><a href="/en/products">All Our Products</a></li>
+          <li><a href="/en/rates/">Current Rates</a></li>
+          <li><a href="/en/promotions/">Offers and Promotions&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle EntrepriseM" data-toggle="dropdown">Business <i class="fal fa-angle-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a class='main-option' href="/en/business/">Home</a></li>
+          <li><a class='main-option' href="/en/business/find-an-account-manager">Find an Account Manager&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+          <li><a class='main-option-top-border' href="/en/products/#business">All Our Products</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle CommunauteM" data-toggle="dropdown">Community <i class="fal fa-angle-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a class='main-option' href="/en/community/">Home</a></li>
+          <li><a class='main-option' href="/en/community/community-impact-2025/">2025 Community Impact&nbsp;&nbsp;&nbsp;&nbsp;<i class="far fa-external-link-alt"></i></a></a></li>
+          <li><a class='main-option' href="/en/community/donations-and-sponsorships/">Submit a Demand</a></li>
+          <li><a class='main-option' href="/en/community/supported-projects/">Supported Projects</a></li>
+          <li><a class='main-option' href="/en/community/contact-us/">Contact Us</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle AproposM" data-toggle="dropdown">About <i class="fal fa-angle-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a class='main-option' href="/en/about/#profile">Profile</a></li>
+          <li><a class='main-option' href="/en/about/#governance-and-democracy">Governance and Democracy&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+          <li><a class='main-option' href="/en/about/#news">News</a></li>
+          <li><a class='main-option' href="/en/about/section/60-years-and-older">60 years and Older</a></li>
+          <li><a class='main-option' href="/en/about/section/confidentiality/">Confidentiality</a></li>
+          <li><a class='main-option' href="/en/about/section/everyday-security/">Security</a></li>
+        </ul>
+    </li>
+
+    <li style="border-right:1px solid #CCC;" class="MenuMargeLeft"><a href="/en/contact-us/" style=" padding-bottom:0px;">Contact Us</a></li>
+    <li style="border-right:1px solid #CCC;"><a href="/en/search/" class="dropdown-toggle" style=" padding-bottom:0px;"><i class="fal fa-search"></i></a></li>
+
+    <li><a href="https://www.uni.ca/fr/taux/produit/pret-hypothecaire-residentiel">FR</a></li> 
+
+    <li class="dropdown" style="margin-left: 20px">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <i style="color: #009639;" class="fal fa-play"></i>
+          <i style="color: #009639;" class="fal fa-tv"></i>
+          &nbsp;&nbsp;Help with My Profile
+          <i class="fal fa-angle-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class='main-option' href="https://info.uni.ca/en/my-profile-guide/personal/tutorials">Personals</a></li>
+          <li><a class='main-option' href="https://info.uni.ca/en/my-profile-guide/business/tutorials">Businesses&nbsp;&nbsp;&nbsp;</a></li>
+          <li><a class='main-option' href="https://info.uni.ca/en/my-profile-guide/youth/tutorials">Youth</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown" style="bottom: 2px;"><a href="#" class="Main-menu" style="margin-left: 10px; margin-bottom: 14px;"><i class="fal fa-lock"></i> Member Login <i class="fal fa-angle-down"></i></a>
+      <ul class="dropdown-menu">
+        <li><a class='main-option' href="https://auth.uni.ca/8fbe68de-5a19-4aa0-bce6-0a3cc0119e26/oauth2/v2.0/authorize?p=B2C_1A_USERNAME_SUSI_UI&client_id=5409db44-9be1-4edf-a791-be577994bfa8&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fob.uni.ca%2FuniAzureLogin&scope=openid&response_type=code&prompt=login&ui_locales=en" onclick="_gaq.push(['_trackEvent',  'Liens', 'Mon Profil Particulier', 'Accueil Particuliers'])" target="Blank">
+          My Profile<i class="far fa-external-link-alt"></i></a>
+        </a></li>
+        <li><a class='main-option' href="https://auth.uni.ca/8fbe68de-5a19-4aa0-bce6-0a3cc0119e26/oauth2/v2.0/authorize?p=B2C_1A_USERNAME_SUSI_UI&client_id=5409db44-9be1-4edf-a791-be577994bfa8&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fob.uni.ca%2FuniAzureLogin&scope=openid&response_type=code&prompt=login&ui_locales=en" onclick="_gaq.push(['_trackEvent',  'Liens', 'Services financiers Acadie', 'Accueil Particuliers'])" target="Blank">
+          My Profile Youth<i class="far fa-external-link-alt"></i></a>
+        </a></li>
+        <li><a class='main-option-top-border' href="/en/aviso/" onclick="_gaq.push(['_trackEvent',  'Liens', 'Aviso Wealth', 'Accueil Particuliers'])" target="Blank">Aviso Wealth<i class="far fa-external-link-alt"></i></a>
+        </a></li>
+        <li><a href="https://www.qtrade.ca/en/investor/apply.html?partner=uni" onclick="_gaq.push(['_trackEvent',  'Liens', 'Qtrade investor', 'Qtrade login'])" target="Blank">
+          QTrade<i class="far fa-external-link-alt"></i></a>
+        </a></li>
+        <li><a href="https://servicepostal.uni.ca/" onclick="_gaq.push(['_trackEvent',  'Liens', 'Service postal Acadie', 'Accueil Particuliers'])" target="Blank">
+          Acadia Postal Service&nbsp;&nbsp;&nbsp;&nbsp;<i class="far fa-external-link-alt"></i></a>
+        </a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+	                            
+                				 
+							                      
+			</div>
+	  </nav>
+	
+		
+        
+          <section class="no-margin">
+			<div  class="col-md-12 col-sm-12 col-xs-12" style="padding:0px;">				
+						<img src="https://www.uni.ca/img/sliders/header_taux.jpg" class="img-responsive" alt="Slider Image">	
+			</div>            
+            <div style="clear:both"></div>
+		</section>		
+		
+		
+         <!-- BREADCRUMBS -->
+        <section style="padding-top:15px; margin-bottom:0px;">
+			<div class="container">
+				<ol class="breadcrumb">
+      				<li><a href="https://www.uni.ca/en">Home</a></li>
+                	<li><a href="https://www.uni.ca/en/rates/">Interest rates</a></li>
+               		<li class="active" style="color:#009639">Residential mortgage loans</li>
+				</ol>
+         	</div>
+		</section>
+        
+		<!-- END BREADCRUMBS -->
+
+<!-- VOTRE PROJET -->
+		<section>
+			<div class="container">               
+				<div class="row" style="margin-bottom:20px; background-color:#FFF;">    
+					<div class="col-md-9 col-sm-9 col-xs-12" style="padding:10px; border-right:1px solid #d4d4d4;">	                				
+
+	        
+								<div class="" style="padding-bottom:20px; color:#6a6d6f; font-size:16px;">                                
+            
+            
+            			
+                          	<div style="padding:20px">
+                            	<h1 style="color:#009639">Residential mortgage loans</h1>
+                               	<div class="" style="padding-bottom:20px; color:#6a6d6f; font-size:16px; border-bottom: 1px solid #d4d4d4;">
+                                   
+
+<div class="Texte">
+
+<a href="https://info.uni.ca/en/hypotheque">
+  <img class="img-responsive" src="/en/assets/module/BannierePageWeb_Hypo2_AN.jpg" alt="Hypotheque Banner">
+</a>
+
+
+<b>Rates in effect on Tuesday,  October 20, 2026</b>
+<br />
+Last update: <b>Monday, October 19, 2026</b>
+<br />
+<h2>Special Offers<sup>1</sup></h2>
+
+
+<TABLE>	
+  
+ <tr>
+    <td>2 Years Fixed Rate</td>
+    <td>4,79 %</td>
+</tr>
+
+  <tr>
+    <td bgcolor="#FFCC33">3 Years Fixed Rate</td>
+    <td bgcolor="#FFCC33">4,89 %</td>
+</tr>
+ <tr>
+    <td>4 Years Fixed Rate</td>
+    <td>4,99 %</td>
+</tr>
+ <tr>
+    <td>5 Years Fixed Rate </td>
+    <td>5,04 %</td>
+</tr>
+  <tr>
+    <td bgcolor="#FFCC33">5 Years Fixed Rate - High Ratio Mortgages</td>
+    <td bgcolor="#FFCC33">4,84 %</td>
+</tr>
+</table>
+
+
+
+<br />
+
+					
+<TABLE>
+	<tr>
+    	<th colspan="3">Residential mortgage loans</th>
+  </tr>
+  <tr>
+    <th>Term</th>
+    <th>Open</th>
+    <th>Closed</th>
+  </tr>
+  <tr>
+    <td>6 months</td>
+    <td>9.75%</td>
+    <td>6.09%</td>
+  </tr>
+  <tr>
+    <td>1 year</div></td>
+    <td>9.50%</td>
+    <td>5.49%</td>
+  </tr>
+  <tr>
+    <td>2 years</div></td>
+    <td>-</td>
+    <td>5.24%</td>
+  </tr>
+  <tr>
+    <td>3 years</div></td>
+    <td>-</td>
+    <td>6.05%</td>
+  </tr>
+  <tr>
+    <td>4 years</div></td>
+    <td>-</td>
+    <td>5.99%</td>
+  </tr>
+  <tr>
+    <td>5 years</div></td>
+    <td>-</td>
+    <td>6.09%</td>
+  </tr>
+  <tr>
+    <td>6 years</div></td>
+    <td>-</td>
+    <td>6.39%</td>
+  </tr>
+  <tr>
+    <td>7 years</div></td>
+    <td>-</td>
+    <td>6.39%</td>
+  </tr>
+  <tr>
+    <td>10 years</div></td>
+    <td>-</td>
+    <td>6.79%</td>
+  </tr>
+</table>
+
+<br />
+
+
+<TABLE>
+	<tr>
+    	<th>Residential mortgage loans - Variable rates</th>
+    	<th>Posted Rates</th>
+    	<th>Special Offers<sup>1</sup></th>
+  </tr>
+  <tr>
+    <td>Reduced variable rate</td>
+    <td>4.45%</td>
+    <td>4.05%</td>
+  </tr>
+  
+  <tr>
+    <td>Protected variable rate</td>
+    <td>4.70 %  (7.49 % ceiling)</td>
+    <td>4.40 % (7.49 % ceiling)</td>
+  </tr>
+ 
+</table>
+
+
+<br />
+<sup>1</sup> Some conditions apply.
+</div>                                                                 
+                                    <div class="Clear"></div>                              		
+                                </div>                       
+                       		</div>
+						
+
+
+                                                            
+                				</div>
+                           		<div class="Clear"></div>                
+               			 
+        			</div>
+                      
+                    <div class="col-md-3 col-sm-3 col-xs-12" style="margin-top:50px; margin-bottom:30px; padding:0px 10px 10px 30px;">		
+                        <div class="col-md-12" style="padding:10px;" id="stickerShort">
+                            <div><H3 style="color:#4b4b4b;">FOR MORE INFORMATION</H3></div>
+                            <p>
+<a href="https://www.uni.ca/en/calculators/product/personal-budget-calculators"><span style="color: #009639;">Personal budget calculators</span></a><br />
+<a href="https://www.uni.ca/en/calculators/product/mortgage-calculator"><span style="color: #009639;">Mortgage calculator</span></a><br>
+<a href="http://www.uni.ca/en/calculators/"><span style="color: #009639;">All calculators</span></a>
+</p>
+
+<div class="BoutonVert" style="padding-top: 5px; padding-bottom: 5px; margin: 11px 0px;" onclick="location.href='https://www.uni.ca/en/contact-us/';">Contact us</div>
+<div class="BoutonVert" style="padding-top: 5px; padding-bottom: 5px; margin: 11px 0px;" onclick="location.href='https://www.uni.ca/en/contact-us/form-contact';">Make an appointment</div> 
+                            <div class="Clear"></div>
+                        </div>             	
+                    </div>                     
+				</div>
+			</div>
+		</section>
+<!-- END VOTRE PROJET -->	
+
+		
+       			
+		<!-- FOOTER -->
+		<footer>
+			<div class="container" id="Footer1">
+				<div class="row">
+					<div class="col-md-6 col-xs-12 ">
+                    	<div class="newsletter" style="border-bottom:1px solid #858585; padding-bottom:10px; margin-bottom:19px;">
+                        	<a href="/en/about">About</a> &nbsp;&nbsp;
+                            <a href="/en/careers/">Careers</a> &nbsp;&nbsp;
+                            <a href="/en/call-for-tender/">Call for tender</a> &nbsp;&nbsp;
+                            <a href="/en/news/pressrelease">Media release</a> &nbsp;&nbsp;
+                            
+                                	<span style="float:right;"><a href="https://www.uni.ca/fr/taux/produit/pret-hypothecaire-residentiel">Fran&ccedil;ais</a></span>
+                            
+                        </div>                    
+						<div class="social-connect">
+							<ul class="list-inline social-icons">
+								<li><a href="https://www.facebook.com/unicooperation" target="_blank" class="facebook-bg"><i class="fab fa-facebook"></i></a></li>
+								<li><a href="https://twitter.com/UNIcooperation" target="_blank" class="twitter-bg"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="https://www.instagram.com/unicooperation/" target="_blank" class="instagram-bg"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="https://www.youtube.com/user/caissespopulaires" target="_blank" class="youtube-bg"><i class="fab fa-youtube"></i></a></li>
+								<li><a href="https://www.linkedin.com/company/uni-cooperation-financiere" target="_blank" class="instagram-bg"><i class="fab fa-linkedin"></i></a></li>
+								<!--<li><a href="#" class="googleplus-bg"><i class="fa fa-google-plus"></i></a></li>-->
+							</ul> 
+						</div>                     
+					
+					</div>
+					<div class="col-md-offset-1 col-md-5">
+						<!-- COLUMN 3 -->
+						<div class="newsletter">							
+                           <div class="row margin-bottom-30px;">
+                                <div class="col-xs-6">
+                                    <ul class="list-unstyled footer-nav">
+                                        <li><a href="/en/products/">Personal</a></li>
+                                        <li><a href="/en/business">Business</a></li>
+                                        <li><a href="/en/community/">Community</a></li>
+                                        <li><a href="/en/products/">All of our products</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-6">
+                                    <ul class="list-unstyled footer-nav">
+                                        <li><a href="/en/contact-us/">Contact us</a></li>
+                                        <li><a href="/en/rates">Current rates</a></li>
+                                        <li><a href="/en/calculators/">Calculators</a></li>
+                                        <li><a href="/en/promotions/">Promotions</a></li>
+                                    </ul>
+                                </div>
+							</div>
+							
+						</div>
+						<!-- END COLUMN 3 -->
+					</div>                    
+                    <!-- COPYRIGHT -->
+                    <div class="col-md-9 col-xs-12 col-lg-9 copyright">                    
+                    <div style="margin-bottom:10px;">
+                      <a href="https://info.uni.ca/en/accessibility" target="_blank">Accessibility </a>&nbsp;|&nbsp;&nbsp;
+                      <a href="/en/about/section/confidentiality/">Confidentiality</a>&nbsp;|&nbsp;&nbsp;
+                      <a href="/en/about/section/everyday-security/">Security</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                      <a href="/en/identity-protection/">Identity Protection</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                      <a onclick="openPreferencesModal()" style="color:#FFF; cursor: pointer;">Cookies</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                      <a href="/en/about/section/terms-of-use-and-legal-notes">Terms of use and legal notes</a>&nbsp;|&nbsp;&nbsp;
+                      <a href="/cdic/">CDIC</a></div>
+                    <div>&copy; 1996-2026<br />UNI is a registered trademark licensed to Caisse populaire acadienne lt&eacute;e for use in Canada.<br>
+                    UNI, UNI Financial Cooperation and UNI Business are trade names used by Caisse populaire acadienne lt&eacute;e, a CDIC member.</div>
+                    </div>
+                           
+                    <div class="col-md-3 col-xs-12 col-lg-3 copyright">
+	                    <a href="http://www.sadc.ca/SiteAssets/financial-community/protecting-your-deposits.aspx" target="_blank"><img src="/UNIimages/general/sadc-logo-numerique.png" alt="Canada Deposit Insurance Corporation (CDIC)" width="160" height="73" border="0" /></a>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <!-- END COPYRIGHT -->
+				</div>
+               
+                    
+			</div>
+            
+            <div class="container" id="Footer2">
+				<div class="row">
+					<div class="col-md-12 col-xs-12">                    	                
+						<div class="social-connect text-center">
+							<ul class="list-inline social-icons">
+								<li><a href="https://www.facebook.com/unicooperation" target="_blank" class="facebook-bg"><i class="fab fa-facebook"></i></a></li>
+								<li><a href="https://twitter.com/UNIcooperation" target="_blank" class="twitter-bg"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="https://www.instagram.com/unicooperation/" target="_blank" class="instagram-bg"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="https://www.youtube.com/user/caissespopulaires" target="_blank" class="youtube-bg"><i class="fab fa-youtube"></i></a></li>
+								<li><a href="https://www.linkedin.com/company/uni-cooperation-financiere" target="_blank" class="instagram-bg"><i class="fab fa-linkedin"></i></a></li>
+								<!--<li><a href="#" class="googleplus-bg"><i class="fa fa-google-plus"></i></a></li>-->
+							</ul> 
+						</div>                     
+					
+					</div>					                    
+                    <!-- COPYRIGHT -->
+                    <div class="col-md-12 col-xs-12 col-lg-12 copyright text-center">                    
+                    <div style="margin-bottom:10px;">
+                      <a href="https://info.uni.ca/en/accessibility" target="_blank">Accessibility </a>&nbsp;|&nbsp;&nbsp;
+                      <a href="/en/about/section/confidentiality/">Confidentiality</a>&nbsp;|&nbsp;&nbsp;
+                      <a href="/en/about/section/everyday-security/">Security</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                      <a href="/en/identity-protection/">Identity Protection</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                      <a onclick="openPreferencesModal()" style="color:#FFF; cursor: pointer;">Cookies</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                      <a href="/en/about/section/terms-of-use-and-legal-notes">Terms of use and legal notes</a>&nbsp;|&nbsp;&nbsp;
+                      <a href="/cdic/">CDIC</a></div>
+                    <div>&copy; 1996-2026<br />UNI is a registered trademark licensed to Caisse populaire acadienne lt&eacute;e for use in Canada.<br>
+                    UNI, UNI Financial Cooperation and UNI Business are trade names used by Caisse populaire acadienne lt&eacute;e, a CDIC member.</div>
+                    </div>
+                    <div id="imageContainer" class="col-md-3 col-xs-12 col-lg-3 copyright">
+                        <script src="/UNIassetsFR/js/sb_pl.js" type="text/javascript" async ></script>  
+                    </div>
+                    
+                    <div style="clear:both;"></div>
+                    <!-- END COPYRIGHT -->
+				</div>
+               
+                    
+			</div>
+		</footer>
+        
+<!-- GOOGLE FONTS -->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400italic,400,600,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300italic,400italic,700,400,300' rel='stylesheet' type='text/css'>
+		<!-- END FOOTER -->
+	</div>
+	<!-- END WRAPPER -->
+    
+	<!-- JAVASCRIPTS -->
+	<script src="/UNIassetsEN/js/jquery-3.6.0.min.js"></script>
+	<script src="/UNIassetsEN/js/bootstrap.min.js"></script>
+	<script src="/UNIassetsEN/js/plugins/slick/slick.min.js"></script>
+	<script src="/UNIassetsEN/js/plugins/stellar/jquery.stellar.min.js"></script>
+	<script src="/UNIassetsEN/js/plugins/jquery-easypiechart/jquery.easypiechart.min.js"></script>
+	<script src="/UNIassetsEN/js/plugins/autohidingnavbar/jquery.bootstrap-autohidingnavbar.min.js"></script>
+	<script src="/UNIassetsEN/js/repute-scripts.js"></script>
+
+</body>
+</html>
