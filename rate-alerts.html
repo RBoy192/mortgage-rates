@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rate alerts | What&#x27;s the rate?</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<meta name="description" content="Follow Canadian mortgage rate changes in a feed reader app: every time a lender changes an advertised rate.">
+<link rel="canonical" href="https://whatstherate.ca/rate-alerts.html">
+<link rel="icon" href="favicon.svg?v=55" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=55" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=55">
+<link rel="alternate" type="application/atom+xml" title="Mortgage rate changes" href="feed.xml">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#10213F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="What's the rate?">
+<meta property="og:title" content="Rate alerts | What&#x27;s the rate?">
+<meta property="og:description" content="Follow Canadian mortgage rate changes in a feed reader app: every time a lender changes an advertised rate.">
+<meta property="og:url" content="https://whatstherate.ca/rate-alerts.html">
+<meta property="og:image" content="https://whatstherate.ca/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="What's the rate? Compare today's mortgage rates.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=55">
+</head>
+<body data-page="extras">
+<main id="top">
+<header id="site-header"></header>
+<div class="pg vl">
+<div class="vc">
+<div class="prose">
+<h1>Rate <span class="hl">alerts</span></h1>
+<p class="m">Know when a lender changes its rates, without checking back every day.</p>
+<p>This site checks every lender's rates every hour. Each time one changes an advertised 3-year fixed, 5-year variable or 5-year fixed rate, the change is added to a <dfn>feed</dfn>: a list your phone or computer can follow and notify you about. There's no sign-up and no email address needed.</p>
+<h2>How to follow it</h2>
+<ol class="ul">
+<li>Open any feed reader app (sometimes called an RSS reader). Many are free, and some email apps can follow feeds too.</li>
+<li>Choose to add a feed or subscription, and paste this address:</li></ol>
+<div class="feedurl"><code id="furl">https://whatstherate.ca/feed.xml</code><button type="button" class="cpy" id="fcopy">Copy</button></div>
+<p class="f">Your feed reader checks for new changes on its own. The feed covers the last 60 days. Changes to insured (less than 20% down) rates are included too.</p>
+<h2>Latest changes</h2>
+<ul class="ul" id="fchanges"><li>Loading…</li></ul>
+<p class="f">Rates change often, and the rate you're offered depends on your situation. Always confirm with the lender. See the <a href="rate-history.html">rate history</a> for charts.</p>
+</div>
+</div>
+</div>
+</main>
+<script src="site.js?v=55"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="55"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script>
+$("fcopy").onclick = () => { const s = $("furl").textContent; (navigator.clipboard ? navigator.clipboard.writeText(s) : Promise.reject()).then(() => { $("fcopy").textContent = "Copied"; setTimeout(() => $("fcopy").textContent = "Copy", 1800); }, () => { const r = document.createRange(); r.selectNodeContents($("furl")); getSelection().removeAllRanges(); getSelection().addRange(r); }); };
+fetch("feed.xml?t=" + Date.now(), {cache: "no-store"}).then(r => r.ok ? r.text() : Promise.reject()).then(x => {
+  const doc = new DOMParser().parseFromString(x, "application/xml"), items = [...doc.querySelectorAll("entry")].slice(0, 15);
+  $("fchanges").innerHTML = items.length ? items.map(e => `<li><b>${esc(e.querySelector("title").textContent)}</b> <span class="s">${dstr(e.querySelector("updated").textContent.slice(0, 10))}</span></li>`).join("")
+    : "<li>No rate changes in the last 60 days.</li>";
+}).catch(() => { $("fchanges").innerHTML = "<li>The latest changes didn't load. Please refresh the page.</li>"; });
+</script>
+</body>
+</html>

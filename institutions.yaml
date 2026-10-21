@@ -29,6 +29,12 @@
     - product: 5-year variable
       label: "5 Year Variable Closed"
       nth: 2   # RBC's row reads "Prime -0.300% (4.150%)", so the rate is the 2nd % figure
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 5-year fixed insured
+      label: "5 Year Fixed High Ratio Closed"
+    - product: 5-year variable insured
+      label: "5 Year Variable High Ratio Closed"
+      nth: 2
 
 - name: TD Canada Trust
   url: https://www.td.com/ca/en/personal-banking/products/mortgages/mortgage-rates
@@ -40,6 +46,9 @@
       label: "5 Year Fixed Closed"
     - product: 5-year variable
       label: "5 Year Variable Closed"
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 5-year fixed insured
+      label: "5 Year Fixed Closed High-Ratio"
 
 # CIBC: permission received from the bank (October 2026). Special-offer fixed rates are in cards at the top;
 # the 5-year variable is in the "CIBC Variable Flex Mortgage" table, which lists the posted rate first, then the special offer.
@@ -55,6 +64,13 @@
       label: "5 years"
       after: "CIBC Variable Flex Mortgage"
       nth: 2
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 5-year fixed insured
+      label: "5-year fixed closed"
+      after: "high-ratio mortgage"
+    - product: 5-year variable insured
+      label: "5-year variable flex"
+      after: "high-ratio mortgage"
 
 # Scotiabank's top table is its variable-rate section (Scotia Flex Value is a variable mortgage).
 # For fixed terms the page only lists posted rates (no special offers), so those are labelled as such on the page.
@@ -97,6 +113,9 @@
       label: "5 year fixed rate"
     - product: 5-year variable
       label: "5 year variable rate"
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 5-year fixed insured
+      label: "5 year fixed high ratio rate"
 
 # EQ Bank: permission received from the bank (October 2026). Rates are in a table with terms across the top.
 # The "Standard Mortgage Rate (Closed)" row is the rate for most borrowers (the Evolution Suite row is for insured
@@ -131,6 +150,9 @@
       label: "5 year Smart Fixed (closed)"
     - product: 5-year variable
       label: "5 year Variable (closed)"
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 5-year fixed insured
+      label: "5 year Smart Fixed (default insured)"
 
 # ---- Added October 2026: credit unions and regional lenders. Each reads the lender's own public rate page. ----
 
@@ -145,6 +167,13 @@
       label: "5 Year Conventional"
     - product: 5-year variable
       label: "5 Year Variable"
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 3-year fixed insured
+      label: "3 Year High Ratio"
+    - product: 5-year fixed insured
+      label: "5 Year High Ratio"
+    - product: 5-year variable insured
+      label: "5 Year Variable High Ratio"
 
 # Alterna: "Signature" rates are its advertised rates for everyone ("Smart Start" is for high-ratio mortgages only).
 - name: Alterna Savings
@@ -157,6 +186,13 @@
       label: "Signature 5-Year Fixed Closed"
     - product: 5-year variable
       label: "Signature 5-Year Variable Closed"
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 3-year fixed insured
+      label: "Smart Start 3-Year Fixed Closed - High Ratio"
+    - product: 5-year fixed insured
+      label: "Smart Start 5-Year Fixed Closed - High Ratio"
+    - product: 5-year variable insured
+      label: "Smart Start 5-Year Variable Closed - High Ratio"
 
 # Coast Capital: the "Fixed Rate Mortgages" and "Variable Rate Mortgages" tables (up to 25-year amortization column).
 # The posted rates further down use labels ending in "- Closed", so they aren't picked up.
@@ -170,6 +206,11 @@
       label: "5-Year Fixed Rate"
     - product: 5-year variable
       label: "5-Year Variable Rate"
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 5-year fixed insured
+      label: "5-Year Fixed High-Ratio"
+    - product: 5-year variable insured
+      label: "5-Year Variable High-Ratio"
 
 # Desjardins: special rates are rows labelled "5 years (special rate)" in the fixed table, then again in the
 # reduced variable-rate table (so the variable uses the 2nd appearance). There's no special 3-year rate.
@@ -203,6 +244,12 @@
       nth: 2
       after: "Fixed Rate Mortgages"
       before: "No Frills"
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 5-year fixed insured
+      label: "5 Year (High Ratio)"
+      nth: 2
+      after: "Fixed Rate Mortgages"
+      before: "No Frills"
 
 # ---- Added October 2026: more banks and lenders. Each reads the lender's own public rate page. ----
 
@@ -222,6 +269,11 @@
       note: "Special rate for new clients"
     - product: 5-year variable
       label: "5-year closed (Manulife Bank prime + 0.00%)"
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 5-year fixed insured
+      label: "5-year closed fixed-rate"
+      occurrence: 3
+      note: "Special rate for new clients"
 
 # Vancity: the special-offer fixed rates need 20% or more down, a home under $1 million and up to 25 years to pay.
 - name: Vancity
@@ -236,6 +288,11 @@
       note: "Special offer: 20% or more down, home under $1 million"
     - product: 5-year variable
       label: "5-year variable rate fixed-term (Vancity homeprime rate - 0.50%)"
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 3-year fixed insured
+      label: "3-year fixed-term fixed-rate insured residential"
+    - product: 5-year fixed insured
+      label: "5-year fixed-term fixed-rate insured residential"
 
 # Meridian: special offers are in the "Special offers" table; the variable rows come after the posted
 # fixed rates (the last of which is "10-Year Closed"), so the variable reads below that.
@@ -250,6 +307,14 @@
     - product: 5-year variable
       label: "5-Year Closed"
       after: "10-Year Closed"
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 3-year fixed insured
+      label: "3-Year Closed High Ratio"
+    - product: 5-year fixed insured
+      label: "5-Year Closed High Ratio"
+    - product: 5-year variable insured
+      label: "5-Year Closed High Ratio"
+      occurrence: 2
 
 # First National: sells through mortgage brokers. Its tables list terms across the top and show rates without
 # a % sign (plain: true). Uses the "Conventional" row (20% or more down). The variable rate is shown as
@@ -272,6 +337,24 @@
       label: "Conventional"
       column: "5 year"
       occurrence: 2   # the "Adjustable rate mortgages" table comes after the fixed-rate one
+      prime_label: "First National Prime Rate"
+      plain: true
+      note: "Through mortgage brokers"
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 3-year fixed insured
+      label: "Insured"
+      column: "3 year"
+      plain: true
+      note: "Through mortgage brokers"
+    - product: 5-year fixed insured
+      label: "Insured"
+      column: "5 year"
+      plain: true
+      note: "Through mortgage brokers"
+    - product: 5-year variable insured
+      label: "Insured"
+      column: "5 year"
+      occurrence: 2
       prime_label: "First National Prime Rate"
       plain: true
       note: "Through mortgage brokers"
@@ -326,6 +409,13 @@
     - product: 5-year variable
       label: "1st Mortgage Variable 5 Year Closed"
       column: "Rate"   # the label cell also shows the prime discount
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 3-year fixed insured
+      label: "3 Year Closed - High-Ratio"
+      column: "Rate"
+    - product: 5-year fixed insured
+      label: "5 Year Closed - High-Ratio"
+      column: "Rate"
 
 # FirstOntario: "Fixed Rate Mortgage" then "Variable Rate Mortgage" tables (the specials above them are high-ratio only).
 - name: FirstOntario Credit Union
@@ -342,6 +432,16 @@
     - product: 5-year variable
       label: "5-year closed"
       after: "Variable Rate Mortgage"
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 3-year fixed insured
+      label: "3-year Fixed High Ratio"
+      after: "Mortgage Specials"
+    - product: 5-year fixed insured
+      label: "5-year Fixed High Ratio"
+      after: "Mortgage Specials"
+    - product: 5-year variable insured
+      label: "5-year Variable High Ratio"
+      after: "Mortgage Specials"
 
 # UNI: "Special Offers" rows (written with decimal commas, "4,89 %"); variable: the "Reduced variable rate" row lists
 # the posted rate, then the special offer.
@@ -358,6 +458,10 @@
     - product: 5-year variable
       label: "Reduced variable rate"
       nth: 2
+      note: "Special offer"
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 5-year fixed insured
+      label: "5 Years Fixed Rate - High Ratio Mortgages"
       note: "Special offer"
 
 # ICICI Bank Canada: publishes only posted rates (its special "iGlobal" rates say to contact a specialist).
@@ -419,6 +523,13 @@
       label: "Conventional Fixed 5-year Mortgage"
     - product: 5-year variable
       label: "Conventional Closed Variable Mortgage"
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 3-year fixed insured
+      label: "High-Ratio Fixed 3-year Mortgage"
+    - product: 5-year fixed insured
+      label: "High-Ratio Fixed 5-year Mortgage"
+    - product: 5-year variable insured
+      label: "High-Ratio Closed Variable Mortgage"
 
 # Beem: the site blocks automated visits, so rates are typed into manual_rates.yaml (labels kept for if that changes).
 # The fixed table lists 25-year and 30-year amortization columns; the 25-year one (the first figure) is read.
@@ -438,6 +549,10 @@
     - product: 5-year variable
       label: "5 year (closed variable)"
       nth: 2
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 5-year fixed insured
+      label: "Insured 5-year fixed closed"
+      nth: 1
 
 # Tru Cooperative Bank (Envision Financial): rates load with JavaScript. Each 5-year product has an insured and an
 # uninsured row; the uninsured row is read (the row after the insured one).
@@ -454,3 +569,8 @@
     - product: 5-year variable
       label: "5 year variable rate (closed)"
       after: "5 year variable rate (closed) - insured"
+    # less than 20% down: insured (high-ratio) rates, shown when a visitor ticks that box
+    - product: 5-year fixed insured
+      label: "5 year fixed rate (closed) - insured"
+    - product: 5-year variable insured
+      label: "5 year variable rate (closed) - insured"

@@ -377,11 +377,11 @@ class TestNewLenders(unittest.TestCase):
         "Vancity": {"3-year fixed": 4.75, "5-year fixed": 4.84, "5-year variable": 3.95},
         "Meridian": {"3-year fixed": 4.49, "5-year fixed": 4.74, "5-year variable": 3.64},
         "First National": {"3-year fixed": 5.28, "5-year fixed": 5.31, "5-year variable": 4.14},
-        "Libro Credit Union": {"3-year fixed": 5.09, "5-year fixed": 5.14, "5-year variable": 4.15},
+        "Libro Credit Union": {"3-year fixed": 5.09, "5-year fixed": 5.14, "5-year variable": 4.15, "3-year fixed insured": 4.39},
         "ICICI Bank Canada": {"3-year fixed": 6.14, "5-year fixed": 6.14, "5-year variable": 5.45},
         "Access Credit Union": {"3-year fixed": 4.19, "5-year fixed": 4.39, "5-year variable": 3.55},
-        "Steinbach Credit Union": {"3-year fixed": 4.19, "5-year fixed": 4.39, "5-year variable": 3.55},
-        "Tru Cooperative Bank": {"3-year fixed": 4.64, "5-year fixed": 4.74, "5-year variable": 3.85},
+        "Steinbach Credit Union": {"3-year fixed": 4.19, "5-year fixed": 4.39, "5-year variable": 3.55, "3-year fixed insured": 4.09, "5-year variable insured": 3.55},
+        "Tru Cooperative Bank": {"3-year fixed": 4.64, "5-year fixed": 4.74, "5-year variable": 3.85, "5-year fixed insured": 4.59, "5-year variable insured": 3.70},
     }
 
     def test_new_lenders_read_the_right_rates(self):
@@ -390,6 +390,8 @@ class TestNewLenders(unittest.TestCase):
         for name, html in self.PAGES.items():
             soup = BeautifulSoup(html, "html.parser")
             for item in scraper.active(conf[name]):
+                if item["product"] not in self.WANT[name]:
+                    continue  # e.g. insured rates, which these mock pages don't include
                 with self.subTest(lender=name, product=item["product"]):
                     self.assertEqual(scraper.extract(soup, item)[0], self.WANT[name][item["product"]])
 
@@ -435,3 +437,33 @@ class TestBackfillLayouts(unittest.TestCase):
     def test_current_settings_after_the_last_old_layout(self):
         lender = {"name": "RBC Royal Bank", "rates": [{"product": "3-year fixed", "label": "3 Year Fixed Closed"}]}
         self.assertEqual(self.b.items_for(lender, "2026-08-01")[0]["label"], "3 Year Fixed Closed")
+
+
+class TestAlertAndFeed(unittest.TestCase):
+    def test_alert_waits_a_day_and_flags_old_manual_rates(self):
+        import alert
+        from datetime import datetime, timezone
+        now = datetime(2026, 10, 21, 12, tzinfo=timezone.utc)
+        data = {"rates": [
+            {"institution": "A", "product": "5-year fixed", "stale": True, "method": "automatic", "checked_at": "2026-10-21T02:00:00Z"},
+            {"institution": "B", "product": "5-year fixed", "stale": True, "method": "automatic", "checked_at": "2026-10-19T02:00:00Z"},
+            {"institution": "C", "product": "3-year fixed", "stale": True, "method": "manual", "checked_at": "2026-10-10"},
+            {"institution": "D", "product": "3-year fixed", "stale": False, "method": "automatic", "checked_at": "2026-10-01T00:00:00Z"}],
+            "prime_rate": {"rate": 4.45, "stale": True}}
+        found = alert.problems(data, now)
+        self.assertEqual(len(found), 3)
+        self.assertTrue(any("**B," in f for f in found) and any("**C," in f for f in found) and any("Prime rate" in f for f in found))
+        self.assertFalse(any("**A," in f or "**D," in f for f in found))
+
+    def test_feed_lists_recent_changes_newest_first(self):
+        import feed
+        from datetime import date
+        h = {"series": {"X|5-year fixed": [["2026-10-01", 5.0], ["2026-10-02", 5.0], ["2026-10-03", 4.9]],
+                        "Y|3-year fixed": [["2026-10-01", 4.5], ["2026-10-05", 4.6]],
+                        "Z|3-year fixed": [["2025-01-01", 4.5], ["2026-10-05", 4.6]],   # a long gap is not a change we saw
+                        "posted|5-year fixed": [["2026-10-01", 6.0], ["2026-10-04", 6.1]]}}
+        c = feed.changes(h, today=date(2026, 10, 10))
+        self.assertEqual([(x["lender"], x["date"]) for x in c], [("Y", "2026-10-05"), ("X", "2026-10-03")])
+        self.assertIn("down 0.10", feed.entry_text(c[1])[0])
+        import xml.dom.minidom
+        xml.dom.minidom.parseString(feed.atom(c, "2026-10-05T12:00:00Z"))
