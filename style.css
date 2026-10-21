@@ -558,8 +558,8 @@ td.low .pm,td.glow .pm{margin-top:4px}
   #head th,.stickhead th{font-size:12px;white-space:normal;line-height:1.2;vertical-align:bottom}
   #head th button,.stickhead th button{text-align:inherit}
   #rows td.ln{white-space:normal;font-size:14px;line-height:1.25;width:34%;padding-left:8px}
-  #rows td.ln .lg-logo{display:none}  /* names only: logos make them wrap awkwardly */
-  #rows td.ln a{text-decoration:none}
+  body:not([data-term]) #rows td.ln .lg-logo{display:none}  /* main table: names only, logos make them wrap awkwardly */
+  #rows td.ln a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
   #rows td.ln a svg{width:11px;height:11px;margin-left:3px;vertical-align:1px}
   #rows td.rate b{font-size:16px}
   #rows td.rate .pm{font-size:11px}
@@ -583,12 +583,9 @@ td.low .pm,td.glow .pm{margin-top:4px}
 .ys{display:none}
 @media (max-width:600px){
   #head .yl,.stickhead .yl{display:none}#head .ys,.stickhead .ys{display:inline}  /* "3-yr fixed" on phones */
-  /* lender names in their own brand colour (deepened just enough to stay readable) */
-  #rows td.ln a{color:color-mix(in srgb,var(--c) 70%,#000)}
-  [data-theme="dark"] #rows td.ln a{color:color-mix(in srgb,var(--c) 85%,#fff)}
-  /* the two yellow brands (EQ Bank, First National) need a deeper shade to stay readable on white */
-  #rows td.ln[style*="--s3)"] a,#rows td.ln[style*="--s17)"] a{color:color-mix(in srgb,var(--c) 58%,#000)}
-  [data-theme="dark"] #rows td.ln[style*="--s3)"] a,[data-theme="dark"] #rows td.ln[style*="--s17)"] a{color:var(--c)}
+  /* lender names: a darker link blue, with a thin underline and the arrow showing they're links */
+  #rows td.ln a{color:color-mix(in srgb,var(--link) 78%,#000)}
+  [data-theme="dark"] #rows td.ln a{color:var(--link)}
 }
 /* Region dropdown, at the start of the quick-picks row */
 .qrow{display:flex;align-items:center;gap:8px;min-width:0}
@@ -661,3 +658,11 @@ sup.ni{font-size:11px;color:var(--mu);margin-left:1px;font-weight:600}
 .home .side{min-height:110px}
 @media (max-width:600px){#tiles:empty{min-height:125px}.home .side{min-height:188px}}
 @media (max-width:480px){#tiles:empty{min-height:180px}}
+/* "Compare by rate type" pages on phones: the logo sits beside the lender's name, which wraps next to it */
+@media (max-width:600px){
+  body[data-term] #rows td.ln .lg-logo{float:left;margin-right:8px}
+  body[data-term] #rows td.ln a{display:block;overflow:hidden;padding-top:2px}
+  body[data-term] #rows td.rk{width:1%;padding-right:4px}
+  body[data-term] #rows td.rate{width:1%;white-space:nowrap}
+  body[data-term] #rows td.rate .chg{display:block;margin:0 0 2px;font-size:11px}
+}
