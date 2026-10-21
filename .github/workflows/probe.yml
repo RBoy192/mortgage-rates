@@ -1,6 +1,8 @@
 name: Probe lender pages (temporary)
 on:
   workflow_dispatch:
+  push:
+    branches: [probe]
 permissions:
   contents: write
 jobs:
