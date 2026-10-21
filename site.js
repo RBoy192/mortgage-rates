@@ -1,4 +1,4 @@
-const SITE_VERSION = "59";
+const SITE_VERSION = "60";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -60,7 +60,7 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
   // Footer on every page
   const year = new Date().getFullYear();
   main && main.insertAdjacentHTML("beforeend", `<footer class="sitefoot"><nav aria-label="Footer"><a href="${base}index.html">Today's rates</a><a href="${base}calculators.html">Calculators</a><a href="${base}rate-history.html">Rate history</a><a href="${base}rate-alerts.html">Rate alerts</a><a href="${base}crash-course.html">Mortgages Explained</a><a href="${base}faq.html">FAQ</a><a href="${base}glossary.html">Glossary</a><a href="${base}about.html">About</a><a href="${base}terms.html">Terms and privacy</a></nav>`
-    + `<p>Rates are collected every hour from each lender's own website. Information only, not financial advice: always confirm rates and terms with the lender.</p>`
+    + `<p>Rates are collected from each lender's own website every hour, or three times a day for a few lenders. Information only, not financial advice: always confirm rates and terms with the lender.</p>`
     + `<p>© ${year} What's the rate?${typeof CONTACT_EMAIL !== "undefined" && CONTACT_EMAIL ? ` · <a href="mailto:${esc(CONTACT_EMAIL)}">${esc(CONTACT_EMAIL)}</a>` : ""}</p></footer>`);
 })();
 
