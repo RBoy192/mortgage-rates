@@ -43,8 +43,6 @@ jobs:
         run: |
           mkdir -p probe; ls probe > probe/files.txt 2>&1 || true
           git config user.name "rates-bot"; git config user.email "rates-bot@users.noreply.github.com"
-          git checkout --orphan diagnose2
-          git rm -rqf --cached . || true
           git add -f probe
-          git commit -qm "Lender pages" || true
-          git push -f origin HEAD:diagnose
+          git commit -m "Probe results [skip ci]"
+          git push origin HEAD:refs/heads/probe-out --force
