@@ -38,6 +38,13 @@ jobs:
                       open(f"probe/{key}.html", "w").write(html); open(f"probe/{key}.txt", "w").write(txt); break
           PY
           true
+      - name: Save
+        if: always()
+        run: |
+          mkdir -p probe; ls probe > probe/files.txt 2>&1 || true
           git config user.name "rates-bot"; git config user.email "rates-bot@users.noreply.github.com"
-          git checkout --orphan diagnose; git rm -rqf --cached .; git add probe
-          git commit -qm "Lender pages"; git push -f origin diagnose
+          git checkout --orphan diagnose2
+          git rm -rqf --cached . || true
+          git add -f probe
+          git commit -qm "Lender pages" || true
+          git push -f origin HEAD:diagnose
