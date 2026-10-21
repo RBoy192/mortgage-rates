@@ -133,8 +133,9 @@ a.card p{margin:0;color:var(--mu);font-size:14px;font-weight:400}
 .tabs a{text-align:left;white-space:normal!important;border-radius:12px!important}
 @media (max-width:820px){.vl{display:block}.tabs{position:static;flex-direction:row;flex-wrap:wrap;padding:0 0 14px;margin:0 0 18px;border-right:0;border-bottom:1px solid var(--ln)}.tabs a{border-radius:999px!important}}
 .lg-logo{display:inline-grid;place-items:center;width:28px;height:28px;margin-right:10px;vertical-align:middle;flex:none}
-.lg-logo img{width:100%;height:100%;object-fit:contain;display:block}
-.lg-logo span{display:grid;place-items:center;width:28px;height:28px;border-radius:7px;background:var(--card);box-shadow:0 0 0 1px var(--ln);color:var(--fg)!important}
+.lg-logo{overflow:hidden}
+.lg-logo img{width:100%;height:100%;max-width:100%;max-height:100%;min-height:0;object-fit:contain;display:block}
+.lg-logo span{display:grid;place-items:center;width:28px;height:28px;border-radius:7px;background:var(--card);box-shadow:inset 0 0 0 1px var(--ln);color:var(--fg)!important}
 .lg-logo span{font:700 11px var(--bd);color:#10213F}
 td.ln{white-space:nowrap}
 .tabs a{flex:none;padding:7px 16px;border:1px solid var(--ln);border-radius:999px;background:var(--card);color:var(--fg);text-decoration:none;font-size:14px;white-space:nowrap}
@@ -661,9 +662,11 @@ sup.ni{font-size:11px;color:var(--mu);margin-left:1px;font-weight:600}
 @media (max-width:600px){
   #rows td.ln .lg-logo{float:left;margin-right:8px}
   #rows td.ln a{display:block;overflow:hidden;padding-top:2px}
-  /* main table: the column is narrow, so a small logo sits above the lender's name */
-  body:not([data-term]) #rows td.ln .lg-logo{float:none;display:block;width:22px;height:22px;margin:0 0 5px}
-  body:not([data-term]) #rows td.ln a{display:inline;overflow:visible;padding-top:0}
+  /* main table: a small logo on the same line as the lender's name (names may wrap beside it) */
+  body:not([data-term]) #rows td.ln{font-size:13px}
+  body:not([data-term]) #rows td.ln .lg-logo{width:18px;height:18px;margin:1px 0 0;border-radius:5px}
+  body:not([data-term]) #rows td.ln a{display:block;overflow:visible;padding-top:0;margin-left:24px}
+  body:not([data-term]) #rows td.rate b{font-size:15px}
   body[data-term] #rows td.rk{width:1%;padding-right:4px}
   body[data-term] #rows td.rate{width:1%;white-space:nowrap}
   body[data-term] #rows td.rate .chg{display:block;margin:0 0 2px;font-size:11px}
@@ -687,4 +690,6 @@ details.fold:first-of-type{margin-top:28px;border-top:1px solid var(--ln)}
 .visit a:hover{background:var(--link);color:var(--card)}
 .visit a svg{width:14px;height:14px;flex:none}
 /* phone main table: the initials shown when a logo can't load match the smaller logo size */
-@media (max-width:600px){body:not([data-term]) #rows td.ln .lg-logo span{width:22px;height:22px;border-radius:6px;font-size:8.5px}}
+@media (max-width:600px){body:not([data-term]) #rows td.ln .lg-logo span{width:18px;height:18px;border-radius:5px;font-size:7px}}
+@media (max-width:600px){#rows td.low b,#rows td.glow b{padding:1px 5px}}
+@media (max-width:340px){body:not([data-term]) #rows td.ln .lg-logo{display:none}body:not([data-term]) #rows td.ln a{margin-left:0}}
