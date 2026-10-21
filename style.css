@@ -693,3 +693,8 @@ details.fold:first-of-type{margin-top:28px;border-top:1px solid var(--ln)}
 @media (max-width:600px){body:not([data-term]) #rows td.ln .lg-logo span{width:18px;height:18px;border-radius:5px;font-size:7px}}
 @media (max-width:600px){#rows td.low b,#rows td.glow b{padding:1px 5px}}
 @media (max-width:340px){body:not([data-term]) #rows td.ln .lg-logo{display:none}body:not([data-term]) #rows td.ln a{margin-left:0}}
+
+/* Main page: choose which lenders the lowest-rate cards compare */
+.tilepick{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin:24px 0 -12px}
+.tilepick .tpl{font-weight:600;font-size:15px}
+@media (max-width:600px){.tilepick{margin:16px 0 -8px}.tilepick .tpl{font-size:13px;flex-basis:100%}.tilepick .seg2{max-width:100%}.tilepick .seg2 button{padding:5px 10px;font-size:12.5px;min-height:32px}}
