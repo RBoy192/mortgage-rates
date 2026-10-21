@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="Compare today&#x27;s best mortgage rates from Canadian lenders, updated every hour, with free plain-language calculators and guides.">
 <link rel="canonical" href="https://whatstherate.ca/">
-<link rel="icon" href="favicon.svg?v=52" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=52" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=52">
+<link rel="icon" href="favicon.svg?v=53" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=53" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=53">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
 <meta property="og:type" content="website">
@@ -24,7 +24,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=52">
+<link rel="stylesheet" href="style.css?v=53">
 </head>
 <body data-page="rates">
 <main id="top">
@@ -42,7 +42,7 @@
 <div class="payctl"><label for="loan">Mortgage amount</label><span class="dl"><span aria-hidden="true">$</span><input id="loan" type="text" inputmode="numeric" data-money="1" autocomplete="off" value="0" aria-describedby="loanhint"></span><span class="s" id="loanhint">Paid over 25 years</span></div>
 <div class="t"><table><thead id="head"></thead><tbody id="rows"></tbody></table></div>
 <p class="f sw" id="stalenote" hidden>Greyed-out rates couldn't be refreshed in the latest update, so they may be out of date.</p>
-<p class="f"><span class="lowkey">Yellow</span> marks the lowest rate of all lenders, and <span class="lowkey o">outlined</span> marks the lowest within its section. Click a heading to sort it; click again to flip the order. A dash means the lender doesn't list that rate. <span class="chg up" aria-hidden="true">▲</span>/<span class="chg dn" aria-hidden="true">▼</span> shows how much a rate has moved in the last 7 days. See the <a href="rate-history.html">rate history</a> for charts.</p>
+<p class="f"><span class="lowkey">Yellow</span> marks the lowest rate of all lenders, and <span class="lowkey o">outlined</span> marks the lowest within its section. Credit unions and other lenders are folded away; tap their heading to show them. Click a heading to sort it; click again to flip the order. A dash means the lender doesn't list that rate. <span class="chg up" aria-hidden="true">▲</span>/<span class="chg dn" aria-hidden="true">▼</span> shows how much a rate has moved in the last 7 days. See the <a href="rate-history.html">rate history</a> for charts.</p>
 <h2 class="sh">Compare by rate type</h2>
 <div class="start2" id="byterm"><a href="3-year-fixed-mortgage-rates.html" data-p="3-year fixed"><span class="bt">Best 3-year fixed rates<small></small></span><span aria-hidden="true">→</span></a><a href="5-year-variable-mortgage-rates.html" data-p="5-year variable"><span class="bt">Best 5-year variable rates<small></small></span><span aria-hidden="true">→</span></a><a href="5-year-fixed-mortgage-rates.html" data-p="5-year fixed"><span class="bt">Best 5-year fixed rates<small></small></span><span aria-hidden="true">→</span></a></div>
 <h2 class="sh">Compare by lender</h2>
@@ -58,8 +58,8 @@
 <p class="f" id="fn1" hidden><b>* BoC policy rate:</b> the Bank of Canada's target for the overnight rate, which is what big financial institutions charge each other for one-day loans. When it changes, banks usually move their prime rates too, which affects variable-rate mortgages.</p>
 <p class="f" id="fn2" hidden><b>** Prime rate:</b> the typical prime lending rate of Canada's major banks, published weekly. Variable-rate mortgages are priced off prime. Each lender sets its own prime rate, so yours may differ slightly.</p>
 </main>
-<script src="site.js?v=52"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="52"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=53"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="53"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 let lenders = [], sortBy = null, sortDir = 1, loanAmt = 0, updatedAt = null, hist = {series: {}};
 
@@ -88,6 +88,15 @@ $("head").innerHTML = `<tr><th scope="col" data-p="name"><button type="button">L
 try { const sv = localStorage.getItem("table-loan2"); if (sv !== null) $("loan").value = sv; } catch (e) {}
 loanAmt = val("loan");
 $("loan").addEventListener("input", () => { loanAmt = val("loan"); try { localStorage.setItem("table-loan2", $("loan").value); } catch (e) {} if (lenders.length) render(); });
+let othersOpen = false;
+try { othersOpen = localStorage.getItem("table-others-open") === "1"; } catch (e) {}
+$("rows").addEventListener("click", e => {
+  if (!e.target.closest(".grpbtn, tr.grp.shut")) return;
+  othersOpen = !othersOpen;
+  try { localStorage.setItem("table-others-open", othersOpen ? "1" : "0"); } catch (e) {}
+  render();
+  const b = $("rows").querySelector(".grpbtn"); if (b) b.focus();
+});
 $("head").onclick = e => {
   if (e.target.closest("button.q")) return;
   const th = e.target.closest("th[data-p]");
@@ -133,9 +142,15 @@ function render(){
       const pm = loanAmt > 0 ? `<span class="pm">${money(pmt(loanAmt, perPeriod(c.rate, p.indexOf("variable") > -1), 300))}/mo</span>` : "";
       return `<td class="rate${low ? " low" : glow ? " glow" : ""}${c.stale ? " st" : ""}"${c.stale ? ' title="This rate couldn\'t be refreshed in the latest update"' : ""}><span class="rc">${arrow(ch)}<b>${pct(c.rate)}</b></span>${pm}</td>`;
     }).join("")}</tr>`;
-  $("rows").innerHTML = rows.length ? LENDER_GROUPS.map(([title, inGroup]) => {
+  // The second section (credit unions and other lenders) starts collapsed; its heading row then shows the section's lowest rates
+  $("rows").innerHTML = rows.length ? LENDER_GROUPS.map(([title, inGroup], gi) => {
       const g = rows.filter(l => inGroup(l.name)), gb = COLUMNS.map(([, p]) => Math.min(...g.map(l => rateOf(l, p))));
-      return g.length ? `<tr class="grp"><th scope="colgroup" colspan="${COLUMNS.length + 1}">${esc(title)}</th></tr>` + g.map(l => row(l, gb)).join("") : "";
+      if (!g.length) return "";
+      if (gi === 0) return `<tr class="grp"><th scope="colgroup" colspan="${COLUMNS.length + 1}">${esc(title)}</th></tr>` + g.map(l => row(l, gb)).join("");
+      const btn = `<button type="button" class="grpbtn" aria-expanded="${othersOpen}" aria-controls="rows">${esc(title)} <span class="gn">(${g.length})</span><span class="gt">${othersOpen ? "Hide" : "Show"}<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>`;
+      if (othersOpen) return `<tr class="grp open"><th scope="colgroup" colspan="${COLUMNS.length + 1}">${btn}</th></tr>` + g.map(l => row(l, gb)).join("");
+      return `<tr class="grp shut"><th scope="colgroup">${btn}</th>${gb.map((r, i) => r === Infinity ? '<td class="none">—</td>'
+        : `<td class="rate gsum${r === best[i] ? " low" : ""}"><span class="rc"><small>from</small> <b>${pct(r)}</b></span></td>`).join("")}</tr>`;
     }).join("")
     : `<tr><td colspan="${COLUMNS.length + 1}">No rates yet. Enable a lender in institutions.yaml, then run the update.</td></tr>`;
   $("stalenote").hidden = !lenders.some(l => Object.values(l.cells).some(c => c.stale));
