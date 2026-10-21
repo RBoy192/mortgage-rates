@@ -1,0 +1,40 @@
+name: Probe lender pages (temporary)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: playwright install --with-deps chromium
+      - name: Dump pages
+        run: |
+          mkdir -p probe
+          python - <<'PY' 2>&1 | tee probe/summary.txt
+          import yaml, scraper, re
+          from bs4 import BeautifulSoup
+          for l in yaml.safe_load(open("institutions.yaml")):
+              if l.get("mode") == "manual": continue
+              key = re.sub(r"[^a-z0-9]+", "-", l["name"].lower()).strip("-")
+              for browser in ([False, True] if l.get("mode", "auto") == "auto" else [l.get("mode") == "browser"]):
+                  try:
+                      html = scraper.get_html(l["url"], browser)
+                  except Exception as e:
+                      print(key, browser, "FAILED", str(e)[:80]); continue
+                  txt = " ".join(BeautifulSoup(html, "html.parser").get_text(" ").split())
+                  n = len(re.findall(r"\d\.\d{2,3}\s*%", txt))
+                  print(key, "browser" if browser else "plain", n, "figures;", len(re.findall(r"insured|high[- ]ratio", txt, re.I)), "insured mentions")
+                  if n >= 3:
+                      open(f"probe/{key}.html", "w").write(html); open(f"probe/{key}.txt", "w").write(txt); break
+          PY
+          git config user.name "rates-bot"; git config user.email "rates-bot@users.noreply.github.com"
+          git checkout --orphan diagnose; git rm -rqf --cached .; git add probe
+          git commit -qm "Lender pages"; git push -f origin diagnose
