@@ -16,12 +16,13 @@ function lenders(){
   return [...names].sort((a, b) => (LENDER_ORDER.indexOf(a) + 1 || 99) - (LENDER_ORDER.indexOf(b) + 1 || 99) || a.localeCompare(b));
 }
 
-// Region filter: Nationwide shows lenders that lend across Canada; a province adds its local lenders.
+// Region filter: Nationwide shows every lender (those that lend across Canada first, then the regional ones); a province shows
+// the lenders available there: its local lenders plus those that lend across Canada.
 // Only provinces with at least one local lender are offered (Ontario and British Columbia first). Starts on Nationwide.
 let region = "Nationwide";
 const PROVINCES = (() => { const s = new Set(Object.values(LENDER_REGIONS).flat()); return ["Ontario", "British Columbia"].filter(p => s.has(p)).concat([...s].filter(p => p !== "Ontario" && p !== "British Columbia").sort()); })();
 const local = n => !!LENDER_REGIONS[n];
-const inRegion = n => region === "Nationwide" ? !local(n) : (!local(n) || LENDER_REGIONS[n].includes(region));
+const inRegion = n => region === "Nationwide" || !local(n) || LENDER_REGIONS[n].includes(region);
 const avail = () => lenders().filter(inRegion);
 
 function controls(){
@@ -34,7 +35,8 @@ function controls(){
     .map(([k, t, on]) => `<button type="button" data-q="${k}" aria-pressed="${on}">${t}</button>`).join("");
   $("chips").innerHTML = (Object.keys(H.series).some(k => k.startsWith("posted|")) ? `<button type="button" class="chip" aria-pressed="${!hidden.has(P)}" data-n="${P}"><i style="background:var(--mu)"></i>Big-bank posted rate</button>` : "") + (() => {
     const chip = n => `<button type="button" class="chip" aria-pressed="${!hidden.has(n)}" data-n="${esc(n)}"><i style="background:${seriesVar(n)}"></i>${esc(n)}</button>`;
-    if (region === "Nationwide") return all.map(chip).join("");
+    if (region === "Nationwide") { const nat = all.filter(n => !local(n)), reg = all.filter(local);
+      return nat.map(chip).join("") + (reg.length ? `<p class="chh">Regional lenders</p>` + reg.map(chip).join("") : ""); }
     const here = all.filter(local), nat = all.filter(n => !local(n));  // a province: its own lenders first, then the nationwide ones
     return `<p class="chh">${esc(region)}</p>` + here.map(chip).join("") + `<p class="chh">Nationwide</p>` + nat.map(chip).join("");
   })();
