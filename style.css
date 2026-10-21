@@ -698,3 +698,49 @@ details.fold:first-of-type{margin-top:28px;border-top:1px solid var(--ln)}
 .tilepick{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin:24px 0 -12px}
 .tilepick .tpl{font-weight:600;font-size:15px}
 @media (max-width:600px){.tilepick{margin:16px 0 -8px}.tilepick .tpl{font-size:13px;flex-basis:100%}.tilepick .seg2{max-width:100%}.tilepick .seg2 button{padding:5px 10px;font-size:12.5px;min-height:32px}}
+/* Extras > Monthly payments */
+.payform{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px 18px;margin:20px 0 4px;padding:16px;background:var(--card);border:1px solid var(--ln);border-radius:16px}
+.payform .pf{display:flex;flex-direction:column;gap:6px}
+.payform label,.payform .pfl{font-weight:600;font-size:14px}
+.payform .pf .chk{flex-direction:row;display:inline-flex;align-items:center;gap:6px;min-height:38px}
+.payform .chk input{width:18px;height:18px;margin:0;accent-color:var(--link)}
+.payform .dl{display:inline-flex;align-items:center;gap:4px;background:var(--bg);border:1px solid var(--ln);border-radius:10px;padding:0 10px}
+.payform .dl input{width:120px;border:0;background:none;font:700 16px/1 var(--bd);color:var(--fg);padding:9px 0;margin:0}
+.payform .dl input:focus{outline:none}
+.payform .dl:focus-within{outline:3px solid var(--link);outline-offset:1px}
+.payform select{font:600 15px var(--bd);color:var(--fg);background:var(--bg);border:1px solid var(--ln);border-radius:10px;padding:8px 10px;margin:0;width:auto}
+#psum{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin:20px 0 6px}
+#psum .k b small{font-size:.45em;font-weight:600;color:var(--mu);margin-left:2px}
+.paytab td,.paytab th{vertical-align:middle}
+.paytab td.ln{text-align:left}
+.paytab tr.top td{background:color-mix(in srgb,#FFD23F 14%,transparent)}
+.paytab tr.bot td{background:color-mix(in srgb,#E31B23 7%,transparent)}
+.paytab td.rate b{font-size:18px}
+.paytab .lowtag,.paytab .hightag{display:block;width:max-content;margin:4px 0 0 auto;font:700 11px var(--bd);border-radius:6px;padding:1px 6px}
+.hightag{background:color-mix(in srgb,#E31B23 14%,var(--card));color:#9F1239}
+[data-theme="dark"] .hightag{color:#FDA4AF}
+.paytab td.gap,.paytab td.pi,.paytab td.rt{color:var(--mu);font-size:14px;white-space:nowrap}
+@media (max-width:600px){
+  .payform{padding:12px;gap:12px}
+  .payform .pf{flex:1 1 100%}
+  .payform .seg2 button{padding:5px 10px;font-size:12.5px}
+  .paytab th.pi,.paytab td.pi{display:none}
+  .paytab td,.paytab th{padding:10px 6px}
+  .paytab td.ln{font-size:13px}
+  .paytab td.ln .lg-logo{float:left;width:18px;height:18px;margin:1px 0 0;border-radius:5px}
+  .paytab td.ln .lg-logo span{width:18px;height:18px;font-size:7px}
+  .paytab td.ln a{display:block;margin-left:24px}
+  .paytab td.rate b{font-size:15px}
+  .paytab td.gap,.paytab td.rt{font-size:12.5px}
+}
+#psum{grid-template-columns:repeat(2,minmax(0,1fr))}
+#psum .k b{font-size:clamp(28px,3.4vw,40px)}
+@media (max-width:600px){#psum{grid-template-columns:1fr}}
+.paytab th{white-space:normal;line-height:1.25}
+.paytab td.ln{white-space:normal}
+.paytab tr.top td,.paytab tr.top td:first-child{background:color-mix(in srgb,#FFD23F 16%,var(--card))}
+.paytab tr.bot td,.paytab tr.bot td:first-child{background:color-mix(in srgb,#E31B23 7%,var(--card))}
+@media (max-width:600px){.paytab th.gp,.paytab td.gp{display:none}}
+.paytab td.ln .lg-logo{float:left;margin:0 10px 0 0}
+.paytab td.ln a{display:block;overflow:hidden;padding-top:3px}
+@media (max-width:600px){.paytab td.ln .lg-logo{margin:1px 0 0}.paytab td.ln a{overflow:visible;padding-top:0}}

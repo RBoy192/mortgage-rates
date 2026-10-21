@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monthly payments by lender | What&#x27;s the rate?</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<meta name="description" content="Compare the monthly mortgage payment and the interest you&#x27;d pay over the term at every Canadian lender&#x27;s advertised rate.">
+<link rel="canonical" href="https://whatstherate.ca/payments.html">
+<link rel="icon" href="favicon.svg?v=62" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=62" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=62">
+<link rel="alternate" type="application/atom+xml" title="Mortgage rate changes" href="feed.xml">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#10213F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="What's the rate?">
+<meta property="og:title" content="Monthly payments by lender | What&#x27;s the rate?">
+<meta property="og:description" content="Compare the monthly mortgage payment and the interest you&#x27;d pay over the term at every Canadian lender&#x27;s advertised rate.">
+<meta property="og:url" content="https://whatstherate.ca/payments.html">
+<meta property="og:image" content="https://whatstherate.ca/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="What's the rate? Compare today's mortgage rates.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=62">
+</head>
+<body data-page="extras">
+<main id="top">
+<header id="site-header"></header>
+<div class="pg vl">
+<nav class="tabs" aria-label="Extras"><a href="faq.html">FAQ</a><a href="glossary.html">Glossary</a><a href="payments.html" aria-current="page">Monthly payments</a><a href="offline-calculator.html">Offline calculator</a><a href="about.html">About</a><a href="terms.html">Terms and privacy</a></nav>
+<div class="vc">
+<h1>Monthly <span class="hl">payments</span></h1>
+<p class="m">What each lender's advertised rate would cost you every month, and how much interest you'd pay over the term.</p>
+<div class="m" id="updated">Loading rates…</div>
+<div class="payform">
+<div class="pf"><label for="pamt">Mortgage amount</label><span class="dl"><span aria-hidden="true">$</span><input id="pamt" type="text" inputmode="numeric" data-money="1" autocomplete="off" value="400,000"></span></div>
+<div class="pf"><label for="pam">Paid over</label><select id="pam"><option value="25" selected>25 years</option><option value="30">30 years</option></select></div>
+<div class="pf"><span class="pfl" id="ptl">Rate</span><div class="seg2" id="pterm" role="group" aria-labelledby="ptl"><button type="button" data-p="3-year fixed" aria-pressed="false">3-year fixed</button><button type="button" data-p="5-year variable" aria-pressed="false">5-year variable</button><button type="button" data-p="5-year fixed" aria-pressed="true">5-year fixed</button></div></div>
+<div class="pf"><label for="pprov">Where are you buying?</label><select id="pprov"></select></div>
+<div class="pf"><label class="chk"><input type="checkbox" id="pins"> I'm putting down less than 20%</label></div>
+</div>
+<div class="c" id="psum"></div>
+<p class="f" id="pnote"></p>
+<div class="t"><table class="paytab"><thead><tr><th scope="col">Lender</th><th scope="col">Rate</th><th scope="col">Per month</th><th scope="col" class="pi">Interest over the term</th><th scope="col" class="gp">vs. lowest</th></tr></thead><tbody id="prows"><tr><td colspan="5">Loading…</td></tr></tbody></table></div>
+<h2>How these numbers work</h2>
+<ul class="ul">
+<li>Payments are monthly, using each lender's advertised rate for the whole term. Fixed rates are compounded twice a year and variable rates monthly, as Canadian mortgages are.</li>
+<li>A variable rate can change during the term. These numbers assume it stays where it is today.</li>
+<li><b>Interest over the term</b> is the interest you'd pay before the term ends and you renew. <b>Interest saved</b> compares the lowest rate with the highest.</li>
+<li>If you're putting down less than 20%, your mortgage insurance premium is usually added to the amount you borrow. It isn't included here: the <a href="calc-payment.html">payment calculator</a> can add it.</li>
+<li>These are the rates lenders advertise. The rate you're offered depends on your situation, so confirm it with the lender.</li>
+</ul>
+</div>
+</div>
+</main>
+<script src="site.js?v=62"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="62"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script>
+// Monthly payment and interest over the term at every lender's advertised rate
+let lenders = [], term = "5-year fixed", province = "", insured = false;
+const ALL_PROVINCES = ["Ontario", "British Columbia", "Alberta", "Manitoba", "New Brunswick", "Newfoundland and Labrador", "Northwest Territories",
+  "Nova Scotia", "Nunavut", "Prince Edward Island", "Quebec", "Saskatchewan", "Yukon"];
+const store = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} }, read = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+try { const a = read("pay-amount"); if (a) $("pamt").value = a; const y = read("pay-years"); if (y === "25" || y === "30") $("pam").value = y;
+  const tm = read("pay-term"); if (COLUMNS.some(([, p]) => p === tm)) term = tm; } catch (e) {}
+province = read("home-province") || ""; if (!ALL_PROVINCES.includes(province)) province = "";
+insured = read("home-insured") === "1"; $("pins").checked = insured;
+$("pprov").innerHTML = `<option value="">All of Canada</option>` + ALL_PROVINCES.map(p => `<option${p === province ? " selected" : ""}>${p}</option>`).join("");
+const serves = n => !province || !LENDER_REGIONS[n] || LENDER_REGIONS[n].includes(province);
+const page = n => LENDER_SLUGS[n] ? LENDER_SLUGS[n] + "-mortgage-rates.html" : "#";
+// interest paid over `months` on P at an annual rate, with the payment set by the amortization
+function costs(P, rate, variable, years, months){
+  const i = perPeriod(rate, variable), pay = pmt(P, i, years * 12);
+  const left = balanceAfter(P, i, pay, months);
+  return {pay, interest: pay * months - (P - left)};
+}
+function render(){
+  document.querySelectorAll("#pterm button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.p === term)));
+  const P = val("pamt"), years = +$("pam").value, months = term.startsWith("3") ? 36 : 60, variable = term.includes("variable");
+  const rows = lenders.filter(l => serves(l.name)).map(l => {
+    const c = insured ? (l.cells[term + " insured"] || l.cells[term]) : l.cells[term];
+    if (!c) return null;
+    return {l, c, ins: insured && !!l.cells[term + " insured"], ...costs(P, c.rate, variable, years, months)};
+  }).filter(Boolean).sort((a, b) => a.pay - b.pay || a.l.name.localeCompare(b.l.name));
+  if (!rows.length || P <= 0) {
+    $("psum").innerHTML = ""; $("pnote").textContent = "";
+    $("prows").innerHTML = `<tr><td colspan="5">${P <= 0 ? "Type how much you want to borrow above." : "No lender lists this rate right now."}</td></tr>`; return;
+  }
+  const lo = rows[0], hi = rows[rows.length - 1], yrs = months / 12;
+  const names = r => rows.filter(x => Math.abs(x.pay - r.pay) < 0.5).map(x => esc(x.l.name)).join(", ");
+  $("psum").innerHTML =
+    `<div class="k lowk"><em>Lowest payment</em><b>${money(lo.pay)}<small>/month</small></b>${names(lo)} · ${pct(lo.c.rate)}</div>`
+    + `<div class="k"><em>Highest payment</em><b>${money(hi.pay)}<small>/month</small></b>${names(hi)} · ${pct(hi.c.rate)}</div>`
+    + `<div class="k"><em>The lowest saves you</em><b>${money(hi.pay - lo.pay)}<small>/month</small></b>${money((hi.pay - lo.pay) * 12)} a year compared with the highest</div>`
+    + `<div class="k"><em>Interest saved over ${yrs} years</em><b>${money(hi.interest - lo.interest)}</b>Choosing ${esc(lo.l.name)} over ${esc(hi.l.name)}: ${money(lo.interest)} of interest instead of ${money(hi.interest)}</div>`;
+  $("pnote").textContent = `${rows.length} lenders${province ? " that lend in " + province : ""}, ${term}${insured ? " (insured rates where offered; † regular rate shown)" : ""}, ${money(P)} paid over ${years} years.`;
+  $("prows").innerHTML = rows.map((r, k) => {
+    const top = Math.abs(r.pay - lo.pay) < 0.5, bottom = !top && Math.abs(r.pay - hi.pay) < 0.5;
+    return `<tr class="${top ? "top" : bottom ? "bot" : ""}"><td class="ln" style="--c:${seriesVar(r.l.name)}">${logo(r.l.name, r.l.source)}<a href="${page(r.l.name)}">${esc(r.l.name)}</a></td>`
+      + `<td class="rt">${pct(r.c.rate)}${insured && !r.ins ? '<sup class="ni" title="No separate rate for less than 20% down; regular rate shown">†</sup>' : ""}</td>`
+      + `<td class="rate${top ? " low" : ""}"><b>${money(r.pay)}</b>${top ? '<span class="lowtag">Lowest</span>' : bottom ? '<span class="hightag">Highest</span>' : ""}</td>`
+      + `<td class="pi">${money(r.interest)}</td>`
+      + `<td class="gap gp">${top ? "—" : "+" + money(r.pay - lo.pay) + "/mo"}</td></tr>`;
+  }).join("");
+}
+$("pterm").addEventListener("click", e => { const b = e.target.closest("button[data-p]"); if (!b) return; term = b.dataset.p; store("pay-term", term); render(); });
+$("pamt").addEventListener("input", () => { store("pay-amount", $("pamt").value); render(); });
+$("pam").addEventListener("change", () => { store("pay-years", $("pam").value); render(); });
+$("pprov").addEventListener("change", e => { province = e.target.value; store("home-province", province); render(); });
+$("pins").addEventListener("change", e => { insured = e.target.checked; store("home-insured", insured ? "1" : "0"); render(); });
+loadRates().then(d => { lenders = groupLenders(d); $("updated").textContent = "Rates last updated " + fmt(d.updated_at); render(); },
+  () => { $("updated").textContent = "The latest rates didn't load. Please refresh the page."; });
+</script>
+</body>
+</html>
