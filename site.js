@@ -1,4 +1,4 @@
-const SITE_VERSION = "56";
+const SITE_VERSION = "57";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -318,7 +318,7 @@ const LOGOS = {
   "Meridian": ["https://www.meridiancu.ca/getContentAsset/6c76e806-df80-4b7c-a633-cab25199417c/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/meridian-icon.svg?language=en-US"],
   "Servus Credit Union": ["https://servus.ca/media/ihwf0qof/favicon.png"],
   "Coast Capital Savings": ["https://www.coastcapitalsavings.com/media/3890/coast-capital-symbol_rgb_foamwhite.svg", 0.7, "center", "contain", "#0056FF"],  // white mark, shown on Coast's own blue
-  "Affinity Credit Union": ["https://www.affinitycu.ca/favicon.ico"],
+  "Affinity Credit Union": ["https://www.affinitycu.ca/images/default-source/default-album/affinity-cu-logo-rgb-chevron---for-website.svg?sfvrsn=63b5d980_4#svgView(viewBox(-4,114,98,180))"],  // just the chevron mark from the full logo
   "Conexus Credit Union": ["https://www.conexus.ca/getContentAsset/d7c3a8a8-0ce7-47ff-84d2-47a877629ca7/e477a59e-1df6-4e2f-9986-20ab37342540/favicon.svg?language=en-US"],
   "Libro Credit Union": ["https://www.libro.ca/uploads/2025/12/cropped-favicon-2025-180x180.jpg"],
   "FirstOntario Credit Union": ["https://www.firstontario.com/wp-content/uploads/2026/02/apple-touch-icon.png"],
