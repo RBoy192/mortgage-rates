@@ -747,3 +747,14 @@ details.fold:first-of-type{margin-top:28px;border-top:1px solid var(--ln)}
 /* Extras menu: keep every entry ("Monthly Payment Estimator") on one line */
 .tabs[aria-label="Extras"] a{white-space:nowrap!important}
 @media (min-width:821px){body[data-page="extras"] .vl{grid-template-columns:250px minmax(0,1fr)}}
+.pmode{margin:18px 0 0}
+.pmode button{font-size:14px;padding:8px 16px}
+.payform .s{font-size:12.5px;color:var(--mu);max-width:240px}
+.payform .dl input#pcur{width:70px}
+.payform .chk input:disabled+span{opacity:.55}
+@media (max-width:600px){.pmode{display:flex;width:100%}.pmode button{flex:1;padding:8px 6px;font-size:13px}.payform .s{max-width:none}}
+.payform [hidden],.rn[hidden],.buy-only[hidden]{display:none!important}
+.est1{margin-top:16px;background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:20px 24px}
+.payform{align-items:flex-start}
+.payform .dl input#own{width:70px}
+@media (min-width:1000px){body[data-page="calc"] #psum{grid-template-columns:repeat(3,minmax(0,1fr))}body[data-page="calc"] #psum .k b{font-size:clamp(26px,2.6vw,34px)}}

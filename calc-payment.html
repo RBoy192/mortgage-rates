@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Monthly payment calculator | What's the rate?</title>
+<title>Monthly payment estimator | What's the rate?</title>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
-<meta name="description" content="Work out your monthly mortgage payment, interest over your term and amortization, and any CMHC insurance premium, using today&#x27;s best rates.">
+<meta name="description" content="Work out your monthly mortgage payment at every Canadian lender&#x27;s advertised rate, for buying a home or renewing: interest over the term, any CMHC insurance premium, and what you&#x27;d save at the lowest rate.">
 <link rel="canonical" href="https://whatstherate.ca/calc-payment.html">
-<link rel="icon" href="favicon.svg?v=63" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=63" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=63">
+<link rel="icon" href="favicon.svg?v=64" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=64" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=64">
 <link rel="alternate" type="application/atom+xml" title="Mortgage rate changes" href="feed.xml">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="What's the rate?">
-<meta property="og:title" content="Monthly payment calculator | What&#x27;s the rate?">
-<meta property="og:description" content="Work out your monthly mortgage payment, interest over your term and amortization, and any CMHC insurance premium, using today&#x27;s best rates.">
+<meta property="og:title" content="Monthly payment estimator | What&#x27;s the rate?">
+<meta property="og:description" content="Work out your monthly mortgage payment at every Canadian lender&#x27;s advertised rate, for buying a home or renewing: interest over the term, any CMHC insurance premium, and what you&#x27;d save at the lowest rate.">
 <meta property="og:url" content="https://whatstherate.ca/calc-payment.html">
 <meta property="og:image" content="https://whatstherate.ca/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -25,102 +25,179 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=63">
+<link rel="stylesheet" href="style.css?v=64">
 </head>
 <body data-page="calc">
 <main id="top">
 <header id="site-header"></header>
 <div class="pg vl">
-<nav class="tabs" aria-label="Calculators"><a href="calculators.html">How much can I afford?</a><a href="calc-payment.html" aria-current="page">Monthly payment</a><a href="calc-income.html">How much income do I need?</a><a href="calc-closing.html">Closing costs</a><a href="calc-frequency.html">Payment frequency</a><a href="calc-prepay.html">Prepayment savings</a><a href="calc-renewal.html">Renewal: fixed vs variable</a><a href="calc-penalty.html">Penalty for breaking a mortgage</a><a href="calc-rentbuy.html">Rent vs buy</a><a href="calc-equity.html">Refinance and HELOC</a></nav>
+<nav class="tabs" aria-label="Calculators"><a href="calculators.html">How much can I afford?</a><a href="calc-payment.html" aria-current="page">Monthly payment estimator</a><a href="calc-income.html">How much income do I need?</a><a href="calc-closing.html">Closing costs</a><a href="calc-frequency.html">Payment frequency</a><a href="calc-prepay.html">Prepayment savings</a><a href="calc-renewal.html">Renewal: fixed vs variable</a><a href="calc-penalty.html">Penalty for breaking a mortgage</a><a href="calc-rentbuy.html">Rent vs buy</a><a href="calc-equity.html">Refinance and HELOC</a></nav>
 <div class="vc">
-<h1>Monthly payment <span class="hl">calculator</span></h1>
-<p class="m">See what your monthly mortgage payment would be. <button class="lk" id="reset" type="button">Reset to defaults</button></p>
-<div class="ex"><span>Try an example:</span><button type="button" data-ex="0">$500,000 home, 20% down</button><button type="button" data-ex="1">$600,000 condo, 10% down</button></div>
-<div class="est">
-<div class="fl">
-<label>Home price <span class="df" data-f="price">default</span><input id="price" data-slider="100000,2000000,5000" type="text" inputmode="numeric" data-money="1" autocomplete="off"></label>
-<label>Down payment <span data-tip="down"></span><span class="df" data-f="down">default</span><span class="sg" role="group" aria-label="Enter the down payment as"><button type="button" id="mpct" aria-pressed="true">%</button><button type="button" id="mamt" aria-pressed="false">$</button></span><input id="down" data-slider="0,50,0.5" type="text" inputmode="decimal" data-money="0" autocomplete="off"><span class="s" id="downAmt"></span></label>
-<label>Interest rate <span class="df" data-f="rate">default</span><select id="rate"></select><input id="custom" data-slider="0,12,0.05" type="number" inputmode="decimal" step="0.01" min="0" hidden aria-label="Your own interest rate in percent"></label>
-<details class="as"><summary>More options</summary><div class="fl">
-<label>Amortization (years) <span data-tip="amortization"></span><span class="df" data-f="years">default</span><select id="years"><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option></select></label>
-<label>Term (years) <span data-tip="term"></span><span class="df" data-f="term">default</span><select id="term"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>7</option><option>10</option></select><span class="s">Set by the rate you pick, unless you enter your own.</span></label>
-</div></details>
+<h1>Monthly payment <span class="hl">estimator</span></h1>
+<p class="m">See your monthly mortgage payment at every lender's advertised rate, and how much interest you'd pay over the term. <button class="lk" id="reset" type="button">Reset to defaults</button></p>
+<div class="m" id="updated">Loading rates…</div>
+<div class="seg2 pmode" id="pmode" role="group" aria-label="What are you doing?"><button type="button" data-m="buy" aria-pressed="true">Buying a home</button><button type="button" data-m="renew" aria-pressed="false">Renewing or refinancing</button></div>
+<div class="ex buy-only"><span>Try an example:</span><button type="button" data-ex="0">$500,000 home, 20% down</button><button type="button" data-ex="1">$600,000 condo, 10% down</button></div>
+<div class="payform">
+<div class="pf buy-only"><label for="price">Home price</label><span class="dl"><span aria-hidden="true">$</span><input id="price" type="text" inputmode="numeric" data-money="1" autocomplete="off"></span></div>
+<div class="pf buy-only"><label for="down">Down payment <span class="sg" role="group" aria-label="Enter the down payment as"><button type="button" data-u="%" aria-pressed="true">%</button><button type="button" data-u="$" aria-pressed="false">$</button></span></label><span class="dl"><span aria-hidden="true" id="downsym"></span><input id="down" type="text" inputmode="decimal" autocomplete="off"></span><span class="s" id="downAmt"></span></div>
+<div class="pf rn" hidden><label for="owe">What you owe now</label><span class="dl"><span aria-hidden="true">$</span><input id="owe" type="text" inputmode="numeric" data-money="1" autocomplete="off"></span></div>
+<div class="pf rn" hidden><label for="extra">Extra to borrow (refinance)</label><span class="dl"><span aria-hidden="true">$</span><input id="extra" type="text" inputmode="numeric" data-money="1" autocomplete="off" aria-describedby="extrah"></span><span class="s" id="extrah">Leave at $0 to renew without borrowing more.</span></div>
+<div class="pf"><label for="years" id="yearsl">Amortization</label><select id="years"></select></div>
+<div class="pf"><span class="pfl" id="ptl">Rate</span><div class="seg2" id="pterm" role="group" aria-labelledby="ptl"><button type="button" data-p="3-year fixed" aria-pressed="false">3-year fixed</button><button type="button" data-p="5-year variable" aria-pressed="false">5-year variable</button><button type="button" data-p="5-year fixed" aria-pressed="true">5-year fixed</button></div></div>
+<div class="pf"><label for="own" id="ownl">A rate you've been offered (optional)</label><span class="dl"><input id="own" type="text" inputmode="decimal" autocomplete="off" placeholder="e.g. 4.49"><span aria-hidden="true">%</span></span></div>
+<div class="pf"><label for="prov">Where's the home?</label><select id="prov"></select></div>
+<div class="pf rn" hidden><label class="chk"><input type="checkbox" id="ins"> <span>My mortgage is insured (I put less than 20% down when I bought)</span></label><span class="s" id="insh" hidden>Insured rates don't apply when you borrow more.</span></div>
 </div>
-<div class="res"><p class="say" id="say"></p><b id="pay">—</b><span class="s">Per month</span><details class="how"><summary>How this is worked out</summary><ul id="res"></ul><div id="msgs_n"></div></details></div>
+<div class="est1">
+<div class="res"><p class="say" id="say"></p><b id="pay">—</b><span class="s" id="payfor">Per month, at the lowest rate</span><details class="how"><summary>How this is worked out</summary><ul id="res"></ul><div id="msgs_n"></div></details></div>
 </div>
-<div class="acts"><button type="button" id="share" class="lk">Copy a link to these numbers</button><button type="button" class="lk" onclick="print()">Print results</button></div>
 <div id="msgs"></div>
-<p class="f">An estimate. It leaves out property tax, home insurance and fees.</p>
+<div class="c" id="psum"></div>
+<p class="f" id="pnote"></p>
+<div class="t"><table class="paytab"><thead><tr><th scope="col">Lender</th><th scope="col">Rate</th><th scope="col">Per month</th><th scope="col" class="pi">Interest over the term</th><th scope="col" class="gp">vs. lowest</th></tr></thead><tbody id="prows"><tr><td colspan="5">Loading…</td></tr></tbody></table></div>
+<div class="acts"><button type="button" class="lk" onclick="print()">Print results</button></div>
+<h2>How these numbers work</h2>
+<ul class="ul">
+<li>Payments are monthly, using each lender's advertised rate for the whole term. Fixed rates are compounded twice a year and variable rates monthly, as Canadian mortgages are. A variable rate can change during the term; these numbers assume it stays where it is today.</li>
+<li><b>Interest over the term</b> is the interest you'd pay before the term ends. <b>Interest saved</b> compares the lowest rate with the highest.</li>
+<li>These are the rates lenders advertise. The rate you're offered depends on your situation, so confirm it with the lender. The payment leaves out property tax, home insurance and fees.</li>
+</ul>
+<div class="buy-only"><h3>Buying</h3><ul class="ul">
+<li>With less than 20% down, your mortgage needs default insurance: the premium is added to your mortgage, and lenders' insured (high-ratio) rates are used where they publish them. See <a href="crash-insurance.html">Insured vs uninsured</a>.</li>
+<li>The minimum down payment is 5% of the first $500,000, 10% of the part up to $1.5 million, and 20% from $1.5 million.</li></ul></div>
+<div class="rn" hidden><h3>Renewing or refinancing</h3><ul class="ul">
+<li><b>Renewing:</b> enter what you owe now and the years left to pay. When your term ends you can stay with your lender or switch to another one. Switching can come with fees, like a discharge fee or an appraisal; ask the new lender whether it covers them. See <a href="crash-renew.html">Renewing your mortgage</a> and the <a href="calc-renewal.html">renewal calculator</a>.</li>
+<li><b>Insured rates</b> apply when you renew a mortgage that was insured when you bought (you put less than 20% down) and you don't borrow more.</li>
+<li><b>Refinancing</b> (borrowing more) counts as a new mortgage: you'll need to qualify again, insured rates don't apply, and you can usually borrow up to 80% of your home's value. Breaking your current term early to refinance can cost a prepayment penalty: see the <a href="calc-penalty.html">penalty calculator</a>.</li></ul></div>
 <p id="src" data-keys="grid,dof,act"></p>
 </div>
 </div>
 </main>
-<script src="site.js?v=63"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="63"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=64"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="64"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
+// Monthly payment estimator: your payment at every lender's advertised rate, for buying a home or for renewing / refinancing
 (function(){
-let s = Object.assign(loadState(), fromURL()), best = {};
-const EX = [{price: 500000, down: 20, mode: "pct", years: 25}, {price: 600000, down: 10, mode: "pct", years: 25}, {price: 900000, down: 5, mode: "pct", years: 30}];
-const defRate = () => best[DEF.rate] ? DEF.rate : "custom";
-const ds = () => { $("down").dataset.slider = s.mode === "amt" ? "0," + Math.max(50000, val("price")) + ",5000" : "0,50,0.5"; };
-const write = () => { ds(); setv("price", s.price); $("down").dataset.money = s.mode === "amt" ? "1" : "0"; setv("down", s.down); $("years").value = s.years; $("rate").value = s.rate; setv("custom", s.custom); $("term").value = s.term; };
-const read = () => { s = {price: val("price"), down: val("down"), mode: s.mode, years: +$("years").value, rate: $("rate").value, custom: val("custom"), term: +$("term").value}; };
-
-function update(){
-  read(); saveState(s); ds(); syncSlider($("down"));
-  const c = calc(s, best), table = s.rate !== "custom" && !!best[s.rate];
-  $("mpct").setAttribute("aria-pressed", s.mode === "pct"); $("mamt").setAttribute("aria-pressed", s.mode === "amt");
-  $("custom").hidden = s.rate !== "custom";
-  $("term").disabled = table;
-  if (table) $("term").value = parseInt(s.rate, 10);
-  const flags = {price: s.price === DEF.price, years: s.years === DEF.years, term: s.term === DEF.term,
-    down: s.mode === "pct" ? s.down === DEF.down : Math.abs(s.down - s.price * DEF.down / 100) < 1,
-    rate: s.rate === defRate() && (s.rate !== "custom" || s.custom === DEF.custom)};
-  document.querySelectorAll(".df").forEach(e => { e.hidden = !flags[e.dataset.f] || (e.dataset.f === "term" && table); });
-  $("downAmt").textContent = s.mode === "pct" ? (c ? "= " + money(c.downAmt) : "") : (s.price > 0 ? "= " + (s.down / s.price * 100).toFixed(1) + "% of the price" : "");
+const PD = {mode: "buy", price: 500000, down: 20, unit: "%", years: 25, ryears: 20, owe: 350000, extra: 0, term: "5-year fixed", own: "", prov: "", ins: false};
+let s = Object.assign({}, PD), lenders = [];
+try { Object.assign(s, JSON.parse(localStorage.getItem("payest") || "{}")); } catch (e) {}
+try { const p = localStorage.getItem("home-province"); if (p !== null) s.prov = p; } catch (e) {}
+const ALL_PROVINCES = ["Ontario", "British Columbia", "Alberta", "Manitoba", "New Brunswick", "Newfoundland and Labrador", "Northwest Territories",
+  "Nova Scotia", "Nunavut", "Prince Edward Island", "Quebec", "Saskatchewan", "Yukon"];
+if (!ALL_PROVINCES.includes(s.prov)) s.prov = "";
+if (!COLUMNS.some(([, p]) => p === s.term)) s.term = PD.term;
+const save = () => { try { localStorage.setItem("payest", JSON.stringify(s)); localStorage.setItem("home-province", s.prov); } catch (e) {} };
+const num = id => parseFloat(String($(id).value).replace(/[^0-9.]/g, "")) || 0;
+const serves = n => !s.prov || !LENDER_REGIONS[n] || LENDER_REGIONS[n].includes(s.prov);
+const page = n => LENDER_SLUGS[n] ? LENDER_SLUGS[n] + "-mortgage-rates.html" : "#";
+$("prov").innerHTML = `<option value="">All of Canada</option>` + ALL_PROVINCES.map(p => `<option>${p}</option>`).join("");
+// payment, and what happens over the term, for P borrowed at an annual rate
+function costs(P, rate, variable, years, months){
+  const i = perPeriod(rate, variable), n = years * 12, pay = pmt(P, i, n), m = Math.min(months, n), left = balanceAfter(P, i, pay, m);
+  return {pay, interest: pay * m - (P - left), principal: P - left, left: Math.max(0, left), total: pay * n - P};
+}
+function write(){
+  const buy = s.mode === "buy";
+  document.querySelectorAll("#pmode button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.m === s.mode)));
+  document.querySelectorAll(".rn").forEach(e => e.hidden = buy);
+  document.querySelectorAll(".buy-only").forEach(e => e.hidden = !buy);
+  setv("price", s.price); setv("owe", s.owe); setv("extra", s.extra);
+  $("down").dataset.money = s.unit === "$" ? "1" : "0"; setv("down", s.down); $("downsym").textContent = s.unit === "$" ? "$" : "";
+  document.querySelectorAll(".sg button[data-u]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.u === s.unit)));
+  const yrs = buy ? [10, 15, 20, 25, 30] : Array.from({length: 30}, (_, k) => k + 1);
+  $("years").innerHTML = yrs.map(y => `<option value="${y}">${y} year${y > 1 ? "s" : ""}</option>`).join("");
+  $("years").value = buy ? s.years : s.ryears; $("yearsl").textContent = buy ? "Amortization" : "Years left to pay";
+  $("own").value = s.own; $("ownl").textContent = buy ? "A rate you've been offered (optional)" : "Your current rate (optional)";
+  $("prov").value = s.prov; $("ins").checked = !!s.ins;
+}
+function read(){
+  const buy = s.mode === "buy";
+  s.price = val("price"); s.down = val("down"); s.owe = val("owe"); s.extra = val("extra"); s.own = $("own").value.trim(); s.prov = $("prov").value; s.ins = $("ins").checked;
+  if (buy) s.years = +$("years").value; else s.ryears = +$("years").value;
+}
+function render(){
+  read(); save();
+  document.querySelectorAll("#pterm button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.p === s.term)));
+  const buy = s.mode === "buy", term = s.term, variable = term.includes("variable"), years = buy ? s.years : s.ryears;
+  const months = Math.min(term.startsWith("3") ? 36 : 60, years * 12), yrs = months / 12, yl = yrs + (yrs === 1 ? " year" : " years");
   const msgs = [];
-  if (c) {
-    if (c.belowMin) msgs.push(["w", `Your down payment is below the minimum for this price, about ${money(c.min)} (${(c.min / c.price * 100).toFixed(1)}%). In Canada the minimum is 5% of the first $500,000 plus 10% of the part up to $1.5 million, and 20% from $1.5 million.`]);
-    if (c.overCap) msgs.push(["w", "Mortgage insurance isn't available for homes of $1.5 million or more, so at least 20% down is required."]);
-    if (c.insured) msgs.push(["", `<b>Insured mortgage.</b> With less than 20% down, your mortgage needs default insurance. The estimate adds the premium (${c.prem.toFixed(2)}% of the mortgage, ${money(c.premium)}) to your mortgage. <a href="crash-insurance.html">How insurance works</a>`]);
-    if (c.insured && c.years > 25) msgs.push(["", "Insured mortgages are normally limited to 25-year amortizations. Some buyers, such as first-time buyers and buyers of new builds, can choose 30 years, which adds 0.20% to the premium."]);
+  let P, useIns, canIns = true, base = {};
+  if (buy) {
+    const price = s.price, downAmt = s.unit === "$" ? s.down : price * s.down / 100;
+    $("downAmt").textContent = price > 0 ? (s.unit === "$" ? "= " + (downAmt / price * 100).toFixed(1) + "% of the price" : "= " + money(downAmt)) : "";
+    if (!(price > 0) || !(downAmt >= 0 && downAmt < price)) { P = 0; }
+    else {
+      const prem = premPct(price, downAmt, years), P0 = price - downAmt, premium = P0 * prem / 100;
+      P = P0 + premium; useIns = prem > 0; base = {price, downAmt, prem, premium, P0};
+      if (downAmt < minDown(price) - 1) msgs.push(["w", `Your down payment is below the minimum for this price, about ${money(minDown(price))} (${(minDown(price) / price * 100).toFixed(1)}%). In Canada the minimum is 5% of the first $500,000 plus 10% of the part up to $1.5 million, and 20% from $1.5 million.`]);
+      if (useIns && price >= 1.5e6) msgs.push(["w", "Mortgage insurance isn't available for homes of $1.5 million or more, so at least 20% down is required."]);
+      if (useIns) msgs.push(["", `<b>Insured mortgage.</b> With less than 20% down, your mortgage needs default insurance. The premium (${prem.toFixed(2)}% of the mortgage, ${money(premium)}) is added to your mortgage, and lenders' insured rates are used where they publish them. <a href="crash-insurance.html">How insurance works</a>`]);
+      if (useIns && years > 25) msgs.push(["", "Insured mortgages are normally limited to 25-year amortizations. Some buyers, such as first-time buyers and buyers of new builds, can choose 30 years, which adds 0.20% to the premium."]);
+    }
+  } else {
+    P = s.owe + s.extra; canIns = !(s.extra > 0); useIns = s.ins && canIns;
+    $("ins").disabled = !canIns; $("insh").hidden = canIns;
   }
   putMsgs("msgs", msgs);
-  $("say").textContent = c ? `Your mortgage payment would be about ${money(c.pay)} a month.` : "";
-  if (!c) {
-    $("pay").textContent = "—";
-    $("res").innerHTML = "<li>Enter a home price, a down payment smaller than the price, and an interest rate.</li>";
-    return;
+  const rows = P > 0 ? lenders.filter(l => serves(l.name)).map(l => {
+    const c = useIns ? (l.cells[term + " insured"] || l.cells[term]) : l.cells[term];
+    return c ? {l, c, ins: useIns && !!l.cells[term + " insured"], ...costs(P, c.rate, variable, years, months)} : null;
+  }).filter(Boolean).sort((a, b) => a.pay - b.pay || a.l.name.localeCompare(b.l.name)) : [];
+  if (!rows.length) {
+    $("pay").textContent = "—"; $("say").textContent = ""; $("psum").innerHTML = ""; $("pnote").textContent = "";
+    $("res").innerHTML = `<li>${buy ? "Enter a home price and a down payment smaller than the price." : "Enter what you owe now."}</li>`;
+    $("prows").innerHTML = `<tr><td colspan="5">${P > 0 ? (lenders.length ? "No lender lists this rate right now." : "Loading…") : (buy ? "Enter a home price and a down payment smaller than the price." : "Enter what you owe now.")}</td></tr>`; return;
   }
-  $("pay").textContent = money(c.pay);
-  $("res").innerHTML = (c.insured
-      ? `<li>Mortgage insurance: <strong>${money(c.premium)}</strong> (${c.prem.toFixed(2)}%), added to your ${money(c.P0)} mortgage for <strong>${money(c.P)}</strong> in total.</li>`
-      : `<li><strong>${money(c.P)}</strong> mortgage: the ${money(c.price)} price minus ${money(c.downAmt)} down. No insurance is needed.</li>`)
-    + `<li>Interest over your ${c.term}-year term: <strong>${money(c.ti)}</strong>. You'd also repay ${money(c.tp)} of principal.</li>`
-    + `<li>Balance when the term ends: about <strong>${money(c.tb)}</strong>, which you'd renew at the rates of the day.</li>`
-    + `<li>Interest over the full ${c.years}-year amortization: <strong>${money(c.total)}</strong>, if the rate never changed.</li>`;
+  const lo = rows[0], hi = rows[rows.length - 1];
+  const names = r => rows.filter(x => Math.abs(x.pay - r.pay) < 0.5).map(x => esc(x.l.name)).join(", ");
+  $("say").textContent = `At the lowest ${term} rate, ${pct(lo.c.rate)} from ${names(lo).replace(/&amp;/g, "&")}, your payment would be about ${money(lo.pay)} a month.`;
+  $("pay").textContent = money(lo.pay);
+  $("res").innerHTML = (buy
+      ? (base.prem > 0 ? `<li>Mortgage insurance: <strong>${money(base.premium)}</strong> (${base.prem.toFixed(2)}%), added to your ${money(base.P0)} mortgage for <strong>${money(P)}</strong> in total.</li>`
+        : `<li><strong>${money(P)}</strong> mortgage: the ${money(base.price)} price minus ${money(base.downAmt)} down. No insurance is needed.</li>`)
+      : `<li><strong>${money(P)}</strong> mortgage${s.extra > 0 ? `: the ${money(s.owe)} you owe plus ${money(s.extra)} more` : ""}, paid over the ${years} year${years > 1 ? "s" : ""} left.</li>`)
+    + `<li>Interest over the ${yl} term: <strong>${money(lo.interest)}</strong>. You'd also repay ${money(lo.principal)} of principal.</li>`
+    + `<li>Balance when the term ends: about <strong>${money(lo.left)}</strong>, which you'd renew at the rates of the day.</li>`
+    + `<li>Interest over the full ${years} year${years > 1 ? "s" : ""}: <strong>${money(lo.total)}</strong>, if the rate never changed.</li>`;
+  let cards = `<div class="k"><em>Highest payment</em><b>${money(hi.pay)}<small>/month</small></b>${names(hi)} · ${pct(hi.c.rate)}</div>`;
+  const own = parseFloat(s.own);
+  if (own > 0 && own < 25) {
+    const now = costs(P, own, variable, years, months), d = now.pay - lo.pay, di = now.interest - lo.interest;
+    cards += `<div class="k"><em>At ${buy ? "the rate you were offered" : "your current rate"}, ${pct(own)}</em><b>${money(now.pay)}<small>/month</small></b>`
+      + (d >= 0.5 ? `The lowest rate would be ${money(d)} a month less, and ${money(di)} less interest over ${yl}.`
+        : d <= -0.5 ? `That's lower than today's lowest advertised rate: about ${money(-d)} a month less, and ${money(-di)} less interest over ${yl}.`
+        : "About the same as today's lowest rate.") + `</div>`;
+  } else {
+    cards += `<div class="k"><em>The lowest saves you</em><b>${money(hi.pay - lo.pay)}<small>/month</small></b>${money((hi.pay - lo.pay) * 12)} a year compared with the highest</div>`;
+  }
+  cards += `<div class="k"><em>Interest saved over ${yl}</em><b>${money(hi.interest - lo.interest)}</b>Choosing ${esc(lo.l.name)} over ${esc(hi.l.name)}: ${money(lo.interest)} of interest instead of ${money(hi.interest)}</div>`;
+  $("psum").innerHTML = cards;
+  $("pnote").textContent = `${rows.length} lenders${s.prov ? " that lend in " + s.prov : ""}, ${term}${useIns ? " (insured rates where offered; † regular rate shown)" : ""}, ${money(P)} over ${years} year${years > 1 ? "s" : ""}.`;
+  $("prows").innerHTML = rows.map(r => {
+    const top = Math.abs(r.pay - lo.pay) < 0.5, bottom = !top && Math.abs(r.pay - hi.pay) < 0.5;
+    return `<tr class="${top ? "top" : bottom ? "bot" : ""}"><td class="ln" style="--c:${seriesVar(r.l.name)}">${logo(r.l.name, r.l.source)}<a href="${page(r.l.name)}">${esc(r.l.name)}</a></td>`
+      + `<td class="rt">${pct(r.c.rate)}${useIns && !r.ins ? '<sup class="ni" title="No separate rate for less than 20% down; regular rate shown">†</sup>' : ""}</td>`
+      + `<td class="rate${top ? " low" : ""}"><b>${money(r.pay)}</b>${top ? '<span class="lowtag">Lowest</span>' : bottom ? '<span class="hightag">Highest</span>' : ""}</td>`
+      + `<td class="pi">${money(r.interest)}</td>`
+      + `<td class="gap gp">${top ? "—" : "+" + money(r.pay - lo.pay) + "/mo"}</td></tr>`;
+  }).join("");
 }
-function setMode(m){
-  if (m === s.mode) return;
-  const price = val("price") || DEF.price, v = val("down");
-  $("down").dataset.money = m === "amt" ? "1" : "0";
-  setv("down", m === "amt" ? Math.round(price * v / 100) : +(v / price * 100).toFixed(2));
-  s.mode = m; update();
-}
-function ready(b){
-  best = b || {};
-  $("rate").innerHTML = Object.keys(best).map(k => `<option value="${esc(k)}">Lowest ${esc(k)}: ${pct(best[k].rate)} (${esc(best[k].names)})</option>`).join("") + '<option value="custom">My own rate</option>';
-  if (!Array.from($("rate").options).some(o => o.value === s.rate)) s.rate = defRate();
-  write(); update();
-}
-$("mpct").onclick = () => setMode("pct");
-$("mamt").onclick = () => setMode("amt");
-["price", "down", "years", "rate", "custom", "term"].forEach(id => $(id).addEventListener("input", update));
-$("rate").addEventListener("change", update);
-$("share").onclick = () => { read(); copyLink(s, $("share")); };
-document.querySelectorAll("[data-ex]").forEach(b => b.onclick = () => { s = Object.assign({}, DEF, {rate: defRate()}, EX[+b.dataset.ex]); write(); update(); });
-$("reset").onclick = () => { s = Object.assign({}, DEF, {rate: defRate()}); write(); update(); };
-loadRates().then(d => ready(bestRates(groupLenders(d)))).catch(() => ready({}));
+const EX = [{price: 500000, down: 20, unit: "%", years: 25}, {price: 600000, down: 10, unit: "%", years: 25}];
+document.querySelectorAll("[data-ex]").forEach(b => b.onclick = () => { Object.assign(s, EX[+b.dataset.ex], {mode: "buy"}); write(); render(); });
+$("reset").onclick = () => { const prov = s.prov; s = Object.assign({}, PD, {prov}); write(); render(); };
+$("pmode").addEventListener("click", e => { const b = e.target.closest("button[data-m]"); if (!b || b.dataset.m === s.mode) return; read(); s.mode = b.dataset.m; write(); render(); });
+$("pterm").addEventListener("click", e => { const b = e.target.closest("button[data-p]"); if (!b) return; s.term = b.dataset.p; render(); });
+document.querySelectorAll(".sg button[data-u]").forEach(b => b.onclick = e => {
+  e.preventDefault(); if (b.dataset.u === s.unit) return;
+  read(); const price = s.price || PD.price;
+  s.down = b.dataset.u === "$" ? Math.round(price * s.down / 100) : +(s.down / price * 100).toFixed(2); s.unit = b.dataset.u; write(); render();
+});
+["price", "down", "owe", "extra", "own"].forEach(id => $(id).addEventListener("input", render));
+["years", "prov", "ins"].forEach(id => $(id).addEventListener("change", render));
+write(); render();
+loadRates().then(d => { lenders = groupLenders(d); $("updated").textContent = "Rates last updated " + fmt(d.updated_at); render(); },
+  () => { $("updated").textContent = "The latest rates didn't load. Please refresh the page."; });
 })();
 </script>
 </body>
