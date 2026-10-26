@@ -467,3 +467,24 @@ class TestAlertAndFeed(unittest.TestCase):
         self.assertIn("down 0.10", feed.entry_text(c[1])[0])
         import xml.dom.minidom
         xml.dom.minidom.parseString(feed.atom(c, "2026-10-05T12:00:00Z"))
+
+
+class TestEvidence(unittest.TestCase):
+    def test_only_automatic_fresh_changes_count(self):
+        import evidence
+        old = {("A", "5-year fixed"): {"rate": 4.5}, ("B", "5-year fixed"): {"rate": 4.6}}
+        new = {("A", "5-year fixed"): {"rate": 4.4, "method": "automatic"},          # changed
+               ("B", "5-year fixed"): {"rate": 4.6, "method": "automatic"},          # same
+               ("C", "5-year fixed"): {"rate": 4.7, "method": "automatic"},          # new
+               ("D", "5-year fixed"): {"rate": 4.8, "method": "manual"},             # hand-entered: skipped
+               ("E", "5-year fixed"): {"rate": 4.9, "method": "automatic", "stale": True}}  # not refreshed: skipped
+        self.assertEqual(evidence.changed_lenders(old, new), ["A", "C"])
+
+    def test_last_capture_per_lender(self):
+        import evidence
+        with tempfile.TemporaryDirectory() as d:
+            m = Path(d) / "manifest.csv"
+            m.write_text("captured_at_utc,lender\n2026-10-01T00:00:00Z,A\n2026-10-20T00:00:00Z,A\n2026-10-05T00:00:00Z,B\n")
+            last = evidence.last_captures(m)
+            self.assertEqual(last["A"].day, 20)
+            self.assertEqual(last["B"].day, 5)

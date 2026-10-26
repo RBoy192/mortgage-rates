@@ -29,6 +29,8 @@ jobs:
       - name: Install browser (only if a lender needs one)
         run: |
           if grep -qE "^[[:space:]-]+mode:[[:space:]]*browser" institutions.yaml; then playwright install --with-deps chromium; fi
+      - name: Keep a copy of the previous rates (to spot changes)
+        run: cp rates.json /tmp/rates.prev.json || echo '{}' > /tmp/rates.prev.json
       - name: Scrape rates
         id: scrape
         run: python scraper.py
@@ -42,6 +44,21 @@ jobs:
       - name: Rate-change feed (feed.xml)
         run: python feed.py
         continue-on-error: true
+      - name: Keep evidence of rate changes (private repository, not published)
+        continue-on-error: true
+        env:
+          EVIDENCE_TOKEN: ${{ secrets.EVIDENCE_TOKEN }}
+          EVIDENCE_REPO: ${{ vars.EVIDENCE_REPO || 'RBoy192/rate-evidence' }}
+        run: |
+          if [ -n "$EVIDENCE_TOKEN" ]; then
+            git clone -q --depth 1 "https://x-access-token:${EVIDENCE_TOKEN}@github.com/${EVIDENCE_REPO}.git" evidence-repo || echo "evidence: couldn't open ${EVIDENCE_REPO}"
+          fi
+          python evidence.py /tmp/rates.prev.json
+          if [ -d evidence-repo/.git ]; then
+            cd evidence-repo
+            git add -A
+            git diff --cached --quiet || (git -c user.name="rates-bot" -c user.email="rates-bot@users.noreply.github.com" commit -qm "Evidence $(date -u +%F)" && git push -q)
+          fi
       - name: Build site folder
         run: mkdir site && cp *.html *.css *.js *.svg *.png *.ico *.xml *.txt *.webmanifest rates.json history.json site/ && cp -r fonts site/
       - uses: actions/upload-pages-artifact@v3

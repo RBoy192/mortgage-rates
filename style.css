@@ -805,7 +805,22 @@ details.fold:first-of-type{margin-top:28px;border-top:1px solid var(--ln)}
 @media (max-width:600px){.cmptab th,.cmptab td{padding:9px 6px;font-size:13px}.cmptab tr.tot th,.cmptab tr.tot td{font-size:14px}.offer{grid-template-columns:1fr 1fr}}
 .offer{align-content:start;align-items:start}
 
-/* Main table: a lender's lower rate for less than 20% down, on a second line under its regular rate */
-td.rate .insr{display:block;margin-top:4px;font-size:12px;font-weight:500;color:var(--mu);white-space:nowrap}
-td.rate .insr b{font:700 12.5px var(--bd);color:var(--good)}
-@media (max-width:600px){td.rate .insr{font-size:10.5px;white-space:normal;line-height:1.25}td.rate .insr b{font-size:11.5px;display:block}}
+/* Main table: a lender's lower rate for less than 20% down, as a small green tag under its regular rate */
+.insr{display:inline-flex;align-items:center;gap:5px;border:1px solid color-mix(in srgb,var(--good) 45%,transparent);background:color-mix(in srgb,var(--good) 9%,transparent);color:var(--good);border-radius:999px;padding:1px 8px;font-size:11.5px;font-weight:600;white-space:nowrap;line-height:1.5}
+.insr::before{content:"";width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;flex:none}
+.insr .il{color:var(--mu);font-weight:500}
+.insr b{font:700 12px var(--bd);color:var(--good)}
+td.rate .insr{display:flex;width:max-content;margin:5px 0 0 auto}
+#rows td.rate .insr b,#rows td.low .insr b,#rows td.glow .insr b{font:700 12px var(--bd);color:var(--good);background:none;box-shadow:none;padding:0;border-radius:0}
+@media (max-width:600px){#rows td.rate .insr b{font-size:10.5px;letter-spacing:-.01em}#rows td.rate .insr{padding:0 4px;gap:2px}#rows td.rate .insr::before{border-left-width:3px;border-right-width:3px;border-top-width:4px}}
+.inslegend{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;color:var(--mu);margin:0 0 10px}
+.inslegend .insr{flex:none}
+@media (max-width:600px){
+  td.rate .insr{margin-top:4px}
+  td.rate .insr .il{display:none}           /* phones: just the rate in the tag; the legend above the table explains it */
+  .insr{padding:0 6px;gap:3px;font-size:11px}
+  .insr b{font-size:11px}
+  .inslegend{font-size:12px;line-height:1.35}
+}
+@media (max-width:380px){#rows td.rate .insr::before{display:none}#rows td.rate .insr{padding:0 3px}#rows td.rate .insr b{font-size:10px}}
+:root:not([data-theme="dark"]) .insr,:root:not([data-theme="dark"]) .insr b,:root:not([data-theme="dark"]) #rows td.rate .insr b{color:#14532D}
