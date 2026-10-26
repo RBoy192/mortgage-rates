@@ -11,8 +11,15 @@ const short = (t, wide) => new Date(t).toLocaleDateString([], wide ? {month: "sh
 const long = t => new Date(t).toLocaleDateString([], {dateStyle: "medium"});
 const valueAt = (pts, t) => { let v = null; for (const [d, r] of pts) { if (day(d) <= t) v = r; else break; } return v; };
 
+// Which rates to chart: mortgages, GICs or savings (picked with the buttons above the charts; remembered, and in the address)
+const KINDS = {mortgages: COLUMNS.map(([, p]) => [p.charAt(0).toUpperCase() + p.slice(1), p]),
+  gics: GIC_COLUMNS.map(([, p]) => [p.replace("-year GIC", "-year non-redeemable GIC"), p]), savings: [["Savings accounts (regular rate)", SAVINGS]]};
+let kind = "mortgages";
+try { const k = (location.hash || "").slice(1) || localStorage.getItem("hist-kind"); if (KINDS[k]) kind = k; } catch (e) {}
+const prods = () => KINDS[kind].map(([, p]) => p);
 function lenders(){
-  const names = new Set(Object.keys(H.series).filter(k => k.includes("|") && !k.startsWith("posted|")).map(k => k.split("|")[0]));
+  const want = new Set(prods());
+  const names = new Set(Object.keys(H.series).filter(k => k.includes("|") && !k.startsWith("posted|") && want.has(k.split("|").slice(1).join("|"))).map(k => k.split("|")[0]));
   return [...names].sort((a, b) => (LENDER_ORDER.indexOf(a) + 1 || 99) - (LENDER_ORDER.indexOf(b) + 1 || 99) || a.localeCompare(b));
 }
 
@@ -33,7 +40,7 @@ function controls(){
   $("quick").innerHTML = [["all", "Show all", shown.length === all.length], ["banks", "Banks only", only(banks)],
     ["others", "Credit unions and others", only(all.filter(n => NON_BANKS.includes(n)))], ["none", "Clear all", !shown.length && hidden.has(P)]]
     .map(([k, t, on]) => `<button type="button" data-q="${k}" aria-pressed="${on}">${t}</button>`).join("");
-  $("chips").innerHTML = (Object.keys(H.series).some(k => k.startsWith("posted|")) ? `<button type="button" class="chip" aria-pressed="${!hidden.has(P)}" data-n="${P}"><i style="background:var(--mu)"></i>Big-bank posted rate</button>` : "") + (() => {
+  $("chips").innerHTML = (kind === "mortgages" && Object.keys(H.series).some(k => k.startsWith("posted|")) ? `<button type="button" class="chip" aria-pressed="${!hidden.has(P)}" data-n="${P}"><i style="background:var(--mu)"></i>Big-bank posted rate</button>` : "") + (() => {
     const chip = n => `<button type="button" class="chip" aria-pressed="${!hidden.has(n)}" data-n="${esc(n)}"><i style="background:${seriesVar(n)}"></i>${esc(n)}</button>`;
     if (region === "Nationwide") { const nat = all.filter(n => !local(n)), reg = all.filter(local);
       return nat.map(chip).join("") + (reg.length ? `<p class="chh">Regional lenders</p>` + reg.map(chip).join("") : ""); }
@@ -167,10 +174,12 @@ function render(){
   const ls = avail().filter(n => !hidden.has(n));
   // The Bank of Canada publishes the big banks' typical posted rate for fixed terms; it's drawn dashed for context.
   const POSTED = "Big-bank posted rate (Bank of Canada)";
-  COLUMNS.forEach(([, p], k) => {
+  document.querySelectorAll("#hkind button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.k === kind)));
+  for (let k = 0; k < 5; k++) { const el = $("ch" + k); if (el) el.hidden = k >= KINDS[kind].length; }
+  KINDS[kind].forEach(([title, p], k) => {
     const line = n => ({name: n, color: seriesVar(n), points: H.series[n + "|" + p]});
     const posted = H.series["posted|" + p] ? [{name: POSTED, color: "var(--mu)", dash: true, points: H.series["posted|" + p]}] : [];
-    chart($("ch" + k), p.charAt(0).toUpperCase() + p.slice(1),
+    chart($("ch" + k), title,
       ls.filter(n => H.series[n + "|" + p]).map(line).concat(hidden.has(POSTED) ? [] : posted),
       lenders().filter(n => H.series[n + "|" + p]).map(line).concat(posted),  // axes fit every line, shown or not
       avail().length > 0 && !ls.length);  // every lender in this region switched off
@@ -184,6 +193,9 @@ function render(){
       : lenderFirst ? `Each lender's own rates start on ${dstr(lenderFirst)}, when this site began saving them once a day; lenders don't publish their past rates.` : "");
 }
 
+$("hkind").onclick = e => { const b = e.target.closest("button[data-k]"); if (!b) return; kind = b.dataset.k;
+  try { localStorage.setItem("hist-kind", kind); history.replaceState(null, "", kind === "mortgages" ? location.pathname : "#" + kind); } catch (er) {}
+  applyPick(); render(); };
 $("range").onclick = e => { const b = e.target.closest("button"); if (b) { range = b.dataset.r; save(); render(); } };
 // Quick picks: everyone, banks only, credit unions only, or nobody (then tap lenders one by one)
 // Changing region keeps the lender-type choice: Banks only stays banks only, and so on. Hand-picked lenders stay as picked.

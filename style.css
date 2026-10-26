@@ -919,3 +919,4 @@ header.n{position:relative;z-index:50}
 table.ltab th,table.ltab td{padding:8px 12px;font-size:14px}
 @media (max-width:640px){.lbar{grid-template-columns:110px 1fr 60px}.lbar .lbl{font-size:13px}}
 @media (max-width:640px){.c.c5{grid-template-columns:1fr 1fr;gap:10px}.c.c5 .k{padding:12px 12px;font-size:13px}.c.c5 .k em{font-size:12.5px}.c.c5 .k b{font-size:26px}}
+body[data-term$="GIC"] .chg.up,body[data-term="Savings"] .chg.up{color:var(--good)}body[data-term$="GIC"] .chg.dn,body[data-term="Savings"] .chg.dn{color:var(--warn)}

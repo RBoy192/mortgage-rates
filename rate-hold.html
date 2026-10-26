@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="Holding a mortgage rate? Save it here and every visit shows the days left on your hold and which Canadian lenders now advertise a lower rate. Nothing leaves your browser.">
 <link rel="canonical" href="https://whatstherate.ca/rate-hold.html">
-<link rel="icon" href="favicon.svg?v=70" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=70" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=70">
+<link rel="icon" href="favicon.svg?v=71" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=71" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=71">
 <link rel="alternate" type="application/atom+xml" title="Mortgage rate changes" href="feed.xml">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
@@ -25,56 +25,72 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=70">
+<link rel="stylesheet" href="style.css?v=71">
 </head>
 <body data-page="extras">
 <main id="top">
 <header id="site-header"></header>
 <div class="pg vl">
-<nav class="tabs" aria-label="Extras"><a href="faq.html">FAQ</a><a href="glossary.html">Glossary</a><a href="rate-hold.html" aria-current="page">Rate-hold watchdog</a><a href="offline-calculator.html">Offline calculator</a><a href="about.html">About</a><a href="terms.html">Terms and privacy</a></nav>
+<nav class="tabs" aria-label="Extras"><a href="glossary.html">Glossary</a><a href="rate-hold.html" aria-current="page">Rate-hold watchdog</a><a href="offline-calculator.html">Offline calculator</a><a href="about.html">About</a><a href="terms.html">Terms and privacy</a></nav>
 <div class="vc">
 <h1>Rate-hold <span class="hl">watchdog</span></h1>
-<p class="m">Holding a mortgage rate while you shop or wait to close? Save it here. Each time you visit, you'll see how many days are left on your hold and whether any lender now advertises a lower rate.</p>
+<p class="m">Holding a mortgage rate while you shop or wait to close? Or deciding on a GIC, or what to do when yours matures? Save it here. Each time you visit, you'll see how many days you have left and whether any lender now advertises a better rate.</p>
+<div class="kindpick"><span class="kpl" id="h_kl">Watch a</span><div class="seg2 kind" id="h_kind" role="group" aria-labelledby="h_kl"><button type="button" data-k="mortgage" aria-pressed="true">Mortgage rate hold</button><button type="button" data-k="gic" aria-pressed="false">GIC rate</button></div></div>
 <div id="hold" class="hold" hidden></div>
 <form class="payform" id="hform" novalidate>
-<div class="pf"><label for="h_rate">Your held rate</label><span class="dl"><input id="h_rate" type="text" inputmode="decimal" autocomplete="off" placeholder="e.g. 4.59" required><span aria-hidden="true">%</span></span></div>
-<div class="pf"><span class="pfl" id="h_tl">Rate type</span><div class="seg2" id="h_term" role="group" aria-labelledby="h_tl"><button type="button" data-p="3-year fixed" aria-pressed="false">3-year fixed</button><button type="button" data-p="5-year variable" aria-pressed="false">5-year variable</button><button type="button" data-p="5-year fixed" aria-pressed="true">5-year fixed</button></div></div>
+<div class="pf"><label for="h_rate" id="h_rl">Your held rate</label><span class="dl"><input id="h_rate" type="text" inputmode="decimal" autocomplete="off" placeholder="e.g. 4.59" required><span aria-hidden="true">%</span></span></div>
+<div class="pf"><span class="pfl" id="h_tl">Rate type</span><div class="seg2" id="h_term" role="group" aria-labelledby="h_tl" data-m="1"><button type="button" data-p="3-year fixed" aria-pressed="false">3-year fixed</button><button type="button" data-p="5-year variable" aria-pressed="false">5-year variable</button><button type="button" data-p="5-year fixed" aria-pressed="true">5-year fixed</button></div></div>
 <div class="pf"><label for="h_lender">Lender</label><select id="h_lender"></select></div>
-<div class="pf"><label for="h_exp">Hold ends on</label><input id="h_exp" type="date" required><span class="s">Holds usually last 90 to 120 days. Your lender's paperwork shows the date.</span></div>
-<div class="pf"><label class="chk"><input type="checkbox" id="h_ins"> <span>I'm putting down less than 20% (compare insured rates too)</span></label></div>
+<div class="pf"><label for="h_exp" id="h_el">Hold ends on</label><input id="h_exp" type="date" required><span class="s" id="h_eh">Holds usually last 90 to 120 days. Your lender's paperwork shows the date.</span></div>
+<div class="pf" id="h_insrow"><label class="chk"><input type="checkbox" id="h_ins"> <span>I'm putting down less than 20% (compare insured rates too)</span></label></div>
 </form>
-<div class="acts"><button type="button" class="btn" id="h_save">Save my hold</button><button type="button" class="lk" id="h_del" hidden>Remove my hold</button></div>
+<div class="acts"><button type="button" class="btn" id="h_save">Save</button><button type="button" class="lk" id="h_del" hidden>Remove</button></div>
 <p class="m" id="h_msg" role="status"></p>
 <h2>How it works</h2>
 <ul class="ul">
 <li>Your hold is saved only in this browser, on this device. Nothing is sent to this site or anyone else, and there's no sign-up. Clearing your browser's data removes it.</li>
-<li>Each visit compares your rate with the rates lenders advertise today, for the same rate type. The <a href="index.html">main page</a> shows the same reminder at the top while your hold is saved.</li>
+<li>Each visit compares your rate with the rates lenders advertise today, for the same rate type or GIC term. The <a href="index.html">main page</a> shows the same reminder at the top while your hold is saved.</li>
 <li>If rates drop before you close, ask your lender to give you the lower rate: many will. Switching lenders late can mean a new application and approval, so ask before you decide.</li>
 <li>Advertised rates are a guide. The rate you're offered depends on your situation, so confirm with the lender.</li>
 </ul>
 </div>
 </div>
 </main>
-<script src="site.js?v=70"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="70"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=71"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="71"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 (function(){
-let lenders = [], term = "5-year fixed";
+let lenders = [], kind = "mortgage", term = "5-year fixed";
+const TERMS = {mortgage: COLUMNS.map(([, p]) => p), gic: GIC_COLUMNS.map(([, p]) => p)};
 const plus = (iso, days) => { const d = new Date(iso + "T12:00:00"); d.setDate(d.getDate() + days); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
 const setTerm = t => { term = t; document.querySelectorAll("#h_term button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.p === t))); };
+// one hold at a time: a mortgage rate hold, or a GIC rate to watch (an offer, or your GIC's renewal rate)
+function setKind(k){
+  kind = k;
+  document.querySelectorAll("#h_kind button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.k === k)));
+  $("h_term").innerHTML = TERMS[k].map(p => `<button type="button" data-p="${p}" aria-pressed="false">${p}</button>`).join("");
+  setTerm(TERMS[k].includes(term) ? term : (k === "gic" ? "1-year GIC" : "5-year fixed"));
+  $("h_rl").textContent = k === "gic" ? "The GIC rate you've been offered" : "Your held rate";
+  $("h_el").textContent = k === "gic" ? "Decide by" : "Hold ends on";
+  $("h_eh").textContent = k === "gic" ? "When the offer ends, or the day your current GIC matures." : "Holds usually last 90 to 120 days. Your lender's paperwork shows the date.";
+  $("h_insrow").hidden = k === "gic";
+  $("h_lender").firstElementChild.textContent = k === "gic" ? "Another bank or credit union" : "A mortgage broker or another lender";
+}
 $("h_lender").innerHTML = '<option value="">A mortgage broker or another lender</option>' + LENDER_ORDER.map(n => `<option>${esc(n)}</option>`).join("");
 $("h_exp").value = plus(todayISO(), 90);
-const fill = h => { $("h_rate").value = h.rate; setTerm(h.term); $("h_lender").value = h.lender || ""; $("h_exp").value = h.expires; $("h_ins").checked = !!h.insured; };
+const fill = h => { setKind(h.kind === "gic" ? "gic" : "mortgage"); $("h_rate").value = h.rate; setTerm(h.term); $("h_lender").value = h.lender || ""; $("h_exp").value = h.expires; $("h_ins").checked = !!h.insured; };
 const show = () => { const h = holdGet(); $("h_del").hidden = !h; showHold(lenders); };
+$("h_kind").addEventListener("click", e => { const b = e.target.closest("button[data-k]"); if (b) setKind(b.dataset.k); });
 $("h_term").addEventListener("click", e => { const b = e.target.closest("button[data-p]"); if (b) setTerm(b.dataset.p); });
 $("h_save").onclick = () => {
   const rate = parseFloat(String($("h_rate").value).replace(",", ".")), exp = $("h_exp").value;
-  if (!(rate > 0 && rate < 20)) { $("h_msg").textContent = "Enter the rate you're holding, for example 4.59."; $("h_rate").focus(); return; }
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(exp)) { $("h_msg").textContent = "Enter the date your hold ends."; $("h_exp").focus(); return; }
-  holdSet({rate, term, lender: $("h_lender").value, expires: exp, insured: $("h_ins").checked});
+  if (!(rate > 0 && rate < 20)) { $("h_msg").textContent = kind === "gic" ? "Enter the GIC rate, for example 3.60." : "Enter the rate you're holding, for example 4.59."; $("h_rate").focus(); return; }
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(exp)) { $("h_msg").textContent = kind === "gic" ? "Enter the date you need to decide by." : "Enter the date your hold ends."; $("h_exp").focus(); return; }
+  holdSet({kind, rate, term, lender: $("h_lender").value, expires: exp, insured: kind === "mortgage" && $("h_ins").checked});
   $("h_msg").textContent = "Saved in this browser. Come back any time to check on it."; show();
 };
-$("h_del").onclick = () => { holdSet(null); $("h_msg").textContent = "Your hold has been removed from this browser."; show(); };
+$("h_del").onclick = () => { holdSet(null); $("h_msg").textContent = "Removed from this browser."; show(); };
+setKind("mortgage");
 const h0 = holdGet(); if (h0) fill(h0);
 show();
 loadRates().then(d => { lenders = groupLenders(d); show(); }, () => { $("h_msg").textContent = "Today's rates didn't load, so your hold can't be compared right now. Please refresh."; });

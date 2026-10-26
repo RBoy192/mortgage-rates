@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="Compare today&#x27;s best mortgage, GIC and savings rates from Canadian banks and credit unions, updated every hour, with free plain-language calculators and guides.">
 <link rel="canonical" href="https://whatstherate.ca/">
-<link rel="icon" href="favicon.svg?v=70" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=70" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=70">
+<link rel="icon" href="favicon.svg?v=71" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=71" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=71">
 <link rel="alternate" type="application/atom+xml" title="Rate changes" href="feed.xml">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=70">
+<link rel="stylesheet" href="style.css?v=71">
 </head>
 <body data-page="rates">
 <main id="top">
@@ -39,10 +39,10 @@
 </div>
 </div>
 <div class="banner" id="demo" hidden>These are sample numbers, not real rates. Add your first lender in institutions.yaml to replace them.</div>
+<div id="hold" class="hold" hidden></div>
 <div class="kindpick"><span class="kpl" id="kindl">Show rates for</span><div class="seg2 kind" id="kind" role="group" aria-labelledby="kindl"><button type="button" data-k="mortgages" aria-pressed="true">Mortgages</button><button type="button" data-k="gics" aria-pressed="false">GICs</button><button type="button" data-k="savings" aria-pressed="false">Savings</button></div></div>
 <div class="tilepick" role="group" aria-label="Show the best rates from"><span class="tpl" aria-hidden="true">Best rates from:</span><div class="seg2" id="tilegrp"><button type="button" data-g="all" aria-pressed="false">All lenders</button><button type="button" data-g="banks" aria-pressed="true">Banks</button><button type="button" data-g="others" aria-pressed="false">Credit unions and others</button></div></div>
 <section id="p_mortgages" class="panel" aria-label="Mortgage rates">
-<div id="hold" class="hold" hidden></div>
 <div class="c" id="tiles"></div>
 <p class="inslegend" id="inslegend" hidden><span class="insr" aria-hidden="true"><b>4.09%</b></span> Green tags show a lower rate some lenders offer if you put down less than 20%.</p>
 <div class="t"><table><thead id="head"></thead><tbody id="rows"></tbody></table></div>
@@ -66,13 +66,14 @@
 <p class="f sw" id="g_stale" hidden>Greyed-out rates couldn't be refreshed in the latest update, so they may be out of date.</p>
 <p class="f"><span class="lowkey">Yellow</span> marks the highest rate of all lenders, and <span class="lowkey o">outlined</span> marks the highest within its section. Each section shows its 3 highest rates first; tap <b>Show all</b> to see every lender. A dash means the lender doesn't list that rate: many lenders only offer redeemable GICs for 1 year.</p>
 <p class="f">Rates are annual rates, with interest paid yearly or at the end of the term where the lender lists more than one option. Where a lender lists both a regular and a special-offer rate for a term, the special-offer rate is shown; some special offers are for new deposits only. Most lenders ask for a minimum deposit, often $500 or $1,000. New to GICs? <a href="gic-course.html">Rates Explained: GICs</a> covers the basics in simple steps.</p>
+<p class="f">Ranked lists: best <a href="1-year-gic-rates.html">1-year</a>, <a href="2-year-gic-rates.html">2-year</a>, <a href="3-year-gic-rates.html">3-year</a>, <a href="4-year-gic-rates.html">4-year</a> and <a href="5-year-gic-rates.html">5-year</a> GIC rates. Deciding on a GIC? The <a href="rate-hold.html">rate watchdog</a> tells you when lenders beat your offer.</p>
 </section>
 <section id="p_savings" class="panel" aria-label="Savings account rates" hidden>
 <div class="c" id="s_tiles"></div>
 <div class="t"><table class="dep"><thead id="s_head"></thead><tbody id="s_rows"></tbody></table></div>
 <p class="f sw" id="s_stale" hidden>Greyed-out rates couldn't be refreshed in the latest update, so they may be out of date.</p>
 <p class="f"><span class="lowkey">Yellow</span> marks the highest rate of all lenders, and <span class="lowkey o">outlined</span> marks the highest within its section. Each section shows its 3 highest rates first; tap <b>Show all</b> to see every lender.</p>
-<p class="f">The <b>regular rate</b> is what each lender advertises on its main high-interest savings account, for a $10,000 balance where the rate depends on the balance. A <b>promotional offer</b> is a higher rate for a limited time, usually for new clients or new deposits; when it ends, the regular rate applies. New to savings accounts? <a href="sav-course.html">Rates Explained: Savings</a> covers the basics in simple steps.</p>
+<p class="f">The <b>regular rate</b> is what each lender advertises on its main high-interest savings account, for a $10,000 balance where the rate depends on the balance. A <b>promotional offer</b> is a higher rate for a limited time, usually for new clients or new deposits; when it ends, the regular rate applies. New to savings accounts? <a href="sav-course.html">Rates Explained: Savings</a> covers the basics in simple steps. Ranked list: <a href="high-interest-savings-rates.html">best savings account rates</a>.</p>
 </section>
 <details class="fold"><summary><h2 class="sh">Not sure where to start?</h2></summary>
 <div class="start2">
@@ -85,9 +86,9 @@
 <p class="f" id="fn1" hidden><b>* BoC policy rate:</b> the Bank of Canada's target for the overnight rate, which is what big financial institutions charge each other for one-day loans. When it changes, banks usually move their prime rates too, which affects variable-rate mortgages.</p>
 <p class="f" id="fn2" hidden><b>** Prime rate:</b> the typical prime lending rate of Canada's major banks, published weekly. Variable-rate mortgages are priced off prime. Each lender sets its own prime rate, so yours may differ slightly.</p>
 </main>
-<script src="site.js?v=70"></script>
-<script src="deposits.js?v=70"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="70"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=71"></script>
+<script src="deposits.js?v=71"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="71"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 let lenders = [], sortBy = "5-year fixed", sortDir = 1, updatedAt = null, hist = {series: {}};
 
@@ -277,7 +278,7 @@ loadRates().then(d => { try {
     showRate(d.prime_rate, "prime", "Prime rate", "**", "fn2", dstr(d.prime_rate.as_of), dstr(next));
   }
   render();
-  showHold(lenders);
+  showHold(all);
   loadHistory().then(h => { hist = h && h.series ? h : {series: {}}; render(); });
 } catch (e) { $("updated").textContent = "Something went wrong showing the rates. Please refresh. Details: " + e.name + ": " + e.message; }
 }, () => { $("updated").textContent = ""; $("tiles").innerHTML = mascotNote("Hmm, the latest rates didn't load. Please refresh the page, or try again in a few minutes."); });
