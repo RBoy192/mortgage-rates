@@ -72,6 +72,12 @@
     # Redeemable (cashable) GIC rates
     - {product: "1-year redeemable GIC", label: "1 year", after: "TD 1 Year Cashable GIC", url: "https://www.td.com/ca/en/personal-banking/personal-investing/products/gic/gic-rates-canada"}
     - {product: "3-year redeemable GIC", label: "3 years", after: "TD 3-year Premium Rate Cashable GIC", url: "https://www.td.com/ca/en/personal-banking/personal-investing/products/gic/gic-rates-canada"}
+    # More GIC and savings rates
+    - {product: "1-year GIC", url: "https://www.td.com/ca/en/personal-banking/personal-investing/products/gic/non-cashable-gic-rates", label: "1 year", after: "Long-Term and Simple Interest"}
+    - {product: "2-year GIC", url: "https://www.td.com/ca/en/personal-banking/personal-investing/products/gic/non-cashable-gic-rates", label: "2 years", after: "Long-Term and Simple Interest"}
+    - {product: "3-year GIC", url: "https://www.td.com/ca/en/personal-banking/personal-investing/products/gic/non-cashable-gic-rates", label: "3 years", after: "Long-Term and Simple Interest"}
+    - {product: "4-year GIC", url: "https://www.td.com/ca/en/personal-banking/personal-investing/products/gic/non-cashable-gic-rates", label: "4 years", after: "Long-Term and Simple Interest"}
+    - {product: "5-year GIC", url: "https://www.td.com/ca/en/personal-banking/personal-investing/products/gic/non-cashable-gic-rates", label: "5 years", after: "Long-Term and Simple Interest"}
 
 - name: CIBC
   url: https://www.cibc.com/en/interest-rates/mortgage-rates.html
@@ -171,6 +177,12 @@
 # mortgages only). The variable rate is shown as "P + 0.34%", so the scraper adds that to EQ's own prime rate.
     # GIC and savings rates (their own pages)
     - {product: "Savings", url: "https://www.nbc.ca/rates/bank-account-rates.html", label: "$0  and +", after: "High Interest Savings Account", mode: "browser", note: "High Interest Savings Account"}
+    # GIC rates: typed into manual_rates.yaml from the bank's pages (the rates are drawn by a script the scraper can't read)
+    - {product: "1-year GIC", url: "https://www.nbc.ca/personal/savings-investments/gic.html", mode: "manual"}
+    - {product: "2-year GIC", url: "https://www.nbc.ca/personal/savings-investments/gic/non-redeemable.html", mode: "manual"}
+    - {product: "3-year GIC", url: "https://www.nbc.ca/personal/savings-investments/gic/non-redeemable.html", mode: "manual"}
+    - {product: "4-year GIC", url: "https://www.nbc.ca/personal/savings-investments/gic/non-redeemable.html", mode: "manual"}
+    - {product: "5-year GIC", url: "https://www.nbc.ca/personal/savings-investments/gic.html", mode: "manual"}
 
 - name: EQ Bank
   url: https://www.eqbank.ca/residential/mortgage-rates
@@ -317,6 +329,8 @@
     - {product: "5-year GIC", url: "https://www.coastcapitalsavings.com/rates/gics", label: "5 Year GIC (non redeemable)"}
     # Redeemable (cashable) GIC rates
     - {product: "1-year redeemable GIC", label: "1 Year Redeemable GIC - New Money", note: "New money", url: "https://www.coastcapitalsavings.com/rates/gics"}
+    # More GIC and savings rates
+    - {product: "Savings", url: "https://www.coastcapitalsavings.com/rates/personal-and-business", label: "The High-Interest Savings Account - $0 +", note: "High-Interest Savings Account"}
 
 - name: Desjardins
   url: https://www.desjardins.com/en/mortgage/mortgage-rates.html

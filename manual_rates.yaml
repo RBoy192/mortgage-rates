@@ -338,3 +338,30 @@
   rate: 0.70
   checked: 2026-10-26
   source: https://beemcreditunion.ca/rates
+
+# National Bank GIC rates (the page draws them with a script the scraper can't read). Read from the bank's pages in a browser on 2026-10-26.
+- institution: National Bank
+  product: 1-year GIC
+  rate: 3.15
+  checked: 2026-10-26
+  source: https://www.nbc.ca/personal/savings-investments/gic.html
+- institution: National Bank
+  product: 2-year GIC
+  rate: 3.55
+  checked: 2026-10-26
+  source: https://www.nbc.ca/personal/savings-investments/gic/non-redeemable.html
+- institution: National Bank
+  product: 3-year GIC
+  rate: 3.75
+  checked: 2026-10-26
+  source: https://www.nbc.ca/personal/savings-investments/gic/non-redeemable.html
+- institution: National Bank
+  product: 4-year GIC
+  rate: 3.85
+  checked: 2026-10-26
+  source: https://www.nbc.ca/personal/savings-investments/gic/non-redeemable.html
+- institution: National Bank
+  product: 5-year GIC
+  rate: 4.00
+  checked: 2026-10-26
+  source: https://www.nbc.ca/personal/savings-investments/gic.html
