@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="Compare today&#x27;s best mortgage rates from Canadian lenders, updated every hour, with free plain-language calculators and guides.">
 <link rel="canonical" href="https://whatstherate.ca/">
-<link rel="icon" href="favicon.svg?v=66" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=66" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=66">
+<link rel="icon" href="favicon.svg?v=67" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=67" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=67">
 <link rel="alternate" type="application/atom+xml" title="Mortgage rate changes" href="feed.xml">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=66">
+<link rel="stylesheet" href="style.css?v=67">
 </head>
 <body data-page="rates">
 <main id="top">
@@ -42,7 +42,7 @@
 <div class="tilepick" role="group" aria-label="Show the lowest rates from"><span class="tpl" aria-hidden="true">Lowest rates from:</span><div class="seg2" id="tilegrp"><button type="button" data-g="all" aria-pressed="false">All lenders</button><button type="button" data-g="banks" aria-pressed="true">Banks</button><button type="button" data-g="others" aria-pressed="false">Credit unions and others</button></div></div>
 <div class="c" id="tiles"></div>
 <div class="t"><table><thead id="head"></thead><tbody id="rows"></tbody></table></div>
-<p class="f" id="insnote" hidden><b>Less than 20% down:</b> these are insured (high-ratio) rates, for buyers whose mortgage needs default insurance. They're often lower than regular rates, but the insurance premium is added to your mortgage (see <a href="crash-insurance.html">Insured vs uninsured</a>). † This lender doesn't list a separate rate for less than 20% down, so its regular rate is shown.</p>
+<p class="f" id="insnote" hidden><b>&lt;20% down:</b> some lenders offer a lower rate if you put down less than 20%. These are insured (high-ratio) rates: your mortgage needs default insurance, and the premium is added to what you borrow (see <a href="crash-insurance.html">Insured vs uninsured</a>).</p>
 <p class="f sw" id="stalenote" hidden>Greyed-out rates couldn't be refreshed in the latest update, so they may be out of date.</p>
 <p class="f"><span class="lowkey">Yellow</span> marks the lowest rate of all lenders, and <span class="lowkey o">outlined</span> marks the lowest within its section. Credit unions and other lenders are folded away; tap their heading to show them. Click a heading to sort it; click again to flip the order. A dash means the lender doesn't list that rate. <span class="chg up" aria-hidden="true">▲</span>/<span class="chg dn" aria-hidden="true">▼</span> shows how much a rate has moved in the last 7 days. See the <a href="rate-history.html">rate history</a> for charts, or get <a href="rate-alerts.html">rate alerts</a> when a lender changes its rates. To see what each rate would cost you every month, try the .</p>
 <details class="fold"><summary><h2 class="sh">Compare by rate type</h2></summary>
@@ -63,8 +63,8 @@
 <p class="f" id="fn1" hidden><b>* BoC policy rate:</b> the Bank of Canada's target for the overnight rate, which is what big financial institutions charge each other for one-day loans. When it changes, banks usually move their prime rates too, which affects variable-rate mortgages.</p>
 <p class="f" id="fn2" hidden><b>** Prime rate:</b> the typical prime lending rate of Canada's major banks, published weekly. Variable-rate mortgages are priced off prime. Each lender sets its own prime rate, so yours may differ slightly.</p>
 </main>
-<script src="site.js?v=66"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="66"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=67"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="67"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 let lenders = [], sortBy = null, sortDir = 1, updatedAt = null, hist = {series: {}};
 
@@ -137,6 +137,12 @@ function showRate(p, id, label, mark, fn, last, next){
   $(fn).hidden = false;
 }
 
+// A second line under a rate when the lender offers a lower insured rate (for buyers putting down less than 20%)
+function insLine(l, p, c){
+  const i = l.cells[p + " insured"];
+  if (!i || i.stale || c.stale || !(i.rate < c.rate - 0.0005)) return "";
+  return `<span class="insr" title="Insured rate, for buyers putting down less than 20%"><span class="vh">With </span><span aria-hidden="true">&lt;</span><span class="vh">less than </span>20% down: <b>${pct(i.rate)}</b></span>`;
+}
 function render(){
   const pool = lenders.filter(l => serves(l.name)).map(view);  // only lenders that lend in the chosen province; insured rates if asked
   const best = COLUMNS.map(([, p]) => Math.min(...pool.map(l => rateOf(l, p))));
@@ -170,7 +176,7 @@ function render(){
       if (!c) return '<td class="none">—</td>';
       const low = c.rate === best[i], glow = !low && c.rate === gb[i];
       const ch = c.stale ? null : weekChange(hist.series[l.name + "|" + (c.ins ? p + " insured" : p)], c.rate);
-      return `<td class="rate${low ? " low" : glow ? " glow" : ""}${c.stale ? " st" : ""}"${c.stale ? ' title="This rate couldn\'t be refreshed in the latest update"' : ""}><span class="rc">${arrow(ch)}<b>${pct(c.rate)}${c.noins ? '<sup class="ni" title="No separate rate for less than 20% down; regular rate shown">†</sup>' : ""}</b></span></td>`;
+      return `<td class="rate${low ? " low" : glow ? " glow" : ""}${c.stale ? " st" : ""}"${c.stale ? ' title="This rate couldn\'t be refreshed in the latest update"' : ""}><span class="rc">${arrow(ch)}<b>${pct(c.rate)}${c.noins ? '<sup class="ni" title="No separate rate for less than 20% down; regular rate shown">†</sup>' : ""}</b></span>${insLine(l, p, c)}</td>`;
     }).join("")}</tr>`;
   // The second section (credit unions and other lenders) starts collapsed; its heading row then shows the section's lowest rates
   $("rows").innerHTML = rows.length ? LENDER_GROUPS.map(([title, inGroup], gi) => {
@@ -183,7 +189,7 @@ function render(){
         : `<td class="rate gsum${r === best[i] ? " low" : ""}"><span class="rc"><small>from</small> <b>${pct(r)}</b></span></td>`).join("")}</tr>`;
     }).join("")
     : `<tr><td colspan="${COLUMNS.length + 1}">No rates yet. Enable a lender in institutions.yaml, then run the update.</td></tr>`;
-  $("insnote").hidden = !insured;
+  $("insnote").hidden = !document.querySelector("#rows .insr");
   $("stalenote").hidden = !pool.some(l => Object.values(l.cells).some(c => c.stale));
   document.querySelectorAll("#byterm a").forEach((a, i) => { a.querySelector("small").textContent = best[i] === Infinity ? "" : "Lowest today: " + pct(best[i]); });
 }

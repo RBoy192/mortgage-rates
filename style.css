@@ -804,3 +804,8 @@ details.fold:first-of-type{margin-top:28px;border-top:1px solid var(--ln)}
 #cmpmode .est1 .say{margin:0}
 @media (max-width:600px){.cmptab th,.cmptab td{padding:9px 6px;font-size:13px}.cmptab tr.tot th,.cmptab tr.tot td{font-size:14px}.offer{grid-template-columns:1fr 1fr}}
 .offer{align-content:start;align-items:start}
+
+/* Main table: a lender's lower rate for less than 20% down, on a second line under its regular rate */
+td.rate .insr{display:block;margin-top:4px;font-size:12px;font-weight:500;color:var(--mu);white-space:nowrap}
+td.rate .insr b{font:700 12.5px var(--bd);color:var(--good)}
+@media (max-width:600px){td.rate .insr{font-size:10.5px;white-space:normal;line-height:1.25}td.rate .insr b{font-size:11.5px;display:block}}
