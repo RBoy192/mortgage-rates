@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="Renewing your mortgage? Compare today&#x27;s lowest fixed and variable rates over your next term and see when fixed comes out ahead.">
 <link rel="canonical" href="https://whatstherate.ca/calc-renewal.html">
-<link rel="icon" href="favicon.svg?v=65" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=65" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=65">
+<link rel="icon" href="favicon.svg?v=66" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=66" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=66">
 <link rel="alternate" type="application/atom+xml" title="Mortgage rate changes" href="feed.xml">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
@@ -25,15 +25,45 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=65">
+<link rel="stylesheet" href="style.css?v=66">
 </head>
 <body data-page="calc" data-calc="renewal">
 <main id="top">
 <header id="site-header"></header>
 <div class="pg vl">
-<nav class="tabs" aria-label="Calculators"><a href="calculators.html">How much can I afford?</a><a href="calc-payment.html">Monthly payment estimator</a><a href="calc-income.html">How much income do I need?</a><a href="calc-closing.html">Closing costs</a><a href="calc-frequency.html">Payment frequency</a><a href="calc-prepay.html">Prepayment savings</a><a href="calc-renewal.html" aria-current="page">Renewal: fixed vs variable</a><a href="calc-penalty.html">Penalty for breaking a mortgage</a><a href="calc-rentbuy.html">Rent vs buy</a><a href="calc-equity.html">Refinance and HELOC</a></nav>
+<nav class="tabs" aria-label="Calculators"><a href="calculators.html">How much can I afford?</a><a href="calc-payment.html">Monthly payment estimator</a><a href="calc-income.html">How much income do I need?</a><a href="calc-closing.html">Closing costs</a><a href="calc-frequency.html">Payment frequency</a><a href="calc-prepay.html">Prepayment savings</a><a href="calc-renewal.html" aria-current="page">Renewal calculator</a><a href="calc-penalty.html">Penalty for breaking a mortgage</a><a href="calc-rentbuy.html">Rent vs buy</a><a href="calc-equity.html">Refinance and HELOC</a></nav>
 <div class="vc">
-<h1>Renewal: fixed vs <span class="hl">variable</span></h1>
+<h1>Renewal <span class="hl">calculator</span></h1>
+<p class="m">Weigh up your options when your mortgage term ends.</p>
+<div class="seg2 pmode" id="rmode" role="group" aria-label="Choose a comparison"><button type="button" data-m="cmp" aria-pressed="true">Your mortgage vs new offers</button><button type="button" data-m="fv" aria-pressed="false">Fixed vs variable</button></div>
+<div id="cmpmode">
+<p class="m">Compare what you have now with your lender's renewal offer and an offer from another lender. <button class="lk" id="rc_reset" type="button">Reset to defaults</button></p>
+<div class="payform">
+<div class="pf"><label for="rc_bal">Balance at renewal</label><span class="dl"><span aria-hidden="true">$</span><input id="rc_bal" type="text" inputmode="numeric" data-money="1" autocomplete="off"></span></div>
+<div class="pf"><label for="rc_years">Years left to pay</label><select id="rc_years"></select></div>
+<div class="pf"><label for="rc_now">Your current rate</label><span class="dl"><input id="rc_now" class="pc" type="text" inputmode="decimal" autocomplete="off"><span aria-hidden="true">%</span></span></div>
+<div class="pf"><label for="rc_pay">Your current payment (optional)</label><span class="dl"><span aria-hidden="true">$</span><input id="rc_pay" type="text" inputmode="numeric" data-money="1" autocomplete="off" placeholder="per month" aria-describedby="rc_payh"></span><span class="s" id="rc_payh">From your statement. If blank, it's worked out from your balance and rate.</span></div>
+</div>
+<div class="offers">
+<fieldset class="offer"><legend>Your lender's renewal offer</legend>
+<label>Rate<span class="dl"><input id="a_rate" class="pc" type="text" inputmode="decimal" autocomplete="off"><span aria-hidden="true">%</span></span></label>
+<label>Type<select id="a_type"><option value="fixed">Fixed</option><option value="variable">Variable</option></select></label>
+<label>Term<select id="a_term"></select></label>
+<label>Fees<span class="dl"><span aria-hidden="true">$</span><input id="a_fees" type="text" inputmode="numeric" data-money="1" autocomplete="off"></span></label>
+</fieldset>
+<fieldset class="offer"><legend>Another lender's offer</legend>
+<label>Rate<span class="dl"><input id="b_rate" class="pc" type="text" inputmode="decimal" autocomplete="off"><span aria-hidden="true">%</span></span></label>
+<label>Type<select id="b_type"><option value="fixed">Fixed</option><option value="variable">Variable</option></select></label>
+<label>Term<select id="b_term"></select></label>
+<label>Switching costs<span class="dl"><span aria-hidden="true">$</span><input id="b_fees" type="text" inputmode="numeric" data-money="1" autocomplete="off" aria-describedby="b_feesh"></span><span class="s" id="b_feesh">Discharge fee, appraisal, legal. Minus any cash the new lender pays you.</span></label>
+</fieldset>
+</div>
+<div class="est1"><div class="res"><p class="say" id="rc_say"></p></div></div>
+<div class="t"><table class="cmptab"><thead><tr><th scope="col"><span class="vh">What is compared</span></th><th scope="col">Now</th><th scope="col">Renewal offer</th><th scope="col">Other lender</th></tr></thead><tbody id="rc_rows"></tbody></table></div>
+<p class="f" id="rc_note"></p>
+<p class="f">An estimate only. It assumes rates stay the same for the whole term and leaves out prepayments. Confirm the details with the lenders before you decide. See <a href="crash-renew.html">Renewing your mortgage</a>.</p>
+</div>
+<div id="fvmode" hidden>
 <p class="m">Compare fixed and variable rates for your next term. <button class="lk" id="reset" type="button">Reset to defaults</button></p>
 <div class="est">
 <div class="fl" id="form"></div>
@@ -44,9 +74,82 @@
 <p id="src"></p>
 </div>
 </div>
+</div>
 </main>
-<script src="site.js?v=65"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="65"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
-<script src="calc.js?v=65"></script>
+<script src="site.js?v=66"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="66"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="calc.js?v=66"></script>
+<script>
+// Renewal calculator: your mortgage now vs your lender's renewal offer vs another lender's offer
+(function(){
+const D = {mode: "cmp", bal: 400000, years: 20, now: 2.49, pay: "", a: {rate: 4.79, type: "fixed", term: 5, fees: 0}, b: {rate: 4.39, type: "fixed", term: 5, fees: 0}};
+let s = JSON.parse(JSON.stringify(D)), seeded = false;
+try { const o = JSON.parse(localStorage.getItem("renewcmp") || "null"); if (o) { s = Object.assign(s, o); seeded = true; } } catch (e) {}
+const save = () => { try { localStorage.setItem("renewcmp", JSON.stringify(s)); } catch (e) {} };
+const num = id => parseFloat(String($(id).value).replace(/[^0-9.]/g, "")) || 0;
+$("rc_years").innerHTML = Array.from({length: 30}, (_, k) => `<option value="${k + 1}">${k + 1} year${k ? "s" : ""}</option>`).join("");
+["a_term", "b_term"].forEach(id => $(id).innerHTML = [1, 2, 3, 4, 5, 7, 10].map(t => `<option value="${t}">${t} year${t > 1 ? "s" : ""}</option>`).join(""));
+function write(){
+  setv("rc_bal", s.bal); $("rc_years").value = s.years; $("rc_now").value = s.now; $("rc_pay").value = s.pay ? Number(s.pay).toLocaleString("en-CA") : "";
+  for (const k of ["a", "b"]) { $(k + "_rate").value = s[k].rate; $(k + "_type").value = s[k].type; $(k + "_term").value = s[k].term; setv(k + "_fees", s[k].fees); }
+}
+function read(){
+  s.bal = val("rc_bal"); s.years = +$("rc_years").value; s.now = num("rc_now"); s.pay = val("rc_pay") || "";
+  for (const k of ["a", "b"]) s[k] = {rate: num(k + "_rate"), type: $(k + "_type").value, term: +$(k + "_term").value, fees: val(k + "_fees")};
+}
+// payment, interest and balance after `months` for P at a rate, paid off over `years`
+function run(P, rate, variable, years, months, payOverride){
+  const i = perPeriod(rate, variable), n = years * 12, pay = payOverride || pmt(P, i, n), m = Math.min(months, n);
+  const left = Math.max(0, balanceAfter(P, i, pay, m));
+  return {pay, interest: pay * m - (P - left), left};
+}
+function setMode(m){
+  s.mode = m; save();
+  document.querySelectorAll("#rmode button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.m === m)));
+  $("cmpmode").hidden = m !== "cmp"; $("fvmode").hidden = m !== "fv";
+}
+function render(){
+  read(); save();
+  const ok = s.bal > 0 && s.now > 0 && s.a.rate > 0 && s.b.rate > 0;
+  if (!ok) { $("rc_rows").innerHTML = '<tr><td colspan="4">Enter your balance, your current rate and both offers.</td></tr>'; $("rc_say").textContent = ""; $("rc_note").textContent = ""; return; }
+  // compare everything over the shorter of the two offers' terms, so the totals line up
+  const months = Math.min(s.a.term, s.b.term, s.years) * 12, yrs = months / 12, yl = yrs + (yrs === 1 ? " year" : " years");
+  const now = run(s.bal, s.now, false, s.years, months, s.pay || 0);
+  const A = run(s.bal, s.a.rate, s.a.type === "variable", s.years, months), B = run(s.bal, s.b.rate, s.b.type === "variable", s.years, months);
+  const cost = (r, fees) => r.interest + fees;
+  const ca = cost(A, s.a.fees), cb = cost(B, s.b.fees), best = cb < ca - 0.5 ? "b" : ca < cb - 0.5 ? "a" : "";
+  const diff = d => (d >= 0.5 ? "+" : d <= -0.5 ? "−" : "") + money(Math.abs(d));
+  const cell = (v, k, extra = "") => `<td class="${best === k ? "win" : ""}${extra}">${v}</td>`;
+  const rows = [
+    ["Rate", `${pct(s.now)}`, `${pct(s.a.rate)} ${s.a.type}`, `${pct(s.b.rate)} ${s.b.type}`],
+    ["Monthly payment", money(now.pay) + (s.pay ? "" : "<small> (estimate)</small>"), money(A.pay), money(B.pay)],
+    ["Change from now", "—", diff(A.pay - now.pay) + "/mo", diff(B.pay - now.pay) + "/mo"],
+    [`Interest over ${yl}`, money(now.interest), money(A.interest), money(B.interest)],
+    ["Fees and switching costs", "—", money(s.a.fees), money(s.b.fees)],
+    [`Total cost over ${yl}`, money(now.interest), money(ca), money(cb)],
+    [`Balance after ${yl}`, money(now.left), money(A.left), money(B.left)]];
+  $("rc_rows").innerHTML = rows.map(([h, n, a, b], k) => `<tr${k === 5 ? ' class="tot"' : ""}><th scope="row">${h}</th><td>${n}</td>${cell(a, "a")}${cell(b, "b")}</tr>`).join("");
+  const gap = Math.abs(ca - cb);
+  $("rc_say").textContent = best === "b" ? `The other lender's offer would cost about ${money(gap)} less over ${yl} than your renewal offer${s.b.fees > 0 ? `, even after ${money(s.b.fees)} in switching costs` : ""}.`
+    : best === "a" ? `Your renewal offer would cost about ${money(gap)} less over ${yl} than switching${s.b.fees > 0 ? `, once the ${money(s.b.fees)} in switching costs are counted` : ""}.`
+    : `Both offers would cost about the same over ${yl}.`;
+  $("rc_note").textContent = (s.a.term !== s.b.term ? `The offers have different terms, so both are compared over the first ${yl}. ` : "")
+    + `"Now" shows your current rate carried on for the same time, for comparison: you can't keep it once your term ends.`
+    + (s.pay ? "" : " Your current payment is worked out from your balance, rate and years left; enter the one on your statement for a closer match.");
+}
+document.querySelectorAll("#cmpmode input, #cmpmode select").forEach(e => e.addEventListener(e.tagName === "SELECT" ? "change" : "input", render));
+$("rmode").addEventListener("click", e => { const b = e.target.closest("button[data-m]"); if (b) setMode(b.dataset.m); });
+$("rc_reset").onclick = () => { const m = s.mode; s = JSON.parse(JSON.stringify(D)); s.mode = m; seed(); write(); render(); };
+// start the other lender's offer at today's lowest 5-year fixed rate
+function seed(){ if (lowest) s.b.rate = +lowest.toFixed(2); }
+let lowest = 0;
+write(); setMode(s.mode === "fv" ? "fv" : "cmp"); render();
+loadRates().then(d => {
+  lowest = Math.min(...d.rates.filter(r => r.product === "5-year fixed" && !r.stale).map(r => r.rate));
+  if (!isFinite(lowest)) lowest = 0;
+  if (!seeded && lowest) { seed(); write(); render(); }
+}, () => {});
+})();
+</script>
 </body>
 </html>

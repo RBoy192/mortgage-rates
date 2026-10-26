@@ -783,3 +783,24 @@ details.fold:first-of-type{margin-top:28px;border-top:1px solid var(--ln)}
   .pg p.m,.vc p.m{font-size:15px}
   a.brand{font-size:18px}
 }
+
+/* Renewal calculator: current mortgage vs offers */
+.offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:14px 0 4px}
+.offer{border:1px solid var(--ln);border-radius:16px;padding:12px 16px 16px;margin:0;background:var(--card);display:grid;grid-template-columns:1fr 1fr;gap:10px 12px}
+.offer legend{font:700 15px var(--hd);padding:0 6px}
+.offer label{display:flex;flex-direction:column;gap:5px;font-weight:600;font-size:14px}
+.offer label .s{font-weight:400;font-size:12px;color:var(--mu)}
+.offer .dl,.payform .dl{display:inline-flex;align-items:center;gap:4px;background:var(--bg);border:1px solid var(--ln);border-radius:10px;padding:0 10px}
+.offer .dl input{width:100%;min-width:0;border:0;background:none;font:700 16px/1 var(--bd);color:var(--fg);padding:9px 0;margin:0}
+.offer .dl input:focus,.payform .dl input:focus{outline:none}
+.offer .dl:focus-within{outline:3px solid var(--link);outline-offset:1px}
+.offer select{font:600 15px var(--bd);color:var(--fg);background:var(--bg);border:1px solid var(--ln);border-radius:10px;padding:8px 10px;margin:0;width:100%}
+.payform .dl input.pc{width:70px}
+.cmptab th[scope="row"]{text-align:left;font-weight:600;color:var(--fg);white-space:normal}
+.cmptab td{white-space:nowrap}
+.cmptab td small{color:var(--mu);font-size:11px}
+.cmptab tr.tot th,.cmptab tr.tot td{font-weight:800;font-size:17px}
+.cmptab td.win{background:color-mix(in srgb,#FFD23F 18%,var(--card))}
+#cmpmode .est1 .say{margin:0}
+@media (max-width:600px){.cmptab th,.cmptab td{padding:9px 6px;font-size:13px}.cmptab tr.tot th,.cmptab tr.tot td{font-size:14px}.offer{grid-template-columns:1fr 1fr}}
+.offer{align-content:start;align-items:start}
