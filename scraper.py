@@ -301,7 +301,7 @@ def load_manual():
     out = {}
     for m in yaml.safe_load(MANUAL.read_text()) or []:
         try:
-            rate = check_range(float(m["rate"]))
+            rate = check_range(float(m["rate"]), is_deposit(str(m.get("product", ""))))
             checked = date.fromisoformat(str(m["checked"]))
         except (KeyError, TypeError, ValueError) as e:
             print(f"WARNING: skipping a manual_rates.yaml entry ({e}): {m}", file=sys.stderr)

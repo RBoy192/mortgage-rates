@@ -1,4 +1,4 @@
-const SITE_VERSION = "69";
+const SITE_VERSION = "70";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -16,11 +16,18 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
 // Header with links to each page, plus the light / dark switch (light by default; the visitor's choice is remembered)
 (function(){
   const page = document.body.dataset.page, el = $("site-header"), base = page === "404" ? "/" : "";
-  const links = [["mortgage", "mortgage-rates.html", "Mortgages"], ["gic", "gic-rates.html", "GICs"], ["savings", "savings-rates.html", "Savings"], ["calc", "calculators.html", "Calculators"], ["history", "rate-history.html", "Rate history"], ["crash", "crash-course.html", "Mortgages Explained"], ["extras", "faq.html", "Extras"]];
+  const links = [["calc", "calculators.html", "Calculators"], ["history", "rate-history.html", "Rate history"], ["crash", "crash-course.html", "Rates Explained"], ["extras", "faq.html", "Extras"]];
+  // "Rates Explained" opens a small menu (on hover, keyboard focus or tap) with its three lessons
+  const LESSONS = [["mortgages", "crash-course.html", "Mortgages"], ["gics", "gic-course.html", "GICs"], ["savings", "sav-course.html", "Savings"]];
+  const course = document.body.dataset.course || (page === "crash" ? "mortgages" : "");
+  const chev = '<svg class="ddc" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const item = ([k, u, t]) => k !== "crash" ? `<a class="nl" href="${base}${u}"${k === page ? ' aria-current="page"' : ""}>${t}</a>`
+    : `<div class="dd" id="dd"><a class="nl ddl" href="${base}${u}" aria-haspopup="true" aria-expanded="false" aria-controls="ddm"${k === page ? ' aria-current="true"' : ""}>${t}${chev}</a>`
+      + `<div class="ddm" id="ddm" role="group" aria-label="Rates Explained lessons">` + LESSONS.map(([c, lu, lt]) => `<a href="${base}${lu}"${c === course ? ' aria-current="page"' : ""}>${lt}</a>`).join("") + `</div></div>`;
   el.className = el.closest(".band") ? "n" : "n band";
   el.innerHTML = `<div class="nw"><a class="brand" href="${base}index.html"><svg class="bm" viewBox="10 10 44 44" aria-hidden="true"><circle cx="21" cy="21" r="7.5" fill="none" stroke="currentColor" stroke-width="5"/><circle cx="43" cy="43" r="7.5" fill="none" stroke="currentColor" stroke-width="5"/><path d="M45 16 19 48" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/></svg>What's the rate?</a>`
     + `<button type="button" class="menu" id="menubtn" aria-expanded="false" aria-controls="mainnav"><span aria-hidden="true">☰</span> <span class="mt">Menu</span></button>`
-    + `<nav class="mainnav" id="mainnav" aria-label="Main">` + links.map(([k, u, t]) => `<a class="nl" href="${base}${u}"${k === page ? ' aria-current="page"' : ""}>${t}</a>`).join("") + `</nav></div>`
+    + `<nav class="mainnav" id="mainnav" aria-label="Main">` + links.map(item).join("") + `</nav></div>`
     + `<div class="r"><button class="mode" id="mode" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">`
     + `<svg class="mo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>`
     + `<svg class="su" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>`
@@ -43,6 +50,14 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
     root._tm = setTimeout(() => root.classList.remove("theming"), 350);
   };
   show();
+  // the lessons menu: shown while hovered or focused (CSS); a tap on a touch screen opens it first instead of following the link
+  const dd = $("dd"), ddl = dd.querySelector(".ddl");
+  const ddSet = on => { dd.classList.toggle("on", on); ddl.setAttribute("aria-expanded", String(on)); };
+  dd.addEventListener("mouseenter", () => ddSet(true)); dd.addEventListener("mouseleave", () => ddSet(false));
+  dd.addEventListener("focusin", () => ddSet(true)); dd.addEventListener("focusout", e => { if (!dd.contains(e.relatedTarget)) ddSet(false); });
+  ddl.addEventListener("click", e => { if (matchMedia("(hover: none)").matches && !dd.classList.contains("on") && !el.classList.contains("open")) { e.preventDefault(); ddSet(true); } });
+  dd.addEventListener("keydown", e => { if (e.key === "Escape") { ddSet(false); ddl.focus(); } });
+  document.addEventListener("click", e => { if (!dd.contains(e.target)) ddSet(false); });
   $("menubtn").onclick = () => { const open = $("menubtn").getAttribute("aria-expanded") !== "true"; $("menubtn").setAttribute("aria-expanded", open); el.classList.toggle("open", open); };
   // "Skip to content" for keyboard and screen-reader users
   const main = document.querySelector("main"), target = document.querySelector("h1") || main;
@@ -59,8 +74,8 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
   });
   // Footer on every page
   const year = new Date().getFullYear();
-  main && main.insertAdjacentHTML("beforeend", `<footer class="sitefoot"><nav aria-label="Footer"><a href="${base}index.html">Today's rates</a><a href="${base}mortgage-rates.html">Mortgage rates</a><a href="${base}gic-rates.html">GIC rates</a><a href="${base}savings-rates.html">Savings rates</a><a href="${base}calculators.html">Calculators</a><a href="${base}rate-history.html">Rate history</a><a href="${base}rate-alerts.html">Rate alerts</a><a href="${base}rate-hold.html">Rate-hold watchdog</a><a href="${base}crash-course.html">Mortgages Explained</a><a href="${base}faq.html">FAQ</a><a href="${base}glossary.html">Glossary</a><a href="${base}about.html">About</a><a href="${base}terms.html">Terms and privacy</a></nav>`
-    + `<p>Rates are collected from each lender's own website every hour, or three times a day for a few lenders' mortgage rates. Information only, not financial advice: always confirm rates and terms with the lender.</p>`
+  main && main.insertAdjacentHTML("beforeend", `<footer class="sitefoot"><nav aria-label="Footer"><a href="${base}index.html">Today's rates</a><a href="${base}index.html#gics">GIC rates</a><a href="${base}index.html#savings">Savings rates</a><a href="${base}calculators.html">Calculators</a><a href="${base}rate-history.html">Rate history</a><a href="${base}rate-alerts.html">Rate alerts</a><a href="${base}rate-hold.html">Rate-hold watchdog</a><a href="${base}crash-course.html">Rates Explained</a><a href="${base}faq.html">FAQ</a><a href="${base}glossary.html">Glossary</a><a href="${base}about.html">About</a><a href="${base}terms.html">Terms and privacy</a></nav>`
+    + `<p>Rates are collected from each lender's own website every hour, or three times a day for a few lenders. Information only, not financial advice: always confirm rates and terms with the lender.</p>`
     + `<p>© ${year} What's the rate?${typeof CONTACT_EMAIL !== "undefined" && CONTACT_EMAIL ? ` · <a href="mailto:${esc(CONTACT_EMAIL)}">${esc(CONTACT_EMAIL)}</a>` : ""}</p></footer>`);
 })();
 
@@ -68,6 +83,7 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
 function loadRates(){ return fetch("rates.json?t=" + Date.now(), {cache:"no-store"}).then(r => r.json()); }
 // GIC and savings rates are kept with the mortgage rates in rates.json, under their own product names
 const GIC_COLUMNS = [1, 2, 3, 4, 5].map(y => [y + " year", y + "-year GIC"]);
+const RGIC_COLUMNS = [1, 2, 3, 4, 5].map(y => [y + " year", y + "-year redeemable GIC"]);
 const SAVINGS = "Savings", SAVINGS_PROMO = "Savings promo";
 const isDeposit = p => /\bGIC\b|^Savings/.test(p);
 function groupLenders(d){
