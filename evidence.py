@@ -18,6 +18,7 @@ from pathlib import Path
 USER_AGENT = "MortgageRatesBot/1.0 (+https://whatstherate.ca)"
 REPO = Path(os.environ.get("EVIDENCE_DIR", "evidence-repo"))
 BASELINE_DAYS = 30
+BASELINE_PER_RUN = 6  # spread the monthly baseline copies over several hourly runs
 FIELDS = ["captured_at_utc", "lender", "url", "reason", "rates", "screenshot", "screenshot_sha256", "html", "html_sha256", "wayback"]
 
 
@@ -60,7 +61,7 @@ def wayback(url):
     """Ask the Internet Archive to save the page now; return the snapshot address if it says where it put it."""
     import requests
     try:
-        r = requests.get("https://web.archive.org/save/" + url, headers={"User-Agent": USER_AGENT}, timeout=120, allow_redirects=True)
+        r = requests.get("https://web.archive.org/save/" + url, headers={"User-Agent": USER_AGENT}, timeout=45, allow_redirects=True)
         loc = r.headers.get("Content-Location") or ""
         if loc.startswith("/web/"):
             return "https://web.archive.org" + loc
@@ -102,13 +103,17 @@ def main(prev_path):
             continue
         if name in changed:
             todo.append((name, l["url"], "rate change"))
-        elif have_repo and now - last.get(name, datetime(2000, 1, 1, tzinfo=timezone.utc)) >= timedelta(days=BASELINE_DAYS):
+        elif have_repo and now - last.get(name, datetime(2000, 1, 1, tzinfo=timezone.utc)) >= timedelta(days=BASELINE_DAYS) \
+                and sum(1 for t in todo if t[2] == "baseline") < BASELINE_PER_RUN:
             todo.append((name, l["url"], "baseline"))
     if not todo:
         print("evidence: nothing to capture")
         return 0
     print(f"evidence: {len(todo)} page(s) to capture; private repository {'found' if have_repo else 'not set up, Internet Archive copies only'}")
     rows = []
+    from concurrent.futures import ThreadPoolExecutor
+    pool = ThreadPoolExecutor(max_workers=4)
+    archived = {name: pool.submit(wayback, url) for name, url, _ in todo}
     if have_repo:
         from playwright.sync_api import sync_playwright
         with sync_playwright() as pw:
@@ -127,9 +132,14 @@ def main(prev_path):
                 rates = "; ".join(f"{p}: {r['rate']}" for (n, p), r in sorted(new.items()) if n == name)
                 rows.append({"captured_at_utc": stamp.strftime("%Y-%m-%dT%H:%M:%SZ"), "lender": name, "url": url, "reason": reason,
                              "rates": rates, "screenshot": str(shot.relative_to(REPO)), "screenshot_sha256": shot_sha,
-                             "html": str(html.relative_to(REPO)), "html_sha256": html_sha, "wayback": wayback(url)})
+                             "html": str(html.relative_to(REPO)), "html_sha256": html_sha, "wayback": archived[name]})
                 print(f"evidence: {name}: saved ({reason})")
             b.close()
+        for r in rows:
+            try:
+                r["wayback"] = r["wayback"].result(timeout=90)
+            except Exception as ex:
+                r["wayback"] = f"failed: {str(ex)[:60]}"
         new_file = not manifest.exists()
         with manifest.open("a", newline="") as f:
             w = csv.DictWriter(f, fieldnames=FIELDS)
@@ -138,8 +148,11 @@ def main(prev_path):
             w.writerows(rows)
     else:
         for name, url, reason in todo:
-            print(f"evidence: {name}: Internet Archive {wayback(url)}")
-            time.sleep(5)  # be gentle with the archive
+            try:
+                print(f"evidence: {name}: Internet Archive {archived[name].result(timeout=90)}")
+            except Exception as ex:
+                print(f"evidence: {name}: Internet Archive failed ({str(ex)[:60]})")
+    pool.shutdown(wait=False, cancel_futures=True)
     return 0
 
 

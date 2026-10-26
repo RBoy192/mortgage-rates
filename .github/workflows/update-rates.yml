@@ -44,8 +44,22 @@ jobs:
       - name: Rate-change feed (feed.xml)
         run: python feed.py
         continue-on-error: true
+      - name: Build site folder
+        run: mkdir site && cp *.html *.css *.js *.svg *.png *.ico *.xml *.txt *.webmanifest rates.json history.json site/ && cp -r fonts site/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Open, update or close the "Rates need attention" issue (GitHub emails you when it opens or changes)
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python alert.py
       - name: Keep evidence of rate changes (private repository, not published)
+        if: always()
         continue-on-error: true
+        timeout-minutes: 20
         env:
           EVIDENCE_TOKEN: ${{ secrets.EVIDENCE_TOKEN }}
           EVIDENCE_REPO: ${{ vars.EVIDENCE_REPO || 'RBoy192/rate-evidence' }}
@@ -59,15 +73,3 @@ jobs:
             git add -A
             git diff --cached --quiet || (git -c user.name="rates-bot" -c user.email="rates-bot@users.noreply.github.com" commit -qm "Evidence $(date -u +%F)" && git push -q)
           fi
-      - name: Build site folder
-        run: mkdir site && cp *.html *.css *.js *.svg *.png *.ico *.xml *.txt *.webmanifest rates.json history.json site/ && cp -r fonts site/
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-      - id: deployment
-        uses: actions/deploy-pages@v4
-      - name: Open, update or close the "Rates need attention" issue (GitHub emails you when it opens or changes)
-        if: always()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python alert.py
