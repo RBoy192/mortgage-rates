@@ -87,17 +87,17 @@
 - institution: Beem Credit Union
   product: 3-year fixed
   rate: 4.54
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://beemcreditunion.ca/rates
 - institution: Beem Credit Union
   product: 5-year fixed
   rate: 4.69
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://beemcreditunion.ca/rates
 - institution: Beem Credit Union
   product: 5-year variable
   rate: 3.75
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://beemcreditunion.ca/rates
 
 # Less than 20% down (insured, high-ratio) rates for the lenders above. Read 2026-10-20.
@@ -149,5 +149,5 @@
 - institution: Beem Credit Union
   product: 5-year fixed insured
   rate: 4.34
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://beemcreditunion.ca/rates
