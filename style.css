@@ -920,3 +920,8 @@ table.ltab th,table.ltab td{padding:8px 12px;font-size:14px}
 @media (max-width:640px){.lbar{grid-template-columns:110px 1fr 60px}.lbar .lbl{font-size:13px}}
 @media (max-width:640px){.c.c5{grid-template-columns:1fr 1fr;gap:10px}.c.c5 .k{padding:12px 12px;font-size:13px}.c.c5 .k em{font-size:12.5px}.c.c5 .k b{font-size:26px}}
 body[data-term$="GIC"] .chg.up,body[data-term="Savings"] .chg.up{color:var(--good)}body[data-term$="GIC"] .chg.dn,body[data-term="Savings"] .chg.dn{color:var(--warn)}
+/* main page: "Show rates for" and "Best rates from" on one line */
+.pickrow{display:flex;align-items:center;flex-wrap:wrap;gap:10px 32px;margin:20px 0 -12px}
+.pickrow .kindpick,.pickrow .tilepick{margin:0}
+.pickrow .tilepick .tpl{font-size:15px;flex-basis:auto}
+@media (max-width:640px){.pickrow{gap:8px;margin:14px 0 -8px}.pickrow .kindpick{width:100%}.pickrow .tilepick .tpl{font-size:13px}}
