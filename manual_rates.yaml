@@ -15,34 +15,34 @@
 - institution: BMO
   product: 3-year fixed
   rate: 4.94
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
 - institution: BMO
   product: 5-year fixed
   rate: 5.14
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
 - institution: BMO
   product: 5-year variable
   rate: 4.10
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
 
 # CIBC: special-offer rates. Fixed from "CIBC Fixed-Rate Closed Mortgage"; variable is the 5-year "CIBC Variable Flex Mortgage". Read 2026-10-19.
 - institution: CIBC
   product: 3-year fixed
   rate: 5.09
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.cibc.com/en/interest-rates/mortgage-rates.html
 - institution: CIBC
   product: 5-year fixed
   rate: 5.34
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.cibc.com/en/interest-rates/mortgage-rates.html
 - institution: CIBC
   product: 5-year variable
   rate: 4.20
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.cibc.com/en/interest-rates/mortgage-rates.html
 
 # Vancity: the site blocks automated visits (security checkpoint), so these are read by hand from its own page.
@@ -50,19 +50,19 @@
 - institution: Vancity
   product: 3-year fixed
   rate: 4.75
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.vancity.com/rates/mortgages
   note: "Special offer: 20% or more down, home under $1 million"
 - institution: Vancity
   product: 5-year fixed
   rate: 4.84
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.vancity.com/rates/mortgages
   note: "Special offer: 20% or more down, home under $1 million"
 - institution: Vancity
   product: 5-year variable
   rate: 3.95
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.vancity.com/rates/mortgages
 
 # Meridian: the site blocks automated visits, so these are read by hand from its own page.
@@ -70,17 +70,17 @@
 - institution: Meridian
   product: 3-year fixed
   rate: 4.49
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.meridiancu.ca/personal/rates-and-fees/mortgage-and-borrowing-rates
 - institution: Meridian
   product: 5-year fixed
   rate: 4.74
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.meridiancu.ca/personal/rates-and-fees/mortgage-and-borrowing-rates
 - institution: Meridian
   product: 5-year variable
   rate: 3.64
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.meridiancu.ca/personal/rates-and-fees/mortgage-and-borrowing-rates
 
 # Beem Credit Union: "Fixed closed-rate mortgages" table, 25-year rate column; variable is "5 year (closed variable)". Read 2026-10-20.
@@ -105,45 +105,45 @@
 - institution: BMO
   product: 5-year fixed insured
   rate: 4.99
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
 # CIBC: high-ratio table, "5-year fixed closed" Special Offer; variable is its "5-year variable flex" row.
 - institution: CIBC
   product: 5-year fixed insured
   rate: 4.99
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.cibc.com/en/interest-rates/mortgage-rates.html
 - institution: CIBC
   product: 5-year variable insured
   rate: 4.05
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.cibc.com/en/interest-rates/mortgage-rates.html
 # Vancity: "High-ratio insured mortgages" table, "fixed-term fixed-rate insured residential" rows.
 - institution: Vancity
   product: 3-year fixed insured
   rate: 4.70
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.vancity.com/rates/mortgages
 - institution: Vancity
   product: 5-year fixed insured
   rate: 4.79
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.vancity.com/rates/mortgages
 # Meridian: "High Ratio (special offer)" rows; variable is "5-Year Closed High Ratio" on the Variable rates tab.
 - institution: Meridian
   product: 3-year fixed insured
   rate: 4.34
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.meridiancu.ca/personal/rates-and-fees/mortgage-and-borrowing-rates
 - institution: Meridian
   product: 5-year fixed insured
   rate: 4.59
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.meridiancu.ca/personal/rates-and-fees/mortgage-and-borrowing-rates
 - institution: Meridian
   product: 5-year variable insured
   rate: 3.44
-  checked: 2026-10-25
+  checked: 2026-10-26
   source: https://www.meridiancu.ca/personal/rates-and-fees/mortgage-and-borrowing-rates
 # Beem: "Insured 5-year fixed closed" featured rate.
 - institution: Beem Credit Union
