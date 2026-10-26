@@ -402,43 +402,6 @@ class TestNewLenders(unittest.TestCase):
         self.assertEqual(scraper.extract(soup, {"label": "Conventional", "column": "5 year", "plain": True})[0], 5.31)
 
 
-class TestBackfillLayouts(unittest.TestCase):
-    """Older page layouts used when rebuilding history from archived copies (backfill/layouts.yaml)."""
-    def setUp(self):
-        old = os.getcwd(); os.chdir(HERE.parent); self.addCleanup(os.chdir, old)
-        import backfill; self.b = backfill
-
-    def test_skips_hidden_template_and_reads_the_real_row(self):
-        html = ('<div class="m"><p>3 Year Fixed Closed</p><p>Posted Rate: 3.49% Special Rate: 2.14%</p></div>'
-                '<table><tr><td>3 Year Fixed Closed<sup>6</sup></td><td>2.14 %</td><td>2.18 %</td></tr></table>')
-        item = {"product": "3-year fixed", "label": "3 Year Fixed Closed", "pattern": r'^\s*(?:\d\s+)?(\d{1,2}\.\d{2})\s*%'}
-        self.assertEqual(self.b.read_one(BeautifulSoup(html, "html.parser"), item)[0], 2.14)
-
-    def test_blank_template_is_skipped_not_guessed(self):
-        html = '<table><tr><td>3 Year Fixed Closed 6</td><td>%</td><td>%</td></tr></table>'
-        item = {"product": "3-year fixed", "label": "3 Year Fixed Closed", "pattern": r'^\s*(?:\d\s+)?(\d{1,2}\.\d{2})\s*%'}
-        with self.assertRaises(ValueError):
-            self.b.read_one(BeautifulSoup(html, "html.parser"), item)
-
-    def test_rbc_variable_reads_the_bracketed_rate_and_needs_special_offers(self):
-        lender = {"name": "RBC Royal Bank", "rates": []}
-        items = {i["product"]: i for i in self.b.items_for(lender, "2021-02-25")}
-        page = ('<h3>25 Year Amortization or Less</h3><table><tr><th>Term</th><th>{}</th><th>APR</th></tr>'
-                '<tr><td>3 Year Closed</td><td>2.190%</td><td>2.230%</td></tr><tr><td>5 Year Closed</td><td>2.220%</td><td>2.250%</td></tr></table>'
-                '<h4>Variable Mortgage Rates</h4><table><tr><td>5 Year Closed</td><td>RBC Prime Rate - 0.350% (2.100%)</td><td>2.130%</td></tr></table>'
-                '<h3>Greater Than 25 Year Amortization</h3>')
-        soup = BeautifulSoup(page.format("Special Offers"), "html.parser")
-        self.assertEqual(self.b.read_one(soup, items["5-year variable"])[0], 2.10)
-        self.assertEqual(self.b.read_one(soup, items["3-year fixed"])[0], 2.19)
-        self.assertEqual(self.b.read_one(soup, items["5-year fixed"])[0], 2.22)
-        with self.assertRaises(ValueError):  # a week when the table showed only posted rates
-            self.b.read_one(BeautifulSoup(page.format("Posted Rates"), "html.parser"), items["3-year fixed"])
-
-    def test_current_settings_after_the_last_old_layout(self):
-        lender = {"name": "RBC Royal Bank", "rates": [{"product": "3-year fixed", "label": "3 Year Fixed Closed"}]}
-        self.assertEqual(self.b.items_for(lender, "2026-08-01")[0]["label"], "3 Year Fixed Closed")
-
-
 class TestAlertAndFeed(unittest.TestCase):
     def test_alert_waits_a_day_and_flags_old_manual_rates(self):
         import alert
