@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rate-hold watchdog | What's the rate?</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<meta name="description" content="Holding a mortgage rate? Save it here and every visit shows the days left on your hold and which Canadian lenders now advertise a lower rate. Nothing leaves your browser.">
+<link rel="canonical" href="https://whatstherate.ca/rate-hold.html">
+<link rel="icon" href="favicon.svg?v=69" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=69" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=69">
+<link rel="alternate" type="application/atom+xml" title="Mortgage rate changes" href="feed.xml">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#10213F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="What's the rate?">
+<meta property="og:title" content="Rate-hold watchdog">
+<meta property="og:description" content="Holding a mortgage rate? Save it here and every visit shows the days left on your hold and which Canadian lenders now advertise a lower rate. Nothing leaves your browser.">
+<meta property="og:url" content="https://whatstherate.ca/rate-hold.html">
+<meta property="og:image" content="https://whatstherate.ca/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="What's the rate? Compare today's mortgage rates.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=69">
+</head>
+<body data-page="extras">
+<main id="top">
+<header id="site-header"></header>
+<div class="pg vl">
+<nav class="tabs" aria-label="Extras"><a href="faq.html">FAQ</a><a href="glossary.html">Glossary</a><a href="rate-hold.html" aria-current="page">Rate-hold watchdog</a><a href="offline-calculator.html">Offline calculator</a><a href="about.html">About</a><a href="terms.html">Terms and privacy</a></nav>
+<div class="vc">
+<h1>Rate-hold <span class="hl">watchdog</span></h1>
+<p class="m">Holding a mortgage rate while you shop or wait to close? Save it here. Each time you visit, you'll see how many days are left on your hold and whether any lender now advertises a lower rate.</p>
+<div id="hold" class="hold" hidden></div>
+<form class="payform" id="hform" novalidate>
+<div class="pf"><label for="h_rate">Your held rate</label><span class="dl"><input id="h_rate" type="text" inputmode="decimal" autocomplete="off" placeholder="e.g. 4.59" required><span aria-hidden="true">%</span></span></div>
+<div class="pf"><span class="pfl" id="h_tl">Rate type</span><div class="seg2" id="h_term" role="group" aria-labelledby="h_tl"><button type="button" data-p="3-year fixed" aria-pressed="false">3-year fixed</button><button type="button" data-p="5-year variable" aria-pressed="false">5-year variable</button><button type="button" data-p="5-year fixed" aria-pressed="true">5-year fixed</button></div></div>
+<div class="pf"><label for="h_lender">Lender</label><select id="h_lender"></select></div>
+<div class="pf"><label for="h_exp">Hold ends on</label><input id="h_exp" type="date" required><span class="s">Holds usually last 90 to 120 days. Your lender's paperwork shows the date.</span></div>
+<div class="pf"><label class="chk"><input type="checkbox" id="h_ins"> <span>I'm putting down less than 20% (compare insured rates too)</span></label></div>
+</form>
+<div class="acts"><button type="button" class="btn" id="h_save">Save my hold</button><button type="button" class="lk" id="h_del" hidden>Remove my hold</button></div>
+<p class="m" id="h_msg" role="status"></p>
+<h2>How it works</h2>
+<ul class="ul">
+<li>Your hold is saved only in this browser, on this device. Nothing is sent to this site or anyone else, and there's no sign-up. Clearing your browser's data removes it.</li>
+<li>Each visit compares your rate with the rates lenders advertise today, for the same rate type. The <a href="mortgage-rates.html">mortgage rates</a> page shows the same reminder at the top while your hold is saved.</li>
+<li>If rates drop before you close, ask your lender to give you the lower rate: many will. Switching lenders late can mean a new application and approval, so ask before you decide.</li>
+<li>Advertised rates are a guide. The rate you're offered depends on your situation, so confirm with the lender.</li>
+</ul>
+</div>
+</div>
+</main>
+<script src="site.js?v=69"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="69"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script>
+(function(){
+let lenders = [], term = "5-year fixed";
+const plus = (iso, days) => { const d = new Date(iso + "T12:00:00"); d.setDate(d.getDate() + days); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
+const setTerm = t => { term = t; document.querySelectorAll("#h_term button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.p === t))); };
+$("h_lender").innerHTML = '<option value="">A mortgage broker or another lender</option>' + LENDER_ORDER.map(n => `<option>${esc(n)}</option>`).join("");
+$("h_exp").value = plus(todayISO(), 90);
+const fill = h => { $("h_rate").value = h.rate; setTerm(h.term); $("h_lender").value = h.lender || ""; $("h_exp").value = h.expires; $("h_ins").checked = !!h.insured; };
+const show = () => { const h = holdGet(); $("h_del").hidden = !h; showHold(lenders); };
+$("h_term").addEventListener("click", e => { const b = e.target.closest("button[data-p]"); if (b) setTerm(b.dataset.p); });
+$("h_save").onclick = () => {
+  const rate = parseFloat(String($("h_rate").value).replace(",", ".")), exp = $("h_exp").value;
+  if (!(rate > 0 && rate < 20)) { $("h_msg").textContent = "Enter the rate you're holding, for example 4.59."; $("h_rate").focus(); return; }
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(exp)) { $("h_msg").textContent = "Enter the date your hold ends."; $("h_exp").focus(); return; }
+  holdSet({rate, term, lender: $("h_lender").value, expires: exp, insured: $("h_ins").checked});
+  $("h_msg").textContent = "Saved in this browser. Come back any time to check on it."; show();
+};
+$("h_del").onclick = () => { holdSet(null); $("h_msg").textContent = "Your hold has been removed from this browser."; show(); };
+const h0 = holdGet(); if (h0) fill(h0);
+show();
+loadRates().then(d => { lenders = groupLenders(d); show(); }, () => { $("h_msg").textContent = "Today's rates didn't load, so your hold can't be compared right now. Please refresh."; });
+})();
+</script>
+</body>
+</html>

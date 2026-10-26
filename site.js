@@ -1,4 +1,4 @@
-const SITE_VERSION = "68";
+const SITE_VERSION = "69";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -16,7 +16,7 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
 // Header with links to each page, plus the light / dark switch (light by default; the visitor's choice is remembered)
 (function(){
   const page = document.body.dataset.page, el = $("site-header"), base = page === "404" ? "/" : "";
-  const links = [["calc", "calculators.html", "Interactive Calculators"], ["history", "rate-history.html", "Rate history"], ["crash", "crash-course.html", "Mortgages Explained"], ["extras", "faq.html", "Extras"]];
+  const links = [["mortgage", "mortgage-rates.html", "Mortgages"], ["gic", "gic-rates.html", "GICs"], ["savings", "savings-rates.html", "Savings"], ["calc", "calculators.html", "Calculators"], ["history", "rate-history.html", "Rate history"], ["crash", "crash-course.html", "Mortgages Explained"], ["extras", "faq.html", "Extras"]];
   el.className = el.closest(".band") ? "n" : "n band";
   el.innerHTML = `<div class="nw"><a class="brand" href="${base}index.html"><svg class="bm" viewBox="10 10 44 44" aria-hidden="true"><circle cx="21" cy="21" r="7.5" fill="none" stroke="currentColor" stroke-width="5"/><circle cx="43" cy="43" r="7.5" fill="none" stroke="currentColor" stroke-width="5"/><path d="M45 16 19 48" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/></svg>What's the rate?</a>`
     + `<button type="button" class="menu" id="menubtn" aria-expanded="false" aria-controls="mainnav"><span aria-hidden="true">☰</span> <span class="mt">Menu</span></button>`
@@ -59,20 +59,25 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
   });
   // Footer on every page
   const year = new Date().getFullYear();
-  main && main.insertAdjacentHTML("beforeend", `<footer class="sitefoot"><nav aria-label="Footer"><a href="${base}index.html">Today's rates</a><a href="${base}calculators.html">Calculators</a><a href="${base}rate-history.html">Rate history</a><a href="${base}rate-alerts.html">Rate alerts</a><a href="${base}crash-course.html">Mortgages Explained</a><a href="${base}faq.html">FAQ</a><a href="${base}glossary.html">Glossary</a><a href="${base}about.html">About</a><a href="${base}terms.html">Terms and privacy</a></nav>`
-    + `<p>Rates are collected from each lender's own website every hour, or three times a day for a few lenders. Information only, not financial advice: always confirm rates and terms with the lender.</p>`
+  main && main.insertAdjacentHTML("beforeend", `<footer class="sitefoot"><nav aria-label="Footer"><a href="${base}index.html">Today's rates</a><a href="${base}mortgage-rates.html">Mortgage rates</a><a href="${base}gic-rates.html">GIC rates</a><a href="${base}savings-rates.html">Savings rates</a><a href="${base}calculators.html">Calculators</a><a href="${base}rate-history.html">Rate history</a><a href="${base}rate-alerts.html">Rate alerts</a><a href="${base}rate-hold.html">Rate-hold watchdog</a><a href="${base}crash-course.html">Mortgages Explained</a><a href="${base}faq.html">FAQ</a><a href="${base}glossary.html">Glossary</a><a href="${base}about.html">About</a><a href="${base}terms.html">Terms and privacy</a></nav>`
+    + `<p>Rates are collected from each lender's own website every hour, or three times a day for a few lenders' mortgage rates. Information only, not financial advice: always confirm rates and terms with the lender.</p>`
     + `<p>© ${year} What's the rate?${typeof CONTACT_EMAIL !== "undefined" && CONTACT_EMAIL ? ` · <a href="mailto:${esc(CONTACT_EMAIL)}">${esc(CONTACT_EMAIL)}</a>` : ""}</p></footer>`);
 })();
 
 // Rates
 function loadRates(){ return fetch("rates.json?t=" + Date.now(), {cache:"no-store"}).then(r => r.json()); }
+// GIC and savings rates are kept with the mortgage rates in rates.json, under their own product names
+const GIC_COLUMNS = [1, 2, 3, 4, 5].map(y => [y + " year", y + "-year GIC"]);
+const SAVINGS = "Savings", SAVINGS_PROMO = "Savings promo";
+const isDeposit = p => /\bGIC\b|^Savings/.test(p);
 function groupLenders(d){
   const by = {};
   d.rates.forEach(r => {
-    const l = by[r.institution] = by[r.institution] || {name: r.institution, source: r.source, cells: {}};
+    const l = by[r.institution] = by[r.institution] || {name: r.institution, source: null, dsource: null, cells: {}};
     l.cells[r.product] = r;
+    if (isDeposit(r.product)) l.dsource = l.dsource || r.source; else l.source = l.source || r.source;  // the mortgage page links to the mortgage rates
   });
-  return Object.values(by);
+  return Object.values(by).map(l => ({...l, source: l.source || l.dsource}));
 }
 function bestRates(lenders){
   const b = {};
@@ -345,7 +350,9 @@ const LENDER_COLOURS = ["BMO", "CIBC", "EQ Bank", "National Bank", "RBC Royal Ba
 // Where each lender offers mortgages. Lenders not listed here lend across Canada.
 const LENDER_REGIONS = {"Alterna Savings": ["Ontario"], "Meridian": ["Ontario"], "Desjardins": ["Ontario", "Quebec"],
   "Coast Capital Savings": ["British Columbia"], "Vancity": ["British Columbia"], "ATB Financial": ["Alberta"], "Servus Credit Union": ["Alberta"],
-  "Affinity Credit Union": ["Saskatchewan"], "Conexus Credit Union": ["Saskatchewan"], "Libro Credit Union": ["Ontario"], "FirstOntario Credit Union": ["Ontario"], "UNI Financial": ["New Brunswick"], "ICICI Bank Canada": ["Ontario", "British Columbia", "Alberta"], "Access Credit Union": ["Manitoba"], "Assiniboine Credit Union": ["Manitoba"], "Steinbach Credit Union": ["Manitoba"], "Beem Credit Union": ["British Columbia"], "Tru Cooperative Bank": ["British Columbia"]};
+  "Affinity Credit Union": ["Saskatchewan"], "Conexus Credit Union": ["Saskatchewan"], "Libro Credit Union": ["Ontario"], "FirstOntario Credit Union": ["Ontario"], "UNI Financial": ["New Brunswick"], "ICICI Bank Canada": ["Ontario", "British Columbia", "Alberta"], "Access Credit Union": ["Manitoba"], "Assiniboine Credit Union": ["Manitoba"], "Steinbach Credit Union": ["Manitoba"], "Beem Credit Union": ["British Columbia"], "Tru Cooperative Bank": ["British Columbia", "Ontario"]};
+// a short note shown under a lender's name wherever its rates are listed
+const LENDER_NOTES = {"Tru Cooperative Bank": "Ontario: through mortgage brokers only"};
 const NON_BANKS = ["Access Credit Union", "Affinity Credit Union", "Alterna Savings", "Assiniboine Credit Union", "ATB Financial", "Beem Credit Union", "Coast Capital Savings", "Conexus Credit Union", "Desjardins", "First National", "FirstOntario Credit Union", "Libro Credit Union", "Meridian", "Servus Credit Union", "Steinbach Credit Union", "Tru Cooperative Bank", "UNI Financial", "Vancity"];
 const LENDER_GROUPS = [["Banks", n => !NON_BANKS.includes(n)], ["Credit unions and other lenders", n => NON_BANKS.includes(n)]];
 // Each lender's own page on this site: bmo-mortgage-rates.html and so on
@@ -441,3 +448,39 @@ const per100k = (rate, variable) => pmt(100000, perPeriod(rate, variable), 300);
 // Printing: open collapsed sections so everything you entered prints, then put them back
 addEventListener("beforeprint", () => document.querySelectorAll("details").forEach(d => { d.dataset.wasOpen = d.open ? "1" : ""; d.open = true; }));
 addEventListener("afterprint", () => document.querySelectorAll("details").forEach(d => { if (d.dataset.wasOpen === "") d.open = false; }));
+
+// Rate-hold watchdog: a rate the visitor is holding, kept only in this browser (nothing is sent anywhere).
+// Each visit compares it with today's advertised rates: days left on the hold, and which lenders now beat it.
+const HOLD_KEY = "rate-hold";
+function holdGet(){ try { const h = JSON.parse(localStorage.getItem(HOLD_KEY) || "null"); return h && h.rate > 0 && h.term && h.expires ? h : null; } catch (e) { return null; } }
+function holdSet(h){ try { if (h) localStorage.setItem(HOLD_KEY, JSON.stringify(h)); else localStorage.removeItem(HOLD_KEY); } catch (e) {} }
+function holdDaysLeft(h, today){
+  const t = today || todayISO();
+  return Math.round((Date.parse(h.expires + "T12:00:00") - Date.parse(t + "T12:00:00")) / 864e5);
+}
+// [{name, rate}] of lenders advertising a lower rate for the held term (their insured rate too, if the hold is insured)
+function holdBeaters(h, lenders){
+  return lenders.map(l => {
+    const c = [l.cells[h.term], h.insured ? l.cells[h.term + " insured"] : null].filter(x => x && !x.stale).map(x => x.rate);
+    return c.length ? {name: l.name, rate: Math.min(...c)} : null;
+  }).filter(x => x && x.rate < h.rate - 0.0005).sort((a, b) => a.rate - b.rate || a.name.localeCompare(b.name));
+}
+function holdHTML(h, lenders, editLink){
+  const left = holdDaysLeft(h), when = dstr(h.expires), who = h.lender ? " with " + esc(h.lender) : "";
+  const beat = holdBeaters(h, lenders), own = beat.find(b => b.name === h.lender), others = beat.filter(b => b.name !== h.lender);
+  const head = `<b>Your rate hold:</b> ${pct(h.rate)} ${esc(h.term)}${h.insured ? " (insured)" : ""}${who}, `
+    + (left < 0 ? `expired on ${when}.` : left === 0 ? `ends <b>today</b> (${when}).` : `held until ${when}: <b>${left} day${left === 1 ? "" : "s"} left</b>.`);
+  let body;
+  if (left < 0) body = "If you haven't closed yet, ask your lender whether it can extend the hold, or compare today's rates below.";
+  else if (!beat.length) body = `No lender here advertises a lower ${esc(h.term)} rate today. Your hold is looking good.`;
+  else body = (own ? `<b>${esc(h.lender)}'s own advertised rate is now ${pct(own.rate)}</b>, lower than your hold. Ask it to give you the lower rate: many lenders do if their rate drops before you close. ` : "")
+    + (others.length ? `${others.length} lender${others.length === 1 ? " advertises" : "s advertise"} a lower ${esc(h.term)} rate today: `
+      + others.slice(0, 5).map(b => `${esc(b.name)} ${pct(b.rate)}`).join(", ") + (others.length > 5 ? `, and ${others.length - 5} more` : "") + "." : "");
+  return `<p class="hh">${head}</p><p>${body}</p>` + (editLink ? `<p class="ha"><a href="rate-hold.html">Change or remove your hold</a></p>` : "");
+}
+function showHold(lenders){
+  const el = $("hold"), h = holdGet(); if (!el) return;
+  if (!h) { el.hidden = true; return; }
+  el.innerHTML = holdHTML(h, lenders, true); el.hidden = false;
+  el.classList.toggle("good", holdDaysLeft(h) >= 0 && !holdBeaters(h, lenders).length);
+}

@@ -8,7 +8,8 @@
 #   label:  the text of the table cell or heading beside the rate
 #   nth:    which % figure after the label to use (default 1). If the wrong number appears,
 #           try 2 or 3. Many rows show the rate first, then APR or the posted rate.
-#   after:  only look below the first place on the page that mentions this text (for pages that repeat a label)
+#   after:  only look below the first place on the page that mentions this text (for pages that repeat a label);
+#           a list ["A", "B"] looks below the first "B" that comes after "A"
 #   occurrence:  use the 2nd, 3rd... appearance of the label instead of the 1st
 #   publish: false   read and log this rate but don't show it on the site (handy for checking a new one)
 #   enabled: false   switch off a single rate (or a whole lender)
@@ -35,6 +36,14 @@
     - product: 5-year variable insured
       label: "5 Year Variable High Ratio Closed"
       nth: 2
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://www.rbcroyalbank.com/investments/gic-rates.html", label: "on a 1 year term", occurrence: 2, whole: true}
+    - {product: "2-year GIC", url: "https://www.rbcroyalbank.com/investments/gic-rates.html", label: "on a 2 year term", whole: true}
+    - {product: "3-year GIC", url: "https://www.rbcroyalbank.com/investments/gic-rates.html", label: "3 years", after: "Non-Redeemable GIC", plain: true}
+    - {product: "4-year GIC", url: "https://www.rbcroyalbank.com/investments/gic-rates.html", label: "4 years", after: "Non-Redeemable GIC", plain: true}
+    - {product: "5-year GIC", url: "https://www.rbcroyalbank.com/investments/gic-rates.html", label: "on an 5 year term", whole: true}
+    - {product: "Savings", url: "https://www.rbcroyalbank.com/bank-accounts/savings-accounts/high-interest-savings-account.html", label: "Thereafter"}
+    - {product: "Savings promo", url: "https://www.rbcroyalbank.com/bank-accounts/savings-accounts/high-interest-savings-account.html", label: "First 3 months", note: "First 3 months, for new clients"}
 
 - name: TD Canada Trust
   url: https://www.td.com/ca/en/personal-banking/products/mortgages/mortgage-rates
@@ -52,6 +61,9 @@
 
 # CIBC: permission received from the bank (October 2026). Special-offer fixed rates are in cards at the top;
 # the 5-year variable is in the "CIBC Variable Flex Mortgage" table, which lists the posted rate first, then the special offer.
+    # GIC and savings rates (their own pages)
+    - {product: "Savings", url: "https://www.td.com/ca/en/personal-banking/products/bank-accounts/account-rates", label: "$10,000.00 to $49,999.99", after: "TD ePremium Savings Account"}
+
 - name: CIBC
   url: https://www.cibc.com/en/interest-rates/mortgage-rates.html
   mode: manual   # the site blocks automated visits, so rates are typed into manual_rates.yaml (labels kept for if that changes)
@@ -89,6 +101,14 @@
       label: "5 years"
       after: "Scotia Flex Value Mortgage-Open 5 Year Term"
       note: "Posted rate"
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://www.scotiabank.com/ca/en/personal/rates-prices/gic-rates.html", label: "1 year", after: "Long-term Non-Redeemable GICs"}
+    - {product: "2-year GIC", url: "https://www.scotiabank.com/ca/en/personal/rates-prices/gic-rates.html", label: "On a 2-year term", whole: true}
+    - {product: "3-year GIC", url: "https://www.scotiabank.com/ca/en/personal/rates-prices/gic-rates.html", label: "3 years", after: "Long-term Non-Redeemable GICs"}
+    - {product: "4-year GIC", url: "https://www.scotiabank.com/ca/en/personal/rates-prices/gic-rates.html", label: "4 years", after: "Long-term Non-Redeemable GICs"}
+    - {product: "5-year GIC", url: "https://www.scotiabank.com/ca/en/personal/rates-prices/gic-rates.html", label: "5 years", after: "Long-term Non-Redeemable GICs"}
+    - {product: "Savings", url: "https://www.scotiabank.com/ca/en/personal/rates-prices/savings-account-rates.html", label: "$10,000-$99,999", after: "Scotia High Interest Savings Account", note: "High Interest Savings Account. The rate depends on your total balance with Scotiabank"}
+    - {product: "Savings promo", url: "https://www.scotiabank.com/ca/en/personal/bank-accounts/savings-accounts.html", label: "You can earn up to", mode: "browser", note: "Up to this rate for the first 3 months, for new High Interest Savings clients"}
 
 - name: Tangerine
   url: https://www.tangerine.ca/en/rates/mortgage-rates
@@ -102,6 +122,13 @@
       label: "5 Year Fixed Mortgage"
     - product: 5-year variable
       label: "5 Year Variable Mortgage"
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://www.tangerine.ca/en/rates/gic-rates", label: "1 Year Guaranteed Investment", mode: "browser"}
+    - {product: "2-year GIC", url: "https://www.tangerine.ca/en/rates/gic-rates", label: "2 Year Guaranteed Investment", mode: "browser"}
+    - {product: "3-year GIC", url: "https://www.tangerine.ca/en/rates/gic-rates", label: "3 Year Guaranteed Investment", mode: "browser"}
+    - {product: "4-year GIC", url: "https://www.tangerine.ca/en/rates/gic-rates", label: "4 Year Guaranteed Investment", mode: "browser"}
+    - {product: "5-year GIC", url: "https://www.tangerine.ca/en/rates/gic-rates", label: "5 Year Guaranteed Investment", mode: "browser"}
+    - {product: "Savings", url: "https://www.tangerine.ca/en/rates/savings-account-rates", label: "Savings Account", mode: "browser"}
 
 - name: National Bank
   url: https://www.nbc.ca/personal/mortgages/rates.html
@@ -120,6 +147,9 @@
 # EQ Bank: permission received from the bank (October 2026). Rates are in a table with terms across the top.
 # The "Standard Mortgage Rate (Closed)" row is the rate for most borrowers (the Evolution Suite row is for insured
 # mortgages only). The variable rate is shown as "P + 0.34%", so the scraper adds that to EQ's own prime rate.
+    # GIC and savings rates (their own pages)
+    - {product: "Savings", url: "https://www.nbc.ca/rates/bank-account-rates.html", label: "$0  and +", after: "High Interest Savings Account", mode: "browser", note: "High Interest Savings Account"}
+
 - name: EQ Bank
   url: https://www.eqbank.ca/residential/mortgage-rates
   mode: auto
@@ -140,6 +170,14 @@
 
 # BMO: permission received from the bank (October 2026). Uses the summary table lower on the page
 # ("3 year fixed (closed)" and so on), where the first figure in each row is the rate and the second is the APR.
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://www.eqbank.ca/rates", label: "1 Year", after: "Most popular GIC terms"}
+    - {product: "2-year GIC", url: "https://www.eqbank.ca/rates", label: "2 Year", after: "Most popular GIC terms"}
+    - {product: "3-year GIC", url: "https://www.eqbank.ca/rates", label: "3 Year", after: "Most popular GIC terms"}
+    - {product: "4-year GIC", url: "https://www.eqbank.ca/rates", label: "4 Year", after: "Most popular GIC terms"}
+    - {product: "5-year GIC", url: "https://www.eqbank.ca/rates", label: "5 Year", after: "Most popular GIC terms"}
+    - {product: "Savings", url: "https://www.eqbank.ca/rates", label: "Base rate:", after: "Personal Account", note: "Personal Account. 2.75% with a qualifying direct deposit"}
+
 - name: BMO
   url: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
   mode: manual   # the site blocks automated visits, so rates are typed into manual_rates.yaml (labels kept for if that changes)
@@ -176,6 +214,15 @@
       label: "5 Year Variable High Ratio"
 
 # Alterna: "Signature" rates are its advertised rates for everyone ("Smart Start" is for high-ratio mortgages only).
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://www.atb.com/resources/rates/gic-rates/", label: "1 year", after: "Non-Redeemable GIC", nth: 3}
+    - {product: "2-year GIC", url: "https://www.atb.com/resources/rates/gic-rates/", label: "2 year", after: "Non-Redeemable GIC", nth: 3}
+    - {product: "3-year GIC", url: "https://www.atb.com/resources/rates/gic-rates/", label: "3 year", after: "Non-Redeemable GIC", nth: 3}
+    - {product: "4-year GIC", url: "https://www.atb.com/resources/rates/gic-rates/", label: "4 year", after: "Non-Redeemable GIC", nth: 3}
+    - {product: "5-year GIC", url: "https://www.atb.com/resources/rates/gic-rates/", label: "5 year", after: "Non-Redeemable GIC", nth: 3}
+    - {product: "Savings", url: "https://www.atb.com/resources/rates/savings-account-rates/", label: "$5,000 - $249,999.99", after: "Springboard"}
+    - {product: "Savings promo", url: "https://www.atb.com/resources/rates/savings-account-rates/", label: "$5,000 - $249,999.99", after: "Springboard", nth: 3, note: "With bonus interest on new deposits, for a limited time"}
+
 - name: Alterna Savings
   url: https://www.alterna.ca/en/rates/mortgages
   mode: auto
@@ -196,6 +243,14 @@
 
 # Coast Capital: the "Fixed Rate Mortgages" and "Variable Rate Mortgages" tables (up to 25-year amortization column).
 # The posted rates further down use labels ending in "- Closed", so they aren't picked up.
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://www.alterna.ca/en/rates/term-deposits", label: "1-Year", after: "Term Deposits – 1 to 5 years"}
+    - {product: "2-year GIC", url: "https://www.alterna.ca/en/rates/term-deposits", label: "2-Years", after: "Term Deposits – 1 to 5 years"}
+    - {product: "3-year GIC", url: "https://www.alterna.ca/en/rates/term-deposits", label: "3-Years", after: "Term Deposits – 1 to 5 years"}
+    - {product: "4-year GIC", url: "https://www.alterna.ca/en/rates/term-deposits", label: "4-Years", after: "Term Deposits – 1 to 5 years"}
+    - {product: "5-year GIC", url: "https://www.alterna.ca/en/rates/term-deposits", label: "5-Years", after: "Term Deposits – 1 to 5 years"}
+    - {product: "Savings", url: "https://www.alterna.ca/en/rates/personal-accounts", label: "$5,000.01 and over", after: "Investment Savings Accounts"}
+
 - name: Coast Capital Savings
   url: https://www.coastcapitalsavings.com/rates/mortgages
   mode: auto
@@ -214,6 +269,13 @@
 
 # Desjardins: special rates are rows labelled "5 years (special rate)" in the fixed table, then again in the
 # reduced variable-rate table (so the variable uses the 2nd appearance). There's no special 3-year rate.
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://www.coastcapitalsavings.com/rates/gics", label: "1 Year GIC (non redeemable)"}
+    - {product: "2-year GIC", url: "https://www.coastcapitalsavings.com/rates/gics", label: "2 Year GIC (non redeemable)"}
+    - {product: "3-year GIC", url: "https://www.coastcapitalsavings.com/rates/gics", label: "3 Year GIC (non redeemable)"}
+    - {product: "4-year GIC", url: "https://www.coastcapitalsavings.com/rates/gics", label: "4 Year GIC (non redeemable)"}
+    - {product: "5-year GIC", url: "https://www.coastcapitalsavings.com/rates/gics", label: "5 Year GIC (non redeemable)"}
+
 - name: Desjardins
   url: https://www.desjardins.com/en/mortgage/mortgage-rates.html
   mode: auto
@@ -230,6 +292,14 @@
 # Servus: rows read "Term | Rate | Special Rate" (laid out in boxes, not a table), so the special rate is the 2nd figure.
 # The "Servus No Frills Mortgage" table further down repeats the same labels, so reading stops before it.
 # Servus doesn't list a variable rate.
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://www.desjardins.com/en/savings-investment/guaranteed-investments/rates.html", label: "1 year"}
+    - {product: "2-year GIC", url: "https://www.desjardins.com/en/savings-investment/guaranteed-investments/rates.html", label: "2 years"}
+    - {product: "3-year GIC", url: "https://www.desjardins.com/en/savings-investment/guaranteed-investments/rates.html", label: "3 years"}
+    - {product: "4-year GIC", url: "https://www.desjardins.com/en/savings-investment/guaranteed-investments/rates.html", label: "4 years"}
+    - {product: "5-year GIC", url: "https://www.desjardins.com/en/savings-investment/guaranteed-investments/rates.html", label: "5 years"}
+    - {product: "Savings", url: "https://www.desjardins.com/en/accounts-services/savings-accounts.html", label: "Interest rate", after: "Non-registered savings account"}
+
 - name: Servus Credit Union
   url: https://servus.ca/rates
   mode: auto
@@ -255,6 +325,14 @@
 
 # Manulife Bank: the fixed terms in the "Manulife Bank Select" table are its posted rates; its special
 # "as low as" 5-year rates are in cards at the top (Manulife One first, then Manulife Bank Select, then high ratio).
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://servus.ca/rates", label: "1 Year", after: ["Guaranteed Investment Certificates (GIC)", "Long Term GIC - Annual Interest"], nth: 2}
+    - {product: "2-year GIC", url: "https://servus.ca/rates", label: "2 Year", after: ["Guaranteed Investment Certificates (GIC)", "Long Term GIC - Annual Interest"], nth: 2}
+    - {product: "3-year GIC", url: "https://servus.ca/rates", label: "3 Year", after: ["Guaranteed Investment Certificates (GIC)", "Long Term GIC - Annual Interest"], nth: 2}
+    - {product: "4-year GIC", url: "https://servus.ca/rates", label: "4 Year", after: ["Guaranteed Investment Certificates (GIC)", "Long Term GIC - Annual Interest"], nth: 2}
+    - {product: "5-year GIC", url: "https://servus.ca/rates", label: "5 Year", after: ["Guaranteed Investment Certificates (GIC)", "Long Term GIC - Annual Interest"], nth: 2}
+    - {product: "Savings", url: "https://servus.ca/rates", label: "$5,000.00 - $24,999.99", after: ["Personal Savings Accounts", "Personal Premium Savings"]}
+
 - name: Manulife Bank
   url: https://manulifebank.ca/current-rates.html
   mode: auto
@@ -276,6 +354,14 @@
       note: "Special rate for new clients"
 
 # Vancity: the special-offer fixed rates need 20% or more down, a home under $1 million and up to 25 years to pay.
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://manulifebank.ca/current-rates.html", label: "1 year", after: "Guaranteed Investment Certificates (GIC) rates"}
+    - {product: "2-year GIC", url: "https://manulifebank.ca/current-rates.html", label: "2 years", after: "Guaranteed Investment Certificates (GIC) rates"}
+    - {product: "3-year GIC", url: "https://manulifebank.ca/current-rates.html", label: "3 years", after: "Guaranteed Investment Certificates (GIC) rates"}
+    - {product: "4-year GIC", url: "https://manulifebank.ca/current-rates.html", label: "4 years", after: "Guaranteed Investment Certificates (GIC) rates"}
+    - {product: "5-year GIC", url: "https://manulifebank.ca/current-rates.html", label: "5 years", after: "Guaranteed Investment Certificates (GIC) rates"}
+    - {product: "Savings", url: "https://manulifebank.ca/current-rates.html", label: "Advantage Account", after: "Interest rate for positive account balances", note: "Advantage Account. A promotional rate on new deposits may also apply"}
+
 - name: Vancity
   url: https://www.vancity.com/rates/mortgages
   mode: manual   # the site blocks automated visits, so rates are typed into manual_rates.yaml (labels kept for if that changes)
@@ -382,6 +468,14 @@
 
 # Conexus: the first table lists its everyday rates ("Board rates" below are posted rates); the variable rate is
 # its "Flex Feature mortgage rate" card, which shows the rate after the label.
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://www.affinitycu.ca/rates/gic-rates", label: "for 1 year and grow your money", whole: true}
+    - {product: "2-year GIC", url: "https://www.affinitycu.ca/rates/gic-rates", label: "2 Year", after: "GIC Term Rates"}
+    - {product: "3-year GIC", url: "https://www.affinitycu.ca/rates/gic-rates", label: "3 Year", after: "GIC Term Rates"}
+    - {product: "4-year GIC", url: "https://www.affinitycu.ca/rates/gic-rates", label: "4 Year", after: "GIC Term Rates"}
+    - {product: "5-year GIC", url: "https://www.affinitycu.ca/rates/gic-rates", label: "5 Year", after: "GIC Term Rates"}
+    - {product: "Savings", url: "https://www.affinitycu.ca/rates/chequing-and-savings-account-rates", label: "≤ $99,999.99", after: "Investor Savings"}
+
 - name: Conexus Credit Union
   url: https://www.conexus.ca/rates/mortgage-rates
   mode: auto
@@ -398,6 +492,14 @@
       label: "Flex Feature mortgage rate"
 
 # Libro: one table; the variable row reads "from (Prime - 0.30%) 4.150%", so the rate is the 2nd figure.
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://www.conexus.ca/rates/term-deposit-rates", label: "1 Year", after: "Non-redeemable"}
+    - {product: "2-year GIC", url: "https://www.conexus.ca/rates/term-deposit-rates", label: "2 Years", after: "Non-redeemable"}
+    - {product: "3-year GIC", url: "https://www.conexus.ca/rates/term-deposit-rates", label: "3 Years", after: "Non-redeemable"}
+    - {product: "4-year GIC", url: "https://www.conexus.ca/rates/term-deposit-rates", label: "4 Years", after: "Non-redeemable"}
+    - {product: "5-year GIC", url: "https://www.conexus.ca/rates/term-deposit-rates", label: "5 Years", after: "Non-redeemable"}
+    - {product: "Savings", url: "https://www.conexus.ca/personal/accounts/savings", label: "$5,000.01 - $25,000"}
+
 - name: Libro Credit Union
   url: https://www.libro.ca/rates-fees/mortgage/
   mode: auto
@@ -418,6 +520,14 @@
       column: "Rate"
 
 # FirstOntario: "Fixed Rate Mortgage" then "Variable Rate Mortgage" tables (the specials above them are high-ratio only).
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://www.libro.ca/rates-fees/investment-rates/", label: "1 Year", after: "Non-Redeemable, Interest Paid Annually"}
+    - {product: "2-year GIC", url: "https://www.libro.ca/rates-fees/investment-rates/", label: "2 Years", after: "Non-Redeemable, Interest Paid Annually"}
+    - {product: "3-year GIC", url: "https://www.libro.ca/rates-fees/investment-rates/", label: "3 Years", after: "Non-Redeemable, Interest Paid Annually"}
+    - {product: "4-year GIC", url: "https://www.libro.ca/rates-fees/investment-rates/", label: "4 Years", after: "Non-Redeemable, Interest Paid Annually"}
+    - {product: "5-year GIC", url: "https://www.libro.ca/rates-fees/investment-rates/", label: "5 Years", after: "Non-Redeemable, Interest Paid Annually"}
+    - {product: "Savings", url: "https://www.libro.ca/rates-fees/day-to-day-banking/", label: "$ 1,000 plus", after: "Investment Savings", note: "Investment Savings account"}
+
 - name: FirstOntario Credit Union
   url: https://www.firstontario.com/personal/rates/
   mode: auto
@@ -445,6 +555,14 @@
 
 # UNI: "Special Offers" rows (written with decimal commas, "4,89 %"); variable: the "Reduced variable rate" row lists
 # the posted rate, then the special offer.
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://www.firstontario.com/personal/rates/", label: "1-year non-redeemable", after: "Long-term GICs"}
+    - {product: "2-year GIC", url: "https://www.firstontario.com/personal/rates/", label: "2-year non-redeemable", after: "Long-term GICs"}
+    - {product: "3-year GIC", url: "https://www.firstontario.com/personal/rates/", label: "3-year non-redeemable", after: "Long-term GICs"}
+    - {product: "4-year GIC", url: "https://www.firstontario.com/personal/rates/", label: "4-year non-redeemable", after: "Long-term GICs"}
+    - {product: "5-year GIC", url: "https://www.firstontario.com/personal/rates/", label: "5-year non-redeemable", after: "Long-term GICs"}
+    - {product: "Savings", url: "https://www.firstontario.com/personal/rates/", label: "$0 – $100,000.00", after: "High Interest eSavings Account"}
+
 - name: UNI Financial
   url: https://www.uni.ca/en/rates/product/residential-mortgage-loans
   mode: auto
@@ -465,6 +583,13 @@
       note: "Special offer"
 
 # ICICI Bank Canada: publishes only posted rates (its special "iGlobal" rates say to contact a specialist).
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://www.uni.ca/en/rates/product/term-savings", label: "1 year", mode: "browser"}
+    - {product: "2-year GIC", url: "https://www.uni.ca/en/rates/product/term-savings", label: "2 years", mode: "browser"}
+    - {product: "3-year GIC", url: "https://www.uni.ca/en/rates/product/term-savings", label: "3 years", mode: "browser"}
+    - {product: "4-year GIC", url: "https://www.uni.ca/en/rates/product/term-savings", label: "4 years", mode: "browser"}
+    - {product: "5-year GIC", url: "https://www.uni.ca/en/rates/product/term-savings", label: "5 years", mode: "browser"}
+
 - name: ICICI Bank Canada
   url: https://www.icicibank.ca/personal/creditservices/mortgages/global-customer-program
   mode: auto
@@ -482,6 +607,14 @@
 
 # ---- Manitoba ----
 # Access: one mortgage table with a "Rates" column; the closed variable row also shows its prime discount, so the rate is read from that column.
+    # GIC and savings rates (their own pages)
+    - {product: "Savings", url: "https://www.icicibank.ca/personal-banking/accounts/savings-account/interest-rates", label: "Interest rate", after: "Savings Account Interest Rate", note: "HiSAVE Savings Account"}
+    - {product: "1-year GIC", url: "https://www.icicibank.ca/personal-banking/investments/gic-term-deposit/interest-rates", label: "1 year", after: "C$ Non-Redeemable GICs", mode: "browser"}
+    - {product: "2-year GIC", url: "https://www.icicibank.ca/personal-banking/investments/gic-term-deposit/interest-rates", label: "2 years", after: "C$ Non-Redeemable GICs", mode: "browser"}
+    - {product: "3-year GIC", url: "https://www.icicibank.ca/personal-banking/investments/gic-term-deposit/interest-rates", label: "3 years", after: "C$ Non-Redeemable GICs", mode: "browser"}
+    - {product: "4-year GIC", url: "https://www.icicibank.ca/personal-banking/investments/gic-term-deposit/interest-rates", label: "4 years", after: "C$ Non-Redeemable GICs", mode: "browser"}
+    - {product: "5-year GIC", url: "https://www.icicibank.ca/personal-banking/investments/gic-term-deposit/interest-rates", label: "5 years", after: "C$ Non-Redeemable GICs", mode: "browser"}
+
 - name: Access Credit Union
   url: https://www.accesscu.ca/en/rates
   mode: auto
@@ -496,6 +629,14 @@
 
 # Assiniboine (ACU): the page has two copies of its mortgage table with different figures; the copy under the
 # "Rates were last updated" date (it follows the first copy's prime rate line) is read.
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://www.accesscu.ca/en/rates", label: "GIC 12 Months"}
+    - {product: "2-year GIC", url: "https://www.accesscu.ca/en/rates", label: "GIC 24 Months"}
+    - {product: "3-year GIC", url: "https://www.accesscu.ca/en/rates", label: "GIC 36 Months"}
+    - {product: "4-year GIC", url: "https://www.accesscu.ca/en/rates", label: "GIC 48 Months"}
+    - {product: "5-year GIC", url: "https://www.accesscu.ca/en/rates", label: "GIC 60 Months"}
+    - {product: "Savings", url: "https://www.accesscu.ca/en/rates", label: "Platinum Savings", note: "Platinum Savings, balances under $100,000"}
+
 - name: Assiniboine Credit Union
   url: https://www.acu.ca/rates
   mode: auto
@@ -513,6 +654,14 @@
       after: "Prime lending rate"
 
 # Steinbach: one borrowing table; the conventional (uninsured) rows are read.
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://www.acu.ca/rates", label: "1-year", after: "Non-redeemable GIC (annually)"}
+    - {product: "2-year GIC", url: "https://www.acu.ca/rates", label: "2-year", after: "Non-redeemable GIC (annually)"}
+    - {product: "3-year GIC", url: "https://www.acu.ca/rates", label: "3-year", after: "Non-redeemable GIC (annually)"}
+    - {product: "4-year GIC", url: "https://www.acu.ca/rates", label: "4-year", after: "Non-redeemable GIC (annually)"}
+    - {product: "5-year GIC", url: "https://www.acu.ca/rates", label: "5-year", after: "Non-redeemable GIC (annually)"}
+    - {product: "Savings", url: "https://www.acu.ca/rates", label: "$0 - $99,999", after: "High Rate Savings"}
+
 - name: Steinbach Credit Union
   url: https://scu.mb.ca/rates/borrowing
   mode: auto
@@ -534,6 +683,14 @@
 # Beem: the site blocks automated visits, so rates are typed into manual_rates.yaml (labels kept for if that changes).
 # The fixed table lists 25-year and 30-year amortization columns; the 25-year one (the first figure) is read.
 # The variable row shows its prime discount first, so the rate is the 2nd figure.
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://scu.mb.ca/rates/gics", label: "12-month"}
+    - {product: "2-year GIC", url: "https://scu.mb.ca/rates/gics", label: "24-month"}
+    - {product: "3-year GIC", url: "https://scu.mb.ca/rates/gics", label: "36-month"}
+    - {product: "4-year GIC", url: "https://scu.mb.ca/rates/gics", label: "48-month"}
+    - {product: "5-year GIC", url: "https://scu.mb.ca/rates/gics", label: "60-month"}
+    - {product: "Savings", url: "https://scu.mb.ca/rates/personal-accounts", label: "Less than $100K", after: "High Interest Savings Account"}
+
 - name: Beem Credit Union
   url: https://beemcreditunion.ca/rates
   mode: manual
@@ -574,3 +731,10 @@
       label: "5 year fixed rate (closed) - insured"
     - product: 5-year variable insured
       label: "5 year variable rate (closed) - insured"
+    # GIC and savings rates (their own pages)
+    - {product: "1-year GIC", url: "https://www.trucooperativebank.ca/envision-financial/personal/rates/GIC-rates", label: "1 year", after: "Long Term non-redeemable", mode: "browser"}
+    - {product: "2-year GIC", url: "https://www.trucooperativebank.ca/envision-financial/personal/rates/GIC-rates", label: "2 year", after: "Long Term non-redeemable", mode: "browser"}
+    - {product: "3-year GIC", url: "https://www.trucooperativebank.ca/envision-financial/personal/rates/GIC-rates", label: "3 year", after: "Long Term non-redeemable", mode: "browser"}
+    - {product: "4-year GIC", url: "https://www.trucooperativebank.ca/envision-financial/personal/rates/GIC-rates", label: "4 year", after: "Long Term non-redeemable", mode: "browser"}
+    - {product: "5-year GIC", url: "https://www.trucooperativebank.ca/envision-financial/personal/rates/GIC-rates", label: "5 year", after: "Long Term non-redeemable", mode: "browser"}
+    - {product: "Savings", url: "https://www.trucooperativebank.ca/envision-financial/personal/rates/bank-account-interest-rates", label: "$5,000+", after: "High Interest Savings Account", mode: "browser"}

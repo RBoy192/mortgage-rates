@@ -266,7 +266,7 @@ h1:focus{outline:none}
 .sitefoot nav{display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:12px}
 .sitefoot nav a{font-weight:600;font-size:14px}
 .sitefoot p{margin:6px 0}
-@media (max-width:700px){
+@media (max-width:1180px){
   /* one row: logo on the left; light/dark and Menu on the right; the menu opens full width below */
   .n{align-items:center;gap:10px 8px}
   .nw{display:contents}
@@ -601,18 +601,15 @@ td.low .pm,td.glow .pm{margin-top:4px}
 }
 
 /* collapsible "Credit unions and other lenders" section on the main table */
-.grpbtn{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:8px;width:100%;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit}
-.grpbtn .gn{font-weight:500;letter-spacing:.04em}
-.grpbtn .gt{margin-left:auto;display:inline-flex;align-items:center;gap:4px;text-transform:none;letter-spacing:0;font:600 13px var(--bd);color:var(--link)}
-.grpbtn svg{width:12px;height:12px;transition:transform .2s}
-tr.grp.open .grpbtn svg{transform:rotate(180deg)}
-.grpbtn:focus-visible{outline:2px solid var(--ac);outline-offset:4px;border-radius:4px}
-tr.grp.shut th,tr.grp.shut td{background:var(--ln2);border-bottom:0;cursor:pointer}
-[data-theme="dark"] tr.grp.shut th,[data-theme="dark"] tr.grp.shut td{background:#162236}
-tr.grp.shut td.gsum small{font:500 11px var(--bd);color:var(--mu);margin-right:2px}
-tr.grp.shut th,tr.grp.shut td{vertical-align:middle}
-tr.grp.shut td.gsum b{font-size:.9em}
-@media (max-width:640px){.grpbtn{flex-wrap:wrap;gap:2px 6px}.grpbtn .gt{margin-left:0;font-size:12px}tr.grp.shut td.gsum small{order:1;font-size:10px;margin:0 0 1px}#rows tr.grp.shut th{letter-spacing:.06em}}
+tr.grp th .gn{font-weight:500;letter-spacing:.04em}
+tr.grp th .gsub{margin-left:10px;font:500 12px var(--bd);letter-spacing:0;text-transform:none;color:var(--mu)}
+#rows tr.more td{padding:0;border-bottom:0;background:transparent}
+.morebtn{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:6px;width:100%;min-height:44px;padding:10px 20px;cursor:pointer;font:600 14px var(--bd);color:var(--link)}
+.morebtn:hover{text-decoration:underline;text-underline-offset:3px}
+.morebtn svg{width:12px;height:12px;transition:transform .2s}
+tr.more.open .morebtn svg{transform:rotate(180deg)}
+.morebtn:focus-visible{outline:2px solid var(--ac);outline-offset:-4px;border-radius:6px}
+@media (max-width:640px){tr.grp th .gsub{display:block;margin:2px 0 0;font-size:11px}.morebtn{font-size:13px}}
 /* Employed vs self-employed comparison (Getting a mortgage) */
 .pt.wide{max-width:none}
 .pt.wide th,.pt.wide td{vertical-align:top;line-height:1.45}
@@ -824,3 +821,50 @@ td.rate .insr{display:flex;width:max-content;margin:5px 0 0 auto}
 }
 @media (max-width:380px){#rows td.rate .insr::before{display:none}#rows td.rate .insr{padding:0 3px}#rows td.rate .insr b{font-size:10px}}
 :root:not([data-theme="dark"]) .insr,:root:not([data-theme="dark"]) .insr b,:root:not([data-theme="dark"]) #rows td.rate .insr b{color:#14532D}
+
+.lnote{display:block;margin-top:2px;font:600 11px var(--bd);color:#8A4B00;white-space:normal;letter-spacing:0}
+[data-theme="dark"] .lnote{color:#F2B766}
+td.ln .lnote{padding-left:0}
+.lnote-b{margin:10px 0 0;padding:10px 14px;border-left:3px solid #B86B00;background:color-mix(in srgb,#F2B766 16%,transparent);border-radius:0 8px 8px 0;font-size:15px}
+.hold{margin:0 0 18px;padding:14px 18px;border:1px solid #E2B254;border-left:5px solid #C98A12;border-radius:12px;background:color-mix(in srgb,#F2C26B 14%,var(--card));font-size:15px;line-height:1.5}
+.hold.good{border-color:#7FC29B;border-left-color:#1F8A4C;background:color-mix(in srgb,#7FC29B 14%,var(--card))}
+.hold p{margin:0}.hold p+p{margin-top:6px}.hold .ha{font-size:14px}
+td .pn{display:block;margin-top:2px;font:500 12px/1.35 var(--bd);color:var(--mu);white-space:normal;max-width:34ch}
+td.promo b{font-size:1em}
+th.promoh{text-align:left}
+/* main page: the best rate of each type */
+.sumt{margin-top:18px}
+table.sum{width:100%}
+table.sum th[scope="row"]{text-align:left;font-weight:600;white-space:nowrap}
+table.sum td.ln{white-space:normal}
+table.sum .who{display:inline-flex;align-items:center;gap:8px;margin:2px 14px 2px 0}
+table.sum tr.grp th{display:table-cell}
+table.sum tr.grp th .gsub{margin-left:8px}
+table.sum .gall{float:right;font:600 13px var(--bd);letter-spacing:0;text-transform:none;color:var(--link)}
+table.sum td.s{color:var(--mu);font-size:14px}
+.start3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:22px 0}
+.start3 a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px;border:1px solid var(--ln);border-radius:16px;background:var(--card);color:var(--fg);text-decoration:none;font:700 17px var(--hd)}
+.start3 a:hover{border-color:var(--link)}
+.start3 small{display:block;margin-top:4px;font:500 13px var(--bd);color:var(--mu)}
+@media (max-width:640px){table.sum .gall{float:none;display:block;margin-top:4px}table.sum th[scope="row"]{white-space:normal;font-size:14px}}
+@media (min-width:1181px){.band a.nl{padding:6px 10px;font-size:13.5px}.nw{gap:6px}a.brand{margin-right:4px}}
+table.sum th[scope="row"],table.sum td{border-bottom:1px solid var(--tln);vertical-align:middle;padding:12px 20px}
+table.sum th[scope="row"]{width:30%;color:var(--fg);font-size:15px}
+table.sum td.rate{width:18%;text-align:left}
+table.sum td.ln,table.sum td.s{text-align:left}
+table.sum thead th{text-align:left}
+table.sum tr:last-child th,table.sum tr:last-child td{border-bottom:0}
+@media (min-width:701px) and (max-width:1180px){.n.open .mainnav{flex-direction:row;flex-wrap:wrap}.mainnav a.nl{border-radius:999px}}
+@media (max-width:640px){
+  table.sum th[scope="row"],table.sum td,table.sum thead th{padding:10px 8px}
+  table.sum th[scope="row"]{width:34%;padding-left:12px}
+  table.sum td.rate{width:1%;white-space:nowrap}
+  table.sum td.rate b{font-size:16px}
+  table.sum .who{margin:2px 8px 2px 0;font-size:14px;gap:6px}
+  table.sum .who .lg-logo{display:none}
+  table.sum tr.grp th .gsub{display:inline;margin-left:6px}
+  table.sum tr.grp th{padding:10px 12px}
+}
+@media (max-width:640px){table.dep td.rate,table.dep th[data-p]:not([data-p="name"]){padding-left:4px;padding-right:4px}table.dep td.rate b{font-size:14px}table.dep #rows td.ln,table.dep td.ln{width:30%}#tiles .k{padding:14px 14px}}
+td.promo{text-align:left}td.promo .pn{max-width:28ch}
+.c.c5{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.c.c5 .k{padding:16px 18px}.c.c5 .k b{font-size:clamp(30px,4vw,40px)}

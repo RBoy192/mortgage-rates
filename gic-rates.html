@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Today's GIC rates in Canada | What's the rate?</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<meta name="description" content="Compare today&#x27;s 1- to 5-year GIC rates from Canadian banks and credit unions, side by side and updated every hour.">
+<link rel="canonical" href="https://whatstherate.ca/gic-rates.html">
+<link rel="icon" href="favicon.svg?v=69" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=69" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=69">
+<link rel="alternate" type="application/atom+xml" title="Mortgage rate changes" href="feed.xml">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#10213F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="What's the rate?">
+<meta property="og:title" content="Today&#x27;s GIC rates in Canada">
+<meta property="og:description" content="Compare today&#x27;s 1- to 5-year GIC rates from Canadian banks and credit unions, side by side and updated every hour.">
+<meta property="og:url" content="https://whatstherate.ca/gic-rates.html">
+<meta property="og:image" content="https://whatstherate.ca/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="What's the rate? Compare today's mortgage rates.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=69">
+</head>
+<body data-page="gic">
+<main id="top">
+<div class="band home">
+<header id="site-header"></header>
+<div class="hero">
+<div><h1>Compare today's<br><span class="hl">GIC rates</span></h1>
+<p class="lede" id="lede">GIC rates from Canadian banks and credit unions, updated every hour.</p>
+<div class="m" id="updated">Loading rates…</div></div>
+</div>
+</div>
+<div class="tilepick" role="group" aria-label="Show the highest rates from"><span class="tpl" aria-hidden="true">Highest rates from:</span><div class="seg2" id="tilegrp"><button type="button" data-g="all" aria-pressed="false">All lenders</button><button type="button" data-g="banks" aria-pressed="true">Banks</button><button type="button" data-g="others" aria-pressed="false">Credit unions and others</button></div></div>
+<div class="c c5" id="tiles"></div>
+<div class="t"><table class="dep"><thead id="head"></thead><tbody id="rows"></tbody></table></div>
+<p class="f sw" id="stalenote" hidden>Greyed-out rates couldn't be refreshed in the latest update, so they may be out of date.</p>
+<p class="f"><span class="lowkey">Yellow</span> marks the highest rate of all lenders, and <span class="lowkey o">outlined</span> marks the highest within its section. Each section shows its 3 highest rates first; tap <b>Show all</b> to see every lender. Click a heading to sort it; click again to flip the order. A dash means the lender doesn't list that rate.</p>
+<h2 class="sh">About these GIC rates</h2>
+<ul class="ul">
+<li>A <b>GIC</b> (guaranteed investment certificate) pays a fixed rate for a set term, such as 1 or 5 years. These are the lenders' advertised rates for <b>non-redeemable</b> GICs: your money is locked in until the term ends.</li>
+<li>Rates are annual rates, with interest paid yearly or at the end of the term where the lender lists more than one option. Where a lender lists both a regular and a special-offer rate for a term, the special-offer rate is shown; some special offers are for new deposits only. Cashable and redeemable GICs usually pay less.</li>
+<li>Many lenders need a minimum deposit, often $500 or $1,000, and some rates are for registered accounts (TFSA, RRSP) only. Check the details on the lender's page.</li>
+<li>Deposits at banks are protected by <b>CDIC</b> (up to $100,000 per category), and at credit unions by their provincial deposit insurer. Check the coverage that applies to you.</li>
+</ul>
+<p class="f">Rates are collected from each lender's website every hour. Rates may be out of date or incomplete, so confirm the current rate and terms with the lender before you decide.</p>
+</main>
+<script src="site.js?v=69"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="69"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="deposits.js?v=69"></script>
+<script>depositPage({cols: GIC_COLUMNS, key: "1-year GIC", store: "gic", what: "GIC"});</script>
+</body>
+</html>

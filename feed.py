@@ -47,8 +47,8 @@ def atom(items, updated):
   </entry>""")
     return f"""<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>What's the rate? Mortgage rate changes</title>
-  <subtitle>Each time a Canadian lender changes an advertised 3-year fixed, 5-year variable or 5-year fixed mortgage rate.</subtitle>
+  <title>What's the rate? Rate changes</title>
+  <subtitle>Each time a Canadian lender changes an advertised mortgage, GIC or savings rate.</subtitle>
   <link href="{SITE}"/>
   <link rel="self" href="{SITE}feed.xml"/>
   <id>{SITE}feed.xml</id>

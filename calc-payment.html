@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="Work out your monthly mortgage payment at every Canadian lender&#x27;s advertised rate, for buying a home or renewing: interest over the term, any CMHC insurance premium, and what you&#x27;d save at the lowest rate.">
 <link rel="canonical" href="https://whatstherate.ca/calc-payment.html">
-<link rel="icon" href="favicon.svg?v=68" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=68" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=68">
+<link rel="icon" href="favicon.svg?v=69" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=69" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=69">
 <link rel="alternate" type="application/atom+xml" title="Mortgage rate changes" href="feed.xml">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=68">
+<link rel="stylesheet" href="style.css?v=69">
 </head>
 <body data-page="calc">
 <main id="top">
@@ -45,6 +45,7 @@
 <div class="pf rn" hidden><label for="extra">Extra to borrow (refinance)</label><span class="dl"><span aria-hidden="true">$</span><input id="extra" type="text" inputmode="numeric" data-money="1" autocomplete="off" aria-describedby="extrah"></span><span class="s" id="extrah">Leave at $0 to renew without borrowing more.</span></div>
 <div class="pf"><label for="years" id="yearsl">Amortization</label><select id="years"></select></div>
 <div class="pf"><span class="pfl" id="ptl">Rate</span><div class="seg2" id="pterm" role="group" aria-labelledby="ptl"><button type="button" data-p="3-year fixed" aria-pressed="false">3-year fixed</button><button type="button" data-p="5-year variable" aria-pressed="false">5-year variable</button><button type="button" data-p="5-year fixed" aria-pressed="true">5-year fixed</button></div></div>
+<div class="pf"><label for="tlen">Term length</label><select id="tlen"><option value="0">Same as the rate (3 or 5 years)</option><option value="1">1 year</option><option value="2">2 years</option><option value="3">3 years</option><option value="4">4 years</option><option value="5">5 years</option><option value="7">7 years</option><option value="10">10 years</option></select><span class="s">For the interest and balance at the end of the term.</span></div>
 <div class="pf"><label for="own" id="ownl">A rate you've been offered (optional)</label><span class="dl"><input id="own" type="text" inputmode="decimal" autocomplete="off" placeholder="e.g. 4.49"><span aria-hidden="true">%</span></span></div>
 <div class="pf"><label for="prov">Where's the home?</label><select id="prov"></select></div>
 <div class="pf rn" hidden><label class="chk"><input type="checkbox" id="ins"> <span>My mortgage is insured (I put less than 20% down when I bought)</span></label><span class="s" id="insh" hidden>Insured rates don't apply when you borrow more.</span></div>
@@ -56,7 +57,7 @@
 <div class="c" id="psum"></div>
 <p class="f" id="pnote"></p>
 <div class="t"><table class="paytab"><thead><tr><th scope="col">Lender</th><th scope="col">Rate</th><th scope="col">Per month</th><th scope="col" class="pi">Interest over the term</th><th scope="col" class="gp">vs. lowest</th></tr></thead><tbody id="prows"><tr><td colspan="5">Loading…</td></tr></tbody></table></div>
-<div class="acts"><button type="button" class="lk" onclick="print()">Print results</button></div>
+<div class="acts"><button type="button" id="share" class="lk">Copy a link to these numbers</button><button type="button" class="lk" onclick="print()">Print results</button></div>
 <h2>How these numbers work</h2>
 <ul class="ul">
 <li>Payments are monthly, using each lender's advertised rate for the whole term. Fixed rates are compounded twice a year and variable rates monthly, as Canadian mortgages are. A variable rate can change during the term; these numbers assume it stays where it is today.</li>
@@ -74,15 +75,21 @@
 </div>
 </div>
 </main>
-<script src="site.js?v=68"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="68"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=69"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="69"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 // Monthly payment estimator: your payment at every lender's advertised rate, for buying a home or for renewing / refinancing
 (function(){
-const PD = {mode: "buy", price: 500000, down: 20, unit: "%", years: 25, ryears: 20, owe: 350000, extra: 0, term: "5-year fixed", own: "", prov: "", ins: false};
+const PD = {mode: "buy", price: 500000, down: 20, unit: "%", years: 25, ryears: 20, owe: 350000, extra: 0, term: "5-year fixed", tlen: 0, own: "", prov: "", ins: false};
 let s = Object.assign({}, PD), lenders = [];
 try { Object.assign(s, JSON.parse(localStorage.getItem("payest") || "{}")); } catch (e) {}
 try { const p = localStorage.getItem("home-province"); if (p !== null) s.prov = p; } catch (e) {}
+// a copied link carries the numbers in the address (?mode=buy&price=…); those win over what was saved
+try { const q = new URLSearchParams(location.search); q.forEach((v, k) => { if (!(k in PD)) return;
+  s[k] = typeof PD[k] === "number" ? (parseFloat(v) || 0) : typeof PD[k] === "boolean" ? v === "true" : v; }); } catch (e) {}
+if (!["buy", "renew"].includes(s.mode)) s.mode = "buy";
+if (!["%", "$"].includes(s.unit)) s.unit = "%";
+if (![0, 1, 2, 3, 4, 5, 7, 10].includes(+s.tlen)) s.tlen = 0;
 const ALL_PROVINCES = ["Ontario", "British Columbia", "Alberta", "Manitoba", "New Brunswick", "Newfoundland and Labrador", "Northwest Territories",
   "Nova Scotia", "Nunavut", "Prince Edward Island", "Quebec", "Saskatchewan", "Yukon"];
 if (!ALL_PROVINCES.includes(s.prov)) s.prov = "";
@@ -109,18 +116,18 @@ function write(){
   $("years").innerHTML = yrs.map(y => `<option value="${y}">${y} year${y > 1 ? "s" : ""}</option>`).join("");
   $("years").value = buy ? s.years : s.ryears; $("yearsl").textContent = buy ? "Amortization" : "Years left to pay";
   $("own").value = s.own; $("ownl").textContent = buy ? "A rate you've been offered (optional)" : "Your current rate (optional)";
-  $("prov").value = s.prov; $("ins").checked = !!s.ins;
+  $("prov").value = s.prov; $("ins").checked = !!s.ins; $("tlen").value = String(s.tlen);
 }
 function read(){
   const buy = s.mode === "buy";
-  s.price = val("price"); s.down = val("down"); s.owe = val("owe"); s.extra = val("extra"); s.own = $("own").value.trim(); s.prov = $("prov").value; s.ins = $("ins").checked;
+  s.price = val("price"); s.down = val("down"); s.owe = val("owe"); s.extra = val("extra"); s.own = $("own").value.trim(); s.prov = $("prov").value; s.ins = $("ins").checked; s.tlen = +$("tlen").value;
   if (buy) s.years = +$("years").value; else s.ryears = +$("years").value;
 }
 function render(){
   read(); save();
   document.querySelectorAll("#pterm button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.p === s.term)));
   const buy = s.mode === "buy", term = s.term, variable = term.includes("variable"), years = buy ? s.years : s.ryears;
-  const months = Math.min(term.startsWith("3") ? 36 : 60, years * 12), yrs = months / 12, yl = yrs + (yrs === 1 ? " year" : " years");
+  const months = Math.min(s.tlen ? s.tlen * 12 : term.startsWith("3") ? 36 : 60, years * 12), yrs = months / 12, yl = yrs + (yrs === 1 ? " year" : " years");
   const msgs = [];
   let P, useIns, canIns = true, base = {};
   if (buy) {
@@ -176,7 +183,7 @@ function render(){
   $("pnote").textContent = `${rows.length} lenders${s.prov ? " that lend in " + s.prov : ""}, ${term}${useIns ? " (insured rates where offered; † regular rate shown)" : ""}, ${money(P)} over ${years} year${years > 1 ? "s" : ""}.`;
   $("prows").innerHTML = rows.map(r => {
     const top = Math.abs(r.pay - lo.pay) < 0.5, bottom = !top && Math.abs(r.pay - hi.pay) < 0.5;
-    return `<tr class="${top ? "top" : bottom ? "bot" : ""}"><td class="ln" style="--c:${seriesVar(r.l.name)}">${logo(r.l.name, r.l.source)}<a href="${page(r.l.name)}">${esc(r.l.name)}</a></td>`
+    return `<tr class="${top ? "top" : bottom ? "bot" : ""}"><td class="ln" style="--c:${seriesVar(r.l.name)}">${logo(r.l.name, r.l.source)}<a href="${page(r.l.name)}">${esc(r.l.name)}</a>${LENDER_NOTES[r.l.name] && (!s.prov || s.prov === "Ontario") ? `<span class="lnote">${esc(LENDER_NOTES[r.l.name])}</span>` : ""}</td>`
       + `<td class="rt">${pct(r.c.rate)}${useIns && !r.ins ? '<sup class="ni" title="No separate rate for less than 20% down; regular rate shown">†</sup>' : ""}</td>`
       + `<td class="rate${top ? " low" : ""}"><b>${money(r.pay)}</b>${top ? '<span class="lowtag">Lowest</span>' : bottom ? '<span class="hightag">Highest</span>' : ""}</td>`
       + `<td class="pi">${money(r.interest)}</td>`
@@ -194,7 +201,8 @@ document.querySelectorAll(".sg button[data-u]").forEach(b => b.onclick = e => {
   s.down = b.dataset.u === "$" ? Math.round(price * s.down / 100) : +(s.down / price * 100).toFixed(2); s.unit = b.dataset.u; write(); render();
 });
 ["price", "down", "owe", "extra", "own"].forEach(id => $(id).addEventListener("input", render));
-["years", "prov", "ins"].forEach(id => $(id).addEventListener("change", render));
+$("share").onclick = () => { read(); copyLink(s, $("share")); };
+["years", "prov", "ins", "tlen"].forEach(id => $(id).addEventListener("change", render));
 write(); render();
 loadRates().then(d => { lenders = groupLenders(d); $("updated").textContent = "Rates last updated " + fmt(d.updated_at); render(); },
   () => { $("updated").textContent = "The latest rates didn't load. Please refresh the page."; });

@@ -469,6 +469,25 @@ class TestAlertAndFeed(unittest.TestCase):
         xml.dom.minidom.parseString(feed.atom(c, "2026-10-05T12:00:00Z"))
 
 
+class TestDeposits(unittest.TestCase):
+    def test_deposit_rates_can_be_low_and_come_from_their_own_page(self):
+        from bs4 import BeautifulSoup
+        soup = BeautifulSoup("<table><tr><td>High Interest Savings</td><td>0.05%</td></tr><tr><td>1 Year GIC</td><td>3.10%</td></tr></table>", "html.parser")
+        self.assertEqual(scraper.extract(soup, {"product": "Savings", "label": "High Interest Savings"})[0], 0.05)
+        with self.assertRaises(ValueError):  # a mortgage rate that low is a reading error
+            scraper.extract(soup, {"product": "5-year fixed", "label": "High Interest Savings"})
+        lender = {"name": "X", "url": "https://x/mortgage", "rates": [{"product": "5-year fixed", "label": "a"}, {"product": "1-year GIC", "label": "b", "url": "https://x/gic"}, {"product": "Savings", "label": "c", "url": "https://x/gic"}]}
+        self.assertEqual(scraper.item_url(lender, lender["rates"][1]), "https://x/gic")
+        seen = []
+        orig = scraper.scrape_page
+        scraper.scrape_page = lambda url, mode, items, BS: (seen.append((url, [i["product"] for i in items])) or ({}, {}))
+        try:
+            scraper.scrape_lender(lender)
+        finally:
+            scraper.scrape_page = orig
+        self.assertEqual(seen, [("https://x/mortgage", ["5-year fixed"]), ("https://x/gic", ["1-year GIC", "Savings"])])
+
+
 class TestEvidence(unittest.TestCase):
     def test_only_automatic_fresh_changes_count(self):
         import evidence
@@ -484,7 +503,15 @@ class TestEvidence(unittest.TestCase):
         import evidence
         with tempfile.TemporaryDirectory() as d:
             m = Path(d) / "manifest.csv"
-            m.write_text("captured_at_utc,lender\n2026-10-01T00:00:00Z,A\n2026-10-20T00:00:00Z,A\n2026-10-05T00:00:00Z,B\n")
+            m.write_text("captured_at_utc,lender,url\n2026-10-01T00:00:00Z,A,u\n2026-10-20T00:00:00Z,A,u\n2026-10-05T00:00:00Z,B,u\n2026-10-07T00:00:00Z,A,g\n")
             last = evidence.last_captures(m)
-            self.assertEqual(last["A"].day, 20)
-            self.assertEqual(last["B"].day, 5)
+            self.assertEqual(last[("A", "u")].day, 20)
+            self.assertEqual(last[("A", "g")].day, 7)
+            self.assertEqual(last[("B", "u")].day, 5)
+
+    def test_changed_pages_keep_each_page(self):
+        import evidence
+        old = {("A", "5-year fixed"): {"rate": 4.5}, ("A", "1-year GIC"): {"rate": 3.0}}
+        new = {("A", "5-year fixed"): {"rate": 4.5, "method": "automatic", "source": "m"},
+               ("A", "1-year GIC"): {"rate": 3.1, "method": "automatic", "source": "g"}}
+        self.assertEqual(evidence.changed_pages(old, new), [("A", "g")])

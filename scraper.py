@@ -19,7 +19,13 @@ from urllib.robotparser import RobotFileParser
 
 USER_AGENT = "MortgageRatesBot/1.0 (+https://whatstherate.ca)"
 MIN_RATE, MAX_RATE = 0.5, 15.0  # anything outside this range is treated as a scraping error
-RATE_RE = re.compile(r"(\d{1,2}(?:[.,]\d{1,3})?)\s*%")  # also "4,89 %" (decimal comma, as some pages write it)
+DEP_MIN, DEP_MAX = 0.01, 10.0  # GIC and savings rates can be close to zero
+DEPOSIT_RE = re.compile(r"\bGIC\b|savings", re.I)  # products that are deposits rather than mortgages
+
+
+def is_deposit(product):
+    return bool(DEPOSIT_RE.search(product))
+RATE_RE = re.compile(r"(?<![\d.,])(\d{1,2}(?:[.,]\d{1,4})?)\s*%")  # also "4,89 %" (decimal comma, as some pages write it)
 PLAIN_RE = re.compile(r"(?<![\d.])(\d{1,2}\.\d{2,3})(?![\d.])")  # "5.28" in tables that leave off the % sign (only with  plain: true)
 PRIME_PLUS_RE = re.compile(r"\bP(?:rime)?\s?\d?\s*([+\-\u2212\u2013])\s*(\d{1,2}(?:\.\d{1,3})?)\s*%", re.I)  # "P + 0.34%", "Prime - 0.31%"
 SKIP_TAGS = ("script", "style", "noscript", "template")
@@ -93,28 +99,29 @@ def get_html(url, browser=False):
     return r.text
 
 
-def check_range(rate):
-    if not MIN_RATE <= rate <= MAX_RATE:
+def check_range(rate, deposit=False):
+    lo, hi = (DEP_MIN, DEP_MAX) if deposit else (MIN_RATE, MAX_RATE)
+    if not lo <= rate <= hi:
         raise ValueError(f"rate {rate} is outside the plausible range")
     return rate
 
 
-def pick(text, nth=1, plain=False):
+def pick(text, nth=1, plain=False, deposit=False):
     """Return the nth percentage in text, or None if there are fewer than that.
     plain: the page shows rates as bare numbers like 5.28 (no % sign)."""
     found = RATE_RE.findall(text) or (PLAIN_RE.findall(text) if plain else [])
     if len(found) < nth:
         return None
-    return check_range(float(found[nth - 1].replace(",", ".")))
+    return check_range(float(found[nth - 1].replace(",", ".")), deposit)
 
 
 def _tags(soup, after=None, before=None):
     tags = [t for t in soup.find_all(True) if t.name not in SKIP_TAGS and not t.find_parent(SKIP_TAGS)]
     text = {id(t): norm(t.get_text(" ", strip=True)) for t in tags}
-    if after:
-        marker = _smallest(tags, text, norm(after))
+    for a in ([after] if isinstance(after, str) else after or []):  # a list: each one below the one before
+        marker = _smallest(tags, text, norm(a))
         if not marker:
-            raise ValueError(f"section {after!r} not found")
+            raise ValueError(f"section {a!r} not found")
         tags = tags[tags.index(marker[0]) + 1:]
     if before:  # stop at the first place (after `after`, if given) that mentions this text
         marker = _smallest(tags, text, norm(before))
@@ -129,7 +136,7 @@ def _smallest(pool, text, needle):  # the innermost elements whose text contains
     return [t for t in pool if id(t) in ids and not any(id(c) in ids for c in t.find_all(True, recursive=False))]
 
 
-def rate_by_label(soup, label, nth=1, after=None, occurrence=1, before=None, plain=False):
+def rate_by_label(soup, label, nth=1, after=None, occurrence=1, before=None, plain=False, deposit=False, whole=False):
     """Find the table row or card whose text includes `label` and return (the nth % figure after it, the text it read).
     `after`: only look below the first place on the page that mentions this text.
     `occurrence`: use the 2nd, 3rd... time the label appears (for pages with repeated tables)."""
@@ -142,9 +149,9 @@ def rate_by_label(soup, label, nth=1, after=None, occurrence=1, before=None, pla
         for _ in range(6):  # climb from the label up to the row or card that also holds the rates
             if el is None or el.name == "[document]":
                 break
-            after_text = text[id(el)].split(want, 1)[-1]
+            after_text = text[id(el)] if whole else text[id(el)].split(want, 1)[-1]  # whole: the rate may come before the label
             if RATE_RE.search(after_text) or (plain and PLAIN_RE.search(after_text)):
-                rate = pick(after_text, nth, plain)  # None if this row has fewer figures than nth: don't borrow from other rows
+                rate = pick(after_text, nth, plain, deposit)  # None if this row has fewer figures than nth: don't borrow from other rows
                 if rate is not None:
                     rates.append((rate, after_text.strip()[:100]))
                 break
@@ -188,10 +195,11 @@ def cell_by_column(soup, label, column, after=None, occurrence=1):
 
 def extract(soup, item):
     """Return (rate, the text it was read from)."""
+    dep = is_deposit(item.get("product", ""))
     if "column" in item:
         shown = cell_by_column(soup, item["label"], item["column"], item.get("after"), item.get("occurrence", 1))
     elif "label" in item and "prime_label" not in item:
-        return rate_by_label(soup, item["label"], item.get("nth", 1), item.get("after"), item.get("occurrence", 1), item.get("before"), item.get("plain", False))
+        return rate_by_label(soup, item["label"], item.get("nth", 1), item.get("after"), item.get("occurrence", 1), item.get("before"), item.get("plain", False), dep, item.get("whole", False))
     elif "label" in item:
         shown = rate_by_label(soup, item["label"], 1, item.get("after"), item.get("occurrence", 1), item.get("before"))[1]
     else:
@@ -206,7 +214,7 @@ def extract(soup, item):
         prime, _ = rate_by_label(soup, item["prime_label"], plain=item.get("plain", False))
         spread = float(m.group(2)) * (1 if m.group(1) == "+" else -1)  # minus may be -, − or –
         return check_range(round(prime + spread, 3)), f"{shown[:60]} with prime {prime}%"
-    rate = pick(shown, item.get("nth", 1), item.get("plain", False))
+    rate = pick(shown, item.get("nth", 1), item.get("plain", False), dep)
     if rate is None:
         raise ValueError(f"no rate with a % sign found (read: {shown[:60]!r})")
     return rate, shown[:100]
@@ -219,8 +227,23 @@ def active(lender):
 def scrape_lender(lender):
     """Return ({product: (rate, text read)}, {product: error}) for one lender."""
     from bs4 import BeautifulSoup
-    url, mode = lender["url"], lender.get("mode", "auto")
-    todo = active(lender)
+    results, errors = {}, {}
+    # rates can come from more than one page (GIC and savings rates usually have their own): one visit per page
+    pages = {}
+    for item in active(lender):
+        key = (item_url(lender, item), item.get("mode", lender.get("mode", "auto")))
+        pages.setdefault(key, []).append(item)
+    for (url, mode), items in pages.items():
+        r, e = scrape_page(url, mode, items, BeautifulSoup)
+        results.update(r); errors.update(e)
+    return results, errors
+
+
+def item_url(lender, item):
+    return item.get("url") or lender["url"]
+
+
+def scrape_page(url, mode, todo, BeautifulSoup):
     if mode == "manual":
         return {}, {i["product"]: "set to manual entry" for i in todo}
     if not robots_ok(url):
@@ -403,7 +426,7 @@ def run():
                       + ("" if publish else "   [not published]"))
                 if publish:
                     stamp = now()
-                    rec = {"institution": name, "product": product, "rate": rate, "source": url,
+                    rec = {"institution": name, "product": product, "rate": rate, "source": item_url(lender, item),
                            "fetched_at": stamp, "checked_at": stamp, "method": "automatic", "stale": False}
                     if item.get("note"):
                         rec["note"] = item["note"]
@@ -411,7 +434,7 @@ def run():
                 continue
             why = f"{name} / {product}: {errs.get(product, 'unknown error')}"
             if publish and (name, product) in manual:
-                rec = manual_record(name, product, manual[(name, product)], url)
+                rec = manual_record(name, product, manual[(name, product)], item_url(lender, item))
                 if item.get("note") and "note" not in rec:
                     rec["note"] = item["note"]
                 rates.append(rec)

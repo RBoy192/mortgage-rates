@@ -29,15 +29,20 @@ def load_rates(path):
         return {}
 
 
-def changed_lenders(old, new):
-    """Lenders with an automatically read rate that is new or different from the previous update."""
+def changed_pages(old, new):
+    """(lender, page) for each automatically read rate that is new or different from the previous update.
+    A lender's GIC and savings rates can be on other pages than its mortgage rates, so each page is kept."""
     out = set()
     for k, r in new.items():
         if r.get("method") != "automatic" or r.get("stale"):
             continue
         if k not in old or abs(float(old[k]["rate"]) - float(r["rate"])) > 1e-9:
-            out.add(k[0])
+            out.add((k[0], r.get("source") or ""))
     return sorted(out)
+
+
+def changed_lenders(old, new):
+    return sorted({n for n, _ in changed_pages(old, new)})
 
 
 def last_captures(manifest):
@@ -48,8 +53,9 @@ def last_captures(manifest):
                 t = datetime.fromisoformat(row["captured_at_utc"].replace("Z", "+00:00"))
             except ValueError:
                 continue
-            if row["lender"] not in last or t > last[row["lender"]]:
-                last[row["lender"]] = t
+            k = (row["lender"], row.get("url", ""))
+            if k not in last or t > last[k]:
+                last[k] = t
     return last
 
 
@@ -95,17 +101,21 @@ def main(prev_path):
     have_repo = (REPO / ".git").exists()
     manifest = REPO / "manifest.csv"
     now = datetime.now(timezone.utc)
-    changed = set(changed_lenders(old, new))
+    changed = set(changed_pages(old, new))
     last = last_captures(manifest) if have_repo else {}
     todo = []
     for name, l in lenders.items():
-        if l.get("mode") == "manual":  # these block automated visits, so there's nothing to capture
-            continue
-        if name in changed:
-            todo.append((name, l["url"], "rate change"))
-        elif have_repo and now - last.get(name, datetime(2000, 1, 1, tzinfo=timezone.utc)) >= timedelta(days=BASELINE_DAYS) \
-                and sum(1 for t in todo if t[2] == "baseline") < BASELINE_PER_RUN:
-            todo.append((name, l["url"], "baseline"))
+        pages = []  # each page this lender's rates are read from automatically (manual ones block automated visits)
+        for item in l.get("rates") or []:
+            u, m = item.get("url") or l["url"], item.get("mode", l.get("mode", "auto"))
+            if m != "manual" and item.get("enabled", True) and u not in pages:
+                pages.append(u)
+        for url in pages:
+            if (name, url) in changed:
+                todo.append((name, url, "rate change"))
+            elif have_repo and now - last.get((name, url), datetime(2000, 1, 1, tzinfo=timezone.utc)) >= timedelta(days=BASELINE_DAYS) \
+                    and sum(1 for t in todo if t[2] == "baseline") < BASELINE_PER_RUN:
+                todo.append((name, url, "baseline"))
     if not todo:
         print("evidence: nothing to capture")
         return 0
@@ -113,7 +123,7 @@ def main(prev_path):
     rows = []
     from concurrent.futures import ThreadPoolExecutor
     pool = ThreadPoolExecutor(max_workers=4)
-    archived = {name: pool.submit(wayback, url) for name, url, _ in todo}
+    archived = {(name, url): pool.submit(wayback, url) for name, url, _ in todo}
     if have_repo:
         from playwright.sync_api import sync_playwright
         with sync_playwright() as pw:
@@ -129,10 +139,10 @@ def main(prev_path):
                 except Exception as e:
                     print(f"evidence: {name}: capture failed ({str(e)[:80]})")
                     continue
-                rates = "; ".join(f"{p}: {r['rate']}" for (n, p), r in sorted(new.items()) if n == name)
+                rates = "; ".join(f"{p}: {r['rate']}" for (n, p), r in sorted(new.items()) if n == name and (r.get("source") or url) == url)
                 rows.append({"captured_at_utc": stamp.strftime("%Y-%m-%dT%H:%M:%SZ"), "lender": name, "url": url, "reason": reason,
                              "rates": rates, "screenshot": str(shot.relative_to(REPO)), "screenshot_sha256": shot_sha,
-                             "html": str(html.relative_to(REPO)), "html_sha256": html_sha, "wayback": archived[name]})
+                             "html": str(html.relative_to(REPO)), "html_sha256": html_sha, "wayback": archived[(name, url)]})
                 print(f"evidence: {name}: saved ({reason})")
             b.close()
         for r in rows:
@@ -149,7 +159,7 @@ def main(prev_path):
     else:
         for name, url, reason in todo:
             try:
-                print(f"evidence: {name}: Internet Archive {archived[name].result(timeout=90)}")
+                print(f"evidence: {name}: Internet Archive {archived[(name, url)].result(timeout=90)}")
             except Exception as ex:
                 print(f"evidence: {name}: Internet Archive failed ({str(ex)[:60]})")
     pool.shutdown(wait=False, cancel_futures=True)
