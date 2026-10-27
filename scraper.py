@@ -321,8 +321,11 @@ def manual_record(name, product, m, url, day=None):
 
 
 # Official Bank of Canada series loaded into history.json (ten years back, refreshed every run):
-# the policy rate, the major banks' typical prime rate, and their typical posted 3- and 5-year fixed rates.
-BOC_HISTORY = {"policy_rate": "V39079", "prime_rate": "V80691311", "posted|3-year fixed": "V80691334", "posted|5-year fixed": "V80691335"}
+# the policy rate, the major banks' typical prime rate, their typical posted 3- and 5-year fixed rates,
+# their typical 1-, 3- and 5-year GIC rates and their typical non-chequable savings deposit rate.
+BOC_HISTORY = {"policy_rate": "V39079", "prime_rate": "V80691311", "posted|3-year fixed": "V80691334", "posted|5-year fixed": "V80691335",
+               "posted|1-year GIC": "V80691339", "posted|3-year GIC": "V80691340", "posted|5-year GIC": "V80691341",
+               "posted|Savings": "V80691338"}
 HISTORY_DAYS = 3653  # ten years
 
 

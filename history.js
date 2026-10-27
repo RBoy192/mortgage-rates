@@ -40,7 +40,7 @@ function controls(){
   $("quick").innerHTML = [["all", "Show all", shown.length === all.length], ["banks", "Banks only", only(banks)],
     ["others", "Credit unions and others", only(all.filter(n => NON_BANKS.includes(n)))], ["none", "Clear all", !shown.length && hidden.has(P)]]
     .map(([k, t, on]) => `<button type="button" data-q="${k}" aria-pressed="${on}">${t}</button>`).join("");
-  $("chips").innerHTML = (kind === "mortgages" && Object.keys(H.series).some(k => k.startsWith("posted|")) ? `<button type="button" class="chip" aria-pressed="${!hidden.has(P)}" data-n="${P}"><i style="background:var(--mu)"></i>Big-bank posted rate</button>` : "") + (() => {
+  $("chips").innerHTML = (prods().some(p => H.series["posted|" + p]) ? `<button type="button" class="chip" aria-pressed="${!hidden.has(P)}" data-n="${P}"><i style="background:var(--mu)"></i>Big-bank posted rate</button>` : "") + (() => {
     const chip = n => `<button type="button" class="chip" aria-pressed="${!hidden.has(n)}" data-n="${esc(n)}"><i style="background:${seriesVar(n)}"></i>${esc(n)}</button>`;
     if (region === "Nationwide") { const nat = all.filter(n => !local(n)), reg = all.filter(local);
       return nat.map(chip).join("") + (reg.length ? `<p class="chh">Regional lenders</p>` + reg.map(chip).join("") : ""); }
@@ -172,7 +172,7 @@ if (!$("range")) return;
 function render(){
   controls();
   const ls = avail().filter(n => !hidden.has(n));
-  // The Bank of Canada publishes the big banks' typical posted rate for fixed terms; it's drawn dashed for context.
+  // The Bank of Canada publishes the big banks' typical posted rate for some fixed terms, GICs and savings; it's drawn dashed for context.
   const POSTED = "Big-bank posted rate (Bank of Canada)";
   document.querySelectorAll("#hkind button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.k === kind)));
   for (let k = 0; k < 5; k++) { const el = $("ch" + k); if (el) el.hidden = k >= KINDS[kind].length; }
@@ -186,10 +186,11 @@ function render(){
   });
   chart($("chb"), "Bank of Canada policy rate and prime rate", [["policy_rate", "BoC policy rate", "var(--s1)"], ["prime_rate", "Prime rate", "var(--s2)"]]
     .filter(([k]) => H.series[k]).map(([k, name, color]) => ({name, color, steps: true, points: H.series[k]})));
-  const lenderFirst = Object.entries(H.series).filter(([k]) => k.includes("|") && !k.startsWith("posted|")).flatMap(([, s]) => s.map(p => p[0])).sort()[0];
+  const lenderFirst = Object.entries(H.series).filter(([k]) => k.includes("|") && !k.startsWith("posted|") && prods().includes(k.split("|").slice(1).join("|"))).flatMap(([, s]) => s.map(p => p[0])).sort()[0];
+  const dep = kind !== "mortgages", from = dep ? (H.deposit_history_from || H.site_history_from) : H.site_history_from;
   $("since").textContent = (H.boc_history_from ? `Bank of Canada figures go back to ${dstr(H.boc_history_from)}. ` : "")
-    + (H.lender_archive_note && H.site_history_from
-      ? `Lenders don't publish their past rates. Before ${dstr(H.site_history_from)}, the lines come from archived copies of each lender's own rate page, which were saved at irregular times, so a change between two copies may show up late or be missed. A faint dotted line means no copy was saved in between. Since then, this site has saved every rate once a day.`
+    + ((dep ? H.deposit_archive_note : H.lender_archive_note) && from
+      ? `Lenders don't publish their past rates. Before ${dstr(from)}, the lines come from archived copies of each lender's own rate page, which were saved at irregular times, so a change between two copies may show up late or be missed. A faint dotted line means no copy was saved in between. Since then, this site has saved every rate once a day.`
       : lenderFirst ? `Each lender's own rates start on ${dstr(lenderFirst)}, when this site began saving them once a day; lenders don't publish their past rates.` : "");
 }
 
