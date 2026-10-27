@@ -20,6 +20,8 @@ def ok(r):
     v = float(r["rate"])
     if "${" in t or "{{" in t:
         return False  # an unfilled template
+    if any(float(x) >= 5 for x in re.findall(r"(\d{1,2}\.\d{1,4})\s*%", t)):
+        return False  # a 5%+ figure beside it means the label matched a mortgage or loan row in an older layout
     if re.fullmatch(r"\d{1,2}\.\d{2,4}", t.strip()):
         return abs(float(t) - v) < 1e-9
     m = None
