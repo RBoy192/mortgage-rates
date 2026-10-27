@@ -63,7 +63,7 @@ function chart(el, title, series, scale = series, nonePicked = false){
   if (!vis.length || !vals.length) { el.innerHTML = `<h2 class="h3">${title}</h2><p class="empty">No rates in this time range.</p>`; return; }
   const vmin = Math.min(...vals), vmax = Math.max(...vals);
   const stepY = [0.05, 0.1, 0.25, 0.5, 1, 2].find(s => Math.ceil((vmax + 0.05) / s) - Math.floor((vmin - 0.05) / s) <= 5) || 2;
-  const lo = Math.floor((vmin - 0.05) / stepY) * stepY, hi = Math.ceil((vmax + 0.05) / stepY) * stepY;
+  const lo = Math.max(0, Math.floor((vmin - 0.05) / stepY) * stepY),  /* rates never go below zero */ hi = Math.ceil((vmax + 0.05) / stepY) * stepY;
   const W = Math.max(300, el.clientWidth - 48), Ht = 240, m = {l: 48, r: 12, t: 10, b: 26}, iw = W - m.l - m.r, ih = Ht - m.t - m.b;
   const x = t => m.l + (t - start) / (end - start) * iw, y = r => m.t + (hi - r) / (hi - lo) * ih;
   const ticks = []; for (let v = lo; v <= hi + 1e-9; v += stepY) ticks.push(v);
