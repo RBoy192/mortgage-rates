@@ -337,28 +337,63 @@ def recent_announcement(day=None, days=7):
     return None
 
 
+# Where else to look: each bank's own list of news releases (any prime-rate release dated that day), and RBC's
+# prime-rate page, which shows the new rate and its "date of change" once it takes effect.
+PRIME_LISTINGS = [("TD", "https://stories.td.com/ca/en/news", r"(?:https://stories\.td\.com)?/ca/en/news/{d}-[^\"'#<> ]*prime[^\"'#<> ]*"),
+                  ("Scotiabank", "https://scotiabank.investorroom.com/index.php?s=43", r"https://scotiabank\.investorroom\.com/{d}-[^\"'#<> ]*[Pp]rime[^\"'#<> ]*")]
+RBC_PRIME = "https://www.rbcroyalbank.com/rates/prime.html"
+RBC_PRIME_RE = re.compile(r"royal bank prime (\d{1,2}\.\d{1,3}) (\d{4})/(\d{2})/(\d{2})")
+
+
+def _page_html(url):
+    import requests
+    if not robots_ok(url):
+        return ""
+    r = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=30)
+    return r.text if r.ok else ""
+
+
 def bank_prime_announcement(d):
-    """New prime rate announced by a big bank on announcement day `d` (YYYY-MM-DD), from its own website:
-    {rate, effective, banks, source}, or None if no bank has posted one."""
+    """New prime rate announced by big banks on announcement day `d` (YYYY-MM-DD), from their own websites:
+    {rate, effective, banks, source}, or None if none has posted one yet (or they disagree)."""
     found = {}
+    def read(bank, url):
+        try:
+            m = PRIME_RE.search(_page_text(url) or "")
+        except Exception:
+            return
+        if m and 0 <= float(m.group(1)) <= 25:
+            found[bank] = (float(m.group(1)), m.group(2).title(), url)
     for bank, pattern in PRIME_RELEASES:
+        if bank not in found:
+            read(bank, pattern.format(d=d))
+    for bank, listing, link in PRIME_LISTINGS:
         if bank in found:
             continue
-        url = pattern.format(d=d)
         try:
-            text = _page_text(url)
+            m = re.search(link.format(d=re.escape(d)), _page_html(listing))
         except Exception:
-            continue
-        m = PRIME_RE.search(text or "")
-        if m and 0 <= float(m.group(1)) <= 25:
-            found[bank] = (float(m.group(1)), m.group(2), url)
+            m = None
+        if m:
+            u = m.group(0)
+            read(bank, u if u.startswith("http") else "https://stories.td.com" + u)
+    try:  # RBC's prime page, once the change has taken effect
+        m = RBC_PRIME_RE.search(_page_text(RBC_PRIME) or "")
+        if m and f"{m.group(2)}-{m.group(3)}-{m.group(4)}" > d:
+            found["RBC"] = (float(m.group(1)), dstr_long(f"{m.group(2)}-{m.group(3)}-{m.group(4)}"), RBC_PRIME)
+    except Exception:
+        pass
     if not found:
         return None
-    rates = {v[0] for v in found.values()}
-    if len(rates) > 1:
+    if len({v[0] for v in found.values()}) > 1:
         return None  # the banks disagree: wait for the Bank of Canada's weekly figure
     rate, eff, url = next(iter(found.values()))
     return {"rate": rate, "effective": eff, "banks": sorted(found), "source": url}
+
+
+def dstr_long(iso):
+    d = date.fromisoformat(iso)
+    return f"{d.strftime('%B')} {d.day}, {d.year}"
 
 
 def policy_rate(day=None):  # target for the overnight rate (the policy interest rate)
@@ -383,7 +418,7 @@ def prime_rate(day=None):  # the major banks' typical prime rate (a weekly serie
         p = bank_prime_announcement(a[0])
         if p and abs(p["rate"] - v["rate"]) >= 0.0005:
             return {"rate": p["rate"], "as_of": a[0], "source": p["source"], "fetched_at": now(), "stale": False,
-                    "announced": True, "note": f"As announced by {' and '.join(p['banks'])}, effective {p['effective'].title()}"}
+                    "announced": True, "note": f"As announced by {' and '.join(p['banks'])}, effective {p['effective']}"}
     return v
 
 
