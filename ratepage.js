@@ -36,7 +36,7 @@ function renderTerm(){
     const ch = r.c.stale ? null : weekChange(hist.series[r.l.name + "|" + term], r.c.rate), gap = dep ? best - r.c.rate : r.c.rate - best;
     return `<tr${r.rank === 1 ? ' class="top"' : ""}><td class="rk">${r.rank}</td>`
       + `<td class="ln">${logo(r.l.name, r.l.source)}<a href="${lenderPage(r.l.name)}">${esc(r.l.name)}</a>${dep && r.c.note ? `<span class="pn">${esc(r.c.note)}</span>` : ""}</td>`
-      + `<td class="rate${r.rank === 1 ? " low" : ""}${r.c.stale ? " st" : ""}">${arrow(ch)}<b>${pct(r.c.rate)}</b></td>`
+      + `<td class="rate${r.rank === 1 ? " low" : ""}${r.c.stale ? " st" : ""}" data-s="${esc(r.l.name + "|" + term)}">${arrow(ch)}<b>${pct(r.c.rate)}</b></td>`
       + `<td class="gap">${gap < 0.0005 ? `<span class="lowtag">${dep ? "Highest" : "Lowest"}</span>` : (dep ? "−" : "+") + gap.toFixed(2)}</td></tr>`;
   }).join("") || `<tr><td colspan="4">No lender lists this rate right now.</td></tr>`;
   $("stalenote").hidden = !rows.some(r => r.c.stale);
@@ -100,4 +100,5 @@ loadRates().then(d => {
   loadHistory().then(h => { hist = h && h.series ? h : {series: {}}; render(); });
 }, () => { $("updated").innerHTML = mascotNote("Hmm, the latest rates didn't load. Please refresh the page, or try again in a few minutes."); });
 let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(render, 150); });
+if ($("rows")) sparkPop($("rows"), () => hist);  // hover or tap a rate: its last 30 days
 })();

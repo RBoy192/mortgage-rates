@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="Compare today&#x27;s best mortgage, GIC and savings rates from Canadian banks and credit unions, updated every hour, with free plain-language calculators and guides.">
 <link rel="canonical" href="https://whatstherate.ca/">
-<link rel="icon" href="favicon.svg?v=74" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=74" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=74">
+<link rel="icon" href="favicon.svg?v=75" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=75" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=75">
 <link rel="alternate" type="application/atom+xml" title="Rate changes" href="feed.xml">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
@@ -25,7 +25,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=74">
+<link rel="stylesheet" href="style.css?v=75">
+<script type="application/ld+json" id="ld" data-live="1">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://whatstherate.ca/#page", "url": "https://whatstherate.ca/", "name": "What's the rate? Compare today's mortgage, GIC and savings rates in Canada", "description": "Compare today's best mortgage, GIC and savings rates from Canadian banks and credit unions, updated every hour, with free plain-language calculators and guides.", "inLanguage": "en-CA", "isPartOf": {"@type": "WebSite", "name": "What's the rate?", "url": "https://whatstherate.ca/"}, "publisher": {"@type": "Organization", "name": "What's the rate?", "url": "https://whatstherate.ca/", "logo": "https://whatstherate.ca/apple-touch-icon.png"}, "dateModified": "2026-10-28"}]}</script>
 </head>
 <body data-page="rates">
 <main id="top">
@@ -42,6 +43,9 @@
 <div id="hold" class="hold" hidden></div>
 <div class="pickrow"><div class="kindpick"><span class="kpl" id="kindl">Show rates for</span><div class="seg2 kind" id="kind" role="group" aria-labelledby="kindl"><button type="button" data-k="mortgages" aria-pressed="true">Mortgages</button><button type="button" data-k="gics" aria-pressed="false">GICs</button><button type="button" data-k="savings" aria-pressed="false">Savings</button></div></div>
 <div class="tilepick" role="group" aria-label="Show the best rates from"><span class="tpl" aria-hidden="true">Best rates from:</span><div class="seg2" id="tilegrp"><button type="button" data-g="all" aria-pressed="false">All lenders</button><button type="button" data-g="banks" aria-pressed="true">Banks</button><button type="button" data-g="others" aria-pressed="false">Credit unions and others</button></div></div></div>
+<div class="mainwrap">
+<div class="filtrow" id="filtrow"><div class="gictype" id="gtrow"><span class="kpl" id="gtl">GIC type</span><div class="seg2" id="gictype" role="group" aria-labelledby="gtl"><button type="button" data-t="non" aria-pressed="true">Non-redeemable</button><button type="button" data-t="red" aria-pressed="false">Redeemable (cashable)</button></div></div><div class="provpick"><label class="kpl" for="prov">Province</label><select id="prov"><option value="">All provinces</option></select></div><div class="lfind"><label class="vh" for="lfind">Find a lender</label><input id="lfind" type="search" list="lenderlist" placeholder="Find a lender" autocomplete="off" enterkeyhint="go"><datalist id="lenderlist"></datalist><span class="lfmsg" id="lfmsg" role="status"></span></div></div>
+<div class="paneswrap">
 <section id="p_mortgages" class="panel" aria-label="Mortgage rates">
 <div class="c" id="tiles"></div>
 <p class="inslegend" id="inslegend" hidden><span class="insr" aria-hidden="true"><b>4.09%</b></span> Green tags show a lower rate some lenders offer if you put down less than 20%.</p>
@@ -53,13 +57,13 @@
 <div class="start2" id="byterm"><a href="3-year-fixed-mortgage-rates.html" data-p="3-year fixed"><span class="bt">Best 3-year fixed rates<small></small></span><span aria-hidden="true">→</span></a><a href="5-year-variable-mortgage-rates.html" data-p="5-year variable"><span class="bt">Best 5-year variable rates<small></small></span><span aria-hidden="true">→</span></a><a href="5-year-fixed-mortgage-rates.html" data-p="5-year fixed"><span class="bt">Best 5-year fixed rates<small></small></span><span aria-hidden="true">→</span></a></div>
 </details>
 <details class="fold"><summary><h2 class="sh">Compare by lender</h2></summary>
+<p class="f"><a href="compare.html"><b>Compare two or three lenders side by side</b></a>: their mortgage, GIC and savings rates in one table, with how each has moved.</p>
 <div class="lnk" id="bylender"><a href="access-mortgage-rates.html">Access Credit Union</a><a href="affinity-mortgage-rates.html">Affinity Credit Union</a><a href="alterna-mortgage-rates.html">Alterna Savings</a><a href="assiniboine-mortgage-rates.html">Assiniboine Credit Union</a><a href="atb-mortgage-rates.html">ATB Financial</a><a href="beem-mortgage-rates.html">Beem Credit Union</a><a href="bmo-mortgage-rates.html">BMO</a><a href="cibc-mortgage-rates.html">CIBC</a><a href="coast-capital-mortgage-rates.html">Coast Capital Savings</a><a href="conexus-mortgage-rates.html">Conexus Credit Union</a><a href="desjardins-mortgage-rates.html">Desjardins</a><a href="eq-bank-mortgage-rates.html">EQ Bank</a><a href="first-national-mortgage-rates.html">First National</a><a href="firstontario-mortgage-rates.html">FirstOntario Credit Union</a><a href="icici-mortgage-rates.html">ICICI Bank Canada</a><a href="libro-mortgage-rates.html">Libro Credit Union</a><a href="manulife-bank-mortgage-rates.html">Manulife Bank</a><a href="meridian-mortgage-rates.html">Meridian</a><a href="national-bank-mortgage-rates.html">National Bank</a><a href="rbc-mortgage-rates.html">RBC Royal Bank</a><a href="scotiabank-mortgage-rates.html">Scotiabank</a><a href="servus-mortgage-rates.html">Servus Credit Union</a><a href="steinbach-mortgage-rates.html">Steinbach Credit Union</a><a href="tangerine-mortgage-rates.html">Tangerine</a><a href="td-mortgage-rates.html">TD Canada Trust</a><a href="tru-mortgage-rates.html">Tru Cooperative Bank</a><a href="uni-mortgage-rates.html">UNI Financial</a><a href="vancity-mortgage-rates.html">Vancity</a></div>
 </details>
 <p class="f"><b>Your rate may be lower.</b> The rates on this page are the ones each lender advertises publicly. Many banks also offer <span data-tip="rvr">relationship pricing</span> (sometimes called relationship value, or RVR), which can give existing clients a rate lower than the posted rate, depending on the products they hold with the bank and their overall relationship. The rate you're actually offered also depends on your own situation, such as your down payment, credit and the type of mortgage. Ask each lender what relationship pricing they can offer before you decide.</p>
 <p class="f">New to mortgages? <a href="crash-course.html">Rates Explained: Mortgages</a> covers the basics in simple steps.</p>
 </section>
 <section id="p_gics" class="panel" aria-label="GIC rates" hidden>
-<div class="gictype"><span class="kpl" id="gtl">GIC type</span><div class="seg2" id="gictype" role="group" aria-labelledby="gtl"><button type="button" data-t="non" aria-pressed="true">Non-redeemable</button><button type="button" data-t="red" aria-pressed="false">Redeemable (cashable)</button></div></div>
 <p class="f" id="g_say">Non-redeemable GICs lock your money in until the term ends, and usually pay more.</p>
 <div class="c c5" id="g_tiles"></div>
 <div class="t"><table class="dep"><thead id="g_head"></thead><tbody id="g_rows"></tbody></table></div>
@@ -67,6 +71,14 @@
 <p class="f"><span class="lowkey">Yellow</span> marks the highest rate of all lenders, and <span class="lowkey o">outlined</span> marks the highest within its section. Each section shows its 3 highest rates first; tap <b>Show all</b> to see every lender. A dash means the lender doesn't list that rate: many lenders only offer redeemable GICs for 1 year.</p>
 <p class="f">Rates are annual rates, with interest paid yearly or at the end of the term where the lender lists more than one option. Where a lender lists both a regular and a special-offer rate for a term, the special-offer rate is shown; some special offers are for new deposits only. Most lenders ask for a minimum deposit, often $500 or $1,000. New to GICs? <a href="gic-course.html">Rates Explained: GICs</a> covers the basics in simple steps.</p>
 <p class="f">Ranked lists: best <a href="1-year-gic-rates.html">1-year</a>, <a href="2-year-gic-rates.html">2-year</a>, <a href="3-year-gic-rates.html">3-year</a>, <a href="4-year-gic-rates.html">4-year</a> and <a href="5-year-gic-rates.html">5-year</a> GIC rates. Deciding on a GIC? The <a href="rate-hold.html">rate watchdog</a> tells you when lenders beat your offer.</p>
+<div class="ladder" id="ladder">
+<h2 class="sh">Build a GIC ladder</h2>
+<p class="f">A ladder splits your money across GICs of different lengths, so some comes due every year while most of it earns longer-term rates. <a href="gic-ladder.html">How ladders work</a>.</p>
+<div class="payform lform"><div class="pf"><label for="lad_amt">Amount to invest</label><span class="dl"><span aria-hidden="true">$</span><input id="lad_amt" type="text" inputmode="decimal" autocomplete="off" value="25,000"></span></div>
+<div class="pf"><label for="lad_n">Rungs</label><select id="lad_n"><option value="5">5 (1 to 5 years)</option><option value="3">3 (1, 3 and 5 years)</option></select></div>
+<div class="pf"><label for="lad_who">Lenders</label><select id="lad_who"><option value="">Highest rate for each term</option></select></div></div>
+<div id="lad_out"></div>
+</div>
 </section>
 <section id="p_savings" class="panel" aria-label="Savings account rates" hidden>
 <div class="c" id="s_tiles"></div>
@@ -75,6 +87,9 @@
 <p class="f"><span class="lowkey">Yellow</span> marks the highest rate of all lenders, and <span class="lowkey o">outlined</span> marks the highest within its section. Each section shows its 3 highest rates first; tap <b>Show all</b> to see every lender.</p>
 <p class="f">The <b>regular rate</b> is what each lender advertises on its main high-interest savings account, for a $10,000 balance where the rate depends on the balance. A <b>promotional offer</b> is a higher rate for a limited time, usually for new clients or new deposits; when it ends, the regular rate applies. New to savings accounts? <a href="sav-course.html">Rates Explained: Savings</a> covers the basics in simple steps. Ranked list: <a href="high-interest-savings-rates.html">best savings account rates</a>.</p>
 </section>
+<aside class="wkpanel" id="wk" aria-labelledby="wkh"><h2 class="wkh" id="wkh">This week's changes</h2><div id="wkbody"><p class="m">Loading…</p></div><a class="wkall" href="weekly-changes.html">All rate changes <span aria-hidden="true">→</span></a></aside>
+</div>
+</div>
 <details class="fold"><summary><h2 class="sh">Not sure where to start?</h2></summary>
 <div class="start2">
 <a href="calculators.html">I'm buying my first home <span aria-hidden="true">→</span></a>
@@ -86,11 +101,12 @@
 <p class="f" id="fn1" hidden><b>* BoC policy rate:</b> the Bank of Canada's target for the overnight rate, which is what big financial institutions charge each other for one-day loans. When it changes, banks usually move their prime rates too, which affects variable-rate mortgages.</p>
 <p class="f" id="fn2" hidden><b>** Prime rate:</b> the typical prime lending rate of Canada's major banks, published weekly. Variable-rate mortgages are priced off prime. Each lender sets its own prime rate, so yours may differ slightly.</p>
 </main>
-<script src="site.js?v=74"></script>
-<script src="deposits.js?v=74"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="74"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=75"></script>
+<script src="deposits.js?v=75"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="75"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
-let lenders = [], sortBy = "5-year fixed", sortDir = 1, updatedAt = null, hist = {series: {}};
+let lenders = [], allLenders = [], sortBy = "5-year fixed", sortDir = 1, updatedAt = null, hist = {series: {}};
+const Q = new URLSearchParams(location.search);  // shareable choices: ?prov=Ontario&gic=red (the rate type is in the #hash)
 
 // "Last updated 12 minutes ago", refreshed every 30 seconds
 function ago(iso){
@@ -117,7 +133,10 @@ $("head").innerHTML = `<tr><th scope="col" data-p="name"><button type="button">L
 // Ontario and British Columbia come first, then the rest alphabetically. Remembered in this browser.
 const ALL_PROVINCES = ["Ontario", "British Columbia", "Alberta", "Manitoba", "New Brunswick", "Newfoundland and Labrador", "Northwest Territories",
   "Nova Scotia", "Nunavut", "Prince Edward Island", "Quebec", "Saskatchewan", "Yukon"];
-let province = "";  // the main page shows every lender (the province filter lives on the monthly payment estimator)
+// Province filter: only lenders that serve the chosen province (national lenders always). From the address, else remembered.
+let province = Q.get("prov") || (() => { try { return localStorage.getItem("home-prov") || ""; } catch (e) { return ""; } })();
+if (!ALL_PROVINCES.includes(province)) province = "";
+$("prov").insertAdjacentHTML("beforeend", ALL_PROVINCES.map(p => `<option${p === province ? " selected" : ""}>${p}</option>`).join(""));
 // "Less than 20% down": show each lender's insured (high-ratio) rate where it publishes one, otherwise its regular rate (marked †)
 let insured = false;  // regular rates on the main page
 const view = l => !insured ? l : {...l, cells: Object.fromEntries(COLUMNS.map(([, p]) => {
@@ -139,10 +158,12 @@ $("tilegrp").addEventListener("click", e => {
   GIC.render(); SAV.render();
 });
 // GIC and savings tables (deposits.js); the button row under the header picks which rates are shown
-const GIC = depositTable({id: "g", cols: GIC_COLUMNS, key: "1-year GIC", store: "gic", what: "GIC", label: (h, p) => p || "GIC"});
-const SAV = depositTable({id: "s", cols: [["Regular rate", SAVINGS]], key: SAVINGS, store: "savings", what: "savings", promo: true, label: () => "savings rate"});
+const DEP = {filter: n => serves(n), where: () => province ? " in " + province : "", hist: () => hist};
+const GIC = depositTable(Object.assign({id: "g", cols: GIC_COLUMNS, key: "1-year GIC", store: "gic", what: "GIC", label: (h, p) => p || "GIC"}, DEP));
+const SAV = depositTable(Object.assign({id: "s", cols: [["Regular rate", SAVINGS]], key: SAVINGS, store: "savings", what: "savings", promo: true, label: () => "savings rate"}, DEP));
 let gicType = "non";
 try { if (localStorage.getItem("gic-type") === "red") gicType = "red"; } catch (e) {}
+if (Q.get("gic") === "red" || Q.get("gic") === "non") gicType = Q.get("gic");
 function setGicType(t){
   gicType = t;
   document.querySelectorAll("#gictype button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.t === t)));
@@ -151,7 +172,7 @@ function setGicType(t){
   GIC.cols(t === "red" ? RGIC_COLUMNS : GIC_COLUMNS, t === "red" ? "1-year redeemable GIC" : "1-year GIC");
 }
 $("gictype").addEventListener("click", e => { const b = e.target.closest("button[data-t]"); if (!b || b.dataset.t === gicType) return;
-  setGicType(b.dataset.t); try { localStorage.setItem("gic-type", gicType); } catch (er) {} });
+  setGicType(b.dataset.t); try { localStorage.setItem("gic-type", gicType); } catch (er) {} syncURL(); });
 setGicType(gicType);
 const KINDS = ["mortgages", "gics", "savings"];
 function setKind(k, push){
@@ -160,11 +181,20 @@ function setKind(k, push){
   KINDS.forEach(x => { $("p_" + x).hidden = x !== k; });
   document.body.dataset.kind = k;
   try { localStorage.setItem("home-kind", k); } catch (e) {}
-  if (push) try { history.replaceState(null, "", k === "mortgages" ? location.pathname : "#" + k); } catch (e) {}
+  if (push) syncURL();
+  if (typeof weekly === "function") weekly();
+}
+// The address always describes what's on screen, so it can be copied and shared
+function syncURL(){
+  const q = new URLSearchParams();
+  if (province) q.set("prov", province);
+  if (document.body.dataset.kind === "gics" && gicType === "red") q.set("gic", "red");
+  const k = document.body.dataset.kind;
+  try { history.replaceState(null, "", location.pathname + (q.toString() ? "?" + q : "") + (k && k !== "mortgages" ? "#" + k : "")); } catch (e) {}
 }
 $("kind").addEventListener("click", e => { const b = e.target.closest("button[data-k]"); if (b) setKind(b.dataset.k, true); });
 window.addEventListener("hashchange", () => setKind(location.hash.slice(1)));
-setKind(location.hash ? location.hash.slice(1) : (() => { try { return localStorage.getItem("home-kind") || "mortgages"; } catch (e) { return "mortgages"; } })());
+setKind(location.hash ? location.hash.slice(1) : Q.get("ladder") ? "gics" : (() => { try { return localStorage.getItem("home-kind") || "mortgages"; } catch (e) { return "mortgages"; } })());
 // Each section (banks; credit unions and other lenders) shows its 3 lowest rates until it's expanded
 const TOP_N = 3;
 let openGroups = [false, false];
@@ -230,7 +260,7 @@ function render(){
       if (!c) return '<td class="none">—</td>';
       const low = c.rate === best[i], glow = !low && c.rate === gb[i];
       const ch = c.stale ? null : weekChange(hist.series[l.name + "|" + (c.ins ? p + " insured" : p)], c.rate);
-      return `<td class="rate${low ? " low" : glow ? " glow" : ""}${c.stale ? " st" : ""}"${c.stale ? ' title="This rate couldn\'t be refreshed in the latest update"' : ""}><span class="rc">${arrow(ch)}<b>${pct(c.rate)}${c.noins ? '<sup class="ni" title="No separate rate for less than 20% down; regular rate shown">†</sup>' : ""}</b></span>${insLine(l, p, c)}</td>`;
+      return `<td class="rate${low ? " low" : glow ? " glow" : ""}${c.stale ? " st" : ""}" data-s="${esc(l.name + "|" + (c.ins ? p + " insured" : p))}"${c.stale ? ' title="This rate couldn\'t be refreshed in the latest update"' : ""}><span class="rc">${arrow(ch)}<b>${pct(c.rate)}${c.noins ? '<sup class="ni" title="No separate rate for less than 20% down; regular rate shown">†</sup>' : ""}</b></span>${insLine(l, p, c)}</td>`;
     }).join("")}</tr>`;
   // Folded, a section shows its 3 lowest by the sorted rate column (5-year fixed when sorted by name); expanded, every lender
   const key = sortBy && sortBy !== "name" ? sortBy : "5-year fixed";
@@ -257,7 +287,8 @@ function render(){
 loadRates().then(d => { try {
   const all = groupLenders(d);
   lenders = all.filter(l => COLUMNS.some(([, p]) => l.cells[p] || l.cells[p + " insured"]));  // mortgage lenders only
-  GIC.data(all); SAV.data(all);
+  allLenders = all; GIC.data(all); SAV.data(all); ladder();
+  $("lenderlist").innerHTML = all.map(l => `<option value="${esc(l.name)}">`).join("");
   document.querySelectorAll("#bylender a").forEach(a => {  // the same logo as in the table, beside each lender's link
     const l = lenders.find(x => x.name === a.textContent.trim());
     if (l && !a.querySelector(".lg-logo")) a.insertAdjacentHTML("afterbegin", logo(l.name, l.source));
@@ -279,9 +310,91 @@ loadRates().then(d => { try {
   }
   render();
   showHold(all);
-  loadHistory().then(h => { hist = h && h.series ? h : {series: {}}; render(); });
+  loadHistory().then(h => { hist = h && h.series ? h : {series: {}}; render(); GIC.render(); SAV.render(); weekly(); });
 } catch (e) { $("updated").textContent = "Something went wrong showing the rates. Please refresh. Details: " + e.name + ": " + e.message; }
 }, () => { $("updated").textContent = ""; $("tiles").innerHTML = mascotNote("Hmm, the latest rates didn't load. Please refresh the page, or try again in a few minutes."); });
+
+// Province: re-draw every table, the ladder and this week's changes
+$("prov").onchange = e => {
+  province = e.target.value;
+  try { localStorage.setItem("home-prov", province); } catch (er) {}
+  if (lenders.length) render();
+  GIC.render(); SAV.render(); ladder(); weekly(); syncURL();
+};
+// Find a lender: pick a name (or type part of one and press Enter) to open its page; GIC and savings open at those rates
+function findLender(go){
+  const q = $("lfind").value.trim().toLowerCase(); $("lfmsg").textContent = "";
+  if (!q) return;
+  const names = allLenders.map(l => l.name), exact = names.find(n => n.toLowerCase() === q);
+  const hits = exact ? [exact] : names.filter(n => n.toLowerCase().includes(q) || (LENDER_SLUGS[n] || "").includes(q));
+  if (!exact && !go) return;
+  if (!hits.length) { $("lfmsg").textContent = "No lender matches that"; return; }
+  if (hits.length > 1 && !exact) { $("lfmsg").textContent = hits.length + " lenders match: keep typing"; return; }
+  const k = document.body.dataset.kind;
+  location.href = LENDER_SLUGS[hits[0]] + "-mortgage-rates.html" + (k === "mortgages" ? "" : "#depsec");
+}
+$("lfind").addEventListener("input", () => findLender(false));
+$("lfind").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); findLender(true); } });
+
+// This week's changes, for the rates on screen (and the chosen province)
+const KIND_PRODUCTS = {mortgages: COLUMNS.map(([, p]) => p), gics: GIC_COLUMNS.concat(RGIC_COLUMNS).map(([, p]) => p), savings: [SAVINGS, SAVINGS_PROMO]};
+const KIND_WORD = {mortgages: "mortgage", gics: "GIC", savings: "savings"};
+function weekly(){
+  const k = document.body.dataset.kind || "mortgages", dep = k !== "mortgages";
+  if (!hist.series || !Object.keys(hist.series).length) return;
+  const ch = rateChanges(hist, KIND_PRODUCTS[k], addDays(todayISO(), -7), n => serves(n));
+  const MAX = 8;
+  $("wkh").textContent = `This week's ${KIND_WORD[k]} rate changes`;
+  $("wkbody").innerHTML = !ch.length
+    ? `<p class="m">No lender${province ? " serving " + esc(province) : ""} changed its advertised ${KIND_WORD[k]} rates in the last 7 days.</p>`
+    : `<p class="m">${ch.length} change${ch.length > 1 ? "s" : ""} in the last 7 days${province ? " (" + esc(province) + ")" : ""}.</p><ul class="wkl">` + ch.slice(0, MAX).map(c => {
+      const up = c.to > c.from;
+      return `<li><span class="wn"><span class="chg ${up ? "up" : "dn"}${dep ? " dep" : ""}"><span aria-hidden="true">${up ? "▲" : "▼"}</span><span class="vh">${up ? "Up" : "Down"} </span>${Math.abs(c.to - c.from).toFixed(2)}</span>${esc(c.name)}</span>`
+        + `<span class="wr">${pct(c.to)}</span><span class="wp">${esc(c.product)}, was ${pct(c.from)} · ${dstr(c.date).replace(/, \d{4}$/, "")}</span></li>`;
+    }).join("") + "</ul>" + (ch.length > MAX ? `<p class="m">And ${ch.length - MAX} more.</p>` : "");
+}
+
+// GIC ladder: split an amount across 1- to 5-year GICs, each at today's highest rate for its term (or all at one lender)
+function ladder(){
+  if (!$("lad_amt")) return;
+  const amt = parseFloat(String($("lad_amt").value).replace(/[^0-9.]/g, "")) || 0, n = +$("lad_n").value, who = $("lad_who").value;
+  const pool = allLenders.filter(l => serves(l.name));
+  const terms = n === 3 ? [1, 3, 5] : [1, 2, 3, 4, 5];
+  // the lender list: those with every rung's term
+  const full = pool.filter(l => terms.every(t => l.cells[t + "-year GIC"] && !l.cells[t + "-year GIC"].stale)).map(l => l.name).sort();
+  const cur = who;
+  $("lad_who").innerHTML = `<option value="">Highest rate for each term</option>` + full.map(x => `<option${x === cur ? " selected" : ""}>${esc(x)}</option>`).join("");
+  const one = full.includes(cur) ? cur : "";
+  if (!(amt > 0)) { $("lad_out").innerHTML = `<p class="m">Enter an amount to build your ladder.</p>`; return; }
+  const per = amt / terms.length;
+  const rungs = terms.map(t => {
+    const p = t + "-year GIC";
+    let best = null;
+    pool.forEach(l => { const c = l.cells[p]; if (!c || c.stale || (one && l.name !== one)) return;
+      if (!best || c.rate > best.rate) best = {rate: c.rate, names: [l.name]}; else if (c.rate === best.rate) best.names.push(l.name); });
+    return {t, p, best};
+  });
+  if (rungs.some(r => !r.best)) { $("lad_out").innerHTML = `<p class="m">Not every term has a rate${province ? " in " + esc(province) : ""} right now.</p>`; return; }
+  const m2 = x => x.toLocaleString("en-CA", {style: "currency", currency: "CAD"});
+  const year1 = rungs.reduce((s, r) => s + per * r.best.rate / 100, 0), avg = rungs.reduce((s, r) => s + r.best.rate, 0) / rungs.length;
+  const five = rungs[rungs.length - 1].best.rate;
+  $("lad_out").innerHTML = `<div class="c lres"><div class="k"><em>Interest in the first year</em><b>${m2(year1)}</b>An average of ${pct(+avg.toFixed(3))} across ${terms.length} GICs</div>`
+    + `<div class="k"><em>Each GIC</em><b>${m2(per)}</b>${terms.length} equal parts of ${m2(amt)}</div></div>`
+    + `<div class="t" tabindex="0" role="region" aria-label="Your GIC ladder"><table class="ltab dep"><thead><tr><th scope="col">Term</th><th scope="col">Lender</th><th scope="col">Rate</th><th scope="col">Interest each year</th><th scope="col">Matures</th></tr></thead><tbody>`
+    + rungs.map(r => `<tr><td>${r.t} year${r.t > 1 ? "s" : ""}</td><td>${r.best.names.map(x => `<a href="${LENDER_SLUGS[x]}-mortgage-rates.html#depsec">${esc(x)}</a>`).join(", ")}</td><td><b>${pct(r.best.rate)}</b></td><td>${m2(per * r.best.rate / 100)}</td><td>${dstr(addDays(todayISO(), Math.round(r.t * 365.25)))}</td></tr>`).join("")
+    + `</tbody></table></div>`
+    + `<p class="f">Each time a GIC matures, put the money into a new ${terms[terms.length - 1]}-year GIC (${pct(five)} today). After ${terms[terms.length - 1] - 1} years every rung earns the long-term rate, and one GIC still comes due ${n === 3 ? "every year or two" : "every year"}. Interest assumes it's paid out yearly; rates for new GICs will change. Check each lender's minimum deposit and deposit insurance limits.</p>`
+    + `<p class="f"><button type="button" class="lk" id="lad_share">Copy a link to this ladder</button></p>`;
+  $("lad_share").onclick = () => copyLink(Object.assign(Object.fromEntries(new URLSearchParams(location.search)), {ladder: Math.round(amt), rungs: n}, one ? {lender: one} : {}), $("lad_share"));
+}
+if ($("lad_amt")) {
+  if (Q.get("ladder")) $("lad_amt").value = (+Q.get("ladder") || 25000).toLocaleString("en-CA");
+  if (Q.get("rungs") === "3") $("lad_n").value = "3";
+  if (Q.get("lender")) $("lad_who").innerHTML = `<option selected>${esc(Q.get("lender"))}</option>`;
+  ["lad_amt", "lad_n", "lad_who"].forEach(id => $(id).addEventListener(id === "lad_amt" ? "input" : "change", ladder));
+}
+// Hover or tap a rate to see its last 30 days
+sparkPop(document.querySelector(".paneswrap"), () => hist);
 
 // Keep the column headings on screen while scrolling through the table: a copy of the heading row is pinned to the top of
 // the window while the table is passing by. Clicking a pinned heading sorts, like the real one.

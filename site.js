@@ -1,4 +1,4 @@
-const SITE_VERSION = "74";
+const SITE_VERSION = "75";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -74,7 +74,7 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
   });
   // Footer on every page
   const year = new Date().getFullYear();
-  main && main.insertAdjacentHTML("beforeend", `<footer class="sitefoot"><nav aria-label="Footer"><a href="${base}index.html">Today's rates</a><a href="${base}index.html#gics">GIC rates</a><a href="${base}index.html#savings">Savings rates</a><a href="${base}calculators.html">Calculators</a><a href="${base}rate-history.html">Rate history</a><a href="${base}rate-alerts.html">Rate alerts</a><a href="${base}rate-hold.html">Rate-hold watchdog</a><a href="${base}crash-course.html">Rates Explained</a><a href="${base}crash-faq.html">FAQ</a><a href="${base}glossary.html">Glossary</a><a href="${base}about.html">About</a><a href="${base}terms.html">Terms and privacy</a></nav>`
+  main && main.insertAdjacentHTML("beforeend", `<footer class="sitefoot"><nav aria-label="Footer"><a href="${base}index.html">Today's rates</a><a href="${base}index.html#gics">GIC rates</a><a href="${base}index.html#savings">Savings rates</a><a href="${base}calculators.html">Calculators</a><a href="${base}rate-history.html">Rate history</a><a href="${base}weekly-changes.html">Rate changes</a><a href="${base}compare.html">Compare lenders</a><a href="${base}rate-alerts.html">Rate alerts</a><a href="${base}rate-hold.html">Rate-hold watchdog</a><a href="${base}crash-course.html">Rates Explained</a><a href="${base}crash-faq.html">FAQ</a><a href="${base}glossary.html">Glossary</a><a href="${base}about.html">About</a><a href="${base}terms.html">Terms and privacy</a></nav>`
     + `<p>Rates are collected from each lender's own website every hour, or three times a day for a few lenders. Information only, not financial advice: always confirm rates and terms with the lender.</p>`
     + `<p>© ${year} What's the rate?${typeof CONTACT_EMAIL !== "undefined" && CONTACT_EMAIL ? ` · <a href="mailto:${esc(CONTACT_EMAIL)}">${esc(CONTACT_EMAIL)}</a>` : ""}</p></footer>`);
 })();
@@ -382,7 +382,10 @@ function loadHistory(){ return fetch("history.json?t=" + Date.now(), {cache: "no
 function weekChange(points, current){
   if (!points || !points.length || current == null) return null;
   const cutoff = addDays(todayISO(), -7);
-  const base = points.filter(p => p[0] <= cutoff).pop() || (points[0][0] < todayISO() ? points[0] : null);
+  let base = points.filter(p => p[0] <= cutoff).pop();
+  // a reading from well before the week (an archived copy, then a gap) doesn't say when the rate moved: use the first daily reading this week instead
+  if (base && base[0] < addDays(cutoff, -7)) base = points.find(p => p[0] > cutoff && p[0] < todayISO()) || null;
+  else if (!base) base = points[0][0] < todayISO() ? points[0] : null;
   if (!base || Math.abs(current - base[1]) < 0.0005) return null;
   return {diff: current - base[1], from: base[1], date: base[0]};
 }
@@ -390,6 +393,72 @@ function arrow(ch){
   if (!ch) return "";
   const up = ch.diff > 0, amt = Math.abs(ch.diff).toFixed(2);
   return `<span class="chg ${up ? "up" : "dn"}" title="${up ? "Up" : "Down"} ${amt} from ${pct(ch.from)} on ${dstr(ch.date)}"><span aria-hidden="true">${up ? "▲" : "▼"}</span>${amt}<span class="vh"> ${up ? "higher" : "lower"} than on ${dstr(ch.date)}</span></span>`;
+}
+
+// Every rate change in history.json since a date: [{name, product, date, from, to}], newest first.
+// products: which products to look at; keep(name): which lenders (e.g. a province filter).
+function rateChanges(hist, products, since, keep){
+  const out = [], want = new Set(products);
+  Object.entries((hist && hist.series) || {}).forEach(([k, pts]) => {
+    const i = k.indexOf("|"); if (i < 0 || k.startsWith("posted|")) return;
+    const name = k.slice(0, i), product = k.slice(i + 1);
+    if (!want.has(product) || (keep && !keep(name))) return;
+    for (let j = 1; j < pts.length; j++) {
+      if (pts[j][0] >= since && Math.abs(pts[j][1] - pts[j - 1][1]) >= 0.0005 && daysBetween(pts[j - 1][0], pts[j][0]) <= 8) out.push({name, product, date: pts[j][0], from: pts[j - 1][1], to: pts[j][1]});
+    }
+  });
+  return out.sort((a, b) => b.date.localeCompare(a.date) || Math.abs(b.to - b.from) - Math.abs(a.to - a.from) || a.name.localeCompare(b.name));
+}
+// The most recent change in a series: {date, from, to}, or null if it never changed.
+function lastChange(pts){
+  if (!pts) return null;
+  for (let j = pts.length - 1; j > 0; j--) if (Math.abs(pts[j][1] - pts[j - 1][1]) >= 0.0005) return {date: pts[j][0], from: pts[j - 1][1], to: pts[j][1], prev: pts[j - 1][0], gap: daysBetween(pts[j - 1][0], pts[j][0]) > 8};
+  return null;
+}
+const daysBetween = (a, b) => Math.round((Date.parse(b + "T12:00:00") - Date.parse(a + "T12:00:00")) / 864e5);
+const daysAgo = iso => Math.max(0, Math.round((Date.parse(todayISO() + "T12:00:00") - Date.parse(iso + "T12:00:00")) / 864e5));
+const agoText = iso => { const d = daysAgo(iso); return d === 0 ? "today" : d === 1 ? "yesterday" : d + " days ago"; };
+// A small line of the last `days` days of a series (the value carried forward each day), as an SVG
+function sparkline(pts, days, w, h){
+  w = w || 160; h = h || 36;
+  const end = todayISO(), start = addDays(end, -days), vals = [];
+  let v = null;
+  (pts || []).forEach(p => { if (p[0] <= start) v = p[1]; });
+  for (let d = start, k = 0; d <= end; d = addDays(d, 1), k++) { (pts || []).forEach(p => { if (p[0] === d) v = p[1]; }); vals.push(v); }
+  const known = vals.filter(x => x != null);
+  if (known.length < 2) return "";
+  let lo = Math.min(...known), hi = Math.max(...known);
+  if (hi - lo < 0.1) { const m = (hi + lo) / 2; lo = m - 0.05; hi = m + 0.05; }
+  const x = i => (i / (vals.length - 1) * (w - 4) + 2).toFixed(1), y = val => (h - 3 - (val - lo) / (hi - lo) * (h - 6)).toFixed(1);
+  let d = "";
+  vals.forEach((val, i) => { if (val == null) return; d += (d && vals[i - 1] != null ? "L" : "M") + x(i) + " " + y(val); });
+  const last = vals.length - 1;
+  return `<svg class="spk" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${x(last)}" cy="${y(vals[last])}" r="2.6" fill="currentColor"/></svg>`;
+}
+// Hover (or tap) a rate cell carrying data-s="Lender|product" to see its last 30 days and when it last changed.
+function sparkPop(root, getHist){
+  let box = null, cell = null;
+  const close = () => { if (box) box.remove(); box = null; cell = null; };
+  const open = td => {
+    if (td === cell) return;
+    close();
+    const k = td.dataset.s, h = getHist(), pts = h && h.series && h.series[k];
+    if (!pts || !pts.length) return;
+    const lc = lastChange(pts), [name, product] = [k.slice(0, k.indexOf("|")), k.slice(k.indexOf("|") + 1)];
+    const sp = sparkline(pts, 30);
+    box = document.createElement("div"); box.className = "spop"; box.setAttribute("role", "tooltip");
+    box.innerHTML = `<b>${esc(name)}</b><span class="s">${esc(product)}, last 30 days</span>${sp || ""}`
+      + `<span class="s">${lc ? (lc.gap ? `Changed between ${dstr(lc.prev)} and ${dstr(lc.date)}: ${pct(lc.from)} → ${pct(lc.to)}` : `Last changed ${agoText(lc.date)} (${dstr(lc.date)}): ${pct(lc.from)} → ${pct(lc.to)}`) : `No change since ${dstr(pts[0][0])}`}</span>`;
+    document.body.appendChild(box); cell = td;
+    const r = td.getBoundingClientRect(), bw = box.offsetWidth;
+    box.style.left = Math.max(8, Math.min(innerWidth - bw - 8, r.left + scrollX + r.width / 2 - bw / 2)) + "px";
+    box.style.top = (r.bottom + scrollY + 6) + "px";
+  };
+  root.addEventListener("mouseover", e => { const td = e.target.closest("td[data-s]"); if (td && root.contains(td)) open(td); });
+  root.addEventListener("mouseleave", close);
+  root.addEventListener("mouseout", e => { if (!e.relatedTarget || !root.contains(e.relatedTarget)) close(); });
+  root.addEventListener("click", e => { if (e.target.closest("a,button")) return; const td = e.target.closest("td[data-s]"); if (td) { if (td === cell) close(); else open(td); } });
+  addEventListener("scroll", close, {passive: true}); addEventListener("resize", close);
 }
 
 // ---- Plain-language explanations: a "?" beside a term shows one of these ----

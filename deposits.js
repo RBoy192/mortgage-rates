@@ -1,7 +1,8 @@
 // GIC and savings tables on the main page. For savers a higher rate is better, so the highest comes first.
 // Each section (banks; credit unions and other lenders) shows its 3 highest rates until it's expanded.
 // cfg: {id: prefix of the element ids (head, rows, tiles, stale), cols: [[heading, product]], key: product sorted by default,
-//       store: localStorage prefix, what: "GIC" | "savings", promo: bool, label: words for the tiles}
+//       store: localStorage prefix, what: "GIC" | "savings", promo: bool, label: words for the tiles,
+//       filter(name): which lenders to show (province), where(): " in Ontario" for the tiles, hist(): history.json for the arrows}
 function depositTable(cfg){
   const TOP_N = 3, el = s => $(cfg.id + "_" + s);
   let lenders = [], cols = cfg.cols, sortBy = cfg.key, sortDir = -1, open = [false, false], ready = false;
@@ -27,10 +28,10 @@ function depositTable(cfg){
     return `<td class="promo"><b>${pct(p.rate)}</b>${p.note ? `<span class="pn">${esc(p.note)}</span>` : ""}</td>`; };
   function render(){
     if (!ready) return;
-    const pool = lenders.filter(l => cols.some(([, p]) => l.cells[p])), tileGroup = group();
+    const pool = lenders.filter(l => cols.some(([, p]) => l.cells[p]) && (!cfg.filter || cfg.filter(l.name))), tileGroup = group();
     const best = cols.map(([, p]) => Math.max(...pool.map(l => rate(l, p))));
     const tpool = pool.filter(l => tileGroup === "all" || (tileGroup === "banks") === !NON_BANKS.includes(l.name));
-    const who = {all: "", banks: " at a bank", others: " at a credit union or other lender"}[tileGroup];
+    const who = {all: "", banks: " at a bank", others: " at a credit union or other lender"}[tileGroup] + (cfg.where ? cfg.where() : "");
     el("tiles").innerHTML = cols.map(([label, p]) => { const b = Math.max(...tpool.map(l => rate(l, p))); return b === -Infinity ? "" :
       `<div class="k"><em>Highest ${esc(cfg.label(label, p))}${who}</em><b>${pct(b)}</b>${tpool.filter(l => rate(l, p) === b).map(l => esc(l.name)).join(", ")}</div>`; }).join("")
       || `<p class="m">No ${esc(cfg.label("", ""))} rates${who} yet.</p>`;
@@ -50,7 +51,8 @@ function depositTable(cfg){
     const row = (l, gb) => `<tr><td class="ln" style="--c:${seriesVar(l.name)}">${logo(l.name, l.dsource || l.source)}<a href="${esc(l.dsource || l.source)}" target="_blank" rel="noopener">${esc(l.name)}${EXT}</a></td>`
       + cols.map(([, p], i) => { const c = l.cells[p]; if (!c) return '<td class="none">—</td>';
         const top = c.rate === best[i] && !c.stale, gtop = !top && c.rate === gb[i] && !c.stale;
-        return `<td class="rate${top ? " low" : gtop ? " glow" : ""}${c.stale ? " st" : ""}"${c.stale ? ' title="This rate couldn\'t be refreshed in the latest update"' : ""}><span class="rc"><b>${pct(c.rate)}</b></span>${c.note ? `<span class="pn">${esc(c.note)}</span>` : ""}</td>`; }).join("")
+        const H = cfg.hist ? cfg.hist() : null, ch = c.stale || !H ? null : weekChange(H.series[l.name + "|" + p], c.rate);
+        return `<td class="rate${top ? " low" : gtop ? " glow" : ""}${c.stale ? " st" : ""}" data-s="${esc(l.name + "|" + p)}"${c.stale ? ' title="This rate couldn\'t be refreshed in the latest update"' : ""}><span class="rc">${arrow(ch)}<b>${pct(c.rate)}</b></span>${c.note ? `<span class="pn">${esc(c.note)}</span>` : ""}</td>`; }).join("")
       + (cfg.promo ? promoCell(l) : "") + "</tr>";
     const key = sortBy !== "name" && cols.some(([, p]) => p === sortBy) ? sortBy : cfg.key;
     const keyLabel = cfg.label((cols.find(([, p]) => p === key) || [""])[0], key);

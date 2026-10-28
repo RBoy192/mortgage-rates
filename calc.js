@@ -79,7 +79,7 @@ function makeCalc(cfg){
     const msgs = r && r.msgs || [];
     $("msgs").innerHTML = msgs.filter(m => m[0] === "w").map(([, t]) => `<p class="msg w">${t}</p>`).join("");
     const notes = msgs.filter(m => m[0] !== "w").map(([, t]) => `<p class="msg">${t}</p>`).join("");
-    if (!r) { if ($("below")) $("below").innerHTML = "";
+    if (!r) { if ($("below")) $("below").innerHTML = ""; if (cfg.after) cfg.after(v, best);
       $("out").innerHTML = `<span class="m">${cfg.bigLabel || "Result"}</span><b>—</b><ul id="res"><li>${cfg.empty || "Fill in the numbers to see a result."}</li></ul>`; return; }
     // the answer first; the workings and notes sit in a panel you can open
     const how = (r.items && r.items.length ? `<ul id="res">${r.items.map(li).join("")}</ul>` : "") + notes;
@@ -90,6 +90,7 @@ function makeCalc(cfg){
     if (!below) { form.closest(".est").insertAdjacentHTML("afterend", '<div id="below" class="below"></div>'); below = $("below"); }
     below.innerHTML = r.wide && r.table ? `<div class="tw">${r.table}</div>` : "";
     if (r.src && $("src")) $("src").innerHTML = srcLinks(r.src);
+    if (cfg.after) cfg.after(v, best);
   }
   function ready(b){
     best = b || {};
@@ -102,7 +103,8 @@ function makeCalc(cfg){
   form.addEventListener("input", update);
   form.addEventListener("change", update);
   $("reset").onclick = () => { v = defaults(); write(); update(); };
-  $("share").onclick = () => { read(); copyLink(v, $("share")); };
+  $("share").onclick = () => { read(); copyLink(Object.assign({}, v, cfg.shareExtra ? cfg.shareExtra() : {}), $("share")); };
+  if (cfg.before) cfg.before(form, () => update());
   document.querySelectorAll("[data-ex]").forEach(b => b.onclick = () => {
     v = Object.assign(defaults(), cfg.examples[+b.dataset.ex][1]);
     cfg.fields.filter(f => f.type === "rate" && !(v[f.k] in best) && v[f.k] !== "custom").forEach(f => { v[f.k] = defOf(f); });

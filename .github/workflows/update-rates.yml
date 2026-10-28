@@ -46,6 +46,9 @@ jobs:
         continue-on-error: true
       - name: Build site folder
         run: mkdir site && cp *.html *.css *.js *.svg *.png *.ico *.xml *.txt *.webmanifest rates.json history.json site/ && cp -r fonts site/
+      - name: Date the live pages for search engines
+        run: python stamp.py site
+        continue-on-error: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site

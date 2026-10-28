@@ -925,3 +925,80 @@ body[data-term$="GIC"] .chg.up,body[data-term="Savings"] .chg.up{color:var(--goo
 .pickrow .kindpick,.pickrow .tilepick{margin:0}
 .pickrow .tilepick .tpl{font-size:15px;flex-basis:auto}
 @media (max-width:640px){.pickrow{gap:8px;margin:14px 0 -8px}.pickrow .kindpick{width:100%}.pickrow .tilepick .tpl{font-size:13px}}
+/* main page: GIC type, province and lender search share one row under "Show rates for" */
+.pickrow{margin-bottom:0}
+.filtrow{display:flex;align-items:center;flex-wrap:wrap;gap:10px 24px;margin:12px 0 -12px}
+.filtrow .gictype{margin:0}
+body:not([data-kind="gics"]) #gtrow{display:none}
+.provpick{display:flex;align-items:center;gap:10px}
+.provpick select,.lfind input{font:600 13px var(--bd);color:var(--fg);background-color:var(--card);border:1px solid var(--ln);border-radius:999px;min-height:36px;margin:0;width:auto}
+.provpick select{padding:0 30px 0 14px;cursor:pointer;appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);background-position:calc(100% - 16px) 50%,calc(100% - 11px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+.lfind{position:relative;display:flex;align-items:center;gap:8px}
+.lfind input{width:210px;padding:0 14px 0 34px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='7' cy='7' r='4.5' fill='none' stroke='%23888' stroke-width='1.6'/%3E%3Cpath d='M10.5 10.5L14 14' stroke='%23888' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:12px 50%;background-size:15px 15px}
+.lfmsg{font-size:13px;color:var(--mu)}
+.lfmsg:empty{display:none}
+@media (max-width:640px){.filtrow{gap:8px 10px;margin:10px 0 -8px}.provpick{gap:6px}.provpick .kpl{font-size:13px}.lfind{flex:1 1 160px}.lfind input{width:100%}}
+/* This week's changes: in the empty space to the right of the tables on wide screens, under them otherwise */
+.paneswrap{position:relative;display:flex;flex-direction:column}
+.wkpanel{order:2;margin:8px 0 24px;padding:16px 18px;background:var(--card);border:1px solid var(--ln);border-radius:16px}
+.wkh{font:700 15px var(--bd);margin:0 0 8px}
+.wkl{list-style:none;margin:0;padding:0}
+.wkl li{display:grid;grid-template-columns:1fr auto;gap:1px 10px;align-items:baseline;padding:8px 0;border-top:1px solid var(--ln);font-size:13.5px}
+.wkl li:first-child{border-top:0}
+.wkl .wn{font-weight:600;min-width:0}
+.wkl .wn .chg{margin:0 6px 0 0;vertical-align:0;font-size:11.5px}
+.wkl .wr{font-weight:700;white-space:nowrap}
+.wkl .wp{grid-column:1/3;color:var(--mu);font-size:12.5px}
+.wkpanel .m{font-size:13.5px;margin:4px 0}
+.wkall{display:inline-block;margin-top:10px;font-size:13.5px;font-weight:600}
+@media (min-width:1500px){
+  .wkpanel{position:absolute;top:28px;left:calc(100% + 24px);width:min(300px,calc((100vw - 1080px) / 2 - 20px));margin:0;max-height:calc(100% - 28px);overflow:auto}
+}
+/* rate cell popup: last 30 days and when the rate last changed */
+.spop{position:absolute;z-index:60;width:200px;padding:10px 12px;background:var(--card);color:var(--fg);border:1px solid var(--ln);border-radius:12px;box-shadow:0 6px 22px rgba(0,0,0,.14);font-size:12.5px;line-height:1.35;pointer-events:none}
+.spop b{display:block;font-size:13.5px}
+.spop .s{display:block;color:var(--mu)}
+.spop .spk{display:block;margin:6px 0;color:var(--link)}
+td[data-s]{cursor:default}
+/* for savers a higher rate is good: green up, red down (tables of GICs and savings, and those changes in lists) */
+table.dep .chg.up,.chg.dep.up{color:var(--good)}
+table.dep .chg.dn,.chg.dep.dn{color:var(--warn)}
+.ladder{margin-top:32px}.ladder .sh{margin-bottom:4px}
+.paneswrap>section.panel{margin-top:12px}
+@media (min-width:1500px){.wkpanel{top:40px;max-height:calc(100% - 40px)}}
+.ladder .ltab th:nth-child(2),.ladder .ltab td:nth-child(2){text-align:left}
+/* Rate changes page */
+.chgctl{margin:20px 0 4px}
+.c.csum{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin:20px 0}
+.cday{font:700 16px var(--bd);margin:26px 0 6px}
+.cday .s{font-weight:500;color:var(--mu);font-size:14px}
+.clist{list-style:none;margin:0;padding:0;background:var(--card);border:1px solid var(--ln);border-radius:14px}
+.clist li{display:flex;align-items:center;gap:12px;padding:11px 16px;border-top:1px solid var(--ln)}
+.clist li:first-child{border-top:0}
+.clist li.boc{background:color-mix(in srgb,var(--card) 88%,var(--link))}
+.clist .chg{margin:0;min-width:58px;vertical-align:0}
+.clist .cw{flex:1;min-width:0}
+.clist .cw a,.clist .cw b{font-weight:600}
+.clist .cp{display:block;color:var(--mu);font-size:13px}
+.clist .cr{white-space:nowrap;font-size:14px}
+@media (max-width:600px){.clist li{gap:8px;padding:10px 12px}.clist .chg{min-width:48px}}
+/* Compare lenders */
+.cmpform{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.cmpform select{width:100%}
+table.sbs th[scope="row"]{text-align:left;font-weight:500;font-size:14px}
+table.sbs thead th{vertical-align:bottom;text-align:right}
+table.sbs thead th:first-child{text-align:left}
+table.sbs thead th .lnote{display:block;font-weight:500}
+table.sbs thead th .lg-logo{margin-right:6px}
+table.sbs td.rate{text-align:right}
+.cmpchart{margin:12px 0;padding:14px;background:var(--card);border:1px solid var(--ln);border-radius:16px}
+.cmpchart svg{display:block;width:100%;height:auto;font:12px var(--bd);fill:var(--mu)}
+.cmpchart .gl{stroke:var(--ln);stroke-width:1}
+.cmpchart .lg{margin-top:8px}
+table.sbs th[scope="row"]{border-bottom:0;white-space:normal;color:var(--fg);width:32%;vertical-align:middle}
+table.sbs tr+tr th[scope="row"]{border-top:1px solid var(--ln2)}
+table.sbs td{vertical-align:middle}
+@media (max-width:600px){table.sbs th,table.sbs td{padding:10px 8px}table.sbs td.rate b{font-size:18px}table.sbs thead th .lg-logo{display:none}table.sbs th[scope="row"]{font-size:13px;width:30%}}
+.rcount{margin:8px 0 28px}.rcount .payform{margin-top:10px}.rcount input[type=date]{margin:0;padding:8px 10px;font:600 15px var(--bd);border-radius:10px;width:auto}

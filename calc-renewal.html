@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="Renewing your mortgage? Compare today&#x27;s lowest fixed and variable rates over your next term and see when fixed comes out ahead.">
 <link rel="canonical" href="https://whatstherate.ca/calc-renewal.html">
-<link rel="icon" href="favicon.svg?v=74" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=74" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=74">
+<link rel="icon" href="favicon.svg?v=75" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=75" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=75">
 <link rel="alternate" type="application/atom+xml" title="Mortgage rate changes" href="feed.xml">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
@@ -25,7 +25,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=74">
+<link rel="stylesheet" href="style.css?v=75">
+<script type="application/ld+json" id="ld">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://whatstherate.ca/calc-renewal.html#page", "url": "https://whatstherate.ca/calc-renewal.html", "name": "Renewal calculator | What's the rate?", "description": "Renewing your mortgage? Compare today's lowest fixed and variable rates over your next term and see when fixed comes out ahead.", "inLanguage": "en-CA", "isPartOf": {"@type": "WebSite", "name": "What's the rate?", "url": "https://whatstherate.ca/"}, "publisher": {"@type": "Organization", "name": "What's the rate?", "url": "https://whatstherate.ca/", "logo": "https://whatstherate.ca/apple-touch-icon.png"}, "dateModified": "2026-10-28"}]}</script>
 </head>
 <body data-page="calc" data-calc="renewal">
 <main id="top">
@@ -35,6 +36,9 @@
 <div class="vc">
 <h1>Renewal <span class="hl">calculator</span></h1>
 <p class="m">Weigh up your options when your mortgage term ends.</p>
+<section class="rcount" aria-labelledby="rch"><h2 class="sh" id="rch">Renewal countdown</h2>
+<div class="payform"><div class="pf"><label for="cd_date">Your renewal date</label><input id="cd_date" type="date"></div></div>
+<div id="cd_out" aria-live="polite"></div></section>
 <div class="seg2 pmode" id="rmode" role="group" aria-label="Choose a comparison"><button type="button" data-m="cmp" aria-pressed="true">Your mortgage vs new offers</button><button type="button" data-m="fv" aria-pressed="false">Fixed vs variable</button></div>
 <div id="cmpmode">
 <p class="m">Compare what you have now with your lender's renewal offer and an offer from another lender. <button class="lk" id="rc_reset" type="button">Reset to defaults</button></p>
@@ -76,9 +80,9 @@
 </div>
 </div>
 </main>
-<script src="site.js?v=74"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="74"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
-<script src="calc.js?v=74"></script>
+<script src="site.js?v=75"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="75"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="calc.js?v=75"></script>
 <script>
 // Renewal calculator: your mortgage now vs your lender's renewal offer vs another lender's offer
 (function(){
@@ -142,11 +146,35 @@ $("rmode").addEventListener("click", e => { const b = e.target.closest("button[d
 $("rc_reset").onclick = () => { const m = s.mode; s = JSON.parse(JSON.stringify(D)); s.mode = m; seed(); write(); render(); };
 // start the other lender's offer at today's lowest 5-year fixed rate
 function seed(){ if (lowest) s.b.rate = +lowest.toFixed(2); }
-let lowest = 0;
-write(); setMode(s.mode === "fv" ? "fv" : "cmp"); render();
+let lowest = 0, lowestBy = "";
+// Renewal countdown: days to go, when to start comparing, and today's lowest 5-year fixed against your current rate
+const CD = "renewal-date", qd = new URLSearchParams(location.search).get("renew");
+try { $("cd_date").value = /^\d{4}-\d{2}-\d{2}$/.test(qd || "") ? qd : (localStorage.getItem(CD) || ""); } catch (e) {}
+function countdown(){
+  const date = $("cd_date").value;
+  try { localStorage.setItem(CD, date); } catch (e) {}
+  try { const q = new URLSearchParams(location.search); if (date) q.set("renew", date); else q.delete("renew"); history.replaceState(null, "", location.pathname + (q.toString() ? "?" + q : "")); } catch (e) {}
+  if (!date) { $("cd_out").innerHTML = `<p class="m">Enter your renewal date to see how long you have, and what today's lowest rate would mean for your payment.</p>`; return; }
+  const days = Math.round((Date.parse(date + "T12:00:00") - Date.parse(todayISO() + "T12:00:00")) / 864e5), shop = addDays(date, -120);
+  read();
+  let pay = "";
+  if (lowest && s.bal > 0 && s.now > 0) {
+    const now = run(s.bal, s.now, false, s.years, 12, s.pay || 0).pay, then = run(s.bal, lowest, false, s.years, 12).pay, d = then - now;
+    pay = `<div class="k"><em>At today's lowest 5-year fixed (${pct(lowest)}, ${esc(lowestBy)})</em><b>${money(then)}</b>${Math.abs(d) < 1 ? "About the same as your payment now" : `${money(Math.abs(d))} a month ${d > 0 ? "more" : "less"} than at your ${pct(s.now)}`}</div>`;
+  }
+  $("cd_out").innerHTML = `<div class="c lres"><div class="k"><em>${days >= 0 ? "Days until you renew" : "Your renewal date has passed"}</em><b>${days >= 0 ? days : "—"}</b>${dstr(date)}</div>${pay}</div>`
+    + `<p class="f">${days > 120 ? `Many lenders will hold a rate for up to about 120 days, so <b>${dstr(shop)}</b> is a good time to start comparing offers.`
+      : days >= 0 ? `You're within about 120 days of renewal, when many lenders will hold a rate for you, so now is the time to compare offers. Your lender's renewal offer isn't always its best rate.`
+      : `If you haven't renewed yet, contact your lender now.`} Holding a rate? The <a href="rate-hold.html">rate-hold watchdog</a> tells you if a lender beats it.${pay ? " The payment uses your balance, current rate and years left from the calculator below." : " Fill in your balance and current rate below to compare payments."}</p>`;
+}
+$("cd_date").addEventListener("change", countdown);
+document.querySelectorAll("#cmpmode input, #cmpmode select").forEach(e => e.addEventListener(e.tagName === "SELECT" ? "change" : "input", countdown));
+write(); setMode(s.mode === "fv" ? "fv" : "cmp"); render(); countdown();
 loadRates().then(d => {
   lowest = Math.min(...d.rates.filter(r => r.product === "5-year fixed" && !r.stale).map(r => r.rate));
   if (!isFinite(lowest)) lowest = 0;
+  lowestBy = d.rates.filter(r => r.product === "5-year fixed" && !r.stale && r.rate === lowest).map(r => r.institution).join(", ");
+  countdown();
   if (!seeded && lowest) { seed(); write(); render(); }
 }, () => {});
 })();

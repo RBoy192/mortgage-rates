@@ -27,7 +27,17 @@ function lenders(){
 // the lenders available there: its local lenders plus those that lend across Canada.
 // Only provinces with at least one local lender are offered (Ontario and British Columbia first). Starts on Nationwide.
 let region = "Nationwide";
+// shareable view: ?region=Ontario&range=5Y (the rate type is in the #hash)
+const HQ = new URLSearchParams(location.search);
+function syncURL(){
+  const q = new URLSearchParams();
+  if (region !== "Nationwide") q.set("region", region);
+  if (range !== "1Y") q.set("range", range);
+  try { history.replaceState(null, "", location.pathname + (q.toString() ? "?" + q : "") + (kind === "mortgages" ? "" : "#" + kind)); } catch (e) {}
+}
 const PROVINCES = (() => { const s = new Set(Object.values(LENDER_REGIONS).flat()); return ["Ontario", "British Columbia"].filter(p => s.has(p)).concat([...s].filter(p => p !== "Ontario" && p !== "British Columbia").sort()); })();
+if (PROVINCES.includes(HQ.get("region"))) region = HQ.get("region");
+if (RANGES.some(([k]) => k === HQ.get("range"))) range = HQ.get("range");
 const local = n => !!LENDER_REGIONS[n];
 const inRegion = n => region === "Nationwide" || !local(n) || LENDER_REGIONS[n].includes(region);
 const avail = () => lenders().filter(inRegion);
@@ -195,14 +205,14 @@ function render(){
 }
 
 $("hkind").onclick = e => { const b = e.target.closest("button[data-k]"); if (!b) return; kind = b.dataset.k;
-  try { localStorage.setItem("hist-kind", kind); history.replaceState(null, "", kind === "mortgages" ? location.pathname : "#" + kind); } catch (er) {}
+  try { localStorage.setItem("hist-kind", kind); } catch (er) {} syncURL();
   applyPick(); render(); };
-$("range").onclick = e => { const b = e.target.closest("button"); if (b) { range = b.dataset.r; save(); render(); } };
+$("range").onclick = e => { const b = e.target.closest("button"); if (b) { range = b.dataset.r; save(); render(); syncURL(); } };
 // Quick picks: everyone, banks only, credit unions only, or nobody (then tap lenders one by one)
 // Changing region keeps the lender-type choice: Banks only stays banks only, and so on. Hand-picked lenders stay as picked.
 let pick = "all";
 const applyPick = () => { if (!pick) return; const all = avail(), keep = {all, banks: all.filter(n => !NON_BANKS.includes(n)), others: all.filter(n => NON_BANKS.includes(n)), none: []}[pick]; all.forEach(n => keep.includes(n) ? hidden.delete(n) : hidden.add(n)); };
-$("region").onchange = e => { region = e.target.value; applyPick(); render(); };
+$("region").onchange = e => { region = e.target.value; applyPick(); render(); syncURL(); };
 $("quick").onclick = e => {
   const b = e.target.closest("button"); if (!b) return;
   pick = b.dataset.q;
