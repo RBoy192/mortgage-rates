@@ -290,7 +290,7 @@ def valet_rate(series, page):
 # (the next day), and its weekly prime series lags by up to a week. So within a week of an announcement, the site
 # reads the Bank's own press release, and the big banks' own prime-rate announcements, so the change shows the same day.
 RELEASE_URL = "https://www.bankofcanada.ca/{y}/{m}/fad-press-release-{d}/"
-POLICY_RE = re.compile(r"target for the overnight rate (?:at|to) (\d{1,2}(?:\.\d{1,3})?|\d{0,2}\s?[\u00bc\u00bd\u00be])\s*%", re.I)
+POLICY_RE = re.compile(r"(?:target for the overnight rate|policy rate)[^.%]{0,60}?\b(?:at|to) (\d{1,2}(?:\.\d{1,3})?|\d{0,2}\s?[\u00bc\u00bd\u00be])\s*%", re.I)
 FRACTIONS = {"\u00bc": 0.25, "\u00bd": 0.5, "\u00be": 0.75}
 # Big banks' own prime-rate announcements (their websites), tried on announcement days; {d} is YYYY-MM-DD
 PRIME_RELEASES = [("TD", "https://stories.td.com/ca/en/news/{d}-td-canada-trust-announces-change-to-td-prime-rate"),
@@ -606,7 +606,8 @@ if __name__ == "__main__":
         prev = json.loads(OUT.read_text()) if OUT.exists() else {}
         new = {"policy_rate": policy_rate(), "prime_rate": prime_rate()}
         changed = [k for k, v in new.items() if not prev.get(k) or abs(prev[k]["rate"] - v["rate"]) >= 0.0005]
-        print("changed: " + ", ".join(f"{k} {prev.get(k, {}).get('rate')} -> {new[k]['rate']}" for k in changed) if changed else "no change")
+        print("::notice title=Announcement check::" + ("changed: " + ", ".join(f"{k} {prev.get(k, {}).get('rate')} -> {new[k]['rate']} ({new[k]['source']})" for k in changed) if changed
+              else f"no change (policy {new['policy_rate']['rate']} from {new['policy_rate']['source']}; prime {new['prime_rate']['rate']} from {new['prime_rate']['source']})"))
         sys.exit(0 if changed else 1)
     elif a[:1] == ["--inspect"] and len(a) > 1:
         show_rates(a[1], "--browser" in a)

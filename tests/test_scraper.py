@@ -494,7 +494,7 @@ class TestAnnouncementDay(unittest.TestCase):
     def tearDown(self):
         self.s._page_text, self.s.valet_rate = self._pt, self._valet
     def test_policy_and_prime_from_announcements(self):
-        self.pages["https://www.bankofcanada.ca/2026/10/fad-press-release-2026-10-28/"] = self.s.norm("The Bank of Canada today raised its target for the overnight rate to 2.5%, with the Bank Rate at 2.75%.")
+        self.pages["https://www.bankofcanada.ca/2026/10/fad-press-release-2026-10-28/"] = self.s.norm("The Bank of Canada today increased its target for the overnight rate by 25 basis points to 2.5%, with the Bank Rate at 2.75% and the deposit rate at 2.45%.")
         self.pages["https://stories.td.com/ca/en/news/2026-10-28-td-canada-trust-announces-change-to-td-prime-rate"] = self.s.norm("TD Canada Trust announced today that it has increased its TD Prime Rate by 25 basis points to 4.70%, effective October 29, 2026.")
         p = self.s.policy_rate("2026-10-28")
         self.assertEqual((p["rate"], p["as_of"]), (2.5, "2026-10-28"))
