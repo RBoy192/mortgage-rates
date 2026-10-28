@@ -845,3 +845,26 @@
     - {product: "Savings", url: "https://www.trucooperativebank.ca/envision-financial/personal/rates/bank-account-interest-rates", label: "$5,000+", after: "High Interest Savings Account", mode: "browser"}
     # Redeemable (cashable) GIC rates
     - {product: "1-year redeemable GIC", label: "12-month cashable", mode: "browser", url: "https://www.trucooperativebank.ca/envision-financial/personal/rates/GIC-rates"}
+
+- name: Simplii Financial
+  url: https://www.simplii.com/en/rates/mortgage-rates.html
+  mode: auto
+  rates:
+    # CIBC's special rates, offered through Simplii (a division of CIBC); not the APR column
+    - {product: "3-year fixed", label: "3-year fixed", column: "Special rate"}
+    - {product: "5-year fixed", label: "5-year fixed", column: "Special rate"}
+    - {product: "5-year variable", label: "5-year variable", column: "Special rate"}
+    # GICs: all non-redeemable; the APY column (interest is paid or compounded monthly, so the APY is what compares with yearly rates elsewhere)
+    - {product: "1-year GIC", url: "https://www.simplii.com/en/rates/gic-rates.html", label: "1 year", column: "APY", note: "Annual percentage yield, with interest paid or compounded monthly"}
+    - {product: "2-year GIC", url: "https://www.simplii.com/en/rates/gic-rates.html", label: "2 year", column: "APY", note: "Annual percentage yield, with interest paid or compounded monthly"}
+    - {product: "3-year GIC", url: "https://www.simplii.com/en/rates/gic-rates.html", label: "3 year", column: "APY", note: "Annual percentage yield, with interest paid or compounded monthly"}
+    - {product: "4-year GIC", url: "https://www.simplii.com/en/rates/gic-rates.html", label: "4 year", column: "APY", note: "Annual percentage yield, with interest paid or compounded monthly"}
+    - {product: "5-year GIC", url: "https://www.simplii.com/en/rates/gic-rates.html", label: "5 year", column: "APY", note: "Annual percentage yield, with interest paid or compounded monthly"}
+    - {product: "Savings", url: "https://www.simplii.com/en/rates/high-interest-savings-account-rates.html", label: "$0.00 to $50,000.00", after: "High Interest Savings Account", note: "High Interest Savings Account, balances up to $50,000"}
+
+- name: Wealthsimple
+  url: https://www.wealthsimple.com/en-ca/chequing
+  mode: auto
+  rates:
+    # No mortgages or GICs listed: the interest on its chequing account, which is its main account for savings
+    - {product: "Savings", label: "Core clients:", after: "Interest rate", note: "Chequing account interest for Core clients; Premium and Generation clients earn more"}

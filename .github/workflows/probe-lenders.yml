@@ -1,0 +1,32 @@
+name: Probe lenders (temporary)
+# Started by hand: reads the named lenders with the scraper and reports what it found as notes on the run. Changes nothing.
+on:
+  workflow_dispatch:
+    inputs:
+      lenders:
+        description: 'Lender names, separated by commas'
+        required: true
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: playwright install --with-deps chromium
+      - name: Read the lenders
+        env:
+          LENDERS: ${{ inputs.lenders }}
+        run: |
+          python - <<'PY'
+          import os, yaml, scraper
+          names = [n.strip() for n in os.environ["LENDERS"].split(",")]
+          for l in yaml.safe_load(open("institutions.yaml")):
+              if l["name"] not in names: continue
+              res, err = scraper.scrape_lender(l)
+              msg = "; ".join(f"{p}={r[0]} [{r[1][:50]}]" for p, r in res.items()) + " || ERR: " + "; ".join(f"{p}: {str(e)[:80]}" for p, e in err.items())
+              print(f"::notice title={l['name']}::{msg.replace(chr(10), ' ')[:3000]}")
+          PY
