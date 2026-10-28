@@ -285,12 +285,106 @@ def valet_rate(series, page):
     return {"rate": rate, "as_of": latest["d"], "source": page, "fetched_at": now(), "stale": False}
 
 
-def policy_rate():  # target for the overnight rate (the policy interest rate)
-    return valet_rate("V39079", POLICY_URL)
+# Announcement days. The Bank of Canada announces its policy rate at 9:45 ET on scheduled Wednesdays, and its press
+# release appears at a predictable address. Its data feed (Valet) shows a new rate only from the day it takes effect
+# (the next day), and its weekly prime series lags by up to a week. So within a week of an announcement, the site
+# reads the Bank's own press release, and the big banks' own prime-rate announcements, so the change shows the same day.
+RELEASE_URL = "https://www.bankofcanada.ca/{y}/{m}/fad-press-release-{d}/"
+POLICY_RE = re.compile(r"target for the overnight rate (?:at|to) (\d{1,2}(?:\.\d{1,3})?|\d{0,2}\s?[\u00bc\u00bd\u00be])\s*%", re.I)
+FRACTIONS = {"\u00bc": 0.25, "\u00bd": 0.5, "\u00be": 0.75}
+# Big banks' own prime-rate announcements (their websites), tried on announcement days; {d} is YYYY-MM-DD
+PRIME_RELEASES = [("TD", "https://stories.td.com/ca/en/news/{d}-td-canada-trust-announces-change-to-td-prime-rate"),
+                  ("Scotiabank", "https://scotiabank.investorroom.com/{d}-Scotiabank-increases-prime-lending-rate"),
+                  ("Scotiabank", "https://scotiabank.investorroom.com/{d}-Scotiabank-decreases-prime-lending-rate")]
+PRIME_RE = re.compile(r"prime (?:lending )?rate[^.]{0,120}?\bto (\d{1,2}\.\d{1,3})\s*%?(?: from \d{1,2}\.\d{1,3}\s*%?)?,? effective ([A-Z][a-z]+ \d{1,2},? \d{4})", re.I)
 
 
-def prime_rate():  # the major banks' typical prime rate (a weekly series)
-    return valet_rate("V80691311", PRIME_URL)
+def _page_text(url):
+    import requests
+    from bs4 import BeautifulSoup
+    if not robots_ok(url):
+        return None
+    r = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=30)
+    if r.status_code == 404:
+        return None
+    r.raise_for_status()
+    return norm(BeautifulSoup(r.text, "html.parser").get_text(" "))
+
+
+def recent_announcement(day=None, days=7):
+    """The Bank of Canada's most recent rate announcement within `days` days, as (date, rate, url), from its press
+    release; None if there wasn't one (or it can't be read). Announcements are on Wednesdays."""
+    from datetime import timedelta
+    d0 = date.fromisoformat(day or today())
+    for k in range(days + 1):
+        d = d0 - timedelta(days=k)
+        if d.weekday() != 2:
+            continue
+        url = RELEASE_URL.format(y=d.year, m=f"{d.month:02d}", d=d.isoformat())
+        try:
+            text = _page_text(url)
+        except Exception:
+            continue
+        if not text:
+            continue
+        m = POLICY_RE.search(text)
+        if not m:
+            continue
+        v = m.group(1).replace(" ", "")
+        rate = float(v[:-1] or 0) + FRACTIONS[v[-1]] if v[-1] in FRACTIONS else float(v)
+        if 0 <= rate <= 25:
+            return d.isoformat(), rate, url
+    return None
+
+
+def bank_prime_announcement(d):
+    """New prime rate announced by a big bank on announcement day `d` (YYYY-MM-DD), from its own website:
+    {rate, effective, banks, source}, or None if no bank has posted one."""
+    found = {}
+    for bank, pattern in PRIME_RELEASES:
+        if bank in found:
+            continue
+        url = pattern.format(d=d)
+        try:
+            text = _page_text(url)
+        except Exception:
+            continue
+        m = PRIME_RE.search(text or "")
+        if m and 0 <= float(m.group(1)) <= 25:
+            found[bank] = (float(m.group(1)), m.group(2), url)
+    if not found:
+        return None
+    rates = {v[0] for v in found.values()}
+    if len(rates) > 1:
+        return None  # the banks disagree: wait for the Bank of Canada's weekly figure
+    rate, eff, url = next(iter(found.values()))
+    return {"rate": rate, "effective": eff, "banks": sorted(found), "source": url}
+
+
+def policy_rate(day=None):  # target for the overnight rate (the policy interest rate)
+    v = valet_rate("V39079", POLICY_URL)
+    if v["as_of"] <= (day or today()):  # the feed may not show a change announced today until it takes effect
+        try:
+            a = recent_announcement(day)
+        except Exception:
+            a = None
+        if a and v["as_of"] <= a[0] and abs(a[1] - v["rate"]) >= 0.0005:
+            return {"rate": a[1], "as_of": a[0], "source": a[2], "fetched_at": now(), "stale": False, "announced": True}
+    return v
+
+
+def prime_rate(day=None):  # the major banks' typical prime rate (a weekly series), or the banks' own announcement
+    v = valet_rate("V80691311", PRIME_URL)
+    try:
+        a = recent_announcement(day)
+    except Exception:
+        a = None
+    if a and v["as_of"] <= a[0]:  # the weekly figure predates the latest announcement
+        p = bank_prime_announcement(a[0])
+        if p and abs(p["rate"] - v["rate"]) >= 0.0005:
+            return {"rate": p["rate"], "as_of": a[0], "source": p["source"], "fetched_at": now(), "stale": False,
+                    "announced": True, "note": f"As announced by {' and '.join(p['banks'])}, effective {p['effective'].title()}"}
+    return v
 
 
 def load_manual():
@@ -506,6 +600,14 @@ if __name__ == "__main__":
     a = sys.argv[1:]
     if a[:1] == ["--demo"]:
         demo()
+    elif a[:1] == ["--announcement-check"]:
+        # For the announcement-day workflow: exit 0 (and say so) if the Bank of Canada or the big banks have announced
+        # a policy or prime rate that the published rates.json doesn't show yet; exit 1 if there's nothing new.
+        prev = json.loads(OUT.read_text()) if OUT.exists() else {}
+        new = {"policy_rate": policy_rate(), "prime_rate": prime_rate()}
+        changed = [k for k, v in new.items() if not prev.get(k) or abs(prev[k]["rate"] - v["rate"]) >= 0.0005]
+        print("changed: " + ", ".join(f"{k} {prev.get(k, {}).get('rate')} -> {new[k]['rate']}" for k in changed) if changed else "no change")
+        sys.exit(0 if changed else 1)
     elif a[:1] == ["--inspect"] and len(a) > 1:
         show_rates(a[1], "--browser" in a)
     else:
