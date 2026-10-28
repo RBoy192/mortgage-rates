@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="Follow Canadian mortgage rate changes in a feed reader app: every time a lender changes an advertised rate.">
 <link rel="canonical" href="https://whatstherate.ca/rate-alerts.html">
-<link rel="icon" href="favicon.svg?v=77" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=77" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=77">
+<link rel="icon" href="favicon.svg?v=78" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=78" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=78">
 <link rel="alternate" type="application/atom+xml" title="Mortgage rate changes" href="feed.xml">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=77">
+<link rel="stylesheet" href="style.css?v=78">
 <script type="application/ld+json" id="ld">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://whatstherate.ca/rate-alerts.html#page", "url": "https://whatstherate.ca/rate-alerts.html", "name": "Rate alerts | What's the rate?", "description": "Follow Canadian mortgage rate changes in a feed reader app: every time a lender changes an advertised rate.", "inLanguage": "en-CA", "isPartOf": {"@type": "WebSite", "name": "What's the rate?", "url": "https://whatstherate.ca/"}, "publisher": {"@type": "Organization", "name": "What's the rate?", "url": "https://whatstherate.ca/", "logo": "https://whatstherate.ca/apple-touch-icon.png"}, "dateModified": "2026-10-28"}]}</script>
 </head>
 <body data-page="extras">
@@ -43,6 +43,14 @@
 <li>Choose to add a feed or subscription, and paste this address:</li></ol>
 <div class="feedurl"><code id="furl">https://whatstherate.ca/feed.xml</code><button type="button" class="cpy" id="fcopy">Copy</button></div>
 <p class="f">Your feed reader checks for new changes on its own. The feed covers the last 60 days. Changes to insured (less than 20% down) rates are included too.</p>
+<p>Only want one kind of rate? Follow one of these instead:</p>
+<div class="feedurl"><span class="fk">Mortgages</span><code>https://whatstherate.ca/feed-mortgages.xml</code><button type="button" class="cpy">Copy</button></div>
+<div class="feedurl"><span class="fk">GICs</span><code>https://whatstherate.ca/feed-gics.xml</code><button type="button" class="cpy">Copy</button></div>
+<div class="feedurl"><span class="fk">Savings</span><code>https://whatstherate.ca/feed-savings.xml</code><button type="button" class="cpy">Copy</button></div>
+<h2 id="levels">Alert me when a rate crosses a level</h2>
+<p>Want to know when the highest 1-year GIC reaches 3.75%, or the lowest 5-year fixed drops to 4.25%? Set an alert here. Each time you open this site, your alerts are checked, and any that are met show at the top of the <a href="index.html">main page</a> and on <a href="my-rates.html">My rates</a>. They're saved only in this browser.</p>
+<div class="payform" id="al_form"></div>
+<div id="al_list"></div>
 <h2>Latest changes</h2>
 <ul class="ul" id="fchanges"><li>Loading…</li></ul>
 <p class="f">Rates change often, and the rate you're offered depends on your situation. Always confirm with the lender. See the <a href="rate-history.html">rate history</a> for charts.</p>
@@ -50,9 +58,14 @@
 </div>
 </div>
 </main>
-<script src="site.js?v=77"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="77"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=78"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="78"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="myrates.js?v=78"></script>
 <script>
+// alerts at a level you choose (myrates.js)
+let alL = []; const alDraw = mrAlertUI($("al_form"), $("al_list"), () => alL); alDraw();
+loadRates().then(d => { alL = groupLenders(d); alDraw(); }, () => {});
+document.querySelectorAll(".feedurl .cpy:not(#fcopy)").forEach(b => b.onclick = () => { const t = b.previousElementSibling.textContent; (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => { b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy", 1800); }, () => prompt("Copy this address:", t)); });
 $("fcopy").onclick = () => { const s = $("furl").textContent; (navigator.clipboard ? navigator.clipboard.writeText(s) : Promise.reject()).then(() => { $("fcopy").textContent = "Copied"; setTimeout(() => $("fcopy").textContent = "Copy", 1800); }, () => { const r = document.createRange(); r.selectNodeContents($("furl")); getSelection().removeAllRanges(); getSelection().addRange(r); }); };
 fetch("feed.xml?t=" + Date.now(), {cache: "no-store"}).then(r => r.ok ? r.text() : Promise.reject()).then(x => {
   const doc = new DOMParser().parseFromString(x, "application/xml"), items = [...doc.querySelectorAll("entry")].slice(0, 15);

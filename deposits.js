@@ -33,7 +33,7 @@ function depositTable(cfg){
     const tpool = pool.filter(l => tileGroup === "all" || (tileGroup === "banks") === !NON_BANKS.includes(l.name));
     const who = {all: "", banks: " at a bank", others: " at a credit union or other lender"}[tileGroup] + (cfg.where ? cfg.where() : "");
     el("tiles").innerHTML = cols.map(([label, p]) => { const b = Math.max(...tpool.map(l => rate(l, p))); return b === -Infinity ? "" :
-      `<div class="k"><em>Highest ${esc(cfg.label(label, p))}${who}</em><b>${pct(b)}</b>${tpool.filter(l => rate(l, p) === b).map(l => esc(l.name)).join(", ")}</div>`; }).join("")
+      `<div class="k">${cfg.pin && typeof pinBtn === "function" ? pinBtn(p, cfg.prov ? cfg.prov() : "") : ""}<em>Highest ${esc(cfg.label(label, p))}${who}</em><b>${pct(b)}</b>${tpool.filter(l => rate(l, p) === b).map(l => esc(l.name)).join(", ")}</div>`; }).join("")
       || `<p class="m">No ${esc(cfg.label("", ""))} rates${who} yet.</p>`;
     const cmp = (a, b) => {
       if (sortBy === "name") return sortDir * a.name.localeCompare(b.name);

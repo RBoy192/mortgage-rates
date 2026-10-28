@@ -47,7 +47,8 @@ function renderTerm(){
 function renderLender(){
   const l = lenders.find(x => x.name === lender);
   if (!l) { $("cards").innerHTML = '<p class="m">This lender\'s rates aren\'t available right now.</p>'; return; }
-  $("lsrc").innerHTML = `<b>Where these rates come from</b><ol class="refs"><li><a href="${esc(l.source)}" target="_blank" rel="noopener">${esc(lender)}: mortgage rates${EXT}</a></li></ol>`;
+  const hasM = TERMS.some(p => l.cells[p]);  // some lenders list only GIC or savings rates
+  $("lsrc").innerHTML = `<b>Where these rates come from</b>` + (hasM ? `<ol class="refs"><li><a href="${esc(l.source)}" target="_blank" rel="noopener">${esc(lender)}: mortgage rates${EXT}</a></li></ol>` : "");
   $("cards").innerHTML = TERMS.map(p => {
     const c = l.cells[p];
     if (!c) return `<div class="k"><em>${esc(cap(p))}</em><b class="none">—</b><span class="s">${esc(lender)} doesn't list this rate.</span></div>`;
@@ -87,7 +88,7 @@ function renderDeposits(l){
   $("dpromo").innerHTML = promo && !promo.stale ? `<b>Promotional savings offer:</b> ${pct(promo.rate)}${promo.note ? ` (${esc(promo.note)})` : ""}. When it ends, the regular rate applies.` : "";
   $("dpromo").hidden = !(promo && !promo.stale);
   const srcs = [...new Set(Object.entries(l.cells).filter(([p]) => isDeposit(p)).map(([, c]) => c.source).filter(Boolean))];
-  $("lsrc").insertAdjacentHTML("beforeend", srcs.length ? `<ol class="refs" start="2">${srcs.map(u => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(lender)}: GIC and savings rates${EXT}</a></li>`).join("")}</ol>` : "");
+  $("lsrc").insertAdjacentHTML("beforeend", srcs.length ? `<ol class="refs" start="${COLUMNS.some(([, p]) => l.cells[p]) ? 2 : 1}">${srcs.map(u => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(lender)}: GIC and savings rates${EXT}</a></li>`).join("")}</ol>` : "");
 }
 
 function render(){ (term ? renderTerm : renderLender)(); }

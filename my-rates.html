@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My rates | What's the rate?</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<meta name="description" content="Keep the mortgage, GIC and savings rates you care about in one place, and get an alert when one crosses a level you choose.">
+<link rel="canonical" href="https://whatstherate.ca/my-rates.html">
+<link rel="icon" href="favicon.svg?v=78" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=78" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=78">
+<link rel="alternate" type="application/atom+xml" title="Mortgage rate changes" href="feed.xml">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#10213F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="What's the rate?">
+<meta property="og:title" content="My rates | What&#x27;s the rate?">
+<meta property="og:description" content="Mortgage terms explained in plain language, from amortization and equity to GDS, TDS, HELOC and the stress test.">
+<meta property="og:url" content="https://whatstherate.ca/my-rates.html">
+<meta property="og:image" content="https://whatstherate.ca/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="What's the rate? Compare today's mortgage rates.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=78">
+<script type="application/ld+json" id="ld" data-live="1">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://whatstherate.ca/my-rates.html#page", "url": "https://whatstherate.ca/my-rates.html", "name": "My rates | What's the rate?", "description": "Keep the mortgage, GIC and savings rates you care about in one place, and get an alert when one crosses a level you choose.", "inLanguage": "en-CA", "isPartOf": {"@type": "WebSite", "name": "What's the rate?", "url": "https://whatstherate.ca/"}, "publisher": {"@type": "Organization", "name": "What's the rate?", "url": "https://whatstherate.ca/", "logo": "https://whatstherate.ca/apple-touch-icon.png"}, "dateModified": "2026-10-28"}]}</script>
+</head>
+<body data-page="extras" data-sub="myrates">
+<main id="top">
+<header id="site-header"></header>
+<div class="pg vl">
+<nav class="tabs" aria-label="Extras"><a href="my-rates.html" aria-current="page">My rates</a><a href="glossary.html">Glossary</a><a href="compare.html">Compare lenders</a><a href="weekly-changes.html">Rate changes</a><a href="rate-hold.html">Rate-hold watchdog</a><a href="offline-calculator.html">Offline calculator</a><a href="about.html">About</a><a href="terms.html">Terms and privacy</a></nav>
+<div class="vc">
+<p class="eyebrow">My rates</p>
+<h1>Rates I'm <span class="hl">watching</span></h1>
+<p class="deck">Keep the rates you care about in one place, and get an alert when one crosses a level you choose.</p>
+<p class="f">Everything here is saved only in this browser, on this device: nothing is sent anywhere and there's no sign-up. Your rates and alerts show at the top of the <a href="index.html">main page</a> each time you visit.</p>
+<p class="m" id="mr_msg" role="status"></p>
+<h2 class="sh">My rates</h2>
+<p class="f">The best advertised rate for each: the lowest for mortgages, the highest for GICs and savings. You can also tap the star on any rate card on the main page.</p>
+<div class="mrpins" id="mr_pins"></div>
+<div class="payform" id="mr_addf"><div class="pf"><label for="mr_p">Rate</label><select id="mr_p"></select></div><div class="pf"><label for="mr_prov">Province</label><select id="mr_prov"><option value="">All provinces</option></select></div><div class="pf"><span class="pfl" aria-hidden="true">&nbsp;</span><button type="button" class="btn" id="mr_add">Add to My rates</button></div></div>
+<h2 class="sh" id="alerts">Alerts</h2>
+<p class="f">Choose a rate and a level, like "the highest 1-year GIC at or above 3.75%" or "the lowest 5-year fixed at or below 4.25%". Each time you open this site, your alerts are checked and any that are met show at the top of the main page. To be told when any lender changes a rate, follow the <a href="rate-alerts.html">rate alerts feed</a>.</p>
+<div class="payform" id="al_form"></div>
+<div id="al_list"></div>
+<h2 class="sh">Use them on another device</h2>
+<p class="f">Copy this link and open it on your phone or another computer to add your rates and alerts there.</p>
+<p class="f"><button type="button" class="lk" id="mr_copy">Copy a link to my rates and alerts</button></p>
+</div>
+</div>
+</main>
+<script src="site.js?v=78"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="78"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="myrates.js?v=78"></script>
+<script src="mypage.js?v=78"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How much will my savings earn? Savings interest calculator | What's the rate?</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<meta name="description" content="Work out what a savings account would earn in a month and a year, with regular deposits and a promotional rate, at today&#x27;s highest advertised rates or your own.">
+<link rel="canonical" href="https://whatstherate.ca/calc-savings.html">
+<link rel="icon" href="favicon.svg?v=78" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=78" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=78">
+<link rel="alternate" type="application/atom+xml" title="Mortgage rate changes" href="feed.xml">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#10213F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="What's the rate?">
+<meta property="og:title" content="How much will my savings earn? Savings interest calculator | What&#x27;s the rate?">
+<meta property="og:description" content="Work out what a savings account would earn in a month and a year, with regular deposits and a promotional rate, at today&#x27;s highest advertised rates or your own.">
+<meta property="og:url" content="https://whatstherate.ca/calc-savings.html">
+<meta property="og:image" content="https://whatstherate.ca/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="What's the rate? Compare today's mortgage rates.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=78">
+<script type="application/ld+json" id="ld" data-live="1">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://whatstherate.ca/calc-savings.html#page", "url": "https://whatstherate.ca/calc-savings.html", "name": "How much will my savings earn? Savings interest calculator | What's the rate?", "description": "Work out what a savings account would earn in a month and a year, with regular deposits and a promotional rate, at today's highest advertised rates or your own.", "inLanguage": "en-CA", "isPartOf": {"@type": "WebSite", "name": "What's the rate?", "url": "https://whatstherate.ca/"}, "publisher": {"@type": "Organization", "name": "What's the rate?", "url": "https://whatstherate.ca/", "logo": "https://whatstherate.ca/apple-touch-icon.png"}, "dateModified": "2026-10-28"}]}</script>
+</head>
+<body data-page="calc" data-calc="savings">
+<main id="top">
+<header id="site-header"></header>
+<div class="pg vl">
+<nav class="tabs" aria-label="Calculators"><p class="tabh">Mortgage calculators</p><a href="calculators.html">How much home can I afford?</a><a href="calc-payment.html">What will my mortgage payment be?</a><a href="calc-income.html">How much income do I need to qualify?</a><a href="calc-closing.html">How much cash do I need to close?</a><a href="calc-frequency.html">Should I pay monthly, biweekly or weekly?</a><a href="calc-prepay.html">How much will paying extra save me?</a><a href="calc-renewal.html">Should I renew or switch lenders?</a><a href="calc-penalty.html">What will it cost to break my mortgage?</a><a href="calc-rentbuy.html">Should I rent or buy?</a><a href="calc-equity.html">How much can I borrow against my home?</a><p class="tabh">GIC calculators</p><a href="calc-gic-interest.html">How much interest will my GIC earn?</a><a href="calc-gic-ladder.html">How should I split my money across GICs?</a><p class="tabh">Savings calculators</p><a href="calc-savings.html" aria-current="page">How much will my savings earn?</a></nav>
+<div class="vc">
+<h1>How much will my savings <span class="hl">earn?</span></h1>
+<p class="m">See what your savings would earn, with deposits each month and a promotional rate to start if you have one. Rates start at today's highest advertised savings rate. <button class="lk" id="sv_reset" type="button">Reset to defaults</button></p>
+<div class="est">
+<div class="fl" id="sv_form">
+<label>Balance today<input id="sv_bal" type="text" inputmode="numeric" data-money="1" autocomplete="off" value="10,000"></label>
+<label>Add each month<input id="sv_add" type="text" inputmode="numeric" data-money="1" autocomplete="off" value="0"></label>
+<label>For how long<select id="sv_months"><option value="6">6 months</option><option value="12" selected>1 year</option><option value="24">2 years</option><option value="36">3 years</option><option value="60">5 years</option></select></label>
+<label>Province<select id="sv_prov"><option value="">All provinces</option></select></label>
+<label>Regular rate<select id="sv_rate"><option value="custom">My own rate</option></select></label>
+<label id="sv_customl">Your regular rate (%)<input id="sv_custom" type="number" inputmode="decimal" step="0.05" min="0" autocomplete="off" value="1.5"></label>
+<label class="ck"><input id="sv_promo" type="checkbox">Start with a promotional rate</label>
+<label id="sv_prl">Promotional rate (%)<input id="sv_prate" type="number" inputmode="decimal" step="0.05" min="0" autocomplete="off" value="4"></label>
+<label id="sv_pml">Promotion lasts<select id="sv_pmonths"><option value="2">2 months</option><option value="3" selected>3 months</option><option value="4">4 months</option><option value="5">5 months</option><option value="6">6 months</option><option value="12">12 months</option></select></label>
+</div>
+<div class="res" id="sv_out"></div>
+</div>
+<div id="sv_below"></div>
+<div class="acts"><button type="button" id="sv_share" class="lk">Copy a link to these numbers</button><button type="button" class="lk" onclick="print()">Print results</button></div>
+<p class="f">An estimate only. Most savings accounts work out interest on each day's balance and pay it once a month; this does the same, assuming the rate doesn't change. Savings rates can change at any time, and promotional rates often apply only to new deposits, new clients or balances up to a limit, so check the offer's conditions. Interest is taxable income unless the account is a TFSA or another registered account. See also <a href="index.html#savings">today's savings rates</a> and <a href="sav-interest.html">How savings interest works</a>.</p>
+<p class="f src"><b>Sources</b></p><ol class="refs"><li><a href="https://www.cdic.ca/depositors/whats-covered/" target="_blank" rel="noopener">Canada Deposit Insurance Corporation: what's covered</a></li><li><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/line-12100-interest-other-investment-income.html" target="_blank" rel="noopener">Canada Revenue Agency: interest and other investment income</a></li></ol>
+</div>
+</div>
+</main>
+<script src="site.js?v=78"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="78"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="savcalc.js?v=78"></script>
+</body>
+</html>

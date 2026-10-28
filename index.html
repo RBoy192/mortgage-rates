@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="Compare today&#x27;s best mortgage, GIC and savings rates from Canadian banks and credit unions, updated every hour, with free plain-language calculators and guides.">
 <link rel="canonical" href="https://whatstherate.ca/">
-<link rel="icon" href="favicon.svg?v=77" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=77" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=77">
+<link rel="icon" href="favicon.svg?v=78" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=78" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=78">
 <link rel="alternate" type="application/atom+xml" title="Rate changes" href="feed.xml">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=77">
+<link rel="stylesheet" href="style.css?v=78">
 <script type="application/ld+json" id="ld" data-live="1">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://whatstherate.ca/#page", "url": "https://whatstherate.ca/", "name": "What's the rate? Compare today's mortgage, GIC and savings rates in Canada", "description": "Compare today's best mortgage, GIC and savings rates from Canadian banks and credit unions, updated every hour, with free plain-language calculators and guides.", "inLanguage": "en-CA", "isPartOf": {"@type": "WebSite", "name": "What's the rate?", "url": "https://whatstherate.ca/"}, "publisher": {"@type": "Organization", "name": "What's the rate?", "url": "https://whatstherate.ca/", "logo": "https://whatstherate.ca/apple-touch-icon.png"}, "dateModified": "2026-10-28"}]}</script>
 </head>
 <body data-page="rates">
@@ -41,6 +41,7 @@
 </div>
 <div class="banner" id="demo" hidden>These are sample numbers, not real rates. Add your first lender in institutions.yaml to replace them.</div>
 <div id="hold" class="hold" hidden></div>
+<section id="myrates" class="myrates" aria-label="My rates" hidden></section>
 <div class="pickrow"><div class="kindpick"><span class="kpl" id="kindl">Show rates for</span><div class="seg2 kind" id="kind" role="group" aria-labelledby="kindl"><button type="button" data-k="mortgages" aria-pressed="true">Mortgages</button><button type="button" data-k="gics" aria-pressed="false">GICs</button><button type="button" data-k="savings" aria-pressed="false">Savings</button></div></div>
 <div class="tilepick" role="group" aria-label="Show the best rates from"><span class="tpl" aria-hidden="true">Best rates from:</span><div class="seg2" id="tilegrp"><button type="button" data-g="all" aria-pressed="false">All lenders</button><button type="button" data-g="banks" aria-pressed="true">Banks</button><button type="button" data-g="others" aria-pressed="false">Credit unions and others</button></div></div></div>
 <div class="mainwrap">
@@ -58,7 +59,7 @@
 </details>
 <details class="fold"><summary><h2 class="sh">Compare by lender</h2></summary>
 <p class="f"><a href="compare.html"><b>Compare two or three lenders side by side</b></a>: their mortgage, GIC and savings rates in one table, with how each has moved.</p>
-<div class="lnk" id="bylender"><a href="access-mortgage-rates.html">Access Credit Union</a><a href="affinity-mortgage-rates.html">Affinity Credit Union</a><a href="alterna-mortgage-rates.html">Alterna Savings</a><a href="assiniboine-mortgage-rates.html">Assiniboine Credit Union</a><a href="atb-mortgage-rates.html">ATB Financial</a><a href="beem-mortgage-rates.html">Beem Credit Union</a><a href="bmo-mortgage-rates.html">BMO</a><a href="cibc-mortgage-rates.html">CIBC</a><a href="coast-capital-mortgage-rates.html">Coast Capital Savings</a><a href="conexus-mortgage-rates.html">Conexus Credit Union</a><a href="desjardins-mortgage-rates.html">Desjardins</a><a href="eq-bank-mortgage-rates.html">EQ Bank</a><a href="first-national-mortgage-rates.html">First National</a><a href="firstontario-mortgage-rates.html">FirstOntario Credit Union</a><a href="icici-mortgage-rates.html">ICICI Bank Canada</a><a href="libro-mortgage-rates.html">Libro Credit Union</a><a href="manulife-bank-mortgage-rates.html">Manulife Bank</a><a href="meridian-mortgage-rates.html">Meridian</a><a href="national-bank-mortgage-rates.html">National Bank</a><a href="rbc-mortgage-rates.html">RBC Royal Bank</a><a href="scotiabank-mortgage-rates.html">Scotiabank</a><a href="servus-mortgage-rates.html">Servus Credit Union</a><a href="steinbach-mortgage-rates.html">Steinbach Credit Union</a><a href="tangerine-mortgage-rates.html">Tangerine</a><a href="td-mortgage-rates.html">TD Canada Trust</a><a href="tru-mortgage-rates.html">Tru Cooperative Bank</a><a href="uni-mortgage-rates.html">UNI Financial</a><a href="vancity-mortgage-rates.html">Vancity</a></div>
+<div class="lnk" id="bylender"><a href="access-mortgage-rates.html">Access Credit Union</a><a href="affinity-mortgage-rates.html">Affinity Credit Union</a><a href="alterna-mortgage-rates.html">Alterna Savings</a><a href="assiniboine-mortgage-rates.html">Assiniboine Credit Union</a><a href="atb-mortgage-rates.html">ATB Financial</a><a href="beem-mortgage-rates.html">Beem Credit Union</a><a href="bmo-mortgage-rates.html">BMO</a><a href="cibc-mortgage-rates.html">CIBC</a><a href="coast-capital-mortgage-rates.html">Coast Capital Savings</a><a href="conexus-mortgage-rates.html">Conexus Credit Union</a><a href="desjardins-mortgage-rates.html">Desjardins</a><a href="eq-bank-mortgage-rates.html">EQ Bank</a><a href="first-national-mortgage-rates.html">First National</a><a href="firstontario-mortgage-rates.html">FirstOntario Credit Union</a><a href="icici-mortgage-rates.html">ICICI Bank Canada</a><a href="libro-mortgage-rates.html">Libro Credit Union</a><a href="manulife-bank-mortgage-rates.html">Manulife Bank</a><a href="meridian-mortgage-rates.html">Meridian</a><a href="national-bank-mortgage-rates.html">National Bank</a><a href="rbc-mortgage-rates.html">RBC Royal Bank</a><a href="scotiabank-mortgage-rates.html">Scotiabank</a><a href="servus-mortgage-rates.html">Servus Credit Union</a><a href="simplii-mortgage-rates.html">Simplii Financial</a><a href="steinbach-mortgage-rates.html">Steinbach Credit Union</a><a href="tangerine-mortgage-rates.html">Tangerine</a><a href="td-mortgage-rates.html">TD Canada Trust</a><a href="tru-mortgage-rates.html">Tru Cooperative Bank</a><a href="uni-mortgage-rates.html">UNI Financial</a><a href="vancity-mortgage-rates.html">Vancity</a><a href="wealthsimple-mortgage-rates.html">Wealthsimple</a></div>
 </details>
 <p class="f"><b>Your rate may be lower.</b> The rates on this page are the ones each lender advertises publicly. Many banks also offer <span data-tip="rvr">relationship pricing</span> (sometimes called relationship value, or RVR), which can give existing clients a rate lower than the posted rate, depending on the products they hold with the bank and their overall relationship. The rate you're actually offered also depends on your own situation, such as your down payment, credit and the type of mortgage. Ask each lender what relationship pricing they can offer before you decide.</p>
 <p class="f">New to mortgages? <a href="crash-course.html">Rates Explained: Mortgages</a> covers the basics in simple steps.</p>
@@ -90,13 +91,14 @@
 <a href="calc-payment.html">I want lower payments <span aria-hidden="true">→</span></a>
 </div>
 </details>
-<p class="f">Rates are collected from each lender's website every hour, except BMO, CIBC, Vancity, Meridian and Beem Credit Union, whose rates are read three times a day. Where a lender lists both posted and special-offer rates, this page shows the special-offer rate. Rates may be out of date or incomplete, so confirm the current rate and terms with the lender before you decide.</p>
+<p class="f">Rates are collected from each lender's website every hour, except BMO, CIBC, Simplii Financial, Vancity, Meridian and Beem Credit Union, whose rates are read three times a day. Where a lender lists both posted and special-offer rates, this page shows the special-offer rate. Rates may be out of date or incomplete, so confirm the current rate and terms with the lender before you decide.</p>
 <p class="f" id="fn1" hidden><b>* BoC policy rate:</b> the Bank of Canada's target for the overnight rate, which is what big financial institutions charge each other for one-day loans. When it changes, banks usually move their prime rates too, which affects variable-rate mortgages.</p>
 <p class="f" id="fn2" hidden><b>** Prime rate:</b> the typical prime lending rate of Canada's major banks, published weekly. Variable-rate mortgages are priced off prime. Each lender sets its own prime rate, so yours may differ slightly.</p>
 </main>
-<script src="site.js?v=77"></script>
-<script src="deposits.js?v=77"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="77"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=78"></script>
+<script src="deposits.js?v=78"></script>
+<script src="myrates.js?v=78"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="78"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 let lenders = [], allLenders = [], sortBy = "5-year fixed", sortDir = 1, updatedAt = null, hist = {series: {}};
 const Q = new URLSearchParams(location.search);  // shareable choices: ?prov=Ontario&gic=red (the rate type is in the #hash)
@@ -151,7 +153,7 @@ $("tilegrp").addEventListener("click", e => {
   GIC.render(); SAV.render();
 });
 // GIC and savings tables (deposits.js); the button row under the header picks which rates are shown
-const DEP = {filter: n => serves(n), where: () => province ? " in " + province : "", hist: () => hist};
+const DEP = {filter: n => serves(n), where: () => province ? " in " + province : "", hist: () => hist, pin: true, prov: () => province};
 const GIC = depositTable(Object.assign({id: "g", cols: GIC_COLUMNS, key: "1-year GIC", store: "gic", what: "GIC", label: (h, p) => p || "GIC"}, DEP));
 const SAV = depositTable(Object.assign({id: "s", cols: [["Regular rate", SAVINGS]], key: SAVINGS, store: "savings", what: "savings", promo: true, label: () => "savings rate"}, DEP));
 let gicType = "non";
@@ -228,7 +230,7 @@ function render(){
   const tbest = COLUMNS.map(([, p]) => Math.min(...tpool.map(l => rateOf(l, p))));
   const who = {all: "", banks: " at a bank", others: " at a credit union or other lender"}[tileGroup];
   $("tiles").innerHTML = COLUMNS.map(([, p], i) => tbest[i] === Infinity ? "" :
-    `<div class="k"><em>Best ${esc(p)}${insured ? " insured" : ""}${province ? " in " + esc(province) : ""}${who}</em><b>${pct(tbest[i])}</b>${tpool.filter(l => rateOf(l, p) === tbest[i]).map(l => esc(l.name)).join(", ")}</div>`).join("");
+    `<div class="k">${pinBtn(p, province)}<em>Best ${esc(p)}${insured ? " insured" : ""}${province ? " in " + esc(province) : ""}${who}</em><b>${pct(tbest[i])}</b>${tpool.filter(l => rateOf(l, p) === tbest[i]).map(l => esc(l.name)).join(", ")}</div>`).join("");
   const hiddenN = lenders.length - pool.length;
   // lenders that don't list a rate always go last, whichever way the column is sorted
   const cmp = (a, b) => {
@@ -303,6 +305,7 @@ loadRates().then(d => { try {
   }
   render();
   showHold(all);
+  mrCard($("myrates"), all);
   loadHistory().then(h => { hist = h && h.series ? h : {series: {}}; render(); GIC.render(); SAV.render(); weekly(); });
 } catch (e) { $("updated").textContent = "Something went wrong showing the rates. Please refresh. Details: " + e.name + ": " + e.message; }
 }, () => { $("updated").textContent = ""; $("tiles").innerHTML = mascotNote("Hmm, the latest rates didn't load. Please refresh the page, or try again in a few minutes."); });
@@ -347,6 +350,8 @@ function weekly(){
     }).join("") + "</ul>" + (ch.length > MAX ? `<p class="m">And ${ch.length - MAX} more.</p>` : "");
 }
 
+// My rates: redraw the strip when a star is tapped
+document.addEventListener("myrates", () => { if (allLenders.length) mrCard($("myrates"), allLenders); });
 // Hover or tap a rate to see its last 30 days
 sparkPop(document.querySelector(".paneswrap"), () => hist);
 
