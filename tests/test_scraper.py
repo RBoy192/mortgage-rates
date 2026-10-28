@@ -489,14 +489,24 @@ class TestAnnouncementDay(unittest.TestCase):
         self.pages = {}
         self._pt, self._valet = scraper._page_text, scraper.valet_rate
         scraper._page_text = lambda url: self.pages.get(url)
+        self._ph = scraper._page_html
+        scraper._page_html = lambda url: self.pages.get(url, "")
         scraper.valet_rate = lambda series, page: {"V39079": {"rate": 2.25, "as_of": "2026-10-27", "source": page},
                                                     "V80691311": {"rate": 4.45, "as_of": "2026-10-21", "source": page}}[series]
     def tearDown(self):
-        self.s._page_text, self.s.valet_rate = self._pt, self._valet
+        self.s._page_text, self.s.valet_rate, self.s._page_html = self._pt, self._valet, self._ph
     def test_policy_from_the_press_release_prime_from_the_bank_only(self):
         self.pages["https://www.bankofcanada.ca/2026/10/fad-press-release-2026-10-28/"] = self.s.norm("The Bank of Canada today increased its target for the overnight rate by 25 basis points to 2.5%, with the Bank Rate at 2.75% and the deposit rate at 2.45%.")
         p = self.s.policy_rate("2026-10-28")
         self.assertEqual((p["rate"], p["as_of"]), (2.5, "2026-10-28"))
-        self.assertEqual(self.s.prime_rate()["rate"], 4.45)
+        self.assertEqual(self.s.prime_rate("2026-10-28")["rate"], 4.45)
+        self.assertNotIn("upcoming", self.s.prime_rate("2026-10-28"))
+    def test_banks_announcements_give_only_the_expected_prime(self):
+        self.pages["https://www.bankofcanada.ca/2026/10/fad-press-release-2026-10-28/"] = self.s.norm("The Bank of Canada today increased its target for the overnight rate by 25 basis points to 2.5%.")
+        self.pages["https://stories.td.com/ca/en/news/2026-10-28-td-canada-trust-announces-change-to-td-prime-rate"] = self.s.norm("TD Canada Trust announced today that it has increased its TD Prime Rate by 25 basis points to 4.70%, effective October 29, 2026.")
+        pr = self.s.prime_rate("2026-10-28")
+        self.assertEqual(pr["rate"], 4.45)  # the figure itself stays the Bank of Canada's
+        self.assertEqual(pr["upcoming"], {"rate": 4.7, "effective": "2026-10-29"})
+        self.assertNotIn("TD", str(pr))
     def test_no_announcement_keeps_the_feed(self):
         self.assertEqual(self.s.policy_rate("2026-10-28")["rate"], 2.25)
