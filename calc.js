@@ -84,7 +84,7 @@ function makeCalc(cfg){
     // the answer first; the workings and notes sit in a panel you can open
     const how = (r.items && r.items.length ? `<ul id="res">${r.items.map(li).join("")}</ul>` : "") + notes;
     $("out").innerHTML = (r.say ? `<p class="say">${r.say}</p>` : `<span class="m">${r.label}</span>`) + `<b${String(r.big).length > 14 ? ' class="long"' : ""}>${r.big}</b>${r.sub ? `<span class="big-sub">${r.sub}</span>` : ""}`
-      + (r.wide ? "" : (r.table || "")) + (how ? `<details class="how"><summary>How this is worked out</summary>${how}</details>` : "");
+      + (r.wide ? "" : (r.table || "")) + (how ? `<div class="how"><p class="howh">How this is worked out</p>${how}</div>` : "");
     // wide comparison tables go full width under the calculator, so they don't squeeze into the results column
     let below = $("below");
     if (!below) { form.closest(".est").insertAdjacentHTML("afterend", '<div id="below" class="below"></div>'); below = $("below"); }

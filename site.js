@@ -1,4 +1,4 @@
-const SITE_VERSION = "76";
+const SITE_VERSION = "77";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -310,13 +310,12 @@ const mascotNote = (text, pose = "shrug") => `<div class="mnote">${mascot(pose, 
   figs.forEach(f => io.observe(f));
   addEventListener("beforeprint", () => figs.forEach(f => f.classList.add("go")));
 })();
-// Calculator messages: warnings stay in view; notes go in the result's "How this is worked out" panel (id + "_n")
+// Calculator messages: warnings stay in view; notes go in the result's "How this is worked out" section (id + "_n")
 function putMsgs(id, msgs){
   $(id).innerHTML = msgs.filter(m => m[0] === "w").map(([, t]) => `<p class="msg w">${t}</p>`).join("");
   const n = $(id + "_n"); if (n) n.innerHTML = msgs.filter(m => m[0] !== "w").map(([, t]) => `<p class="msg">${t}</p>`).join("");
 }
-// Printing shows the workings too
-addEventListener("beforeprint", () => document.querySelectorAll("details.how").forEach(d => { d.open = true; }));
+
 function srcLinks(keys){
   return '<b>Sources</b><ol class="refs">' + keys.map(k => `<li><a href="${SRC[k][1]}" target="_blank" rel="noopener">${SRC[k][0]}</a></li>`).join("") + '</ol>';
 }

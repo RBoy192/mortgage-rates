@@ -371,11 +371,10 @@ table.rank td.gap{color:var(--mu);font-size:14px;white-space:nowrap;padding-top:
 @media (min-width:701px) and (max-width:1180px){.band a.nl{padding:6px 11px;font-size:13px}.band .mode{width:36px;height:36px}a.brand{font-size:21px;gap:12px}a.brand .bm{width:30px;height:30px}.nw{gap:8px}.n{gap:12px 12px}}
 /* Calculators: actions under the result, workings tucked away */
 .acts{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px 20px;margin:12px 0 4px;font-size:14px}
-details.how{margin-top:14px;border-top:1px solid var(--ln);padding-top:10px}
-details.how summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--link)}
-details.how[open] summary{margin-bottom:8px}
-details.how ul{margin:0;padding-left:18px}
-details.how .msg{background:none;border:0;padding:0;margin:8px 0 0;font-size:14px;color:var(--mu)}
+.how{margin-top:14px;border-top:1px solid var(--ln);padding-top:10px}
+.how .howh{margin:0 0 8px;font-weight:700;font-size:14px}
+.how ul{margin:0;padding-left:18px}
+.how .msg{background:none;border:0;padding:0;margin:8px 0 0;font-size:14px;color:var(--mu)}
 @media print{.acts{display:none}}
 /* Mortgages Explained: textbook style */
 :root{--serif:"Source Serif 4",Georgia,"Times New Roman",serif}
@@ -1006,3 +1005,4 @@ table.sbs td{vertical-align:middle}
 .tabs .tabh{margin:10px 0 2px;padding:0 4px;font:700 11px var(--bd);letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
 .tabs .tabh:first-child{margin-top:0}
 @media (max-width:820px){.tabs .tabh{flex-basis:100%;margin:6px 0 0}}
+.gi_t{margin:16px 0}.gi_t .cmpt{margin:0}.gi_t .cmpt th,.gi_t .cmpt td{padding:10px 16px}

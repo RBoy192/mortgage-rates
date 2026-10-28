@@ -1,6 +1,6 @@
 // Today's numbers and small calculators for the Rates Explained: GICs and Savings chapters. Each page sets <body data-chapter="...">.
 (function(){
-if (typeof SITE_VERSION === "undefined" || SITE_VERSION !== "76") return;
+if (typeof SITE_VERSION === "undefined" || SITE_VERSION !== "77") return;
 if (location.hash) { try { const d = document.querySelector("details" + location.hash); if (d) { d.open = true; d.scrollIntoView(); } } catch (e) {} }  // FAQ: open the question in the address
 const v = $("v"); if (!v) return;
 const chap = document.body.dataset.chapter;
@@ -10,7 +10,7 @@ const who = b => b.names.map(esc).join(", ");
 // bars: [{label, rate, sub}] scaled to the highest
 const bars = rows => { const hi = Math.max(...rows.map(r => r.rate || 0)) || 1;
   return `<div class="lbars">` + rows.map(r => `<div class="lbar"><span class="lbl">${esc(r.label)}</span><span class="trk"><i style="width:${r.rate ? (r.rate / hi * 100).toFixed(1) : 0}%"></i></span><b>${r.rate ? pct(r.rate) : "—"}</b><span class="s">${r.sub || ""}</span></div>`).join("") + `</div>`; };
-const field = (id, label, val, unit, pre) => `<div class="pf"><label for="${id}">${label}</label><span class="dl">${pre ? `<span aria-hidden="true">${pre}</span>` : ""}<input id="${id}" type="text" inputmode="decimal" autocomplete="off" value="${val}">${unit ? `<span aria-hidden="true">${unit}</span>` : ""}</span></div>`;
+const field = (id, label, val, unit, pre) => `<div class="pf"><label for="${id}">${label}</label><span class="dl">${pre ? `<span aria-hidden="true">${pre}</span>` : ""}<input id="${id}" type="text" inputmode="decimal"${pre === "$" ? ' data-money="1"' : ""} autocomplete="off" value="${val}">${unit ? `<span aria-hidden="true">${unit}</span>` : ""}</span></div>`;
 const num = id => parseFloat(String($(id).value).replace(/[^0-9.]/g, "")) || 0;
 
 const CH = {
