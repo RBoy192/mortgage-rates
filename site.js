@@ -1,4 +1,4 @@
-const SITE_VERSION = "75";
+const SITE_VERSION = "76";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -69,7 +69,13 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
     const label = nav.getAttribute("aria-label") || "Pages", links = [...nav.querySelectorAll("a")];
     const id = "pick-" + label.replace(/\W+/g, "").toLowerCase();
     nav.insertAdjacentHTML("beforebegin", `<label class="tabsel">${label === "Calculators" ? "Choose a calculator" : label === "Extras" ? "Choose a page" : "Choose a chapter"}<select id="${id}">`
-      + links.map(a => `<option value="${a.getAttribute("href")}"${a.getAttribute("aria-current") ? " selected" : ""}>${esc(a.textContent)}</option>`).join("") + `</select></label>`);
+      + (() => {  // headings in the side list (.tabh) become option groups
+        const opt = a => `<option value="${a.getAttribute("href")}"${a.getAttribute("aria-current") ? " selected" : ""}>${esc(a.textContent)}</option>`;
+        if (!nav.querySelector(".tabh")) return links.map(opt).join("");
+        let out = "", open = false;
+        [...nav.children].forEach(c => { if (c.classList.contains("tabh")) { out += (open ? "</optgroup>" : "") + `<optgroup label="${esc(c.textContent)}">`; open = true; } else if (c.tagName === "A") out += opt(c); });
+        return out + (open ? "</optgroup>" : "");
+      })() + `</select></label>`);
     $(id).onchange = e => { location.href = e.target.value; };
   });
   // Footer on every page

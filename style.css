@@ -968,7 +968,7 @@ table.dep .chg.dn,.chg.dep.dn{color:var(--warn)}
 .ladder{margin-top:32px}.ladder .sh{margin-bottom:4px}
 .paneswrap>section.panel{margin-top:12px}
 @media (min-width:1500px){.wkpanel{top:40px;max-height:calc(100% - 40px)}}
-.ladder .ltab th:nth-child(2),.ladder .ltab td:nth-child(2){text-align:left}
+.ladt th:nth-child(2),.ladt td:nth-child(2){text-align:left}
 /* Rate changes page */
 .chgctl{margin:20px 0 4px}
 .c.csum{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin:20px 0}
@@ -1002,3 +1002,7 @@ table.sbs tr+tr th[scope="row"]{border-top:1px solid var(--ln2)}
 table.sbs td{vertical-align:middle}
 @media (max-width:600px){table.sbs th,table.sbs td{padding:10px 8px}table.sbs td.rate b{font-size:18px}table.sbs thead th .lg-logo{display:none}table.sbs th[scope="row"]{font-size:13px;width:30%}}
 .rcount{margin:8px 0 28px}.rcount .payform{margin-top:10px}.rcount input[type=date]{margin:0;padding:8px 10px;font:600 15px var(--bd);border-radius:10px;width:auto}
+/* headings in a side list of pages (Mortgage calculators, GIC calculators) */
+.tabs .tabh{margin:10px 0 2px;padding:0 4px;font:700 11px var(--bd);letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
+.tabs .tabh:first-child{margin-top:0}
+@media (max-width:820px){.tabs .tabh{flex-basis:100%;margin:6px 0 0}}
