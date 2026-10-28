@@ -848,7 +848,7 @@
 
 - name: Simplii Financial
   url: https://www.simplii.com/en/rates/mortgage-rates.html
-  mode: auto
+  mode: manual  # simplii.com blocks automated visits (like CIBC.com), so these are read by hand three times a day: manual_rates.yaml
   rates:
     # CIBC's special rates, offered through Simplii (a division of CIBC); not the APR column
     - {product: "3-year fixed", label: "3-year fixed", column: "Special rate"}
