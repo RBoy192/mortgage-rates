@@ -1,7 +1,7 @@
 name: Announcement-day check
-# The Bank of Canada announces its policy rate on Wednesdays at 9:45 ET, and the big banks announce their new prime
-# rates soon after. Every 10 minutes on Wednesday daytimes, this checks the Bank's press release and the banks' own
-# announcements; when either shows a rate the site doesn't have yet, it starts the "Update rates" run right away.
+# The Bank of Canada announces its policy rate on Wednesdays at 9:45 ET. Every 10 minutes on Wednesday daytimes,
+# this checks the Bank's own press release; when it shows a rate the site doesn't have yet, it starts the
+# "Update rates" run right away. (The prime rate comes only from the Bank's weekly figure.)
 on:
   schedule:
     - cron: "*/10 13-21 * * 3"   # Wednesdays, 9:00 to 17:50 Toronto time (EDT); 8:00 to 16:50 in winter (EST)
@@ -23,7 +23,7 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install requests beautifulsoup4 pyyaml
-      - name: Check for a new policy or prime rate, and update the site if there is one
+      - name: Check for a new policy rate, and update the site if there is one
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

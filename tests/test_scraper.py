@@ -481,41 +481,22 @@ class TestEvidence(unittest.TestCase):
 
 
 class TestAnnouncementDay(unittest.TestCase):
-    """On the day the Bank of Canada announces a change, the site reads its press release and the big banks' own
-    prime announcements instead of waiting for the Bank's data feed to catch up."""
+    """On the day the Bank of Canada announces a change, the policy rate comes from the Bank's own press release
+    instead of waiting for its data feed to catch up. The prime rate comes only from the Bank's weekly figure."""
     def setUp(self):
         import scraper
         self.s = scraper
         self.pages = {}
         self._pt, self._valet = scraper._page_text, scraper.valet_rate
         scraper._page_text = lambda url: self.pages.get(url)
-        self._ph = scraper._page_html
-        scraper._page_html = lambda url: self.pages.get(url, "")
         scraper.valet_rate = lambda series, page: {"V39079": {"rate": 2.25, "as_of": "2026-10-27", "source": page},
                                                     "V80691311": {"rate": 4.45, "as_of": "2026-10-21", "source": page}}[series]
     def tearDown(self):
-        self.s._page_text, self.s.valet_rate, self.s._page_html = self._pt, self._valet, self._ph
-    def test_policy_and_prime_from_announcements(self):
+        self.s._page_text, self.s.valet_rate = self._pt, self._valet
+    def test_policy_from_the_press_release_prime_from_the_bank_only(self):
         self.pages["https://www.bankofcanada.ca/2026/10/fad-press-release-2026-10-28/"] = self.s.norm("The Bank of Canada today increased its target for the overnight rate by 25 basis points to 2.5%, with the Bank Rate at 2.75% and the deposit rate at 2.45%.")
-        self.pages["https://stories.td.com/ca/en/news/2026-10-28-td-canada-trust-announces-change-to-td-prime-rate"] = self.s.norm("TD Canada Trust announced today that it has increased its TD Prime Rate by 25 basis points to 4.70%, effective October 29, 2026.")
         p = self.s.policy_rate("2026-10-28")
         self.assertEqual((p["rate"], p["as_of"]), (2.5, "2026-10-28"))
-        pr = self.s.prime_rate("2026-10-28")
-        self.assertEqual((pr["rate"], pr["as_of"]), (4.7, "2026-10-28"))
-        self.assertIn("TD", pr["note"])
+        self.assertEqual(self.s.prime_rate()["rate"], 4.45)
     def test_no_announcement_keeps_the_feed(self):
         self.assertEqual(self.s.policy_rate("2026-10-28")["rate"], 2.25)
-        self.assertEqual(self.s.prime_rate("2026-10-28")["rate"], 4.45)
-    def test_banks_not_yet_announced(self):
-        self.pages["https://www.bankofcanada.ca/2026/10/fad-press-release-2026-10-28/"] = self.s.norm("The Bank of Canada today raised its target for the overnight rate to 2.5%.")
-        self.assertEqual(self.s.prime_rate("2026-10-28")["rate"], 4.45)
-    def test_prime_from_a_news_listing_and_rbc(self):
-        self.pages["https://www.bankofcanada.ca/2026/10/fad-press-release-2026-10-28/"] = self.s.norm("The Bank of Canada today increased its target for the overnight rate by 25 basis points to 2.5%.")
-        self.pages["https://scotiabank.investorroom.com/index.php?s=43"] = '<a href="https://scotiabank.investorroom.com/2026-10-28-Scotiabank-raises-its-prime-rate">x</a>'
-        self.pages["https://scotiabank.investorroom.com/2026-10-28-Scotiabank-raises-its-prime-rate"] = self.s.norm("Scotiabank is increasing its Canadian dollar prime lending rate to 4.70 from 4.45, effective October 29, 2026.")
-        self.pages["https://www.rbcroyalbank.com/rates/prime.html"] = self.s.norm("Royal Bank Prime 4.700 2026/10/29")
-        pr = self.s.prime_rate("2026-10-29")
-        self.assertEqual(pr["rate"], 4.7)
-        self.assertIn("RBC and Scotiabank", pr["note"])
-        self.assertIn("October 29, 2026", pr["note"])
-

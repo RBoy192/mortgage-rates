@@ -287,18 +287,11 @@ def valet_rate(series, page):
 
 # Announcement days. The Bank of Canada announces its policy rate at 9:45 ET on scheduled Wednesdays, and its press
 # release appears at a predictable address. Its data feed (Valet) shows a new rate only from the day it takes effect
-# (the next day), and its weekly prime series lags by up to a week. So within a week of an announcement, the site
-# reads the Bank's own press release, and the big banks' own prime-rate announcements, so the change shows the same day.
+# (the next day), so within a week of an announcement the site reads the Bank's own press release, and the change
+# shows the same day. The prime rate comes only from the Bank of Canada's weekly figure.
 RELEASE_URL = "https://www.bankofcanada.ca/{y}/{m}/fad-press-release-{d}/"
 POLICY_RE = re.compile(r"(?:target for the overnight rate|policy rate)[^.%]{0,60}?\b(?:at|to) (\d{1,2}(?:\.\d{1,3})?|\d{0,2}\s?[\u00bc\u00bd\u00be])\s*%", re.I)
 FRACTIONS = {"\u00bc": 0.25, "\u00bd": 0.5, "\u00be": 0.75}
-# Big banks' own prime-rate announcements (their websites), tried on announcement days; {d} is YYYY-MM-DD
-PRIME_RELEASES = [("TD", "https://stories.td.com/ca/en/news/{d}-td-canada-trust-announces-change-to-td-prime-rate"),
-                  ("Scotiabank", "https://scotiabank.investorroom.com/{d}-Scotiabank-increases-prime-lending-rate"),
-                  ("Scotiabank", "https://scotiabank.investorroom.com/{d}-Scotiabank-decreases-prime-lending-rate")]
-PRIME_RE = re.compile(r"prime (?:lending )?rate[^.]{0,120}?\bto (\d{1,2}\.\d{1,3})\s*%?(?: from \d{1,2}\.\d{1,3}\s*%?)?,? effective ([A-Z][a-z]+ \d{1,2},? \d{4})", re.I)
-
-
 def _page_text(url):
     import requests
     from bs4 import BeautifulSoup
@@ -337,65 +330,6 @@ def recent_announcement(day=None, days=7):
     return None
 
 
-# Where else to look: each bank's own list of news releases (any prime-rate release dated that day), and RBC's
-# prime-rate page, which shows the new rate and its "date of change" once it takes effect.
-PRIME_LISTINGS = [("TD", "https://stories.td.com/ca/en/news", r"(?:https://stories\.td\.com)?/ca/en/news/{d}-[^\"'#<> ]*prime[^\"'#<> ]*"),
-                  ("Scotiabank", "https://scotiabank.investorroom.com/index.php?s=43", r"https://scotiabank\.investorroom\.com/{d}-[^\"'#<> ]*[Pp]rime[^\"'#<> ]*")]
-RBC_PRIME = "https://www.rbcroyalbank.com/rates/prime.html"
-RBC_PRIME_RE = re.compile(r"royal bank prime (\d{1,2}\.\d{1,3}) (\d{4})/(\d{2})/(\d{2})")
-
-
-def _page_html(url):
-    import requests
-    if not robots_ok(url):
-        return ""
-    r = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=30)
-    return r.text if r.ok else ""
-
-
-def bank_prime_announcement(d):
-    """New prime rate announced by big banks on announcement day `d` (YYYY-MM-DD), from their own websites:
-    {rate, effective, banks, source}, or None if none has posted one yet (or they disagree)."""
-    found = {}
-    def read(bank, url):
-        try:
-            m = PRIME_RE.search(_page_text(url) or "")
-        except Exception:
-            return
-        if m and 0 <= float(m.group(1)) <= 25:
-            found[bank] = (float(m.group(1)), m.group(2).title(), url)
-    for bank, pattern in PRIME_RELEASES:
-        if bank not in found:
-            read(bank, pattern.format(d=d))
-    for bank, listing, link in PRIME_LISTINGS:
-        if bank in found:
-            continue
-        try:
-            m = re.search(link.format(d=re.escape(d)), _page_html(listing))
-        except Exception:
-            m = None
-        if m:
-            u = m.group(0)
-            read(bank, u if u.startswith("http") else "https://stories.td.com" + u)
-    try:  # RBC's prime page, once the change has taken effect
-        m = RBC_PRIME_RE.search(_page_text(RBC_PRIME) or "")
-        if m and f"{m.group(2)}-{m.group(3)}-{m.group(4)}" > d:
-            found["RBC"] = (float(m.group(1)), dstr_long(f"{m.group(2)}-{m.group(3)}-{m.group(4)}"), RBC_PRIME)
-    except Exception:
-        pass
-    if not found:
-        return None
-    if len({v[0] for v in found.values()}) > 1:
-        return None  # the banks disagree: wait for the Bank of Canada's weekly figure
-    rate, eff, url = next(iter(found.values()))
-    return {"rate": rate, "effective": eff, "banks": sorted(found), "source": url}
-
-
-def dstr_long(iso):
-    d = date.fromisoformat(iso)
-    return f"{d.strftime('%B')} {d.day}, {d.year}"
-
-
 def policy_rate(day=None):  # target for the overnight rate (the policy interest rate)
     v = valet_rate("V39079", POLICY_URL)
     if v["as_of"] <= (day or today()):  # the feed may not show a change announced today until it takes effect
@@ -408,18 +342,8 @@ def policy_rate(day=None):  # target for the overnight rate (the policy interest
     return v
 
 
-def prime_rate(day=None):  # the major banks' typical prime rate (a weekly series), or the banks' own announcement
-    v = valet_rate("V80691311", PRIME_URL)
-    try:
-        a = recent_announcement(day)
-    except Exception:
-        a = None
-    if a and v["as_of"] <= a[0]:  # the weekly figure predates the latest announcement
-        p = bank_prime_announcement(a[0])
-        if p and abs(p["rate"] - v["rate"]) >= 0.0005:
-            return {"rate": p["rate"], "as_of": a[0], "source": p["source"], "fetched_at": now(), "stale": False,
-                    "announced": True, "note": f"As announced by {' and '.join(p['banks'])}, effective {p['effective']}"}
-    return v
+def prime_rate():  # the major banks' typical prime rate, as published weekly by the Bank of Canada (only source)
+    return valet_rate("V80691311", PRIME_URL)
 
 
 def load_manual():
@@ -636,13 +560,13 @@ if __name__ == "__main__":
     if a[:1] == ["--demo"]:
         demo()
     elif a[:1] == ["--announcement-check"]:
-        # For the announcement-day workflow: exit 0 (and say so) if the Bank of Canada or the big banks have announced
-        # a policy or prime rate that the published rates.json doesn't show yet; exit 1 if there's nothing new.
+        # For the announcement-day workflow: exit 0 (and say so) if the Bank of Canada has announced a policy rate
+        # that the published rates.json doesn't show yet; exit 1 if there's nothing new.
         prev = json.loads(OUT.read_text()) if OUT.exists() else {}
-        new = {"policy_rate": policy_rate(), "prime_rate": prime_rate()}
+        new = {"policy_rate": policy_rate()}
         changed = [k for k, v in new.items() if not prev.get(k) or abs(prev[k]["rate"] - v["rate"]) >= 0.0005]
         print("::notice title=Announcement check::" + ("changed: " + ", ".join(f"{k} {prev.get(k, {}).get('rate')} -> {new[k]['rate']} ({new[k]['source']})" for k in changed) if changed
-              else f"no change (policy {new['policy_rate']['rate']} from {new['policy_rate']['source']}; prime {new['prime_rate']['rate']} from {new['prime_rate']['source']})"))
+              else f"no change (policy {new['policy_rate']['rate']} from {new['policy_rate']['source']})"))
         sys.exit(0 if changed else 1)
     elif a[:1] == ["--inspect"] and len(a) > 1:
         show_rates(a[1], "--browser" in a)
