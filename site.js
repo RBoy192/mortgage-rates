@@ -1,4 +1,4 @@
-const SITE_VERSION = "78";
+const SITE_VERSION = "79";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -493,7 +493,27 @@ const GLOSSARY = {
   closing: ["Closing costs", "One-time costs paid when you buy, on top of your down payment: land transfer tax, legal fees, inspection, title insurance and so on."],
   renewal: ["Renewal", "When your term ends, you sign a new term, either with your current lender or a different one. Your lender must send a renewal statement at least 21 days before."],
   accelerated: ["Accelerated payments", "Paying half your monthly payment every two weeks (or a quarter every week). It adds up to one extra monthly payment a year, so you pay off your mortgage sooner."],
-  rvr: ["Relationship pricing", "A lower rate some banks offer to clients who hold other products with them, such as a chequing account or investments."]
+  rvr: ["Relationship pricing", "A lower rate some banks offer to clients who hold other products with them, such as a chequing account or investments."],
+  apr: ["APR (annual percentage rate)", "The yearly cost of borrowing, counting fees as well as interest. If a mortgage has no fees, its APR and its interest rate are the same."],
+  insured: ["Insured (high-ratio) rate", "The rate for a mortgage with less than 20% down, which needs default insurance. Lenders often charge less for these, because the insurance protects them if you can't pay."],
+  ratehold: ["Rate hold", "A lender's promise to keep a rate for you for a set time, often up to about 120 days, while you shop for a home or get ready to renew."],
+  gic: ["GIC (guaranteed investment certificate)", "Money you leave with a bank or credit union for a set time, called the term, at a set interest rate. Your money and the interest are guaranteed."],
+  termdeposit: ["Term deposit", "Another name for a GIC, used by many credit unions."],
+  nonred: ["Non-redeemable GIC", "A GIC you can't cash in before its term ends, except in special cases. It usually pays more than a redeemable one."],
+  red: ["Redeemable (cashable) GIC", "A GIC you can cash in before its term ends, sometimes after a short waiting period. In exchange, it usually pays a lower rate."],
+  maturity: ["Maturity", "The day a GIC's term ends. You get your money back with its interest, or put it into a new GIC; some renew on their own unless you say otherwise."],
+  mindep: ["Minimum deposit", "The least you can put into a GIC or account to get its rate, often $500 or $1,000 for a GIC."],
+  ladder: ["GIC ladder", "Splitting your money across GICs of different lengths, such as 1 to 5 years, so part of it comes due every year while most of it earns longer-term rates."],
+  simple: ["Simple interest", "Interest worked out only on the amount you put in. A GIC that pays its interest out to you each year earns simple interest."],
+  compound: ["Compound interest", "Interest that's added to your balance, so it earns interest too. Over several years it adds up to more than simple interest."],
+  apy: ["APY (annual percentage yield)", "A yearly rate that includes compounding. When interest is paid monthly, the APY is a little higher than the simple yearly rate, which makes it easier to compare with rates paid once a year."],
+  hisa: ["High-interest savings account", "A savings account that pays more interest than a regular one and lets you take money out at any time. Its rate can change at any time."],
+  promo: ["Promotional rate", "A higher savings rate for a limited time, often only for new clients or new deposits. When it ends, the account's regular rate applies."],
+  tiered: ["Tiered rate", "A savings rate that depends on your balance, such as one rate up to $50,000 and a different one above it."],
+  cdic: ["Deposit insurance", "Protection for eligible savings and GICs if a bank fails. CDIC covers up to $100,000 per insured category at each member bank; credit unions are covered by their province's deposit insurer instead."],
+  tfsa: ["TFSA (tax-free savings account)", "A registered account where interest and other investment growth aren't taxed, even when you take money out. Savings accounts and GICs can be held in one, up to your contribution room."],
+  rrsp: ["RRSP (registered retirement savings plan)", "A registered account for retirement savings. What you put in lowers your taxable income, and growth isn't taxed until you take money out. GICs can be held in one."],
+  feed: ["Feed (RSS)", "A list of updates that a feed reader app follows for you and can notify you about. This site's rate alerts are a feed."]
 };
 function tip(key){ const g = GLOSSARY[key]; return g ? `<button type="button" class="q" data-q="${key}" aria-label="What does ${esc(g[0])} mean?" aria-expanded="false">?</button>` : ""; }
 function applyTips(root){ (root || document).querySelectorAll("[data-tip]:not([data-tipped])").forEach(el => { el.dataset.tipped = "1"; el.insertAdjacentHTML(el.dataset.tipAt === "after" ? "afterend" : "beforeend", " " + tip(el.dataset.tip)); }); }
