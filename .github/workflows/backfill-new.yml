@@ -1,0 +1,68 @@
+name: Backfill new lenders (one-off)
+# Started by hand. Reads archived copies of each lender's GIC and savings pages and commits a review report to
+# backfill/new-report-<run>.csv. It doesn't change the live site or history.json.
+on:
+  workflow_dispatch:
+    inputs:
+      lenders:
+        description: 'Which lenders to read, as a JSON list (or "all")'
+        default: '["Simplii Financial", "Achieva Financial", "Canadian Tire Bank", "PC Financial", "Neo Financial", "Saven Financial"]'
+      since:
+        description: 'First date to read, YYYY-MM-DD'
+        default: "2023-10-28"
+      until:
+        description: 'Last date to read, YYYY-MM-DD'
+        default: "2026-10-28"
+permissions:
+  contents: write
+jobs:
+  lender:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 5   # be gentle with the archive
+      matrix:
+        lender: ${{ fromJSON(inputs.lenders) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Read archived copies
+        env:
+          BACKFILL_FROM: ${{ inputs.since }}
+          BACKFILL_TO: ${{ inputs.until }}
+        run: python backfill_new.py "${{ matrix.lender }}" "part-${{ strategy.job-index }}.csv"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: part-${{ strategy.job-index }}
+          path: part-${{ strategy.job-index }}.csv
+  report:
+    needs: lender
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: parts
+          merge-multiple: true
+      - name: Combine and commit the report
+        run: |
+          mkdir -p backfill
+          out="backfill/new-report-${{ github.run_id }}.csv"
+          first=1
+          for f in parts/*.csv; do if [ $first = 1 ]; then cat "$f"; first=0; else tail -n +2 "$f"; fi; done > "$out"
+          git config user.name "rates-bot"
+          git config user.email "rates-bot@users.noreply.github.com"
+          git add "$out"
+          git commit -m "New lenders history backfill report (for review)" || exit 0
+          for i in 1 2 3 4 5; do
+            if git pull --rebase -X theirs && git push; then exit 0; fi
+            sleep $((i * 15))
+          done
+          echo "Couldn't save the report" >&2; exit 1
