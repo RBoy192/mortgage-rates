@@ -193,6 +193,47 @@ def cell_by_column(soup, label, column, after=None, occurrence=1):
     return norm(cells[idx].get_text(" ", strip=True))
 
 
+def _path(obj, path):
+    """Follow a dotted path like "term.value" or "interestRates[tierFrom=0.00].rateValue" (a [key=value] step picks
+    the one list entry whose key has that value). Returns None if any step is missing."""
+    for step in re.split(r"\.(?![^\[]*\])", path):  # dots inside [..] are part of the value
+        m = re.fullmatch(r"([^\[]*)(?:\[([^=\]]+)=([^\]]*)\])?", step)
+        key, fk, fv = m.groups()
+        if key:
+            obj = obj.get(key) if isinstance(obj, dict) else None
+        if fk is not None:
+            hits = [x for x in obj or [] if isinstance(x, dict) and str(x.get(fk)) == fv] if isinstance(obj, list) else []
+            obj = hits[0] if len(hits) == 1 else None
+        if obj is None:
+            return None
+    return obj
+
+
+def json_rate(data, item):
+    """For lenders that publish their rates as a data file (JSON): find the entries whose fields match item["json"]
+    ({path: value}) and read the figure at item["field"]. Every matching entry must give the same figure."""
+    found = []
+    def walk(o):
+        if isinstance(o, dict):
+            if all(_path(o, k) == v for k, v in item["json"].items()):
+                v = _path(o, item["field"])
+                if v is not None:
+                    found.append(v)
+            for x in o.values():
+                walk(x)
+        elif isinstance(o, list):
+            for x in o:
+                walk(x)
+    walk(data)
+    if not found:
+        raise ValueError(f"no entry matching {item['json']} with {item['field']!r}")
+    vals = {round(float(v), 4) for v in found}
+    if len(vals) > 1:
+        raise ValueError(f"entries matching {item['json']} disagree: {sorted(vals)}")
+    rate = vals.pop()
+    return check_range(rate, is_deposit(item.get("product", ""))), f"{rate}% ({item['field']} in the lender's rate data)"
+
+
 def extract(soup, item):
     """Return (rate, the text it was read from)."""
     dep = is_deposit(item.get("product", ""))
@@ -251,6 +292,17 @@ def scrape_page(url, mode, todo, BeautifulSoup):
     results, errors = {}, {}
     for browser in ([False, True] if mode == "auto" else [mode == "browser"]):
         errors = {}
+        if any("json" in i for i in todo):  # a data file, not a page: read it as it is (no browser)
+            try:
+                data = json.loads(get_html(url))
+            except Exception as e:
+                return {}, {i["product"]: e for i in todo}
+            for item in todo:
+                try:
+                    results[item["product"]] = json_rate(data, item)
+                except Exception as e:
+                    errors[item["product"]] = e
+            return results, errors
         try:
             soup = BeautifulSoup(get_html(url, browser), "html.parser")
         except Exception as e:

@@ -15,6 +15,8 @@
 #   enabled: false   switch off a single rate (or a whole lender)
 #   column: for tables with terms across the top, the heading of the column to read (label then names the row)
 #   prime_label: for rates shown as "P + 0.34%", the label of the lender's prime rate on the same page
+#   json / field: for rates published as a data file (JSON): json picks the entry ({field: value, ...}, dotted
+#           paths allowed) and field names the figure to read, e.g. "interestRates[tierFrom=0.00].rateValue"
 #   mode: manual    don't fetch this lender; use only the rates typed into manual_rates.yaml
 # Prefer a CSS selector instead? Use  selector: "..."  in place of label
 # (find candidates with:  python scraper.py --inspect https://lender.example/rates).
@@ -868,3 +870,54 @@
   rates:
     # No mortgages or GICs listed: the interest on its chequing account, which is its main account for savings
     - {product: "Savings", label: "Core clients:", after: "Interest rate", note: "Chequing account interest for Core clients; Premium and Generation clients earn more"}
+
+- name: Canadian Tire Bank
+  url: https://www.ctfs.com/content/ctfs3/en/retailbanking/rates.html
+  mode: auto
+  rates:
+    # No mortgages. Non-registered GICs (annual rates, $1,000 minimum) and the High Interest Savings Account
+    - {product: "1-year GIC", label: "1 Year Term", after: "Canadian Tire GIC"}
+    - {product: "2-year GIC", label: "2 Year Term", after: "Canadian Tire GIC"}
+    - {product: "3-year GIC", label: "3 Year Term", after: "Canadian Tire GIC"}
+    - {product: "4-year GIC", label: "4 Year Term", after: "Canadian Tire GIC"}
+    - {product: "5-year GIC", label: "5 Year Term", after: "Canadian Tire GIC"}
+    - {product: "Savings", label: "Canadian Tire High Interest Savings", after: "View our current annual interest rates", note: "High Interest Savings Account"}
+
+- name: PC Financial
+  url: https://www.pcfinancial.ca/en/legal-stuff/pcsavings-interest-rates/
+  mode: auto
+  rates:
+    # No mortgages or GICs: the savings feature of the PC Money Account
+    - {product: "Savings", label: "Savings Balance", note: "Savings feature of the PC Money Account"}
+
+- name: Neo Financial
+  url: https://www.neofinancial.com/accounts/interest-rates
+  mode: auto
+  rates:
+    # No mortgages or GICs listed: Neo Savings at the free Essentials membership (paid memberships earn up to 3%)
+    - {product: "Savings", label: "Essentials", after: "SAVINGS RATES THAT REWARD", note: "Neo Savings with the free Essentials membership; paid memberships earn more"}
+
+- name: Saven Financial
+  url: https://savenfinancial.ca/en/on-gics
+  mode: browser  # the rates are filled in by the page's script
+  rates:
+    # A division of FirstOntario Credit Union, for Ontario residents. Non-redeemable GICs ($1,000 minimum)
+    - {product: "1-year GIC", label: "1 Year Interest Rate"}
+    - {product: "2-year GIC", label: "2 Year Interest Rate"}
+    - {product: "3-year GIC", label: "3 Year Interest Rate"}
+    - {product: "4-year GIC", label: "4 Year Interest Rate"}
+    - {product: "5-year GIC", label: "5 Year Interest Rate"}
+    - {product: "Savings", url: "https://savenfinancial.ca/en/on-high-interest-savings-account", selector: "span.max_savings_rate", note: "High Interest Savings Account"}
+
+- name: Achieva Financial
+  url: https://www.achieva.mb.ca/rates
+  mode: static
+  rates:
+    # A division of Cambrian Credit Union (Manitoba). Its rates page reads them from these data files.
+    # Non-redeemable GICs (interest paid yearly) and the Daily Interest Savings account
+    - {product: "1-year GIC", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/term", json: {"fieldData.internal-api-id": "term1"}, field: "fieldData.rate"}
+    - {product: "2-year GIC", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/term", json: {"fieldData.internal-api-id": "term2"}, field: "fieldData.rate"}
+    - {product: "3-year GIC", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/term", json: {"fieldData.internal-api-id": "term3"}, field: "fieldData.rate"}
+    - {product: "4-year GIC", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/term", json: {"fieldData.internal-api-id": "term4"}, field: "fieldData.rate"}
+    - {product: "5-year GIC", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/term", json: {"fieldData.internal-api-id": "term5"}, field: "fieldData.rate"}
+    - {product: "Savings", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/savings", json: {"fieldData.internal-api-id": "savings"}, field: "fieldData.rate", note: "Daily Interest Savings account"}
