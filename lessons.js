@@ -1,6 +1,6 @@
 // Today's numbers and small calculators for the Rates Explained: GICs and Savings chapters. Each page sets <body data-chapter="...">.
 (function(){
-if (typeof SITE_VERSION === "undefined" || SITE_VERSION !== "82") return;
+if (typeof SITE_VERSION === "undefined" || SITE_VERSION !== "83") return;
 if (location.hash) { try { const d = document.querySelector("details" + location.hash); if (d) { d.open = true; d.scrollIntoView(); } } catch (e) {} }  // FAQ: open the question in the address
 const v = $("v"); if (!v) return;
 const chap = document.body.dataset.chapter;

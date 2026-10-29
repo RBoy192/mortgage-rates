@@ -873,7 +873,6 @@
     - {product: "Savings", label: "Core clients:", after: "Interest rate", note: "Chequing account interest for Core clients; Premium and Generation clients earn more"}
 
 - name: Canadian Tire Bank
-  enabled: false  # being checked; switched on with the site update
   url: https://www.ctfs.com/content/ctfs3/en/retailbanking/rates.html
   mode: auto
   rates:
@@ -886,7 +885,6 @@
     - {product: "Savings", label: "Canadian Tire High Interest Savings", after: "View our current annual interest rates", note: "High Interest Savings Account"}
 
 - name: PC Financial
-  enabled: false  # being checked; switched on with the site update
   url: https://www.pcfinancial.ca/en/legal-stuff/pcsavings-interest-rates/
   mode: manual  # pcfinancial.ca turns away automated visits, so this is read by hand: manual_rates.yaml
   rates:
@@ -894,7 +892,6 @@
     - {product: "Savings", label: "Savings Balance", note: "Savings feature of the PC Money Account"}
 
 - name: Neo Financial
-  enabled: false  # being checked; switched on with the site update
   url: https://www.neofinancial.com/accounts/interest-rates
   mode: auto
   rates:
@@ -902,7 +899,6 @@
     - {product: "Savings", label: "Essentials", after: "SAVINGS RATES THAT REWARD", note: "Neo Savings with the free Essentials membership; paid memberships earn more"}
 
 - name: Saven Financial
-  enabled: false  # being checked; switched on with the site update
   url: https://savenfinancial.ca/en/on-gics
   mode: browser  # the rates are filled in by the page's script
   rates:
@@ -915,15 +911,14 @@
     - {product: "Savings", url: "https://savenfinancial.ca/en/on-high-interest-savings-account", selector: "span.max_savings_rate", note: "High Interest Savings Account"}
 
 - name: Achieva Financial
-  enabled: false  # being checked; switched on with the site update
   url: https://www.achieva.mb.ca/rates
   mode: static
   rates:
     # A division of Cambrian Credit Union (Manitoba). Its rates page reads them from these data files.
     # Non-redeemable GICs (interest paid yearly) and the Daily Interest Savings account
-    - {product: "1-year GIC", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/term", json: {"fieldData.internal-api-id": "term1"}, field: "fieldData.rate"}
-    - {product: "2-year GIC", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/term", json: {"fieldData.internal-api-id": "term2"}, field: "fieldData.rate"}
-    - {product: "3-year GIC", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/term", json: {"fieldData.internal-api-id": "term3"}, field: "fieldData.rate"}
-    - {product: "4-year GIC", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/term", json: {"fieldData.internal-api-id": "term4"}, field: "fieldData.rate"}
-    - {product: "5-year GIC", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/term", json: {"fieldData.internal-api-id": "term5"}, field: "fieldData.rate"}
-    - {product: "Savings", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/savings", json: {"fieldData.internal-api-id": "savings"}, field: "fieldData.rate", note: "Daily Interest Savings account"}
+    - {product: "1-year GIC", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/term", page: "https://www.achieva.mb.ca/rates", json: {"fieldData.internal-api-id": "term1"}, field: "fieldData.rate"}
+    - {product: "2-year GIC", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/term", page: "https://www.achieva.mb.ca/rates", json: {"fieldData.internal-api-id": "term2"}, field: "fieldData.rate"}
+    - {product: "3-year GIC", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/term", page: "https://www.achieva.mb.ca/rates", json: {"fieldData.internal-api-id": "term3"}, field: "fieldData.rate"}
+    - {product: "4-year GIC", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/term", page: "https://www.achieva.mb.ca/rates", json: {"fieldData.internal-api-id": "term4"}, field: "fieldData.rate"}
+    - {product: "5-year GIC", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/term", page: "https://www.achieva.mb.ca/rates", json: {"fieldData.internal-api-id": "term5"}, field: "fieldData.rate"}
+    - {product: "Savings", url: "https://www.achieva.mb.ca/interactive-rates-table/api/rates/savings", page: "https://www.achieva.mb.ca/rates", json: {"fieldData.internal-api-id": "savings"}, field: "fieldData.rate", note: "Daily Interest Savings account"}

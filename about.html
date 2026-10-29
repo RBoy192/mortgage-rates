@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="How What&#x27;s the rate? collects mortgage rates from Canadian lenders&#x27; websites through the day, and how its calculators work.">
 <link rel="canonical" href="https://whatstherate.ca/about.html">
-<link rel="icon" href="favicon.svg?v=82" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=82" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=82">
+<link rel="icon" href="favicon.svg?v=83" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=83" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=83">
 <link rel="alternate" type="application/atom+xml" title="Mortgage rate changes" href="feed.xml">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=82">
+<link rel="stylesheet" href="style.css?v=83">
 <script type="application/ld+json" id="ld">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://whatstherate.ca/about.html#page", "url": "https://whatstherate.ca/about.html", "name": "About | What's the rate?", "description": "How What's the rate? collects mortgage rates from Canadian lenders' websites through the day, and how its calculators work.", "inLanguage": "en-CA", "isPartOf": {"@type": "WebSite", "name": "What's the rate?", "url": "https://whatstherate.ca/"}, "publisher": {"@type": "Organization", "name": "What's the rate?", "url": "https://whatstherate.ca/", "logo": "https://whatstherate.ca/apple-touch-icon.png"}, "dateModified": "2026-10-29"}]}</script>
 </head>
 <body data-page="extras">
@@ -39,7 +39,7 @@
 <p class="m">A quick way to compare the mortgage rates Canadian lenders advertise, with calculators and plain-language explanations to help you understand them.</p>
 <h2>Where the rates come from</h2>
 <p>Every hour, this site reads the mortgage rates each lender publishes on its own website and shows them side by side. Each lender's name in the rates table links to the page its rates came from.</p>
-<p>Six lenders (BMO, CIBC, Simplii Financial, Vancity, Meridian and Beem Credit Union) block automated visits to their rates pages, so their rates are read from those pages three times a day instead: in the morning, at midday and in the evening (Toronto time).</p>
+<p>Seven lenders (BMO, CIBC, Simplii Financial, Vancity, Meridian, Beem Credit Union and PC Financial) block automated visits to their rates pages, so their rates are read from those pages three times a day instead: in the morning, at midday and in the evening (Toronto time). Simplii Financial's GIC and savings rates are still read every hour, from the data file its own rates pages use.</p>
 <ul class="ul" id="lenderlist"><li>Loading the list of lenders…</li></ul>
 <p>Where a lender lists both posted and special-offer rates, the table shows the special-offer rate. When a lender only lists posted rates, or a rate for a particular group of borrowers, a note under the rate says so.</p>
 <h2>When a rate can't be collected</h2>
@@ -58,8 +58,8 @@
 </div>
 </div>
 </main>
-<script src="site.js?v=82"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="82"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=83"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="83"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 loadRates().then(d => {
   const ls = groupLenders(d).sort((a, b) => a.name.localeCompare(b.name));
