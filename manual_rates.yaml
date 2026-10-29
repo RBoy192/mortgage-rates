@@ -367,8 +367,8 @@
   source: https://www.nbc.ca/personal/savings-investments/gic.html
 
 # Simplii Financial (a division of CIBC): simplii.com blocks automated visits, so these are read by hand from its own pages.
-# Mortgages: "CIBC special mortgage rates" table, Special rate column (not APR). GICs: "GIC and RGIC term" table, APY column
-# (all its GICs are non-redeemable). Savings: High Interest Savings Account, "$0.00 to $50,000.00" row. Read 2026-10-28.
+# Mortgages: "CIBC special mortgage rates" table, Special rate column (not APR). Its GIC and savings rates are read
+# automatically from the data file its own rates pages use (see institutions.yaml).
 - institution: Simplii Financial
   product: 3-year fixed
   rate: 5.09
@@ -384,42 +384,6 @@
   rate: 4.45
   checked: 2026-10-29
   source: https://www.simplii.com/en/rates/mortgage-rates.html
-- institution: Simplii Financial
-  product: 1-year GIC
-  rate: 3.60
-  checked: 2026-10-29
-  source: https://www.simplii.com/en/rates/gic-rates.html
-  note: Annual percentage yield, with interest paid or compounded monthly
-- institution: Simplii Financial
-  product: 2-year GIC
-  rate: 3.60
-  checked: 2026-10-29
-  source: https://www.simplii.com/en/rates/gic-rates.html
-  note: Annual percentage yield, with interest paid or compounded monthly
-- institution: Simplii Financial
-  product: 3-year GIC
-  rate: 3.70
-  checked: 2026-10-29
-  source: https://www.simplii.com/en/rates/gic-rates.html
-  note: Annual percentage yield, with interest paid or compounded monthly
-- institution: Simplii Financial
-  product: 4-year GIC
-  rate: 3.95
-  checked: 2026-10-29
-  source: https://www.simplii.com/en/rates/gic-rates.html
-  note: Annual percentage yield, with interest paid or compounded monthly
-- institution: Simplii Financial
-  product: 5-year GIC
-  rate: 4.25
-  checked: 2026-10-29
-  source: https://www.simplii.com/en/rates/gic-rates.html
-  note: Annual percentage yield, with interest paid or compounded monthly
-- institution: Simplii Financial
-  product: Savings
-  rate: 0.30
-  checked: 2026-10-29
-  source: https://www.simplii.com/en/rates/high-interest-savings-account-rates.html
-  note: High Interest Savings Account, balances up to $50,000
 
 # PC Financial: pcfinancial.ca turns away automated visits, so this is read by hand from its own page.
 # "PC Financial Savings Interest Rates" page, PC Money Account, "Savings Balance" row. Read 2026-10-29.
