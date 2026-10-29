@@ -1,0 +1,29 @@
+name: Probe archive (temporary)
+# Started by hand: asks the Internet Archive which saved copies it has of some addresses, and reports counts as notes. Changes nothing.
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: 'Addresses, separated by spaces'
+        required: true
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Ask the archive
+        env:
+          URLS: ${{ inputs.urls }}
+        run: |
+          python3 - <<'PY'
+          import os, json, urllib.request, urllib.parse, time
+          for u in os.environ["URLS"].split():
+              q = "https://web.archive.org/cdx/search/cdx?" + urllib.parse.urlencode({"url": u, "output": "json", "filter": "statuscode:200", "collapse": "timestamp:8", "fl": "timestamp"})
+              try:
+                  rows = json.load(urllib.request.urlopen(q, timeout=60))[1:]
+                  ts = [r[0] for r in rows]
+                  msg = f"{len(ts)} days with copies; first {ts[0] if ts else '-'}, last {ts[-1] if ts else '-'}; by year " + json.dumps({y: sum(t.startswith(y) for t in ts) for y in sorted({t[:4] for t in ts})})
+              except Exception as e:
+                  msg = f"error {e}"
+              print(f"::notice title={u[:80]}::{msg}")
+              time.sleep(3)
+          PY
