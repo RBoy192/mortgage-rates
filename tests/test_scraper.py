@@ -510,3 +510,25 @@ class TestAnnouncementDay(unittest.TestCase):
         self.assertNotIn("TD", str(pr))
     def test_no_announcement_keeps_the_feed(self):
         self.assertEqual(self.s.policy_rate("2026-10-28")["rate"], 2.25)
+
+
+class TestJsonRates(unittest.TestCase):
+    DATA = [{"rateProductCategory": "GIC", "registered": False, "rateType": "apy_rate", "term": {"value": 1},
+             "interestRates": [{"tierFrom": None, "tierTo": "99999.99", "rateValue": 3.6}, {"tierFrom": "100000.00", "tierTo": None, "rateValue": 1}]},
+            {"rateProductCategory": "GIC", "registered": False, "rateType": "annual_rate", "term": {"value": 1},
+             "interestRates": [{"tierFrom": None, "tierTo": "99999.99", "rateValue": 3.542}]}]
+    ITEM = {"product": "1-year GIC", "json": {"rateProductCategory": "GIC", "registered": False, "rateType": "apy_rate", "term.value": 1},
+            "field": "interestRates[tierTo=99999.99].rateValue"}
+
+    def test_reads_the_matching_entry(self):
+        self.assertEqual(scraper.json_rate(self.DATA, self.ITEM)[0], 3.6)
+
+    def test_duplicates_must_agree(self):
+        self.assertEqual(scraper.json_rate(self.DATA * 2, self.ITEM)[0], 3.6)
+        bad = [dict(self.DATA[0], interestRates=[{"tierTo": "99999.99", "rateValue": 4.0}])]
+        with self.assertRaises(ValueError):
+            scraper.json_rate(self.DATA + bad, self.ITEM)
+
+    def test_no_match(self):
+        with self.assertRaises(ValueError):
+            scraper.json_rate(self.DATA, dict(self.ITEM, json={"rateProductCategory": "SAVINGS"}))

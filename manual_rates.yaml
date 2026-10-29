@@ -420,3 +420,12 @@
   checked: 2026-10-29
   source: https://www.simplii.com/en/rates/high-interest-savings-account-rates.html
   note: High Interest Savings Account, balances up to $50,000
+
+# PC Financial: pcfinancial.ca turns away automated visits, so this is read by hand from its own page.
+# "PC Financial Savings Interest Rates" page, PC Money Account, "Savings Balance" row. Read 2026-10-29.
+- institution: PC Financial
+  product: Savings
+  rate: 2.20
+  checked: 2026-10-29
+  source: https://www.pcfinancial.ca/en/legal-stuff/pcsavings-interest-rates/
+  note: Savings feature of the PC Money Account

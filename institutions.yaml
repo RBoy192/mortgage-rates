@@ -856,13 +856,14 @@
     - {product: "3-year fixed", label: "3-year fixed", column: "Special rate"}
     - {product: "5-year fixed", label: "5-year fixed", column: "Special rate"}
     - {product: "5-year variable", label: "5-year variable", column: "Special rate"}
-    # GICs: all non-redeemable; the APY column (interest is paid or compounded monthly, so the APY is what compares with yearly rates elsewhere)
-    - {product: "1-year GIC", url: "https://www.simplii.com/en/rates/gic-rates.html", label: "1 year", column: "APY", note: "Annual percentage yield, with interest paid or compounded monthly"}
-    - {product: "2-year GIC", url: "https://www.simplii.com/en/rates/gic-rates.html", label: "2 year", column: "APY", note: "Annual percentage yield, with interest paid or compounded monthly"}
-    - {product: "3-year GIC", url: "https://www.simplii.com/en/rates/gic-rates.html", label: "3 year", column: "APY", note: "Annual percentage yield, with interest paid or compounded monthly"}
-    - {product: "4-year GIC", url: "https://www.simplii.com/en/rates/gic-rates.html", label: "4 year", column: "APY", note: "Annual percentage yield, with interest paid or compounded monthly"}
-    - {product: "5-year GIC", url: "https://www.simplii.com/en/rates/gic-rates.html", label: "5 year", column: "APY", note: "Annual percentage yield, with interest paid or compounded monthly"}
-    - {product: "Savings", url: "https://www.simplii.com/en/rates/high-interest-savings-account-rates.html", label: "$0.00 to $50,000.00", after: "High Interest Savings Account", note: "High Interest Savings Account, balances up to $50,000"}
+    # GICs and savings: read automatically from the data file Simplii's own rates pages use (its "apy_rate" figures for
+    # non-registered GICs under $100,000, all non-redeemable; savings: the High Interest Savings Account, $0 to $50,000 tier)
+    - {product: "1-year GIC", url: "https://online.simplii.com/ebm-pno/api/v2/json/rates/ALL", mode: static, page: "https://www.simplii.com/en/rates/gic-rates.html", json: {rateProductCategory: GIC, registered: false, rateType: apy_rate, "term.value": 1}, field: "interestRates[tierTo=99999.99].rateValue", note: "Annual percentage yield, with interest paid or compounded monthly"}
+    - {product: "2-year GIC", url: "https://online.simplii.com/ebm-pno/api/v2/json/rates/ALL", mode: static, page: "https://www.simplii.com/en/rates/gic-rates.html", json: {rateProductCategory: GIC, registered: false, rateType: apy_rate, "term.value": 2}, field: "interestRates[tierTo=99999.99].rateValue", note: "Annual percentage yield, with interest paid or compounded monthly"}
+    - {product: "3-year GIC", url: "https://online.simplii.com/ebm-pno/api/v2/json/rates/ALL", mode: static, page: "https://www.simplii.com/en/rates/gic-rates.html", json: {rateProductCategory: GIC, registered: false, rateType: apy_rate, "term.value": 3}, field: "interestRates[tierTo=99999.99].rateValue", note: "Annual percentage yield, with interest paid or compounded monthly"}
+    - {product: "4-year GIC", url: "https://online.simplii.com/ebm-pno/api/v2/json/rates/ALL", mode: static, page: "https://www.simplii.com/en/rates/gic-rates.html", json: {rateProductCategory: GIC, registered: false, rateType: apy_rate, "term.value": 4}, field: "interestRates[tierTo=99999.99].rateValue", note: "Annual percentage yield, with interest paid or compounded monthly"}
+    - {product: "5-year GIC", url: "https://online.simplii.com/ebm-pno/api/v2/json/rates/ALL", mode: static, page: "https://www.simplii.com/en/rates/gic-rates.html", json: {rateProductCategory: GIC, registered: false, rateType: apy_rate, "term.value": 5}, field: "interestRates[tierTo=99999.99].rateValue", note: "Annual percentage yield, with interest paid or compounded monthly"}
+    - {product: "Savings", url: "https://online.simplii.com/ebm-pno/api/v2/json/rates/ALL", mode: static, page: "https://www.simplii.com/en/rates/high-interest-savings-account-rates.html", json: {rateProductCategory: SAVINGS, investment: true, registered: false, taxFree: false}, field: "interestRates[tierFrom=0.00].rateValue", note: "High Interest Savings Account, balances up to $50,000"}
 
 - name: Wealthsimple
   url: https://www.wealthsimple.com/en-ca/chequing
@@ -887,7 +888,7 @@
 - name: PC Financial
   enabled: false  # being checked; switched on with the site update
   url: https://www.pcfinancial.ca/en/legal-stuff/pcsavings-interest-rates/
-  mode: auto
+  mode: manual  # pcfinancial.ca turns away automated visits, so this is read by hand: manual_rates.yaml
   rates:
     # No mortgages or GICs: the savings feature of the PC Money Account
     - {product: "Savings", label: "Savings Balance", note: "Savings feature of the PC Money Account"}

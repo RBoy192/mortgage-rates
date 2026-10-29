@@ -618,7 +618,7 @@ def run():
                       + ("" if publish else "   [not published]"))
                 if publish:
                     stamp = now()
-                    rec = {"institution": name, "product": product, "rate": rate, "source": item_url(lender, item),
+                    rec = {"institution": name, "product": product, "rate": rate, "source": item.get("page") or item_url(lender, item),
                            "fetched_at": stamp, "checked_at": stamp, "method": "automatic", "stale": False}
                     if item.get("note"):
                         rec["note"] = item["note"]
