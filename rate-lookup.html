@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rate lookup: past advertised rates | What's the rate?</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<meta name="description" content="Look up the mortgage, GIC and savings rates Canadian lenders advertised on a past date, by lender and rate type.">
+<link rel="canonical" href="https://whatstherate.ca/rate-lookup.html">
+<link rel="icon" href="favicon.svg?v=84" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=84" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=84">
+<link rel="alternate" type="application/atom+xml" title="Mortgage rate changes" href="feed.xml">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#10213F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="What's the rate?">
+<meta property="og:title" content="Rate lookup | What&#x27;s the rate?">
+<meta property="og:description" content="Mortgage, GIC and savings terms explained in plain language, from amortization and the stress test to GIC ladders, compound interest, APY and deposit insurance.">
+<meta property="og:url" content="https://whatstherate.ca/rate-lookup.html">
+<meta property="og:image" content="https://whatstherate.ca/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="What's the rate? Compare today's mortgage rates.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=84">
+<script type="application/ld+json" id="ld">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://whatstherate.ca/rate-lookup.html#page", "url": "https://whatstherate.ca/rate-lookup.html", "name": "Rate lookup: past advertised rates | What's the rate?", "description": "Look up the mortgage, GIC and savings rates Canadian lenders advertised on a past date, by lender and rate type.", "inLanguage": "en-CA", "isPartOf": {"@type": "WebSite", "name": "What's the rate?", "url": "https://whatstherate.ca/"}, "publisher": {"@type": "Organization", "name": "What's the rate?", "url": "https://whatstherate.ca/", "logo": "https://whatstherate.ca/apple-touch-icon.png"}, "dateModified": "2026-10-29"}]}</script>
+</head>
+<body data-page="extras" data-sub="lookup">
+<main id="top">
+<header id="site-header"></header>
+<div class="pg vl">
+<nav class="tabs" aria-label="Extras"><a href="my-rates.html">My rates</a><a href="glossary.html">Glossary</a><a href="compare.html">Compare lenders</a><a href="weekly-changes.html">Rate changes</a><a href="rate-lookup.html" aria-current="page">Rate lookup</a><a href="rate-hold.html">Rate-hold watchdog</a><a href="offline-calculator.html">Offline calculator</a><a href="about.html">About</a><a href="terms.html">Terms and privacy</a></nav>
+<div class="vc">
+<p class="eyebrow">Rate lookup</p>
+<h1>What was the rate <span class="hl">on a past date?</span></h1>
+<p class="deck">Pick a date, and a lender or rate type if you like, to see the rates lenders were advertising that day.</p>
+<p class="lnote-b" id="lk_note"><b>These are advertised rates.</b> Each figure is the rate the lender advertised to everyone on its own website at the time, as this site read it. It isn't the rate any particular person was offered or signed for: the rate you got could have been lower or higher, depending on your situation, the lender's discounts, the date your rate was held and the terms of the product.</p>
+<div class="payform" id="lk_form">
+<div class="pf"><label for="lk_date">Date</label><input type="date" id="lk_date"></div>
+<div class="pf"><label for="lk_lender">Lender</label><select id="lk_lender"><option value="">All lenders</option></select></div>
+<div class="pf"><label for="lk_type">Rate type</label><select id="lk_type"><option value="">All rate types</option></select></div>
+<div class="pf"><span class="pfl" aria-hidden="true">&nbsp;</span><button type="button" class="lk" id="lk_today">Today</button></div>
+</div>
+<h2 class="sh" id="lk_head" aria-live="polite">Advertised rates</h2>
+<div id="lk_out"><p class="m">Loading the rate history…</p></div>
+<div class="acts"><button type="button" class="lk" id="lk_share">Copy a link to this lookup</button><button type="button" class="lk" onclick="print()">Print results</button></div>
+<h2 class="sh">Where these figures come from</h2>
+<p class="f">Since October 2026 this site has saved every lender's advertised rates each day, read from the lenders' own websites. Earlier figures, back to <span id="lk_from">the first saved date</span>, come from archived copies of the lenders' own rate pages saved by the Internet Archive, at irregular times, so some dates fall between readings; those are marked. The Bank of Canada's policy rate and prime rate come from the Bank's official data. Where a lender listed both posted and special-offer rates, the figure is the special-offer rate; GIC rates are for non-redeemable GICs unless marked redeemable. See the <a href="rate-history.html">rate history</a> charts for how rates moved over time.</p>
+<p class="f">Information only, not financial or legal advice. To confirm the rate in a past agreement, check your own documents or ask the lender.</p>
+</div>
+</div>
+</main>
+<script src="site.js?v=84"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="84"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="myrates.js?v=84"></script>
+<script src="lookup.js?v=84"></script>
+</body>
+</html>

@@ -1042,3 +1042,5 @@ table.sbs td{vertical-align:middle}
 .mri .rm{font-size:13.5px;margin-top:6px}
 .pr .upc{display:block;margin-top:4px}
 .pr .upc b,.band.home .hero .pr .upc b{font:inherit;font-weight:700;display:inline;margin:0;color:inherit}
+.lkt th,.lkt td{text-align:left;vertical-align:top}.lkt td:nth-last-child(2),.lkt th:nth-last-child(2){white-space:nowrap}.lkt td.s{font-size:14px;color:var(--mu)}@media (max-width:600px){.lkt td.s{font-size:13px;min-width:9em}}
+#lk_form select,#lk_form input{max-width:100%;min-width:0;box-sizing:border-box}#lk_form .pf{min-width:0}
