@@ -872,6 +872,7 @@
     - {product: "Savings", label: "Core clients:", after: "Interest rate", note: "Chequing account interest for Core clients; Premium and Generation clients earn more"}
 
 - name: Canadian Tire Bank
+  enabled: false  # being checked; switched on with the site update
   url: https://www.ctfs.com/content/ctfs3/en/retailbanking/rates.html
   mode: auto
   rates:
@@ -884,6 +885,7 @@
     - {product: "Savings", label: "Canadian Tire High Interest Savings", after: "View our current annual interest rates", note: "High Interest Savings Account"}
 
 - name: PC Financial
+  enabled: false  # being checked; switched on with the site update
   url: https://www.pcfinancial.ca/en/legal-stuff/pcsavings-interest-rates/
   mode: auto
   rates:
@@ -891,6 +893,7 @@
     - {product: "Savings", label: "Savings Balance", note: "Savings feature of the PC Money Account"}
 
 - name: Neo Financial
+  enabled: false  # being checked; switched on with the site update
   url: https://www.neofinancial.com/accounts/interest-rates
   mode: auto
   rates:
@@ -898,6 +901,7 @@
     - {product: "Savings", label: "Essentials", after: "SAVINGS RATES THAT REWARD", note: "Neo Savings with the free Essentials membership; paid memberships earn more"}
 
 - name: Saven Financial
+  enabled: false  # being checked; switched on with the site update
   url: https://savenfinancial.ca/en/on-gics
   mode: browser  # the rates are filled in by the page's script
   rates:
@@ -910,6 +914,7 @@
     - {product: "Savings", url: "https://savenfinancial.ca/en/on-high-interest-savings-account", selector: "span.max_savings_rate", note: "High Interest Savings Account"}
 
 - name: Achieva Financial
+  enabled: false  # being checked; switched on with the site update
   url: https://www.achieva.mb.ca/rates
   mode: static
   rates:
