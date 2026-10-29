@@ -7,9 +7,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <meta name="description" content="Compare today&#x27;s best mortgage, GIC and savings rates from Canadian banks and credit unions, updated every hour, with free plain-language calculators and guides.">
 <link rel="canonical" href="https://whatstherate.ca/">
-<link rel="icon" href="favicon.svg?v=81" type="image/svg+xml">
-<link rel="icon" href="favicon.ico?v=81" sizes="48x48">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=81">
+<link rel="icon" href="favicon.svg?v=82" type="image/svg+xml">
+<link rel="icon" href="favicon.ico?v=82" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=82">
 <link rel="alternate" type="application/atom+xml" title="Rate changes" href="feed.xml">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10213F">
@@ -25,8 +25,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=81">
-<script type="application/ld+json" id="ld" data-live="1">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://whatstherate.ca/#page", "url": "https://whatstherate.ca/", "name": "What's the rate? Compare today's mortgage, GIC and savings rates in Canada", "description": "Compare today's best mortgage, GIC and savings rates from Canadian banks and credit unions, updated every hour, with free plain-language calculators and guides.", "inLanguage": "en-CA", "isPartOf": {"@type": "WebSite", "name": "What's the rate?", "url": "https://whatstherate.ca/"}, "publisher": {"@type": "Organization", "name": "What's the rate?", "url": "https://whatstherate.ca/", "logo": "https://whatstherate.ca/apple-touch-icon.png"}, "dateModified": "2026-10-28"}]}</script>
+<link rel="stylesheet" href="style.css?v=82">
+<script type="application/ld+json" id="ld" data-live="1">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://whatstherate.ca/#page", "url": "https://whatstherate.ca/", "name": "What's the rate? Compare today's mortgage, GIC and savings rates in Canada", "description": "Compare today's best mortgage, GIC and savings rates from Canadian banks and credit unions, updated every hour, with free plain-language calculators and guides.", "inLanguage": "en-CA", "isPartOf": {"@type": "WebSite", "name": "What's the rate?", "url": "https://whatstherate.ca/"}, "publisher": {"@type": "Organization", "name": "What's the rate?", "url": "https://whatstherate.ca/", "logo": "https://whatstherate.ca/apple-touch-icon.png"}, "dateModified": "2026-10-29"}]}</script>
 </head>
 <body data-page="rates">
 <main id="top">
@@ -95,10 +95,10 @@
 <p class="f" id="fn1" hidden><b>* BoC policy rate:</b> the Bank of Canada's target for the overnight rate, which is what big financial institutions charge each other for one-day loans. When it changes, banks usually move their prime rates too, which affects variable-rate mortgages.</p>
 <p class="f" id="fn2" hidden><b>** Prime rate:</b> the typical prime lending rate of Canada's major banks, published weekly. Variable-rate mortgages are priced off prime. Each lender sets its own prime rate, so yours may differ slightly.</p>
 </main>
-<script src="site.js?v=81"></script>
-<script src="deposits.js?v=81"></script>
-<script src="myrates.js?v=81"></script>
-<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="81"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
+<script src="site.js?v=82"></script>
+<script src="deposits.js?v=82"></script>
+<script src="myrates.js?v=82"></script>
+<script>if(typeof SITE_VERSION==="undefined"||SITE_VERSION!=="82"){document.body.insertAdjacentHTML("afterbegin",'<div class="banner">Part of this site is out of date in your browser. Refresh with Ctrl+F5 (Cmd+Shift+R on a Mac).</div>');throw new Error("old site.js")}</script>
 <script>
 let lenders = [], allLenders = [], sortBy = "5-year fixed", sortDir = 1, updatedAt = null, hist = {series: {}};
 const Q = new URLSearchParams(location.search);  // shareable choices: ?prov=Ontario&gic=red (the rate type is in the #hash)
@@ -211,7 +211,7 @@ $("head").onclick = e => {
 function showRate(p, id, label, mark, fn, last, next){
   if (!p) return;
   $(id).innerHTML = `<a href="${esc(p.source)}" target="_blank" rel="noopener">${label}${EXT}</a>${tip(id === "policy" ? "policy" : "prime")}<b>${pct(p.rate)}<sup>${mark}</sup></b>`
-    + `<span class="s sm lu">Last updated: ${last}</span><span class="s sm">Next update: ${next}</span>` + (p.upcoming && p.upcoming.rate && (!p.upcoming.effective || p.upcoming.effective >= todayISO()) ? `<span class="s sm upc">Updated rate is expected to be <b>${pct(p.upcoming.rate)}</b>${p.upcoming.effective ? " on " + dstr(p.upcoming.effective) : ""}</span>` : "") + (p.stale ? '<span class="s sw">Not refreshed</span>' : "");
+    + `<span class="s sm lu">Last updated: ${last}</span><span class="s sm">Next update: ${next}</span>` + (p.upcoming && p.upcoming.rate ? `<span class="s sm upc">Updated rate is expected to be <b>${pct(p.upcoming.rate)}</b>${p.upcoming.effective ? (p.upcoming.effective > todayISO() ? " on " : ", in effect since ") + dstr(p.upcoming.effective) : ""}</span>` : "") + (p.stale ? '<span class="s sw">Not refreshed</span>' : "");
   $(id).hidden = false;
   $(fn).hidden = false;
 }
