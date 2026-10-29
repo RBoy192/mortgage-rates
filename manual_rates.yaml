@@ -24,7 +24,7 @@
   source: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
 - institution: BMO
   product: 5-year variable
-  rate: 4.10
+  rate: 4.35
   checked: 2026-10-29
   source: https://www.bmo.com/en-ca/main/personal/mortgages/mortgage-rates/
 
@@ -61,7 +61,7 @@
   note: "Special offer: 20% or more down, home under $1 million"
 - institution: Vancity
   product: 5-year variable
-  rate: 3.95
+  rate: 4.20
   checked: 2026-10-29
   source: https://www.vancity.com/rates/mortgages
 
