@@ -1,4 +1,4 @@
-const SITE_VERSION = "85";
+const SITE_VERSION = "86";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
