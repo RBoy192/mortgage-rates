@@ -1,0 +1,578 @@
+{
+ "checked": "2026-10-30",
+ "features": [
+  {
+   "id": "lump",
+   "group": "Paying it off faster",
+   "name": "Lump-sum prepayments",
+   "why": "Extra you can pay each year without a charge, as a share of the original amount",
+   "rule": "20% or more a year: more flexible. 15%: typical. 10% or less: more limited."
+  },
+  {
+   "id": "increase",
+   "group": "Paying it off faster",
+   "name": "Payment increases",
+   "why": "How much you can raise your regular payment",
+   "rule": "Up to 100% (double): more flexible. 15% to 99%: typical. 10% or less: more limited."
+  },
+  {
+   "id": "double",
+   "group": "Paying it off faster",
+   "name": "Double-up payments",
+   "why": "Paying an extra amount, up to one more regular payment, on a payment date",
+   "rule": "Offered: more flexible. Not offered: more limited."
+  },
+  {
+   "id": "penalty",
+   "group": "If you leave early",
+   "name": "How the fixed-rate penalty is worked out",
+   "why": "For a fixed rate, the charge is usually the greater of three months' interest or the interest rate differential (IRD). Working out the IRD from posted rates usually makes it larger.",
+   "rule": "IRD based on the rate you actually pay: more flexible. IRD based on posted rates: more limited."
+  },
+  {
+   "id": "renew",
+   "group": "If you leave early",
+   "name": "Early renewal",
+   "why": "How early you can renew without a prepayment charge",
+   "rule": "120 days or more before the term ends with no charge: more flexible. Fewer than 120 days: typical. A charge applies before the term ends: more limited."
+  },
+  {
+   "id": "port",
+   "group": "Moving",
+   "name": "Portable when you move",
+   "why": "Taking your rate and remaining term to a new home without a prepayment charge",
+   "rule": "Offered: more flexible. Not offered: more limited. Conditions are shown with the value."
+  },
+  {
+   "id": "assume",
+   "group": "Moving",
+   "name": "Assumable by a buyer",
+   "why": "A buyer taking over your mortgage, which can help when rates have gone up",
+   "rule": "Offered: more flexible. Not offered: more limited."
+  },
+  {
+   "id": "varpay",
+   "group": "Variable-rate mortgages",
+   "name": "Variable payments when prime changes",
+   "why": "Whether your payment stays the same, with more or less going to interest, or changes with prime",
+   "rule": "No mark: which is better depends on what you prefer."
+  },
+  {
+   "id": "lockin",
+   "group": "Variable-rate mortgages",
+   "name": "Locking in to a fixed rate",
+   "why": "Switching a variable rate to a fixed rate during the term",
+   "rule": "Any fixed term, no charge: more flexible. No charge, but only to certain terms: typical. A charge applies or not offered: more limited."
+  },
+  {
+   "id": "hold",
+   "group": "Extras",
+   "name": "Rate hold",
+   "why": "How long a rate is guaranteed while you shop or wait to close",
+   "rule": "120 days or more: more flexible. 90 to 119 days: typical. Under 90 days: more limited."
+  },
+  {
+   "id": "skip",
+   "group": "Extras",
+   "name": "Skipping a payment",
+   "why": "Missing a payment when money is tight; interest still builds on it",
+   "rule": "Offered: more flexible. Offered only after you've made an extra payment: typical. Not offered: more limited."
+  }
+ ],
+ "lenders": {
+  "RBC Royal Bank": {
+   "product": "Closed fixed-rate mortgage (variable-rate features from its closed variable-rate mortgage)",
+   "values": {
+    "lump": {
+     "v": "10% a year",
+     "note": "Of the original principal, once a year",
+     "mark": 0,
+     "src": 1
+    },
+    "increase": {
+     "v": "Up to 10%",
+     "note": "Once in each 12-month period",
+     "mark": 0,
+     "src": 2
+    },
+    "double": {
+     "v": "Yes",
+     "note": "From $100 up to one regular monthly payment, on any payment date",
+     "mark": 2,
+     "src": 3
+    },
+    "penalty": {
+     "v": "Posted rate",
+     "note": "IRD uses RBC's posted rate less your rate reduction",
+     "mark": 0,
+     "src": 4
+    },
+    "renew": {
+     "v": "Within 120 days",
+     "note": "Early renewal option within 120 days of maturity",
+     "mark": 2,
+     "src": 4
+    },
+    "port": {
+     "v": "Yes",
+     "note": "When buying and selling at the same time; borrow more at a blended rate",
+     "mark": 2,
+     "src": 5
+    },
+    "assume": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "varpay": {
+     "v": "Stay the same",
+     "note": "Payment is fixed for the term",
+     "mark": -1,
+     "src": 6
+    },
+    "lockin": {
+     "v": "Yes, any time",
+     "note": "Switch to a fixed rate without penalties",
+     "mark": 2,
+     "src": 7
+    },
+    "hold": {
+     "v": "120 days",
+     "note": "From the application date",
+     "mark": 2,
+     "src": 8
+    },
+    "skip": {
+     "v": "Yes",
+     "note": "Up to one monthly payment at a time, if not in arrears; skipped interest is added to the balance",
+     "mark": 2,
+     "src": 9
+    }
+   },
+   "sources": {
+    "1": [
+     "How to pay down your mortgage faster",
+     "https://www.rbcroyalbank.com/mortgages/product-advice/how-to-pay-down-mortgage-faster.html"
+    ],
+    "2": [
+     "Increasing mortgage payments",
+     "https://www.rbcroyalbank.com/mortgages/increasing-mortgage-payments.html"
+    ],
+    "3": [
+     "Double-Up payments",
+     "https://www.rbcroyalbank.com/mortgages/double-up-payments.html"
+    ],
+    "4": [
+     "Understanding mortgage prepayment charges",
+     "https://rbcroyalbank.com/mortgages/understanding-mortgage-prepayment-charges.html"
+    ],
+    "5": [
+     "Porting a mortgage",
+     "https://rbcroyalbank.com/mortgages/porting-a-mortgage.html"
+    ],
+    "6": [
+     "Compare mortgages",
+     "https://www.rbcroyalbank.com/mortgages/compare-mortgages.html"
+    ],
+    "7": [
+     "Variable rate mortgage",
+     "https://www.rbcroyalbank.com/mortgages/variable-rate-mortgage.html"
+    ],
+    "8": [
+     "Mortgage offer terms and conditions",
+     "https://www.rbcroyalbank.com/dms/mortgages/buying/offer-terms-and-conditions.html"
+    ],
+    "9": [
+     "Skip a payment",
+     "https://www.rbcroyalbank.com/mortgages/skip-a-payment.html"
+    ]
+   }
+  },
+  "TD Canada Trust": {
+   "product": "Closed fixed-rate mortgage (variable-rate features from its closed variable-rate mortgage)",
+   "values": {
+    "lump": {
+     "v": "15% a year",
+     "note": "Of the original principal, once a year",
+     "mark": 1,
+     "src": 1
+    },
+    "increase": {
+     "v": "Up to 100%",
+     "note": "During the term",
+     "mark": 2,
+     "src": 1
+    },
+    "double": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "penalty": {
+     "v": "Posted rate",
+     "note": "IRD uses the posted rate for a similar mortgage, minus any discount you received",
+     "mark": 0,
+     "src": 2
+    },
+    "renew": {
+     "v": "120 days before",
+     "note": "Earlier renewal may mean a charge",
+     "mark": 2,
+     "src": 2
+    },
+    "port": {
+     "v": "Yes",
+     "note": "Principal, rate, remaining term and amortization move to the new home, with no prepayment charge",
+     "mark": 2,
+     "src": 2
+    },
+    "assume": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "varpay": {
+     "v": "Stay the same",
+     "note": "The interest portion goes up if TD prime rises",
+     "mark": -1,
+     "src": 3
+    },
+    "lockin": {
+     "v": "Yes, to certain terms",
+     "note": "At least the lesser of 3 years or the rest of the term; TD doesn't say whether there's a charge",
+     "mark": 1,
+     "src": 3
+    },
+    "hold": {
+     "v": "120 days",
+     "note": "With a pre-approval",
+     "mark": 2,
+     "src": 4
+    },
+    "skip": {
+     "v": "Yes",
+     "note": "The equivalent of one monthly payment, subject to approval; interest continues",
+     "mark": 2,
+     "src": 4
+    }
+   },
+   "sources": {
+    "1": [
+     "Flexible mortgage payment features",
+     "https://www.td.com/ca/en/personal-banking/products/mortgages/flexible-mortgage-payment-features"
+    ],
+    "2": [
+     "What happens if you break your mortgage",
+     "https://www.td.com/ca/en/personal-banking/products/mortgages/what-happens-break-mortgage-penalty"
+    ],
+    "3": [
+     "Variable rate mortgages",
+     "https://www.td.com/ca/en/personal-banking/products/mortgages/variable-rate-mortgages"
+    ],
+    "4": [
+     "TD mortgages",
+     "https://www.td.com/ca/en/personal-banking/products/mortgages"
+    ]
+   }
+  },
+  "Scotiabank": {
+   "product": "3, 4, 5, 7 and 10-year closed-term fixed-rate mortgages (variable-rate features from its Ultimate Variable Rate closed-term mortgage)",
+   "values": {
+    "lump": {
+     "v": "15% a year",
+     "note": "Of the original principal",
+     "mark": 1,
+     "src": 1
+    },
+    "increase": {
+     "v": "Up to 15%",
+     "note": "Of the payment set for the term, each year",
+     "mark": 1,
+     "src": 1
+    },
+    "double": {
+     "v": "Yes",
+     "note": "Match-a-Payment: an extra regular payment on any payment date",
+     "mark": 2,
+     "src": 1
+    },
+    "penalty": {
+     "v": "Posted rate",
+     "note": "IRD uses Scotiabank's current posted rate, less any discount you received",
+     "mark": 0,
+     "src": 2
+    },
+    "renew": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "port": {
+     "v": "Yes",
+     "note": "May keep the rate for the rest of the term; the new home must meet Scotiabank's standards",
+     "mark": 2,
+     "src": 2
+    },
+    "assume": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "varpay": {
+     "v": "Stay the same",
+     "note": "Set using a cap rate for the whole term",
+     "mark": -1,
+     "src": 3
+    },
+    "lockin": {
+     "v": "Yes, to certain terms",
+     "note": "Early renewal to a closed fixed term of 3 years or longer, with no prepayment charge",
+     "mark": 1,
+     "src": 3
+    },
+    "hold": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "skip": {
+     "v": "After an extra payment",
+     "note": "Miss-a-Payment, if you've made a Match-a-Payment earlier in the term",
+     "mark": 1,
+     "src": 1
+    }
+   },
+   "sources": {
+    "1": [
+     "3, 4, 5, 7 and 10-year closed term",
+     "https://www.scotiabank.com/ca/en/personal/mortgages/fixed-rate/3-4-5-7-10-year-closed-term.html"
+    ],
+    "2": [
+     "What you need to know about mortgages and mortgage prepayment charges (11/22)",
+     "https://www.scotiabank.com/content/dam/scotiabank/canada/en/documents/mortgages/What_you_need_to_know_Mortgages_and_Mortgage-Prepayment-Charges_1343814_1202_EN.pdf"
+    ],
+    "3": [
+     "Ultimate Variable Rate closed term",
+     "https://www.scotiabank.com/ca/en/personal/mortgages/variable-rate/ultimate-variable-rate-closed-term.html"
+    ]
+   }
+  },
+  "BMO": {
+   "product": "BMO Smart Fixed Mortgage, the rate this site shows (other BMO closed mortgages allow 20% prepayments)",
+   "values": {
+    "lump": {
+     "v": "10% a year",
+     "note": "Of the original amount, minimum $100",
+     "mark": 0,
+     "src": 1
+    },
+    "increase": {
+     "v": "Up to 10%",
+     "note": "Once each calendar year",
+     "mark": 0,
+     "src": 1
+    },
+    "double": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "penalty": {
+     "v": "Posted rate",
+     "note": "IRD uses BMO's current rate for a similar mortgage, reduced by any discount you received",
+     "mark": 0,
+     "src": 2
+    },
+    "renew": {
+     "v": "Charge may apply",
+     "note": "BMO says a prepayment charge applies if you renew before the end of the term",
+     "mark": 0,
+     "src": 2
+    },
+    "port": {
+     "v": "Yes",
+     "note": "Fixed-rate closed mortgages, to a new mortgage of the same type; borrow more at a blended rate",
+     "mark": 2,
+     "src": 1
+    },
+    "assume": {
+     "v": "Yes",
+     "note": "With BMO's approval; you're released once the buyer qualifies",
+     "mark": 2,
+     "src": 2
+    },
+    "varpay": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "lockin": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "hold": {
+     "v": "130 days",
+     "note": "On the Smart Fixed Mortgage",
+     "mark": 2,
+     "src": 1
+    },
+    "skip": {
+     "v": "Take a Break option",
+     "note": "BMO doesn't publish its terms",
+     "mark": -1,
+     "src": 1
+    }
+   },
+   "sources": {
+    "1": [
+     "Pay your mortgage faster",
+     "https://www.bmo.com/main/personal/mortgages/pay-mortgage-faster/"
+    ],
+    "2": [
+     "Mortgage prepayment options (06/23)",
+     "https://www.bmo.com/assets/pdfs/mortgage-prepayments-en.pdf"
+    ]
+   }
+  },
+  "CIBC": {
+   "product": "Fixed-rate closed mortgage (variable-rate features from its Variable Flex Mortgage)",
+   "values": {
+    "lump": {
+     "v": "10% a year",
+     "note": "Of the original mortgage amount",
+     "mark": 0,
+     "src": 1
+    },
+    "increase": {
+     "v": "Up to 100%",
+     "note": "Of your regular amount, at any time",
+     "mark": 2,
+     "src": 1
+    },
+    "double": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "penalty": {
+     "v": "Posted rate",
+     "note": "IRD compares your rate plus any discount with CIBC's current posted rate",
+     "mark": 0,
+     "src": 2
+    },
+    "renew": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "port": {
+     "v": "Yes",
+     "note": "All CIBC mortgages except the Variable Flex Mortgage; borrow more at a blended rate",
+     "mark": 2,
+     "src": 3
+    },
+    "assume": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "varpay": {
+     "v": "Stay the same",
+     "note": "Unless the amortization would go past 40 years",
+     "mark": -1,
+     "src": 4
+    },
+    "lockin": {
+     "v": "Yes, to certain terms",
+     "note": "To a closed fixed term of 3 years or longer, at any time, with no prepayment charge",
+     "mark": 1,
+     "src": 4
+    },
+    "hold": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "skip": {
+     "v": "Not published",
+     "mark": -1
+    }
+   },
+   "sources": {
+    "1": [
+     "Fixed-rate closed mortgage",
+     "https://www.cibc.com/en/personal-banking/mortgages/fixed-rate-mortgages/fixed-rate-closed-mortgage.html"
+    ],
+    "2": [
+     "Pay off your mortgage faster",
+     "https://cibc.com/en/personal-banking/mortgages/resource-centre/prepayment.html"
+    ],
+    "3": [
+     "Port or replace your mortgage",
+     "https://cibc.com/en/personal-banking/mortgages/resource-centre/port-replace-mortgage.html"
+    ],
+    "4": [
+     "Variable rate mortgage",
+     "https://www.cibc.com/en/personal-banking/mortgages/resource-centre/variable-rate-mortgage.html"
+    ]
+   }
+  },
+  "National Bank": {
+   "product": "Closed fixed-rate mortgage (variable-rate features from its closed variable-rate mortgage)",
+   "values": {
+    "lump": {
+     "v": "10% a year",
+     "note": "Of the original principal, each calendar year",
+     "mark": 0,
+     "src": 1
+    },
+    "increase": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "double": {
+     "v": "Yes",
+     "note": "Add up to one extra payment amount to a regular payment",
+     "mark": 2,
+     "src": 1
+    },
+    "penalty": {
+     "v": "Posted rate",
+     "note": "IRD is the difference between the posted rate and the standard rate",
+     "mark": 0,
+     "src": 1
+    },
+    "renew": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "port": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "assume": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "varpay": {
+     "v": "Not published",
+     "mark": -1
+    },
+    "lockin": {
+     "v": "Yes, to certain terms",
+     "note": "No fees; National Bank sets a minimum length for the new fixed term",
+     "mark": 1,
+     "src": 1
+    },
+    "hold": {
+     "v": "120 days",
+     "note": "With a pre-approval",
+     "mark": 2,
+     "src": 2
+    },
+    "skip": {
+     "v": "Not published",
+     "mark": -1
+    }
+   },
+   "sources": {
+    "1": [
+     "Mortgage prepayment and prepayment charges guide (2022-12-16)",
+     "https://www.nbc.ca/content/dam/bnc/particuliers/pdf/hypotheque/mortgage-prepayment-and-indemnities-guide.pdf"
+    ],
+    "2": [
+     "Mortgage tips and tools",
+     "https://www.nbc.ca/personal/mortgages/tips-tools.html"
+    ]
+   }
+  }
+ }
+}
