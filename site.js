@@ -1,4 +1,4 @@
-const SITE_VERSION = "88";
+const SITE_VERSION = "89";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -330,31 +330,43 @@ const balanceAfter = (P, i, pay, m) => i === 0 ? P - pay * m : P * Math.pow(1 + 
 const yrs = m => { m = Math.round(m); const y = Math.floor(m / 12), r = m % 12; return (y ? y + (y === 1 ? " year" : " years") : "") + (y && r ? ", " : "") + (r ? r + (r === 1 ? " month" : " months") : (y ? "" : "0 months")); };
 
 // ---- Lenders: logo and chart colour ----
-// Logos are the sharpest image each lender publishes, loaded from its own website. [address, zoom, which part to show, fit, tile colour]
+// Logos are copies of the marks each lender publishes on its own website, kept on this site so they always load. [address, zoom, which part to show, fit, tile colour]
 const LOGOS = {
-  "RBC Royal Bank": ["https://www.rbcroyalbank.com/dvl/v1.0/assets/images/logos/rbc-logo-shield.svg"],
-  "TD Canada Trust": ["https://www.td.com/content/dam/tdct/images/navigation-header-and-footer/td-logo-desktop.png"],
-  "Scotiabank": ["https://www.scotiabank.com/content/dam/scotiabank/images/logos/2023/scotiabank-logo-red-mobile.svg"],
-  "Tangerine": ["https://www.tangerine.ca/etc.clientlibs/tangerine/clientlibs/clientlib-site/resources/icon-310x310.png"],
-  "National Bank": ["https://www.bnc.ca/content/dam/bnc/commun/logo/logo-bnc-flag.svg"],
-  "BMO": ["https://www.bmo.com/dist/favicon/apple-touch-icon.png"],
-  "CIBC": ["https://www.cibc.com/content/dam/global-assets/logos/partner-logos/apple/apple-touch-icon-152x152.png"],
-  "EQ Bank": ["https://images.ctfassets.net/ymwa45h4u77x/4oX5L57Tc4Xrv2iKG72VPN/481fb11b7a59027ebd4316579313fe3d/eqbank-logo.svg", 1, "left", "cover"],
-  "ATB Financial": ["https://www.atb.com/static/img/apple-touch-icon-180x180.png"],
-  "Meridian": ["https://www.meridiancu.ca/getContentAsset/6c76e806-df80-4b7c-a633-cab25199417c/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/meridian-icon.svg?language=en-US"],
-  "Servus Credit Union": ["https://servus.ca/media/ihwf0qof/favicon.png"],
-  "Coast Capital Savings": ["https://www.coastcapitalsavings.com/media/3890/coast-capital-symbol_rgb_foamwhite.svg", 0.7, "center", "contain", "#0056FF"],  // white mark, shown on Coast's own blue
-  "Affinity Credit Union": ["https://www.affinitycu.ca/images/default-source/default-album/affinity-cu-logo-rgb-chevron---for-website.svg?sfvrsn=63b5d980_4#svgView(viewBox(-4,114,98,180))"],  // just the chevron mark from the full logo
-  "Conexus Credit Union": ["https://www.conexus.ca/getContentAsset/d7c3a8a8-0ce7-47ff-84d2-47a877629ca7/e477a59e-1df6-4e2f-9986-20ab37342540/favicon.svg?language=en-US"],
-  "Libro Credit Union": ["https://www.libro.ca/uploads/2025/12/cropped-favicon-2025-180x180.jpg"],
-  "FirstOntario Credit Union": ["https://www.firstontario.com/wp-content/uploads/2026/02/apple-touch-icon.png"],
-  "UNI Financial": ["https://www.uni.ca/UNIassetsEN/ico/uni114x114.png"],
-  "ICICI Bank Canada": ["https://www.icicibank.ca/favicon.ico"],
-  "Access Credit Union": ["https://www.accesscu.ca/media/1266/small-logo.svg"],
-  "Assiniboine Credit Union": ["https://www.acu.ca/hubfs/ACU_Digital-_RGB_Asterisk-only-1.png"],
-  "Steinbach Credit Union": ["https://scu.mb.ca/getContentAsset/fe2b794e-3779-4199-839e-c1c500e5fd30/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/favicon-32x32.png?language=en-CA"],
-  "Beem Credit Union": ["https://beemcreditunion.ca/favicon.ico"],
-  "Tru Cooperative Bank": ["https://www.trucooperativebank.ca/content/dam/trucooperativebank/images/logos/tcb/TCB-Favicon_32_BLCK-REV.svg"]
+  "RBC Royal Bank": ["/logos/rbc-royal-bank.png"],
+  "TD Canada Trust": ["/logos/td-canada-trust.png"],
+  "Scotiabank": ["/logos/scotiabank.png"],
+  "BMO": ["/logos/bmo.png"],
+  "CIBC": ["/logos/cibc.png"],
+  "National Bank": ["/logos/national-bank.png"],
+  "Tangerine": ["/logos/tangerine.png"],
+  "Simplii Financial": ["/logos/simplii-financial.png"],
+  "EQ Bank": ["/logos/eq-bank.png"],
+  "Manulife Bank": ["/logos/manulife-bank.png"],
+  "PC Financial": ["/logos/pc-financial.png"],
+  "Canadian Tire Bank": ["/logos/canadian-tire-bank.png"],
+  "ICICI Bank Canada": ["/logos/icici-bank-canada.png"],
+  "Desjardins": ["/logos/desjardins.png"],
+  "First National": ["/logos/first-national.png"],
+  "ATB Financial": ["/logos/atb-financial.png"],
+  "Alterna Savings": ["/logos/alterna-savings.png"],
+  "Meridian": ["/logos/meridian.png"],
+  "Servus Credit Union": ["/logos/servus-credit-union.png"],
+  "Coast Capital Savings": ["/logos/coast-capital-savings.png"],
+  "Vancity": ["/logos/vancity.png"],
+  "Affinity Credit Union": ["/logos/affinity-credit-union.png"],
+  "Conexus Credit Union": ["/logos/conexus-credit-union.png"],
+  "Libro Credit Union": ["/logos/libro-credit-union.png"],
+  "FirstOntario Credit Union": ["/logos/firstontario-credit-union.png"],
+  "UNI Financial": ["/logos/uni-financial.png"],
+  "Access Credit Union": ["/logos/access-credit-union.png"],
+  "Assiniboine Credit Union": ["/logos/assiniboine-credit-union.png"],
+  "Steinbach Credit Union": ["/logos/steinbach-credit-union.png"],
+  "Beem Credit Union": ["/logos/beem-credit-union.png"],
+  "Tru Cooperative Bank": ["/logos/tru-cooperative-bank.png"],
+  "Achieva Financial": ["/logos/achieva-financial.png"],
+  "Saven Financial": ["/logos/saven-financial.png"],
+  "Neo Financial": ["/logos/neo-financial.png"],
+  "Wealthsimple": ["/logos/wealthsimple.png"]
 };
 function logo(name, source){
   const w = name.split(/\s+/), ini = esc(/^[A-Z]{2,4}$/.test(w[0]) ? w[0] : w.map(x => x[0]).join("").slice(0, 2).toUpperCase());
