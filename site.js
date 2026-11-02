@@ -1,4 +1,4 @@
-const SITE_VERSION = "89";
+const SITE_VERSION = "90";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -386,7 +386,7 @@ const LENDER_REGIONS = {"Alterna Savings": ["Ontario"], "Meridian": ["Ontario"],
   "Affinity Credit Union": ["Saskatchewan"], "Conexus Credit Union": ["Saskatchewan"], "Libro Credit Union": ["Ontario"], "FirstOntario Credit Union": ["Ontario"], "UNI Financial": ["New Brunswick"], "ICICI Bank Canada": ["Ontario", "British Columbia", "Alberta"], "Access Credit Union": ["Manitoba"], "Assiniboine Credit Union": ["Manitoba"], "Steinbach Credit Union": ["Manitoba"], "Beem Credit Union": ["British Columbia"], "Tru Cooperative Bank": ["British Columbia", "Ontario"],
   "Saven Financial": ["Ontario"], "Canadian Tire Bank": ["Ontario", "British Columbia", "Alberta", "Manitoba", "New Brunswick", "Newfoundland and Labrador", "Northwest Territories", "Nova Scotia", "Nunavut", "Prince Edward Island", "Saskatchewan", "Yukon"]};
 // a short note shown under a lender's name wherever its rates are listed
-const LENDER_NOTES = {"Tru Cooperative Bank": "Ontario: through mortgage brokers only"};
+const LENDER_NOTES = {};
 const NON_BANKS = ["Access Credit Union", "Achieva Financial", "Affinity Credit Union", "Alterna Savings", "Assiniboine Credit Union", "ATB Financial", "Beem Credit Union", "Coast Capital Savings", "Conexus Credit Union", "Desjardins", "First National", "FirstOntario Credit Union", "Libro Credit Union", "Meridian", "Neo Financial", "Saven Financial", "Servus Credit Union", "Steinbach Credit Union", "Tru Cooperative Bank", "UNI Financial", "Vancity", "Wealthsimple"];
 const LENDER_GROUPS = [["Banks", n => !NON_BANKS.includes(n)], ["Credit unions and other lenders", n => NON_BANKS.includes(n)]];
 // Each lender's own page on this site: bmo-mortgage-rates.html and so on
