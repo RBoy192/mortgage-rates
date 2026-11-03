@@ -1,4 +1,4 @@
-const SITE_VERSION = "90";
+const SITE_VERSION = "91";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -16,12 +16,12 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
 // Header with links to each page, plus the light / dark switch (light by default; the visitor's choice is remembered)
 (function(){
   const page = document.body.dataset.page, el = $("site-header"), base = page === "404" ? "/" : "";
-  const links = [["calc", "calculators.html", "Calculators"], ["history", "rate-history.html", "Rate history"], ["crash", "crash-course.html", "Rates Explained"], ["extras", "glossary.html", "Extras"]];
+  const links = [["calc", "calculators.html", "Calculators"], ["history", "rate-history.html", "Rate history"], ["crash", "crash-course.html", "Rates Explained"], ["extras", "glossary.html", "Extras"], ["reports", "report.html", "Reports"]];
   // "Rates Explained" opens a small menu (on hover, keyboard focus or tap) with its three lessons
   const LESSONS = [["mortgages", "crash-course.html", "Mortgages"], ["gics", "gic-course.html", "GICs"], ["savings", "sav-course.html", "Savings"]];
   const course = document.body.dataset.course || (page === "crash" ? "mortgages" : "");
   const chev = '<svg class="ddc" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  const item = ([k, u, t]) => k !== "crash" ? `<a class="nl" href="${base}${u}"${k === page ? ' aria-current="page"' : ""}>${t}</a>`
+  const item = ([k, u, t]) => k !== "crash" ? `<a class="nl${k === "reports" ? " rep" : ""}" href="${base}${u}"${k === page ? ' aria-current="page"' : ""}>${t}${k === "reports" ? '<span class="nt">New</span>' : ""}</a>`
     : `<div class="dd" id="dd"><a class="nl ddl" href="${base}${u}" aria-haspopup="true" aria-expanded="false" aria-controls="ddm"${k === page ? ' aria-current="true"' : ""}>${t}${chev}</a>`
       + `<div class="ddm" id="ddm" role="group" aria-label="Rates Explained lessons">` + LESSONS.map(([c, lu, lt]) => `<a href="${base}${lu}"${c === course ? ' aria-current="page"' : ""}>${lt}</a>`).join("") + `</div></div>`;
   el.className = el.closest(".band") ? "n" : "n band";
@@ -68,7 +68,7 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
   document.querySelectorAll("nav.tabs").forEach(nav => {
     const label = nav.getAttribute("aria-label") || "Pages", links = [...nav.querySelectorAll("a")];
     const id = "pick-" + label.replace(/\W+/g, "").toLowerCase();
-    nav.insertAdjacentHTML("beforebegin", `<label class="tabsel">${label === "Calculators" ? "Choose a calculator" : label === "Extras" ? "Choose a page" : "Choose a chapter"}<select id="${id}">`
+    nav.insertAdjacentHTML("beforebegin", `<label class="tabsel">${label === "Calculators" ? "Choose a calculator" : label === "Extras" ? "Choose a page" : label === "Reports" ? "Choose a report" : "Choose a chapter"}<select id="${id}">`
       + (() => {  // headings in the side list (.tabh) become option groups
         const opt = a => `<option value="${a.getAttribute("href")}"${a.getAttribute("aria-current") ? " selected" : ""}>${esc(a.textContent)}</option>`;
         if (!nav.querySelector(".tabh")) return links.map(opt).join("");
@@ -80,7 +80,7 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
   });
   // Footer on every page
   const year = new Date().getFullYear();
-  main && main.insertAdjacentHTML("beforeend", `<footer class="sitefoot"><nav aria-label="Footer"><a href="${base}index.html">Today's rates</a><a href="${base}my-rates.html">My rates</a><a href="${base}index.html#gics">GIC rates</a><a href="${base}index.html#savings">Savings rates</a><a href="${base}calculators.html">Calculators</a><a href="${base}rate-history.html">Rate history</a><a href="${base}weekly-changes.html">Rate changes</a><a href="${base}compare.html">Compare lenders</a><a href="${base}rate-alerts.html">Rate alerts</a><a href="${base}rate-hold.html">Rate-hold watchdog</a><a href="${base}crash-course.html">Rates Explained</a><a href="${base}crash-faq.html">FAQ</a><a href="${base}glossary.html">Glossary</a><a href="${base}about.html">About</a><a href="${base}terms.html">Terms and privacy</a></nav>`
+  main && main.insertAdjacentHTML("beforeend", `<footer class="sitefoot"><nav aria-label="Footer"><a href="${base}index.html">Today's rates</a><a href="${base}my-rates.html">My rates</a><a href="${base}index.html#gics">GIC rates</a><a href="${base}index.html#savings">Savings rates</a><a href="${base}calculators.html">Calculators</a><a href="${base}rate-history.html">Rate history</a><a href="${base}weekly-changes.html">Rate changes</a><a href="${base}compare.html">Compare lenders</a><a href="${base}report.html">Reports</a><a href="${base}rate-alerts.html">Rate alerts</a><a href="${base}rate-hold.html">Rate-hold watchdog</a><a href="${base}crash-course.html">Rates Explained</a><a href="${base}crash-faq.html">FAQ</a><a href="${base}glossary.html">Glossary</a><a href="${base}about.html">About</a><a href="${base}terms.html">Terms and privacy</a></nav>`
     + `<p>Rates are collected from each lender's own website every hour, or three times a day for a few lenders. Information only, not financial advice: always confirm rates and terms with the lender.</p>`
     + `<p>© ${year} What's the rate?${typeof CONTACT_EMAIL !== "undefined" && CONTACT_EMAIL ? ` · <a href="mailto:${esc(CONTACT_EMAIL)}">${esc(CONTACT_EMAIL)}</a>` : ""}</p></footer>`);
 })();

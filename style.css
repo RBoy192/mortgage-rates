@@ -1054,3 +1054,16 @@ table.sbs td{vertical-align:middle}
 .sct th,.sct1 th{white-space:normal}.sct th[scope=row],.sct thead th:first-child{width:210px;min-width:190px;position:sticky;left:0;background:var(--card);z-index:1}.sct td{min-width:132px}.sct .scg{position:sticky;left:0}.sct1 th[scope=row]{width:44%}
 @media (max-width:600px){.sct th[scope=row],.sct thead th:first-child{width:112px;min-width:112px;font-size:14px}.sct th[scope=row] .s{display:none}.sct td{min-width:116px}.scv .s{font-size:12px}}
 @media (max-width:600px){.sct{min-width:0;width:auto}}
+/* Paid report page */
+.buybox{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin:20px 0 8px;padding:20px 22px;background:var(--card);border:1px solid var(--ln);border-radius:16px}
+.buybox .price{margin:0;flex:1 1 260px}.buybox .price b{font:700 30px var(--hd);margin-right:8px}.buybox .price span{color:var(--mu);font-size:14px}
+.buybox .f{flex-basis:100%;margin:0}
+a.btn.buy,span.btn.buy{display:inline-flex;align-items:center;min-height:44px;padding:10px 22px;font-size:16px;text-decoration:none;background:var(--ac);color:var(--acfg)}
+span.btn.buy.off{background:var(--ln);color:var(--mu);cursor:default}
+figure.shot{margin:20px 0 28px}
+figure.shot img{display:block;width:100%;height:auto;border:1px solid var(--ln);border-radius:10px;background:#fff;box-shadow:0 6px 20px rgba(16,33,63,.08)}
+/* Reports in the top menu: a small "New" tag; the section uses the same side-list layout as Extras */
+a.nl.rep{display:inline-flex;align-items:center;gap:6px}
+a.nl .nt{font:700 10px/1 var(--bd);letter-spacing:.04em;text-transform:uppercase;color:#10213F;background:#FFD23F;border-radius:999px;padding:3px 6px}
+a.nl[aria-current] .nt{background:#10213F;color:#FFD23F}
+@media (min-width:821px){body[data-page="reports"] .vl{grid-template-columns:250px minmax(0,1fr)}}
