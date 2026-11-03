@@ -1,4 +1,4 @@
-const SITE_VERSION = "102";
+const SITE_VERSION = "103";
 // Your contact email for the footer and the Terms and privacy page. Leave it empty to hide the contact line.
 const CONTACT_EMAIL = "";
 // Shared by every page: helpers, header, light/dark switch, loading rates, and the mortgage maths.
@@ -21,7 +21,7 @@ const rateOf = (l, p) => l.cells[p] ? l.cells[p].rate : Infinity;
   const LESSONS = [["mortgages", "crash-course.html", "Mortgages"], ["gics", "gic-course.html", "GICs"], ["savings", "sav-course.html", "Savings"]];
   const course = document.body.dataset.course || (page === "crash" ? "mortgages" : "");
   const chev = '<svg class="ddc" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  const item = ([k, u, t]) => k !== "crash" ? `<a class="nl" href="${base}${u}"${k === page ? ' aria-current="page"' : ""}>${t}</a>`
+  const item = ([k, u, t]) => k !== "crash" ? `<a class="nl${k === "reports" ? " shop" : ""}" href="${base}${u}"${k === page ? ' aria-current="page"' : ""}>${t}</a>`
     : `<div class="dd" id="dd"><a class="nl ddl" href="${base}${u}" aria-haspopup="true" aria-expanded="false" aria-controls="ddm"${k === page ? ' aria-current="true"' : ""}>${t}${chev}</a>`
       + `<div class="ddm" id="ddm" role="group" aria-label="Rates Explained lessons">` + LESSONS.map(([c, lu, lt]) => `<a href="${base}${lu}"${c === course ? ' aria-current="page"' : ""}>${lt}</a>`).join("") + `</div></div>`;
   el.className = el.closest(".band") ? "n" : "n band";

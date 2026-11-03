@@ -330,6 +330,7 @@ a.brand .bm{width:34px;height:34px;color:#FFD23F;flex:none}
 .band a.nl{background:transparent;color:#E8EDF6;border:2px solid #31456B;font-weight:700}
 .band a.nl:hover{border-color:#FFD23F}
 .band a.nl[aria-current]{background:#FFD23F;color:#10213F;border-color:#FFD23F}
+.band a.nl.shop:not([aria-current]){color:#FFD23F}
 .band .mode,.band .menu{background:transparent;color:#E8EDF6;border:2px solid #31456B}
 .band .mode:hover,.band .menu:hover{border-color:#FFD23F}
 .band :focus-visible{outline:3px solid #FFD23F;outline-offset:2px}
