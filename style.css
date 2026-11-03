@@ -809,7 +809,7 @@ details.fold:first-of-type{margin-top:28px;border-top:1px solid var(--ln)}
 td.rate .insr{display:flex;width:max-content;margin:5px 0 0 auto}
 #rows td.rate .insr b,#rows td.low .insr b,#rows td.glow .insr b{font:700 12px var(--bd);color:var(--good);background:none;box-shadow:none;padding:0;border-radius:0}
 @media (max-width:600px){#rows td.rate .insr b{font-size:10.5px;letter-spacing:-.01em}#rows td.rate .insr{padding:0 4px;gap:2px}#rows td.rate .insr::before{border-left-width:3px;border-right-width:3px;border-top-width:4px}}
-.inslegend{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;color:var(--mu);margin:0 0 10px}
+.inslegend{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;color:var(--mu);margin:12px 0 6px}
 .inslegend .insr{flex:none}
 @media (max-width:600px){
   td.rate .insr{margin-top:4px}
@@ -1062,8 +1062,5 @@ a.btn.buy,span.btn.buy{display:inline-flex;align-items:center;min-height:44px;pa
 span.btn.buy.off{background:var(--ln);color:var(--mu);cursor:default}
 figure.shot{margin:20px 0 28px}
 figure.shot img{display:block;width:100%;height:auto;border:1px solid var(--ln);border-radius:10px;background:#fff;box-shadow:0 6px 20px rgba(16,33,63,.08)}
-/* Reports in the top menu: a small "New" tag; the section uses the same side-list layout as Extras */
-a.nl.rep{display:inline-flex;align-items:center;gap:6px}
-a.nl .nt{font:700 10px/1 var(--bd);letter-spacing:.04em;text-transform:uppercase;color:#10213F;background:#FFD23F;border-radius:999px;padding:3px 6px}
-a.nl[aria-current] .nt{background:#10213F;color:#FFD23F}
+/* The Shop section uses the same side-list layout as Extras */
 @media (min-width:821px){body[data-page="reports"] .vl{grid-template-columns:250px minmax(0,1fr)}}

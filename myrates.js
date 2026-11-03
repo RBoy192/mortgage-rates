@@ -66,8 +66,7 @@ function mrCard(el, lenders){
   if (!el) return;
   const pins = mrRefresh(lenders), alerts = mrAlerts(lenders), met = alerts.filter(a => a.met);
   if (!pins.length && !alerts.length) {
-    el.innerHTML = `<p class="mrhint"><span aria-hidden="true">☆</span> Tap the star on any rate card to keep that rate in <a href="my-rates.html">My rates</a>, or set an alert for when a rate crosses a level you choose.</p>`;
-    el.hidden = false; return;
+    el.innerHTML = ""; el.hidden = true; return;
   }
   el.innerHTML = `<div class="mrhead"><h2 class="mrh">My rates</h2><a href="my-rates.html">Edit or add alerts <span aria-hidden="true">→</span></a></div>`
     + (met.length ? met.map(a => `<p class="mralert"><b>Alert:</b> ${a.best.names.length ? mrWho(a.best) : ""} ${a.best.names.length > 1 ? "have" : "has"} ${esc(a.p)}${a.prov ? " in " + esc(a.prov) : ""} at <b>${pct(a.best.rate)}</b>, ${a.dir === "above" ? "at or above" : "at or below"} your ${pct(a.rate)}.</p>`).join("") : "")
