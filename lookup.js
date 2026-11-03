@@ -74,7 +74,7 @@ function render(){
     Object.entries(BOC).forEach(([k, label]) => { const pts = S[k]; if (!pts || !pts.length) return;
       const r = at(pts, d, () => true); if (r) rows.push({boc: true, name: label, p: "", r}); });
     Object.keys(S).filter(k => k.startsWith("posted|") && S[k].length).forEach(k => {
-      const r = at(S[k], d, () => true); if (r) rows.push({boc: true, name: "Bank of Canada Posted Rate", p: k.slice(7), r}); });
+      const r = at(S[k], d, () => true); if (r) rows.push({boc: true, name: "Bank of Canada posted rate", p: k.slice(7), r}); });
   }
   if (st.lender !== "boc") keys.forEach(k => {
     const [n, p] = k.split("|");

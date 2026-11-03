@@ -286,7 +286,7 @@ const CALCS = {
       return {
         say: Math.abs(diff) < 1 ? `With your assumptions, fixed and variable would cost about the same in interest over ${v.term} years.`
           : `With your assumptions, ${diff > 0 ? "fixed" : "variable"} would cost about ${money(Math.abs(diff))} less in interest over ${v.term} years.`,
-        label: `Over a ${v.term}-year term`, big: Math.abs(diff) < 1 ? "About the same" : `${diff > 0 ? "Fixed" : "Variable"} saves ${money(Math.abs(diff))}`, sub: "In interest, based on your assumptions",
+        label: `Over ${/^(8|11|18)$/.test(String(v.term)) ? "an" : "a"} ${v.term}-year term`, big: Math.abs(diff) < 1 ? "About the same" : `${diff > 0 ? "Fixed" : "Variable"} saves ${money(Math.abs(diff))}`, sub: "In interest, based on your assumptions",
         items: [beText, `Fixed balance at the end of the term: ${money(fbal)}. Variable: ${money(vv.bal)}.`],
         table: `<table class="cmpt"><thead><tr><th><span class="vh">Compare</span></th><th>Fixed</th><th>Variable</th></tr></thead><tbody>`
           + `<tr><td>Rate</td><td>${pct(Fx.rate)}</td><td>${pct(Vr.rate)}${v.change ? ` → ${pct(Math.max(0.01, Vr.rate + v.change))}` : ""}</td></tr>`

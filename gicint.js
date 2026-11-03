@@ -51,7 +51,7 @@ function render(){
   const paid = P * r * n, comp = P * Math.pow(1 + r, n) - P;
   let rows = "", bal = P;
   for (let y = 1; y <= n; y++) { const i = bal * r; bal += i; rows += `<tr><td>Year ${y}</td><td>${m2(P * r)}</td><td>${m2(i)}</td><td>${m2(bal)}</td></tr>`; }
-  $("gi_out").innerHTML = `<p class="say">${m2(P)} in a ${n}-year GIC at ${pct(rate)} would earn about ${m2(comp)} if the interest is added on each year, or ${m2(paid)} if it's paid out to you.</p>`
+  $("gi_out").innerHTML = `<p class="say">${m2(P)} in ${/^(8|11|18)$/.test(String(n)) ? "an" : "a"} ${n}-year GIC at ${pct(rate)} would earn about ${m2(comp)} if the interest is added on each year, or ${m2(paid)} if it's paid out to you.</p>`
     + `<b>${m2(comp)}</b><span class="big-sub">Interest over ${n} year${n > 1 ? "s" : ""}, compounded. You get back ${m2(P + comp)}.</span>`
     + `<div class="how"><p class="howh">How this is worked out</p><ul>`
     + `<li>Rate: ${pct(rate)} a year, ${esc(who)}.</li>`

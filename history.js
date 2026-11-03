@@ -3,7 +3,7 @@
 if (typeof SITE_VERSION === "undefined") return;
 const RANGES = [["1M", 31], ["3M", 92], ["6M", 183], ["1Y", 366], ["5Y", 1827], ["10Y", 3653], ["All", Infinity]];
 // The Bank of Canada posted-rate line starts switched off; visitors can tap it on, or Show all turns it on.
-let H = {series: {}}, range = "1Y", hidden = new Set(["Bank of Canada Posted Rate"]);
+let H = {series: {}}, range = "1Y", hidden = new Set(["Bank of Canada posted rate"]);
 try { range = localStorage.getItem("hist-range2") || "1Y"; const s = localStorage.getItem("hist-hidden3"); if (s !== null) hidden = new Set(JSON.parse(s)); } catch (e) {}
 const save = () => { try { localStorage.setItem("hist-range2", range); localStorage.setItem("hist-hidden3", JSON.stringify([...hidden])); } catch (e) {} };
 const day = iso => new Date(iso + "T12:00:00").getTime();
@@ -45,12 +45,12 @@ const avail = () => lenders().filter(inRegion);
 function controls(){
   $("region").innerHTML = ["Nationwide", ...PROVINCES].map(p => `<option${p === region ? " selected" : ""}>${p}</option>`).join("");
   $("range").innerHTML = RANGES.map(([k]) => `<button type="button" aria-pressed="${k === range}" data-r="${k}">${k}</button>`).join("");
-  const P = "Bank of Canada Posted Rate", all = avail(), shown = all.filter(n => !hidden.has(n));
+  const P = "Bank of Canada posted rate", all = avail(), shown = all.filter(n => !hidden.has(n));
   const banks = all.filter(n => !NON_BANKS.includes(n)), only = set => shown.length === set.length && set.every(n => !hidden.has(n));
   $("quick").innerHTML = [["all", "Show all", shown.length === all.length], ["banks", "Banks only", only(banks)],
     ["others", "Credit unions and others", only(all.filter(n => NON_BANKS.includes(n)))], ["none", "Clear all", !shown.length && hidden.has(P)]]
     .map(([k, t, on]) => `<button type="button" data-q="${k}" aria-pressed="${on}">${t}</button>`).join("");
-  $("chips").innerHTML = (prods().some(p => H.series["posted|" + p]) ? `<button type="button" class="chip" aria-pressed="${!hidden.has(P)}" data-n="${P}"><i style="background:var(--mu)"></i>Bank of Canada Posted Rate</button>` : "") + (() => {
+  $("chips").innerHTML = (prods().some(p => H.series["posted|" + p]) ? `<button type="button" class="chip" aria-pressed="${!hidden.has(P)}" data-n="${P}"><i style="background:var(--mu)"></i>Bank of Canada posted rate</button>` : "") + (() => {
     const chip = n => `<button type="button" class="chip" aria-pressed="${!hidden.has(n)}" data-n="${esc(n)}"><i style="background:${seriesVar(n)}"></i>${esc(n)}</button>`;
     if (region === "Nationwide") { const nat = all.filter(n => !local(n)), reg = all.filter(local);
       return nat.map(chip).join("") + (reg.length ? `<p class="chh">Regional lenders</p>` + reg.map(chip).join("") : ""); }
@@ -183,7 +183,7 @@ function render(){
   controls();
   const ls = avail().filter(n => !hidden.has(n));
   // The Bank of Canada publishes the big banks' typical posted rate for some fixed terms, GICs and savings; it's drawn dashed for context.
-  const POSTED = "Bank of Canada Posted Rate";
+  const POSTED = "Bank of Canada posted rate";
   document.querySelectorAll("#hkind button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.k === kind)));
   for (let k = 0; k < 5; k++) { const el = $("ch" + k); if (el) el.hidden = k >= KINDS[kind].length; }
   KINDS[kind].forEach(([title, p], k) => {
@@ -218,11 +218,11 @@ $("quick").onclick = e => {
   pick = b.dataset.q;
   const all = avail(), keep = {all: all, banks: all.filter(n => !NON_BANKS.includes(n)), others: all.filter(n => NON_BANKS.includes(n)), none: []}[b.dataset.q];
   all.forEach(n => keep.includes(n) ? hidden.delete(n) : hidden.add(n));
-  const P = "Bank of Canada Posted Rate";
+  const P = "Bank of Canada posted rate";
   if (b.dataset.q === "all") hidden.delete(P); else if (b.dataset.q === "none") hidden.add(P);  // Show all includes the posted-rate line; Clear all hides it
   save(); render();
 };
-$("chips").onclick = e => { const b = e.target.closest("button"); if (b) { const n = b.dataset.n; if (n !== "Bank of Canada Posted Rate") pick = null; hidden.has(n) ? hidden.delete(n) : hidden.add(n); save(); render(); } };
+$("chips").onclick = e => { const b = e.target.closest("button"); if (b) { const n = b.dataset.n; if (n !== "Bank of Canada posted rate") pick = null; hidden.has(n) ? hidden.delete(n) : hidden.add(n); save(); render(); } };
 let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(render, 150); });
 // The pinned bar of time-range and quick-pick buttons: tell the CSS how tall it is, so the lender list pins just below it
 if (window.ResizeObserver && $("hbar")) new ResizeObserver(([e]) => document.documentElement.style.setProperty("--hbar-h", Math.ceil(e.target.getBoundingClientRect().height) + "px")).observe($("hbar"));
