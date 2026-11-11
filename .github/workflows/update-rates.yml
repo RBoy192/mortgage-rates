@@ -48,7 +48,15 @@ jobs:
           git config user.name "rates-bot"
           git config user.email "rates-bot@users.noreply.github.com"
           git add rates.json history.json
-          git diff --cached --quiet || (git commit -m "Update rates" && git push)
+          if ! git diff --cached --quiet; then
+            git commit -m "Update rates"
+            for i in 1 2 3 4; do
+              git push && break
+              echo "::warning::Push rejected because main moved on; rebasing and trying again ($i)"
+              git pull --rebase -X theirs origin main || git rebase --abort
+              sleep 3
+            done
+          fi
       - name: Rate-change feed (feed.xml)
         run: python feed.py
         continue-on-error: true
