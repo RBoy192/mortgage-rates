@@ -1,7 +1,8 @@
 name: Update rates
 on:
   schedule:
-    - cron: "50 * * * *"   # every hour at :50 (if your file has a different schedule you prefer, keep yours)
+    - cron: "50 * * * *"   # every hour at :50
+    - cron: "20 * * * *"   # backup start at :20: GitHub sometimes skips scheduled runs when it's busy
   workflow_dispatch:       # adds a "Run workflow" button on the Actions tab
 permissions:
   contents: write
@@ -27,8 +28,15 @@ jobs:
       - name: Test the scraper
         run: python -m unittest discover -s tests -v
       - name: Install browser (only if a lender needs one)
+        # If this fails (for example GitHub's server loses its connection to the Ubuntu package mirrors), carry on:
+        # most lenders don't need the browser, and the runner usually already has the system packages it uses.
+        continue-on-error: true
+        timeout-minutes: 8
         run: |
-          if grep -qE "^[[:space:]-]+mode:[[:space:]]*browser" institutions.yaml; then playwright install --with-deps chromium; fi
+          if grep -qE "^[[:space:]-]+mode:[[:space:]]*browser" institutions.yaml; then
+            playwright install chromium || { sleep 20; playwright install chromium; }
+            timeout 240 playwright install-deps chromium || echo "::warning::Couldn't install the browser's system packages; carrying on with the ones already on the runner"
+          fi
       - name: Keep a copy of the previous rates (to spot changes)
         run: cp rates.json /tmp/rates.prev.json || echo '{}' > /tmp/rates.prev.json
       - name: Scrape rates
