@@ -156,42 +156,42 @@
 - institution: CIBC
   product: 1-year GIC
   rate: 3.00
-  checked: 2026-11-21
+  checked: 2026-11-22
   source: https://www.cibc.com/en/interest-rates/gic-rates.html
 - institution: CIBC
   product: 2-year GIC
   rate: 3.20
-  checked: 2026-11-21
+  checked: 2026-11-22
   source: https://www.cibc.com/en/interest-rates/gic-rates.html
 - institution: CIBC
   product: 3-year GIC
   rate: 3.30
-  checked: 2026-11-21
+  checked: 2026-11-22
   source: https://www.cibc.com/en/interest-rates/gic-rates.html
 - institution: CIBC
   product: 4-year GIC
   rate: 3.40
-  checked: 2026-11-21
+  checked: 2026-11-22
   source: https://www.cibc.com/en/interest-rates/gic-rates.html
 - institution: CIBC
   product: 5-year GIC
   rate: 3.60
-  checked: 2026-11-21
+  checked: 2026-11-22
   source: https://www.cibc.com/en/interest-rates/gic-rates.html
 - institution: CIBC
   product: 1-year redeemable GIC
   rate: 2.15
-  checked: 2026-11-21
+  checked: 2026-11-22
   source: https://www.cibc.com/en/interest-rates/gic-rates.html
 - institution: CIBC
   product: Savings
   rate: 0.40
-  checked: 2026-11-21
+  checked: 2026-11-22
   source: https://www.cibc.com/en/interest-rates/personal-bank-account-rates.html
 - institution: CIBC
   product: Savings promo
   rate: 5.00
-  checked: 2026-11-21
+  checked: 2026-11-22
   source: https://www.cibc.com/en/interest-rates/personal-bank-account-rates.html
 - institution: BMO
   product: 1-year GIC
