@@ -32,17 +32,17 @@
 - institution: CIBC
   product: 3-year fixed
   rate: 5.09
-  checked: 2026-11-21
+  checked: 2026-11-22
   source: https://www.cibc.com/en/interest-rates/mortgage-rates.html
 - institution: CIBC
   product: 5-year fixed
   rate: 5.34
-  checked: 2026-11-21
+  checked: 2026-11-22
   source: https://www.cibc.com/en/interest-rates/mortgage-rates.html
 - institution: CIBC
   product: 5-year variable
   rate: 4.45
-  checked: 2026-11-21
+  checked: 2026-11-22
   source: https://www.cibc.com/en/interest-rates/mortgage-rates.html
 
 # Vancity: the site blocks automated visits (security checkpoint), so these are read by hand from its own page.
@@ -111,12 +111,12 @@
 - institution: CIBC
   product: 5-year fixed insured
   rate: 4.99
-  checked: 2026-11-21
+  checked: 2026-11-22
   source: https://www.cibc.com/en/interest-rates/mortgage-rates.html
 - institution: CIBC
   product: 5-year variable insured
   rate: 4.30
-  checked: 2026-11-21
+  checked: 2026-11-22
   source: https://www.cibc.com/en/interest-rates/mortgage-rates.html
 # Vancity: "High-ratio insured mortgages" table, "fixed-term fixed-rate insured residential" rows.
 - institution: Vancity
@@ -372,17 +372,17 @@
 - institution: Simplii Financial
   product: 3-year fixed
   rate: 5.09
-  checked: 2026-11-21
+  checked: 2026-11-22
   source: https://www.simplii.com/en/rates/mortgage-rates.html
 - institution: Simplii Financial
   product: 5-year fixed
   rate: 5.34
-  checked: 2026-11-21
+  checked: 2026-11-22
   source: https://www.simplii.com/en/rates/mortgage-rates.html
 - institution: Simplii Financial
   product: 5-year variable
   rate: 4.45
-  checked: 2026-11-21
+  checked: 2026-11-22
   source: https://www.simplii.com/en/rates/mortgage-rates.html
 
 # PC Financial: pcfinancial.ca turns away automated visits, so this is read by hand from its own page.
